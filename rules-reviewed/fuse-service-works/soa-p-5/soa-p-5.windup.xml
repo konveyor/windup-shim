@@ -1,0 +1,957 @@
+soa-p-5:
+  metadata:
+    description: "This ruleset provides analysis of JBoss SOA Platform 5 applications\
+      \ and provides information on\n            how to migrate these to Red Hat JBoss\
+      \ Fuse Service Works"
+    sourceTechnologies:
+    - id: soa-p
+      versionRange: (,5]
+    tags: []
+    targetTechnologies:
+    - id: fsw
+      versionRange: '[6,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml
+  rules:
+    soa-p-16000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "A cron-schedule definition can be converted to a Quartz\n    \
+            \                        gateway binding on a composite service in Fuse\
+            \ Service Works.\n\n                            For additional information,\
+            \ see the\n                            [Cron Scheduler Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/cron-schedule-migration.md)."
+          tags:
+          - jboss-esb
+          title: Cron Schedule
+      when:
+        xmlfile:
+          matches: //*[local-name()='cron-schedule']
+      where: {}
+    soa-p-17000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "This listener requires a composite service binding in Fuse Service\
+            \ Works. The configuration for a FTP binding\n                       \
+            \     can be found in the ftp-bus definition associated with this listener.\n\
+            \n                            For additional information, see the\n  \
+            \                          [Gateway Listener Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/gateway-listener-migration.md)."
+          tags:
+          - jboss-esb
+          title: FTP Gateway Listener
+      when:
+        xmlfile:
+          matches: //*[local-name()='ftp-listener' and @is-gateway='true']/@name
+      where: {}
+    soa-p-18000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "This gateway requires a composite service binding in Fuse Service\
+            \ Works.\n                            The configuration for a Camel binding\
+            \ can be found in the camel-bus definition associated\n              \
+            \              with this listener.\n\n                            For\
+            \ additional information, see the\n                            [Gateway\
+            \ Listener Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/gateway-listener-migration.md)."
+          tags:
+          - jboss-esb
+          - camel
+          title: Camel Gateway Listener
+      when:
+        xmlfile:
+          matches: //*[local-name()='camel-gateway']/@busidref
+      where: {}
+    soa-p-19000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "A <http-gateway> can be replaced in Fuse Service Works by a http\
+            \ binding added to your composite service.\n\n                       \
+            \     For additional information, see the\n                          \
+            \  [HTTP Gateway Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/http-gateway-migration.md)."
+          tags:
+          - jboss-esb
+          title: HTTP Gateway Listener
+      when:
+        xmlfile:
+          matches: //*[local-name()='http-gateway']/@name
+      where: {}
+    soa-p-20000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "Fuse Service Works uses a <transform> to replace the invocation\n\
+            \                            of as SmooksAction to transform message content.\
+            \ You most likely will want to use a Smooks transform\n              \
+            \              to specify your Smooks configuration and from/to types.\n\
+            \n                            For additional information, see the\n  \
+            \                          [Transformation Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/transformation-migration.md)."
+          tags:
+          - smooks
+          title: Smooks Transformation Action
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.smooks.SmooksAction']/@class
+      where: {}
+    soa-p-21000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In a Fuse Service Works Smooks transform, you can specify your\
+            \ Smooks configuration with the &quot;config&quot; attribute.\n\n    \
+            \                        For additional information, see the\n       \
+            \                     [Transformation Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/transformation-migration.md)."
+          tags:
+          - smooks
+          title: Smooks Config
+      when:
+        xmlfile:
+          matches: //*[local-name()='property' and @name='smooksConfig']/@name
+      where: {}
+    soa-p-22000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "Fuse Service Works uses a <transform> to replace the invocation\
+            \ of as SmooksAction\n                            to transform message\
+            \ content. You most likely will want to use a Smooks transform\n     \
+            \                       to specify your Smooks configuration and from/to\
+            \ types.\n\n                            For additional information, see\
+            \ the\n                            [Transformation Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/transformation-migration.md)."
+          tags:
+          - smooks
+          title: Smooks Result Type
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.smooks.SmooksAction']/*[local-name()='property'
+            and @name='resultType']
+      where: {}
+    soa-p-23000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "Instead of the JBoss ESB SOAPProxy action which transforms a specified\
+            \ WSDL and rewrites the address to the JBoss ESB server,\n           \
+            \                 Fuse Service Works relies on Camel's routing capability\
+            \ to forward requests from a proxying service to the source.\n       \
+            \                     Create a proxy service and a reference to the original\
+            \ service, and then use Camel to route them.\n\n                     \
+            \       For additional information, see the\n                        \
+            \    [SOAPProxy Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/soap-proxy.md)."
+          tags:
+          - jboss-esb
+          title: ESB SOAP Proxy
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.soap.proxy.SOAPProxy']/@class
+      where: {}
+    soa-p-24000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In order to log your message (or a static logging message), you\
+            \ may want to create a Bean service which logs the message in the manner\
+            \ you wish, or you can use Camel routing to log static\n             \
+            \               logging messages.\n\n                            For additional\
+            \ information, see the\n                            [Action Class Migration\
+            \ Guide](https://github.com/windup/soa-migration/blob/master/advice/action-class-migration.md)."
+          tags:
+          - jboss-esb
+          title: ESB SystemPrintln Action
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.SystemPrintln']/@class
+      where: {}
+    soa-p-25000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In order to configure static routes for your message in\n    \
+            \                        Fuse Service Works, you should use Camel's routing\
+            \ (either through Java DSL routes or route.xml).\n\n                 \
+            \           For additional information, see the\n                    \
+            \        [Action Class Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/action-class-migration.md)."
+          tags:
+          - jboss-esb
+          title: ESB Static Router
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.StaticRouter']/@class
+      where: {}
+    soa-p-26000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In order to replace the use of the JMSRouter in Fuse Service Works,\
+            \ you should use a JMS binding. You may need to review the options for\
+            \ JMS bindings in\n                            Fuse Service Works if you\
+            \ are using the unwrap property.\n\n                            For additional\
+            \ information, see the\n                            [Action Class Migration\
+            \ Guide](https://github.com/windup/soa-migration/blob/master/advice/action-class-migration.md)."
+          tags:
+          - jboss-esb
+          title: ESB JMS Router
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.routing.JMSRouter']/@class
+      where: {}
+    soa-p-27000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "TestMessageStore is an out-of-the-box ESB action that is used\
+            \ in JBoss Application Server\n                            container tests\
+            \ to store a message with some form of logging - to a file, JMX, etc.\
+            \ TestMessageStore is used throughout\n                            the\
+            \ JBoss ESB sample projects to help test the results of processed messages.\n\
+            \n                            Fuse Service Works is able to leverage Arquillian\
+            \ to do container testing, so TestMessageStore is not\n              \
+            \              necessary for testing. This action should simply be removed\
+            \ during the migration."
+          tags:
+          - jboss-esb
+          title: ESB Test Message Store
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.TestMessageStore']/@class
+      where: {}
+    soa-p-28000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "The GroovyActionProcessor action executes a Groovy script. You\
+            \ can duplicate this functionality in\n                            Fuse\
+            \ Service Works through Camel routing (both Java and XML.)\n\n       \
+            \                     For additional information, see the\n          \
+            \                  [Camel Scripting Guide](https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Service_Implementations.html#Using_Scripting_Languages)."
+          tags:
+          - jboss-esb
+          title: ESB GroovyActionProcessor
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.scripting.GroovyActionProcessor']/@class
+      where: {}
+    soa-p-29000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "The BpmProcessor makes calls to jBPM 3 through the jBPM command\
+            \ API. Fuse Service Works supports jBPM 5, so you will need\n        \
+            \                    to migrate your existing workflow from jBPM 3 to\
+            \ jBPM 5 and use a Fuse Service Works BPM implementation.\n\n        \
+            \                    For additional information, see the\n           \
+            \                 [BPM Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/bpm_migration.md)."
+          tags:
+          - jboss-esb
+          title: ESB BpmProcessor
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.services.jbpm.actions.BpmProcessor']/@class
+      where: {}
+    soa-p-30000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "A fs-bus definition can be converted to a Camel binding on a composite\
+            \ service in Fuse Service Works.\n\n                            For additional\
+            \ information, see the\n                            [Gateway Listener\
+            \ Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/gateway-listener-migration.md)."
+          tags:
+          - jboss-esb
+          title: ESB Filesystem Bus
+      when:
+        xmlfile:
+          matches: //*[local-name()='fs-bus']/@busid
+      where: {}
+    soa-p-31000:
+      perform:
+        hint:
+          category-id: null
+          effort: '7'
+          links: []
+          message: "JBoss ESB uses notifiers to transform ESB aware messages to a\
+            \ format that ESB-unaware services can handle. Fuse Service Works uses\
+            \ bi-directional gateways to transfer messages\n                     \
+            \       via its service bindings.\n\n                            A JBoss\
+            \ ESB Notifier should be converted to a Fuse Service Works Service Binding.\n\
+            \n                            For example:\n\n                       \
+            \     ```xml\n                            <service category=\"routerToFile\"\
+            \ name=\"FileRouterListener\" description=\"Static route file destination\"\
+            >\n                                <actions mep=\"OneWay\">\n        \
+            \                            <action name=\"notificationAction\" class=\"\
+            org.jboss.soa.esb.actions.Notifier\">\n                              \
+            \          <property name=\"okMethod\" value=\"notifyOK\"/>\n        \
+            \                                <property name=\"notification-details\"\
+            >\n                                            <NotificationList type=\"\
+            ok\">\n                                                <target class=\"\
+            NotifyFiles\">\n                                                    <file\
+            \ append=\"false\" URI=\"/tmp/HelloWorldFileNotifierTest.log\"/>\n   \
+            \                                             </target>\n            \
+            \                                </NotificationList>\n               \
+            \                         </property>\n                              \
+            \      </action>\n                                </actions>\n       \
+            \                     </service>\n                            ```\n\n\n\
+            \                            Could be translated to:\n\n             \
+            \               ```xml\n                            <sca:reference name=\"\
+            HelloWorld\" multiplicity=\"0..1\" promote=\"MyComponent/HelloWorld\"\
+            >\n                                <camel:binding.file>\n            \
+            \                        <camel:directory>/tmp</camel:directory>\n   \
+            \                                 <camel:fileName>HelloWorldFileNotifierTest.log</camel:fileName>\n\
+            \                                </camel:binding.file>\n             \
+            \               </sca:reference>\n                            <sca:component\
+            \ name=\"MyComponent\">\n                                <sca:reference\
+            \ name=\"HelloWorld\">\n                                    <sca:interface.wsdl\
+            \ interface=\"HelloWorld.wsdl#wsdl.porttype(HelloWorld)\"/>\n        \
+            \                        </sca:reference>\n                          \
+            \  </sca:component>\n                            ```"
+          tags:
+          - jboss-esb
+          title: ESB Notifier Action
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.Notifier']/@class
+      where: {}
+    soa-p-32000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links:
+          - href: http://camel.apache.org/convertbodyto.html
+            title: Camel convertBodyTo
+          - href: http://camel.apache.org/type-converter.html
+            title: Camel Type Converters
+          message: "JBoss ESB uses a ByteArrayToString action to do conversion on\
+            \ a message body. In Fuse Service Works\n                            you\
+            \ would use Camel to do type conversion."
+          tags:
+          - jboss-esb
+          title: ESB ByteArrayToString
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.converters.ByteArrayToString']/@class
+      where: {}
+    soa-p-33000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links:
+          - href: http://camel.apache.org/type-converter.html
+            title: Camel Type Converters
+          message: "JBoss ESB uses the LongToDateConverter action to do conversion\
+            \ on a message body.\n\n                            In Fuse Service Works\
+            \ you would use Camel to do type conversion."
+          tags:
+          - jboss-esb
+          title: ESB LongToDateConverter
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.converters.LongToDateConverter']/@class
+      where: {}
+    soa-p-34000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "JBoss ESB uses the ObjectToCSVString action to do conversion on\
+            \ a message body. Fuse Service Works\n                            would\
+            \ use a Smooks transform or a Camel route to perform this type of conversion.\n\
+            \n                            For additional information, see the\n  \
+            \                          [Transformation Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/transformation-migration.md)."
+          tags:
+          - jboss-esb
+          title: ESB ObjectToCSVString
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.converters.ObjectToCSVString']/@class
+      where: {}
+    soa-p-35000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Service_Implementations.html#sect-Bean
+            title: Fuse Service Works Bean Component
+          message: "JBoss ESB uses a ObjectInvoke action to invoke a processor on\
+            \ a message.\n                            Fuse Service Works would use\
+            \ a bean component to do this."
+          tags:
+          - jboss-esb
+          title: ESB ObjectInvoke
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.converters.ObjectInvoke']/@class
+      where: {}
+    soa-p-36000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "JBoss ESB uses an ObjectToXStream action to do convert an Object\
+            \ payload to XML using the XStream\n                                processor.\
+            \ Fuse Service Works would use a Smooks transform or a Camel route to\
+            \ do this type of conversion.\n\n                                For additional\
+            \ information, see the\n                                [Transformation\
+            \ Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/transformation-migration.md)."
+          tags:
+          - jboss-esb
+          title: ESB ObjectToXStream
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.converters.ObjectToXStream']/@class
+      where: {}
+    soa-p-37000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "JBoss ESB uses an XStreamToObject action to convert XML in a payload\
+            \ to an object using the XStream processor.\n                        \
+            \    Fuse Service Works would use Smooks transform or a Camel route transform\
+            \ to do this type of conversion.\n\n                            For additional\
+            \ information, see the\n                            [Transformation Migration\
+            \ Guide](https://github.com/windup/soa-migration/blob/master/advice/transformation-migration.md)."
+          tags:
+          - jboss-esb
+          title: ESB XStreamToObject
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.converters.XStreamToObject']/@class
+      where: {}
+    soa-p-38000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "JBoss ESB uses the XsltAction action to transform documents in\
+            \ a payload. Fuse Service Works would use Camel to do this type of\n \
+            \                           conversion.\n\n                          \
+            \  For additional information, see the\n                            [Transformation\
+            \ Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/transformation-migration.md)."
+          tags:
+          - jboss-esb
+          title: ESB XsltAction
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.transformation.xslt.XsltAction']/@class
+      where: {}
+    soa-p-39000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_2_Smooks/
+            title: Smooks Development Guide
+          message: "Fuse Service Works uses a &lt;transform&gt; to replace the invocation\
+            \ of a SmooksTransformer to transform message content.\n             \
+            \               You will need to use a Smooks transform to specify your\
+            \ Smooks configuration and from/to types.\n\n                        \
+            \    For additional information, see the\n                           \
+            \ [Transformation Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/transformation-migration.md)."
+          tags:
+          - jboss-esb
+          title: ESB SmooksTransformer
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.converters.SmooksTransformer']/@class
+      where: {}
+    soa-p-40000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "JBoss ESB uses the MessagePersister action to persist a message.\
+            \ Fuse Service Works would use\n                            a [SQL reference\
+            \ binding](https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Gateways.html#sect-SQL)\
+            \ to accomplish something similar."
+          tags:
+          - jboss-esb
+          title: ESB MessagePersister
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.MessagePersister']/@class
+      where: {}
+    soa-p-41000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Service_Implementations.html#sect-Bean
+            title: Fuse Service Works Bean Component
+          message: "JBoss ESB uses the EJBProcessor action to invoke a stateless session\
+            \ bean with the contents of a message.\n                            Similar\
+            \ things can be achieved in Fuse Service Works through the use ofa bean\
+            \ service."
+          tags:
+          - jboss-esb
+          title: ESB EJBProcessor
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.EJBProcessor']/@class
+      where: {}
+    soa-p-42000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "The ScriptingAction executes a script using the BeanScriptingFramework.\
+            \ You can duplicate this functionality in Fuse Service Works\n       \
+            \                     through Camel routing (both Java and XML.)\n\n \
+            \                           For additional information, see the\n    \
+            \                        [Camel Scripting Guide](https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Service_Implementations.html#Using_Scripting_Languages)."
+          tags:
+          - jboss-esb
+          title: ESB ScriptingAction
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.scripting.ScriptingAction']/@class
+      where: {}
+    soa-p-43000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "JBoss ESB uses the {javaclassname} action to aggregate a message\
+            \ sequence into a single aggregated message.\n                       \
+            \     Fuse Service Works would make use of Camel routing and Camel's aggregator\
+            \ to accomplish this.\n\n                            For more information,\
+            \ see the\n                            [Camel Aggregator Documentation](http://camel.apache.org/aggregator.html)."
+          tags:
+          - jboss-esb
+          title: ESB {javaclassname}
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and windup:matches(@class, 'org.jboss.soa.esb.actions.{javaclassname}')]/@class
+      where:
+        javaclassname: (StreamingAggregator)|(Aggregator)
+    soa-p-44000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In order to replace the use of the HttpRouter in JBoss ESB, you\
+            \ should use a HTTP reference binding.\n\n                           \
+            \ Further documentation is available in the\n                        \
+            \    [Fuse Service Works Developer Guide](https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Gateways.html#sect-HTTP)."
+          tags:
+          - jboss-esb
+          title: ESB HTTP Router
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.routing.http.HttpRouter']/@class
+      where: {}
+    soa-p-45000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In order to replace the use of the EmailRouter in Fuse Service\
+            \ Works, you should use a mail reference binding.\n\n                \
+            \            Further documentation is available in the\n             \
+            \               [Fuse Service Works Developer Guide](https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Gateways.html#sect-Mail)."
+          tags:
+          - jboss-esb
+          title: ESB Email Router
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.routing.email.EmailRouter']/@class
+      where: {}
+    soa-p-46000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In order to replace the use of the ContentBasedRouter in Fuse\
+            \ Service Works, you should use Camel to route messages.\n\n         \
+            \                   A good example of this functionality can be found\
+            \ in the quickstarts project in the [rules-camel-jbr\n               \
+            \             quickstart](https://github.com/jboss-switchyard/quickstarts/tree/master/rules-camel-cbr)."
+          tags:
+          - jboss-esb
+          title: ESB ContentBasedRouter
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.ContentBasedRouter']/@class
+      where: {}
+    soa-p-47000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In order to replace the use of the StaticWiretap in Fuse Service\
+            \ Works, you should use a\n                            [Camel Wiretap](http://camel.apache.org/wire-tap.html)\
+            \ to perform this action."
+          tags:
+          - jboss-esb
+          title: ESB StaticWiretap
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.StaticWiretap']/@class
+      where: {}
+    soa-p-48000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In order to replace the use of the StaticRouter in Fuse Service\
+            \ Works, you should use Camel to route messages.\n\n                 \
+            \           Further information is available in the [Camel Integration\
+            \ Patterns Documentation](http://camel.apache.org/enterprise-integration-patterns.html)."
+          tags:
+          - jboss-esb
+          title: ESB Static Router
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.StaticRouter']/@class
+      where: {}
+    soa-p-49000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In order to replace the use of the SOAPProcessor you should use\
+            \ a SOAP reference binding in Fuse Service Works.\n\n                \
+            \            For more information, see the\n                         \
+            \   [Fuse Service Works Development Guide](https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Gateways.html#sect-SOAP)."
+          tags: []
+          title: ESB SOAPProcessor
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.soap.SOAPProcessor']/@class
+      where: {}
+    soa-p-5-01000:
+      perform:
+        iteration:
+          classification:
+            description: Custom action classes should be migrated to CDI Beans in
+              Fuse Service Works. These beans can be defined as services or called
+              directly from a Camel route.
+            effort: '3'
+            issue-display-mode: detail-only
+            links:
+            - href: https://github.com/windup/soa-migration/blob/master/advice/action-class-migration.md
+              title: Action Class Migration
+            tags:
+            - jboss-esb
+            title: JBoss ESB 5 Action Handler
+          over: javaclasses
+      when:
+        annotation-types: []
+        javaclass:
+          as: javaclasses
+          in: '{javaclassname}'
+          references: org.jboss.soa.esb.message.Message
+        xmlfile:
+          as: xmlclass
+          matches: //*[local-name()='action' and not(starts-with(@class, 'org.jboss.soa.esb.actions'))
+            and not(starts-with(@class, 'org.jboss.soa.esb.smooks')) and windup:matches(@class,
+            '{javaclassname}')]/@class
+      where:
+        javaclassname: .*
+    soa-p-5-02000:
+      perform:
+        classification:
+          effort: '13'
+          issue-display-mode: all
+          links: []
+          tags:
+          - jboss-esb
+          title: JBoss ESB Deployment Descriptor
+      when:
+        xmlfile:
+          matches: /jbossesb-deployment
+      where: {}
+    soa-p-5-03000:
+      perform:
+        classification:
+          effort: '7'
+          issue-display-mode: all
+          links:
+          - href: https://github.com/windup/soa-migration/blob/master/advice/action-pipeline-migration.md
+            title: Action Pipeline Migration
+          tags:
+          - jboss-esb
+          title: JBoss ESB Pipeline Configuration
+      when:
+        xmlfile:
+          matches: /*[local-name()='jbossesb']
+      where: {}
+    soa-p-5-04000:
+      perform:
+        classification:
+          effort: '0'
+          issue-display-mode: detail-only
+          links:
+          - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_2_Smooks/
+            title: Smooks Development Guide
+          tags:
+          - smooks
+          title: Smooks Configuration
+      when:
+        xmlfile:
+          matches: /*[local-name()='smooks-resource-list']
+      where: {}
+    soa-p-5-05000:
+      perform:
+        iteration:
+          hint:
+            category-id: null
+            effort: '3'
+            links: []
+            message: "This listener requires a composite service binding in Fuse Service\
+              \ Works. The configuration for a JCA or JMS binding can be found in\
+              \ the jms-bus definition\n                                associated\
+              \ with this listener.\n\n                                For additional\
+              \ information, see the\n                                [Gateway Listener\
+              \ Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/gateway-listener-migration.md)."
+            tags:
+            - jboss-esb
+            title: JMS Gateway Listener
+      when:
+        xmlfile:
+          matches: //*[local-name()='jms-listener' and @is-gateway='true']/@name
+      where: {}
+    soa-p-5-06000:
+      perform:
+        hint:
+          category-id: null
+          effort: '1'
+          links: []
+          message: An ESB-aware listener is no longer required in Fuse Service Works.
+          tags:
+          - jboss-esb
+          title: ESB-Aware Listener (non-gateway)
+      when:
+        xmlfile:
+          matches: //*[local-name()='jms-listener' and (not(@is-gateway) or @is-gateway='false')]/@name
+      where: {}
+    soa-p-5-07000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "Each <service> definition in SOA-P 5 represents a service which\
+            \ can be\n                            called from outside the application\
+            \ through an ESB listner.  The\n                            equivalent\
+            \ definition in Fuse Service Works is a composite service.\n\n       \
+            \                     For additional information, see the\n          \
+            \                  [Service Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/service-migration.md)."
+          tags:
+          - jboss-esb
+          title: JBoss SOA-P Service
+      when:
+        xmlfile:
+          matches: //*[local-name()='service']/@name
+      where: {}
+    soa-p-5-08000:
+      perform:
+        hint:
+          category-id: null
+          effort: '5'
+          links: []
+          message: "The logic and execution flow of a service in SOA-P 5 is defined\
+            \ in an\n                            action processing pipeline. This\
+            \ logic is\n                            contained within a service component\
+            \ definition and expressed\n                            using any of the\
+            \ available implementation types in Fuse Service Works.\n\n          \
+            \                  For additional information see: the [Action Pipeline\
+            \ Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/action-pipeline-migration.md)"
+          tags:
+          - jboss-esb
+          title: JBoss SOA-P Action Pipeline
+      when:
+        xmlfile:
+          matches: //*[local-name()='actions']
+      where: {}
+    soa-p-5-09000:
+      perform:
+        hint:
+          category-id: null
+          effort: '13'
+          links: []
+          message: "Although Camel has both Hibernate and JPA components that are\n\
+            \                            useful in consuming records, there isn't\
+            \ any support for Hibernate events.\n\n                            To\
+            \ migrate this to SwitchYard you may have to\n                       \
+            \     build a custom SwitchYard component using Hibernate\n          \
+            \                  listeners, or redesign your requirements to leverage\
+            \ the\n                            existing Camel components available\
+            \ (Hibernate/JPA/SQL)\n                            in this area."
+          tags:
+          - jboss-esb
+          title: 'Service Binding: Hibernate Bus'
+      when:
+        xmlfile:
+          matches: //*[local-name()='hibernate-bus']/@busid
+      where: {}
+    soa-p-5-10000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "A jms-bus definition can be converted to a JMS or JCA gateway\n\
+            \                            binding on a composite service in SwitchYard.\
+            \ If the jms-bus\n                            configuration is used for\
+            \ a non-gateway listener, it does not\n                            need\
+            \ to be migrated to Fuse Service Works.\n\n                          \
+            \  For additional information, see the\n                            [JMS\
+            \ Bus Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/jms-bus-migration.md)."
+          tags:
+          - jboss-esb
+          title: JMS Bus Definition
+      when:
+        xmlfile:
+          matches: //*[local-name()='jms-bus']/@busid
+      where: {}
+    soa-p-5-11000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "A ftp-bus definition can be converted to a FTP gateway\n     \
+            \                       binding on a composite service in SwitchYard.\n\
+            \n                            For additional information, see the\n  \
+            \                          [FTP Bus Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/ftp-bus-migration.md)."
+          tags:
+          - jboss-esb
+          title: FTP Bus Definition
+      when:
+        xmlfile:
+          matches: //*[local-name()='ftp-bus']/@busid
+      where: {}
+    soa-p-5-12000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "A camel-bus definition can be converted to a Camel gateway\n \
+            \                           binding on a composite service in SwitchYard.\n\
+            \n                            For additional information, see the\n  \
+            \                          [Camel Bus Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/camel-bus-migration.md)"
+          tags:
+          - camel
+          title: Camel Bus Definition
+      when:
+        xmlfile:
+          matches: //*[local-name()='camel-bus']/@busid
+      where: {}
+    soa-p-5-13000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Gateways.html#sect-TCP_UDP
+            title: TCP/UDP Gateway
+          message: "A UDP Listener definition can be converted to a TCP/UDP\n    \
+            \                        gateway binding on a composite service in SwitchYard."
+          tags:
+          - jboss-esb
+          title: UDP Listener Configuration
+      when:
+        xmlfile:
+          matches: //*[local-name()='udp-listener']
+      where: {}
+    soa-p-5-14000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Gateways.html#sect-JCA
+            title: JCA Gateway Binding
+          message: "A jms-jca-provider definition can be converted to a JCA\n    \
+            \                        gateway binding on a composite service in Fuse\
+            \ Service Works."
+          tags:
+          - jboss-esb
+          title: JMS JCA Provider
+      when:
+        xmlfile:
+          matches: //*[local-name()='jms-jca-provider']
+      where: {}
+    soa-p-5-15000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "A http-provider definition can be converted to a HTTP gateway\n\
+            \                            binding on a composite service in Fuse Service\
+            \ Works.\n\n                            For additional information, see\
+            \ the\n                            [Gateway Listener Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/gateway-listener-migration.md)."
+          tags:
+          - soa-p
+          title: HTTP Provider
+      when:
+        xmlfile:
+          matches: //*[local-name()='http-provider']
+      where: {}
+    soa-p-50000:
+      perform:
+        hint:
+          category-id: null
+          effort: '3'
+          links: []
+          message: "In order to replace the use of the SOAPClient in Fuse Service\
+            \ Works, you should use a SOAP reference binding.\n\n                \
+            \            For more information, see the\n                         \
+            \   [Fuse Service Works Development Guide](https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Fuse_Service_Works/6.0/html/Development_Guide_Volume_1_SwitchYard/chap-Gateways.html#sect-SOAP)."
+          tags:
+          - jboss-esb
+          title: ESB SOAPClient
+      when:
+        xmlfile:
+          matches: //*[local-name()='action' and @class='org.jboss.soa.esb.actions.soap.SOAPClient']/@class
+      where: {}

@@ -1,0 +1,38 @@
+base64:
+  metadata:
+    description: This ruleset assists with the migration of the org.jboss.util.Base64
+      class.
+    sourceTechnologies:
+    - id: java-ee
+      versionRange: null
+    - id: eap
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[6,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap7/eap5/base64.windup.xml
+  rules:
+    base64-01000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/solutions/403703
+            title: Can application use the JBoss EAP org.jboss.util.Base64 built in
+              class?
+          message: "This API is not considered a public API for EAP. For JDK 8+, the\
+            \ recommended solution is to migrate to\n                        [java.util.Base64](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html).\n\
+            \n                        For JDK 7, it is recommended to migrate to another\
+            \ Base 64 library, for example\n                        [Apache Commons\
+            \ Codec](https://commons.apache.org/proper/commons-codec/)."
+          tags:
+          - eap7
+          - base64
+          title: The class org.jboss.util.Base64 has been moved
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.util.Base64
+      where: {}

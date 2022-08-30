@@ -1,0 +1,349 @@
+technology-usage-connect:
+  metadata:
+    description: This ruleset provides statistical summaries of the other connect
+      technologies (JCA, JNI, Mail, RMI) items that were found during the analysis.
+    phase: PostMigrationRulesPhase
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/connect-technology-usage.windup.xml
+  rules:
+    technology-usage-connect-01000:
+      perform:
+        technology-identified:
+          name: RMI
+          tags:
+          - Connect
+          - Other
+          - Java EE
+      when:
+        graph_query:
+          discriminator: RMIServiceModel
+          properties: []
+      where: {}
+    technology-usage-connect-01100:
+      perform:
+        technology-identified:
+          name: JNI
+          tags:
+          - Connect
+          - Other
+          - Java EE
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: java.lang.System.{systemNativeMethods}({*})
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: java.lang.Runtime.load({*})
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: java.lang.Runtime.loadLibrary({*})
+          location: METHOD_CALL
+      where:
+        systemNativeMethods: (load|loadLibrary|mapLibraryName)
+    technology-usage-connect-01101:
+      perform:
+        classification:
+          category-id: information
+          description: JNA is used in the application
+          effort: '0'
+          links: []
+          tags: []
+          title: JNA usage
+        technology-identified:
+          name: JNA
+          tags:
+          - Connect
+          - Other
+          - Java EE
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sun.jna.{*}
+        location: VARIABLE_DECLARATION
+      where: {}
+    technology-usage-connect-01200:
+      perform:
+        classification:
+          category-id: information
+          description: Mailing is used in the application
+          effort: '0'
+          links: []
+          tags: []
+          title: Mail usage
+        technology-identified:
+          name: Mail
+          tags:
+          - Connect
+          - Other
+          - Java EE
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: javax.mail.{*}
+        - annotation-types: []
+          javaclass:
+            references: com.sun.mail.{*}
+        - annotation-types: []
+          javaclass:
+            references: org.simplejavamail.{*}
+        - annotation-types: []
+          javaclass:
+            references: org.apache.commons.mail.{*}
+      where: {}
+    technology-usage-connect-01300:
+      perform:
+        classification:
+          category-id: information
+          description: JCA is used in the application
+          effort: '0'
+          links: []
+          tags: []
+          title: JCA usage
+        technology-identified:
+          name: JCA
+          tags:
+          - Connect
+          - Other
+          - Java EE
+      when:
+        or:
+        - file:
+            filename: ra.xml
+        - xmlfile:
+            matches: //*[local-name()='jms-jca-provider']
+        - annotation-types: []
+          javaclass:
+            references: javax.resource.{*}
+          location: VARIABLE_DECLARATION
+      where: {}
+    technology-usage-connect-01400:
+      perform:
+        technology-identified:
+          name: Resource Adapter
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Resource Adapter
+      where: {}
+    technology-usage-connect-01500:
+      perform:
+        technology-identified:
+          name: ActiveMQ library
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: ActiveMQ
+      where: {}
+    technology-usage-connect-01600:
+      perform:
+        technology-identified:
+          name: OpenWS
+          tags:
+          - Connect
+          - Embedded
+          - Web Service
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: OpenWS
+      where: {}
+    technology-usage-connect-01700:
+      perform:
+        technology-identified:
+          name: WSDL
+          tags:
+          - Connect
+          - Embedded
+          - Web Service
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: WSDL
+      where: {}
+    technology-usage-connect-01800:
+      perform:
+        technology-identified:
+          name: RabbitMQ Client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: RabbitMQ Client
+      where: {}
+    technology-usage-connect-01900:
+      perform:
+        technology-identified:
+          name: Spring Messaging Client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Spring Messaging Client
+      where: {}
+    technology-usage-connect-02000:
+      perform:
+        technology-identified:
+          name: Camel Messaging Client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Camel Messaging Client
+      where: {}
+    technology-usage-connect-02100:
+      perform:
+        technology-identified:
+          name: Amazon SQS Client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Amazon SQS Client
+      where: {}
+    technology-usage-connect-02200:
+      perform:
+        technology-identified:
+          name: HornetQ Client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: HornetQ Client
+      where: {}
+    technology-usage-connect-02300:
+      perform:
+        technology-identified:
+          name: AMQP Client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: AMQP Client
+      where: {}
+    technology-usage-connect-02400:
+      perform:
+        technology-identified:
+          name: RocketMQ Client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: RocketMQ Client
+      where: {}
+    technology-usage-connect-02500:
+      perform:
+        technology-identified:
+          name: 0MQ Client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: 0MQ Client
+      where: {}
+    technology-usage-connect-02600:
+      perform:
+        technology-identified:
+          name: JBossMQ client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JBossMQ Client
+      where: {}
+    technology-usage-connect-02700:
+      perform:
+        technology-identified:
+          name: Zbus Client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Zbus Client
+      where: {}
+    technology-usage-connect-02800:
+      perform:
+        technology-identified:
+          name: Qpid Client
+          tags:
+          - Connect
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Qpid Client
+      where: {}

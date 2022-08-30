@@ -1,0 +1,48 @@
+spring-boot-to-azure-jms-broker:
+  metadata:
+    description: Determine whether application relies on a message broker.
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags:
+    - broker
+    targetTechnologies:
+    - id: azure-appservice
+      versionRange: null
+    - id: azure-aks
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/azure/springboot/spring-boot-to-azure-jms-broker.windup.xml
+  rules:
+    spring-boot-to-azure-jms-broker-01000:
+      perform:
+        hint:
+          category-id: information
+          effort: '0'
+          links:
+          - href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#jms-message-brokers
+            title: Spring Boot application using an Active MQ Broker
+          - href: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview
+            title: Azure Service Bus
+          - href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus
+            title: How to use the Spring Boot Starter for Azure Service Bus JMS
+          - href: https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-servicebus-jms
+            title: Azure Spring Boot Starter for Azure Service Bus JMS
+          message: "The application uses an ActiveMQ message broker.\n           \
+            \             \n                        Checkout Azure Service Bus for\
+            \ a fully managed message broker."
+          tags:
+          - activemq
+          title: Active MQ Broker
+      when:
+        or:
+        - artifact:
+            artifactId: spring-boot-starter-activemq
+            fromVersion: null
+            groupId: org.springframework.boot
+            toVersion: null
+        - artifact:
+            artifactId: '{*}'
+            fromVersion: null
+            groupId: org.apache.activemq
+            toVersion: null
+      where: {}

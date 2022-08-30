@@ -1,0 +1,429 @@
+maven-javax-to-jakarta:
+  metadata:
+    description: "This ruleset provides analysis of Maven built applications that\
+      \ depend on Java EE artifacts, which were\n            replaced by Jakarta EE\
+      \ artifacts, starting with JBoss EAP 7.3."
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[7,8)'
+    - id: jakarta-ee
+      versionRange: '[8]'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml
+  rules:
+    maven-javax-to-jakarta-00001:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#maven-artifact-changes-for-jakarta-ee_default
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Maven Artifact Changes
+              for Jakarta EE'
+          message: If you migrate your application to JBoss EAP 7.3 (or later), and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the Jakarta EE dependency with groupId `com.sun.mail`, and
+            artifactId `jakarta.mail`.
+          quickfix:
+            name: maven-javax-to-jakarta-00001-qf-artifactId
+            replacement: jakarta.mail
+            search: javax.mail
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to Jakarta EE Maven Artifacts - com.sun.mail:javax.mail
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>javax.mail<
+      where: {}
+    maven-javax-to-jakarta-00002:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#maven-artifact-changes-for-jakarta-ee_default
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Maven Artifact Changes
+              for Jakarta EE'
+          message: If you migrate your application to JBoss EAP 7.3, or later, and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the Jakarta EE dependency with groupId `com.sun.activation`
+          quickfix:
+            name: maven-javax-to-jakarta-00002-qf-groupId
+            replacement: com.sun.activation
+            search: javax.activation
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to Jakarta EE Maven Artifacts - replace groupId javax.activation
+      when:
+        artifact:
+          artifactId: activation
+          fromVersion: null
+          groupId: javax.activation
+          toVersion: null
+      where: {}
+    maven-javax-to-jakarta-00003:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#maven-artifact-changes-for-jakarta-ee_default
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Maven Artifact Changes
+              for Jakarta EE'
+          message: If you migrate your application to JBoss EAP 7.3, or later, and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the Jakarta EE dependency with artifactId `jakarta.activation`
+          quickfix:
+            name: maven-javax-to-jakarta-00002-qf-artifactId
+            replacement: jakarta.activation
+            search: activation
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to Jakarta EE Maven Artifacts - replace artifactId activation
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>activation<
+      where: {}
+    maven-javax-to-jakarta-00004:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#maven-artifact-changes-for-jakarta-ee_default
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Maven Artifact Changes
+              for Jakarta EE'
+          message: If you migrate your application to JBoss EAP 7.3, or later, and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the Jakarta EE dependency - groupId `jakarta.{renamed-g}`.
+          quickfix:
+            name: maven-javax-to-jakarta-g
+            replacement: jakarta
+            search: javax
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: javax.{renamed-g} groupId has been replaced by jakarta.{renamed-g}
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: groupId>javax.{renamed-g}<
+      where:
+        renamed-g: (enterprise|inject|json|json.bind|persistence|security.enterprise|validation)
+    maven-javax-to-jakarta-00005:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#maven-artifact-changes-for-jakarta-ee_default
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Maven Artifact Changes
+              for Jakarta EE'
+          message: If you migrate your application to JBoss EAP 7.3, or later, and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the Jakarta EE dependency with groupId `jakarta.{renamed-a}`,
+            and artifactId `jakarta.{renamed-a}-api`.
+          quickfix:
+            name: javax-to-jakarta-pom-dependencies-a
+            replacement: jakarta
+            search: javax
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: javax.{renamed-a} javax.{renamed-a}-api artifactId has been replaced
+            by jakarta.{renamed-a} jakarta.{renamed-a}-api
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>javax.{renamed-a}-api<
+      where:
+        renamed-a: (json|json.bind|persistence|security.enterprise)
+    maven-javax-to-jakarta-00006:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#maven-artifact-changes-for-jakarta-ee_default
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Maven Artifact Changes
+              for Jakarta EE'
+          message: If you migrate your application to JBoss EAP 7.3, or later, and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the Jakarta EE dependency with artifactId `jakarta.enterprise.cdi-api`
+          quickfix:
+            name: maven-javax-to-jakarta-00006-qf-artifactId
+            replacement: jakarta.enterprise.cdi-api
+            search: cdi-api
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to Jakarta EE Maven Artifacts - replace artifactId cdi-api
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>cdi-api<
+      where: {}
+    maven-javax-to-jakarta-00007:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#maven-artifact-changes-for-jakarta-ee_default
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Maven Artifact Changes
+              for Jakarta EE'
+          message: If you migrate your application to JBoss EAP 7.3, or later, and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the Jakarta EE dependency with artifactId `jakarta.validation-api`
+          quickfix:
+            name: maven-javax-to-jakarta-00007-qf-artifactId
+            replacement: jakarta.validation-api
+            search: validation-api
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to Jakarta EE Maven Artifacts - replace artifactId validation-api
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>validation-api<
+      where: {}
+    maven-javax-to-jakarta-00008:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#maven-artifact-changes-for-jakarta-ee_default
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Maven Artifact Changes
+              for Jakarta EE'
+          message: If you migrate your application to JBoss EAP 7.3, or later, and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the Jakarta EE dependency with artifactId `jakarta.inject-api`
+          quickfix:
+            name: maven-javax-to-jakarta-00008-qf-artifactId
+            replacement: jakarta.inject-api
+            search: javax.inject
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to Jakarta EE Maven Artifacts - replace artifactId javax.inject
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>javax.inject<
+      where: {}
+    maven-javax-to-jakarta-00010:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#maven-artifact-changes-for-jakarta-ee_default
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Maven Artifact Changes
+              for Jakarta EE'
+          message: If you migrate your application to JBoss EAP 7.3 (or later), and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the Jakarta EE dependency with groupId `org.jboss.spec.javax.xml.soap`,
+            and artifactId `jboss-saaj-api_1.4_spec`.
+          quickfix:
+            name: maven-javax-to-jakarta-00010-qf-artifactId
+            replacement: jboss-saaj-api_1.4_spec
+            search: jboss-saaj-api_1.3_spec
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to Jakarta EE Maven Artifacts - org.jboss.spec.javax.xml.soap:jboss-saaj-api_1.3_spec
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>jboss-saaj-api_1.3_spec<
+      where: {}
+    maven-javax-to-jakarta-00011:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#maven-artifact-changes-for-jakarta-ee_default
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Maven Artifact Changes
+              for Jakarta EE'
+          message: If you migrate your application to JBoss EAP 7.3 (or later), and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the Jakarta EE dependency with groupId `org.jboss.spec.javax.transaction`,
+            and artifactId `jboss-transaction-api_1.3_spec`.
+          quickfix:
+            name: maven-javax-to-jakarta-00011-qf-artifactId
+            replacement: jboss-transaction-api_1.3_spec
+            search: jboss-transaction-api_1.2_spec
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to Jakarta EE Maven Artifacts - org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>jboss-transaction-api_1.2_spec<
+      where: {}
+    maven-javax-to-jakarta-00012:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#changes-to-boms-for-jakarta-ee
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Changes to BOMs for Jakarta
+              EE 8'
+          message: If you migrate your application to JBoss EAP 7.3 (or later), and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the JBoss EAP Jakarta EE BOM with groupId `org.jboss.bom`,
+            and artifactId `jboss-eap-jakartaee8`.
+          quickfix:
+            name: maven-javax-to-jakarta-00012-qf-artifactId
+            replacement: jboss-eap-jakartaee8
+            search: jboss-eap-javaee8
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to JBoss EAP Jakarta EE BOMs - org.jboss.bom:jboss-eap-javaee8
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>jboss-eap-javaee8<
+      where: {}
+    maven-javax-to-jakarta-00013:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#changes-to-boms-for-jakarta-ee
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Changes to BOMs for Jakarta
+              EE 8'
+          message: If you migrate your application to JBoss EAP 7.3 (or later), and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the JBoss EAP Jakarta EE BOM with groupId `org.jboss.bom`,
+            and artifactId `jboss-eap-jakartaee8-with-spring4`.
+          quickfix:
+            name: maven-javax-to-jakarta-00013-qf-artifactId
+            replacement: jboss-eap-jakartaee8-with-spring4
+            search: jboss-eap-javaee8-with-spring4
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to JBoss EAP Jakarta EE BOMs - org.jboss.bom:jboss-eap-javaee8-with-spring4
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>jboss-eap-javaee8-with-spring4<
+      where: {}
+    maven-javax-to-jakarta-00014:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#changes-to-boms-for-jakarta-ee
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Changes to BOMs for Jakarta
+              EE 8'
+          message: If you migrate your application to JBoss EAP 7.3 (or later), and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the JBoss EAP Jakarta EE BOM with groupId `org.jboss.bom`,
+            and artifactId `jboss-eap-jakartaee8-with-tools`.
+          quickfix:
+            name: maven-javax-to-jakarta-00014-qf-artifactId
+            replacement: jboss-eap-jakartaee8-with-tools
+            search: jboss-eap-javaee8-with-tools
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to JBoss EAP Jakarta EE BOMs - org.jboss.bom:jboss-eap-javaee8-with-tools
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>jboss-eap-javaee8-with-tools<
+      where: {}
+    maven-javax-to-jakarta-00015:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#changes-to-boms-for-jakarta-ee
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Changes to BOMs for Jakarta
+              EE 8'
+          message: If you migrate your application to JBoss EAP 7.3 (or later), and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the JBoss Jakarta EE BOM with groupId `org.jboss.spec`, and
+            artifactId `jboss-jakartaee-8.0`.
+          quickfix:
+            name: maven-javax-to-jakarta-00015-qf-artifactId
+            replacement: jboss-jakartaee-8.0
+            search: jboss-javaee-8.0
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to JBoss Jakarta EE BOMs - org.jboss.spec:jboss-javaee-8.0
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>jboss-javaee-8.0<
+      where: {}
+    maven-javax-to-jakarta-00016:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#changes-to-boms-for-jakarta-ee
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Changes to BOMs for Jakarta
+              EE 8'
+          message: If you migrate your application to JBoss EAP 7.3 (or later), and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the JBoss Jakarta EE BOM with groupId `org.jboss.spec`, and
+            artifactId `jboss-jakartaee-web-8.0`.
+          quickfix:
+            name: maven-javax-to-jakarta-00016-qf-artifactId
+            replacement: jboss-jakartaee-web-8.0
+            search: jboss-javaee-web-8.0
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to JBoss Jakarta EE BOMs - org.jboss.spec:jboss-javaee-web-8.0
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>jboss-javaee-web-8.0<
+      where: {}
+    maven-javax-to-jakarta-00017:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/migration_guide/index#changes-to-boms-for-jakarta-ee
+            title: 'Red Hat JBoss EAP 7.3 Migration Guide: Changes to BOMs for Jakarta
+              EE 8'
+          message: If you migrate your application to JBoss EAP 7.3 (or later), and
+            want to ensure its Maven building, running or testing works as expected,
+            use instead the JBoss Jakarta EE BOM with groupId `org.jboss.spec`, and
+            artifactId `jboss-jakartaee-all-8.0`.
+          quickfix:
+            name: maven-javax-to-jakarta-00017-qf-artifactId
+            replacement: jboss-jakartaee-all-8.0
+            search: jboss-javaee-all-8.0
+            type: REPLACE
+          tags:
+          - JakartaEE
+          title: Move to JBoss Jakarta EE BOMs - org.jboss.spec:jboss-javaee-all-8.0
+      when:
+        filecontent:
+          filename: pom.xml
+          pattern: artifactId>jboss-javaee-all-8.0<
+      where: {}

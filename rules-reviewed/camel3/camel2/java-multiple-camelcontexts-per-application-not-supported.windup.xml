@@ -1,0 +1,58 @@
+java-multiple-camelcontexts-per-application-not-supported:
+  metadata:
+    description: This ruleset provides analysis with respect to multiple Camel Context
+      not supported in Apache Camel 3.
+    sourceTechnologies:
+    - id: camel
+      versionRange: '[2,3)'
+    tags: []
+    targetTechnologies:
+    - id: camel
+      versionRange: '[3,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/camel3/camel2/java-multiple-camelcontexts-per-application-not-supported.windup.xml
+  rules:
+    java-multiple-camelcontexts-per-application-not-supported-00000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_multiple_camelcontexts_per_application_not_supported
+            title: 'Camel 3 - Migration Guide: multiple CamelContexts per application
+              not supported'
+          message: The `context` attribute on `{class}` annotations has been removed
+            since support for multiple CamelContexts has been removed and only one
+            CamelContext per deployment is supported.
+          tags: []
+          title: '{class}: `context` attribute removed'
+      when:
+        annotation-literal:
+          name: context
+          pattern: '{*}'
+        annotation-types: []
+        javaclass:
+          references: org.apache.camel.{class}
+        location: ANNOTATION
+      where:
+        class: (BeanInject|Consume|DynamicRouter|EndpointInject|Produce|PropertyInject|RecipientList|RoutingSlip)
+    java-multiple-camelcontexts-per-application-not-supported-00001:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_camel_cdi
+            title: 'Camel 3 - Migration Guide: multiple CamelContexts per application
+              not supported'
+          message: Support for multiple CamelContexts has been removed, and therefore
+            `{CdiCamelContextName}` has been removed. Instead use standard CDI annotations
+            such as `javax.inject.Named` and `javax.enterprise.context.ApplicationScoped`.
+          tags: []
+          title: '{CdiCamelContextName} has been removed'
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.apache.camel.cdi.{CdiCamelContextName}
+        location: IMPORT
+      where:
+        CdiCamelContextName: (ContextName|ContextNames)

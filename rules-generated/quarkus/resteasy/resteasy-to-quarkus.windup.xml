@@ -1,0 +1,55 @@
+resteasy-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate resteasy components to Quarkus
+      extension
+    sourceTechnologies:
+    - id: resteasy
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-generated/quarkus/resteasy/resteasy-to-quarkus.windup.xml
+  rules:
+    quarkus-resteasy-multipart-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/rest-json#multipart-support
+              title: Quarkus - Guide
+            message: "Replace the `org.jboss.resteasy:resteasy-multipart-provider`\
+              \ dependency with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart`\
+              \  \n                            Further information in the link below."
+            tags: []
+            title: Replace the 'resteasy-multipart-provider' dependency with Quarkus
+              'quarkus-resteasy-multipart' extension
+          over: default
+      when:
+        artifact:
+          artifactId: resteasy-multipart-provider
+          fromVersion: null
+          groupId: org.jboss.resteasy
+          toVersion: null
+      where: {}
+    quarkus-resteasy-multipart-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/rest-json#multipart-support
+            title: Quarkus - Guide
+          message: "Replace the `org.jboss.resteasy:resteasy-multipart-provider` dependency\
+            \ with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart`\
+            \  \n                        Further information in the link below."
+          tags: []
+          title: Replace the 'resteasy-multipart-provider' dependency with Quarkus
+            'quarkus-resteasy-multipart' extension
+      when:
+        dependency:
+          artifactId: resteasy-multipart-provider
+          groupId: org.jboss.resteasy
+      where: {}

@@ -1,0 +1,55 @@
+mail:
+  metadata:
+    description: This ruleset detects the Java Mail API, which may be problematic
+      when migrating an application to a cloud environment.
+    sourceTechnologies:
+    - id: java
+      versionRange: null
+    - id: java-ee
+      versionRange: null
+    tags:
+    - mail
+    targetTechnologies:
+    - id: cloud-readiness
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/openshift/mail.windup.xml
+  rules:
+    mail-00000:
+      perform:
+        hint:
+          category-id: cloud-optional
+          effort: '3'
+          links:
+          - href: https://12factor.net/backing-services
+            title: Twelve-factor app - Backing services
+          - href: https://12factor.net/config
+            title: Twelve-factor app - Config
+          - href: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+            title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+          message: "The configuration parameters of SMTP services for outbound mail\
+            \ may contain environment-specific values such as static IP addresses,\
+            \ host names, properties, credentials, or certificates.\n\n          \
+            \          Recommendations\n\n                    * In a cloud environment,\
+            \ mail systems should be considered backing services and treated like\
+            \ attached resources.\n                    * Ensure that the configuration\
+            \ of the underlying outbound mail connection is not environment-specific.\n\
+            \                    * In OpenShift Container Platform, store configuration\
+            \ parameters as environment variables or in a ConfigMap."
+          tags:
+          - mail
+          title: Java Mail API
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: javax.mail.{*}
+        - annotation-types: []
+          javaclass:
+            references: com.sun.mail.{*}
+        - annotation-types: []
+          javaclass:
+            references: org.simplejavamail.{*}
+        - annotation-types: []
+          javaclass:
+            references: org.apache.commons.mail.{*}
+      where: {}

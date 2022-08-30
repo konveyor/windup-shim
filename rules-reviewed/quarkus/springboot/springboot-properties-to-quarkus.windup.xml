@@ -1,0 +1,165 @@
+springboot-properties-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate from SpringBoot Configuration
+      Properties to Quarkus spring-boot-properties extension
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml
+  rules:
+    springboot-properties-to-quarkus-00000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/spring-boot-properties
+            title: Quarkus Spring Configuration Properties Guide
+          message: "Replace the SpringBoot artifact with Quarkus `spring-boot-properties`\
+            \ extension\n\n                        Spring Configuration Properties\
+            \ is in spring-boot artifact brought transitively by any `org.springframework.boot:spring-boot-*`\
+            \ dependency\n                        Add Quarkus dependency `io.quarkus:quarkus-spring-boot-properties`"
+          tags: []
+          title: Replace the SpringBoot artifact with Quarkus 'spring-boot-properties'
+            extension
+      when:
+        dependency:
+          artifactId: spring-boot
+          groupId: org.springframework.boot
+      where: {}
+    springboot-properties-to-quarkus-00001:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/config#configuration-profiles
+            title: Quarkus Configuring Your Application Guide
+          - href: https://quarkus.io/guides/config-reference#configuration_profiles
+            title: Quarkus Configuration Reference Guide
+          message: "Spring property profile in separate file 'application-{profile}.{extension}'\
+            \ must have\n                        their individual properties refactored\
+            \ to use Quarkus profile naming conventions within a single properties\
+            \ file,\n\n                        ie in the format  %{profile}.config.key=value"
+          tags: []
+          title: Spring property profiles in separate files must be refactored into
+            Quarkus properties file
+      when:
+        file:
+          filename: application-{profile}.{extension}
+      where:
+        extension: (properties|yml|yaml)
+        profile: .+
+    springboot-properties-to-quarkus-00002:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/datasource
+            title: Quarkus Datasources Guide
+          message: "Spring datasource property key/value pairs have been detected\
+            \ in the application property file.\n\n                        View advice\
+            \ in the Quarkus datasource guide to convert these to Quarkus datasource\
+            \ properties."
+          tags: []
+          title: Replace Spring datasource property key/value pairs with Quarkus properties
+      when:
+        filecontent:
+          filename: application{profile}.{extension}
+          pattern: spring.datasource
+      where:
+        extension: (properties|yml|yaml)
+        profile: .*
+    springboot-properties-to-quarkus-00003:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/logging#runtime-configuration
+            title: Quarkus Configuring Logging Guide
+          message: "Spring log level property configuration have been detected in\
+            \ the application property file.\n\n                        View advice\
+            \ in the Quarkus datasource guide to convert these to Quarkus log level\
+            \ properties."
+          tags: []
+          title: Replace Spring log level property with Quarkus property
+      when:
+        filecontent:
+          filename: application{profile}.{extension}
+          pattern: logging.level.org.springframework
+      where:
+        extension: (properties|yml|yaml)
+        profile: .*
+    springboot-properties-to-quarkus-00004:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/hibernate-orm
+            title: Quarkus Hibernate ORM and JPA Guide
+          message: Replace `spring.jpa.hibernate.ddl-auto=create-drop` with `quarkus.hibernate-orm.database.generation=drop-and-create`
+          tags: []
+          title: Replace Spring JPA Hiberate property with Quarkus property
+      when:
+        filecontent:
+          filename: application{profile}.{extension}
+          pattern: spring.jpa.hibernate.ddl-auto=create-drop
+      where:
+        extension: (properties|yml|yaml)
+        profile: .*
+    springboot-properties-to-quarkus-00005:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/openapi-swaggerui
+            title: Quarkus Guide - using OpenAPI and Swagger
+          message: "Replace `springdoc.swagger-ui.path` with `quarkus.swagger-ui.path`\n\
+            \                        \n                        By adding `quarkus.swagger-ui.always-include=true`\
+            \ Quarkus will always expose the Swagger UI endpoint. \n             \
+            \           It is only exposed in Dev mode by default."
+          quickfix:
+            name: swagger-ui-replace
+            replacement: quarkus.swagger-ui.path
+            search: springdoc.swagger-ui.path
+            type: REPLACE
+          tags: []
+          title: Replace Spring Swagger endpoint mapping
+      when:
+        filecontent:
+          filename: application{profile}.{extension}
+          pattern: springdoc.swagger-ui.path
+      where:
+        extension: (properties|yml|yaml)
+        profile: .*
+    springboot-properties-to-quarkus-00006:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/openapi-swaggerui
+            title: Quarkus Guide - using OpenAPI and Swagger
+          message: Replace `springdoc.api-docs.path` with `quarkus.smallrye-openapi.path`
+          quickfix:
+            name: openapi-replace
+            replacement: quarkus.smallrye-openapi.path
+            search: springdoc.api-docs.path
+            type: REPLACE
+          tags: []
+          title: Replace Spring OpenAPI endpoint mapping
+      when:
+        filecontent:
+          filename: application{profile}.{extension}
+          pattern: springdoc.api-docs.path
+      where:
+        extension: (properties|yml|yaml)
+        profile: .*

@@ -1,0 +1,265 @@
+non-xml-technology-usage:
+  metadata:
+    description: This ruleset provides statistical summaries of embedded 3rd party
+      frameworks.
+    phase: PostMigrationRulesPhase
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/non-xml-rules-technology-usage.rhamt.xml
+  rules:
+    non-xml-technology-usage-02000:
+      perform:
+        technology-identified:
+          name: EJB XML
+          tags:
+          - Connect
+          - Bean
+          - Java EE
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: EJB XML
+      where: {}
+    non-xml-technology-usage-05000:
+      perform:
+        technology-identified:
+          name: Hibernate Cfg
+          tags:
+          - Store
+          - Embedded
+          - Object Mapping
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Hibernate Cfg
+      where: {}
+    non-xml-technology-usage-06000:
+      perform:
+        technology-identified:
+          name: Hibernate Mapping
+          tags:
+          - Store
+          - Embedded
+          - Object Mapping
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Hibernate Mapping
+      where: {}
+    non-xml-technology-usage-12000:
+      perform:
+        technology-identified:
+          name: JBoss EJB XML
+          tags:
+          - Connect
+          - Bean
+          - Java EE
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JBoss EJB XML
+      where: {}
+    non-xml-technology-usage-13000:
+      perform:
+        technology-identified:
+          name: JBoss Web XML
+          tags:
+          - View
+          - Web
+          - Java EE
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JBoss Web XML
+      where: {}
+    non-xml-technology-usage-14000:
+      perform:
+        technology-identified:
+          name: JDBC
+          tags:
+          - Store
+          - Database
+          - Java EE
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JDBC
+      where: {}
+    non-xml-technology-usage-17000:
+      perform:
+        technology-identified:
+          name: JPA XML
+          tags:
+          - Store
+          - Persistence
+          - Java EE
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JPA XML
+      where: {}
+    non-xml-technology-usage-18000:
+      perform:
+        technology-identified:
+          name: Orion EJB XML
+          tags:
+          - Connect
+          - Bean
+          - Java EE
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Orion EJB XML
+      where: {}
+    non-xml-technology-usage-19000:
+      perform:
+        technology-identified:
+          name: Orion Web XML
+          tags:
+          - View
+          - Web
+          - Java EE
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Orion Web XML
+      where: {}
+    non-xml-technology-usage-20000:
+      perform:
+        technology-identified:
+          name: Properties
+          tags:
+          - Sustain
+          - Embedded
+          - Other
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Properties
+      where: {}
+    non-xml-technology-usage-21000:
+      perform:
+        technology-identified:
+          name: Seam
+          tags:
+          - View
+          - Web
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Seam
+      where: {}
+    non-xml-technology-usage-22000:
+      perform:
+        technology-identified:
+          name: WebLogic Web XML
+          tags:
+          - View
+          - Web
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: WebLogic Web XML
+      where: {}
+    non-xml-technology-usage-23000:
+      perform:
+        technology-identified:
+          name: WebSphere EJB
+          tags:
+          - Connect
+          - Bean
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: WebSphere EJB
+      where: {}
+    non-xml-technology-usage-24000:
+      perform:
+        technology-identified:
+          name: WebSphere EJB Ext
+          tags:
+          - Connect
+          - Bean
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: WebSphere EJB Ext
+      where: {}
+    non-xml-technology-usage-25000:
+      perform:
+        technology-identified:
+          name: WebSphere Web XML
+          tags:
+          - View
+          - Web
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: WebSphere Web XML
+      where: {}
+    non-xml-technology-usage-26000:
+      perform:
+        technology-identified:
+          name: WebSphere WS Binding
+          tags:
+          - Connect
+          - Embedded
+          - Web Service
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: WebSphere WS Binding
+      where: {}
+    non-xml-technology-usage-27000:
+      perform:
+        technology-identified:
+          name: WebSphere WS Extension
+          tags:
+          - Connect
+          - Embedded
+          - Web Service
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: WebSphere WS Extension
+      where: {}

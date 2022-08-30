@@ -1,0 +1,42 @@
+eap-to-azure-appservice-certificates:
+  metadata:
+    description: Creating and loading Keystores will require uploading the certificates
+      and updating the path to the certificates in the filesystem.
+    sourceTechnologies:
+    - id: eap
+      versionRange: '[7,8)'
+    tags: []
+    targetTechnologies:
+    - id: azure-appservice
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/azure/eap/eap-to-azure-appservice-certificates.windup.xml
+  rules:
+    eap-to-azure-appservice-certificates-001:
+      perform:
+        hint:
+          category-id: optional
+          effort: '5'
+          links:
+          - href: https://docs.microsoft.com/en-us/azure/app-service/configure-language-java?pivots=platform-linux#initialize-the-java-key-store
+            title: Configure a Java app for Azure App Service - Initialize the Java
+              Key Store
+          - href: https://docs.microsoft.com/en-us/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service#inventory-all-certificates
+            title: Migrate JBoss EAP applications to JBoss EAP on Azure App Service
+              - Inventory all certificates
+          message: Azure - The application loads certificates into a KeyStore
+          tags: []
+          title: Azure - The application loads certificates into a KeyStore
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Azure
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: java.security.KeyStore.getInstance({*})
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: java.security.KeyStore.load({*})
+          location: METHOD_CALL
+      where: {}

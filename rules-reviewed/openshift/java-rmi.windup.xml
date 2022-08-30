@@ -1,0 +1,71 @@
+java-rmi:
+  metadata:
+    description: This ruleset detects the Java Remote Method Invocation (RMI), which
+      may be problematic when migrating an application to a cloud environment.
+    sourceTechnologies:
+    - id: java
+      versionRange: null
+    - id: rmi
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: cloud-readiness
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/openshift/java-rmi.windup.xml
+  rules:
+    java-rmi-00000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          effort: '0'
+          issue-display-mode: detail-only
+          links: []
+          tags: []
+          title: Java Remote Method Invocation (RMI) service
+        hint:
+          category-id: cloud-mandatory
+          effort: '1'
+          links:
+          - href: https://12factor.net/backing-services
+            title: Twelve-factor app - Backing services
+          message: "Java RMI is a tightly coupled service. Tight coupling is not suitable\
+            \ in a cloud environment because of scalability problems.\n\n        \
+            \            Recommendations\n\n                    Use Java EE standard\
+            \ or loosely coupled protocols for backing service interactions:\n\n \
+            \                   ** Message-based communication (JMS) for asynchronous\
+            \ use cases\n                    ** HTTP-based protocol or API (JAX-RS\
+            \ and JAX-WS) for synchronous use cases\n\n                    When used\
+            \ with load-balancing, both options ensure scalability and high availability."
+          tags:
+          - rmi
+          - cloud
+          title: Java Remote Method Invocation (RMI) service
+      when:
+        annotation-types: []
+        javaclass:
+          references: java.rmi.Remote
+        location: INHERITANCE
+      where: {}
+    java-rmi-00001:
+      perform:
+        iteration:
+          perform:
+            classification:
+              category-id: cloud-mandatory
+              description: "The Java RMI API is tightly coupled. Tight coupling is\
+                \ not suitable in a cloud environment because of scalability problems.\n\
+                \n                            Use a RESTful API or a message queue."
+              effort: '3'
+              issue-display-mode: all
+              links: []
+              tags:
+              - rmi
+              title: Java Remote Method Invocation (RMI) API
+          when:
+            has-classification:
+              title: Java Remote Method Invocation (RMI) service
+      when:
+        annotation-types: []
+        javaclass:
+          references: java.rmi.{*}
+      where: {}

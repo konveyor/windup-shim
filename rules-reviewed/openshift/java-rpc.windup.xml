@@ -1,0 +1,46 @@
+java-rpc:
+  metadata:
+    description: This ruleset detects the Java Remote Procedure Call (RPC), which
+      is problematic when migrating an application to a cloud environment.
+    sourceTechnologies:
+    - id: java
+      versionRange: null
+    - id: rpc
+      versionRange: null
+    tags:
+    - rpc
+    targetTechnologies:
+    - id: cloud-readiness
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/openshift/java-rpc.windup.xml
+  rules:
+    java-rpc-00000:
+      perform:
+        hint:
+          category-id: cloud-optional
+          effort: '5'
+          links:
+          - href: https://access.redhat.com/solutions/4030521
+            title: JAX-RPC not supported in JBoss EAP 7
+          message: "The Java API for XML-based RPC (JAX-RPC) was deprecated in Java\
+            \ EE 6 and is optional in Java EE 7. It is no longer available or supported\
+            \ in JBoss EAP 7.\n\n                    Recommendation: Use JAX-WS, which\
+            \ is the current Java EE standard web services framework."
+          tags:
+          - rpc
+          title: Java API for XML-based RPC (JAX-RPC)
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            as: default
+            references: javax.xml.rpc{*}
+        - annotation-types: []
+          javaclass:
+            as: default
+            references: org.apache.xmlrpc{*}
+        - annotation-types: []
+          javaclass:
+            as: default
+            references: redstone.xmlrpc{*}
+      where: {}

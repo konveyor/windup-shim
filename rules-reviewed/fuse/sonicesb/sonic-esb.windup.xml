@@ -1,0 +1,428 @@
+sonic-esb:
+  metadata:
+    description: This ruleset contains rules that assist in migrating from Sonic ESB
+      to Apache Camel.
+    sourceTechnologies:
+    - id: sonic
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: fuse
+      versionRange: '[6,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml
+  rules:
+    sonic-esb-01000:
+      perform:
+        classification:
+          effort: '0'
+          issue-display-mode: detail-only
+          links:
+          - href: http://documentation.progress.com/output/Sonic/8.0.0/Docs8.0/api/esb_api/com/sonicsw/xq/XQService.html
+            title: XQService Javadoc
+          tags:
+          - sonic-esb
+          title: Sonic ESB Service
+        hint:
+          category-id: mandatory
+          effort: '4'
+          links: []
+          message: "Sonic ESB services inherit from XQService.  In Camel, this can\
+            \ be achieved through the simple Java Bean Camel Component.\n\n      \
+            \                 * [Camel Java Bean Component](http://camel.apache.org/bean.html)"
+          tags:
+          - camel
+          title: Sonic ESB service - inheritance from com.sonicsw.xq.XQService
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQService
+        location: INHERITANCE
+      where: {}
+    sonic-esb-02000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '4'
+          links: []
+          message: "Sonic ESB services leverage the service(XQServiceContext context)\
+            \ method to implement business logic.  When messages are routed to the\
+            \ service, the service(XQServiceContext context) method is executed.\n\
+            \                       In Camel, this is achieved by routing messages\
+            \ to the Java Bean via the Camel Route's Bean Component syntax.\n\n  \
+            \                     * [Camel Java Bean Component](http://camel.apache.org/bean.html)\n\
+            \                       * [Camel Binding Annotations](http://camel.apache.org/parameter-binding-annotations.html)\n\
+            \n                       Camel's Java Bean Component can leverage annotations\
+            \ annotations on the method to specify how Camel Message body values are\
+            \ mapped to the method parameters.  Additionally, the @Handler annotation\
+            \ can be leveraged to setup the default Java Bean method.\n\n        \
+            \               **For example:**\n\n                       ```java\n \
+            \                      public void service(XQServiceContext ctx) throws\
+            \ XQServiceException \\{\n                       ...\n               \
+            \        }\n                       ```\n\n                       **Should\
+            \ become:**\n\n                       ```java\n                      \
+            \ @Handler\n                       public void service(@Header messageHeader,\
+            \ @Body messageBody, Exchange exchange) \\{\n                       ...\n\
+            \                       }\n                       ```\n\n            \
+            \           * org.apache.camel.Body\n                       * org.apache.camel.Header\n\
+            \                       * org.apache.camel.Exchange"
+          tags:
+          - sonic-esb
+          - camel
+          title: Reference to com.sonicsw.xq.XQServiceContext
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQServiceContext
+        location: IMPORT
+      where: {}
+    sonic-esb-03000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '4'
+          links: []
+          message: "The XQInitContext is used to receive initialization information\
+            \ for the service from Sonic ESB.\n\n                       This is not\
+            \ neccessary for Camel.  The init() method that receives this object should\
+            \ be replaced with Spring Bean property injection.  For initialization\
+            \ beyond propery injection, leverage Spring's @PostConstruct annotation\
+            \ on this init() method.\n\n                       * [Spring @PostConstruct\
+            \ Documentation](http://docs.spring.io/spring/docs/2.5.x/reference/beans.html#beans-postconstruct-and-predestroy-annotations)\n\
+            \n                       ```java\n                       @PostConstruct\n\
+            \                       public void init() \\{\n                     \
+            \  //leverage injected properties\n                       }\n        \
+            \               ```"
+          tags:
+          - sonic-esb
+          - spring
+          - camel
+          title: Reference to com.sonicsw.xq.XQInitContext
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQInitContext
+        location: IMPORT
+      where: {}
+    sonic-esb-04000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Migrate XQInitContext.getParameters to Spring property injection.
+          tags:
+          - sonic-esb
+          - camel
+          title: Call of com.sonicsw.xq.XQInitContext.getParameters
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQInitContext.getParameters{*}
+        location: METHOD_CALL
+      where: {}
+    sonic-esb-05000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Migrate XQParameters.getParameter to Spring property injection.
+          tags:
+          - sonic-esb
+          - spring
+          - camel
+          title: Call of com.sonicsw.xq.XQParameters.getParameter
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQParameters.getParameter{*}
+        location: METHOD_CALL
+      where: {}
+    sonic-esb-06000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Migrate XQParameters to Spring property injection.
+          tags:
+          - sonic-esb
+          - spring
+          - camel
+          title: Reference to com.sonicsw.xq.XQParameters
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQParameters
+        location: TYPE
+      where: {}
+    sonic-esb-07000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links: []
+          message: Migrate XQParameterInfo to Spring property injection.
+          tags:
+          - sonic-esb
+          - spring
+          - camel
+          title: Reference to com.sonicsw.xq.XQParameters
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQParameterInfo
+        location: TYPE
+      where: {}
+    sonic-esb-08000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links: []
+          message: Migrate to org.apache.camel.Message
+          tags:
+          - sonic-esb
+          - camel
+          title: Reference to com.sonicsw.xq.XQMessage
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQMessage
+        location: TYPE
+      where: {}
+    sonic-esb-09000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links: []
+          message: Migrate to org.apache.camel.Message.getHeader(String name)
+          tags:
+          - sonic-esb
+          - camel
+          title: Call of com.sonicsw.xq.XQMessage.getHeaderValue
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQMessage.getHeaderValue{*}
+        location: METHOD_CALL
+      where: {}
+    sonic-esb-10000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links: []
+          message: Migrate to org.apache.camel.Message.setHeader(String name, Object
+            value)
+          tags:
+          - sonic-esb
+          - camel
+          title: Call of com.sonicsw.xq.XQMessage.setHeaderValue
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQMessage.setHeaderValue{*}
+        location: METHOD_CALL
+      where: {}
+    sonic-esb-11000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Migrate to org.apache.camel.Message.getHeaders()
+          tags:
+          - sonic-esb
+          - camel
+          title: Call of com.sonicsw.xq.XQMessage.getHeaderNames
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQMessage.getHeaderNames{*}
+        location: METHOD_CALL
+      where: {}
+    sonic-esb-12000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links: []
+          message: Migrate XQPart to an attachment on the org.apache.camel.Message
+          tags:
+          - sonic-esb
+          - camel
+          title: Reference to com.sonicsw.xq.XQPart
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQPart
+        location: TYPE
+      where: {}
+    sonic-esb-13000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Migrate to org.apache.camel.Message.getAttachments().size()
+          tags:
+          - sonic-esb
+          - camel
+          title: Call of com.sonicsw.xq.XQMessage.getPartCount
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQMessage.getPartCount{*}
+        location: METHOD_CALL
+      where: {}
+    sonic-esb-14000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Migrate to org.apache.camel.Message.getAttachment(String id)
+          tags:
+          - sonic-esb
+          - camel
+          title: Call of com.sonicsw.xq.XQMessage.getPart
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQMessage.getPart({*}
+        location: METHOD_CALL
+      where: {}
+    sonic-esb-15000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Migrate to [Apache SLF4J](http://www.slf4j.org).
+          tags:
+          - sonic-esb
+          - slf4j
+          - camel
+          title: Reference to com.sonicsw.xq.XQLog
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQLog
+        location: TYPE
+      where: {}
+    sonic-esb-16000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: "Create a custom ServiceException class, extending Exception. \
+            \ The documentation below explains exception handling in Camel.\n\n  \
+            \                     * [Camel Exception Handling](http://camel.apache.org/exception-clause.html)"
+          tags:
+          - sonic-esb
+          - camel
+          title: Reference to com.sonicsw.xq.XQServiceException
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQServiceException
+        location: TYPE
+      where: {}
+    sonic-esb-17000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: "Correlation is handled several ways in Camel.  Read the article\
+            \ below.\n\n                       * [Camel Exception Handling](http://camel.apache.org/correlation-identifier.html)"
+          tags:
+          - sonic-esb
+          - camel
+          title: Call of com.sonicsw.xq.XQMessage.getCorrelationId
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQMessage.getCorrelationId{*}
+        location: METHOD_CALL
+      where: {}
+    sonic-esb-18000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links: []
+          message: "This indicates that the Sonic ESB Service is routing messages\
+            \ to a [1...N] endpoints.  To achieve this in Camel, take the business\
+            \ logic in the service, and populate a header property with an array of\
+            \ target enpoints.\n\n                       Next, create a Recipient\
+            \ List processor to route the message to N endpoints.\n\n            \
+            \           * [Camel Recipient List](http://camel.apache.org/recipientlist-annotation.html)"
+          tags:
+          - sonic-esb
+          - camel
+          title: Call of com.sonicsw.xq.XQAddressFactory.createEndpointAddress
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQAddressFactory.createEndpointAddress{*}
+        location: METHOD_CALL
+      where: {}
+    sonic-esb-19000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: "Sonic ESB uses the addOutgoing method to set the outgoing message.\n\
+            \                       This is achieved in Camel by either modifying\
+            \ the @Body parameter in the Java Bean Component method, or literally\
+            \ setting a new message to the Exchange.\n\n                       * [Camel\
+            \ Setting Response](http://camel.apache.org/using-getin-or-getout-methods-on-exchange.html)"
+          tags:
+          - sonic-esb
+          - camel
+          title: Call of com.sonicsw.xq.XQServiceContext.addOutgoing
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQServiceContext.addOutgoing{*}
+        location: METHOD_CALL
+      where: {}
+    sonic-esb-20000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links: []
+          message: Migrate to org.apache.camel.Exchange
+          tags:
+          - sonic-esb
+          - camel
+          title: Reference to com.sonicsw.xq.XQEnvelope
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQEnvelope
+        location: IMPORT
+      where: {}
+    sonic-esb-21000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Migrate to org.apache.camel.Message.getIn()
+          tags:
+          - sonic-esb
+          - camel
+          title: Call of com.sonicsw.xq.XQEnvelope.getMessage
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.sonicsw.xq.XQEnvelope.getMessage{*}
+        location: METHOD_CALL
+      where: {}

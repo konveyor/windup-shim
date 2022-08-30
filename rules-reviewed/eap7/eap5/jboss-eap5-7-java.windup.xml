@@ -1,0 +1,394 @@
+jboss-eap5-7-java:
+  metadata:
+    description: This ruleset provides analysis of JBoss EAP 5 JAVA source files that
+      may require individual attention when migrating to JBoss EAP 7+.
+    sourceTechnologies:
+    - id: eap
+      versionRange: '[4,6)'
+    tags:
+    - jboss-eap5
+    - jms
+    - ejb
+    targetTechnologies:
+    - id: eap
+      versionRange: '[7,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml
+  rules:
+    jboss-eap5-7-java-02000:
+      perform:
+        hint:
+          category-id: optional
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuring_messaging/getting_started#connection_factories
+            title: JBoss EAP 7 - Basic Messaging Configuration
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuring_messaging/configuring_messaging_connection_factories
+            title: JBoss EAP 7 - Configuring Connection Factories
+          - href: https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html#package.description
+            title: JavaEE 7 - JMS APIs
+          message: "`QueueConnectionFactory` was used to obtain connection to JMS\
+            \ queues.\n\n                      Replace the lookup string `QueueConnectionFactory`\
+            \ with `ConnectionFactory`."
+          tags:
+          - jms
+          title: JMS legacy javax.jms.QueueConnectionFactory
+      when:
+        annotation-types: []
+        javaclass:
+          references: javax.jms.QueueConnectionFactory
+        location: VARIABLE_DECLARATION
+      where: {}
+    jboss-eap5-7-java-03000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://docs.jboss.org/ejb3/docs/reference/build/reference/en/html/jboss_extensions.html
+            title: JBoss EJB 3.0 extensions
+          - href: https://docs.jboss.org/ejb3/embedded/api/org/jboss/annotation/ejb/package-summary.html
+            title: JBoss EJB 3.0 Javadoc
+          - href: http://docs.oracle.com/javaee/7/api/javax/ejb/Singleton.html
+            title: Java EE API for @Singleton
+          - href: https://access.redhat.com/solutions/199863
+            title: How to expose a JavaEE 6 Singleton as a MBean in JMX in JBoss EAP
+          - href: https://access.redhat.com/solutions/196713
+            title: How to use @Service and @Management annotations in JBoss EAP
+          message: "The purpose of `@Service` annotation was to achieve @Singleton\
+            \ like behavior.\n                        It was deprecated with the release\
+            \ of JBoss AS 6 and removed from JBoss EAP 6.\n\n                    \
+            \    Use the Java EE 6 `javax.ejb.Singleton` annotation instead."
+          quickfix:
+            name: ejbService-qf
+            replacement: javax.ejb.Singleton
+            search: org.jboss.annotation.ejb.Service
+            type: REPLACE
+          tags:
+          - ejb
+          title: JBoss EJB @Service annotation
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.annotation.ejb.Service
+        location: ANNOTATION
+      where: {}
+    jboss-eap5-7-java-05000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://docs.jboss.org/ejb3/docs/reference/build/reference/en/html/jboss_extensions.html
+            title: JBoss EJB 3.0 extensions
+          - href: https://docs.jboss.org/ejb3/embedded/api/org/jboss/annotation/ejb/package-summary.html
+            title: JBoss EJB 3.0 Javadoc
+          - href: https://access.redhat.com/solutions/199863
+            title: How to expose a JavaEE 6 Singleton as a MBean in JMX in JBoss EAP
+          - href: http://docs.oracle.com/javaee/7/api/javax/ejb/Startup.html
+            title: Java API - Annotation Type Startup
+          message: "The `@Management` annotation is one of JBoss EJB 3.0 extension\
+            \ which wraps the bean\n                        as an MBean and registers\
+            \ it in the JBoss MBean Server automatically.\n                      \
+            \  JBoss EAP 6+ no longer supports the @Management annotations.\n\n  \
+            \                      The Solution is to create a simple MBean using\
+            \ the Java EE 6 `@Singleton` and `@Startup` to register itself in JMX\
+            \ Server.\n\n                        Create your `@Singleton` MBean implementation\
+            \ which implements your service interface. Use `@PostConstruct` to have\
+            \ your Singleton register itself in the JMX MBean Server and then use\
+            \ `@PreDestroy` to unregister your MBean from the JMX Server."
+          quickfix:
+            name: ejbManagement-qf
+            replacement: javax.ejb.Startup
+            search: org.jboss.ejb3.annotation.Management
+            type: REPLACE
+          tags:
+          - ejb
+          - jmx
+          - singleton
+          title: JBoss EJB @Management annotation
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: org.jboss.annotation.ejb.Management
+          location: ANNOTATION
+        - annotation-types: []
+          javaclass:
+            references: org.jboss.ejb3.annotation.Management
+          location: ANNOTATION
+      where: {}
+    jboss-eap5-7-java-06000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://docs.jboss.org/ejb3/docs/reference/build/reference/en/html/jboss_extensions.html
+            title: JBoss EJB 3.0 extensions
+          - href: https://docs.jboss.org/ejb3/embedded/api/org/jboss/annotation/ejb/package-summary.html
+            title: JBoss EJB 3.0 Javadoc
+          - href: https://docs.oracle.com/javaee/7/api/javax/ejb/EJB.html#lookup--
+            title: EJB annotation with lookup
+          message: "The `@LocalBinding` annotation is one of JBoss EJB 3.0 extensions\n\
+            \                        which specifies the local jndi binding for an\
+            \ EJB local interface.\n                        Use `@EJB(lookup=\"your_jndi\"\
+            )` instead."
+          quickfix:
+            name: LocalBinding2
+            replacement: '@LocalBinding(jndiBinding='
+            search: '@EJB(lookup='
+            type: REPLACE
+          tags:
+          - ejb
+          title: org.jboss.annotation.ejb.LocalBinding
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.annotation.ejb.LocalBinding
+        location: IMPORT
+      where: {}
+    jboss-eap5-7-java-07000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://docs.jboss.org/ejb3/docs/reference/build/reference/en/html/jboss_extensions.html
+            title: JBoss EJB 3.0 extensions
+          - href: https://docs.jboss.org/ejb3/embedded/api/org/jboss/annotation/ejb/package-summary.html
+            title: JBoss EJB 3.0 Javadoc
+          message: "The `@Depends` annotation is one of JBoss EJB 3.0 extensions\n\
+            \                        which specifies a deployment dependency for a\
+            \ bean.\n                        Validate that a JBoss EAP 6 Dependency\
+            \ exists."
+          tags:
+          - ejb
+          title: org.jboss.annotation.ejb.Depends
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.annotation.ejb.Depends
+        location: ANNOTATION
+      where: {}
+    jboss-eap5-7-java-08000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+            title: EAP 6 Migration Guide
+          message: "This package has been relocated to `org.jboss.ws.api.annotation`\
+            \ as specified in the\n                        migration guide."
+          tags:
+          - jbossws
+          title: org.jboss.wsf.spi.annotation has been moved to org.jboss.ws.api.annotation
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.spi.annotation.{*}
+      where: {}
+    jboss-eap5-7-java-08100:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+            title: EAP 6 Migration Guide
+          message: "This package has been relocated to `org.jboss.ws.api.binding`\
+            \ as specified in the\n                        migration guide."
+          tags:
+          - jbossws
+          title: org.jboss.wsf.spi.binding has been moved to org.jboss.ws.api.binding
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.spi.binding.{*}
+      where: {}
+    jboss-eap5-7-java-08200:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+            title: EAP 6 Migration Guide
+          message: "This package has been relocated to `org.jboss.ws.api.monitoring`\
+            \ as specified in the\n                        migration guide."
+          tags:
+          - jbossws
+          title: org.jboss.wsf.spi.management.recording has been moved to org.jboss.ws.api.monitoring
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.spi.management.recording.{*}
+      where: {}
+    jboss-eap5-7-java-08300:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+            title: EAP 6 Migration Guide
+          message: "This package has been relocated to `org.jboss.ws.tools.ant` as\
+            \ specified in the\n                        migration guide."
+          tags:
+          - jbossws
+          title: org.jboss.wsf.spi.tools.ant has been moved to org.jboss.ws.tools.ant
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.spi.tools.ant.{*}
+      where: {}
+    jboss-eap5-7-java-08400:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+            title: EAP 6 Migration Guide
+          message: "This package has been relocated to `org.jboss.ws.tools.cmd` as\
+            \ specified in the\n                        migration guide."
+          tags:
+          - jbossws
+          title: org.jboss.wsf.spi.tools.cmd has been moved to org.jboss.ws.tools.cmd
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.spi.tools.cmd.{*}
+      where: {}
+    jboss-eap5-7-java-08500:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+              title: EAP 6 Migration Guide
+            message: "This package has been relocated to `org.jboss.ws.api.tools`\
+              \ as specified in the\n                            migration guide."
+            tags:
+            - jbossws
+            title: org.jboss.wsf.spi.tools has been moved to org.jboss.ws.api.tools
+          when:
+            has-hint: true
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.spi.tools.{*}
+      where: {}
+    jboss-eap5-7-java-08600:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+            title: EAP 6 Migration Guide
+          message: "This class has been relocated to `org.jboss.ws.api.util.ServiceLoader`\
+            \ as specified in the\n                        migration guide."
+          tags:
+          - jbossws
+          title: org.jboss.wsf.spi.util.ServiceLoader has been moved to org.jboss.ws.api.util.ServiceLoader
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.spi.util.ServiceLoader
+      where: {}
+    jboss-eap5-7-java-08700:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+            title: EAP 6 Migration Guide
+          message: "This package has been relocated to `org.jboss.ws.api.handler`\
+            \ as specified in the\n                        migration guide."
+          tags:
+          - jbossws
+          title: org.jboss.wsf.common.handler has been moved to org.jboss.ws.api.handler
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.common.handler.{*}
+      where: {}
+    jboss-eap5-7-java-08800:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+            title: EAP 6 Migration Guide
+          message: "This package has been relocated to `org.jboss.ws.api.addressing`\
+            \ as specified in the\n                        migration guide."
+          tags:
+          - jbossws
+          title: org.jboss.wsf.common.addressing has been moved to org.jboss.ws.api.addressing
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.common.addressing.{*}
+      where: {}
+    jboss-eap5-7-java-08900:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+            title: EAP 6 Migration Guide
+          message: "This class has been relocated to `org.jboss.ws.api.util.DOMUtils`\
+            \ as specified in the\n                        migration guide."
+          tags:
+          - jbossws
+          title: org.jboss.wsf.common.DOMUtils has been moved to org.jboss.ws.api.util.DOMUtils
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.common.DOMUtils
+      where: {}
+    jboss-eap5-7-java-09000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+              title: EAP 6 Migration Guide
+            message: "This package has been relocated to `org.jboss.ws.common` as\
+              \ specified in the\n                            migration guide."
+            tags:
+            - jbossws
+            title: org.jboss.wsf.common has been moved to org.jboss.ws.common
+          when:
+            has-hint: true
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.wsf.common.{*}
+      where: {}
+    jboss-eap5-7-java-09100:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Web_Services_Changes
+            title: EAP 6 Migration Guide
+          message: "This class has been relocated to `org.jboss.ws.api.annotation.EndpointConfig`\
+            \ as specified in the\n                        migration guide."
+          tags:
+          - jbossws
+          title: org.jboss.ws.annotation.EndpointConfig has been moved to org.jboss.ws.api.annotation.EndpointConfig
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.jboss.ws.annotation.EndpointConfig
+      where: {}

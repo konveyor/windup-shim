@@ -1,0 +1,44 @@
+springboot-data-jpa-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate from SpringBoot JPA to Quarkus
+      spring-jpa extension
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/quarkus/springboot/springboot-data-jpa-to-quarkus.windup.xml
+  rules:
+    springboot-jpa-to-quarkus-00000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/spring-data-jpa
+            title: Quarkus JPA Guide
+          message: "Replace the SpringBoot JPA artifact with Quarkus `spring-data-jpa`\
+            \ extension\n\n                        Spring Data JPA is in spring-data-jpa\
+            \ artifact brought transitively by any `org.springframework.data:spring-data-*`\
+            \ dependency  \n                        Add Quarkus dependency `io.quarkus:quarkus-spring-data-jpa`"
+          tags: []
+          title: Replace the SpringBoot Data JPA artifact with Quarkus 'spring-data-jpa'
+            extension
+      when:
+        or:
+        - artifact:
+            artifactId: spring-data-jpa
+            fromVersion: null
+            groupId: org.springframework.data
+            toVersion: null
+        - artifact:
+            artifactId: spring-boot-starter-data-jpa
+            fromVersion: null
+            groupId: org.springframework.boot
+            toVersion: null
+        - dependency:
+            artifactId: spring-data-jpa
+            groupId: org.springframework.data
+      where: {}

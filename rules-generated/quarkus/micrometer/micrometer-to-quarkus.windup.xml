@@ -1,0 +1,55 @@
+micrometer-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate micrometer components to Quarkus
+      extension
+    sourceTechnologies:
+    - id: micrometer
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-generated/quarkus/micrometer/micrometer-to-quarkus.windup.xml
+  rules:
+    quarkus-micrometer-registry-prometheus-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/micrometer
+              title: Quarkus - Guide
+            message: "Replace the `io.micrometer:micrometer-registry-prometheus` dependency\
+              \ with the Quarkus dependency `io.quarkus:quarkus-micrometer-registry-prometheus`\
+              \  \n                            Further information in the link below."
+            tags: []
+            title: Replace the 'micrometer-registry-prometheus' dependency with Quarkus
+              'quarkus-micrometer-registry-prometheus' extension
+          over: default
+      when:
+        artifact:
+          artifactId: micrometer-registry-prometheus
+          fromVersion: null
+          groupId: io.micrometer
+          toVersion: null
+      where: {}
+    quarkus-micrometer-registry-prometheus-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/micrometer
+            title: Quarkus - Guide
+          message: "Replace the `io.micrometer:micrometer-registry-prometheus` dependency\
+            \ with the Quarkus dependency `io.quarkus:quarkus-micrometer-registry-prometheus`\
+            \  \n                        Further information in the link below."
+          tags: []
+          title: Replace the 'micrometer-registry-prometheus' dependency with Quarkus
+            'quarkus-micrometer-registry-prometheus' extension
+      when:
+        dependency:
+          artifactId: micrometer-registry-prometheus
+          groupId: io.micrometer
+      where: {}

@@ -1,0 +1,65 @@
+observability:
+  metadata:
+    description: This ruleset generates tags for observability related technologies
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/observability.windup.xml
+  rules:
+    observability-0100:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds Spring Boot Actuator.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Spring Boot Actuator
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Spring Boot Actuator
+      when:
+        or:
+        - dependency:
+            artifactId: spring-boot-actuator
+            groupId: org.springframework.boot
+        - artifact:
+            artifactId: spring-boot-starter-actuator
+            fromVersion: null
+            groupId: org.springframework.boot
+            toVersion: null
+        - artifact:
+            artifactId: spring-boot-actuator
+            fromVersion: null
+            groupId: org.springframework.boot
+            toVersion: null
+        - artifact:
+            artifactId: spring-boot-actuator-autoconfigure
+            fromVersion: null
+            groupId: org.springframework.boot
+            toVersion: null
+      where: {}
+    observability-0200:
+      perform:
+        classification:
+          category-id: information
+          description: The application uses Spring JMX.
+          effort: '0'
+          links: []
+          tags: []
+          title: Spring JMX configuration detected
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Spring JMX
+      when:
+        or:
+        - xmlfile:
+            matches: //*/c:bean/@class[windup:matches(self::node(), 'org.springframework.jmx.export.MBeanExporter')]
+            namespace:
+              prefix: c
+              uri: http://www.springframework.org/schema/beans
+        - annotation-types: []
+          javaclass:
+            references: org.springframework.jmx.{*}
+          location: ANNOTATION
+      where: {}

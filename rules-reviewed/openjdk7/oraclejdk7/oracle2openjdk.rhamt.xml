@@ -1,0 +1,163 @@
+oracle2openjdk:
+  metadata:
+    description: This ruleset provides analysis with respect to the migration from
+      OracleJDK to OpenJDK.
+    sourceTechnologies:
+    - id: oraclejdk
+      versionRange: '[7,)'
+    tags: []
+    targetTechnologies:
+    - id: openjdk
+      versionRange: '[7,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/openjdk7/oraclejdk7/oracle2openjdk.rhamt.xml
+  rules:
+    oracle2openjdk-00000:
+      perform:
+        hint:
+          category-id: potential
+          effort: '0'
+          links:
+          - href: https://access.redhat.com/solutions/3299701
+            title: Knowledge base article about JavaFX support in RHEL
+          - href: https://bugzilla.redhat.com/show_bug.cgi?id=1275610
+            title: RFE to include OpenJFX in RHEL
+          message: Currently OpenJFX (open-source implementation of JavaFX) is neither
+            shipped nor supported on RHEL.
+          tags:
+          - JavaFX
+          title: JavaFX usage
+      when:
+        annotation-types: []
+        javaclass:
+          references: javafx.{*}
+        location: IMPORT
+      where: {}
+    oracle2openjdk-00001:
+      perform:
+        hint:
+          category-id: potential
+          effort: '0'
+          links:
+          - href: https://access.redhat.com/solutions/2489791
+            title: Knowledge base article OracleJDK vs. OpenJDK
+          message: "The font library is different in OpenJDK compared to OracleJDK.\n\
+            \                        This means slightly different text layout in\
+            \ some cases.\n                        Ensure with tests that the output\
+            \ is still as expected."
+          tags:
+          - fonts
+          title: Fonts usage
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: '{package}.Font'
+          location: IMPORT
+        - annotation-types: []
+          javaclass:
+            references: '{package}.{*}Font{*}'
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: javax.swing.{*}.{*}Font{*}
+          location: METHOD_CALL
+      where:
+        package: (java\.awt|javafx\.scene\.text)
+    oracle2openjdk-00002:
+      perform:
+        hint:
+          category-id: potential
+          effort: '0'
+          links:
+          - href: https://access.redhat.com/solutions/2489791
+            title: Knowledge base article OracleJDK vs. OpenJDK
+          message: OpenJDK does not support the resource management API for Java.
+          tags:
+          - Oracle JDK resource management
+          title: Resource management API usage
+      when:
+        annotation-types: []
+        javaclass:
+          references: jdk.management.resource.{*}
+      where: {}
+    oracle2openjdk-00003:
+      perform:
+        hint:
+          category-id: potential
+          effort: '0'
+          links:
+          - href: https://access.redhat.com/solutions/2489791
+            title: Knowledge base article OracleJDK vs. OpenJDK
+          message: "OracleJDK used to use KCMS as color mangement system up until\
+            \ JDK7 by default. It switched to Little CMS (LCMS) with JDK8.\n     \
+            \                   OpenJDK uses LCMS. If you continued to use KCMS by\
+            \ using the property ``sun.java2d.cmm=sun.java2d.cmm.kcms.KcmsServiceProvider``,\
+            \ remove this property and ensure in your tests that your application\
+            \ still works as expected."
+          tags:
+          - JDK color management
+          title: Color management usage
+      when:
+        annotation-types: []
+        javaclass:
+          references: java.awt.Color
+      where: {}
+    oracle2openjdk-00004:
+      perform:
+        hint:
+          category-id: potential
+          effort: '0'
+          links:
+          - href: https://access.redhat.com/solutions/2489791
+            title: Knowledge base article OracleJDK vs. OpenJDK
+          message: "OpenJDK has its own 2D library, different from the proprietary\
+            \ JDK. This means that its performance may be different.\n           \
+            \            Ensure during your tests that the application behaves as\
+            \ expected."
+          tags:
+          - 2D library
+          title: Java 2D library usage
+      when:
+        annotation-types: []
+        javaclass:
+          references: java.awt.{package}{*}
+        location: IMPORT
+      where:
+        package: (geom|color|font|image|image\.renderable|print)
+    oracle2openjdk-00005:
+      perform:
+        hint:
+          category-id: potential
+          effort: '0'
+          links:
+          - href: https://access.redhat.com/solutions/2489791
+            title: Knowledge base article OracleJDK vs. OpenJDK
+          message: "When on RHEL, OpenJDK uses the NSS crypto library from RHEL instead\
+            \ of the built-in one.\n\n                    This mostly affects elliptic\
+            \ curve cryptography, where OpenJDK supports all of the RHEL curves and\
+            \ none of the others.\n                    \n                    A list\
+            \ of all cipher suits of NSS in RHEL:\n\n                    * RHEL6:\
+            \ [https://access.redhat.com/articles/1470663](https://access.redhat.com/articles/1470663)\n\
+            \                    * RHEL7: [https://access.redhat.com/articles/1463663](https://access.redhat.com/articles/1463663)"
+          tags:
+          - crypto
+          title: 'Crypto: elliptic curves usage'
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: java.security.KeyPairGenerator.getInstance({*}
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: javax.crypto.KeyAgreement.getInstance({*}
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: java.security.spec.EC{*}
+          location: VARIABLE_DECLARATION
+        - annotation-types: []
+          javaclass:
+            references: java.security.spec.EllipticCurve{*}
+          location: VARIABLE_DECLARATION
+      where: {}

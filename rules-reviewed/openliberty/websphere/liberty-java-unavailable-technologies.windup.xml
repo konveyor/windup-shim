@@ -1,0 +1,335 @@
+liberty-java-unavailable-technologies:
+  metadata:
+    description: This ruleset identifies usage of Java APIs and technologies which
+      are not provided by Open Liberty.
+    sourceTechnologies:
+    - id: websphere
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: openliberty
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml
+  rules:
+    DetectEJBEntityBeansXML:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '13'
+          links:
+          - href: https://www.ibm.com/docs/wamt?topic=rules-open-liberty-migration-in-windup
+            title: Open Liberty migration rules in Windup
+          message: "<div class=\"Text\"> <span class=\"SubHeader\">Entity Enterprise\
+            \ JavaBeans (EJB)</span> \n <p> This rule flags <code>entity</code> elements\
+            \ in <span class=\"FilePath\">ejb-jar.xml</span> files. </p> \n <p> Entity\
+            \ beans are optional in the EJB 3.2 specification and are not supported\
+            \ on Liberty or Liberty Core. The entity bean API is deprecated in WebSphere\
+            \ Application Server traditional V8.5.5 and V9.0 and might be removed\
+            \ in a later version.</p> \n <p> The EJBDeploy tool used to deploy applications\
+            \ with entity beans has also been deprecated and may be removed in the\
+            \ future, either at the same time entity beans are removed or prior. </p>\
+            \ \n <p>The Java Persistence API (JPA) is an alternative to using EJB\
+            \ entity beans for new database and other persistence-related operations.\
+            \ </p> \n <p> Upgrading entity beans can be difficult, but it can be simplified\
+            \ if your application uses design patterns such as DTO, Session Facade,\
+            \ and DAO. </p> \n</div>"
+          tags: []
+          title: Entity Enterprise JavaBeans (EJB) are unavailable
+      when:
+        xmlfile:
+          in: '{DetectEJBEntityBeansXML_0_filesFilter}'
+          matches: //*[local-name()='entity']
+      where:
+        DetectEJBEntityBeansXML_0_filesFilter: ejb-jar.xml
+    DetectJAXRJava:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://www.ibm.com/docs/wamt?topic=rules-open-liberty-migration-in-windup
+            title: Open Liberty migration rules in Windup
+          message: "<div class=\"Text\"> <span class=\"SubHeader\">Java API for XML\
+            \ Registries (JAXR)</span> \n <p> This rule flags Java code that has references\
+            \ to the following packages: </p> \n <ul> \n  <li><code>javax.xml.registry</code></li>\
+            \ \n  <li><code>javax.xml.registry.infomodel</code></li> \n </ul> \n <p>The\
+            \ Java API for XML Registries (JAXR) is not supported on Liberty or Liberty\
+            \ Core. The API is deprecated in WebSphere Application Server traditional\
+            \ V9.0. If your application uses the JAXR API, you can deploy this part\
+            \ of your application on WebSphere Application Server traditional but\
+            \ the capability might be removed in a later version. It is recommended\
+            \ to migrate to using UDDI Version 3 to replace JAXR technologies. </p>\
+            \ \n</div>"
+          tags: []
+          title: Java API for XML Registries (JAXR) is unavailable
+      when:
+        annotation-types: []
+        javaclass:
+          references: '{DetectJAXRJava_0_packages}'
+      where:
+        DetectJAXRJava_0_packages: (javax.xml.registry\.[^.]+|javax.xml.registry.infomodel\.[^.]+)
+    DetectJAXRPC:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '5'
+          links:
+          - href: https://www.ibm.com/docs/wamt?topic=rules-open-liberty-migration-in-windup
+            title: Open Liberty migration rules in Windup
+          message: "<div class=\"Text\"><p>This rule flags the use of any JAX-RPC\
+            \ specific packages and configuration files. Also, this rule will flag\
+            \ any use of the\n                        <code>jaxrpc-mapping-file</code>\
+            \ tag in XML Mapping files. The following table lists Java packages, configuration\
+            \ files and\n                        XML mapping files impacted by this\
+            \ rule:</p>\n\n                        <h3>Packages</h3>\n           \
+            \             <ul>\n                        <li>javax.xml.rpc</li>\n \
+            \                       <li>javax.xml.rpc.encoding</li>\n            \
+            \            <li>javax.xml.rpc.handler</li>\n                        <li>javax.xml.rpc.handler.soap</li>\n\
+            \                        <li>javax.xml.rpc.holders</li>\n            \
+            \            <li>javax.xml.rpc.server</li>\n                        <li>javax.xml.rpc.soap</li>\n\
+            \                        </ul>\n                        <h3>Configuration\
+            \ Files</h3>\n                        <ul>\n                        <li>ibm-webservices-ext.xmi</li>\n\
+            \                        <li>ibm-webservices-bnd.xmi</li>\n          \
+            \              <li>ibm-webservicesclient-ext.xmi</li>\n              \
+            \          <li>ibm-webservicesclient-bnd.xmi</li>\n                  \
+            \      <li>ws-security.xml</li>\n                        </ul>\n     \
+            \                   <h3>XML Mapping Files</h3>\n                     \
+            \   <ul>\n                        <li>webservices.xml</li>\n         \
+            \               <li>web.xml</li>\n                        <li>ejb-jar.xml</li>\n\
+            \                        <li>ibm-webservicesclient-bnd.xmi</li>\n    \
+            \                    <li>application.xml</li>\n                      \
+            \  </ul>\n\n                        <p>\n                        The Java\
+            \ API for XML-based RPC (JAX-RPC) is not supported on Liberty or Liberty\
+            \ Core.\n                        The technology is deprecated in WebSphere\
+            \ Application Server traditional V9.0 and might be removed in a later\
+            \ version.\n                        If your application uses JAX-RPC,\
+            \ the preferred migration path is to use JAX-WS, but here are the alternatives:</p>\n\
+            \n                        <ul>\n                        <li>Option 1:\
+            \ Migrate JAX-RPC web services to JAX-WS web services</li>\n         \
+            \               <li>Option 2: Use the Apache Axis 1 JAX-RPC engine on\
+            \ Liberty</li>\n                        <li>Option 3: Use WebSphere Application\
+            \ Server traditional with its native JAX-RPC engine</li>\n           \
+            \             </ul>\n\n                        </div>"
+          tags: []
+          title: Java API for XML-based RPC (JAX-RPC) is unavailable
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: javax.xml.rpc{*}
+        - file:
+            filename: '{DetectJAXRPC_1_files}'
+        - xmlfile:
+            in: '{DetectJAXRPC_2_filesFilter}'
+            matches: //*[local-name()='jaxrpc-mapping-file']
+      where:
+        DetectJAXRPC_1_files: (ibm-webservices(client)?-(ext|bnd)\.xmi)|(ws-security.xml)
+        DetectJAXRPC_2_filesFilter: webservices.xml|web.xml|ejb-jar.xml|application.xml
+    DetectJavaApplicationDeploymentJava:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '5'
+          links:
+          - href: https://www.ibm.com/docs/wamt?topic=rules-open-liberty-migration-in-windup
+            title: Open Liberty migration rules in Windup
+          message: "<div class=\"Text\"> <span class=\"SubHeader\">Java EE Application\
+            \ Deployment API</span> \n <p> This rule flags Java code that references\
+            \ the <code>javax.enterprise.deploy</code> package. </p> \n <p> The Java\
+            \ EE Application Deployment API is not supported on Liberty or Liberty\
+            \ Core. The technology is deprecated in WebSphere Application Server traditional\
+            \ V9.0. If your application uses the Java EE Application Deployment API,\
+            \ you can deploy this part of your application on WebSphere Application\
+            \ Server traditional but the capability might be removed in a later version.\
+            \ </p> \n <p> Use another way to deploy applications to the server, such\
+            \ as wsadmin scripting and JMX MBeans. The closest method to using the\
+            \ Java EE Deployment API is to use WebSphere JMX MBeans. For more information,\
+            \ see <a href=\"https://www.ibm.com/support/knowledgecenter/SSAW57_9.0.5/com.ibm.websphere.nd.multiplatform.doc/ae/crun_app_install.html\"\
+            \ title=\"Opens a new window\" onclick=\"javascript:helpWindow('https://www.ibm.com/support/knowledgecenter/SSAW57_9.0.5/com.ibm.websphere.nd.multiplatform.doc/ae/crun_app_install.html');return\
+            \ false\"> Ways to install enterprise applications or modules. </a> </p>\
+            \ \n <p> For Liberty, see <a href=\"https://www.ibm.com/docs/en/was-liberty/base?topic=SSEQTP_liberty/com.ibm.websphere.wlp.nd.multiplatform.doc/ae/twlp_dep.html\"\
+            \ title=\"Opens a new window\" onclick=\"javascript:helpWindow('https://www.ibm.com/docs/en/was-liberty/base?topic=SSEQTP_liberty/com.ibm.websphere.wlp.nd.multiplatform.doc/ae/twlp_dep.html');return\
+            \ false\"> Deploying applications in Liberty. </a> </p> \n</div>"
+          tags: []
+          title: Java EE Application Deployment API is unavailable
+      when:
+        annotation-types: []
+        javaclass:
+          references: javax.enterprise.deploy.{*}
+      where: {}
+    DetectJavaPortlet:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '5'
+          links:
+          - href: https://www.ibm.com/docs/wamt?topic=rules-open-liberty-migration-in-windup
+            title: Open Liberty migration rules in Windup
+          message: "<div class=\"Text\">  \n <p> This rule flags Java code that has\
+            \ references to the following packages: </p> \n <ul> \n  <li><code>javax.portlet</code></li>\
+            \ \n  <li><code>javax.portlet.filter</code></li> \n </ul> \n <p>This rule\
+            \ also flags the following references in the portlet.xml file: </p> \n\
+            \ <ul> \n  <li><code>&lt;portlet-app&gt;&lt;/portlet-app&gt;</code></li>\
+            \ \n </ul> \n <p>The Java Portlet API and its deployment descriptors are\
+            \ not supported on Liberty. Deploy this part of your application on WebSphere\
+            \ Application Server traditional. </p> \n</div>"
+          tags: []
+          title: Java Portlet is unsupported
+      when:
+        annotation-types: []
+        javaclass:
+          references: '{DetectJavaPortlet_0_packages}'
+      where:
+        DetectJavaPortlet_0_packages: (javax.portlet\.[^.]+|javax.portlet.filter\.[^.]+)
+    DetectRemoteBundleRepositoriesJava:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://www.ibm.com/docs/wamt?topic=rules-open-liberty-migration-in-windup
+            title: Open Liberty migration rules in Windup
+          message: "<div class=\"Text\"> \n <p>The OSGI repository service APIs is\
+            \ not supported in Liberty or Liberty Core.</p> \n <p>This rule flags\
+            \ java references to APIs in the <code>org.osgi.service.repository</code>\
+            \ package.</p> \n</div>"
+          tags: []
+          title: The OSGI remote bundle repository service API is unavailable
+      when:
+        annotation-types: []
+        javaclass:
+          references: '{DetectRemoteBundleRepositoriesJava_0_packages}'
+      where:
+        DetectRemoteBundleRepositoriesJava_0_packages: org.osgi.service.repository\.[^.]+
+    DetectRemoteServicesJava:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://www.ibm.com/docs/wamt?topic=rules-open-liberty-migration-in-windup
+            title: Open Liberty migration rules in Windup
+          message: "<div class=\"Text\"> \n <p>The OSGI Remote Service Admin is not\
+            \ supported in Liberty or Liberty Core.</p> \n <p>This rule flags java\
+            \ references to APIs in the <code>org.osgi.service.remoteserviceadmin</code>\
+            \ package.</p> \n</div>"
+          tags: []
+          title: The OSGI Remote Service Admin API is unavailable
+      when:
+        annotation-types: []
+        javaclass:
+          references: '{DetectRemoteServicesJava_0_packages}'
+      where:
+        DetectRemoteServicesJava_0_packages: org.osgi.service.remoteserviceadmin\.[^.]+
+    DetectTransactionPropagationEJBRemote:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://www.ibm.com/docs/wamt?topic=rules-open-liberty-migration-in-windup
+            title: Open Liberty migration rules in Windup
+          message: "<div class=\"Text\">  \n <p> Liberty does not support outbound\
+            \ or inbound transaction propagation for EJB remote interfaces. By default,\
+            \ EJB beans are container-managed and use the <code>Required</code> transaction\
+            \ attribute. As a result, existing EJB definitions that do not specify\
+            \ any <code>container-transaction</code> properties are configured by\
+            \ default to use transactions although they are not supported. </p> \n\
+            \ <p>This rule flags Java code that references the following EJB annotations\
+            \ that indicate the use of remote business or home interfaces:</p> \n\
+            \ <ul> \n  <li><code>javax.ejb.Remote</code></li> \n  <li><code>javax.ejb.RemoteHome</code></li>\
+            \ \n </ul> \n <p>This rule also flags the following references in the\
+            \ <span class=\"FilePath\">ejb-jar.xml</span> file:</p> \n <ul> \n  <li><code>&lt;remote/&gt;</code></li>\
+            \ \n  <li><code>&lt;business-remote/&gt;</code></li> \n </ul> \n <p> The\
+            \ EJB specification requires products that support outbound transaction\
+            \ propagation to still send a null transaction context. This context must\
+            \ be rejected by EJB components that use the <code>Required</code> (default),\
+            \ <code>Mandatory</code> , or <code>Supports</code> transaction attributes.\
+            \ A client with an active global transaction cannot start an EJB bean\
+            \ with default transaction attributes if either the client or server is\
+            \ on Liberty. </p> \n <p> To enable the client to start the EJB bean,\
+            \ change the EJB bean to use either the <code>RequiresNew</code> or <code>NotSupported</code>\
+            \ transaction attribute. Although these attributes will allow the EJB\
+            \ bean to start, the transactional work that is done by the EJB bean is\
+            \ not committed as part of the client transactions. </p> \n <p> Note that\
+            \ transaction propagation is supported for EJB remote interfaces that\
+            \ are running in the same JVM, however this may only be determined with\
+            \ further investigation of the application behavior. </p> \n <h4>Make\
+            \ sure remote EJB interfaces are needed</h4> \n <p> Often EJB 2.x beans\
+            \ configure the remote interfaces in ejb-jar.xml even when they are not\
+            \ used. You only need remote interfaces if you have code running across\
+            \ two different JVMs. In WebSphere terms, this is either between two different\
+            \ application servers or between a client application and an application\
+            \ server running in different JVMs. CORBA information, such as an <code>iiop://</code>\
+            \ provider URL, in an EJB lookup is also an indicator that remote EJB\
+            \ beans are being used. </p> \n <p> If you are referencing EJB beans using\
+            \ a remote interface that are running in the same JVM, the Local interface\
+            \ can be used and will perform better. Where possible, change annotations\
+            \ from @Remote to @Local and from @RemoteHome to @LocalHome and test all\
+            \ your code scenarios. Likewise for ejb-jar.xml configuration, remove\
+            \ the <code>&lt;remote/&gt;</code> and <code>&lt;business-remote/&gt;</code>\
+            \ definitions and test all scenarios. While transaction propagation is\
+            \ supported for this scenario, the best practice is to convert to using\
+            \ local interfaces to improve performance and remove the perception that\
+            \ methods can be called externally from the same JVM. </p> \n <h4>If you\
+            \ really need remote interfaces</h4> \n <h5>Wrap the EJB beans in a web\
+            \ service (JAX-WS)</h5> \n <p> For those EJB beans that require remote\
+            \ access, best practice is to wrap them in a web service. Refer to <a\
+            \ href=\"https://www.ibm.com/docs/en/wasdtfe?topic=annotations-annotating-ejb-bean-create-web-service\"\
+            \ title=\"Opens a new window\" onclick=\"javascript:helpWindow('https://www.ibm.com/docs/en/wasdtfe?topic=annotations-annotating-ejb-bean-create-web-service');\
+            \ return false;\"> Annotating an EJB bean to create a web service</a>\
+            \ for instructions on using WebSphere Application Server Developer Tools\
+            \ for Eclipse to make these code changes. After wrapping the EJB beans\
+            \ in web services, use the web service client to call the EJB web service.\
+            \ After testing, you can remove the EJB remote annotations or configuration.\
+            \ </p> \n <h5>Handling Transaction Propagation</h5> Liberty provides Web\
+            \ Services Atomic Transaction (WS-AT) support which enables distributed\
+            \ global transactions. When your EJB are deployed as web services, WS-AT\
+            \ can be used to manage the transactions. See <a href=\"https://www.ibm.com/docs/en/was-liberty/base?topic=liberty-web-services-atomic-transaction-overview\"\
+            \ title=\"Opens a new window\" onclick=\"javascript:helpWindow('https://www.ibm.com/docs/en/was-liberty/base?topic=liberty-web-services-atomic-transaction-overview');\
+            \ return false;\"> Web Services Atomic Transaction overview</a> for more\
+            \ information. \n <p> For more information on related topics, see </p>\
+            \ \n <ul> \n  <li><a href=\"https://www.ibm.com/docs/en/was-liberty/nd?topic=liberty-using-enterprise-javabeans-remote-interfaces\"\
+            \ title=\"Opens a new window\" onclick=\"javascript:helpWindow('https://www.ibm.com/docs/en/was-liberty/nd?topic=liberty-using-enterprise-javabeans-remote-interfaces');\
+            \ return false;\"> Using enterprise JavaBeans with remote interfaces on\
+            \ Liberty</a></li> \n  <li><a href=\"https://www.ibm.com/docs/en/was-liberty/core?topic=deal-using-enterprise-javabeans-applications-that-call-local-ejb-components-in-another-application\"\
+            \ title=\"Opens a new window\" onclick=\"javascript:helpWindow('https://www.ibm.com/docs/en/was-liberty/core?topic=deal-using-enterprise-javabeans-applications-that-call-local-ejb-components-in-another-application');\
+            \ return false;\"> Using enterprise JavaBeans applications that call local\
+            \ EJB components in another application</a></li> \n </ul> \n</div>"
+          tags: []
+          title: Transaction propagation is not supported for Enterprise JavaBeans
+            (EJB) remote interfaces
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: '{DetectTransactionPropagationEJBRemote_0_classes}'
+        - xmlfile:
+            in: '{DetectTransactionPropagationEJBRemote_1_filesFilter}'
+            matches: //*[local-name()='remote' or local-name()='business-remote']
+      where:
+        DetectTransactionPropagationEJBRemote_0_classes: (javax.ejb.Remote|javax.ejb.RemoteHome)
+        DetectTransactionPropagationEJBRemote_1_filesFilter: ejb-jar.xml
+    DetectWSNotificationJava:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '5'
+          links:
+          - href: https://www.ibm.com/docs/wamt?topic=rules-open-liberty-migration-in-windup
+            title: Open Liberty migration rules in Windup
+          message: "<div class=\"Text\">  \n <p> This rule flags Java code that has\
+            \ references to the <code>org.oasis_open.docs.wsn</code> package. </p>\
+            \ \n <p>This rule also flags the following references in WSDL files: </p>\
+            \ \n <ul> \n  <li><code>&lt;import location=\"http://docs.oasis-open.org/wsn/*.wsdl\"\
+            &gt;&lt;/import&gt;</code></li> \n </ul> \n <p>Web Services Notification\
+            \ (WS-Notification) is not supported on Liberty or Liberty Core. If your\
+            \ application uses WS-Notification, you can deploy this part of your application\
+            \ on WebSphere Application Server traditional. </p> \n</div>"
+          tags: []
+          title: Web Services Notification (WS-Notification) is unavailable
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.oasis_open.docs.wsn.{*}
+      where: {}

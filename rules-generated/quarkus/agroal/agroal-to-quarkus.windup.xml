@@ -1,0 +1,55 @@
+agroal-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate agroal components to Quarkus
+      extension
+    sourceTechnologies:
+    - id: agroal
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-generated/quarkus/agroal/agroal-to-quarkus.windup.xml
+  rules:
+    quarkus-agroal-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/datasource
+              title: Quarkus - Guide
+            message: "Replace the `io.agroal:agroal-api` dependency with the Quarkus\
+              \ dependency `io.quarkus:quarkus-agroal`  \n                       \
+              \     Further information in the link below."
+            tags: []
+            title: Replace the 'agroal-api' dependency with Quarkus 'quarkus-agroal'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: agroal-api
+          fromVersion: null
+          groupId: io.agroal
+          toVersion: null
+      where: {}
+    quarkus-agroal-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/datasource
+            title: Quarkus - Guide
+          message: "Replace the `io.agroal:agroal-api` dependency with the Quarkus\
+            \ dependency `io.quarkus:quarkus-agroal`  \n                        Further\
+            \ information in the link below."
+          tags: []
+          title: Replace the 'agroal-api' dependency with Quarkus 'quarkus-agroal'
+            extension
+      when:
+        dependency:
+          artifactId: agroal-api
+          groupId: io.agroal
+      where: {}

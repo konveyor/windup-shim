@@ -1,0 +1,66 @@
+technology-usage-ejb:
+  metadata:
+    description: This ruleset provides statistical summaries of the EJB/CDI items
+      that were found during the analysis.
+    phase: PostMigrationRulesPhase
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/ejb-technology-usage.windup.xml
+  rules:
+    technology-usage-ejb-01000:
+      perform:
+        technology-identified:
+          name: Stateless (SLSB)
+          tags:
+          - Connect
+          - Bean
+          - Java EE
+      when:
+        graph_query:
+          discriminator: EjbSessionBeanModel
+          properties:
+          - name: sessionType
+            string: Stateless
+      where: {}
+    technology-usage-ejb-01100:
+      perform:
+        technology-identified:
+          name: Stateful (SFSB)
+          tags:
+          - Connect
+          - Bean
+          - Java EE
+      when:
+        graph_query:
+          discriminator: EjbSessionBeanModel
+          properties:
+          - name: sessionType
+            string: Stateful
+      where: {}
+    technology-usage-ejb-01200:
+      perform:
+        technology-identified:
+          name: Message (MDB)
+          tags:
+          - Connect
+          - Bean
+          - Java EE
+      when:
+        graph_query:
+          discriminator: EjbMessageDrivenModel
+          properties: []
+      where: {}
+    technology-usage-ejb-01300:
+      perform:
+        technology-identified:
+          name: Entity Bean
+          tags:
+          - Connect
+          - Bean
+          - Java EE
+      when:
+        graph_query:
+          discriminator: EjbEntityBeanModel
+          properties: []
+      where: {}

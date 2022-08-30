@@ -1,0 +1,64 @@
+websphere-other-eap7:
+  metadata:
+    description: Provides analysis of WebSphere proprietary classes and constructs
+      that may require individual attention when migrating to JBoss EAP 7+.
+    sourceTechnologies:
+    - id: websphere
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[7,)'
+    - id: java-ee
+      versionRange: '[7,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap7/websphere/websphere-other.windup.xml
+  rules:
+    websphere-other-eap7-01000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '5'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/configuration_guide/#jca_management
+            title: Java Connector Architecture (JCA) Management
+          - href: http://www.javaworld.com/article/2077671/build-ci-sdlc/the-wise-work-manager-for-context-based-scoping.html
+            title: Description of WebSphere Asynchronous Work
+          - href: https://jcp.org/en/jsr/detail?id=237
+            title: 'JSR 237: Work Manager for Application Servers'
+          message: "WebSphere Asynchronous Work is a Work Manager, whose purpose is\
+            \ to allow the user utilizing threads while letting the container manage\
+            \ them.\n\n                      For migration to JBoss EAP 7, [replace\
+            \ with JCA Work Manager](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/configuration_guide/#jca_management)."
+          tags:
+          - asynchronous
+          - websphere
+          title: WebSphere Work Manager
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.ibm.websphere.asynchbeans.Work
+        location: INHERITANCE
+      where: {}
+    websphere-other-eap7-02000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '4'
+          links:
+          - href: http://docs.oracle.com/javaee/7/api/javax/ejb/Singleton.html
+            title: EJB 3.1 Singleton Bean
+          - href: http://docs.oracle.com/javaee/7/api/javax/ejb/Startup.html
+            title: EJB 3.1 Startup Bean
+          message: "WebSphere Startup Service serves as a callback to be invoked when\
+            \ the server or application starts.\n\n                      When migrating\
+            \ to JBoss EAP 7, this has to be replaced with standard EJB 3.1 Startup\
+            \ Bean, using `@Startup @Singleton` class and `@PostConstruct` method."
+          tags:
+          - startup
+          - websphere
+          title: WebSphere Startup Service
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.ibm.websphere.startupservice.{*}StartUp{*}
+      where: {}

@@ -1,0 +1,43 @@
+singleton-sessionbean:
+  metadata:
+    description: This ruleset provides analysis of any java class with type annotation
+      javax.ejb.Singleton that also implement interface javax.ejb.SessionBean because
+      SessionBean API was deprecated starting with JBoss EAP 7.3.
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[7,8)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap7/eap72/singleton-sessionbean.rhamt.xml
+  rules:
+    singleton-sessionbean-00001:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links: []
+            message: "When a singleton EJB bean class implements `javax.ejb.SessionBean`\
+              \ interface, this interface should be removed from the implements clause.\
+              \  \n                            All methods declared in `javax.ejb.SessionBean`\
+              \ interface (see below) that are implemented in the bean class or its\
+              \ super classes should be checked for `@Override` annotation and remove\
+              \ this annotation too if present.  \n                            Methods\
+              \ declared by `javax.ejb.SessionBean` interface:  \n               \
+              \             \n                            ```\n                  \
+              \          void setSessionContext(SessionContext ctx);  \n         \
+              \                   \n                            void ejbRemove();\
+              \  \n                            \n                            void\
+              \ ejbActivate();  \n                            \n                 \
+              \           void ejbPassivate();  \n                            ```"
+            tags: []
+            title: Removed SessionBean interface
+          over: sessionbean
+      when:
+        annotation-types: []
+        javaclass:
+          as: sessionbean
+          from: singleton
+          references: javax.ejb.SessionBean
+        location: IMPLEMENTS_TYPE
+      where: {}

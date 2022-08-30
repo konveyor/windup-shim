@@ -1,0 +1,34 @@
+springboot-plugins-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate Spring Boot's plugins to Quarkus
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/quarkus/springboot/springboot-plugins-to-quarkus.windup.xml
+  rules:
+    springboot-plugins-to-quarkus-0000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '2'
+          links:
+          - href: https://quarkus.io/guides/maven-tooling#build-tool-maven
+            title: Building Quarkus with maven
+          message: "Replace the `spring-boot-maven-plugin` dependency.\n         \
+            \               The `spring-boot-maven-plugin` dependency needs to be\
+            \ replaced with `quarkus-maven-plugin`, so that the application is built\
+            \ with Quarkus, both for running on the JVM and in native mode."
+          tags: []
+          title: Replace the spring-boot-maven-plugin dependency
+      when:
+        xmlfile:
+          in: pom.xml
+          matches: /m:project/m:build/m:plugins/m:plugin[m:artifactId = 'spring-boot-maven-plugin']
+          namespace:
+            prefix: m
+            uri: http://maven.apache.org/POM/4.0.0
+      where: {}

@@ -1,0 +1,57 @@
+spring-boot-to-azure-cache:
+  metadata:
+    description: Identify any external caches in use.
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags:
+    - cache
+    targetTechnologies:
+    - id: azure-appservice
+      versionRange: null
+    - id: azure-aks
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/azure/springboot/spring-boot-to-azure-cache.windup.xml
+  rules:
+    spring-boot-to-azure-cache-redis-01000:
+      perform:
+        hint:
+          category-id: information
+          effort: '0'
+          links:
+          - href: https://docs.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-boot-to-app-service#identify-external-caches
+            title: Redis Cache found in the application
+          - href: https://azure.microsoft.com/services/cache
+            title: Azure Cache for Redis
+          - href: https://spring.io/projects/spring-data-redis
+            title: Spring Data Redis
+          - href: https://search.maven.org/artifact/com.azure.spring/azure-spring-cloud-starter-cache
+            title: Azure Spring Cloud Starter Cache
+          message: "The application uses a Redis Cache.\n\n                      \
+            \  Checkout Azure Cache for Redis for a fully managed cache on Azure."
+          tags:
+          - redis
+          title: Redis Cache found in the application
+      when:
+        or:
+        - artifact:
+            artifactId: spring-boot-starter-data-redis
+            fromVersion: null
+            groupId: org.springframework.boot
+            toVersion: null
+        - artifact:
+            artifactId: spring-data-redis
+            fromVersion: null
+            groupId: org.springframework.data
+            toVersion: null
+        - artifact:
+            artifactId: spring-session-data-redis
+            fromVersion: null
+            groupId: org.springframework.session
+            toVersion: null
+        - artifact:
+            artifactId: spring-integration-redis
+            fromVersion: null
+            groupId: org.springframework.integration
+            toVersion: null
+      where: {}

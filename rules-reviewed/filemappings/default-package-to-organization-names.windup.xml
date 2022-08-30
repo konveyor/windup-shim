@@ -1,0 +1,345 @@
+DefaultPackageToVendorNames:
+  metadata:
+    description: This rule set configures the organization matching functionality,
+      using known root-package prefixes to identify libraries and other code.
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/filemappings/default-package-to-organization-names.windup.xml
+  rules:
+    default-package-to-vendor-00100:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-00200:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-00300:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-00400:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-00500:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-00600:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-00700:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-00800:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-00900:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-01000:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-01100:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-01200:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-01300:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-01400:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-01500:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-01600:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-01700:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-01800:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-01900:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-02000:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-02100:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-02200:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-02300:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-02400:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-02500:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-02600:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-02700:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-02800:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-02900:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-03000:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-03100:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-03200:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-03300:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-03400:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-03500:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-03600:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-03700:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-03800:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-03900:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04000:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04100:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04200:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04300:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04400:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04500:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04600:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04700:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04800:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04900:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-04901:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-05000:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-05100:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-05200:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-05300:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-05400:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-05500:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-05600:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-05700:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-05800:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-05900:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-06000:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-06100:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-06200:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-06300:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-06400:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-06500:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-06600:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-06700:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-06800:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-06900:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-07000:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-07100:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-07200:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-07300:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-07400:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-07500:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-07600:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-07700:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-07800:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-07900:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-08000:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-08100:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-08200:
+      perform: {}
+      when: {}
+      where: {}
+    default-package-to-vendor-08300:
+      perform: {}
+      when: {}
+      where: {}

@@ -1,0 +1,298 @@
+integration:
+  metadata:
+    description: This ruleset provides analysis of 3rd party embedded frameworks.
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/integration.windup.xml
+  rules:
+    integration-00001:
+      perform:
+        classification:
+          category-id: information
+          description: The application embedds an Apache Camel library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Apache Camel
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Apache Camel
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*camel.*\.jar$
+      where: {}
+    integration-00002:
+      perform:
+        classification:
+          category-id: information
+          description: The application embedds a Teiid library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Teiid
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Teiid
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*teiid.*\.jar$
+      where: {}
+    integration-00003:
+      perform:
+        iteration:
+          perform:
+            classification:
+              category-id: information
+              description: The application embeds the Spring Integration framework.
+              effort: '0'
+              links: []
+              tags: []
+              title: Embedded framework - Spring Integration
+            technology-tag:
+              level: INFORMATIONAL
+              tag: Spring Integration
+          when:
+            file:
+              filename: spring-integration{*}test{*}.jar
+      when:
+        file:
+          filename: spring-integration{*}.jar
+      where: {}
+    integration-00004:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an Ikasan library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - Ikasan
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Ikasan
+      when:
+        file:
+          filename: '{*}ikasan{*}.jar'
+      where: {}
+    integration-00005:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Swagger library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - Swagger
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Swagger
+      when:
+        file:
+          filename: '{*}swagger{*}.jar'
+      where: {}
+    integration-00006:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an Apiman library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - Apiman
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Apiman
+      when:
+        file:
+          filename: '{*}apiman{*}.jar'
+      where: {}
+    integration-00007:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a 3scale library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - 3scale
+        technology-tag:
+          level: INFORMATIONAL
+          tag: 3scale
+      when:
+        file:
+          filename: '{*}3scale{*}.jar'
+      where: {}
+    integration-00008:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an Istio library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - Istio
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Istio
+      when:
+        file:
+          filename: '{*}istio{*}.jar'
+      where: {}
+    integration-00009:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a ServiceMix library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - ServiceMix
+        technology-tag:
+          level: INFORMATIONAL
+          tag: ServiceMix
+      when:
+        file:
+          filename: '{*}servicemix{*}.jar'
+      where: {}
+    integration-00010:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Mule library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - Mule
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Mule
+      when:
+        file:
+          filename: '{*}mule{*}.jar'
+      where: {}
+    integration-00011:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Petals EIP library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - Petals EIP
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Petals EIP
+      when:
+        file:
+          filename: '{*}petals{*}eip{*}.jar'
+      where: {}
+    integration-00012:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a SwitchYard library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - SwitchYard
+        technology-tag:
+          level: INFORMATIONAL
+          tag: SwitchYard
+      when:
+        file:
+          filename: '{*}switchyard{*}.jar'
+      where: {}
+    integration-00013:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an Apache Synapse library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - Apache Synapse
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Apache Synapse
+      when:
+        file:
+          filename: '{*}synapse{*}.jar'
+      where: {}
+    integration-00014:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a WSO2 library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - WSO2
+        technology-tag:
+          level: INFORMATIONAL
+          tag: WSO2
+      when:
+        file:
+          filename: '{*}wso2{*}.jar'
+      where: {}
+    integration-00015:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Talend ESB library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - Talend ESB
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Talend ESB
+      when:
+        file:
+          filename: '{*}talend{*}.jar'
+      where: {}
+    integration-00016:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds the Spring Integration framework.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - Spring Integration
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Spring Integration
+      when:
+        xmlfile:
+          matches: //*/int:channel
+          namespace:
+            prefix: int
+            uri: http://www.springframework.org/schema/integration
+      where: {}
+    integration-00017:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds the Spring Integration framework.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded framework - Spring Integration
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Spring Integration
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.springframework.integration.dsl.IntegrationFlow
+        location: IMPORT
+      where: {}

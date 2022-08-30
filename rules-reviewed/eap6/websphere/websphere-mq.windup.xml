@@ -1,0 +1,110 @@
+websphere-mq:
+  metadata:
+    description: "Provides analysis of WebSphere MQ proprietary classes and configuration\
+      \ that may require individual attention when migrating to\n            JBoss\
+      \ EAP 6+."
+    sourceTechnologies:
+    - id: websphere
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[6,7)'
+    - id: java-ee
+      versionRange: '[6,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap6/websphere/websphere-mq.windup.xml
+  rules:
+    websphere-mq-00000:
+      perform:
+        classification:
+          category-id: mandatory
+          description: "WebSphere MQ client API is used to communicate with the MQ\
+            \ server from client-side applications.\n                        For JBoss\
+            \ EAP 6, this needs to be replaced with standard Java EE 6 JMS API, or\
+            \ with HornetQ client API."
+          effort: '3'
+          issue-display-mode: all
+          links:
+          - href: https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html
+            title: Java EE 6 JMS Tutorial
+          - href: http://www-01.ibm.com/support/knowledgecenter/SSVHEW_6.2.0/com.ibm.mqe.javadoc/java/overview-summary.html
+            title: WebSphere MQ JavaDoc
+          tags:
+          - jms
+          - websphere
+          title: IBM MQ client API
+      when:
+        annotation-types: []
+        javaclass:
+          references: '{package}.{type}'
+      where:
+        package: com.ibm(\..*)?\.(mq|wmq).*
+        type: '[^.]+'
+    websphere-mq-01000:
+      perform:
+        classification:
+          description: "The WebSphere MQ client API is used to communicate with the\
+            \ MQ server from client-side applications.\n                        For\
+            \ JBoss EAP 6, this needs to be replaced with standard Java EE 6 JMS API,\
+            \ or with HornetQ client API."
+          issue-display-mode: detail-only
+          links: []
+          tags: []
+          title: IBM MQ Configuration
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/index#Migrate_Your_Application_to_Use_HornetQ_as_the_JMS_Provider
+            title: Migration Guide - HornetQ
+          - href: https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html
+            title: Java EE 6 JMS Tutorial
+          message: "`WMQInitialContextFactory` is an implementation of `InitialContextFactory`\n\
+            \                        used to get object instances from JNDI. The\n\
+            \                        equivalent functionality needs to be configured\
+            \ on JBoss EAP 6 using HornetQ.\n                        `InitialContextFactory`\
+            \ is provided\n                        by EAP and you only need to instantiate\
+            \ `InitialContext ctx = new InitialContext();`."
+          tags:
+          - jms
+          - messaging
+          - configuration
+          - websphere
+          title: IBM JMS implementation of WMQInitialContextFactory
+      when:
+        filecontent:
+          filename: '{*}.{ext}'
+          pattern: com.ibm.mq.jms.context.WMQInitialContextFactory
+      where:
+        ext: (java|properties|xml)
+    websphere-mq-02000:
+      perform:
+        classification:
+          issue-display-mode: detail-only
+          links: []
+          tags: []
+          title: IBM MQ Configuration
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/index#Configure_Messaging_with_HornetQ2
+            title: Configure Messaging with HornetQ
+          - href: https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html
+            title: Java EE 6 JMS Tutorial
+          message: "WebSphere `.scp` files contain scripts for the `jmsadmin` program\
+            \ which is used\n                        to configure the WebSphere MQ\
+            \ destinations\n                        and routing. To configure messaging\
+            \ in JBoss EAP 6 with HornetQ, use either the Management Console or Management\
+            \ CLI with it's\n                        scripting feature."
+          tags:
+          - jms
+          - messaging
+          - configuration
+          - websphere
+          title: IBM WebSphere .scp file
+      when:
+        filecontent:
+          filename: '{*}.scp'
+          pattern: '{*}'
+      where: {}

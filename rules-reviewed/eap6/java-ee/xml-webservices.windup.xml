@@ -1,0 +1,232 @@
+xml-webservices:
+  metadata:
+    description: This ruleset provides informative, not actionable rules. It identifies
+      some Apache Axis, XFire or Apache CXF configuration for Web Services.
+    sourceTechnologies:
+    - id: java-ee
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[6,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml
+  rules:
+    xml-webservices-01000:
+      perform:
+        iteration:
+          classification:
+            category-id: optional
+            effort: '0'
+            issue-display-mode: detail-only
+            links: []
+            tags:
+            - apache-axis
+            - webservice
+            title: Apache Axis Service Group
+      when:
+        xmlfile:
+          as: default
+          matches: /serviceGroup/service/operation
+      where: {}
+    xml-webservices-02000:
+      perform:
+        iteration:
+          classification:
+            category-id: optional
+            effort: '0'
+            issue-display-mode: detail-only
+            links: []
+            tags:
+            - apache-axis
+            - webservice
+            title: Apache Axis Module
+      when:
+        xmlfile:
+          as: default
+          matches: /module/InFlow
+      where: {}
+    xml-webservices-03000:
+      perform:
+        iteration:
+          classification:
+            category-id: optional
+            effort: '0'
+            issue-display-mode: detail-only
+            links: []
+            tags:
+            - apache-axis
+            - webservice
+            title: Apache Axis Configuration
+      when:
+        xmlfile:
+          as: default
+          matches: /axisconfig
+      where: {}
+    xml-webservices-04000:
+      perform:
+        iteration:
+          classification:
+            category-id: optional
+            effort: '0'
+            issue-display-mode: detail-only
+            links: []
+            tags:
+            - xfire
+            - webservice
+            title: XFire 1.x Configuration
+      when:
+        xmlfile:
+          as: default
+          matches: /xfire:beans
+          namespace:
+            prefix: xfire
+            uri: http://xfire.codehaus.org/config/1.0
+      where: {}
+    xml-webservices-05000:
+      perform:
+        iteration:
+          classification:
+            category-id: optional
+            effort: '0'
+            issue-display-mode: detail-only
+            links: []
+            tags:
+            - webservice
+            title: JAX-WS Handler Chain
+      when:
+        xmlfile:
+          as: default
+          matches: /*[local-name()='handler-chains']
+          namespace:
+            prefix: jee
+            uri: http://java.sun.com/xml/ns/javaee
+      where: {}
+    xml-webservices-06000:
+      perform:
+        iteration:
+          hint:
+            category-id: optional
+            effort: '0'
+            links:
+            - href: https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Development_Guide/sect-JAX-WS_Development_Reference.html#JAX-WS_Common_API_Reference
+              title: JBoss EAP 6 - JAX-WS Web Services Common API
+            - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html-single/developing_web_services_applications/#jax_ws_common_api_reference
+              title: JBoss EAP 7 - JAX-WS Web Services Common API
+            message: JBoss EAP developer documentation describes JAX-WS Web Services
+              Common API.
+            tags: []
+            title: Use of Web Service Handler2
+          over: handler-classes
+      when:
+        xmlfile:
+          as: handler-classes
+          from: webservices
+          matches: //*[local-name()='handler-class']
+          namespace:
+            prefix: jee
+            uri: http://java.sun.com/xml/ns/javaee
+      where: {}
+    xml-webservices-06001:
+      perform:
+        iteration:
+          hint:
+            category-id: optional
+            effort: '0'
+            links:
+            - href: https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Development_Guide/sect-JAX-WS_Web_Service_Endpoints.html
+              title: JBoss EAP 6 -  JAX-WS Web Services Endpoints
+            - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html-single/developing_web_services_applications/#jax_ws_web_service_endpoints
+              title: JBoss EAP 7 - JAX-WS Web Services Endpoints
+            message: JBoss EAP developer documentation about JAX-WS Web Services Endpoints
+            tags: []
+            title: Use of Web Service Handler2
+          over: endpoints
+      when:
+        xmlfile:
+          as: endpoints
+          from: webservices
+          matches: //*[local-name()='service-endpoint-interface']
+          namespace:
+            prefix: jee
+            uri: http://java.sun.com/xml/ns/javaee
+      where: {}
+    xml-webservices-07000:
+      perform:
+        iteration:
+          classification:
+            category-id: optional
+            effort: '0'
+            issue-display-mode: all
+            links: []
+            tags:
+            - webservice
+            - apache-cxf
+            title: Apache CXF Bus Extension
+      when:
+        xmlfile:
+          as: default
+          matches: /extensions
+          namespace:
+            prefix: cxf
+            uri: http://cxf.apache.org/bus/extension
+      where: {}
+    xml-webservices-08000:
+      perform:
+        iteration:
+          classification:
+            category-id: optional
+            effort: '0'
+            issue-display-mode: detail-only
+            links: []
+            tags:
+            - webservice
+            - security
+            title: WS-Policy
+      when:
+        xmlfile:
+          as: default
+          matches: //*[local-name()='Policy']
+          namespace:
+            prefix: wsp
+            uri: http://schemas.xmlsoap.org/ws/2004/09/policy
+      where: {}
+    xml-webservices-09000:
+      perform:
+        iteration:
+          classification:
+            category-id: optional
+            effort: '0'
+            issue-display-mode: detail-only
+            links: []
+            tags:
+            - soap
+            - webservice
+            title: SOAP Envelope
+      when:
+        xmlfile:
+          as: default
+          matches: /*[local-name()='Envelope']
+          namespace:
+            prefix: se
+            uri: http://schemas.xmlsoap.org/soap/envelope/
+      where: {}
+    xml-webservices-10000:
+      perform:
+        iteration:
+          classification:
+            category-id: optional
+            effort: '0'
+            issue-display-mode: detail-only
+            links: []
+            tags:
+            - webservice
+            - wsdl
+            title: WSDL Definition
+      when:
+        xmlfile:
+          as: default
+          matches: /*[local-name()='definitions']
+          namespace:
+            prefix: wsdl
+            uri: http://schemas.xmlsoap.org/wsdl/
+      where: {}

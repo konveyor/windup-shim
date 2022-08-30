@@ -1,0 +1,565 @@
+technology-usage-test-frameworks:
+  metadata:
+    description: This ruleset provides statistical summaries of the test frameworks
+      that were found during the analysis.
+    phase: PostMigrationRulesPhase
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/test-frameworks-technology-usage.windup.xml
+  rules:
+    technology-usage-test-frameworks-00010:
+      perform:
+        technology-identified:
+          name: EasyMock
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: EasyMock
+      where: {}
+    technology-usage-test-frameworks-00020:
+      perform:
+        technology-identified:
+          name: PowerMock
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: PowerMock
+      where: {}
+    technology-usage-test-frameworks-00030:
+      perform:
+        technology-identified:
+          name: Mockito
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Mockito
+      where: {}
+    technology-usage-test-frameworks-00040:
+      perform:
+        technology-identified:
+          name: TestNG
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: TestNG
+      where: {}
+    technology-usage-test-frameworks-00050:
+      perform:
+        technology-identified:
+          name: Hamcrest
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Hamcrest
+      where: {}
+    technology-usage-test-frameworks-00060:
+      perform:
+        technology-identified:
+          name: Spock
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Spock
+      where: {}
+    technology-usage-test-frameworks-00070:
+      perform:
+        technology-identified:
+          name: XMLUnit
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: XMLUnit
+      where: {}
+    technology-usage-test-frameworks-00080:
+      perform:
+        technology-identified:
+          name: Akka Testkit
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Akka Testkit
+      where: {}
+    technology-usage-test-frameworks-00090:
+      perform:
+        technology-identified:
+          name: REST Assured
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: REST Assured
+      where: {}
+    technology-usage-test-frameworks-00100:
+      perform:
+        technology-identified:
+          name: DbUnit
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: DbUnit
+      where: {}
+    technology-usage-test-frameworks-00110:
+      perform:
+        technology-identified:
+          name: Mule Functional Test Framework
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Mule Functional Test Framework
+      where: {}
+    technology-usage-test-frameworks-00120:
+      perform:
+        technology-identified:
+          name: Guava Testing
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Guava Testing
+      where: {}
+    technology-usage-test-frameworks-00130:
+      perform:
+        technology-identified:
+          name: RandomizedTesting Runner
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: RandomizedTesting Runner
+      where: {}
+    technology-usage-test-frameworks-00140:
+      perform:
+        technology-identified:
+          name: HttpUnit
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: HttpUnit
+      where: {}
+    technology-usage-test-frameworks-00150:
+      perform:
+        technology-identified:
+          name: JCunit
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JCunit
+      where: {}
+    technology-usage-test-frameworks-00160:
+      perform:
+        technology-identified:
+          name: JPA Matchers
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JPA Matchers
+      where: {}
+    technology-usage-test-frameworks-00170:
+      perform:
+        technology-identified:
+          name: MultithreadedTC
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: MultithreadedTC
+      where: {}
+    technology-usage-test-frameworks-00180:
+      perform:
+        technology-identified:
+          name: Specsy
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Specsy
+      where: {}
+    technology-usage-test-frameworks-00190:
+      perform:
+        technology-identified:
+          name: JFunk
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JFunk
+      where: {}
+    technology-usage-test-frameworks-00200:
+      perform:
+        technology-identified:
+          name: Restito
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Restito
+      where: {}
+    technology-usage-test-frameworks-00210:
+      perform:
+        technology-identified:
+          name: Test Interface
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Test Interface
+      where: {}
+    technology-usage-test-frameworks-00220:
+      perform:
+        technology-identified:
+          name: Play Test
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Play Test
+      where: {}
+    technology-usage-test-frameworks-00230:
+      perform:
+        technology-identified:
+          name: Arquillian
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Arquillian
+      where: {}
+    technology-usage-test-frameworks-00240:
+      perform:
+        technology-identified:
+          name: Cactus
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Cactus
+      where: {}
+    technology-usage-test-frameworks-00250:
+      perform:
+        technology-identified:
+          name: Concordion
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Concordion
+      where: {}
+    technology-usage-test-frameworks-00260:
+      perform:
+        technology-identified:
+          name: Cucumber
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Cucumber
+      where: {}
+    technology-usage-test-frameworks-00270:
+      perform:
+        technology-identified:
+          name: EtlUnit
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: EtlUnit
+      where: {}
+    technology-usage-test-frameworks-00280:
+      perform:
+        technology-identified:
+          name: HavaRunner
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: HavaRunner
+      where: {}
+    technology-usage-test-frameworks-00290:
+      perform:
+        technology-identified:
+          name: JBehave
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JBehave
+      where: {}
+    technology-usage-test-frameworks-00300:
+      perform:
+        technology-identified:
+          name: JMock
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JMock
+      where: {}
+    technology-usage-test-frameworks-00310:
+      perform:
+        technology-identified:
+          name: JMockit
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JMockit
+      where: {}
+    technology-usage-test-frameworks-00320:
+      perform:
+        technology-identified:
+          name: Jukito
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Jukito
+      where: {}
+    technology-usage-test-frameworks-00330:
+      perform:
+        technology-identified:
+          name: Needle
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Needle
+      where: {}
+    technology-usage-test-frameworks-00340:
+      perform:
+        technology-identified:
+          name: OpenPojo
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: OpenPojo
+      where: {}
+    technology-usage-test-frameworks-00350:
+      perform:
+        technology-identified:
+          name: Unitils
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Unitils
+      where: {}
+    technology-usage-test-frameworks-00360:
+      perform:
+        technology-identified:
+          name: Spring Test
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Spring Test
+      where: {}
+    technology-usage-test-frameworks-00370:
+      perform:
+        technology-identified:
+          name: JUnit
+          tags:
+          - Sustain
+          - Embedded
+          - Test
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: JUnit
+      where: {}

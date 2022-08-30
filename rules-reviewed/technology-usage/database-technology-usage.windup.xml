@@ -1,0 +1,351 @@
+technology-usage-database:
+  metadata:
+    description: This ruleset provides statistical summaries of the database items
+      that were found during the analysis.
+    phase: PostMigrationRulesPhase
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/database-technology-usage.windup.xml
+  rules:
+    technology-usage-database-01000:
+      perform:
+        technology-identified:
+          name: JDBC datasources
+          tags:
+          - Store
+          - Database
+          - Java EE
+      when:
+        graph_query:
+          discriminator: DataSourceModel
+          properties:
+          - name: isXA
+            string: 'false'
+            type: BOOLEAN
+      where: {}
+    technology-usage-database-01001:
+      perform:
+        technology-identified:
+          name: JDBC XA datasources
+          tags:
+          - Store
+          - Database
+          - Java EE
+      when:
+        graph_query:
+          discriminator: DataSourceModel
+          properties:
+          - name: isXA
+            string: 'true'
+            type: BOOLEAN
+      where: {}
+    technology-usage-database-01100:
+      perform:
+        technology-identified:
+          name: JPA entities
+          tags:
+          - Store
+          - Persistence
+          - Java EE
+      when:
+        graph_query:
+          discriminator: JPAEntityModel
+          properties: []
+      where: {}
+    technology-usage-database-01200:
+      perform:
+        technology-identified:
+          name: JPA named queries
+          tags:
+          - Store
+          - Persistence
+          - Java EE
+      when:
+        graph_query:
+          discriminator: JPANamedQueryModel
+          properties: []
+      where: {}
+    technology-usage-database-01300:
+      perform:
+        technology-identified:
+          name: Persistence units
+          tags:
+          - Store
+          - Persistence
+          - Java EE
+      when:
+        graph_query:
+          discriminator: JPAPersistenceUnitModel
+          properties: []
+      where: {}
+    technology-usage-database-01400:
+      perform:
+        technology-identified:
+          name: HSQLDB Driver
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: HSQLDB Driver
+      where: {}
+    technology-usage-database-01500:
+      perform:
+        technology-identified:
+          name: MySQL Driver
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: MySQL Driver
+      where: {}
+    technology-usage-database-01600:
+      perform:
+        technology-identified:
+          name: Derby Driver
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Derby Driver
+      where: {}
+    technology-usage-database-01700:
+      perform:
+        technology-identified:
+          name: PostgreSQL Driver
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: PostgreSQL Driver
+      where: {}
+    technology-usage-database-01800:
+      perform:
+        technology-identified:
+          name: H2 Driver
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: H2 Driver
+      where: {}
+    technology-usage-database-01900:
+      perform:
+        technology-identified:
+          name: Microsoft SQL Driver
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Microsoft SQL Driver
+      where: {}
+    technology-usage-database-02000:
+      perform:
+        technology-identified:
+          name: SQLite Driver
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: SQLite Driver
+      where: {}
+    technology-usage-database-02100:
+      perform:
+        technology-identified:
+          name: Oracle DB Driver
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Oracle DB Driver
+      where: {}
+    technology-usage-database-02200:
+      perform:
+        technology-identified:
+          name: Cassandra Client
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Cassandra Client
+      where: {}
+    technology-usage-database-02300:
+      perform:
+        technology-identified:
+          name: Axion Driver
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Axion Driver
+      where: {}
+    technology-usage-database-02400:
+      perform:
+        technology-identified:
+          name: MckoiSQLDB Driver
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: MckoiSQLDB Driver
+      where: {}
+    technology-usage-database-02500:
+      perform:
+        technology-identified:
+          name: MongoDB Client
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: MongoDB Client
+      where: {}
+    technology-usage-database-02600:
+      perform:
+        technology-identified:
+          name: Spring Data
+          tags:
+          - Store
+          - Embedded
+          - Object Mapping
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Spring Data
+      where: {}
+    technology-usage-database-02700:
+      perform:
+        technology-identified:
+          name: Morphia
+          tags:
+          - Store
+          - Object Mapping
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Morphia
+      where: {}
+    technology-usage-database-02800:
+      perform:
+        technology-identified:
+          name: LevelDB Client
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: LevelDB Client
+      where: {}
+    technology-usage-database-02900:
+      perform:
+        technology-identified:
+          name: Apache HBase Client
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Apache HBase Client
+      where: {}
+    technology-usage-database-03100:
+      perform:
+        technology-identified:
+          name: Apache Accumulo Client
+          tags:
+          - Store
+          - Database Driver
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Apache Accumulo Client
+      where: {}
+    technology-usage-database-03200:
+      perform:
+        technology-identified:
+          name: Spring Data JPA
+          tags:
+          - Store
+          - Persistence
+          - Embedded
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Spring Data JPA
+      where: {}

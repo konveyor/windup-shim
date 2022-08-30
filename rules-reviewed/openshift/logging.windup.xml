@@ -1,0 +1,97 @@
+logging:
+  metadata:
+    description: This ruleset detects logging configurations that may be problematic
+      when migrating an application to a cloud environment.
+    sourceTechnologies:
+    - id: java
+      versionRange: null
+    - id: java-ee
+      versionRange: null
+    tags:
+    - logging
+    targetTechnologies:
+    - id: cloud-readiness
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/openshift/logging.windup.xml
+  rules:
+    logging-0000:
+      perform:
+        iteration:
+          perform:
+            hint:
+              category-id: cloud-mandatory
+              effort: '1'
+              links:
+              - href: https://12factor.net/logs
+                title: Twelve-factor app - Logs
+              - href: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+                title: 'OpenShift Container Platform: Understanding cluster logging'
+              message: "If the application writes logs to a file system, local log\
+                \ files may be lost if an instance terminates or restarts.\n\n   \
+                \                         Recommendations\n\n                    \
+                \        * Use a centralized log management system.\n            \
+                \                * Log to standard output and allow the cloud platform\
+                \ to manage the logging.\n                            * Use shared\
+                \ storage for log files."
+              tags:
+              - logging
+              title: Logging to file system
+            technology-tag:
+              level: INFORMATIONAL
+              tag: Logging to file system
+          when:
+            has-hint: true
+      when:
+        or:
+        - filecontent:
+            filename: log4j.{extension}
+            pattern: '{appenderpattern}'
+        - annotation-types: []
+          javaclass:
+            references: org.apache.{*}log4j.{*}FileAppender{*}
+          location: IMPORT
+        - annotation-types: []
+          javaclass:
+            references: java.util.logging.FileHandler{*}
+          location: IMPORT
+        - annotation-types: []
+          javaclass:
+            references: ch.qos.logback.core.FileAppender
+          location: IMPORT
+        - annotation-types: []
+          javaclass:
+            references: org.pmw.tinylog.writers.FileWriter
+          location: IMPORT
+      where:
+        appenderpattern: ((Daily)?Rolling)?FileAppender
+        extension: (xml|properties)
+    logging-0001:
+      perform:
+        iteration:
+          hint:
+            category-id: cloud-mandatory
+            effort: '3'
+            links:
+            - href: https://12factor.net/logs
+              title: Twelve-factor app - Logs
+            - href: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+              title: 'OpenShift Container Platform: Understanding cluster logging'
+            message: "If an application writes logs with `SocketHandler`, an alternative\
+              \ method is required. Socket communication is not suitable for a cloud\
+              \ environment because it requires fixed communication with a target\
+              \ host.\n\n                        Recommendations\n\n             \
+              \           * Use a centralized log management system.\n           \
+              \             * Log to standard output and allow the cloud platform\
+              \ to manage the logging.\n                        * Use shared storage\
+              \ for log files."
+            tags:
+            - logging
+            title: Logging to Socket Handler
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Logging to Socket Handler
+      when:
+        annotation-types: []
+        javaclass:
+          references: java.util.logging.SocketHandler{*}
+      where: {}

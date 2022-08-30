@@ -1,0 +1,61 @@
+springboot-webmvc-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate from Spring MVC to Quarkus
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/quarkus/springboot/springboot-webmvc-to-quarkus.windup.xml
+  rules:
+    springboot-webmvc-to-quarkus-00000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '13'
+          links:
+          - href: https://quarkus.io/guides/spring-web#supported-spring-web-functionalities
+            title: Quarkus - Supported Spring Web functionalities
+          message: "Spring MVC is not supported by Quarkus\n\n                   \
+            \     Use the following link to figure out the supported Spring Web functionalities."
+          tags: []
+          title: Spring MVC is not supported by Quarkus
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.springframework.web.servlet.mvc.Controller
+        location: ANNOTATION
+      where: {}
+    springboot-webmvc-to-quarkus-01000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '13'
+          links:
+          - href: https://quarkus.io/guides/vertx
+            title: Quarkus - Using Eclipse Vert.x
+          - href: https://quarkus.io/guides/reactive-routes
+            title: Quarkus - Using Reactive Routes
+          message: "Spring WebFlux is not supported by Quarkus\n\n               \
+            \         If the application needs a reactive stack, please refer to the\
+            \ following links to get more information."
+          tags: []
+          title: Spring WebFlux is not supported by Quarkus
+      when:
+        or:
+        - artifact:
+            artifactId: spring-webflux
+            fromVersion: null
+            groupId: org.springframework
+            toVersion: null
+        - artifact:
+            artifactId: spring-boot-starter-webflux
+            fromVersion: null
+            groupId: org.springframework.boot
+            toVersion: null
+        - dependency:
+            artifactId: spring-webflux
+            groupId: org.springframework
+      where: {}

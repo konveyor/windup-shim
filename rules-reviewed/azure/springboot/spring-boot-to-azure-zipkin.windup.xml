@@ -1,0 +1,39 @@
+spring-boot-to-azure-zipkin:
+  metadata:
+    description: Identify Zipkin dependencies.
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags:
+    - zipkin
+    targetTechnologies:
+    - id: azure-aks
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/azure/springboot/spring-boot-to-azure-zipkin.windup.xml
+  rules:
+    spring-boot-to-azure-zipkin-01000:
+      perform:
+        hint:
+          category-id: information
+          effort: '0'
+          links:
+          - href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-kubernetes-service#identify-zipkin-dependencies
+            title: Spring Boot application using an Active MQ Broker
+          - href: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
+            title: Distributed Tracing
+          message: The application uses Zipkin.
+          tags: []
+          title: Zipkin
+      when:
+        or:
+        - artifact:
+            artifactId: spring-cloud-starter-zipkin
+            fromVersion: null
+            groupId: org.springframework.boot
+            toVersion: null
+        - artifact:
+            artifactId: '{*}'
+            fromVersion: null
+            groupId: io.zipkin{*}
+            toVersion: null
+      where: {}

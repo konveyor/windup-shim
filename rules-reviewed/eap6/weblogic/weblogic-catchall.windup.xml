@@ -1,0 +1,147 @@
+weblogic-catchall:
+  metadata:
+    description: "This ruleset provides analysis of Oracle WebLogic proprietary classes\
+      \ and constructs that may require individual attention when\n            migrating\
+      \ to JBoss EAP 6+."
+    phase: PostMigrationRulesPhase
+    sourceTechnologies:
+    - id: weblogic
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[6,8)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml
+  rules:
+    weblogic-catchall-01000:
+      perform:
+        iteration:
+          perform:
+            hint:
+              category-id: potential
+              effort: '0'
+              links: []
+              message: This is a WebLogic proprietary type (`{prefix}{remainder}`)
+                and needs to be migrated to a compatible API. There is currently no
+                detailed information about this type.
+              tags:
+              - catchall
+              title: WebLogic proprietary type reference
+          when:
+            has-hint: true
+      when:
+        annotation-types: []
+        javaclass:
+          references: '{prefix}{remainder}'
+      where:
+        prefix: (com\.weblogic[^.]*\.)|(com\.bea[^.]*\.)|(bea\.)|(weblogic\.)
+        remainder: .*
+    weblogic-catchall-02000:
+      perform:
+        iteration:
+          perform:
+            hint:
+              category-id: optional
+              effort: '0'
+              links: []
+              message: "This is an Oracle proprietary SQL type (`oracle.sql.{remainder}`).\n\
+                \n                              It should be migrated to a compatible\
+                \ API either if you consider replacing your Oracle database or if\
+                \ you want to get rid of the Oracle proprietary API usage."
+              tags:
+              - catchall
+              title: Oracle proprietary SQL type reference
+          when:
+            has-hint: true
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.sql.{remainder}
+      where:
+        remainder: .*
+    weblogic-catchall-03000:
+      perform:
+        iteration:
+          perform:
+            hint:
+              category-id: potential
+              effort: '0'
+              links: []
+              message: This is an Oracle proprietary type (`com.tangosol{subpackage}.{type}`)
+                and needs to be migrated to a compatible API. There is currently no
+                detailed information about this type.
+              tags:
+              - catchall
+              title: Tangosol Proprietary type reference
+          when:
+            has-hint: true
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.tangosol{subpackage}.{type}
+      where:
+        subpackage: (\..*)?
+        type: '[^.]+'
+    weblogic-catchall-06000:
+      perform:
+        iteration:
+          perform:
+            hint:
+              category-id: potential
+              effort: '0'
+              links: []
+              message: This is an Oracle proprietary type (`{com}oracle{subpackage}.{type}`)
+                and needs to be migrated to a compatible API. There is currently no
+                detailed information about this type.
+              tags:
+              - catchall
+              title: Oracle proprietary type reference
+          when:
+            has-hint: true
+      when:
+        annotation-types: []
+        javaclass:
+          references: '{com}oracle{subpackage}.{type}'
+      where:
+        com: (com\.)?
+        subpackage: (\..*)?
+        type: '[^.]+'
+    weblogic-catchall-06500:
+      perform:
+        iteration:
+          perform:
+            hint:
+              category-id: optional
+              effort: '0'
+              links: []
+              message: "This is an Oracle proprietary JDBC type (`oracle.sql.{remainder}`).\n\
+                \n                              It should be replaced by standard\
+                \ Java EE JCA, datasource and JDBC types."
+              tags:
+              - catchall
+              title: Oracle proprietary JDBC type reference
+          when:
+            has-hint: true
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.jdbc.{remainder}
+      where:
+        remainder: .*
+    weblogic-catchall-hackrule:
+      perform: {}
+      when:
+        and:
+        - annotation-types: []
+          javaclass:
+            references: com.weblogic.{*}
+        - annotation-types: []
+          javaclass:
+            references: com.bea.{*}
+        - annotation-types: []
+          javaclass:
+            references: bea.{*}
+        - annotation-types: []
+          javaclass:
+            references: weblogic.{*}
+      where: {}

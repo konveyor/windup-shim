@@ -1,0 +1,17 @@
+websphere-ignore-references:
+  metadata:
+    description: This ruleset provides references within WebSphere classes implying
+      the class should not be scanned by windup.
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[6,8)'
+    - id: java-ee
+      versionRange: '[6,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap6/websphere/websphere-ignore-references.windup.xml
+  rules:
+    null:
+      perform: {}
+      when: {}
+      where: {}

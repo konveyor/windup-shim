@@ -1,0 +1,33 @@
+springboot-di-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate from SpringBoot DI to Quarkus
+      spring-di extension
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/quarkus/springboot/springboot-di-to-quarkus.windup.xml
+  rules:
+    springboot-di-to-quarkus-00000:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/spring-di
+            title: Quarkus DI Guide
+          message: "Replace the SpringBoot Dependency Injection artifact with Quarkus\
+            \ `spring-di` extension\n\n                        Spring DI is in spring-beans\
+            \ artifact brought transitively by any `org.springframework.boot:spring-boot-*`\
+            \ dependency\n                        Add Quarkus dependency `io.quarkus:quarkus-spring-di`"
+          tags: []
+          title: Replace the SpringBoot Dependency Injection artifact with Quarkus
+            'spring-di' extension
+      when:
+        dependency:
+          artifactId: spring-beans
+          groupId: org.springframework
+      where: {}

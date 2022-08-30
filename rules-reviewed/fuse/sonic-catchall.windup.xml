@@ -1,0 +1,40 @@
+sonic-catchall:
+  metadata:
+    description: "This ruleset provides analysis that may require individual attention\
+      \ when\n         migrating from Sonic classes."
+    sourceTechnologies:
+    - id: sonic
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: camel
+      versionRange: '[2,)'
+    - id: fuse
+      versionRange: '[6,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/fuse/sonic-catchall.windup.xml
+  rules:
+    sonic-catchall-00000:
+      perform:
+        iteration:
+          perform:
+            hint:
+              category-id: potential
+              effort: '0'
+              links: []
+              message: "This com.{subpackage}.{classname} is a Sonic proprietary type\
+                \ and needs to be migrated to a compatible API. There are currently\
+                \ no detailed\n                                migration rules about\
+                \ this type."
+              tags:
+              - sonic
+              - catchall
+              title: Sonic proprietary type reference com.{subpackage}.{classname}
+          when:
+            has-hint: true
+      when:
+        annotation-types: []
+        javaclass:
+          references: com.{subpackage}.{classname}
+      where:
+        classname: '[^.]+'
+        subpackage: (sonic|sonicsw)(\..*)?

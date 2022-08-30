@@ -1,0 +1,96 @@
+springboot:
+  metadata:
+    description: Verify the version of the Spring Boot framework is compatible with
+      those supported by Red Hat Runtimes
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: rhr
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/rhr/springboot/springboot.rhamt.xml
+  rules:
+    springboot-00001:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/articles/3348731
+            title: RHOAR Component Details Overview
+          message: Spring Boot has to be updated to Spring Boot 2.2.6 before being
+            able to be migrated to a version supported by Red Hat Runtimes
+          tags: []
+          title: Unsupported version of Spring Boot
+      when:
+        dependency:
+          artifactId: '{*}'
+          groupId: org.springframework.boot
+          toVersion: 2.2.5.RELEASE
+      where: {}
+    springboot-00002:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/articles/3348731
+            title: RHOAR Component Details Overview
+          message: Spring Boot has to be updated to a version supported by Red Hat
+            Runtimes
+          tags: []
+          title: Unsupported version of Spring Boot
+      when:
+        or:
+        - dependency:
+            artifactId: '{*}'
+            fromVersion: 2.0.0
+            groupId: org.springframework.boot
+            toVersion: 2.1.1.RELEASE
+        - dependency:
+            artifactId: '{*}'
+            fromVersion: 2.2.7.RELEASE
+            groupId: org.springframework.boot
+            toVersion: 2.2.9.RELEASE
+        - dependency:
+            artifactId: '{*}'
+            fromVersion: 2.2.12.RELEASE
+            groupId: org.springframework.boot
+            toVersion: 2.3.3.RELEASE
+        - dependency:
+            artifactId: '{*}'
+            fromVersion: 2.3.5.RELEASE
+            groupId: org.springframework.boot
+            toVersion: 2.3.5.RELEASE
+        - dependency:
+            artifactId: '{*}'
+            fromVersion: 2.3.7.RELEASE
+            groupId: org.springframework.boot
+            toVersion: 2.3.9.RELEASE
+        - dependency:
+            artifactId: '{*}'
+            fromVersion: 2.3.11.RELEASE
+            groupId: org.springframework.boot
+            toVersion: 2.3.13.RELEASE
+        - dependency:
+            artifactId: '{*}'
+            fromVersion: 2.4.0
+            groupId: org.springframework.boot
+            toVersion: 2.4.8
+        - dependency:
+            artifactId: '{*}'
+            fromVersion: 2.4.10
+            groupId: org.springframework.boot
+            toVersion: 2.5.9
+        - dependency:
+            artifactId: '{*}'
+            fromVersion: 2.5.11
+            groupId: org.springframework.boot
+            toVersion: 2.5.11
+        - dependency:
+            artifactId: '{*}'
+            fromVersion: 2.5.13
+            groupId: org.springframework.boot
+            toVersion: 2.7.1
+      where: {}

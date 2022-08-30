@@ -1,0 +1,50 @@
+springboot-jmx-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate from SpringBoot JMX to Quarkus
+      extension
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/quarkus/springboot/springboot-jmx-to-quarkus.windup.xml
+  rules:
+    springboot-jmx-to-quarkus-00000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '13'
+          links: []
+          message: "Spring JMX XML configuration detected:\n\n                   \
+            \     Spring JMX is not supported by Quarkus with the GraalVM Native compilation.\n\
+            \                        Spring JMX can be used with the Quarkus Hotspot\
+            \ compilation however."
+          tags: []
+          title: Spring JMX is not supported by Quarkus with GraalVM on a Native Image
+      when:
+        xmlfile:
+          matches: //*/c:bean/@class[windup:matches(self::node(), 'org.springframework.jmx.export.MBeanExporter')]
+          namespace:
+            prefix: c
+            uri: http://www.springframework.org/schema/beans
+      where: {}
+    springboot-jmx-to-quarkus-00001:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '13'
+          links: []
+          message: "Spring JMX annotation configuration detected:\n\n            \
+            \            Spring JMX is not supported by Quarkus with the GraalVM Native\
+            \ compilation.\n                        Spring JMX can be used with the\
+            \ Quarkus Hotspot compilation however."
+          tags: []
+          title: Spring JMX is not supported by Quarkus with GraalVM on a Native Image
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.springframework.jmx.{*}
+        location: ANNOTATION
+      where: {}

@@ -1,0 +1,32 @@
+springboot-devtools-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate from SpringBoot devtools to Quarkus
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/quarkus/springboot/springboot-devtools-to-quarkus.windup.xml
+  rules:
+    springboot-devtools-to-quarkus-0000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/tooling
+            title: Quarkus development tools
+          message: "Remove the spring-boot-devtools dependency.\n                \
+            \        Quarkus has its own set of development tools integrated by default."
+          tags: []
+          title: Remove spring-boot-devtools dependency
+      when:
+        xmlfile:
+          in: pom.xml
+          matches: /m:project/m:dependencies/m:dependency[m:artifactId = 'spring-boot-devtools']
+          namespace:
+            prefix: m
+            uri: http://maven.apache.org/POM/4.0.0
+      where: {}

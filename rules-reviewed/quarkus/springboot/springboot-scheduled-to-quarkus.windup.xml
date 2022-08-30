@@ -1,0 +1,34 @@
+springboot-scheduled-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate from Spring Scheduled to Quarkus
+      spring-scheduled extension
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/quarkus/springboot/springboot-scheduled-to-quarkus.windup.xml
+  rules:
+    springboot-scheduled-to-quarkus-00000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/spring-scheduled
+            title: Quarkus Spring Scheduled Guide
+          message: "Replace the Spring Context artifact with Quarkus `spring-scheduled`\
+            \ extension\n\n                        Spring Scheduled is in spring-context\
+            \ artifact brought transitively by any `org.springframework.boot:spring-boot-*`\
+            \ dependency\n                        Add Quarkus dependency `io.quarkus:quarkus-spring-scheduled`"
+          tags: []
+          title: Replace the SpringBoot context artifact with Quarkus 'spring-scheduled'
+            extension
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.springframework.scheduling.annotation.Scheduled
+        location: ANNOTATION
+      where: {}

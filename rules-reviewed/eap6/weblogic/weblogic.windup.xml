@@ -1,0 +1,404 @@
+weblogic:
+  metadata:
+    description: This ruleset provides analysis of WebLogic proprietary classes and
+      constructs that may require individual attention when migrating to JBoss EAP
+      6+.
+    sourceTechnologies:
+    - id: weblogic
+      versionRange: null
+    tags:
+    - weblogic
+    targetTechnologies:
+    - id: eap
+      versionRange: '[6,7)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap6/weblogic/weblogic.windup.xml
+  rules:
+    weblogic-01000:
+      perform:
+        classification:
+          effort: '0'
+          issue-display-mode: detail-only
+          links:
+          - href: https://docs.oracle.com/javaee/6/tutorial/doc/bnboy.html
+            title: EJB Timer Service
+          tags:
+          - scheduler
+          - ejb
+          - timer
+          - weblogic
+          title: WebLogic scheduled job
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://docs.oracle.com/javaee/6/tutorial/doc/bnboy.html
+            title: Java EE 6 - Using TimerService
+          message: WebLogic scheduled jobs should be migrated to use the standard
+            EJB `javax.ejb.TimerService`.
+          tags:
+          - scheduler
+          - ejb
+          - timer
+          - weblogic
+          title: WebLogic Scheduled Job
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.time.common.Triggerable
+        location: IMPLEMENTS_TYPE
+      where: {}
+    weblogic-016000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/solutions/161543
+            title: Calling JMS resources and EJB in EAP 6 from Weblogic
+          - href: https://access.redhat.com/solutions/396853
+            title: How to configure an EJB client in JBoss EAP 6
+          message: "`weblogic.jndi.WLInitialContextFactory` is an implementation of\
+            \ `InitialContextFactory` used to get object instances from JNDI.\n\n\
+            \                    The equivalent functionality needs to be configured\
+            \ on JBoss EAP 6 using `org.jboss.naming.remote.client.InitialContextFactory`.\
+            \ Then the context could be instanticated as follows: `InitialContext\
+            \ ctx = new InitialContext();`."
+          tags:
+          - configuration
+          - weblogic
+          title: WebLogic InitialContextFactory
+      when:
+        filecontent:
+          filename: '{*}.{ext}'
+          pattern: weblogic.jndi.WLInitialContextFactory
+      where:
+        ext: (java|properties|xml)
+    weblogic-017000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://docs.oracle.com/cd/E24329_01/web.1211/e24389/rmi_t3.htm#WLRMI143
+            title: Oracle WebLogic RMI with T3
+          - href: https://access.redhat.com/solutions/1230143
+            title: Invoking EJBs deployed on WebLogic from EAP6
+          message: "Weblogic\u2019s implementation of the RMI specification uses a\
+            \ proprietary protocol known as T3. T3S is the version of the protocol\
+            \ over SSL.\n                     `t3://` and `t3s://` URLs are used to\
+            \ configure a JNDI InitialContext within WebLogic.\n\n               \
+            \     The equivalent functionality needs to be configured in JBoss EAP\
+            \ 6.\n                    This could be done either by using standard\
+            \ Java EE JNDI names or by using a WebLogic proprietary library if the\
+            \ connectivity to WebLogic server is still required."
+          tags:
+          - configuration
+          - weblogic
+          title: WebLogic proprietary T3 JNDI binding
+      when:
+        filecontent:
+          filename: '{*}.{ext}'
+          pattern: '{t3url}'
+      where:
+        ext: (java|properties|xml)
+        t3url: t3s?://
+    weblogic-02000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://commons.apache.org/proper/commons-lang/
+            title: Apache Commons Lang
+          message: Replace with the `StringUtils` class from Apache Commons.
+          tags:
+          - weblogic
+          title: WebLogic StringUtils usage
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.utils.StringUtils.{*}
+      where: {}
+    weblogic-03000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Code using this package should be replaced with code using the
+            org.apache.xml package from [Apache Xerces](http://xerces.apache.org/).
+          tags:
+          - weblogic
+          title: WebLogic specific Apache XML package
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.apache.xml.{*}
+      where: {}
+    weblogic-04000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Development_Guide/chap-Java_Transaction_API_JTA.html
+            title: JBoss EAP 6.4 - Java Transaction API (JTA)
+          - href: http://docs.oracle.com/javaee/7/api/javax/transaction/TransactionManager.html
+            title: Java Enterprise Edition 7 - TransactionManager
+          message: Replace with the Java EE standard [javax.transaction.TransactionManager](http://docs.oracle.com/javaee/7/api/javax/transaction/TransactionManager.html)
+          tags:
+          - transactions
+          - weblogic
+          title: WebLogic TransactionManager usage
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.transaction.{classname}
+      where:
+        classname: (Client)*TransactionManager
+    weblogic-05000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Replace with the Java EE standard method `javax.transaction.TransactionManager.resume(Transaction
+            tx)`.
+          tags:
+          - transactions
+          - weblogic
+          title: WebLogic TransactionManager usage of resume method
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: weblogic.transaction.TransactionManager.resume{*}
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: weblogic.transaction.TransactionManager.forceResume{*}
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: weblogic.transaction.ClientTransactionManager.resume{*}
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: weblogic.transaction.ClientTransactionManager.forceResume{*}
+          location: METHOD_CALL
+      where: {}
+    weblogic-06000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Replace with the Java EE standard `javax.transaction.TransactionManager.suspend()`
+          tags:
+          - transactions
+          - weblogic
+          title: WebLogic TransactionManager usage of suspend method
+      when:
+        or:
+        - annotation-types: []
+          javaclass:
+            references: weblogic.transaction.TransactionManager.suspend{*}
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: weblogic.transaction.TransactionManager.forceSuspend{*}
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: weblogic.transaction.ClientTransactionManager.suspend{*}
+          location: METHOD_CALL
+        - annotation-types: []
+          javaclass:
+            references: weblogic.transaction.ClientTransactionManager.forceSuspend{*}
+          location: METHOD_CALL
+      where: {}
+    weblogic-07000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: Remove the `weblogic.transaction.TxHelper` import statement.
+          quickfix:
+            name: TxHelper
+            search: weblogic.transaction.TxHelper
+            type: DELETE_LINE
+          tags:
+          - transactions
+          - weblogic
+          title: WebLogic TxHelper usage
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.transaction.TxHelper
+        location: IMPORT
+      where: {}
+    weblogic-08000:
+      perform:
+        iteration:
+          hint:
+            category-id: null
+            effort: '1'
+            links: []
+            message: "Look up the Java Enterprise Edition `javax.transaction.TransactionManager`\
+              \ in JBoss EAP using the following code:\n\n                       \
+              \     ```java\n                            InitialContext context =\
+              \ new InitialContext();\n                            TransactionManager\
+              \ transactionManager =\n                            (TransactionManager)context.lookup(\"\
+              java:jboss/TransactionManager\");\n                            ```"
+            tags:
+            - transactions
+            - weblogic
+            title: WebLogic ClientTxHelper
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.transaction.{classname}.getTransactionManager()
+        location: METHOD_CALL
+      where:
+        classname: (Client)*TxHelper
+    weblogic-09000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/database/121/JAJDB/oracle/jdbc/class-use/OracleClob.html
+            title: Oracle JDBC Documentation
+          - href: http://docs.oracle.com/javase/7/docs/api/java/sql/Clob.html
+            title: java.sql.Clob interface
+          message: This Oracle and WebLogic proprietary code (`OracleThinClob`) should
+            be replaced with the use of the java.sql.Clob interface.
+          tags:
+          - jdbc
+          - weblogic
+          title: WebLogic proprietary Clob JDBC object (OracleThinClob)
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.jdbc.vendor.oracle.OracleThinClob
+      where: {}
+    weblogic-10000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/database/121/JAJDB/oracle/jdbc/class-use/OracleClob.html
+            title: Oracle JDBC Documentation
+          - href: http://docs.oracle.com/javase/7/docs/api/java/sql/Clob.html
+            title: java.sql.Clob interface
+          message: This code is specific to WebLogic and should be replaced with `java.sql.Clob.setCharacterStream(1)`
+          tags:
+          - jdbc
+          - weblogic
+          title: WebLogic JDBC code
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.jdbc.vendor.oracle.OracleThinClob.getCharacterOutputStream()
+      where: {}
+    weblogic-11000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/javase/7/docs/technotes/guides/logging/overview.html
+            title: JDK Logging Documentation
+          - href: https://developers.redhat.com/quickstarts/eap/logging/
+            title: JBoss Logging Quickstart
+          message: "The WebLogic `NonCatalogLogger` is not supported on JBoss EAP,\
+            \ and should be migrated to a supported logging framework,\n         \
+            \             such as the JDK Logger or JBoss Logging:\n\n           \
+            \           ```java\n                      import java.util.logging.Logger;\n\
+            \                      Logger LOG = Logger.getLogger(\"MyLogger\");\n\
+            \                      ```"
+          tags:
+          - logging
+          - weblogic
+          title: WebLogic proprietary logger (NonCatalogLogger)
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.i18n.logging.NonCatalogLogger{*}
+        location: CONSTRUCTOR_CALL
+      where: {}
+    weblogic-12000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/articles/1329233
+            title: Implement Oracle Fast Connection Failover (FCF) in EAP 6
+          message: "Oracle Fast Connection Failover is specific property supported\
+            \ only by Oracle JDBC driver which provides support for their vendor's\
+            \ special features transparently to the application server in which they\
+            \ are deployed.\n\n                      For example, one can supply a\
+            \ URL like this to the Oracle JDBC driver and the driver will provide\
+            \ transparent load-balancing and fail-over:\n                      ```\n\
+            \                      <xa-datasource-property name=\"URL\">jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=my.host.org)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=my.host.org)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=servjboss)(failover_mode=(type=select)(method=basic)))</xa-datasource-property>\n\
+            \                      ```"
+          tags:
+          - jdbc
+          - weblogic
+          title: WebLogic Oracle FCF JDBC property
+      when:
+        xmlfile:
+          matches: /jdbc-data-source/jdbc-driver-params/property/name[text()='FastConnectionFailoverEnabled']
+      where: {}
+    weblogic-13000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/articles/1329253
+            title: Replace WebLogic side-by-side production redeployment in EAP 6
+          message: "Oracle WebLogic Server includes a proprietary side-by-side production\
+            \ redeployment feature. For applications that meet certain requirements\
+            \ and restrictions, the new version of the application is deployed while\
+            \ the older version is still running.\n                      The old and\
+            \ new applications must be running on the same server or cluster. The\
+            \ new version of the application accepts new web session requests while\
+            \ the older version finishes processing requests already in process. Upon\
+            \ completion of the existing session requests, the older version of the\
+            \ application is then undeployed.\n\n                      In JBoss EAP,\
+            \ you can either deploy the new application to a secondary server group\
+            \ or cluster, or deploy the new application serially to the same clustered\
+            \ domain."
+          tags:
+          - weblogic
+          title: WebLogic side-by-side redeployment configuration
+      when:
+        filecontent:
+          filename: MANIFEST.MF
+          pattern: 'Weblogic-Application-Version:'
+      where: {}
+    weblogic-15000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: https://access.redhat.com/articles/1329073
+            title: Replace WebLogic Oracle Wallets When Migrating to EAP 6
+          message: "WebLogic administrators use wallets created by Oracle Wallet Manager\
+            \ to manage public key security credentials on application clients and\
+            \ servers.\n\n                      These wallets must first be converted\
+            \ to standard Java KeyStore (JKS) entries that can then be used to configure\
+            \ the credentials in JBoss EAP 6."
+          tags:
+          - weblogic
+          title: WebLogic Oracle Wallet
+      when:
+        filecontent:
+          filename: '{*}'
+          pattern: oracle.net.wallet_location
+      where: {}

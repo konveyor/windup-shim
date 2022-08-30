@@ -1,0 +1,44 @@
+os-specific:
+  metadata:
+    description: This is a ruleset for Windows operating system specific rules while
+      migrating to Linux operating system.
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies:
+    - id: linux
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/os/windows/os-specific.windup.xml
+  rules:
+    os-specific-00001:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links: []
+          message: This file system path is Microsoft Windows platform dependent.
+            It needs to be replaced with a Linux-style path.
+          tags:
+          - ms-windows
+          title: Windows file system path
+      when:
+        filecontent:
+          filename: '{*}.{extensions}'
+          pattern: '{pattern}'
+      where:
+        extensions: (java|properties|jsp|jspf|tag|xml|txt)
+        pattern: '[A-z]:([\\][^\n\t]+)+|(\\\\([^\\\,\n\t]+)\\\S+)+'
+    os-specific-00002:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '5'
+          links: []
+          message: This Dynamic-Link Library is Microsoft Windows platform dependent.
+            It needs to be replaced with a Linux-style shared library.
+          tags:
+          - ms-windows
+          title: Dynamic-Link Library (DLL)
+      when:
+        file:
+          filename: '{*}.dll'
+      where: {}

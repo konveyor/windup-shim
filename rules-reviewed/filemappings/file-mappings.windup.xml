@@ -1,0 +1,81 @@
+XmlFileMappings:
+  metadata:
+    description: This rule set configures the organization matching functionality,
+      using known root-package prefixes to identify libraries and other code.
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/filemappings/file-mappings.windup.xml
+  rules:
+    xmlfilemappings-0100:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-0200:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-0300:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-0400:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-0500:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-0600:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-0700:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-0800:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-0900:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-1000:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-1100:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-1200:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-1300:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-1400:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-1500:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-1600:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-1700:
+      perform: {}
+      when: {}
+      where: {}
+    xmlfilemappings-1800:
+      perform: {}
+      when: {}
+      where: {}

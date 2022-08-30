@@ -1,0 +1,82 @@
+eap-to-azure-appservice-datasource-driver:
+  metadata:
+    description: External resources such as data sources are injected via Java Naming
+      and Directory Interface (JNDI). Some such resources may require migration or
+      reconfiguration.
+    sourceTechnologies:
+    - id: eap
+      versionRange: '[7,8)'
+    tags:
+    - password
+    - security
+    targetTechnologies:
+    - id: azure-appservice
+      versionRange: null
+    - id: azure-aks
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/azure/eap/eap-to-azure-appservice-datasource-driver.windup.xml
+  rules:
+    eap-to-azure-appservice-datasource-driver-01000:
+      perform:
+        hint:
+          category-id: potential
+          effort: '3'
+          links:
+          - href: https://docs.microsoft.com/en-us/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service#datasources
+            title: Migrate JBoss EAP applications to JBoss EAP on Azure App Service
+              - Datasources
+          - href: https://docs.microsoft.com/en-us/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service#set-up-data-sources
+            title: Migrate JBoss EAP applications to JBoss EAP on Azure App Service
+              - Set up data sources
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management
+            title: Datasource Management
+          message: "A datasource driver was found in a configuration file.\n\n   \
+            \                     There are three core steps when registering a data\
+            \ source with JBoss EAP in Azure App Service: uploading the JDBC driver,\
+            \ adding the JDBC driver as a module, and registering the module.\n\n\
+            \                        App Service is a stateless hosting service, so\
+            \ the configuration commands for adding and registering the data source\
+            \ module must be scripted and applied as the container starts.\n     \
+            \                   \n                        For more information, see\
+            \ Datasource Management in the JBoss EAP documentation."
+          tags: []
+          title: Datasource driver found in configuration file
+      when:
+        or:
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/datasource/connection-url[contains(text(),'jdbc:db2')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/drivers/driver/xa-datasource-class[contains(text(),'db2')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/datasource/connection-url[contains(text(),'jdbc:mysql')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/drivers/driver/xa-datasource-class[contains(text(),'mysql')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/datasource/connection-url[contains(text(),'jdbc:oracle')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/drivers/driver/xa-datasource-class[contains(text(),'oracle')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/datasource/connection-url[contains(text(),'jdbc:postgres')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/drivers/driver/xa-datasource-class[contains(text(),'postgres')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/datasource/connection-url[contains(text(),'jdbc:microsoft:sqlserver')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/drivers/driver/xa-datasource-class[contains(text(),'sqlserver')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/datasource/connection-url[contains(text(),'jdbc:sybase')]
+        - xmlfile:
+            in: '{*}-ds.xml'
+            matches: /datasources/drivers/driver/xa-datasource-class[contains(text(),'sybase')]
+      where: {}

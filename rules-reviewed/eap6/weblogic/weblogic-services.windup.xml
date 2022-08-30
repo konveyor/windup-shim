@@ -1,0 +1,81 @@
+weblogic-services:
+  metadata:
+    description: "This ruleset contains rules to detect WebLogic specific services\
+      \ code (eg, startup listeners, and access to WebLogic specific service lookup\
+      \ utilities),\n            and to assist in the conversion of this code to code\
+      \ that is compatible with JBoss EAP 6+."
+    sourceTechnologies:
+    - id: weblogic
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[6,7)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap6/weblogic/weblogic-services.windup.xml
+  rules:
+    weblogic-services-01000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: http://docs.oracle.com/javaee/6/api/javax/ejb/Singleton.html
+            title: EJB3.1 Singleton Bean
+          - href: http://docs.oracle.com/javaee/6/api/javax/ejb/Startup.html
+            title: EJB3.1 Startup Bean
+          message: Replace this class with a class using the EJB 3.1 `@Singleton`
+            and `@Startup` annotations.
+          tags:
+          - startup
+          - weblogic
+          title: WebLogic Startup Service
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.common.T3StartupDef
+        location: IMPLEMENTS_TYPE
+      where: {}
+    weblogic-services-02000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '3'
+          links:
+          - href: http://docs.oracle.com/javaee/6/tutorial/doc/gipvi.html
+            title: Java EE Tutorial - @Singleton Session Bean
+          message: "`T3ServicesDef` provides access to core services of the container,\
+            \ such as Timers and Logging facilities.\n\n                      Replace\
+            \ the services provided by this with a Singleton EJB (using the `@Singleton`\
+            \ annotation) that provides access to the equivalent services from JBoss\
+            \ EAP."
+          tags:
+          - webservice
+          - weblogic
+          title: WebLogic T3ServicesDef usage
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.common.T3ServicesDef
+      where: {}
+    weblogic-services-03000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Migration_Guide/chap-Migrate_Your_Application.html#sect-Logging_Changes
+            title: JBoss EAP 6 - Logging changes
+          message: "Oracle WebLogic logging classes should be replaced with SLF4J,\
+            \ Log4J, or Java Logging.\n\n                      Please refer to the\
+            \ [JBoss EAP migration guide](https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Migration_Guide/chap-Migrate_Your_Application.html#sect-Logging_Changes)\
+            \ for more information on this."
+          tags:
+          - logging
+          - weblogic
+          title: WebLogic proprietary logging classes
+      when:
+        annotation-types: []
+        javaclass:
+          references: weblogic.{logger}{*}
+      where:
+        logger: (i18n.)?logging.[^N]

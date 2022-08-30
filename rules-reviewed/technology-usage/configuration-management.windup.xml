@@ -1,0 +1,106 @@
+configuration-management:
+  metadata:
+    description: This ruleset generates tags for configuration-management related
+      technologies
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/configuration-management.windup.xml
+  rules:
+    configuration-management-0100:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds Spring Cloud Config.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Spring Cloud Config
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Spring Cloud Config
+      when:
+        or:
+        - artifact:
+            artifactId: spring-cloud-config-client
+            fromVersion: null
+            groupId: org.springframework.cloud
+            toVersion: null
+        - dependency:
+            artifactId: spring-cloud-config-client
+            groupId: org.springframework.cloud
+      where: {}
+    configuration-management-0200:
+      perform:
+        classification:
+          category-id: information
+          description: Spring application properties detected
+          effort: '0'
+          links: []
+          tags: []
+          title: Spring application properties detected
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Spring Properties
+      when:
+        file:
+          filename: application{profile}.{extension}
+      where:
+        extension: (properties|yml|yaml)
+        profile: .*
+    configuration-management-0300:
+      perform:
+        classification:
+          category-id: information
+          description: Spring datasource properties detected
+          effort: '0'
+          links: []
+          tags: []
+          title: Spring datasource properties detected
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Spring Properties
+      when:
+        filecontent:
+          filename: application{profile}.{extension}
+          pattern: spring.datasource
+      where:
+        extension: (properties|yml|yaml)
+        profile: .*
+    configuration-management-0400:
+      perform:
+        classification:
+          category-id: information
+          description: Spring logging properties detected
+          effort: '0'
+          links: []
+          tags: []
+          title: Spring logging properties detected
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Spring Properties
+      when:
+        filecontent:
+          filename: application{profile}.{extension}
+          pattern: logging.level.org.springframework
+      where:
+        extension: (properties|yml|yaml)
+        profile: .*
+    configuration-management-0500:
+      perform:
+        classification:
+          category-id: information
+          description: Spring configuration properties annotation detected
+          effort: '0'
+          links: []
+          tags: []
+          title: Spring configuration properties annotation detected
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Spring Properties
+      when:
+        annotation-types: []
+        javaclass:
+          references: org.springframework.boot.context.properties.ConfigurationProperties
+        location: ANNOTATION
+      where: {}

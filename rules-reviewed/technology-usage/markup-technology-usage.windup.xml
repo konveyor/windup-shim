@@ -1,0 +1,64 @@
+technology-usage-markup:
+  metadata:
+    description: This ruleset provides statistical summaries of the Markup (HTML,
+      CSS, JS) items that were found during the analysis.
+    phase: PostMigrationRulesPhase
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/markup-technology-usage.windup.xml
+  rules:
+    technology-usage-markup-01000:
+      perform:
+        technology-identified:
+          name: HTML
+          tags:
+          - View
+          - Embedded
+          - Markup
+      when:
+        graph_query:
+          discriminator: HtmlFile
+          properties: []
+      where: {}
+    technology-usage-markup-01100:
+      perform:
+        technology-identified:
+          name: CSS
+          tags:
+          - View
+          - Embedded
+          - Markup
+      when:
+        graph_query:
+          discriminator: CssFile
+          properties: []
+      where: {}
+    technology-usage-markup-01200:
+      perform:
+        technology-identified:
+          name: JavaScript
+          tags:
+          - View
+          - Embedded
+          - Markup
+      when:
+        graph_query:
+          discriminator: JsFile
+          properties: []
+      where: {}
+    technology-usage-markup-01300:
+      perform:
+        technology-identified:
+          name: Spring Boot Flo
+          tags:
+          - View
+          - Embedded
+          - Markup
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Spring Boot Flo
+      where: {}

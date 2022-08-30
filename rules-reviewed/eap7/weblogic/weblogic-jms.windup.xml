@@ -1,0 +1,204 @@
+weblogic-jms-eap7:
+  metadata:
+    description: "This ruleset provides analysis of WebLogic proprietary classes and\
+      \ constructs for the Java Message Service that may require\n            individual\
+      \ attention when migrating to JBoss EAP 7+."
+    sourceTechnologies:
+    - id: weblogic
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[7,8)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap7/weblogic/weblogic-jms.windup.xml
+  rules:
+    weblogic-jms-eap7-00000:
+      perform:
+        classification:
+          category-id: mandatory
+          effort: '1'
+          issue-display-mode: all
+          links:
+          - href: http://docs.oracle.com/cd/B10501_01/appdev.920/a96609/toc.htm
+            title: Oracle 9i JMS Documentation
+          - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEH
+            title: Java EE 7 - The JMS API Programming Model
+          tags:
+          - jms
+          - weblogic
+          title: Oracle JMS
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.jms.{*}
+      where: {}
+    weblogic-jms-eap7-01000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEN
+            title: Java EE 7 - JMS Session
+          message: "Oracle JMS sessions are used for producing and consuming messaging\
+            \ API objects such as message producers, message\n                   \
+            \     consumers, messages, queue browsers, and temporary queues and topics.\n\
+            \n                        This reference should be replaced with the Java\
+            \ EE\n                        standard API: `javax.jms.Session`."
+          tags:
+          - jms
+          - weblogic
+          title: Oracle JMS Session
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.jms.AQjmsSession
+      where: {}
+    weblogic-jms-eap7-02000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEY
+            title: Java EE 7 - JMS Queue Browser
+          message: "Oracle JMS queue browsers are used for browsing messages in a\
+            \ JMS queue.\n\n                        This reference should be replaced\
+            \ with the Java\n                        EE standard API: `javax.jms.QueueBrowser`."
+          tags:
+          - jms
+          - weblogic
+          title: Oracle JMS Queue Browser
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.jms.AQjmsQueueBrowser
+      where: {}
+    weblogic-jms-eap7-03000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEO
+            title: Java EE 7 - JMS Message Producer
+          message: "Oracle JMS producers are used for sending messages to a destination.\n\
+            \n                        This reference should be replaced with the Java\n\
+            \                        EE\n                        standard API: `javax.jms.MessageProducer`."
+          tags:
+          - jms
+          - weblogic
+          title: Oracle JMS Producer
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.jms.AQjmsProducer
+      where: {}
+    weblogic-jms-eap7-04000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEP
+            title: Java EE 7 - JMS Message Consumer
+          message: "Oracle JMS consumers are used for receiving messages sent to a\
+            \ destination.\n\n                        This reference should be replaced\
+            \ with the\n                        Java EE standard API: `javax.jms.MessageConsumer`."
+          tags:
+          - jms
+          - weblogic
+          title: Oracle JMS Consumer
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.jms.AQjmsConsumer
+      where: {}
+    weblogic-jms-eap7-05000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEM
+            title: Java EE 7 - JMS Connections
+          message: "Oracle JMS connections represent virtual connections with a JMS\
+            \ provider.\n\n                        This reference should be replaced\
+            \ with the\n                        Java\n                        EE standard\
+            \ API: `javax.jms.Connection`."
+          tags:
+          - jms
+          - weblogic
+          title: Oracle JMS Consumer
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.jms.AQjmsConnection
+      where: {}
+    weblogic-jms-eap7-06000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCES
+            title: Java EE 7 - JMS Message API
+          message: "Oracle JMS {type} messages represent the actual data passed through\
+            \ JMS destinations.\n\n                        This reference should be\
+            \ replaced\n                        with the\n                       \
+            \ Java\n                        EE standard API: `javax.jms.{type}Message`."
+          tags:
+          - jms
+          - weblogic
+          title: Oracle JMS {type}Message
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.jms.AQjms{type}Message
+      where:
+        type: (Text|Stream|Object|Map|Bytes)?
+    weblogic-jms-eap7-07000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEL
+            title: Java EE 7 - JMS Destinations
+          message: "Oracle JMS destinations are the objects a client uses to specify\
+            \ the target of messages it produces and the source of\n             \
+            \           messages it consumes.\n\n                        This reference\
+            \ should be replaced with the\n                        Java\n        \
+            \                EE standard API: `javax.jms.Destination`."
+          tags:
+          - jms
+          - weblogic
+          title: Oracle JMS Destination
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.jms.AQjmsDestination
+      where: {}
+    weblogic-jms-eap7-08000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEK
+            title: Java EE 7 - JMS Connection factories
+          message: "Oracle {type}ConnectionFactory is an encapsulation of JMS servers\
+            \ to which Connections can be created for message distribution.\n\n  \
+            \                      This reference should be replaced with the\n  \
+            \                      Java\n                        EE standard API:\
+            \ `javax.jms.{type}ConnectionFactory`."
+          tags:
+          - jms
+          - weblogic
+          title: Oracle JMS {type} Connection Factory
+      when:
+        annotation-types: []
+        javaclass:
+          references: oracle.jms.AQjms{type}ConnectionFactory
+      where:
+        type: (Topic|Queue)?

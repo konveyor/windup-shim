@@ -1,0 +1,452 @@
+logging-usage:
+  metadata:
+    description: This ruleset provides analysis of logging libraries.
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/logging-usage.windup.xml
+  rules:
+    logging-usage-00010:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an Apache Log4J library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Apache Log4J
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Apache Log4J
+      when:
+        file:
+          filename: '{*}log4j{*}.jar'
+      where: {}
+    logging-usage-00020:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an Apache Commons Logging library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Apache Commons Logging
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Apache Commons Logging
+      when:
+        file:
+          filename: '{*}commons-logging{*}.jar'
+      where: {}
+    logging-usage-00030:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Simple Logging Facade for Java (SLJ4J)
+            library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - SLF4J
+        technology-tag:
+          level: INFORMATIONAL
+          tag: SLF4J
+      when:
+        file:
+          filename: '{*}slf4j{*}.jar'
+      where: {}
+    logging-usage-00040:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a tinylog library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - tinylog
+        technology-tag:
+          level: INFORMATIONAL
+          tag: tinylog
+      when:
+        file:
+          filename: '{*}tinylog{*}.jar'
+      where: {}
+    logging-usage-00050:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Logback library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Logback
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Logback
+      when:
+        file:
+          filename: '{*}logback{*}.jar'
+      where: {}
+    logging-usage-00080:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a JBoss logging library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - JBoss logging
+        technology-tag:
+          level: INFORMATIONAL
+          tag: JBoss logging
+      when:
+        file:
+          filename: '{*}jboss-logging{*}.jar'
+      where: {}
+    logging-usage-00090:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Monolog library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Monolog
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Monolog
+      when:
+        file:
+          filename: '{*}monolog{*}.jar'
+      where: {}
+    logging-usage-00100:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Jcabi Log library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Jcabi Log
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Jcabi Log
+      when:
+        file:
+          filename: '{*}jcabi-log{*}.jar'
+      where: {}
+    logging-usage-00110:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a NLOG4J library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - NLOG4J
+        technology-tag:
+          level: INFORMATIONAL
+          tag: NLOG4J
+      when:
+        file:
+          filename: '{*}nlog4j{*}.jar'
+      where: {}
+    logging-usage-00120:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Log4s library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Log4s
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Log4s
+      when:
+        file:
+          filename: log4s{*}.jar
+      where: {}
+    logging-usage-00130:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Kotlin Logging library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Kotlin Logging
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Kotlin Logging
+      when:
+        file:
+          filename: '{*}kotlin-logging{*}.jar'
+      where: {}
+    logging-usage-00140:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an Airlift Log Manager library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Airlift Log Manager
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Airlift Log Manager
+      when:
+        file:
+          filename: log-manager{*}.jar
+      where: {}
+    logging-usage-00150:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a MinLog library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - MinLog
+        technology-tag:
+          level: INFORMATIONAL
+          tag: MinLog
+      when:
+        file:
+          filename: '{*}minilog{*}.jar'
+      where: {}
+    logging-usage-00160:
+      perform:
+        iteration:
+          perform:
+            classification:
+              category-id: information
+              description: The application embeds a Common Java Logging Utils library.
+              effort: '0'
+              links: []
+              tags: []
+              title: Embedded library - Logging Utils
+            technology-tag:
+              level: INFORMATIONAL
+              tag: Logging Utils
+          when:
+            file:
+              filename: logging-{*}.jar
+      when:
+        file:
+          filename: logging{*}.jar
+      where: {}
+    logging-usage-00170:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an OCPsoft Logging Utils library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - OCPsoft Logging Utils
+        technology-tag:
+          level: INFORMATIONAL
+          tag: OCPsoft Logging Utils
+      when:
+        file:
+          filename: logging-api{*}.jar
+      where: {}
+    logging-usage-00180:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Scribe library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Scribe
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Scribe
+      when:
+        file:
+          filename: '{*}scribe{*}.jar'
+      where: {}
+    logging-usage-00190:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Git Foundation Classes (GFC) Logging
+            library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - GFC Logging
+        technology-tag:
+          level: INFORMATIONAL
+          tag: GFC Logging
+      when:
+        file:
+          filename: '{*}gfc-logging{*}.jar'
+      where: {}
+    logging-usage-00200:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Blitz4j library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Blitz4j
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Blitz4j
+      when:
+        file:
+          filename: '{*}blitz4j{*}.jar'
+      where: {}
+    logging-usage-00210:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an Avalon Logkit library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Avalon Logkit
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Avalon Logkit
+      when:
+        file:
+          filename: '{*}avalon-logkit{*}.jar'
+      where: {}
+    logging-usage-00220:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a KLogger library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - KLogger
+        technology-tag:
+          level: INFORMATIONAL
+          tag: KLogger
+      when:
+        file:
+          filename: '{*}klogger{*}.jar'
+      where: {}
+    logging-usage-00230:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Lumberjack library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Lumberjack
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Lumberjack
+      when:
+        file:
+          filename: '{*}lumberjack{*}.jar'
+      where: {}
+    logging-usage-00240:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Log.io library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Log.io
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Log.io
+      when:
+        file:
+          filename: '{*}logio{*}.jar'
+      where: {}
+    logging-usage-00250:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an OPS4J Pax Logging Service library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - OPS4J Pax Logging Service
+        technology-tag:
+          level: INFORMATIONAL
+          tag: OPS4J Pax Logging Service
+      when:
+        file:
+          filename: '{*}pax-logging-service{*}.jar'
+      where: {}
+    logging-usage-00260:
+      perform:
+        iteration:
+          perform:
+            classification:
+              category-id: information
+              description: The application embeds an OW2 Log Util library.
+              effort: '0'
+              links: []
+              tags: []
+              title: Embedded library - OW2 Log Util
+            technology-tag:
+              level: INFORMATIONAL
+              tag: OW2 Log Util
+          when:
+            file:
+              filename: util-logging{*}.jar
+      when:
+        file:
+          filename: util-log{*}.jar
+      where: {}
+    logging-usage-00270:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Twitter Util Logging library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Twitter Util Logging
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Twitter Util Logging
+      when:
+        file:
+          filename: util-logging{*}.jar
+      where: {}
+    logging-usage-00280:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds a Composite Logging JCL library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Composite Logging JCL
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Composite Logging JCL
+      when:
+        file:
+          filename: composite-logging-api{*}.jar
+      where: {}
+    logging-usage-00290:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds an Apache Flume library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Embedded library - Apache Flume
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Apache Flume
+      when:
+        file:
+          filename: '{*}flume{*}.jar'
+      where: {}

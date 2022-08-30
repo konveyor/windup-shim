@@ -1,0 +1,39 @@
+eapxp_bootable_jar_maven_plugin_configuration_changes:
+  metadata:
+    description: "This ruleset provides analysis of Maven built applications that\
+      \ use JBoss EAP XP 2.x Bootable JAR Maven Plugin,\n            which configuration\
+      \ may need to be changed, when migrating to JBoss EAP XP 3.x or later."
+    sourceTechnologies:
+    - id: eapxp
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: eapxp
+      versionRange: '[3,)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eapxp/eapxp2/eapxp_bootable_jar_maven_plugin_configuration_changes.mta.xml
+  rules:
+    eapxp_bootable_jar_maven_plugin_configuration_changes-1:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links:
+          - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/jboss_eap_xp_upgrade_and_migration_guide/index#microprofile-application-migration-bootable-jar_default
+            title: 'JBoss EAP XP upgrade and migration guide: Bootable JAR application
+              migration'
+          message: If you migrate your application to JBoss EAP XP 3.0 (or later),
+            and want to ensure its Maven building, running or testing works as expected,
+            rename the configuration element `extraServerContent` to `extraServerContentDirs`.
+          tags:
+          - EAPXP
+          title: 'Bootable JAR Maven Plugin: rename extraServerContent configuration
+            element'
+      when:
+        xmlfile:
+          in: pom.xml
+          matches: //m:plugin[m:groupId/text() = 'org.wildfly.plugins' and m:artifactId/text()
+            = 'wildfly-jar-maven-plugin']/m:configuration/m:extraServerContent
+          namespace:
+            prefix: m
+            uri: http://maven.apache.org/POM/4.0.0
+      where: {}

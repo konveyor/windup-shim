@@ -1,0 +1,96 @@
+kafka-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate kafka components to Quarkus extension
+    sourceTechnologies:
+    - id: kafka
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-generated/quarkus/kafka/kafka-to-quarkus.windup.xml
+  rules:
+    quarkus-kafka-client-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/kafka
+              title: Quarkus - Guide
+            message: "Replace the `org.apache.kafka:kafka-clients` dependency with\
+              \ the Quarkus dependency `io.quarkus:quarkus-kafka-client`  \n     \
+              \                       Further information in the link below."
+            tags: []
+            title: Replace the 'kafka-clients' dependency with Quarkus 'quarkus-kafka-client'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: kafka-clients
+          fromVersion: null
+          groupId: org.apache.kafka
+          toVersion: null
+      where: {}
+    quarkus-kafka-client-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/kafka
+            title: Quarkus - Guide
+          message: "Replace the `org.apache.kafka:kafka-clients` dependency with the\
+            \ Quarkus dependency `io.quarkus:quarkus-kafka-client`  \n           \
+            \             Further information in the link below."
+          tags: []
+          title: Replace the 'kafka-clients' dependency with Quarkus 'quarkus-kafka-client'
+            extension
+      when:
+        dependency:
+          artifactId: kafka-clients
+          groupId: org.apache.kafka
+      where: {}
+    quarkus-kafka-streams-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/kafka-streams
+              title: Quarkus - Guide
+            message: "Replace the `org.apache.kafka:kafka-streams` dependency with\
+              \ the Quarkus dependency `io.quarkus:quarkus-kafka-streams`  \n    \
+              \                        Further information in the link below."
+            tags: []
+            title: Replace the 'kafka-streams' dependency with Quarkus 'quarkus-kafka-streams'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: kafka-streams
+          fromVersion: null
+          groupId: org.apache.kafka
+          toVersion: null
+      where: {}
+    quarkus-kafka-streams-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/kafka-streams
+            title: Quarkus - Guide
+          message: "Replace the `org.apache.kafka:kafka-streams` dependency with the\
+            \ Quarkus dependency `io.quarkus:quarkus-kafka-streams`  \n          \
+            \              Further information in the link below."
+          tags: []
+          title: Replace the 'kafka-streams' dependency with Quarkus 'quarkus-kafka-streams'
+            extension
+      when:
+        dependency:
+          artifactId: kafka-streams
+          groupId: org.apache.kafka
+      where: {}

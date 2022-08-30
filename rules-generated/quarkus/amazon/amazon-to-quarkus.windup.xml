@@ -1,0 +1,467 @@
+amazon-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate amazon components to Quarkus
+      extension
+    sourceTechnologies:
+    - id: amazon
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml
+  rules:
+    quarkus-amazon-dynamodb-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-dynamodb
+              title: Quarkus - Guide
+            message: "Replace the `software.amazon.awssdk:dynamodb` dependency with\
+              \ the Quarkus dependency `io.quarkus:quarkus-amazon-dynamodb`  \n  \
+              \                          Further information in the link below."
+            tags: []
+            title: Replace the 'dynamodb' dependency with Quarkus 'quarkus-amazon-dynamodb'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: dynamodb
+          fromVersion: null
+          groupId: software.amazon.awssdk
+          toVersion: null
+      where: {}
+    quarkus-amazon-dynamodb-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-dynamodb
+            title: Quarkus - Guide
+          message: "Replace the `software.amazon.awssdk:dynamodb` dependency with\
+            \ the Quarkus dependency `io.quarkus:quarkus-amazon-dynamodb`  \n    \
+            \                    Further information in the link below."
+          tags: []
+          title: Replace the 'dynamodb' dependency with Quarkus 'quarkus-amazon-dynamodb'
+            extension
+      when:
+        dependency:
+          artifactId: dynamodb
+          groupId: software.amazon.awssdk
+      where: {}
+    quarkus-amazon-iam-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-iam
+              title: Quarkus - Guide
+            message: "Replace the `software.amazon.awssdk:iam` dependency with the\
+              \ Quarkus dependency `io.quarkus:quarkus-amazon-iam`  \n           \
+              \                 Further information in the link below."
+            tags: []
+            title: Replace the 'iam' dependency with Quarkus 'quarkus-amazon-iam'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: iam
+          fromVersion: null
+          groupId: software.amazon.awssdk
+          toVersion: null
+      where: {}
+    quarkus-amazon-iam-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-iam
+            title: Quarkus - Guide
+          message: "Replace the `software.amazon.awssdk:iam` dependency with the Quarkus\
+            \ dependency `io.quarkus:quarkus-amazon-iam`  \n                     \
+            \   Further information in the link below."
+          tags: []
+          title: Replace the 'iam' dependency with Quarkus 'quarkus-amazon-iam' extension
+      when:
+        dependency:
+          artifactId: iam
+          groupId: software.amazon.awssdk
+      where: {}
+    quarkus-amazon-kms-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-kms
+              title: Quarkus - Guide
+            message: "Replace the `software.amazon.awssdk:kms` dependency with the\
+              \ Quarkus dependency `io.quarkus:quarkus-amazon-kms`  \n           \
+              \                 Further information in the link below."
+            tags: []
+            title: Replace the 'kms' dependency with Quarkus 'quarkus-amazon-kms'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: kms
+          fromVersion: null
+          groupId: software.amazon.awssdk
+          toVersion: null
+      where: {}
+    quarkus-amazon-kms-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-kms
+            title: Quarkus - Guide
+          message: "Replace the `software.amazon.awssdk:kms` dependency with the Quarkus\
+            \ dependency `io.quarkus:quarkus-amazon-kms`  \n                     \
+            \   Further information in the link below."
+          tags: []
+          title: Replace the 'kms' dependency with Quarkus 'quarkus-amazon-kms' extension
+      when:
+        dependency:
+          artifactId: kms
+          groupId: software.amazon.awssdk
+      where: {}
+    quarkus-amazon-lambda-http-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-lambda-http
+              title: Quarkus - Guide
+            message: "Replace the `com.amazonaws:aws-lambda-java-core` dependency\
+              \ with the Quarkus dependency `io.quarkus:quarkus-amazon-lambda-http`\
+              \  \n                            Further information in the link below."
+            tags: []
+            title: Replace the 'aws-lambda-java-core' dependency with Quarkus 'quarkus-amazon-lambda-http'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: aws-lambda-java-core
+          fromVersion: null
+          groupId: com.amazonaws
+          toVersion: null
+      where: {}
+    quarkus-amazon-lambda-http-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-lambda-http
+            title: Quarkus - Guide
+          message: "Replace the `com.amazonaws:aws-lambda-java-core` dependency with\
+            \ the Quarkus dependency `io.quarkus:quarkus-amazon-lambda-http`  \n \
+            \                       Further information in the link below."
+          tags: []
+          title: Replace the 'aws-lambda-java-core' dependency with Quarkus 'quarkus-amazon-lambda-http'
+            extension
+      when:
+        dependency:
+          artifactId: aws-lambda-java-core
+          groupId: com.amazonaws
+      where: {}
+    quarkus-amazon-lambda-rest-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-lambda-http
+              title: Quarkus - Guide
+            message: "Replace the `com.amazonaws.serverless:aws-serverless-java-container-core`\
+              \ dependency with the Quarkus dependency `io.quarkus:quarkus-amazon-lambda-rest`\
+              \  \n                            Further information in the link below."
+            tags: []
+            title: Replace the 'aws-serverless-java-container-core' dependency with
+              Quarkus 'quarkus-amazon-lambda-rest' extension
+          over: default
+      when:
+        artifact:
+          artifactId: aws-serverless-java-container-core
+          fromVersion: null
+          groupId: com.amazonaws.serverless
+          toVersion: null
+      where: {}
+    quarkus-amazon-lambda-rest-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-lambda-http
+            title: Quarkus - Guide
+          message: "Replace the `com.amazonaws.serverless:aws-serverless-java-container-core`\
+            \ dependency with the Quarkus dependency `io.quarkus:quarkus-amazon-lambda-rest`\
+            \  \n                        Further information in the link below."
+          tags: []
+          title: Replace the 'aws-serverless-java-container-core' dependency with
+            Quarkus 'quarkus-amazon-lambda-rest' extension
+      when:
+        dependency:
+          artifactId: aws-serverless-java-container-core
+          groupId: com.amazonaws.serverless
+      where: {}
+    quarkus-amazon-lambda-xray-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-lambda#tracing-with-aws-xray-and-graalvm
+              title: Quarkus - Guide
+            message: "Replace the `com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2`\
+              \ dependency with the Quarkus dependency `io.quarkus:quarkus-amazon-lambda-xray`\
+              \  \n                            Further information in the link below."
+            tags: []
+            title: Replace the 'aws-xray-recorder-sdk-aws-sdk-v2' dependency with
+              Quarkus 'quarkus-amazon-lambda-xray' extension
+          over: default
+      when:
+        artifact:
+          artifactId: aws-xray-recorder-sdk-aws-sdk-v2
+          fromVersion: null
+          groupId: com.amazonaws
+          toVersion: null
+      where: {}
+    quarkus-amazon-lambda-xray-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-lambda#tracing-with-aws-xray-and-graalvm
+            title: Quarkus - Guide
+          message: "Replace the `com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2` dependency\
+            \ with the Quarkus dependency `io.quarkus:quarkus-amazon-lambda-xray`\
+            \  \n                        Further information in the link below."
+          tags: []
+          title: Replace the 'aws-xray-recorder-sdk-aws-sdk-v2' dependency with Quarkus
+            'quarkus-amazon-lambda-xray' extension
+      when:
+        dependency:
+          artifactId: aws-xray-recorder-sdk-aws-sdk-v2
+          groupId: com.amazonaws
+      where: {}
+    quarkus-amazon-s3-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-s3
+              title: Quarkus - Guide
+            message: "Replace the `software.amazon.awssdk:s3` dependency with the\
+              \ Quarkus dependency `io.quarkus:quarkus-amazon-s3`  \n            \
+              \                Further information in the link below."
+            tags: []
+            title: Replace the 's3' dependency with Quarkus 'quarkus-amazon-s3' extension
+          over: default
+      when:
+        artifact:
+          artifactId: s3
+          fromVersion: null
+          groupId: software.amazon.awssdk
+          toVersion: null
+      where: {}
+    quarkus-amazon-s3-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-s3
+            title: Quarkus - Guide
+          message: "Replace the `software.amazon.awssdk:s3` dependency with the Quarkus\
+            \ dependency `io.quarkus:quarkus-amazon-s3`  \n                      \
+            \  Further information in the link below."
+          tags: []
+          title: Replace the 's3' dependency with Quarkus 'quarkus-amazon-s3' extension
+      when:
+        dependency:
+          artifactId: s3
+          groupId: software.amazon.awssdk
+      where: {}
+    quarkus-amazon-ses-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-ses
+              title: Quarkus - Guide
+            message: "Replace the `software.amazon.awssdk:ses` dependency with the\
+              \ Quarkus dependency `io.quarkus:quarkus-amazon-ses`  \n           \
+              \                 Further information in the link below."
+            tags: []
+            title: Replace the 'ses' dependency with Quarkus 'quarkus-amazon-ses'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: ses
+          fromVersion: null
+          groupId: software.amazon.awssdk
+          toVersion: null
+      where: {}
+    quarkus-amazon-ses-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-ses
+            title: Quarkus - Guide
+          message: "Replace the `software.amazon.awssdk:ses` dependency with the Quarkus\
+            \ dependency `io.quarkus:quarkus-amazon-ses`  \n                     \
+            \   Further information in the link below."
+          tags: []
+          title: Replace the 'ses' dependency with Quarkus 'quarkus-amazon-ses' extension
+      when:
+        dependency:
+          artifactId: ses
+          groupId: software.amazon.awssdk
+      where: {}
+    quarkus-amazon-sns-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-sns
+              title: Quarkus - Guide
+            message: "Replace the `software.amazon.awssdk:sns` dependency with the\
+              \ Quarkus dependency `io.quarkus:quarkus-amazon-sns`  \n           \
+              \                 Further information in the link below."
+            tags: []
+            title: Replace the 'sns' dependency with Quarkus 'quarkus-amazon-sns'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: sns
+          fromVersion: null
+          groupId: software.amazon.awssdk
+          toVersion: null
+      where: {}
+    quarkus-amazon-sns-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-sns
+            title: Quarkus - Guide
+          message: "Replace the `software.amazon.awssdk:sns` dependency with the Quarkus\
+            \ dependency `io.quarkus:quarkus-amazon-sns`  \n                     \
+            \   Further information in the link below."
+          tags: []
+          title: Replace the 'sns' dependency with Quarkus 'quarkus-amazon-sns' extension
+      when:
+        dependency:
+          artifactId: sns
+          groupId: software.amazon.awssdk
+      where: {}
+    quarkus-amazon-sqs-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-sqs
+              title: Quarkus - Guide
+            message: "Replace the `software.amazon.awssdk:sqs` dependency with the\
+              \ Quarkus dependency `io.quarkus:quarkus-amazon-sqs`  \n           \
+              \                 Further information in the link below."
+            tags: []
+            title: Replace the 'sqs' dependency with Quarkus 'quarkus-amazon-sqs'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: sqs
+          fromVersion: null
+          groupId: software.amazon.awssdk
+          toVersion: null
+      where: {}
+    quarkus-amazon-sqs-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-sqs
+            title: Quarkus - Guide
+          message: "Replace the `software.amazon.awssdk:sqs` dependency with the Quarkus\
+            \ dependency `io.quarkus:quarkus-amazon-sqs`  \n                     \
+            \   Further information in the link below."
+          tags: []
+          title: Replace the 'sqs' dependency with Quarkus 'quarkus-amazon-sqs' extension
+      when:
+        dependency:
+          artifactId: sqs
+          groupId: software.amazon.awssdk
+      where: {}
+    quarkus-amazon-ssm-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/amazon-ssm
+              title: Quarkus - Guide
+            message: "Replace the `software.amazon.awssdk:ssm` dependency with the\
+              \ Quarkus dependency `io.quarkus:quarkus-amazon-ssm`  \n           \
+              \                 Further information in the link below."
+            tags: []
+            title: Replace the 'ssm' dependency with Quarkus 'quarkus-amazon-ssm'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: ssm
+          fromVersion: null
+          groupId: software.amazon.awssdk
+          toVersion: null
+      where: {}
+    quarkus-amazon-ssm-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/amazon-ssm
+            title: Quarkus - Guide
+          message: "Replace the `software.amazon.awssdk:ssm` dependency with the Quarkus\
+            \ dependency `io.quarkus:quarkus-amazon-ssm`  \n                     \
+            \   Further information in the link below."
+          tags: []
+          title: Replace the 'ssm' dependency with Quarkus 'quarkus-amazon-ssm' extension
+      when:
+        dependency:
+          artifactId: ssm
+          groupId: software.amazon.awssdk
+      where: {}

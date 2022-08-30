@@ -1,0 +1,55 @@
+kubernetes-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate kubernetes components to Quarkus
+      extension
+    sourceTechnologies:
+    - id: kubernetes
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-generated/quarkus/kubernetes/kubernetes-to-quarkus.windup.xml
+  rules:
+    quarkus-kubernetes-client-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/kubernetes-client
+              title: Quarkus - Guide
+            message: "Replace the `io.fabric8:kubernetes-client` dependency with the\
+              \ Quarkus dependency `io.quarkus:quarkus-kubernetes-client`  \n    \
+              \                        Further information in the link below."
+            tags: []
+            title: Replace the 'kubernetes-client' dependency with Quarkus 'quarkus-kubernetes-client'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: kubernetes-client
+          fromVersion: null
+          groupId: io.fabric8
+          toVersion: null
+      where: {}
+    quarkus-kubernetes-client-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/kubernetes-client
+            title: Quarkus - Guide
+          message: "Replace the `io.fabric8:kubernetes-client` dependency with the\
+            \ Quarkus dependency `io.quarkus:quarkus-kubernetes-client`  \n      \
+            \                  Further information in the link below."
+          tags: []
+          title: Replace the 'kubernetes-client' dependency with Quarkus 'quarkus-kubernetes-client'
+            extension
+      when:
+        dependency:
+          artifactId: kubernetes-client
+          groupId: io.fabric8
+      where: {}

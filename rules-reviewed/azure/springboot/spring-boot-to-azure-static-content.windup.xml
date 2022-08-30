@@ -1,0 +1,40 @@
+spring-boot-to-azure-static-content:
+  metadata:
+    description: Read-only static content.
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags:
+    - static content
+    targetTechnologies:
+    - id: azure-appservice
+      versionRange: null
+    - id: azure-aks
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/azure/springboot/spring-boot-to-azure-static-content.windup.xml
+  rules:
+    spring-boot-to-azure-static-content-01000:
+      perform:
+        hint:
+          category-id: optional
+          effort: '5'
+          links:
+          - href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#read-only-static-content
+            title: Static content found in the application
+          - href: https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website
+            title: Static website hosting in Azure Storage
+          - href: https://docs.microsoft.com/en-us/azure/cdn/cdn-create-a-storage-account-with-cdn
+            title: 'Quickstart: Integrate an Azure Storage account with Azure CDN'
+          message: "Your application currently serves static content, you'll need\
+            \ an alternate location for it. You may wish to consider moving static\
+            \ content to Azure Blob Storage and adding Azure CDN for lightning-fast\
+            \ downloads globally.\n                        \n                    \
+            \    For more information, see Static website hosting in Azure Storage\
+            \ and Quickstart: Integrate an Azure storage account with Azure CDN."
+          tags: []
+          title: Static content found in the application
+      when:
+        file:
+          filename: '{*}.{extensions}'
+      where:
+        extensions: (htm|html|css|scss|js)

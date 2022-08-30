@@ -1,0 +1,235 @@
+technology-usage-integration:
+  metadata:
+    description: This ruleset provides statistical summaries of embedded 3rd party
+      frameworks.
+    phase: PostMigrationRulesPhase
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies: []
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/technology-usage/integration-technology-usage.windup.xml
+  rules:
+    technology-usage-integration-00001:
+      perform:
+        technology-identified:
+          name: Camel
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Apache Camel
+      where: {}
+    technology-usage-integration-00002:
+      perform:
+        technology-identified:
+          name: Teiid
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Teiid
+      where: {}
+    technology-usage-integration-00003:
+      perform:
+        technology-identified:
+          name: Spring Integration
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Spring Integration
+      where: {}
+    technology-usage-integration-00004:
+      perform:
+        technology-identified:
+          name: Ikasan
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Ikasan
+      where: {}
+    technology-usage-integration-00005:
+      perform:
+        technology-identified:
+          name: Swagger
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Swagger
+      where: {}
+    technology-usage-integration-00006:
+      perform:
+        technology-identified:
+          name: Apiman
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Apiman
+      where: {}
+    technology-usage-integration-00007:
+      perform:
+        technology-identified:
+          name: 3scale
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: 3scale
+      where: {}
+    technology-usage-integration-00008:
+      perform:
+        technology-identified:
+          name: Istio
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Istio
+      where: {}
+    technology-usage-integration-00009:
+      perform:
+        technology-identified:
+          name: ServiceMix
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: ServiceMix
+      where: {}
+    technology-usage-integration-00010:
+      perform:
+        technology-identified:
+          name: Mule
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Mule
+      where: {}
+    technology-usage-integration-00011:
+      perform:
+        technology-identified:
+          name: Petals EIP
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Petals EIP
+      where: {}
+    technology-usage-integration-00012:
+      perform:
+        technology-identified:
+          name: SwitchYard
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: SwitchYard
+      where: {}
+    technology-usage-integration-00013:
+      perform:
+        technology-identified:
+          name: Apache Synapse
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Apache Synapse
+      where: {}
+    technology-usage-integration-00014:
+      perform:
+        technology-identified:
+          name: WSO2
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: WSO2
+      where: {}
+    technology-usage-integration-00015:
+      perform:
+        technology-identified:
+          name: Talend ESB
+          tags:
+          - Execute
+          - Embedded
+          - Integration
+      when:
+        graph_query:
+          discriminator: TechnologyTagModel
+          properties:
+          - name: name
+            string: Talend ESB
+      where: {}

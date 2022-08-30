@@ -1,0 +1,358 @@
+embedded-cache-libraries:
+  metadata:
+    description: This ruleset detects embedded cache libraries, which may be problematic
+      when migrating an application to a cloud environment.
+    phase: InitialAnalysisPhase
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies:
+    - id: cloud-readiness
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/openshift/embedded-cache-libraries.windup.xml
+  rules:
+    embedded-cache-libraries-01000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds an Ehcache library.\n\n           \
+            \             An embedded cache library is problematic because state information\
+            \ might not be persisted to a backing service.\n\n                   \
+            \     Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - Ehcache embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Ehcache
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*ehcache.*\.jar$
+      where: {}
+    embedded-cache-libraries-02000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds a Coherence library.\n\n          \
+            \              An embedded cache library is problematic because state\
+            \ information might not be persisted to a backing service.\n\n       \
+            \                 Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - Coherence embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Coherence
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*coherence.*\.jar$
+      where: {}
+    embedded-cache-libraries-03000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds an Apache Commons JCS library.\n\n\
+            \                        An embedded cache library is problematic because\
+            \ state information might not be persisted to a backing service.\n\n \
+            \                       Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - Apache Commons JCS embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Apache Commons JCS
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*commons-jcs.*\.jar$
+      where: {}
+    embedded-cache-libraries-04000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds a Dynacache library.\n\n          \
+            \              An embedded cache library is problematic because state\
+            \ information might not be persisted to a backing service.\n\n       \
+            \                 Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - Dynacache embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Dynacache
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*dynacache.*\.jar$
+      where: {}
+    embedded-cache-libraries-05000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds a library that provides caching.\n\n\
+            \                        An embedded cache library is problematic because\
+            \ state information might not be persisted to a backing service.\n\n \
+            \                       Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - Embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Cache API
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*cache-api.*\.jar$
+      where: {}
+    embedded-cache-libraries-06000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds a Hazelcast library.\n\n          \
+            \              An embedded cache library is problematic because state\
+            \ information might not be persisted to a backing service.\n\n       \
+            \                 Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - Hazelcast embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Hazelcast
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*hazelcast.*\.jar$
+      where: {}
+    embedded-cache-libraries-07000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds an Apache Ignite library.\n\n     \
+            \                   An embedded cache library is problematic because state\
+            \ information might not be persisted to a backing service.\n\n       \
+            \                 Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - Apache Ignite embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Apache Ignite
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*ignite.*\.jar$
+      where: {}
+    embedded-cache-libraries-08000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds an Infinispan library.\n\n        \
+            \                An embedded cache library is problematic because state\
+            \ information might not be persisted to a backing service.\n\n       \
+            \                 Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - Infinispan embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Infinispan
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*infinispan.*\.jar$
+      where: {}
+    embedded-cache-libraries-09000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embedds a JBoss Cache library.\n\n       \
+            \                 An embedded cache library is problematic because state\
+            \ information might not be persisted to a backing service.\n\n       \
+            \                 Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - JBoss Cache embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: JBoss Cache
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*jbosscache.*\.jar$
+      where: {}
+    embedded-cache-libraries-10000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds a JCache library.\n\n             \
+            \           An embedded cache library is problematic because state information\
+            \ might not be persisted to a backing service.\n\n                   \
+            \     Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - JCache embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: JCache
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*jcache.*\.jar$
+      where: {}
+    embedded-cache-libraries-11000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds a Memcached client library.\n\n   \
+            \                     An embedded cache library is problematic because\
+            \ state information might not be persisted to a backing service.\n\n \
+            \                       Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - Memcached client embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Memcached client
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*memcached.*\.jar$
+      where: {}
+    embedded-cache-libraries-12000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds an Oscache library.\n\n           \
+            \             An embedded cache library is problematic because state information\
+            \ might not be persisted to a backing service.\n\n                   \
+            \     Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - Oscache embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Oscache
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*oscache.*\.jar$
+      where: {}
+    embedded-cache-libraries-13000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds a ShiftOne library (Java Object Cache\
+            \ or JOCache).\n\n                        An embedded cache library is\
+            \ problematic because state information might not be persisted to a backing\
+            \ service.\n\n                        Recommendation: Use a cache backing\
+            \ service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - ShiftOne (Java Object Cache) embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: ShiftOne
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*shiftone.*\.jar$
+      where: {}
+    embedded-cache-libraries-14000:
+      perform:
+        classification:
+          category-id: cloud-mandatory
+          description: "The application embeds a SwarmCache library.\n\n         \
+            \               An embedded cache library is problematic because state\
+            \ information might not be persisted to a backing service.\n\n       \
+            \                 Recommendation: Use a cache backing service."
+          effort: '5'
+          links: []
+          tags: []
+          title: Caching - SwarmCache embedded library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: SwarmCache
+      when:
+        graph_query:
+          discriminator: JarArchiveModel
+          properties:
+          - name: fileName
+            searchType: regex
+            string: .*swarmcache.*\.jar$
+      where: {}
+    embedded-cache-libraries-15000:
+      perform:
+        classification:
+          category-id: information
+          description: The application embeds the Spring Boot Cache library.
+          effort: '0'
+          links: []
+          tags: []
+          title: Caching - Spring Boot Cache library
+        technology-tag:
+          level: INFORMATIONAL
+          tag: Spring Boot Cache
+      when:
+        or:
+        - dependency:
+            artifactId: spring-boot-starter-cache
+            groupId: org.springframework.boot
+        - artifact:
+            artifactId: spring-boot-starter-cache
+            fromVersion: null
+            groupId: org.springframework.boot
+            toVersion: null
+      where: {}

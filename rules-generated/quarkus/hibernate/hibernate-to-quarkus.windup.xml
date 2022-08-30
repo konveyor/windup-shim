@@ -1,0 +1,181 @@
+hibernate-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate hibernate components to Quarkus
+      extension
+    sourceTechnologies:
+    - id: hibernate
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml
+  rules:
+    quarkus-hibernate-envers-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/hibernate-orm#envers
+              title: Quarkus - Guide
+            message: "Replace the `org.hibernate:hibernate-envers` dependency with\
+              \ the Quarkus dependency `io.quarkus:quarkus-hibernate-envers`  \n \
+              \                           Further information in the link below."
+            tags: []
+            title: Replace the 'hibernate-envers' dependency with Quarkus 'quarkus-hibernate-envers'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: hibernate-envers
+          fromVersion: null
+          groupId: org.hibernate
+          toVersion: null
+      where: {}
+    quarkus-hibernate-envers-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/hibernate-orm#envers
+            title: Quarkus - Guide
+          message: "Replace the `org.hibernate:hibernate-envers` dependency with the\
+            \ Quarkus dependency `io.quarkus:quarkus-hibernate-envers`  \n       \
+            \                 Further information in the link below."
+          tags: []
+          title: Replace the 'hibernate-envers' dependency with Quarkus 'quarkus-hibernate-envers'
+            extension
+      when:
+        dependency:
+          artifactId: hibernate-envers
+          groupId: org.hibernate
+      where: {}
+    quarkus-hibernate-reactive-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://github.com/quarkusio/quarkus-quickstarts/tree/master/hibernate-reactive-quickstart
+              title: Quarkus - Quickstart
+            message: "Replace the `org.hibernate.reactive:hibernate-reactive-core`\
+              \ dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-reactive`\
+              \  \n                            Further information in the link below."
+            tags: []
+            title: Replace the 'hibernate-reactive-core' dependency with Quarkus 'quarkus-hibernate-reactive'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: hibernate-reactive-core
+          fromVersion: null
+          groupId: org.hibernate.reactive
+          toVersion: null
+      where: {}
+    quarkus-hibernate-reactive-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://github.com/quarkusio/quarkus-quickstarts/tree/master/hibernate-reactive-quickstart
+            title: Quarkus - Quickstart
+          message: "Replace the `org.hibernate.reactive:hibernate-reactive-core` dependency\
+            \ with the Quarkus dependency `io.quarkus:quarkus-hibernate-reactive`\
+            \  \n                        Further information in the link below."
+          tags: []
+          title: Replace the 'hibernate-reactive-core' dependency with Quarkus 'quarkus-hibernate-reactive'
+            extension
+      when:
+        dependency:
+          artifactId: hibernate-reactive-core
+          groupId: org.hibernate.reactive
+      where: {}
+    quarkus-hibernate-search-orm-elasticsearch-aws-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/hibernate-search-orm-elasticsearch
+              title: Quarkus - Guide
+            message: "Replace the `org.hibernate.search:hibernate-search-backend-elasticsearch-aws`\
+              \ dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-search-orm-elasticsearch-aws`\
+              \  \n                            Further information in the link below."
+            tags: []
+            title: Replace the 'hibernate-search-backend-elasticsearch-aws' dependency
+              with Quarkus 'quarkus-hibernate-search-orm-elasticsearch-aws' extension
+          over: default
+      when:
+        artifact:
+          artifactId: hibernate-search-backend-elasticsearch-aws
+          fromVersion: null
+          groupId: org.hibernate.search
+          toVersion: null
+      where: {}
+    quarkus-hibernate-search-orm-elasticsearch-aws-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/hibernate-search-orm-elasticsearch
+            title: Quarkus - Guide
+          message: "Replace the `org.hibernate.search:hibernate-search-backend-elasticsearch-aws`\
+            \ dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-search-orm-elasticsearch-aws`\
+            \  \n                        Further information in the link below."
+          tags: []
+          title: Replace the 'hibernate-search-backend-elasticsearch-aws' dependency
+            with Quarkus 'quarkus-hibernate-search-orm-elasticsearch-aws' extension
+      when:
+        dependency:
+          artifactId: hibernate-search-backend-elasticsearch-aws
+          groupId: org.hibernate.search
+      where: {}
+    quarkus-hibernate-validator-00000:
+      perform:
+        iteration:
+          hint:
+            category-id: mandatory
+            effort: '1'
+            links:
+            - href: https://quarkus.io/guides/validation
+              title: Quarkus - Guide
+            message: "Replace the `org.hibernate.validator:hibernate-validator` dependency\
+              \ with the Quarkus dependency `io.quarkus:quarkus-hibernate-validator`\
+              \  \n                            Further information in the link below."
+            tags: []
+            title: Replace the 'hibernate-validator' dependency with Quarkus 'quarkus-hibernate-validator'
+              extension
+          over: default
+      when:
+        artifact:
+          artifactId: hibernate-validator
+          fromVersion: null
+          groupId: org.hibernate.validator
+          toVersion: null
+      where: {}
+    quarkus-hibernate-validator-00010:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/validation
+            title: Quarkus - Guide
+          message: "Replace the `org.hibernate.validator:hibernate-validator` dependency\
+            \ with the Quarkus dependency `io.quarkus:quarkus-hibernate-validator`\
+            \  \n                        Further information in the link below."
+          tags: []
+          title: Replace the 'hibernate-validator' dependency with Quarkus 'quarkus-hibernate-validator'
+            extension
+      when:
+        dependency:
+          artifactId: hibernate-validator
+          groupId: org.hibernate.validator
+      where: {}

@@ -1,0 +1,32 @@
+maven-jboss-rmi-api_1.0_spec:
+  metadata:
+    description: This ruleset provides analysis of Maven built applications that depend
+      on org.jboss.spec.javax.rmi:jboss-rmi-api_1.0_spec artifact, a dependency that
+      should be removed when migrating to JBoss EAP 7.3 or later.
+    sourceTechnologies: []
+    tags: []
+    targetTechnologies:
+    - id: eap
+      versionRange: '[7,8)'
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/eap7/eap72/maven-jboss-rmi-api_1.0_spec.rhamt.xml
+  rules:
+    maven-jboss-rmi-api_1.0_spec-00001:
+      perform:
+        hint:
+          category-id: potential
+          effort: '1'
+          links: []
+          message: If you migrate your application to JBoss EAP 7.3 (or later), and
+            want to ensure its Maven building, running or testing works as expected,
+            remove any dependency on unsupported artifact with groupId `org.jboss.spec.javax.rmi`,
+            and artifactId `jboss-rmi-api_1.0_spec`.
+          tags:
+          - rmi
+          title: Remove Maven dependency on org.jboss.spec.javax.rmi:jboss-rmi-api_1.0_spec
+      when:
+        artifact:
+          artifactId: jboss-rmi-api_1.0_spec
+          fromVersion: null
+          groupId: org.jboss.spec.javax.rmi
+          toVersion: null
+      where: {}

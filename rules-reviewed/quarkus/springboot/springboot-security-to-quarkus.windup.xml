@@ -1,0 +1,44 @@
+springboot-security-to-quarkus:
+  metadata:
+    description: This ruleset gives hints to migrate from SpringBoot Security to Quarkus
+      spring-security extension
+    sourceTechnologies:
+    - id: springboot
+      versionRange: null
+    tags: []
+    targetTechnologies:
+    - id: quarkus
+      versionRange: null
+  original-file: https://github.com/windup/windup-rulesets/tree/master/rules-reviewed/quarkus/springboot/springboot-security-to-quarkus.windup.xml
+  rules:
+    springboot-security-to-quarkus-00000:
+      perform:
+        hint:
+          category-id: mandatory
+          effort: '1'
+          links:
+          - href: https://quarkus.io/guides/spring-security
+            title: Quarkus Extension for Spring Security API Guide
+          message: "Replace the SpringBoot Security artifact with Quarkus `spring-security`\
+            \ extension\n\n                        Spring Security is in spring-security-core\
+            \ artifact brought transitively by `org.springframework.boot:spring-boot-starter-security`\
+            \ dependency.  \n                        Add Quarkus dependency `io.quarkus:quarkus-spring-security`"
+          tags: []
+          title: Replace the SpringBoot Security artifact with Quarkus 'spring-security'
+            extension
+      when:
+        or:
+        - artifact:
+            artifactId: spring-security-core
+            fromVersion: null
+            groupId: org.springframework.security
+            toVersion: null
+        - artifact:
+            artifactId: spring-boot-starter-security
+            fromVersion: null
+            groupId: org.springframework.boot
+            toVersion: null
+        - dependency:
+            artifactId: spring-security-core
+            groupId: org.springframework.security
+      where: {}
