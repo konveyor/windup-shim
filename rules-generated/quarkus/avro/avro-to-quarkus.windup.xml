@@ -19,9 +19,9 @@ avro-to-quarkus:
             links:
             - href: https://quarkus.io/guides/kafka
               title: Quarkus - Guide
-            message: "Replace the `org.apache.avro:avro` dependency with the Quarkus\
-              \ dependency `io.quarkus:quarkus-avro`  \n                         \
-              \   Further information in the link below."
+            message: Replace the `org.apache.avro:avro` dependency with the Quarkus
+              dependency `io.quarkus:quarkus-avro` Further information in the link
+              below.
             tags: []
             title: Replace the 'avro' dependency with Quarkus 'quarkus-avro' extension
           over: default
@@ -40,9 +40,8 @@ avro-to-quarkus:
           links:
           - href: https://quarkus.io/guides/kafka
             title: Quarkus - Guide
-          message: "Replace the `org.apache.avro:avro` dependency with the Quarkus\
-            \ dependency `io.quarkus:quarkus-avro`  \n                        Further\
-            \ information in the link below."
+          message: Replace the `org.apache.avro:avro` dependency with the Quarkus
+            dependency `io.quarkus:quarkus-avro` Further information in the link below.
           tags: []
           title: Replace the 'avro' dependency with Quarkus 'quarkus-avro' extension
       when:

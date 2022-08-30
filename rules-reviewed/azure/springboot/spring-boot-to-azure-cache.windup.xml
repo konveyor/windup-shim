@@ -27,8 +27,8 @@ spring-boot-to-azure-cache:
             title: Spring Data Redis
           - href: https://search.maven.org/artifact/com.azure.spring/azure-spring-cloud-starter-cache
             title: Azure Spring Cloud Starter Cache
-          message: "The application uses a Redis Cache.\n\n                      \
-            \  Checkout Azure Cache for Redis for a fully managed cache on Azure."
+          message: The application uses a Redis Cache. Checkout Azure Cache for Redis
+            for a fully managed cache on Azure.
           tags:
           - redis
           title: Redis Cache found in the application

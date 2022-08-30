@@ -1,8 +1,7 @@
 hibernate51-53:
   metadata:
-    description: "This ruleset provides analysis of applications that use Hibernate\
-      \ 5.1 and may require\n            individual attention when migrating to Hibernate\
-      \ 5.3."
+    description: This ruleset provides analysis of applications that use Hibernate
+      5.1 and may require individual attention when migrating to Hibernate 5.3.
     sourceTechnologies:
     - id: hibernate
       versionRange: (,5.1]
@@ -69,7 +68,7 @@ hibernate51-53:
               ORM 5.3'
           message: "If the `SessionFactory` is built via Hibernate\u2019s native bootstrapping\
             \ and `org.hibernate.HibernateException` or a subclass is referenced by\
-            \ the application\n                        then set `hibernate.native_exception_handling_51_compliance`\
+            \ the application then set `hibernate.native_exception_handling_51_compliance`\
             \ configuration property to `true`."
           tags:
           - hibernate
@@ -214,14 +213,13 @@ hibernate51-53:
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2/html-single/migration_guide/#migrating_from_hibernate_5_1_to_5_3
             title: 'Red Hat JBoss EAP 7.2: Migrating from Hibernate ORM 5.1 to Hibernate
               ORM 5.3'
-          message: "Depending on the type of region, the appropriate method should\
-            \ be used instead:  \n\n                        * For an entity cache\
-            \ region, `org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().entityPersister(\
-            \ entityName ).getCacheAccessStrategy()` should be used instead\n    \
-            \                    * For a collection region, `org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().collectionPersister(\
-            \ role ).getCacheAccessStrategy()` should be used instead\n          \
-            \              * For a natural ID region, `org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().entityPersister(\
-            \ entityName ).getNaturalIdCacheAccessStrategy()` should be used instead"
+          message: 'Depending on the type of region, the appropriate method should
+            be used instead: * For an entity cache region, `org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().entityPersister(
+            entityName ).getCacheAccessStrategy()` should be used instead * For a
+            collection region, `org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().collectionPersister(
+            role ).getCacheAccessStrategy()` should be used instead * For a natural
+            ID region, `org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().entityPersister(
+            entityName ).getNaturalIdCacheAccessStrategy()` should be used instead'
           tags:
           - hibernate
           title: Hibernate 5.3 - SessionFactoryImplementor.getSecondLevelCacheRegionAccessStrategy(String
@@ -320,9 +318,9 @@ hibernate51-53:
               ORM 5.3'
           - href: https://docs.jboss.org/hibernate/orm/5.3/javadocs/org/hibernate/cache/spi/RegionFactory.html
             title: Javadoc for org.hibernate.cache.spi.RegionFactory
-          message: "Review usage of classes in `org.hibernate.cache.spi.RegionFactory`,\
-            \ as SPIs for this class has changed.  \n                        See Javadoc\
-            \ for `org.hibernate.cache.spi.RegionFactory` for details."
+          message: Review usage of classes in `org.hibernate.cache.spi.RegionFactory`,
+            as SPIs for this class has changed. See Javadoc for `org.hibernate.cache.spi.RegionFactory`
+            for details.
           tags:
           - hibernate
           title: Hibernate 5.3 - RegionFactory usage
@@ -348,16 +346,14 @@ hibernate51-53:
           - href: https://hibernate.atlassian.net/browse/HHH-11356
             title: 'HHH-11356: Adjust the 2nd-Cache SPIs to better reflect supported
               uses'
-          message: "One potential upgrade concern is any custom `org.hibernate.cache.spi.QueryCacheFactory`\
-            \ implementations.  \n                        `org.hibernate.cache.spi.QueryCacheFactory`\
-            \ was meant as a means to allow service providers the ability to define\
-            \ query result caching, generally with more stale-tolerant query result\
-            \ invalidation handling.  \n                        However, the contract\
-            \ also bound it to the old second level cache contracts so they had to\
-            \ be updated.  \n                        Its responsibilities also changed\
-            \ so we also decided to \"rename it\" to `org.hibernate.cache.spi.TimestampsCacheFactory`.\
-            \  \n                        Details can be found in HHH-11356 JIRA issue\
-            \ (link below)."
+          message: One potential upgrade concern is any custom `org.hibernate.cache.spi.QueryCacheFactory`
+            implementations. `org.hibernate.cache.spi.QueryCacheFactory` was meant
+            as a means to allow service providers the ability to define query result
+            caching, generally with more stale-tolerant query result invalidation
+            handling. However, the contract also bound it to the old second level
+            cache contracts so they had to be updated. Its responsibilities also changed
+            so we also decided to "rename it" to `org.hibernate.cache.spi.TimestampsCacheFactory`.
+            Details can be found in HHH-11356 JIRA issue (link below).
           tags:
           - hibernate
           title: Hibernate 5.3 - org.hibernate.cache.spi.QueryCacheFactory implementations
@@ -382,15 +378,13 @@ hibernate51-53:
           - href: https://hibernate.atlassian.net/browse/HHH-11356
             title: 'HHH-11356: Adjust the 2nd-Cache SPIs to better reflect supported
               uses'
-          message: "A change to be aware of is accessing cache entries via `SecondLevelCacheStatistics.getEntries()`\
-            \ and `NaturalIdCacheStatistics.getEntries()`.  \n                   \
-            \     These methods have been deprecated, however the new caching SPI\
-            \ does not really require caching providers to support this.  \n     \
-            \                   As of Hibernate 5.3 these methods inherently return\
-            \ an empty Map (`Collections#emptyMap`).  \n                        This\
-            \ has always been something that providers did not implement \"correctly\"\
-            \ anyway.  \n                        Details can be found in HHH-11356\
-            \ JIRA issue (link below)."
+          message: A change to be aware of is accessing cache entries via `SecondLevelCacheStatistics.getEntries()`
+            and `NaturalIdCacheStatistics.getEntries()`. These methods have been deprecated,
+            however the new caching SPI does not really require caching providers
+            to support this. As of Hibernate 5.3 these methods inherently return an
+            empty Map (`Collections#emptyMap`). This has always been something that
+            providers did not implement "correctly" anyway. Details can be found in
+            HHH-11356 JIRA issue (link below).
           tags:
           - hibernate
           title: 'Hibernate 5.3 - SecondLevelCacheStatistics.getEntries() and NaturalIdCacheStatistics.getEntries():
@@ -419,15 +413,12 @@ hibernate51-53:
               - href: https://hibernate.atlassian.net/browse/HHH-11356
                 title: 'HHH-11356: Adjust the 2nd-Cache SPIs to better reflect supported
                   uses'
-              message: "A change to be aware of is accessing cache entries via `NaturalIdCacheStatistics.getEntries()`.\
-                \  \n                                This method has been deprecated,\
-                \ however the new caching SPI does not really require caching providers\
-                \ to support this.  \n                                As of Hibernate\
-                \ 5.3 this method inherently return an empty Map (`Collections#emptyMap`).\
-                \  \n                                This has always been something\
-                \ that providers did not implement \"correctly\" anyway.  \n     \
-                \                           Details can be found in HHH-11356 JIRA\
-                \ issue (link below)."
+              message: A change to be aware of is accessing cache entries via `NaturalIdCacheStatistics.getEntries()`.
+                This method has been deprecated, however the new caching SPI does
+                not really require caching providers to support this. As of Hibernate
+                5.3 this method inherently return an empty Map (`Collections#emptyMap`).
+                This has always been something that providers did not implement "correctly"
+                anyway. Details can be found in HHH-11356 JIRA issue (link below).
               tags:
               - hibernate
               title: Hibernate 5.3 - NaturalIdCacheStatistics.getEntries() deprecated
@@ -460,15 +451,12 @@ hibernate51-53:
               - href: https://hibernate.atlassian.net/browse/HHH-11356
                 title: 'HHH-11356: Adjust the 2nd-Cache SPIs to better reflect supported
                   uses'
-              message: "A change to be aware of is accessing cache entries via `SecondLevelCacheStatistics.getEntries()`.\
-                \   \n                                This method has been deprecated,\
-                \ however the new caching SPI does not really require caching providers\
-                \ to support this.  \n                                As of Hibernate\
-                \ 5.3 these methods inherently return an empty Map (`Collections#emptyMap`).\
-                \  \n                                This has always been something\
-                \ that providers did not implement \"correctly\" anyway.  \n     \
-                \                           Details can be found in HHH-11356 JIRA\
-                \ issue (link below)."
+              message: A change to be aware of is accessing cache entries via `SecondLevelCacheStatistics.getEntries()`.
+                This method has been deprecated, however the new caching SPI does
+                not really require caching providers to support this. As of Hibernate
+                5.3 these methods inherently return an empty Map (`Collections#emptyMap`).
+                This has always been something that providers did not implement "correctly"
+                anyway. Details can be found in HHH-11356 JIRA issue (link below).
               tags:
               - hibernate
               title: Hibernate 5.3 - SecondLevelCacheStatistics.getEntries() deprecated
@@ -495,10 +483,9 @@ hibernate51-53:
               ORM 5.3'
           - href: http://docs.jboss.org/hibernate/orm/5.3/javadocs/
             title: Hibernate 5.3 JavaDoc
-          message: "The SPIs in the `org.hibernate.{packages}` package have changed.\
-            \  \n                        Any custom classes using those SPIs will\
-            \ need to be reviewed and updated.  \n                        See Javadoc\
-            \ for these packages for details."
+          message: The SPIs in the `org.hibernate.{packages}` package have changed.
+            Any custom classes using those SPIs will need to be reviewed and updated.
+            See Javadoc for these packages for details.
           tags:
           - hibernate
           title: Hibernate 5.3 - SPI in package org.hibernate.{packages} changed
@@ -585,7 +572,7 @@ hibernate51-53:
             configuration property to `false`.
           tags:
           - hibernate
-          title: Hibernate 5.3  - @TableGenerator changes interpretation
+          title: Hibernate 5.3 - @TableGenerator changes interpretation
       when:
         annotation-types: []
         javaclass:

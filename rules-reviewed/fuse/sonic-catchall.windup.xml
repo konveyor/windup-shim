@@ -1,7 +1,7 @@
 sonic-catchall:
   metadata:
-    description: "This ruleset provides analysis that may require individual attention\
-      \ when\n         migrating from Sonic classes."
+    description: This ruleset provides analysis that may require individual attention
+      when migrating from Sonic classes.
     sourceTechnologies:
     - id: sonic
       versionRange: null
@@ -21,10 +21,9 @@ sonic-catchall:
               category-id: potential
               effort: '0'
               links: []
-              message: "This com.{subpackage}.{classname} is a Sonic proprietary type\
-                \ and needs to be migrated to a compatible API. There are currently\
-                \ no detailed\n                                migration rules about\
-                \ this type."
+              message: This com.{subpackage}.{classname} is a Sonic proprietary type
+                and needs to be migrated to a compatible API. There are currently
+                no detailed migration rules about this type.
               tags:
               - sonic
               - catchall

@@ -23,11 +23,10 @@ spring-boot-to-azure-feign:
             title: Migrate clients bypassing the service registry
           - href: https://spring.io/projects/spring-cloud-openfeign
             title: Spring Cloud OpenFeign
-          message: "The application uses Feign. Spring Cloud Service Registry uses\
-            \ OpenFeign instead. When migrating to Spring Cloud Service Registry,\
-            \ the Feign invocations will no longer be possible.\n                \
-            \        \n                        Update the clients to use Spring Cloud\
-            \ OpenFeign instead."
+          message: The application uses Feign. Spring Cloud Service Registry uses
+            OpenFeign instead. When migrating to Spring Cloud Service Registry, the
+            Feign invocations will no longer be possible. Update the clients to use
+            Spring Cloud OpenFeign instead.
           tags: []
           title: Feign
       when:

@@ -19,8 +19,8 @@ springboot-cache-to-quarkus:
           links:
           - href: https://quarkus.io/guides/spring-cache
             title: Quarkus Extension for Spring Cache API Guide
-          message: "Replace the SpringBoot Cache module artifact with Quarkus `spring-cache`\
-            \ extension\n\n                        Add Quarkus dependency `io.quarkus:quarkus-spring-cache`"
+          message: Replace the SpringBoot Cache module artifact with Quarkus `spring-cache`
+            extension Add Quarkus dependency `io.quarkus:quarkus-spring-cache`
           tags: []
           title: Replace the SpringBoot cache artifact with Quarkus 'spring-cache'
             extension

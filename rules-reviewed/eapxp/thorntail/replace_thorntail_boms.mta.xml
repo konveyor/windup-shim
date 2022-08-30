@@ -1,8 +1,8 @@
 replace_thorntail_boms:
   metadata:
-    description: "This ruleset provides analysis of Maven built applications that\
-      \ use Thorntail BOMs to manage dependencies,\n            which should be replaced\
-      \ by JBoss EAP XP and/or JBoss EAP BOMs, when migrating to JBoss EAP XP."
+    description: This ruleset provides analysis of Maven built applications that use
+      Thorntail BOMs to manage dependencies, which should be replaced by JBoss EAP
+      XP and/or JBoss EAP BOMs, when migrating to JBoss EAP XP.
     sourceTechnologies:
     - id: thorntail
       versionRange: null

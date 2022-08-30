@@ -14,10 +14,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds an Ehcache library.\n\n           \
-            \             An embedded cache library is problematic because state information\
-            \ might not be persisted to a backing service.\n\n                   \
-            \     Recommendation: Use a cache backing service."
+          description: 'The application embeds an Ehcache library. An embedded cache
+            library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -37,10 +36,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds a Coherence library.\n\n          \
-            \              An embedded cache library is problematic because state\
-            \ information might not be persisted to a backing service.\n\n       \
-            \                 Recommendation: Use a cache backing service."
+          description: 'The application embeds a Coherence library. An embedded cache
+            library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -60,10 +58,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds an Apache Commons JCS library.\n\n\
-            \                        An embedded cache library is problematic because\
-            \ state information might not be persisted to a backing service.\n\n \
-            \                       Recommendation: Use a cache backing service."
+          description: 'The application embeds an Apache Commons JCS library. An embedded
+            cache library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -83,10 +80,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds a Dynacache library.\n\n          \
-            \              An embedded cache library is problematic because state\
-            \ information might not be persisted to a backing service.\n\n       \
-            \                 Recommendation: Use a cache backing service."
+          description: 'The application embeds a Dynacache library. An embedded cache
+            library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -106,10 +102,10 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds a library that provides caching.\n\n\
-            \                        An embedded cache library is problematic because\
-            \ state information might not be persisted to a backing service.\n\n \
-            \                       Recommendation: Use a cache backing service."
+          description: 'The application embeds a library that provides caching. An
+            embedded cache library is problematic because state information might
+            not be persisted to a backing service. Recommendation: Use a cache backing
+            service.'
           effort: '5'
           links: []
           tags: []
@@ -129,10 +125,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds a Hazelcast library.\n\n          \
-            \              An embedded cache library is problematic because state\
-            \ information might not be persisted to a backing service.\n\n       \
-            \                 Recommendation: Use a cache backing service."
+          description: 'The application embeds a Hazelcast library. An embedded cache
+            library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -152,10 +147,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds an Apache Ignite library.\n\n     \
-            \                   An embedded cache library is problematic because state\
-            \ information might not be persisted to a backing service.\n\n       \
-            \                 Recommendation: Use a cache backing service."
+          description: 'The application embeds an Apache Ignite library. An embedded
+            cache library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -175,10 +169,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds an Infinispan library.\n\n        \
-            \                An embedded cache library is problematic because state\
-            \ information might not be persisted to a backing service.\n\n       \
-            \                 Recommendation: Use a cache backing service."
+          description: 'The application embeds an Infinispan library. An embedded
+            cache library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -198,10 +191,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embedds a JBoss Cache library.\n\n       \
-            \                 An embedded cache library is problematic because state\
-            \ information might not be persisted to a backing service.\n\n       \
-            \                 Recommendation: Use a cache backing service."
+          description: 'The application embedds a JBoss Cache library. An embedded
+            cache library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -221,10 +213,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds a JCache library.\n\n             \
-            \           An embedded cache library is problematic because state information\
-            \ might not be persisted to a backing service.\n\n                   \
-            \     Recommendation: Use a cache backing service."
+          description: 'The application embeds a JCache library. An embedded cache
+            library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -244,10 +235,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds a Memcached client library.\n\n   \
-            \                     An embedded cache library is problematic because\
-            \ state information might not be persisted to a backing service.\n\n \
-            \                       Recommendation: Use a cache backing service."
+          description: 'The application embeds a Memcached client library. An embedded
+            cache library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -267,10 +257,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds an Oscache library.\n\n           \
-            \             An embedded cache library is problematic because state information\
-            \ might not be persisted to a backing service.\n\n                   \
-            \     Recommendation: Use a cache backing service."
+          description: 'The application embeds an Oscache library. An embedded cache
+            library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []
@@ -290,11 +279,10 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds a ShiftOne library (Java Object Cache\
-            \ or JOCache).\n\n                        An embedded cache library is\
-            \ problematic because state information might not be persisted to a backing\
-            \ service.\n\n                        Recommendation: Use a cache backing\
-            \ service."
+          description: 'The application embeds a ShiftOne library (Java Object Cache
+            or JOCache). An embedded cache library is problematic because state information
+            might not be persisted to a backing service. Recommendation: Use a cache
+            backing service.'
           effort: '5'
           links: []
           tags: []
@@ -314,10 +302,9 @@ embedded-cache-libraries:
       perform:
         classification:
           category-id: cloud-mandatory
-          description: "The application embeds a SwarmCache library.\n\n         \
-            \               An embedded cache library is problematic because state\
-            \ information might not be persisted to a backing service.\n\n       \
-            \                 Recommendation: Use a cache backing service."
+          description: 'The application embeds a SwarmCache library. An embedded cache
+            library is problematic because state information might not be persisted
+            to a backing service. Recommendation: Use a cache backing service.'
           effort: '5'
           links: []
           tags: []

@@ -207,10 +207,10 @@ hsearch:
             title: Advanced Integrator Changes in Hibernate Search 5.x
           - href: https://docs.jboss.org/hibernate/search/5.5/api/org/hibernate/search/spi/SearchIntegrator.html
             title: Hibernate Search javadoc for SearchIntegrator
-          message: "Do not use `org.hibernate.search.spi.SearchFactoryIntegrator`.\
-            \ You should migrate all code to use `org.hibernate.search.spi.SearchIntegrator`.\n\
-            \                    This interface is a temporary placeholder and will\
-            \ be removed at the next micro release!"
+          message: Do not use `org.hibernate.search.spi.SearchFactoryIntegrator`.
+            You should migrate all code to use `org.hibernate.search.spi.SearchIntegrator`.
+            This interface is a temporary placeholder and will be removed at the next
+            micro release!
           tags:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated interface org.hibernate.search.spi.SearchFactoryIntegrator
@@ -269,10 +269,9 @@ hsearch:
             title: Changes in Hibernate Search 5.x
           - href: https://docs.jboss.org/hibernate/search/5.5/api/org/hibernate/search/store/ShardIdentifierProvider.html
             title: Hibernate Search javadoc
-          message: "`org.hibernate.search.store.IndexShardingStrategy` interface is\
-            \ deprecated as of Hibernate Search 4.4. Might be removed in Hibernate\
-            \ Search 5.\n                    Use `org.hibernate.search.store.ShardIdentifierProvider`\
-            \ instead."
+          message: '`org.hibernate.search.store.IndexShardingStrategy` interface is
+            deprecated as of Hibernate Search 4.4. Might be removed in Hibernate Search
+            5. Use `org.hibernate.search.store.ShardIdentifierProvider` instead.'
           tags:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated interface org.hibernate.search.store.IndexShardingStrategy
@@ -332,10 +331,10 @@ hsearch:
             title: Hibernate Search 5.1 API changes
           - href: https://docs.jboss.org/hibernate/search/5.5/api/index.html?org/hibernate/search/filter/StandardFilterKey.html
             title: hibernate Search javadoc
-          message: "Custom filter keys `StandardFilterKey` are deprecated and are\
-            \ scheduled for removal in Hibernate Search 6.\n                    As\
-            \ of Hibernate Search 5.1, keys for caching Lucene filters are calculated\
-            \ automatically based on the given filter parameters."
+          message: Custom filter keys `StandardFilterKey` are deprecated and are scheduled
+            for removal in Hibernate Search 6. As of Hibernate Search 5.1, keys for
+            caching Lucene filters are calculated automatically based on the given
+            filter parameters.
           tags:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated class org.hibernate.search.filter.StandardFilterKey
@@ -402,11 +401,10 @@ hsearch:
             title: Hibernate Search 5.1 API changes
           - href: https://docs.jboss.org/hibernate/search/5.5/api/index.html?org/hibernate/search/annotations/Key.html
             title: Hibernate Search javadoc for @Key
-          message: "Custom filter cache keys are a deprecated feature and are scheduled\
-            \ to be removed in Hibernate Search 6.\n                     As of Hibernate\
-            \ Search 5.1, the filter cache keys are determined automatically based\
-            \ on the filter parameters so it is no longer required to provide a key\
-            \ object."
+          message: Custom filter cache keys are a deprecated feature and are scheduled
+            to be removed in Hibernate Search 6. As of Hibernate Search 5.1, the filter
+            cache keys are determined automatically based on the filter parameters
+            so it is no longer required to provide a key object.
           quickfix:
             name: Key
             search: '@Key'
@@ -428,12 +426,12 @@ hsearch:
           links:
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_hibernate_search_advanced_integrator_changes
             title: Advanced Integrator Changes in Hibernate Search 5.x
-          message: "The `IndexWriterSetting.MAX_THREAD_STATES` and `IndexWriterSetting.TERM_INDEX_INTERVAL`\
-            \ enum constants are deprecated.\n                    They affect which\
-            \ properties are read from the configuration, so the fact they they are\
-            \ missing means that configuration properties such as `hibernate.search.Animals.2.indexwriter.term_index_interval\
-            \ = default` are now ignored.\n                    The only side effect\
-            \ is that the property is not applied."
+          message: The `IndexWriterSetting.MAX_THREAD_STATES` and `IndexWriterSetting.TERM_INDEX_INTERVAL`
+            enum constants are deprecated. They affect which properties are read from
+            the configuration, so the fact they they are missing means that configuration
+            properties such as `hibernate.search.Animals.2.indexwriter.term_index_interval
+            = default` are now ignored. The only side effect is that the property
+            is not applied.
           tags:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated enum constant in IndexWriterSetting
@@ -503,13 +501,12 @@ hsearch:
             title: Miscelanous Changes in Hibernate Search 5.x
           - href: http://hibernate.org/search/documentation/migrate/5.0/#jms-controller-api-changed
             title: JMS Controller API changed
-          message: "The JMS backend was depending to Hibernate ORM. This dependency\
-            \ was removed, so that the backend can be used in other (non ORM) environments\
-            \ as well.\n                    A consequence is that implementors of\
-            \ `org.hibernate.search.backend.impl.jms.AbstractJMSHibernateSearchController`\
-            \ will need to adjust to the new signature.\n                     This\
-            \ class is really considered internal. We suggest to take this class as\
-            \ an example instead of extending it."
+          message: The JMS backend was depending to Hibernate ORM. This dependency
+            was removed, so that the backend can be used in other (non ORM) environments
+            as well. A consequence is that implementors of `org.hibernate.search.backend.impl.jms.AbstractJMSHibernateSearchController`
+            will need to adjust to the new signature. This class is really considered
+            internal. We suggest to take this class as an example instead of extending
+            it.
           tags:
           - hibernate-search
           title: Hibernate Search 5 - Internal AbstractJMSHibernateSearchController
@@ -536,10 +533,10 @@ hsearch:
             title: Hibernate Search javadoc for Stoppable
           - href: http://docs.jboss.org/hibernate/search/5.0/api/org/hibernate/search/engine/service/spi/Startable.html
             title: Hibernate Search javadoc for Startable
-          message: "The `org.hibernate.search.spi.ServiceProvider` SPI has been refactored.\n\
-            \                    If you where integrating with the old service contract,\
-            \ refer to the javadoc of `ServiceManager`, `Service`, `Startable` and\
-            \ `Stoppable` for details about the new contract."
+          message: The `org.hibernate.search.spi.ServiceProvider` SPI has been refactored.
+            If you where integrating with the old service contract, refer to the javadoc
+            of `ServiceManager`, `Service`, `Startable` and `Stoppable` for details
+            about the new contract.
           tags:
           - hibernate-search
           title: Hibernate Search 5 - ServiceProvider implementation
@@ -559,12 +556,11 @@ hsearch:
             title: Miscelanous Changes in Hibernate Search 5.x
           - href: https://docs.jboss.org/hibernate/search/5.5/api/index.html?org/hibernate/search/annotations/IndexedEmbedded.html
             title: Hibernate Search javadoc for IndexedEmbedded
-          message: "When using an `@IndexedEmbedded` annotation to include fields\
-            \ from a related entity,\n                     the id of the related entity\
-            \ is no longer included.\n\n                     You can enable the inclusion\
-            \ of the id by using the `includeEmbeddedObjectId` attribute of the `@IndexedEmbedded`\
-            \ annotation.\n\n                     ```java\n                     @IndexedEmbedded(includeEmbeddedObjectId=true)\n\
-            \                     ```"
+          message: When using an `@IndexedEmbedded` annotation to include fields from
+            a related entity, the id of the related entity is no longer included.
+            You can enable the inclusion of the id by using the `includeEmbeddedObjectId`
+            attribute of the `@IndexedEmbedded` annotation. ```java @IndexedEmbedded(includeEmbeddedObjectId=true)
+            ```
           tags:
           - hibernate-search
           title: Hibernate Search 5 - Indexing of id fields of Embedded Relations
@@ -589,31 +585,28 @@ hsearch:
           - href: http://docs.jboss.org/hibernate/search/5.5/api/org/hibernate/search/bridge/builtin/IntegerBridge.html
             title: Javadoc API for IntegerBridge
           message: "Numbers and dates are now indexed as numeric fields by default.\
-            \ Properties of type int, long, float, double, and their\n           \
-            \ corresponding wrapper classes are no longer indexed as strings. Instead,\
-            \ they are now indexed using Lucene\u2019s appropriate numeric\n     \
-            \       encoding. The id fields are an exception to this rule. Even when\
-            \ they are represented by a numeric type, they are still indexed as\n\
-            \            a string keyword by default. The use of `@NumericField` is\
-            \ now obsolete unless you want to specify a custom precision for the numeric\n\
-            \            encoding. You can keep the old string-based index format\
-            \ by explicitly specifying a string encoding field bridge. In the case\
-            \ of\n            integers, this is the `org.hibernate.search.bridge.builtin.IntegerBridge`.\
-            \ Check the `org.hibernate.search.bridge.builtin` package for\n      \
-            \      other publicly available field bridges.\n\n            Date and\
-            \ Calendar are no longer indexed as strings. Instead, instances are encoded\
-            \ as long values representing the number\n            of milliseconds\
-            \ since January 1, 1970, 00:00:00 GMT. You can switch the indexing format\
-            \ by using the new EncodingType enum. For example:\n\n            ```java\n\
-            \            @DateBridge(encoding=EncodingType.STRING)\n            @CalendarBridge(encoding=EncodingType.STRING)\n\
-            \            ```\n\n            The encoding change for numbers and dates\
-            \ is important and can have a big impact on application behavior. If you\
-            \ have\n            a query that targets a field that was previously string-encoded,\
-            \ but is now encoded numerically, you must update the query. Numeric\n\
-            \             fields must be searched with a NumericRangeQuery. You must\
-            \ also make sure that all fields targeted by faceting are string encoded.\n\
-            \            If you use the Search query DSL, the correct query should\
-            \ be created automatically for you."
+            \ Properties of type int, long, float, double, and their corresponding\
+            \ wrapper classes are no longer indexed as strings. Instead, they are\
+            \ now indexed using Lucene\u2019s appropriate numeric encoding. The id\
+            \ fields are an exception to this rule. Even when they are represented\
+            \ by a numeric type, they are still indexed as a string keyword by default.\
+            \ The use of `@NumericField` is now obsolete unless you want to specify\
+            \ a custom precision for the numeric encoding. You can keep the old string-based\
+            \ index format by explicitly specifying a string encoding field bridge.\
+            \ In the case of integers, this is the `org.hibernate.search.bridge.builtin.IntegerBridge`.\
+            \ Check the `org.hibernate.search.bridge.builtin` package for other publicly\
+            \ available field bridges. Date and Calendar are no longer indexed as\
+            \ strings. Instead, instances are encoded as long values representing\
+            \ the number of milliseconds since January 1, 1970, 00:00:00 GMT. You\
+            \ can switch the indexing format by using the new EncodingType enum. For\
+            \ example: ```java @DateBridge(encoding=EncodingType.STRING) @CalendarBridge(encoding=EncodingType.STRING)\
+            \ ``` The encoding change for numbers and dates is important and can have\
+            \ a big impact on application behavior. If you have a query that targets\
+            \ a field that was previously string-encoded, but is now encoded numerically,\
+            \ you must update the query. Numeric fields must be searched with a NumericRangeQuery.\
+            \ You must also make sure that all fields targeted by faceting are string\
+            \ encoded. If you use the Search query DSL, the correct query should be\
+            \ created automatically for you."
           tags:
           - hibernate-search
           title: Hibernate Search 5 - Changes in indexing numeric and date values
@@ -658,13 +651,12 @@ hsearch:
             title: Miscellaneous Changes in Hibernate Search 5.x
           - href: http://hibernate.org/search/documentation/migrate/5.5/#null-value-tokens-for-numeric-fields
             title: Null value tokens for numeric fields
-          message: "When using `@Field(indexNullAs=)` to encode a null marker value\
-            \ in the index, the type of the marker must be compatible with all other\
-            \ values that are indexed in that same field.\n                    For\
-            \ example, it was previously possible to encode a null value for numeric\
-            \ fields using a string _null_.\n                    This is no longer\
-            \ allowed. Instead, you must choose a number to represent the null value,\
-            \ such as -1."
+          message: When using `@Field(indexNullAs=)` to encode a null marker value
+            in the index, the type of the marker must be compatible with all other
+            values that are indexed in that same field. For example, it was previously
+            possible to encode a null value for numeric fields using a string _null_.
+            This is no longer allowed. Instead, you must choose a number to represent
+            the null value, such as -1.
           tags:
           - hibernate-search
           title: Hibernate Search 5 - Changes in indexing null values
@@ -721,13 +713,13 @@ hsearch:
             title: Miscellaneous Changes in Hibernate Search 5.x
           - href: http://hibernate.org/search/documentation/migrate/5.5/#number-and-date-index-format
             title: Numeric and Date index format
-          message: "Numbers and dates now indexed as numeric fields by default.\n\
-            Properties of type `Date`, `Calendar` as well as `int`, `long`, `float`,\
-            \ `double` and their corresponding wrappers, are no longer indexed as\
-            \ strings. Instead, they are now indexed using Lucene\u2019s appropriate\
-            \ numeric encoding.\n\nThe `id` fields are an exception to this rule:\
-            \ even when these are represented by a numeric type, they will still be\
-            \ indexed as a string keyword by default.."
+          message: "Numbers and dates now indexed as numeric fields by default. Properties\
+            \ of type `Date`, `Calendar` as well as `int`, `long`, `float`, `double`\
+            \ and their corresponding wrappers, are no longer indexed as strings.\
+            \ Instead, they are now indexed using Lucene\u2019s appropriate numeric\
+            \ encoding. The `id` fields are an exception to this rule: even when these\
+            \ are represented by a numeric type, they will still be indexed as a string\
+            \ keyword by default.."
           tags:
           - hibernate-search
           title: Hibernate Search 5 - Changes in indexing numeric values
@@ -765,9 +757,9 @@ hsearch:
           links:
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_miscellaneous_hibernate_search_changes
             title: Miscelanous Changes in Hibernate Search 5.x
-          message: "The hibernate-search-analyzers module was removed. The recommended\
-            \ approach is to directly use the appropriate Lucene artifact,\n     \
-            \                for example org.apache.lucene:lucene-analyzers-common."
+          message: The hibernate-search-analyzers module was removed. The recommended
+            approach is to directly use the appropriate Lucene artifact, for example
+            org.apache.lucene:lucene-analyzers-common.
           tags:
           - hibernate-search
           - maven
@@ -787,26 +779,12 @@ hsearch:
             title: Hibernate Search 5.4 to 5.5 migration
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_miscellaneous_hibernate_search_changes
             title: Miscellaneous Hibernate Search Changes
-          message: 'The Lucene SortField API requires the following application code
+          message: The Lucene SortField API requires the following application code
             change. In the previous release of JBoss EAP, you set the type of the
-            sort field in the query as follows.
-
-
-            ```java
-
-            fulltextQuery.setSort(new Sort(new SortField("title", SortField.STRING)));
-
-            ```
-
-
-            The following is an example of how you set it in JBoss EAP 7.
-
-
-            ```java
-
-            fulltextQuery.setSort(new Sort(new SortField("title", SortField.Type.STRING)))
-
-            ```'
+            sort field in the query as follows. ```java fulltextQuery.setSort(new
+            Sort(new SortField("title", SortField.STRING))); ``` The following is
+            an example of how you set it in JBoss EAP 7. ```java fulltextQuery.setSort(new
+            Sort(new SortField("title", SortField.Type.STRING))) ```
           tags:
           - hibernate-search
           - lucene
@@ -1127,10 +1105,9 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.analysis.{type}`\
-            \ to `org.apache.lucene.analysis.core.{type}`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.analysis.{type}` to `org.apache.lucene.analysis.core.{type}`.
           tags:
           - hibernate-search
           - lucene
@@ -1153,10 +1130,10 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.analysis.PorterStemFilter`\
-            \ to `org.apache.lucene.analysis.en.PorterStemFilter`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.analysis.PorterStemFilter`
+            to `org.apache.lucene.analysis.en.PorterStemFilter`.
           tags:
           - hibernate-search
           - lucene
@@ -1178,10 +1155,9 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.analysis.{type}`\
-            \ to `org.apache.lucene.analysis.miscellaneous.{type}`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.analysis.{type}` to `org.apache.lucene.analysis.miscellaneous.{type}`.
           tags:
           - hibernate-search
           - lucene
@@ -1204,10 +1180,10 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.analysis.TeeSinkTokenFilter`\
-            \ to `org.apache.lucene.analysis.sinks.TeeSinkTokenFilter`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.analysis.TeeSinkTokenFilter`
+            to `org.apache.lucene.analysis.sinks.TeeSinkTokenFilter`.
           tags:
           - hibernate-search
           - lucene
@@ -1229,10 +1205,9 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.analysis.{type}`\
-            \ to `org.apache.lucene.analysis.charfilter.{type}`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.analysis.{type}` to `org.apache.lucene.analysis.charfilter.{type}`.
           tags:
           - hibernate-search
           - lucene
@@ -1255,10 +1230,9 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.analysis.{type}`\
-            \ to `org.apache.lucene.analysis.util.{type}`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.analysis.{type}` to `org.apache.lucene.analysis.util.{type}`.
           tags:
           - hibernate-search
           - lucene
@@ -1281,10 +1255,10 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring class name have changed for `org.apache.lucene.analysis.ReusableAnalyzerBase`\
-            \ to `org.apache.lucene.analysis.Analyzer`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            class name have changed for `org.apache.lucene.analysis.ReusableAnalyzerBase`
+            to `org.apache.lucene.analysis.Analyzer`.
           tags:
           - hibernate-search
           - lucene
@@ -1306,10 +1280,10 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.util.CharacterUtils`\
-            \ to `org.apache.lucene.analysis.util.CharacterUtils`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.util.CharacterUtils`
+            to `org.apache.lucene.analysis.util.CharacterUtils`.
           tags:
           - hibernate-search
           - lucene
@@ -1331,10 +1305,10 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.search.function.{type}`\
-            \ to `org.apache.lucene.queries.{type}`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.search.function.{type}`
+            to `org.apache.lucene.queries.{type}`.
           tags:
           - hibernate-search
           - lucene
@@ -1357,10 +1331,10 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.search.function.NumericIndexDocValueSource`\
-            \ to `org.apache.lucene.queries.function.valuesource.NumericIndexDocValueSource`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.search.function.NumericIndexDocValueSource`
+            to `org.apache.lucene.queries.function.valuesource.NumericIndexDocValueSource`.
           tags:
           - hibernate-search
           - lucene
@@ -1382,10 +1356,10 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.search.function.{type}`\
-            \ to `org.apache.lucene.queries.function.{type}`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.search.function.{type}`
+            to `org.apache.lucene.queries.function.{type}`.
           tags:
           - hibernate-search
           - lucene
@@ -1408,10 +1382,10 @@ hsearch:
             title: Renamed classes within Apache Lucene
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#migrate_lucene_renamed_and_repackaged_classes
             title: Lucene - Renamed and Repackaged Classes
-          message: "Lucene's core and contrib analyzers, along with Solr's analyzers,\
-            \ were consolidated into lucene/analysis module.\n                   \
-            \  During the refactoring package name have changed for `org.apache.lucene.search.function.{type}`\
-            \ to `org.apache.lucene.queries.function.valuesources.{type}`."
+          message: Lucene's core and contrib analyzers, along with Solr's analyzers,
+            were consolidated into lucene/analysis module. During the refactoring
+            package name have changed for `org.apache.lucene.search.function.{type}`
+            to `org.apache.lucene.queries.function.valuesources.{type}`.
           tags:
           - hibernate-search
           - lucene

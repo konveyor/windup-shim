@@ -22,11 +22,10 @@ xml-moved-components:
               title: Camel 3 - Migration Guide
             - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_modularization_of_camel_core
               title: 'Camel 3 - Migration Guide: Modularization of camel-core'
-            message: "All the classes from `org.apache.camel.util.component` have\
-              \ been moved to `org.apache.camel.support.component`.\n            \
-              \                `org.apache.camel:camel-support` is a transitive dependency\
-              \ of `camel-core` but it could be used also separately to trim the application\
-              \ size."
+            message: All the classes from `org.apache.camel.util.component` have been
+              moved to `org.apache.camel.support.component`. `org.apache.camel:camel-support`
+              is a transitive dependency of `camel-core` but it could be used also
+              separately to trim the application size.
             tags: []
             title: The classes from `org.apache.camel.util.component` have been moved
           over: javaClass
@@ -48,11 +47,10 @@ xml-moved-components:
               title: 'Camel 3 - Migration Guide: General information'
             - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_modularization_of_camel_core
               title: 'Camel 3 - Migration Guide: Modularization of camel-core'
-            message: "The class `org.apache.camel.impl.{moved}` has been moved to\
-              \ `org.apache.camel.impl.engine` package in `camel-base` dependency.\n\
-              \                            `org.apache.camel:camel-base` is a transitive\
-              \ dependency of `camel-core` but it could be used also separately to\
-              \ trim the application size."
+            message: The class `org.apache.camel.impl.{moved}` has been moved to `org.apache.camel.impl.engine`
+              package in `camel-base` dependency. `org.apache.camel:camel-base` is
+              a transitive dependency of `camel-core` but it could be used also separately
+              to trim the application size.
             tags: []
             title: '`org.apache.camel.impl.{moved}` class has been moved'
           over: javaClass
@@ -75,10 +73,10 @@ xml-moved-components:
               links:
               - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_main_class
                 title: Camel 3 - Main class
-              message: "The class `org.apache.camel.main.Main` has been moved out\
-                \ of `org.apache.camel:camel-core` and into its own JAR named `org.apache.camel:camel-main`.\n\
-                \                                `org.apache.camel:camel-main` has\
-                \ to be added as a dependency to your project pom.xml file"
+              message: The class `org.apache.camel.main.Main` has been moved out of
+                `org.apache.camel:camel-core` and into its own JAR named `org.apache.camel:camel-main`.
+                `org.apache.camel:camel-main` has to be added as a dependency to your
+                project pom.xml file
               tags: []
               title: '`org.apache.camel.main.Main` class has been moved'
           when:

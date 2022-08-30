@@ -382,18 +382,16 @@ hibernate4:
             title: Changes in Configuration for Hibernate 5
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/migration_guide/#hibernate_and_jpa_migration_changes
             title: Hibernate and JPA migration changes
-          message: "Historically Hibernate provided just a singular contract for applying\
-            \ a \"naming strategy\".\n                        Starting in 5.0 this\
-            \ has been split into 2 distinct contracts:\n\n                      \
-            \  * ImplicitNamingStrategy - is used whenever a table or column is not\
-            \ explicitly named to determine the name to use.\n                   \
-            \     * PhysicalNamingStrategy - is used to convert a \"logical name\"\
-            \ (either implicit or explicit) name of a table or column into a physical\
-            \ name (e.g. following corporate naming guidelines)\n\n              \
-            \          Use methods `org.hibernate.boot.MetadataBuilder#setImplicitNamingStrategy(ImplicitNamingStrategy\
-            \ implicitNamingStrategy)` or\n                        `org.hibernate.boot.MetadataBuilder#setPhysicalNamingStrategy(PhysicalNamingStrategy\
-            \ physicalNamingStrategy)`\n                        instead of `public\
-            \ Configuration setNamingStrategy(NamingStrategy namingStrategy)()`"
+          message: 'Historically Hibernate provided just a singular contract for applying
+            a "naming strategy". Starting in 5.0 this has been split into 2 distinct
+            contracts: * ImplicitNamingStrategy - is used whenever a table or column
+            is not explicitly named to determine the name to use. * PhysicalNamingStrategy
+            - is used to convert a "logical name" (either implicit or explicit) name
+            of a table or column into a physical name (e.g. following corporate naming
+            guidelines) Use methods `org.hibernate.boot.MetadataBuilder#setImplicitNamingStrategy(ImplicitNamingStrategy
+            implicitNamingStrategy)` or `org.hibernate.boot.MetadataBuilder#setPhysicalNamingStrategy(PhysicalNamingStrategy
+            physicalNamingStrategy)` instead of `public Configuration setNamingStrategy(NamingStrategy
+            namingStrategy)()`'
           tags:
           - hibernate
           - configuration
@@ -641,11 +639,10 @@ hibernate4:
             title: Hibernate 5 - Other changes to classes/packages
           - href: https://github.com/hibernate/hibernate-orm/blob/5.0/migration-guide.adoc#changedmoved-contracts
             title: Hibernate 5 Changed or Moved Contracts
-          message: "Hibernate 5 changed contract `org.hibernate.integrator.spi.Integrator`\
-            \ to account for bootstrap redesign.\n                    Check if you\
-            \ implement method `integrate(Configuration configuration, SessionFactoryImplementor\
-            \ sessionFactory, SessionFactoryServiceRegistry serviceRegistry)` which\
-            \ is no longer there."
+          message: Hibernate 5 changed contract `org.hibernate.integrator.spi.Integrator`
+            to account for bootstrap redesign. Check if you implement method `integrate(Configuration
+            configuration, SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry
+            serviceRegistry)` which is no longer there.
           tags:
           - hibernate
           title: Hibernate 5 - Changed interface org.hibernate.integrator.spi.Integrator
@@ -710,12 +707,11 @@ hibernate4:
             title: Hibernate 5 Changed or Moved Contracts
           - href: https://docs.jboss.org/hibernate/orm/5.0/javadocs/org/hibernate/boot/model/relational/ExportableProducer.html#registerExportables-org.hibernate.boot.model.relational.Database-
             title: Hibernate 5 ExportableProducer API
-          message: "Since Hibernate 5, The `org.hibernate.id.PersistentIdentifierGenerator`\
-            \ extends new `org.hibernate.boot.model.relational.ExportableProducer`\
-            \ interface which will affect all `org.hibernate.id.PersistentIdentifierGenerator`\
-            \ implementations.\n                    Therefore you need to implement\
-            \ additionally `ExportableProducer#registerExportables(org.hibernate.boot.model.relational.Database\
-            \ database)` method."
+          message: Since Hibernate 5, The `org.hibernate.id.PersistentIdentifierGenerator`
+            extends new `org.hibernate.boot.model.relational.ExportableProducer` interface
+            which will affect all `org.hibernate.id.PersistentIdentifierGenerator`
+            implementations. Therefore you need to implement additionally `ExportableProducer#registerExportables(org.hibernate.boot.model.relational.Database
+            database)` method.
           tags:
           - hibernate
           title: Hibernate 5 - PersistentIdentifierGenerator implementations need
@@ -758,16 +754,15 @@ hibernate4:
             title: Hibernate 5 javadoc for SqlTypeDescriptorRegistry#addDescriptor
           - href: https://docs.jboss.org/hibernate/orm/5.0/javadocs/index.html?org/hibernate/type/descriptor/java/JavaTypeDescriptorRegistry.html
             title: Hibernate 5 javadoc for JavaTypeDescriptorRegistry#addDescriptor
-          message: "Built-in implementations of `org.hibernate.type.descriptor.sql.SqlTypeDescriptor`\
-            \ and `org.hibernate.type.descriptor.java.JavaTypeDescriptor` no longer\n\
-            \                        auto-register themselves with `org.hibernate.type.descriptor.sql.SqlTypeDescriptorRegistry`\
-            \ and `org.hibernate.type.descriptor.java.JavaTypeDescriptorRegistry`.\n\
-            \                        Applications using custom `SqlTypeDescriptor`/`JavaTypeDescriptor`\
-            \ implementations which extends the built-in ones and\n              \
-            \          rely on that behavior should be updated to call `SqlTypeDescriptorRegistry#addDescriptor`\
-            \ or `JavaTypeDescriptorRegistry#addDescriptor` themselves.\n        \
-            \             This warning is important especially for users of Hibernate\
-            \ 4.3."
+          message: Built-in implementations of `org.hibernate.type.descriptor.sql.SqlTypeDescriptor`
+            and `org.hibernate.type.descriptor.java.JavaTypeDescriptor` no longer
+            auto-register themselves with `org.hibernate.type.descriptor.sql.SqlTypeDescriptorRegistry`
+            and `org.hibernate.type.descriptor.java.JavaTypeDescriptorRegistry`. Applications
+            using custom `SqlTypeDescriptor`/`JavaTypeDescriptor` implementations
+            which extends the built-in ones and rely on that behavior should be updated
+            to call `SqlTypeDescriptorRegistry#addDescriptor` or `JavaTypeDescriptorRegistry#addDescriptor`
+            themselves. This warning is important especially for users of Hibernate
+            4.3.
           tags:
           - hibernate
           title: Hibernate 5 - Registration needed for built-in implementations of
@@ -820,22 +815,21 @@ hibernate4:
             message: "Previous versions of Hibernate have mapped `byte[]` and `Byte[]`\
               \ to Oracle\u2019s `LONG RAW` data type (via the JDBC `LONGVARBINARY`\
               \ type). Oracle have deprecated the `LONG RAW` data type for many releases\
-              \ - possibly as far back as 8i.\n\n                            Therefore\
-              \ it was decided to start having Hibernate map `byte[]` and `Byte[]`\
-              \ to `BLOB` for Oracle.\n\n                            However, in the\
-              \ interest of backwards compatibility and not breaking existing applications\
-              \ it was also decided to limit this change to just the `Oracle12cDialect`.\
-              \ So starting in 5.1 applications using `Oracle12cDialect` and implicitly\
-              \ mapping `byte[]` and `Byte[]` values will start seeing those handled\
-              \ as `BLOB` data rather than `LONG RAW` data.\n                    \
-              \        For existing applications that want to continue to use `Oracle12cDialect`\
-              \ and still continue to implicitly map `byte[]` and `Byte[]` attributes\
-              \ to `LONG RAW`, there is a new configuration setting you can use to\
-              \ enable that: `hibernate.dialect.oracle.prefer_longvarbinary`, which\
-              \ is `false `by default (map to `BLOB`)."
+              \ - possibly as far back as 8i. Therefore it was decided to start having\
+              \ Hibernate map `byte[]` and `Byte[]` to `BLOB` for Oracle. However,\
+              \ in the interest of backwards compatibility and not breaking existing\
+              \ applications it was also decided to limit this change to just the\
+              \ `Oracle12cDialect`. So starting in 5.1 applications using `Oracle12cDialect`\
+              \ and implicitly mapping `byte[]` and `Byte[]` values will start seeing\
+              \ those handled as `BLOB` data rather than `LONG RAW` data. For existing\
+              \ applications that want to continue to use `Oracle12cDialect` and still\
+              \ continue to implicitly map `byte[]` and `Byte[]` attributes to `LONG\
+              \ RAW`, there is a new configuration setting you can use to enable that:\
+              \ `hibernate.dialect.oracle.prefer_longvarbinary`, which is `false `by\
+              \ default (map to `BLOB`)."
             tags:
             - Hibernate
-            title: Hibernate 5  - Oracle12cDialect maps byte[] and Byte[] to BLOB
+            title: Hibernate 5 - Oracle12cDialect maps byte[] and Byte[] to BLOB
           over: mappings2
       when:
         annotation-types: []

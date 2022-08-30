@@ -20,9 +20,9 @@ opentelemetry-to-quarkus:
             links:
             - href: https://quarkus.io/guides/opentelemetry
               title: Quarkus - Guide
-            message: "Replace the `io.opentelemetry:opentelemetry-exporter-jaeger`\
-              \ dependency with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-jaeger`\
-              \  \n                            Further information in the link below."
+            message: Replace the `io.opentelemetry:opentelemetry-exporter-jaeger`
+              dependency with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-jaeger`
+              Further information in the link below.
             tags: []
             title: Replace the 'opentelemetry-exporter-jaeger' dependency with Quarkus
               'quarkus-opentelemetry-exporter-jaeger' extension
@@ -42,9 +42,9 @@ opentelemetry-to-quarkus:
           links:
           - href: https://quarkus.io/guides/opentelemetry
             title: Quarkus - Guide
-          message: "Replace the `io.opentelemetry:opentelemetry-exporter-jaeger` dependency\
-            \ with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-jaeger`\
-            \  \n                        Further information in the link below."
+          message: Replace the `io.opentelemetry:opentelemetry-exporter-jaeger` dependency
+            with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-jaeger`
+            Further information in the link below.
           tags: []
           title: Replace the 'opentelemetry-exporter-jaeger' dependency with Quarkus
             'quarkus-opentelemetry-exporter-jaeger' extension
@@ -62,9 +62,9 @@ opentelemetry-to-quarkus:
             links:
             - href: https://quarkus.io/guides/opentelemetry
               title: Quarkus - Guide
-            message: "Replace the `io.opentelemetry:opentelemetry-exporter-otlp-trace`\
-              \ dependency with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-otlp`\
-              \  \n                            Further information in the link below."
+            message: Replace the `io.opentelemetry:opentelemetry-exporter-otlp-trace`
+              dependency with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-otlp`
+              Further information in the link below.
             tags: []
             title: Replace the 'opentelemetry-exporter-otlp-trace' dependency with
               Quarkus 'quarkus-opentelemetry-exporter-otlp' extension
@@ -84,9 +84,9 @@ opentelemetry-to-quarkus:
           links:
           - href: https://quarkus.io/guides/opentelemetry
             title: Quarkus - Guide
-          message: "Replace the `io.opentelemetry:opentelemetry-exporter-otlp-trace`\
-            \ dependency with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-otlp`\
-            \  \n                        Further information in the link below."
+          message: Replace the `io.opentelemetry:opentelemetry-exporter-otlp-trace`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-otlp`
+            Further information in the link below.
           tags: []
           title: Replace the 'opentelemetry-exporter-otlp-trace' dependency with Quarkus
             'quarkus-opentelemetry-exporter-otlp' extension

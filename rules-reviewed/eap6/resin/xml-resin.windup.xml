@@ -1,8 +1,7 @@
 xml-resin:
   metadata:
-    description: "This ruleset provides analysis of Resin proprietary xml files that\
-      \ may require individual\n            attention when migrating to JBoss EAP\
-      \ 6+."
+    description: This ruleset provides analysis of Resin proprietary xml files that
+      may require individual attention when migrating to JBoss EAP 6+.
     sourceTechnologies:
     - id: resin
       versionRange: null
@@ -19,10 +18,10 @@ xml-resin:
         iteration:
           classification:
             category-id: mandatory
-            description: "An Resin specific file defining an application configuration.\
-              \ Such a file may define URL paths, internal resin ids, root directory\
-              \ path etc.\n                            This is Resin specific and\
-              \ needs to be migrated to web.xml or jboss-web.xml"
+            description: An Resin specific file defining an application configuration.
+              Such a file may define URL paths, internal resin ids, root directory
+              path etc. This is Resin specific and needs to be migrated to web.xml
+              or jboss-web.xml
             effort: '3'
             issue-display-mode: all
             links:

@@ -1,8 +1,7 @@
 websphere-mq-eap7:
   metadata:
-    description: "Provides analysis of WebSphere MQ proprietary classes and configuration\
-      \ that may require individual attention when migrating to\n            JBoss\
-      \ EAP 7+."
+    description: Provides analysis of WebSphere MQ proprietary classes and configuration
+      that may require individual attention when migrating to JBoss EAP 7+.
     sourceTechnologies:
     - id: websphere
       versionRange: null
@@ -18,10 +17,10 @@ websphere-mq-eap7:
       perform:
         classification:
           category-id: mandatory
-          description: "WebSphere MQ client API is used to communicate with the MQ\
-            \ server from client-side applications.\n                        For JBoss\
-            \ EAP 7, this needs to be replaced with standard Java EE 6 JMS API, or\
-            \ with ActiveMQ Artemis client API."
+          description: WebSphere MQ client API is used to communicate with the MQ
+            server from client-side applications. For JBoss EAP 7, this needs to be
+            replaced with standard Java EE 6 JMS API, or with ActiveMQ Artemis client
+            API.
           effort: '3'
           issue-display-mode: all
           links:
@@ -43,10 +42,10 @@ websphere-mq-eap7:
     websphere-mq-eap7-01000:
       perform:
         classification:
-          description: "The WebSphere MQ client API is used to communicate with the\
-            \ MQ server from client-side applications.\n                        For\
-            \ JBoss EAP 7, this needs to be replaced with standard Java EE 7 JMS API,\
-            \ or with ActiveMQ Artemis client API."
+          description: The WebSphere MQ client API is used to communicate with the
+            MQ server from client-side applications. For JBoss EAP 7, this needs to
+            be replaced with standard Java EE 7 JMS API, or with ActiveMQ Artemis
+            client API.
           issue-display-mode: detail-only
           links: []
           tags: []
@@ -59,12 +58,11 @@ websphere-mq-eap7:
             title: The Embedded ActiveMQ Artemis Messaging Broker
           - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEH
             title: Java EE 7 JMS Tutorial
-          message: "`WMQInitialContextFactory` is an implementation of `InitialContextFactory`\n\
-            \                        used to get object instances from JNDI. The\n\
-            \                        equivalent functionality needs to be configured\
-            \ on JBoss EAP 7 using ActiveMQ Artemis.\n                        `InitialContextFactory`\
-            \ is provided\n                        by EAP and you only need to instantiate\
-            \ `InitialContext ctx = new InitialContext();`."
+          message: '`WMQInitialContextFactory` is an implementation of `InitialContextFactory`
+            used to get object instances from JNDI. The equivalent functionality needs
+            to be configured on JBoss EAP 7 using ActiveMQ Artemis. `InitialContextFactory`
+            is provided by EAP and you only need to instantiate `InitialContext ctx
+            = new InitialContext();`.'
           tags:
           - jms
           - messaging
@@ -92,11 +90,10 @@ websphere-mq-eap7:
             title: Configuring Single-Node Messaging Systems
           - href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEH
             title: Java EE 7 JMS Tutorial
-          message: "WebSphere `.scp` files contain scripts for the `jmsadmin` program\
-            \ which is used\n                        to configure the WebSphere MQ\
-            \ destinations\n                        and routing. To configure messaging\
-            \ in JBoss EAP 7 with ActiveMQ Artemis, use either the Management Console\
-            \ or Management CLI with it's\n                        scripting feature."
+          message: WebSphere `.scp` files contain scripts for the `jmsadmin` program
+            which is used to configure the WebSphere MQ destinations and routing.
+            To configure messaging in JBoss EAP 7 with ActiveMQ Artemis, use either
+            the Management Console or Management CLI with it's scripting feature.
           tags:
           - jms
           - messaging

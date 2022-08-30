@@ -21,12 +21,10 @@ removed-classes:
             title: 'JEP 367: Remove the Pack200 Tools and API'
           - href: https://openjdk.org/jeps/392
             title: 'JEP 392: Packaging Tool (jpackage tool)'
-          message: "After being deprecated in OpenJDK 11, the pack200, \n        \
-            \                unpack200 and corresponding java.util.jar.Pack200* classes\
-            \ were removed in OpenJDK 14. \n                        Please look into\
-            \ switching to either the jlink tool or the jpackage tool to create \n\
-            \                        application-specific runtimes with an optimized\
-            \ factor."
+          message: After being deprecated in OpenJDK 11, the pack200, unpack200 and
+            corresponding java.util.jar.Pack200* classes were removed in OpenJDK 14.
+            Please look into switching to either the jlink tool or the jpackage tool
+            to create application-specific runtimes with an optimized factor.
           tags: []
           title: The java.util.jar.{class-name} class has been removed
       when:

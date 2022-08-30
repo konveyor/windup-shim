@@ -59,9 +59,9 @@ eap7-websphere-xml:
           - href: https://access.redhat.com/articles/1330673
             title: Migrate IBM WebSphere Application Server Web Application Extension
               or Binding Files
-          message: "This file contains a specific IBM WebSphere Application binding\
-            \ configuration.\n\n                      To migrate to EAP 7+, configure\
-            \ EAP 7+ accordingly using the CLI interface or web console."
+          message: This file contains a specific IBM WebSphere Application binding
+            configuration. To migrate to EAP 7+, configure EAP 7+ accordingly using
+            the CLI interface or web console.
           tags: []
           title: WebSphere Application Binding Configuration
       when:
@@ -80,9 +80,9 @@ eap7-websphere-xml:
             links:
             - href: https://access.redhat.com/articles/1330673#jspattributes
               title: JSP engine configuration migration to EAP 6
-            message: "This file contains WebSphere proprietary JSP engine configuration.\n\
-              \n                            To migrate to EAP 7, configure it accordingly\
-              \ using the CLI or the web console."
+            message: This file contains WebSphere proprietary JSP engine configuration.
+              To migrate to EAP 7, configure it accordingly using the CLI or the web
+              console.
             tags: []
             title: WebSphere JSP engine configuration (ibm-web-ext)
           over: default
@@ -118,9 +118,9 @@ eap7-websphere-xml:
           - href: https://access.redhat.com/articles/1330673
             title: Migrate IBM WebSphere Application Server Web Application Extension
               or Binding Files
-          message: "This file contains WebSphere proprietary binding configuration.\n\
-            \n                      To migrate to EAP 7+, configure EAP 7+ accordingly\
-            \ using the CLI interface or web console."
+          message: This file contains WebSphere proprietary binding configuration.
+            To migrate to EAP 7+, configure EAP 7+ accordingly using the CLI interface
+            or web console.
           tags: []
           title: WebSphere web application binding (ibm-web-bnd)
       when:
@@ -140,11 +140,10 @@ eap7-websphere-xml:
       perform:
         classification:
           category-id: mandatory
-          description: "Client IBM specific deployment descriptor extension that needs\
-            \ to be migrated to JBossWS.\n                    JBossWS implements the\
-            \ latest JAX-WS specification, which users can reference for any vendor-agnostic\
-            \ web service usage need.\n                    You can migrate deployment\
-            \ descriptors following the links below."
+          description: Client IBM specific deployment descriptor extension that needs
+            to be migrated to JBossWS. JBossWS implements the latest JAX-WS specification,
+            which users can reference for any vendor-agnostic web service usage need.
+            You can migrate deployment descriptors following the links below.
           effort: '3'
           issue-display-mode: all
           links:
@@ -167,11 +166,11 @@ eap7-websphere-xml:
       perform:
         classification:
           category-id: mandatory
-          description: "Client IBM specific deployment descriptor binding that needs\
-            \ to be migrated to JBossWS.\n                    JBossWS implements the\
-            \ latest JAX-WS specification, which users can reference for any vendor-agnostic\
-            \ web service usage need.\n                    You can get more information\
-            \ about developing web services in the links below."
+          description: Client IBM specific deployment descriptor binding that needs
+            to be migrated to JBossWS. JBossWS implements the latest JAX-WS specification,
+            which users can reference for any vendor-agnostic web service usage need.
+            You can get more information about developing web services in the links
+            below.
           effort: '3'
           issue-display-mode: all
           links:
@@ -192,13 +191,11 @@ eap7-websphere-xml:
       perform:
         classification:
           category-id: mandatory
-          description: "This file is an IBM WebSphere proprietary deployment descriptor\
-            \ that is typically generated when development of the EAR was done using\
-            \ IBM products.\n                        The XML schema documentation\
-            \ can be found within the WebSphere Application Server 7.0 directory under\
-            \ `/web/configDocs/packages/appdeployment/Deployment.html`.\n        \
-            \                It should be safe to delete this file, unless it was\
-            \ created manually."
+          description: This file is an IBM WebSphere proprietary deployment descriptor
+            that is typically generated when development of the EAR was done using
+            IBM products. The XML schema documentation can be found within the WebSphere
+            Application Server 7.0 directory under `/web/configDocs/packages/appdeployment/Deployment.html`.
+            It should be safe to delete this file, unless it was created manually.
           effort: '1'
           issue-display-mode: all
           links:

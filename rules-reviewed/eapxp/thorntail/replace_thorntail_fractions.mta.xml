@@ -1,9 +1,8 @@
 replace_thorntail_fractions:
   metadata:
-    description: "This ruleset provides analysis of Maven built applications that\
-      \ depends on Thorntail Fractions,\n            which should be replaced by the\
-      \ related Eclipse MicroProfile and/or Jakarta EE artifacts, when migrating to\
-      \ JBoss EAP XP."
+    description: This ruleset provides analysis of Maven built applications that depends
+      on Thorntail Fractions, which should be replaced by the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts, when migrating to JBoss EAP XP.
     sourceTechnologies:
     - id: thorntail
       versionRange: null

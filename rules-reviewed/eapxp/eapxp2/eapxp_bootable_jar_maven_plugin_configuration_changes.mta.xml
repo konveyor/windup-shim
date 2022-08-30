@@ -1,8 +1,8 @@
 eapxp_bootable_jar_maven_plugin_configuration_changes:
   metadata:
-    description: "This ruleset provides analysis of Maven built applications that\
-      \ use JBoss EAP XP 2.x Bootable JAR Maven Plugin,\n            which configuration\
-      \ may need to be changed, when migrating to JBoss EAP XP 3.x or later."
+    description: This ruleset provides analysis of Maven built applications that use
+      JBoss EAP XP 2.x Bootable JAR Maven Plugin, which configuration may need to
+      be changed, when migrating to JBoss EAP XP 3.x or later.
     sourceTechnologies:
     - id: eapxp
       versionRange: null

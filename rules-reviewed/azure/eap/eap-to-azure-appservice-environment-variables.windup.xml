@@ -1,7 +1,7 @@
 eap-to-azure-appservice-environment-variables:
   metadata:
-    description: "Validate that all usages of System.getenv and System.getProperty\
-      \ are captured\n            as App Settings when migrating to Azure App Service."
+    description: Validate that all usages of System.getenv and System.getProperty
+      are captured as App Settings when migrating to Azure App Service.
     sourceTechnologies:
     - id: eap
       versionRange: '[7,8)'
@@ -23,14 +23,12 @@ eap-to-azure-appservice-environment-variables:
             title: Customization and tuning
           - href: https://aka.ms/webapps-env-vars
             title: Environment variables and app settings in Azure App Service
-          message: "App Service - The application reads environment variables.\n\n\
-            \                        Any environment variables used in the code will\
-            \ need to be defined as App Settings, which are exposed\n            \
-            \            as environment variables in App Service.\n\n            \
-            \            Any System properties that the code depends on will need\
-            \ to be provided either in a custom Startup Script\n                 \
-            \       or by defining an App Setting with the name JAVA_OPTS and include\
-            \ any system properties in it."
+          message: App Service - The application reads environment variables. Any
+            environment variables used in the code will need to be defined as App
+            Settings, which are exposed as environment variables in App Service. Any
+            System properties that the code depends on will need to be provided either
+            in a custom Startup Script or by defining an App Setting with the name
+            JAVA_OPTS and include any system properties in it.
           tags: []
           title: App Service - The application reads environment variables
       when:

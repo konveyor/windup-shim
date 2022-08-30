@@ -23,14 +23,12 @@ jni-native-code:
           - href: https://access.redhat.com/solutions/1444643
             title: Is it supported to compile the JNI code as 32-bit shared libraries
               and use it in 64-bit compiled Java code ?
-          message: "Java native libraries might not run in a cloud or container environment.\n\
-            \n                    Recommendations\n\n                    * Review\
-            \ the purpose of the native library in your application.\n           \
-            \         * Check whether the native library is compatible with a cloud\
-            \ environment.\n                    * Reuse or embed the native library\
-            \ or application in a cloud environment, for example, in a JBoss module.\n\
-            \                    * Replace, remove, or rewrite the native library\
-            \ or application using a cloud-compatible equivalent."
+          message: Java native libraries might not run in a cloud or container environment.
+            Recommendations * Review the purpose of the native library in your application.
+            * Check whether the native library is compatible with a cloud environment.
+            * Reuse or embed the native library or application in a cloud environment,
+            for example, in a JBoss module. * Replace, remove, or rewrite the native
+            library or application using a cloud-compatible equivalent.
           tags:
           - jni
           title: Java native libraries (JNI, JNA)

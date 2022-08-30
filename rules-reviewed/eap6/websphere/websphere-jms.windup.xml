@@ -1,8 +1,8 @@
 websphere-jms:
   metadata:
-    description: "This ruleset provides analysis of WebSphere proprietary classes\
-      \ and constructs that may require individual attention when\n            migrating\
-      \ to JBoss EAP 6+."
+    description: This ruleset provides analysis of WebSphere proprietary classes and
+      constructs that may require individual attention when migrating to JBoss EAP
+      6+.
     sourceTechnologies:
     - id: websphere
       versionRange: null
@@ -18,10 +18,9 @@ websphere-jms:
       perform:
         classification:
           category-id: mandatory
-          description: "WebSphere MQ client API is used to communicate with the MQ\
-            \ server from client-side applications.\n                        For JBoss\
-            \ EAP 6, this needs to be replaced with standard Java EE 6 JMS API, or\
-            \ with HornetQ client API."
+          description: WebSphere MQ client API is used to communicate with the MQ
+            server from client-side applications. For JBoss EAP 6, this needs to be
+            replaced with standard Java EE 6 JMS API, or with HornetQ client API.
           effort: '3'
           issue-display-mode: all
           links:
@@ -50,10 +49,9 @@ websphere-jms:
           links:
           - href: https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html
             title: Java EE JMS Documentation
-          message: "IBM {prefix}{type}ConnectionFactory is a proprietary encapsulation\
-            \ of JMS servers to which Connections can be created for\n           \
-            \             message distribution. This reference should be replaced\
-            \ with the Java EE standard API: `javax.jms.{type}ConnectionFactory`."
+          message: 'IBM {prefix}{type}ConnectionFactory is a proprietary encapsulation
+            of JMS servers to which Connections can be created for message distribution.
+            This reference should be replaced with the Java EE standard API: `javax.jms.{type}ConnectionFactory`.'
           tags:
           - jms
           - websphere
@@ -74,9 +72,9 @@ websphere-jms:
           links:
           - href: https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html
             title: Java EE JMS Documentation
-          message: "IBM JMS message `{package}.JmsMsg{type}` are used for sending/reading\
-            \ messages to/from a topic or queue. This reference should be\n      \
-            \                  replaced with the Java EE standard API `javax.jms.Message{type}`."
+          message: IBM JMS message `{package}.JmsMsg{type}` are used for sending/reading
+            messages to/from a topic or queue. This reference should be replaced with
+            the Java EE standard API `javax.jms.Message{type}`.
           tags:
           - jms
           - websphere
@@ -96,9 +94,8 @@ websphere-jms:
           links:
           - href: https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html
             title: Java EE 6 JMS Tutorial
-          message: "`MQe{type}Queue` is a WebSphere implementation of a JMS `Queue`\
-            \ and should be migrated to\n                        the Java EE 6 JMS\
-            \ standard interface `javax.jms.Queue`."
+          message: '`MQe{type}Queue` is a WebSphere implementation of a JMS `Queue`
+            and should be migrated to the Java EE 6 JMS standard interface `javax.jms.Queue`.'
           tags:
           - jms
           - websphere
@@ -118,10 +115,9 @@ websphere-jms:
               links:
               - href: https://docs.oracle.com/javaee/6/tutorial/doc/bnceh.html#bnces
                 title: Java EE 6 JMS Tutorial - Message API
-              message: "JMS `{package}.{prefix}{type}Message` messages represent the\
-                \ actual data passed through JMS destinations. This reference should\
-                \ be\n                                replaced with the Java EE standard\
-                \ API `javax.jms.{type}Message`."
+              message: JMS `{package}.{prefix}{type}Message` messages represent the
+                actual data passed through JMS destinations. This reference should
+                be replaced with the Java EE standard API `javax.jms.{type}Message`.
               tags:
               - jms
               - websphere

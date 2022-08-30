@@ -28,8 +28,8 @@ spring-boot-to-azure-identity-provider:
             title: Spring Security
           - href: https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization
             title: 'Spring Boot API: Authorization'
-          message: "The application uses Spring security.\n\n                    \
-            \    Checkout Azure Active Directory as an identity provider."
+          message: The application uses Spring security. Checkout Azure Active Directory
+            as an identity provider.
           tags: []
           title: Spring Security-related dependencies
       when:

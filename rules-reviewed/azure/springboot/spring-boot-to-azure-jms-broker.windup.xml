@@ -27,9 +27,8 @@ spring-boot-to-azure-jms-broker:
             title: How to use the Spring Boot Starter for Azure Service Bus JMS
           - href: https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-servicebus-jms
             title: Azure Spring Boot Starter for Azure Service Bus JMS
-          message: "The application uses an ActiveMQ message broker.\n           \
-            \             \n                        Checkout Azure Service Bus for\
-            \ a fully managed message broker."
+          message: The application uses an ActiveMQ message broker. Checkout Azure
+            Service Bus for a fully managed message broker.
           tags:
           - activemq
           title: Active MQ Broker

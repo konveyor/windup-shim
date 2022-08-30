@@ -19,9 +19,8 @@ jsonp-to-quarkus:
             links:
             - href: https://quarkus.io/guides/
               title: Quarkus - Guide
-            message: "Replace the `org.glassfish:jakarta.json` dependency with the\
-              \ Quarkus dependency `io.quarkus:quarkus-jsonp`  \n                \
-              \            No specific guide is available."
+            message: Replace the `org.glassfish:jakarta.json` dependency with the
+              Quarkus dependency `io.quarkus:quarkus-jsonp` No specific guide is available.
             tags: []
             title: Replace the 'jakarta.json' dependency with Quarkus 'quarkus-jsonp'
               extension
@@ -41,9 +40,8 @@ jsonp-to-quarkus:
           links:
           - href: https://quarkus.io/guides/
             title: Quarkus - Guide
-          message: "Replace the `org.glassfish:jakarta.json` dependency with the Quarkus\
-            \ dependency `io.quarkus:quarkus-jsonp`  \n                        No\
-            \ specific guide is available."
+          message: Replace the `org.glassfish:jakarta.json` dependency with the Quarkus
+            dependency `io.quarkus:quarkus-jsonp` No specific guide is available.
           tags: []
           title: Replace the 'jakarta.json' dependency with Quarkus 'quarkus-jsonp'
             extension

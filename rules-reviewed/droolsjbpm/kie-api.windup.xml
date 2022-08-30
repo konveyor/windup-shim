@@ -1,7 +1,7 @@
 Kie5To6Upgrade:
   metadata:
-    description: "This ruleset provides help for migrating to a unified KIE (Knowledge\
-      \ Is Everything) API in the\n             upgrade from version 5 to 6."
+    description: This ruleset provides help for migrating to a unified KIE (Knowledge
+      Is Everything) API in the upgrade from version 5 to 6.
     sourceTechnologies:
     - id: drools
       versionRange: '[5]'

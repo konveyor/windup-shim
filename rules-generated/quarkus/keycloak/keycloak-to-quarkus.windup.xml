@@ -20,9 +20,9 @@ keycloak-to-quarkus:
             links:
             - href: https://quarkus.io/guides/
               title: Quarkus - Guide
-            message: "Replace the `org.keycloak:keycloak-admin-client` dependency\
-              \ with the Quarkus dependency `io.quarkus:quarkus-keycloak-admin-client`\
-              \  \n                            No specific guide is available."
+            message: Replace the `org.keycloak:keycloak-admin-client` dependency with
+              the Quarkus dependency `io.quarkus:quarkus-keycloak-admin-client` No
+              specific guide is available.
             tags: []
             title: Replace the 'keycloak-admin-client' dependency with Quarkus 'quarkus-keycloak-admin-client'
               extension
@@ -42,9 +42,9 @@ keycloak-to-quarkus:
           links:
           - href: https://quarkus.io/guides/
             title: Quarkus - Guide
-          message: "Replace the `org.keycloak:keycloak-admin-client` dependency with\
-            \ the Quarkus dependency `io.quarkus:quarkus-keycloak-admin-client`  \n\
-            \                        No specific guide is available."
+          message: Replace the `org.keycloak:keycloak-admin-client` dependency with
+            the Quarkus dependency `io.quarkus:quarkus-keycloak-admin-client` No specific
+            guide is available.
           tags: []
           title: Replace the 'keycloak-admin-client' dependency with Quarkus 'quarkus-keycloak-admin-client'
             extension

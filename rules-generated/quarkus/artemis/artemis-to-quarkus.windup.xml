@@ -20,9 +20,9 @@ artemis-to-quarkus:
             links:
             - href: https://quarkus.io/guides/jms
               title: Quarkus - Guide
-            message: "Replace the `org.apache.activemq:artemis-jms-client` dependency\
-              \ with the Quarkus dependency `io.quarkus:quarkus-artemis-jms`  \n \
-              \                           Further information in the link below."
+            message: Replace the `org.apache.activemq:artemis-jms-client` dependency
+              with the Quarkus dependency `io.quarkus:quarkus-artemis-jms` Further
+              information in the link below.
             tags: []
             title: Replace the 'artemis-jms-client' dependency with Quarkus 'quarkus-artemis-jms'
               extension
@@ -42,9 +42,9 @@ artemis-to-quarkus:
           links:
           - href: https://quarkus.io/guides/jms
             title: Quarkus - Guide
-          message: "Replace the `org.apache.activemq:artemis-jms-client` dependency\
-            \ with the Quarkus dependency `io.quarkus:quarkus-artemis-jms`  \n   \
-            \                     Further information in the link below."
+          message: Replace the `org.apache.activemq:artemis-jms-client` dependency
+            with the Quarkus dependency `io.quarkus:quarkus-artemis-jms` Further information
+            in the link below.
           tags: []
           title: Replace the 'artemis-jms-client' dependency with Quarkus 'quarkus-artemis-jms'
             extension

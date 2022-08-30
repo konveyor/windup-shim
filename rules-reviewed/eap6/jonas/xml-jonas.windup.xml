@@ -1,8 +1,7 @@
 xml-jonas:
   metadata:
-    description: "This ruleset provides analysis of JOnAS proprietary xml files that\
-      \ may require individual\n            attention when migrating to JBoss EAP\
-      \ 6+."
+    description: This ruleset provides analysis of JOnAS proprietary xml files that
+      may require individual attention when migrating to JBoss EAP 6+.
     sourceTechnologies:
     - id: jonas
       versionRange: null

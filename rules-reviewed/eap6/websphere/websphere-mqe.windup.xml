@@ -1,8 +1,7 @@
 websphere-mqe:
   metadata:
-    description: "Provides analysis of WebSphere MQ proprietary classes and configuration\
-      \ that may require individual attention when migrating to\n            JBoss\
-      \ EAP 6+."
+    description: Provides analysis of WebSphere MQ proprietary classes and configuration
+      that may require individual attention when migrating to JBoss EAP 6+.
     sourceTechnologies:
     - id: websphere
       versionRange: null
@@ -18,10 +17,9 @@ websphere-mqe:
       perform:
         classification:
           category-id: mandatory
-          description: "WebSphere MQe client API is used to communicate with the MQ\
-            \ server from client-side applications.\n                        For JBoss\
-            \ EAP 6, this needs to be replaced with standard Java EE 6 JMS API, or\
-            \ with HornetQ client API."
+          description: WebSphere MQe client API is used to communicate with the MQ
+            server from client-side applications. For JBoss EAP 6, this needs to be
+            replaced with standard Java EE 6 JMS API, or with HornetQ client API.
           effort: '3'
           issue-display-mode: all
           links:
@@ -51,9 +49,9 @@ websphere-mqe:
               WebSphere MQ Resource Adapter'
           - href: http://www-01.ibm.com/support/knowledgecenter/SSVHEW_6.2.0/com.ibm.mqe.javadoc/java/com/ibm/mqe/adapters/package-summary.html
             title: MQe Adapter Javadoc
-          message: "IBM MQe {type} adapter provides plug-in communications adapters\
-            \ or data storage adapters for queue managers. These can\n           \
-            \             be deployed to JBoss EAP."
+          message: IBM MQe {type} adapter provides plug-in communications adapters
+            or data storage adapters for queue managers. These can be deployed to
+            JBoss EAP.
           tags:
           - jms
           - messaging
@@ -75,10 +73,9 @@ websphere-mqe:
             title: JBoss Admin CLI Guide for JMS
           - href: http://www-01.ibm.com/support/knowledgecenter/SSVHEW_6.2.0/com.ibm.mqe.javadoc/java/com/ibm/mqe/administration/package-summary.html
             title: IBM MQe Admin API Javadoc
-          message: "IBM MQe {type} administration API provides classes used to administer\
-            \ and monitor a WebSphere MQ Everyplace queue manager. In\n          \
-            \              JBoss EAP 6, the JMS destinations can be configured with\
-            \ the JBoss Admin CLI."
+          message: IBM MQe {type} administration API provides classes used to administer
+            and monitor a WebSphere MQ Everyplace queue manager. In JBoss EAP 6, the
+            JMS destinations can be configured with the JBoss Admin CLI.
           tags:
           - jms
           - messaging
@@ -98,9 +95,8 @@ websphere-mqe:
           links:
           - href: https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html-single/Development_Guide/index.html#About_Security_Domains
             title: Configure JBoss EAP Security Domain
-          message: "`MQeJMSAuthenticator` is a WebSphere proprietary JMS authentication\
-            \ API.\n                        To migrate to JBoss EAP 6, replace with\
-            \ Java EE 6 JAAS for JMS authentication."
+          message: '`MQeJMSAuthenticator` is a WebSphere proprietary JMS authentication
+            API. To migrate to JBoss EAP 6, replace with Java EE 6 JAAS for JMS authentication.'
           tags:
           - jms
           - messaging
@@ -117,12 +113,11 @@ websphere-mqe:
           category-id: optional
           effort: '1'
           links: []
-          message: "IBM MQe constants are used to name fields when a JMS message is\
-            \ mapped to an `MQeMsgObject`. These are provided to\n               \
-            \         enable WebSphere MQ Everyplace applications to interpret messages\
-            \ sent by JMS or to construct messages that a JMS application\n      \
-            \                  will understand.\n\n                        These settings\
-            \ can be discarded when migrating to JBoss EAP 6 with HornetQ."
+          message: IBM MQe constants are used to name fields when a JMS message is
+            mapped to an `MQeMsgObject`. These are provided to enable WebSphere MQ
+            Everyplace applications to interpret messages sent by JMS or to construct
+            messages that a JMS application will understand. These settings can be
+            discarded when migrating to JBoss EAP 6 with HornetQ.
           tags:
           - jms
           - messaging

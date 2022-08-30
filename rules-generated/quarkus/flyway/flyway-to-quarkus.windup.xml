@@ -20,9 +20,9 @@ flyway-to-quarkus:
             links:
             - href: https://quarkus.io/guides/flyway
               title: Quarkus - Guide
-            message: "Replace the `org.flywaydb:flyway-core` dependency with the Quarkus\
-              \ dependency `io.quarkus:quarkus-flyway`  \n                       \
-              \     Further information in the link below."
+            message: Replace the `org.flywaydb:flyway-core` dependency with the Quarkus
+              dependency `io.quarkus:quarkus-flyway` Further information in the link
+              below.
             tags: []
             title: Replace the 'flyway-core' dependency with Quarkus 'quarkus-flyway'
               extension
@@ -42,9 +42,9 @@ flyway-to-quarkus:
           links:
           - href: https://quarkus.io/guides/flyway
             title: Quarkus - Guide
-          message: "Replace the `org.flywaydb:flyway-core` dependency with the Quarkus\
-            \ dependency `io.quarkus:quarkus-flyway`  \n                        Further\
-            \ information in the link below."
+          message: Replace the `org.flywaydb:flyway-core` dependency with the Quarkus
+            dependency `io.quarkus:quarkus-flyway` Further information in the link
+            below.
           tags: []
           title: Replace the 'flyway-core' dependency with Quarkus 'quarkus-flyway'
             extension

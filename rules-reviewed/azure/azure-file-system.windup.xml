@@ -27,10 +27,9 @@ azure-file-system:
               system
           - href: https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-storage
             title: Azure Spring Boot Starter for Azure Storage
-          message: "The application uses Java APIs to read/write from the file system.\n\
-            \                        \n                        Any usage of the file\
-            \ system on the application will require reconfiguration or, in rare cases,\
-            \ architectural changes."
+          message: The application uses Java APIs to read/write from the file system.
+            Any usage of the file system on the application will require reconfiguration
+            or, in rare cases, architectural changes.
           tags: []
           title: The application uses Java APIs to read/write from the file system
       when:
@@ -53,9 +52,8 @@ azure-file-system:
           links:
           - href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#determine-whether-and-how-the-file-system-is-used
             title: Relative path found in the application
-          message: "Relative path found.\n                        \n             \
-            \           Any usage of the file system on the application will require\
-            \ reconfiguration or, in rare cases, architectural changes."
+          message: Relative path found. Any usage of the file system on the application
+            will require reconfiguration or, in rare cases, architectural changes.
           tags: []
           title: Relative path found
       when:
@@ -73,9 +71,8 @@ azure-file-system:
           links:
           - href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#determine-whether-and-how-the-file-system-is-used
             title: Home path found in the application
-          message: "Home path found.\n                        \n                 \
-            \       Any usage of the file system on the application will require reconfiguration\
-            \ or, in rare cases, architectural changes."
+          message: Home path found. Any usage of the file system on the application
+            will require reconfiguration or, in rare cases, architectural changes.
           tags: []
           title: Home path found
       when:

@@ -20,9 +20,9 @@ openshift-to-quarkus:
             links:
             - href: https://quarkus.io/guides/kubernetes-client
               title: Quarkus - Guide
-            message: "Replace the `io.fabric8:openshift-client` dependency with the\
-              \ Quarkus dependency `io.quarkus:quarkus-openshift-client`  \n     \
-              \                       Further information in the link below."
+            message: Replace the `io.fabric8:openshift-client` dependency with the
+              Quarkus dependency `io.quarkus:quarkus-openshift-client` Further information
+              in the link below.
             tags: []
             title: Replace the 'openshift-client' dependency with Quarkus 'quarkus-openshift-client'
               extension
@@ -42,9 +42,9 @@ openshift-to-quarkus:
           links:
           - href: https://quarkus.io/guides/kubernetes-client
             title: Quarkus - Guide
-          message: "Replace the `io.fabric8:openshift-client` dependency with the\
-            \ Quarkus dependency `io.quarkus:quarkus-openshift-client`  \n       \
-            \                 Further information in the link below."
+          message: Replace the `io.fabric8:openshift-client` dependency with the Quarkus
+            dependency `io.quarkus:quarkus-openshift-client` Further information in
+            the link below.
           tags: []
           title: Replace the 'openshift-client' dependency with Quarkus 'quarkus-openshift-client'
             extension

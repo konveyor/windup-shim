@@ -29,9 +29,8 @@ spring-boot-to-azure-database:
             title: Use Spring Data JDBC with Azure Database for PostgreSQL
           - href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
             title: Use Spring Data JDBC with Azure SQL Database
-          message: "The application uses a JDBC connection string.\n\n           \
-            \             Checkout the different types of databases that are fully\
-            \ managed on Azure."
+          message: The application uses a JDBC connection string. Checkout the different
+            types of databases that are fully managed on Azure.
           tags:
           - jdbc
           title: JDBC connection found in configuration file
@@ -55,9 +54,8 @@ spring-boot-to-azure-database:
             title: How to use Spring Data MongoDB API with Azure Cosmos DB
           - href: https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-data-cosmos
             title: Spring Cloud Azure Starter Data Cosmos DB
-          message: "The application uses a MongoDB connection string.\n\n        \
-            \                Checkout the different types of databases that are fully\
-            \ managed on Azure."
+          message: The application uses a MongoDB connection string. Checkout the
+            different types of databases that are fully managed on Azure.
           tags:
           - mongodb
           title: MongoDB connection found in configuration file

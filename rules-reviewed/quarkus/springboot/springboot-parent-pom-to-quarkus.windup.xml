@@ -19,9 +19,9 @@ springboot-parent-pom-to-quarkus:
           links:
           - href: https://quarkus.io/guides/maven-tooling#build-tool-maven
             title: Quarkus - Building applications with Maven Guide
-          message: "Replace the Spring Parent POM with Quarkus BOM in `<dependencyManagement>`\
-            \ section of the application's `pom.xml` file.  \n                   \
-            \     Leverage the link below to fulfill this change."
+          message: Replace the Spring Parent POM with Quarkus BOM in `<dependencyManagement>`
+            section of the application's `pom.xml` file. Leverage the link below to
+            fulfill this change.
           tags: []
           title: Replace the Spring Parent POM with Quarkus BOM
       when:

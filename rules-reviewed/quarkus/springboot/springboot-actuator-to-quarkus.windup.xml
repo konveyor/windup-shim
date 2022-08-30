@@ -19,9 +19,9 @@ springboot-actuator-to-quarkus:
           links:
           - href: https://quarkus.io/guides/smallrye-health
             title: Quarkus - Smallrye Health
-          message: "Replace the Spring Boot Actuator dependency with Quarkus Smallrye\
-            \ Health extension.  \n                        It has to be replaced by\
-            \ `io.quarkus:quarkus-smallrye-health` artifact."
+          message: Replace the Spring Boot Actuator dependency with Quarkus Smallrye
+            Health extension. It has to be replaced by `io.quarkus:quarkus-smallrye-health`
+            artifact.
           tags: []
           title: Replace the Spring Boot Actuator dependency with Quarkus Smallrye
             Health extension

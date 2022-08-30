@@ -26,13 +26,11 @@ logging:
                 title: Twelve-factor app - Logs
               - href: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
                 title: 'OpenShift Container Platform: Understanding cluster logging'
-              message: "If the application writes logs to a file system, local log\
-                \ files may be lost if an instance terminates or restarts.\n\n   \
-                \                         Recommendations\n\n                    \
-                \        * Use a centralized log management system.\n            \
-                \                * Log to standard output and allow the cloud platform\
-                \ to manage the logging.\n                            * Use shared\
-                \ storage for log files."
+              message: If the application writes logs to a file system, local log
+                files may be lost if an instance terminates or restarts. Recommendations
+                * Use a centralized log management system. * Log to standard output
+                and allow the cloud platform to manage the logging. * Use shared storage
+                for log files.
               tags:
               - logging
               title: Logging to file system
@@ -76,14 +74,12 @@ logging:
               title: Twelve-factor app - Logs
             - href: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
               title: 'OpenShift Container Platform: Understanding cluster logging'
-            message: "If an application writes logs with `SocketHandler`, an alternative\
-              \ method is required. Socket communication is not suitable for a cloud\
-              \ environment because it requires fixed communication with a target\
-              \ host.\n\n                        Recommendations\n\n             \
-              \           * Use a centralized log management system.\n           \
-              \             * Log to standard output and allow the cloud platform\
-              \ to manage the logging.\n                        * Use shared storage\
-              \ for log files."
+            message: If an application writes logs with `SocketHandler`, an alternative
+              method is required. Socket communication is not suitable for a cloud
+              environment because it requires fixed communication with a target host.
+              Recommendations * Use a centralized log management system. * Log to
+              standard output and allow the cloud platform to manage the logging.
+              * Use shared storage for log files.
             tags:
             - logging
             title: Logging to Socket Handler

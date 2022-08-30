@@ -15,14 +15,12 @@ java-ee-jaxrpc:
       perform:
         classification:
           category-id: optional
-          description: "The \"javax.xml.rpc.handler.GenericHandler\" class implements\
-            \ the Handler interface.\n                        SOAP Message Handler\
-            \ developers should typically subclass GenericHandler class unless\n \
-            \                       the Handler class needs another class as a superclass.\
-            \ It is a convenience abstract\n                        class that makes\
-            \ writing Handlers easy. GenericHandler provides default implementations\n\
-            \                        of the lifecycle methods init and destroy and\
-            \ also different handle methods."
+          description: The "javax.xml.rpc.handler.GenericHandler" class implements
+            the Handler interface. SOAP Message Handler developers should typically
+            subclass GenericHandler class unless the Handler class needs another class
+            as a superclass. It is a convenience abstract class that makes writing
+            Handlers easy. GenericHandler provides default implementations of the
+            lifecycle methods init and destroy and also different handle methods.
           effort: '0'
           issue-display-mode: detail-only
           links:

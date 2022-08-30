@@ -20,9 +20,9 @@ picocli-to-quarkus:
             links:
             - href: https://quarkus.io/guides/picocli
               title: Quarkus - Guide
-            message: "Replace the `info.picocli:picocli` dependency with the Quarkus\
-              \ dependency `io.quarkus:quarkus-picocli`  \n                      \
-              \      Further information in the link below."
+            message: Replace the `info.picocli:picocli` dependency with the Quarkus
+              dependency `io.quarkus:quarkus-picocli` Further information in the link
+              below.
             tags: []
             title: Replace the 'picocli' dependency with Quarkus 'quarkus-picocli'
               extension
@@ -42,9 +42,9 @@ picocli-to-quarkus:
           links:
           - href: https://quarkus.io/guides/picocli
             title: Quarkus - Guide
-          message: "Replace the `info.picocli:picocli` dependency with the Quarkus\
-            \ dependency `io.quarkus:quarkus-picocli`  \n                        Further\
-            \ information in the link below."
+          message: Replace the `info.picocli:picocli` dependency with the Quarkus
+            dependency `io.quarkus:quarkus-picocli` Further information in the link
+            below.
           tags: []
           title: Replace the 'picocli' dependency with Quarkus 'quarkus-picocli' extension
       when:

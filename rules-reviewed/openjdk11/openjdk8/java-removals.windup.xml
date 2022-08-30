@@ -19,12 +19,11 @@ java-removals:
           links:
           - href: https://docs.oracle.com/javase/7/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html
             title: Java Thread Primitive Deprecation
-          message: "The `java.lang.Thread.stop(Throwable)` method has been removed,\
-            \ as it is dangerous for a thread to not only be able to directly stop\
-            \ another thread, but with an exception it may not expect. Instead, the\
-            \ thread should be notified to stop using a shared variable or `interrupt()`.\n\
-            \                        The `java.lang.Thread.destroy()` method was never\
-            \ even implemented and just throws `NoSuchMethodError`."
+          message: The `java.lang.Thread.stop(Throwable)` method has been removed,
+            as it is dangerous for a thread to not only be able to directly stop another
+            thread, but with an exception it may not expect. Instead, the thread should
+            be notified to stop using a shared variable or `interrupt()`. The `java.lang.Thread.destroy()`
+            method was never even implemented and just throws `NoSuchMethodError`.
           tags: []
           title: Methods in `java.lang.Thread` have been removed
       when:
@@ -46,11 +45,10 @@ java-removals:
           links:
           - href: https://hg.openjdk.java.net/openjfx/9-dev/rt/rev/70f6fa01a32c
             title: Example changeset
-          message: "Java 9 introduced the `StackWalker API` to replace `sun.reflect.Reflection`.\
-            \ \n                        As such, the use of `sun.reflect.Reflection`\
-            \ class and particular the `getCallerClass` method should no longer be\
-            \ needed. \n                        Refer to the example changeset linked\
-            \ below."
+          message: Java 9 introduced the `StackWalker API` to replace `sun.reflect.Reflection`.
+            As such, the use of `sun.reflect.Reflection` class and particular the
+            `getCallerClass` method should no longer be needed. Refer to the example
+            changeset linked below.
           tags: []
           title: sun.reflect.Reflection class was deprecated in Java 9
       when:
@@ -67,8 +65,8 @@ java-removals:
           links:
           - href: https://hg.openjdk.java.net/openjfx/9-dev/rt/rev/70f6fa01a32c
             title: Example changeset
-          message: "`sun.reflect.CallerSensitive` annotation was deprecated in Java\
-            \ 9.\n                        Refer to the example changeset linked below."
+          message: '`sun.reflect.CallerSensitive` annotation was deprecated in Java
+            9. Refer to the example changeset linked below.'
           tags: []
           title: sun.reflect.CallerSensitive annotation was deprecated in Java 9
       when:
@@ -87,12 +85,11 @@ java-removals:
             title: Java 10 javax.security.auth.Policy api
           - href: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/security/Policy.html
             title: Java 11 java.security.Policy api
-          message: "The `javax.security.auth.Policy` class has been removed.\n   \
-            \                     It should be replaced by the use of `java.security.Policy`\
-            \ and `java.security.ProtectionDomain`.\n                        Usage\
-            \ of `policy.getPermissions(subject,codeSource)` should be  replaced with\
-            \ a call to\n                        policy.getPermissions passing in\
-            \ a new ProtectionDomain (see links below for details)"
+          message: The `javax.security.auth.Policy` class has been removed. It should
+            be replaced by the use of `java.security.Policy` and `java.security.ProtectionDomain`.
+            Usage of `policy.getPermissions(subject,codeSource)` should be replaced
+            with a call to policy.getPermissions passing in a new ProtectionDomain
+            (see links below for details)
           tags: []
           title: The `javax.security.auth.Policy` class has been removed
       when:
@@ -110,19 +107,15 @@ java-removals:
             title: Java 11 SecurityManager api
           - href: https://docs.oracle.com/en/java/javase/11/docs/api/java.desktop/java/awt/AWTPermission.html
             title: Java 11 AWTPermission api
-          message: "Due to modularisation, the methods `java.lang.SecurityManager.checkAwtEventQueueAccess()`,\n\
-            \                        `java.lang.SecurityManager.checkSystemClipboardAccess()`\
-            \ and\n                        `java.lang.SecurityManager.checkTopLevelWindow(java.lang.Object)`\n\
-            \                        have been removed, so that the core SecurityManager\
-            \ class does not depend on the AWT stack.\n\n                        Replace\
-            \ with a call to `java.lang.SecurityManager.checkPermission(java.security.Permission)`\
-            \ as follows:\n\n                        `java.lang.SecurityManager.checkAwtEventQueueAccess()`\
-            \ --> `java.lang.SecurityManager.checkPermission(new AWTPermission(\"\
-            accessEventQueue\"))`\n                        `java.lang.SecurityManager.checkSystemClipboardAccess()`\
-            \ --> `java.lang.SecurityManager.checkPermission(new AWTPermission(\"\
-            accessClipboard\"))`\n                        `java.lang.SecurityManager.checkTopLevelWindow(java.lang.Object)\
-            \ --> java.lang.SecurityManager.checkPermission(new AWTPermission(\"showWindowWithoutWarningBanner\"\
-            ))`"
+          message: 'Due to modularisation, the methods `java.lang.SecurityManager.checkAwtEventQueueAccess()`,
+            `java.lang.SecurityManager.checkSystemClipboardAccess()` and `java.lang.SecurityManager.checkTopLevelWindow(java.lang.Object)`
+            have been removed, so that the core SecurityManager class does not depend
+            on the AWT stack. Replace with a call to `java.lang.SecurityManager.checkPermission(java.security.Permission)`
+            as follows: `java.lang.SecurityManager.checkAwtEventQueueAccess()` -->
+            `java.lang.SecurityManager.checkPermission(new AWTPermission("accessEventQueue"))`
+            `java.lang.SecurityManager.checkSystemClipboardAccess()` --> `java.lang.SecurityManager.checkPermission(new
+            AWTPermission("accessClipboard"))` `java.lang.SecurityManager.checkTopLevelWindow(java.lang.Object)
+            --> java.lang.SecurityManager.checkPermission(new AWTPermission("showWindowWithoutWarningBanner"))`'
           tags: []
           title: AWT SecurityManager method java.lang.SecurityManager.{method-name}
             has been removed in Java 11
@@ -140,12 +133,11 @@ java-removals:
           links:
           - href: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/SecurityManager.html
             title: Java 11 SecurityManager api
-          message: "The implementation of `java.lang.SecurityManager.checkMemberAccess(java.lang.Class,\
-            \ int)` relies on an assumption\n                        that the caller\
-            \ is at a stack depth of 4, which is not something that can be enforced,\
-            \ making the code error-prone.\n\n                        Replace with\
-            \ a call to `java.lang.SecurityManager.checkPermission(new RuntimePermission(\"\
-            accessDeclaredMembers\"))`."
+          message: The implementation of `java.lang.SecurityManager.checkMemberAccess(java.lang.Class,
+            int)` relies on an assumption that the caller is at a stack depth of 4,
+            which is not something that can be enforced, making the code error-prone.
+            Replace with a call to `java.lang.SecurityManager.checkPermission(new
+            RuntimePermission("accessDeclaredMembers"))`.
           tags: []
           title: SecurityManager method java.lang.SecurityManager.checkMemberAccess
             has been removed
@@ -162,11 +154,11 @@ java-removals:
           links:
           - href: https://docs.oracle.com/en/java/javase/16/migrate/removed-apis.html#GUID-B96BD00F-12A4-493A-9907-2FFE8DA6748C
             title: APIs removed in JDK 9
-          message: "`java.util.logging.LogManager.addPropertyChangeListener()` method\
-            \ was removed in Java 9.\n                        In order to listen to\
-            \ property change events, please consider overriding the `java.util.logging.LogManager.readConfiguration`\
-            \ methods,\n                        which previously triggered property\
-            \ change events for the registered listeners."
+          message: '`java.util.logging.LogManager.addPropertyChangeListener()` method
+            was removed in Java 9. In order to listen to property change events, please
+            consider overriding the `java.util.logging.LogManager.readConfiguration`
+            methods, which previously triggered property change events for the registered
+            listeners.'
           tags: []
           title: The java.util.logging.LogManager.addPropertyChangeListener() method
             was removed in Java 9
@@ -183,11 +175,11 @@ java-removals:
           links:
           - href: https://docs.oracle.com/en/java/javase/16/migrate/removed-apis.html#GUID-B96BD00F-12A4-493A-9907-2FFE8DA6748C
             title: APIs removed in JDK 9
-          message: "`java.util.logging.LogManager.removePropertyChangeListener()`\
-            \ method was removed in Java 9.\n                        In order to listen\
-            \ to property change events, please consider overriding the `java.util.logging.LogManager.readConfiguration`\
-            \ methods,\n                        which previously triggered property\
-            \ change events for the registered listeners."
+          message: '`java.util.logging.LogManager.removePropertyChangeListener()`
+            method was removed in Java 9. In order to listen to property change events,
+            please consider overriding the `java.util.logging.LogManager.readConfiguration`
+            methods, which previously triggered property change events for the registered
+            listeners.'
           tags: []
           title: The java.util.logging.LogManager.removePropertyChangeListener() method
             was removed in Java 9
@@ -206,10 +198,10 @@ java-removals:
             title: java.util.jar.Packer API
           - href: https://docs.oracle.com/javase/8/docs/api/java/util/jar/Pack200.Unpacker.html
             title: java.util.jar.Unpacker API
-          message: "Property listener methods on `Pack200.Packer` and `Pack200.Unpacker`\
-            \ have been removed.\n                        Instead, a strategy based\
-            \ on polling the `PROGRESS` value maintained by `java.util.jar.Pack200.Packer`\n\
-            \                        or `java.util.jar.Pack200.Unpacker` is recommended."
+          message: Property listener methods on `Pack200.Packer` and `Pack200.Unpacker`
+            have been removed. Instead, a strategy based on polling the `PROGRESS`
+            value maintained by `java.util.jar.Pack200.Packer` or `java.util.jar.Pack200.Unpacker`
+            is recommended.
           tags: []
           title: Property listener methods on `Pack200.Packer` and `Pack200.Unpacker`
             have been removed
@@ -238,22 +230,20 @@ java-removals:
             title: Test changes for JDK-8054494
           - href: https://openjdk.java.net/jeps/193
             title: Variable Handles
-          message: "The `sun.misc.Unsafe` API is scheduled for removal in the long\
-            \ term, and some of its methods have been removed. In short term, please\
-            \ consider the following:\n\n                        - The `get` and `put`\
-            \ methods have equivalents that take long offsets (OpenJDK 8's version\
-            \ of the removed methods just casts the int offsets and used the long\
-            \ versions).\n                        - `fieldOffset(Field)` should be\
-            \ replaced by `staticFieldOffset(Field)` and `ObjectFieldOffset(Field)`.\n\
-            \                        - `staticFieldBase(Class)` should be replaced\
-            \ by asking for a specific field with `staticFieldBase(Field)`. The removed\
-            \ method only returned the address of the first static field in the class\
-            \ and relied on the assumption that the JVM stored all statics together,\
-            \ which may not be true.\n                        - `tryMonitorEnter(Object)`\
-            \ and `monitorExit(Object)` can be replaced with use of the Java synchronized\
-            \ primitives, as illustrated in the test changes for JDK-8054494 (see\
-            \ links below).\n\n                        In the long term, please consider\
-            \ using Variable Handles (see the link below)"
+          message: 'The `sun.misc.Unsafe` API is scheduled for removal in the long
+            term, and some of its methods have been removed. In short term, please
+            consider the following: - The `get` and `put` methods have equivalents
+            that take long offsets (OpenJDK 8''s version of the removed methods just
+            casts the int offsets and used the long versions). - `fieldOffset(Field)`
+            should be replaced by `staticFieldOffset(Field)` and `ObjectFieldOffset(Field)`.
+            - `staticFieldBase(Class)` should be replaced by asking for a specific
+            field with `staticFieldBase(Field)`. The removed method only returned
+            the address of the first static field in the class and relied on the assumption
+            that the JVM stored all statics together, which may not be true. - `tryMonitorEnter(Object)`
+            and `monitorExit(Object)` can be replaced with use of the Java synchronized
+            primitives, as illustrated in the test changes for JDK-8054494 (see links
+            below). In the long term, please consider using Variable Handles (see
+            the link below)'
           tags: []
           title: Methods in `sun.misc.Unsafe` have been removed
       when:
@@ -274,12 +264,11 @@ java-removals:
             title: Code example
           - href: https://bugs.openjdk.java.net/browse/JDK-8006182
             title: OpenJDK - Original enhancement request
-          message: "The `sun.misc.BASE64{encoder-decoder}` class has been removed.\
-            \  \n                        It can be replaced with `Base64.{encoder-decoder}`\
-            \ class instantiated using `java.util.Base64.getMime{encoder-decoder}()`\
-            \ method.  \n                        For further examples on how to replace\
-            \ the `BASE64{encoder-decoder}` class with `Base64.{encoder-decoder}`\
-            \ one, refer to the \"Code example\" link below."
+          message: The `sun.misc.BASE64{encoder-decoder}` class has been removed.
+            It can be replaced with `Base64.{encoder-decoder}` class instantiated
+            using `java.util.Base64.getMime{encoder-decoder}()` method. For further
+            examples on how to replace the `BASE64{encoder-decoder}` class with `Base64.{encoder-decoder}`
+            one, refer to the "Code example" link below.
           tags: []
           title: The `sun.misc.BASE64{encoder-decoder}` class has been removed
       when:
@@ -296,13 +285,11 @@ java-removals:
           links:
           - href: https://docs.oracle.com/en/java/javase/11/migrate/index.html#JSMIG-GUID-4B613B7E-B150-4D0A-835C-2393C60BE1F8
             title: JDK 11 removed APIs
-          message: "The `java.lang.System.runFinalizersOnExit(boolean value)` and\
-            \ `java.lang.Runtime.runFinalizersOnExit(boolean value)`\n           \
-            \             have been removed as they are regarded as inherently unsafe.\
-            \ Running finalizers on exit was disabled by default\n               \
-            \         and enabling it could result in finalizers being called on live\
-            \ objects which are still being manipulated by other threads.\n\n    \
-            \                    Remove these method calls."
+          message: The `java.lang.System.runFinalizersOnExit(boolean value)` and `java.lang.Runtime.runFinalizersOnExit(boolean
+            value)` have been removed as they are regarded as inherently unsafe. Running
+            finalizers on exit was disabled by default and enabling it could result
+            in finalizers being called on live objects which are still being manipulated
+            by other threads. Remove these method calls.
           tags: []
           title: The `runFinalizersOnExit` methods have been removed
       when:
@@ -322,15 +309,13 @@ java-removals:
           links:
           - href: https://docs.oracle.com/en/java/javase/11/migrate/index.html#JSMIG-GUID-0C350BAB-F2C8-409E-AD3E-63831C684A55
             title: java.awt.peer Not Accessible
-          message: "The `java.awt.Font.getPeer()` and `java.awt.Component.getPeer()`\
-            \ methods have been removed.  \n                            The `java.awt.peer`\
-            \ and `java.awt.dnd.peer` are no longer accessible and are considered\n\
-            \                            internal implementation details, the API\
-            \ may be removed without notice or changed in non\n                  \
-            \          compatible ways.  \n                            Methods exposing\
-            \ this API, such as `java.awt.Font.getPeer()` have been removed since\
-            \ JDK 9.     \n                            Since Font rendering is platform\
-            \ independent, there are no substitutes for this method."
+          message: The `java.awt.Font.getPeer()` and `java.awt.Component.getPeer()`
+            methods have been removed. The `java.awt.peer` and `java.awt.dnd.peer`
+            are no longer accessible and are considered internal implementation details,
+            the API may be removed without notice or changed in non compatible ways.
+            Methods exposing this API, such as `java.awt.Font.getPeer()` have been
+            removed since JDK 9. Since Font rendering is platform independent, there
+            are no substitutes for this method.
           tags: []
           title: The `java.awt.Font.getPeer()` and `java.awt.Component.getPeer()`
             methods have been removed
@@ -355,12 +340,11 @@ java-removals:
             title: JDK11 New Classloader Implementations
           - href: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/ClassLoader.html#%3Cinit%3E(java.lang.ClassLoader)
             title: ClassLoader Constructor API
-          message: "The changes that were implemented in JDK 9 may impact code that\
-            \ creates class loaders with null (that is, the bootstrap class loader)\n\
-            \                        as the parent class loader and assumes that all\
-            \ platform classes are visible to the parent.\n                      \
-            \  Such code may need to be changed to use the platform class loader as\
-            \ the parent (see the links below)"
+          message: The changes that were implemented in JDK 9 may impact code that
+            creates class loaders with null (that is, the bootstrap class loader)
+            as the parent class loader and assumes that all platform classes are visible
+            to the parent. Such code may need to be changed to use the platform class
+            loader as the parent (see the links below)
           tags: []
           title: Changes in ClassLoader hierarchy in JDK 11 may impact code
       when:

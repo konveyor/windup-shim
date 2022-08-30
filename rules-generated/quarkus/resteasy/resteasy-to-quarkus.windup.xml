@@ -20,9 +20,9 @@ resteasy-to-quarkus:
             links:
             - href: https://quarkus.io/guides/rest-json#multipart-support
               title: Quarkus - Guide
-            message: "Replace the `org.jboss.resteasy:resteasy-multipart-provider`\
-              \ dependency with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart`\
-              \  \n                            Further information in the link below."
+            message: Replace the `org.jboss.resteasy:resteasy-multipart-provider`
+              dependency with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart`
+              Further information in the link below.
             tags: []
             title: Replace the 'resteasy-multipart-provider' dependency with Quarkus
               'quarkus-resteasy-multipart' extension
@@ -42,9 +42,9 @@ resteasy-to-quarkus:
           links:
           - href: https://quarkus.io/guides/rest-json#multipart-support
             title: Quarkus - Guide
-          message: "Replace the `org.jboss.resteasy:resteasy-multipart-provider` dependency\
-            \ with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart`\
-            \  \n                        Further information in the link below."
+          message: Replace the `org.jboss.resteasy:resteasy-multipart-provider` dependency
+            with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart` Further
+            information in the link below.
           tags: []
           title: Replace the 'resteasy-multipart-provider' dependency with Quarkus
             'quarkus-resteasy-multipart' extension

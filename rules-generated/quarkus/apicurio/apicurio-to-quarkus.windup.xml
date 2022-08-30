@@ -20,9 +20,9 @@ apicurio-to-quarkus:
             links:
             - href: https://quarkus.io/guides/kafka-schema-registry-avro
               title: Quarkus - Guide
-            message: "Replace the `io.apicurio:apicurio-registry-serdes-avro-serde`\
-              \ dependency with the Quarkus dependency `io.quarkus:quarkus-apicurio-registry-avro`\
-              \  \n                            Further information in the link below."
+            message: Replace the `io.apicurio:apicurio-registry-serdes-avro-serde`
+              dependency with the Quarkus dependency `io.quarkus:quarkus-apicurio-registry-avro`
+              Further information in the link below.
             tags: []
             title: Replace the 'apicurio-registry-serdes-avro-serde' dependency with
               Quarkus 'quarkus-apicurio-registry-avro' extension
@@ -42,9 +42,9 @@ apicurio-to-quarkus:
           links:
           - href: https://quarkus.io/guides/kafka-schema-registry-avro
             title: Quarkus - Guide
-          message: "Replace the `io.apicurio:apicurio-registry-serdes-avro-serde`\
-            \ dependency with the Quarkus dependency `io.quarkus:quarkus-apicurio-registry-avro`\
-            \  \n                        Further information in the link below."
+          message: Replace the `io.apicurio:apicurio-registry-serdes-avro-serde` dependency
+            with the Quarkus dependency `io.quarkus:quarkus-apicurio-registry-avro`
+            Further information in the link below.
           tags: []
           title: Replace the 'apicurio-registry-serdes-avro-serde' dependency with
             Quarkus 'quarkus-apicurio-registry-avro' extension

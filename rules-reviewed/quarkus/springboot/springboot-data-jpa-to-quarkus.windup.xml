@@ -19,10 +19,10 @@ springboot-data-jpa-to-quarkus:
           links:
           - href: https://quarkus.io/guides/spring-data-jpa
             title: Quarkus JPA Guide
-          message: "Replace the SpringBoot JPA artifact with Quarkus `spring-data-jpa`\
-            \ extension\n\n                        Spring Data JPA is in spring-data-jpa\
-            \ artifact brought transitively by any `org.springframework.data:spring-data-*`\
-            \ dependency  \n                        Add Quarkus dependency `io.quarkus:quarkus-spring-data-jpa`"
+          message: Replace the SpringBoot JPA artifact with Quarkus `spring-data-jpa`
+            extension Spring Data JPA is in spring-data-jpa artifact brought transitively
+            by any `org.springframework.data:spring-data-*` dependency Add Quarkus
+            dependency `io.quarkus:quarkus-spring-data-jpa`
           tags: []
           title: Replace the SpringBoot Data JPA artifact with Quarkus 'spring-data-jpa'
             extension

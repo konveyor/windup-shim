@@ -141,8 +141,8 @@ xml-dsl-changes:
           links:
           - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_xml_dsl_migration
             title: Camel 3 - Migration Guide
-          message: "Hystrix circuit breaker has been generalized as circuit breaker.\
-            \ Use `circuitBreaker`\n                        instead of `hystrix'."
+          message: Hystrix circuit breaker has been generalized as circuit breaker.
+            Use `circuitBreaker` instead of `hystrix'.
           quickfix:
             name: camel.eip.hystrix.replacement
             replacement: circuitBreaker
@@ -171,9 +171,8 @@ xml-dsl-changes:
           links:
           - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_aggregate_eip_in_xml_dsl
             title: Camel 3 - Migration Guide - Aggregate EIP changes
-          message: "Use `completionSizeExpression` instead of `completionSize`. Expressions\
-            \ (not the attributes) for\n                        setting correlation\
-            \ size/timeout were renamed."
+          message: Use `completionSizeExpression` instead of `completionSize`. Expressions
+            (not the attributes) for setting correlation size/timeout were renamed.
           tags: []
           title: '`completionSize` in aggregate was renamed'
       when:
@@ -197,9 +196,9 @@ xml-dsl-changes:
           links:
           - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_aggregate_eip_in_xml_dsl
             title: Camel 3 - Migration Guide - Aggregate EIP changes
-          message: "Use `completionTimeoutExpression` instead of `completionTimeout`.\
-            \ Expressions (not the\n                        attributes) for\n    \
-            \                    setting correlation size/timeout were renamed."
+          message: Use `completionTimeoutExpression` instead of `completionTimeout`.
+            Expressions (not the attributes) for setting correlation size/timeout
+            were renamed.
           tags: []
           title: '`completionTimeout` in aggregate was renamed'
       when:

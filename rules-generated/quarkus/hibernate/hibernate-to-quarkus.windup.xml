@@ -20,9 +20,9 @@ hibernate-to-quarkus:
             links:
             - href: https://quarkus.io/guides/hibernate-orm#envers
               title: Quarkus - Guide
-            message: "Replace the `org.hibernate:hibernate-envers` dependency with\
-              \ the Quarkus dependency `io.quarkus:quarkus-hibernate-envers`  \n \
-              \                           Further information in the link below."
+            message: Replace the `org.hibernate:hibernate-envers` dependency with
+              the Quarkus dependency `io.quarkus:quarkus-hibernate-envers` Further
+              information in the link below.
             tags: []
             title: Replace the 'hibernate-envers' dependency with Quarkus 'quarkus-hibernate-envers'
               extension
@@ -42,9 +42,9 @@ hibernate-to-quarkus:
           links:
           - href: https://quarkus.io/guides/hibernate-orm#envers
             title: Quarkus - Guide
-          message: "Replace the `org.hibernate:hibernate-envers` dependency with the\
-            \ Quarkus dependency `io.quarkus:quarkus-hibernate-envers`  \n       \
-            \                 Further information in the link below."
+          message: Replace the `org.hibernate:hibernate-envers` dependency with the
+            Quarkus dependency `io.quarkus:quarkus-hibernate-envers` Further information
+            in the link below.
           tags: []
           title: Replace the 'hibernate-envers' dependency with Quarkus 'quarkus-hibernate-envers'
             extension
@@ -62,9 +62,9 @@ hibernate-to-quarkus:
             links:
             - href: https://github.com/quarkusio/quarkus-quickstarts/tree/master/hibernate-reactive-quickstart
               title: Quarkus - Quickstart
-            message: "Replace the `org.hibernate.reactive:hibernate-reactive-core`\
-              \ dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-reactive`\
-              \  \n                            Further information in the link below."
+            message: Replace the `org.hibernate.reactive:hibernate-reactive-core`
+              dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-reactive`
+              Further information in the link below.
             tags: []
             title: Replace the 'hibernate-reactive-core' dependency with Quarkus 'quarkus-hibernate-reactive'
               extension
@@ -84,9 +84,9 @@ hibernate-to-quarkus:
           links:
           - href: https://github.com/quarkusio/quarkus-quickstarts/tree/master/hibernate-reactive-quickstart
             title: Quarkus - Quickstart
-          message: "Replace the `org.hibernate.reactive:hibernate-reactive-core` dependency\
-            \ with the Quarkus dependency `io.quarkus:quarkus-hibernate-reactive`\
-            \  \n                        Further information in the link below."
+          message: Replace the `org.hibernate.reactive:hibernate-reactive-core` dependency
+            with the Quarkus dependency `io.quarkus:quarkus-hibernate-reactive` Further
+            information in the link below.
           tags: []
           title: Replace the 'hibernate-reactive-core' dependency with Quarkus 'quarkus-hibernate-reactive'
             extension
@@ -104,9 +104,9 @@ hibernate-to-quarkus:
             links:
             - href: https://quarkus.io/guides/hibernate-search-orm-elasticsearch
               title: Quarkus - Guide
-            message: "Replace the `org.hibernate.search:hibernate-search-backend-elasticsearch-aws`\
-              \ dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-search-orm-elasticsearch-aws`\
-              \  \n                            Further information in the link below."
+            message: Replace the `org.hibernate.search:hibernate-search-backend-elasticsearch-aws`
+              dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-search-orm-elasticsearch-aws`
+              Further information in the link below.
             tags: []
             title: Replace the 'hibernate-search-backend-elasticsearch-aws' dependency
               with Quarkus 'quarkus-hibernate-search-orm-elasticsearch-aws' extension
@@ -126,9 +126,9 @@ hibernate-to-quarkus:
           links:
           - href: https://quarkus.io/guides/hibernate-search-orm-elasticsearch
             title: Quarkus - Guide
-          message: "Replace the `org.hibernate.search:hibernate-search-backend-elasticsearch-aws`\
-            \ dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-search-orm-elasticsearch-aws`\
-            \  \n                        Further information in the link below."
+          message: Replace the `org.hibernate.search:hibernate-search-backend-elasticsearch-aws`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-search-orm-elasticsearch-aws`
+            Further information in the link below.
           tags: []
           title: Replace the 'hibernate-search-backend-elasticsearch-aws' dependency
             with Quarkus 'quarkus-hibernate-search-orm-elasticsearch-aws' extension
@@ -146,9 +146,9 @@ hibernate-to-quarkus:
             links:
             - href: https://quarkus.io/guides/validation
               title: Quarkus - Guide
-            message: "Replace the `org.hibernate.validator:hibernate-validator` dependency\
-              \ with the Quarkus dependency `io.quarkus:quarkus-hibernate-validator`\
-              \  \n                            Further information in the link below."
+            message: Replace the `org.hibernate.validator:hibernate-validator` dependency
+              with the Quarkus dependency `io.quarkus:quarkus-hibernate-validator`
+              Further information in the link below.
             tags: []
             title: Replace the 'hibernate-validator' dependency with Quarkus 'quarkus-hibernate-validator'
               extension
@@ -168,9 +168,9 @@ hibernate-to-quarkus:
           links:
           - href: https://quarkus.io/guides/validation
             title: Quarkus - Guide
-          message: "Replace the `org.hibernate.validator:hibernate-validator` dependency\
-            \ with the Quarkus dependency `io.quarkus:quarkus-hibernate-validator`\
-            \  \n                        Further information in the link below."
+          message: Replace the `org.hibernate.validator:hibernate-validator` dependency
+            with the Quarkus dependency `io.quarkus:quarkus-hibernate-validator` Further
+            information in the link below.
           tags: []
           title: Replace the 'hibernate-validator' dependency with Quarkus 'quarkus-hibernate-validator'
             extension

@@ -55,12 +55,11 @@ weblogic-eap7-eap7:
             title: Calling JMS resources and EJB in EAP 6 from Weblogic
           - href: https://access.redhat.com/solutions/396853
             title: How to configure an EJB client in JBoss EAP 6
-          message: "`weblogic.jndi.WLInitialContextFactory` is an implementation of\
-            \ `InitialContextFactory` used to get object instances from JNDI.\n\n\
-            \                    The equivalent functionality needs to be configured\
-            \ on JBoss EAP 7 using `org.jboss.naming.remote.client.InitialContextFactory`.\
-            \ Then the context could be instanticated as follows: `InitialContext\
-            \ ctx = new InitialContext();`."
+          message: '`weblogic.jndi.WLInitialContextFactory` is an implementation of
+            `InitialContextFactory` used to get object instances from JNDI. The equivalent
+            functionality needs to be configured on JBoss EAP 7 using `org.jboss.naming.remote.client.InitialContextFactory`.
+            Then the context could be instanticated as follows: `InitialContext ctx
+            = new InitialContext();`.'
           tags:
           - configuration
           - weblogic
@@ -83,12 +82,11 @@ weblogic-eap7-eap7:
             title: Invoking EJBs deployed on WebLogic from EAP6
           message: "Weblogic\u2019s implementation of the RMI specification uses a\
             \ proprietary protocol known as T3. T3S is the version of the protocol\
-            \ over SSL.\n                     `t3://` and `t3s://` URLs are used to\
-            \ configure a JNDI InitialContext within WebLogic.\n\n               \
-            \     The equivalent functionality needs to be configured in JBoss EAP\
-            \ 7.\n                    This could be done either by using standard\
-            \ Java EE JNDI names or by using a WebLogic proprietary library if the\
-            \ connectivity to WebLogic server is still required."
+            \ over SSL. `t3://` and `t3s://` URLs are used to configure a JNDI InitialContext\
+            \ within WebLogic. The equivalent functionality needs to be configured\
+            \ in JBoss EAP 7. This could be done either by using standard Java EE\
+            \ JNDI names or by using a WebLogic proprietary library if the connectivity\
+            \ to WebLogic server is still required."
           tags:
           - configuration
           - weblogic
@@ -243,12 +241,10 @@ weblogic-eap7-eap7:
             category-id: null
             effort: '1'
             links: []
-            message: "Look up the Java Enterprise Edition `javax.transaction.TransactionManager`\
-              \ in JBoss EAP using the following code:\n\n                       \
-              \     ```java\n                            InitialContext context =\
-              \ new InitialContext();\n                            TransactionManager\
-              \ transactionManager =\n                            (TransactionManager)context.lookup(\"\
-              java:jboss/TransactionManager\");\n                            ```"
+            message: 'Look up the Java Enterprise Edition `javax.transaction.TransactionManager`
+              in JBoss EAP using the following code: ```java InitialContext context
+              = new InitialContext(); TransactionManager transactionManager = (TransactionManager)context.lookup("java:jboss/TransactionManager");
+              ```'
             tags:
             - transactions
             - weblogic
@@ -311,12 +307,10 @@ weblogic-eap7-eap7:
             title: JDK Logging Documentation
           - href: https://developers.redhat.com/quickstarts/eap/logging/
             title: JBoss Logging Quickstart
-          message: "The WebLogic `NonCatalogLogger` is not supported on JBoss EAP,\
-            \ and should be migrated to a supported logging framework,\n         \
-            \             such as the JDK Logger or JBoss Logging:\n\n           \
-            \           ```java\n                      import java.util.logging.Logger;\n\
-            \                      Logger LOG = Logger.getLogger(\"MyLogger\");\n\
-            \                      ```"
+          message: 'The WebLogic `NonCatalogLogger` is not supported on JBoss EAP,
+            and should be migrated to a supported logging framework, such as the JDK
+            Logger or JBoss Logging: ```java import java.util.logging.Logger; Logger
+            LOG = Logger.getLogger("MyLogger"); ```'
           tags:
           - logging
           - weblogic
@@ -335,14 +329,13 @@ weblogic-eap7-eap7:
           links:
           - href: https://access.redhat.com/articles/1329233
             title: Implement Oracle Fast Connection Failover (FCF) in EAP
-          message: "Oracle Fast Connection Failover is specific property supported\
-            \ only by Oracle JDBC driver which provides support for their vendor's\
-            \ special features transparently to the application server in which they\
-            \ are deployed.\n\n                      For example, one can supply a\
-            \ URL like this to the Oracle JDBC driver and the driver will provide\
-            \ transparent load-balancing and fail-over:\n                      ```\n\
-            \                      <xa-datasource-property name=\"URL\">jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=my.host.org)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=my.host.org)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=servjboss)(failover_mode=(type=select)(method=basic)))</xa-datasource-property>\n\
-            \                      ```"
+          message: 'Oracle Fast Connection Failover is specific property supported
+            only by Oracle JDBC driver which provides support for their vendor''s
+            special features transparently to the application server in which they
+            are deployed. For example, one can supply a URL like this to the Oracle
+            JDBC driver and the driver will provide transparent load-balancing and
+            fail-over: ``` <xa-datasource-property name="URL">jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=my.host.org)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=my.host.org)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=servjboss)(failover_mode=(type=select)(method=basic)))</xa-datasource-property>
+            ```'
           tags:
           - jdbc
           - weblogic
@@ -359,18 +352,17 @@ weblogic-eap7-eap7:
           links:
           - href: https://access.redhat.com/articles/1329253
             title: Replace WebLogic side-by-side production redeployment in EAP 6
-          message: "Oracle WebLogic Server includes a proprietary side-by-side production\
-            \ redeployment feature. For applications that meet certain requirements\
-            \ and restrictions, the new version of the application is deployed while\
-            \ the older version is still running.\n                      The old and\
-            \ new applications must be running on the same server or cluster. The\
-            \ new version of the application accepts new web session requests while\
-            \ the older version finishes processing requests already in process. Upon\
-            \ completion of the existing session requests, the older version of the\
-            \ application is then undeployed.\n\n                      In JBoss EAP,\
-            \ you can either deploy the new application to a secondary server group\
-            \ or cluster, or deploy the new application serially to the same clustered\
-            \ domain."
+          message: Oracle WebLogic Server includes a proprietary side-by-side production
+            redeployment feature. For applications that meet certain requirements
+            and restrictions, the new version of the application is deployed while
+            the older version is still running. The old and new applications must
+            be running on the same server or cluster. The new version of the application
+            accepts new web session requests while the older version finishes processing
+            requests already in process. Upon completion of the existing session requests,
+            the older version of the application is then undeployed. In JBoss EAP,
+            you can either deploy the new application to a secondary server group
+            or cluster, or deploy the new application serially to the same clustered
+            domain.
           tags:
           - weblogic
           title: WebLogic side-by-side redeployment configuration
@@ -387,11 +379,11 @@ weblogic-eap7-eap7:
           links:
           - href: https://access.redhat.com/articles/1329073
             title: Replace WebLogic Oracle Wallets When Migrating to EAP 6
-          message: "WebLogic administrators use wallets created by Oracle Wallet Manager\
-            \ to manage public key security credentials on application clients and\
-            \ servers.\n\n                      These wallets must first be converted\
-            \ to standard Java KeyStore (JKS) entries that can then be used to configure\
-            \ the credentials in JBoss EAP 7."
+          message: WebLogic administrators use wallets created by Oracle Wallet Manager
+            to manage public key security credentials on application clients and servers.
+            These wallets must first be converted to standard Java KeyStore (JKS)
+            entries that can then be used to configure the credentials in JBoss EAP
+            7.
           tags:
           - weblogic
           title: WebLogic Oracle Wallet

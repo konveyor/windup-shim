@@ -18,10 +18,10 @@ springboot-plugins-to-quarkus:
           links:
           - href: https://quarkus.io/guides/maven-tooling#build-tool-maven
             title: Building Quarkus with maven
-          message: "Replace the `spring-boot-maven-plugin` dependency.\n         \
-            \               The `spring-boot-maven-plugin` dependency needs to be\
-            \ replaced with `quarkus-maven-plugin`, so that the application is built\
-            \ with Quarkus, both for running on the JVM and in native mode."
+          message: Replace the `spring-boot-maven-plugin` dependency. The `spring-boot-maven-plugin`
+            dependency needs to be replaced with `quarkus-maven-plugin`, so that the
+            application is built with Quarkus, both for running on the JVM and in
+            native mode.
           tags: []
           title: Replace the spring-boot-maven-plugin dependency
       when:

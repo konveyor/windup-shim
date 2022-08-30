@@ -19,9 +19,8 @@ jdbc-to-quarkus:
             links:
             - href: https://quarkus.io/guides/hibernate-orm
               title: Quarkus - Guide
-            message: "Replace the `com.ibm.db2:jcc` dependency with the Quarkus dependency\
-              \ `io.quarkus:quarkus-jdbc-db2`  \n                            Further\
-              \ information in the link below."
+            message: Replace the `com.ibm.db2:jcc` dependency with the Quarkus dependency
+              `io.quarkus:quarkus-jdbc-db2` Further information in the link below.
             tags: []
             title: Replace the 'jcc' dependency with Quarkus 'quarkus-jdbc-db2' extension
           over: default
@@ -40,9 +39,8 @@ jdbc-to-quarkus:
           links:
           - href: https://quarkus.io/guides/hibernate-orm
             title: Quarkus - Guide
-          message: "Replace the `com.ibm.db2:jcc` dependency with the Quarkus dependency\
-            \ `io.quarkus:quarkus-jdbc-db2`  \n                        Further information\
-            \ in the link below."
+          message: Replace the `com.ibm.db2:jcc` dependency with the Quarkus dependency
+            `io.quarkus:quarkus-jdbc-db2` Further information in the link below.
           tags: []
           title: Replace the 'jcc' dependency with Quarkus 'quarkus-jdbc-db2' extension
       when:
@@ -59,9 +57,9 @@ jdbc-to-quarkus:
             links:
             - href: https://quarkus.io/guides/hibernate-orm
               title: Quarkus - Guide
-            message: "Replace the `org.apache.derby:derbyclient` dependency with the\
-              \ Quarkus dependency `io.quarkus:quarkus-jdbc-derby`  \n           \
-              \                 Further information in the link below."
+            message: Replace the `org.apache.derby:derbyclient` dependency with the
+              Quarkus dependency `io.quarkus:quarkus-jdbc-derby` Further information
+              in the link below.
             tags: []
             title: Replace the 'derbyclient' dependency with Quarkus 'quarkus-jdbc-derby'
               extension
@@ -81,9 +79,9 @@ jdbc-to-quarkus:
           links:
           - href: https://quarkus.io/guides/hibernate-orm
             title: Quarkus - Guide
-          message: "Replace the `org.apache.derby:derbyclient` dependency with the\
-            \ Quarkus dependency `io.quarkus:quarkus-jdbc-derby`  \n             \
-            \           Further information in the link below."
+          message: Replace the `org.apache.derby:derbyclient` dependency with the
+            Quarkus dependency `io.quarkus:quarkus-jdbc-derby` Further information
+            in the link below.
           tags: []
           title: Replace the 'derbyclient' dependency with Quarkus 'quarkus-jdbc-derby'
             extension
@@ -101,9 +99,9 @@ jdbc-to-quarkus:
             links:
             - href: https://quarkus.io/guides/hibernate-orm
               title: Quarkus - Guide
-            message: "Replace the `org.mariadb.jdbc:mariadb-java-client` dependency\
-              \ with the Quarkus dependency `io.quarkus:quarkus-jdbc-mariadb`  \n\
-              \                            Further information in the link below."
+            message: Replace the `org.mariadb.jdbc:mariadb-java-client` dependency
+              with the Quarkus dependency `io.quarkus:quarkus-jdbc-mariadb` Further
+              information in the link below.
             tags: []
             title: Replace the 'mariadb-java-client' dependency with Quarkus 'quarkus-jdbc-mariadb'
               extension
@@ -123,9 +121,9 @@ jdbc-to-quarkus:
           links:
           - href: https://quarkus.io/guides/hibernate-orm
             title: Quarkus - Guide
-          message: "Replace the `org.mariadb.jdbc:mariadb-java-client` dependency\
-            \ with the Quarkus dependency `io.quarkus:quarkus-jdbc-mariadb`  \n  \
-            \                      Further information in the link below."
+          message: Replace the `org.mariadb.jdbc:mariadb-java-client` dependency with
+            the Quarkus dependency `io.quarkus:quarkus-jdbc-mariadb` Further information
+            in the link below.
           tags: []
           title: Replace the 'mariadb-java-client' dependency with Quarkus 'quarkus-jdbc-mariadb'
             extension
@@ -143,9 +141,9 @@ jdbc-to-quarkus:
             links:
             - href: https://quarkus.io/guides/hibernate-orm
               title: Quarkus - Guide
-            message: "Replace the `mysql:mysql-connector-java` dependency with the\
-              \ Quarkus dependency `io.quarkus:quarkus-jdbc-mysql`  \n           \
-              \                 Further information in the link below."
+            message: Replace the `mysql:mysql-connector-java` dependency with the
+              Quarkus dependency `io.quarkus:quarkus-jdbc-mysql` Further information
+              in the link below.
             tags: []
             title: Replace the 'mysql-connector-java' dependency with Quarkus 'quarkus-jdbc-mysql'
               extension
@@ -165,9 +163,9 @@ jdbc-to-quarkus:
           links:
           - href: https://quarkus.io/guides/hibernate-orm
             title: Quarkus - Guide
-          message: "Replace the `mysql:mysql-connector-java` dependency with the Quarkus\
-            \ dependency `io.quarkus:quarkus-jdbc-mysql`  \n                     \
-            \   Further information in the link below."
+          message: Replace the `mysql:mysql-connector-java` dependency with the Quarkus
+            dependency `io.quarkus:quarkus-jdbc-mysql` Further information in the
+            link below.
           tags: []
           title: Replace the 'mysql-connector-java' dependency with Quarkus 'quarkus-jdbc-mysql'
             extension
@@ -185,9 +183,9 @@ jdbc-to-quarkus:
             links:
             - href: https://quarkus.io/guides/hibernate-orm
               title: Quarkus - Guide
-            message: "Replace the `com.oracle.database.jdbc:ojdbc11` dependency with\
-              \ the Quarkus dependency `io.quarkus:quarkus-jdbc-oracle`  \n      \
-              \                      Further information in the link below."
+            message: Replace the `com.oracle.database.jdbc:ojdbc11` dependency with
+              the Quarkus dependency `io.quarkus:quarkus-jdbc-oracle` Further information
+              in the link below.
             tags: []
             title: Replace the 'ojdbc11' dependency with Quarkus 'quarkus-jdbc-oracle'
               extension
@@ -207,9 +205,9 @@ jdbc-to-quarkus:
           links:
           - href: https://quarkus.io/guides/hibernate-orm
             title: Quarkus - Guide
-          message: "Replace the `com.oracle.database.jdbc:ojdbc11` dependency with\
-            \ the Quarkus dependency `io.quarkus:quarkus-jdbc-oracle`  \n        \
-            \                Further information in the link below."
+          message: Replace the `com.oracle.database.jdbc:ojdbc11` dependency with
+            the Quarkus dependency `io.quarkus:quarkus-jdbc-oracle` Further information
+            in the link below.
           tags: []
           title: Replace the 'ojdbc11' dependency with Quarkus 'quarkus-jdbc-oracle'
             extension
@@ -227,9 +225,9 @@ jdbc-to-quarkus:
             links:
             - href: https://quarkus.io/guides/hibernate-orm
               title: Quarkus - Guide
-            message: "Replace the `org.postgresql:postgresql` dependency with the\
-              \ Quarkus dependency `io.quarkus:quarkus-jdbc-postgresql`  \n      \
-              \                      Further information in the link below."
+            message: Replace the `org.postgresql:postgresql` dependency with the Quarkus
+              dependency `io.quarkus:quarkus-jdbc-postgresql` Further information
+              in the link below.
             tags: []
             title: Replace the 'postgresql' dependency with Quarkus 'quarkus-jdbc-postgresql'
               extension
@@ -249,9 +247,9 @@ jdbc-to-quarkus:
           links:
           - href: https://quarkus.io/guides/hibernate-orm
             title: Quarkus - Guide
-          message: "Replace the `org.postgresql:postgresql` dependency with the Quarkus\
-            \ dependency `io.quarkus:quarkus-jdbc-postgresql`  \n                \
-            \        Further information in the link below."
+          message: Replace the `org.postgresql:postgresql` dependency with the Quarkus
+            dependency `io.quarkus:quarkus-jdbc-postgresql` Further information in
+            the link below.
           tags: []
           title: Replace the 'postgresql' dependency with Quarkus 'quarkus-jdbc-postgresql'
             extension

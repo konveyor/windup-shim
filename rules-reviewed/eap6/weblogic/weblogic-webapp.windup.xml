@@ -1,8 +1,8 @@
 weblogic-webapp:
   metadata:
-    description: "This ruleset provides analysis of WebLogic proprietary code related\
-      \ to web-apps that may require individual\n            attention when\n    \
-      \        migrating to JBoss EAP 6+."
+    description: This ruleset provides analysis of WebLogic proprietary code related
+      to web-apps that may require individual attention when migrating to JBoss EAP
+      6+.
     sourceTechnologies:
     - id: weblogic
       versionRange: null
@@ -43,10 +43,10 @@ weblogic-webapp:
           links:
           - href: https://access.redhat.com/articles/1249423
             title: WebLogic proprietary servlet annotations
-          message: "Replace the proprietary WebLogic `@WLServlet` annotation with\
-            \ the Java EE standard `@WebServlet` annotation.\n\n                 \
-            \     See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)\
-            \ for more information."
+          message: Replace the proprietary WebLogic `@WLServlet` annotation with the
+            Java EE standard `@WebServlet` annotation. See the [javax.servlet.annotation
+            JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)
+            for more information.
           quickfix:
             name: Mapping Attribute
             replacement: urlPatterns
@@ -70,10 +70,10 @@ weblogic-webapp:
           links:
           - href: https://access.redhat.com/articles/1249423
             title: WebLogic proprietary servlet annotations
-          message: "Replace the proprietary WebLogic `@WLInitParam` annotation with\
-            \ the Java EE standard `@WebInitParam` annotation.\n\n               \
-            \       See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)\
-            \ for more information."
+          message: Replace the proprietary WebLogic `@WLInitParam` annotation with
+            the Java EE standard `@WebInitParam` annotation. See the [javax.servlet.annotation
+            JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)
+            for more information.
           quickfix:
             name: WebInitParam
             replacement: WebInitParam
@@ -97,10 +97,10 @@ weblogic-webapp:
           links:
           - href: https://access.redhat.com/articles/1249423
             title: WebLogic proprietary servlet annotations
-          message: "Replace the proprietary WebLogic `@WLFilter` annotation with the\
-            \ Java EE standard `@WebFilter` annotation.\n\n                      See\
-            \ the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)\
-            \ for more information."
+          message: Replace the proprietary WebLogic `@WLFilter` annotation with the
+            Java EE standard `@WebFilter` annotation. See the [javax.servlet.annotation
+            JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)
+            for more information.
           quickfix:
             name: WebFilter
             replacement: WebFilter
@@ -129,14 +129,13 @@ weblogic-webapp:
             title: Java EE ServletContextEvent JavaDoc
           - href: http://docs.oracle.com/cd/E13222_01/wls/docs90/programming/lifecycle.html
             title: WebLogic custom ApplicationLifecycleEvent Documentation
-          message: "WebLogic `ApplicationLifecycleEvent` must be replaced with standard\
-            \ Java EE `ServletContextEvent`. Otherwise, a custom solution using CDI's\
-            \ `ApplicationScoped` beans or EJB's `@Startup` beans is required in order\
-            \ to propagate a custom event object because `ServletContextEvent` types\
-            \ are not extendible in the standard Java EE programming model.\n\n  \
-            \                    Use a `javax.servlet.ServletContextListener` with\
-            \ `@javax.annotation.servlet.WebListener`, or an EJB 3.1 `@javax.ejb.Startup`\
-            \ `@javax.ejb.Singleton` service bean."
+          message: WebLogic `ApplicationLifecycleEvent` must be replaced with standard
+            Java EE `ServletContextEvent`. Otherwise, a custom solution using CDI's
+            `ApplicationScoped` beans or EJB's `@Startup` beans is required in order
+            to propagate a custom event object because `ServletContextEvent` types
+            are not extendible in the standard Java EE programming model. Use a `javax.servlet.ServletContextListener`
+            with `@javax.annotation.servlet.WebListener`, or an EJB 3.1 `@javax.ejb.Startup`
+            `@javax.ejb.Singleton` service bean.
           tags:
           - lifecycle
           - weblogic
@@ -160,12 +159,11 @@ weblogic-webapp:
             title: Java EE ServletContextEvent JavaDoc
           - href: http://docs.oracle.com/cd/E13222_01/wls/docs90/programming/lifecycle.html
             title: WebLogic custom ApplicationLifecycleEvent Documentation
-          message: "WebLogic `ApplicationLifecycleListener` must be replaced with\
-            \ standard Java EE `ServletContextListener` types. Otherwise, a solution\
-            \ using CDI's `ApplicationScoped` beans or EJB's `@Startup` beans is required.\n\
-            \n                      Use a `javax.servlet.ServletContextListener` with\
-            \ `@javax.annotation.servlet.WebListener`, or an EJB 3.1 `@javax.ejb.Startup`\
-            \ `@javax.ejb.Singleton` service bean."
+          message: WebLogic `ApplicationLifecycleListener` must be replaced with standard
+            Java EE `ServletContextListener` types. Otherwise, a solution using CDI's
+            `ApplicationScoped` beans or EJB's `@Startup` beans is required. Use a
+            `javax.servlet.ServletContextListener` with `@javax.annotation.servlet.WebListener`,
+            or an EJB 3.1 `@javax.ejb.Startup` `@javax.ejb.Singleton` service bean.
           tags:
           - lifecycle
           - weblogic
@@ -229,12 +227,12 @@ weblogic-webapp:
           links:
           - href: https://access.redhat.com/articles/1329213
             title: Migrate Oracle WebLogic programmatic login to JBoss EAP 6
-          message: "Oracle WebLogic Server provides a proprietary `ServletAuthentication`\
-            \ class to perform programmatic login.\n\n                      In Red\
-            \ Hat JBoss EAP 6, you can use the standard Java EE 6 servlet security\
-            \ 3.0 `HttpServletRequest.login()` method or you can define a `<security-constraint>`\
-            \ element in the web.xml file. You must also replace code that uses the\
-            \ Oracle WebLogic Server proprietary `ServletAuthentication` class."
+          message: Oracle WebLogic Server provides a proprietary `ServletAuthentication`
+            class to perform programmatic login. In Red Hat JBoss EAP 6, you can use
+            the standard Java EE 6 servlet security 3.0 `HttpServletRequest.login()`
+            method or you can define a `<security-constraint>` element in the web.xml
+            file. You must also replace code that uses the Oracle WebLogic Server
+            proprietary `ServletAuthentication` class.
           tags:
           - security
           - weblogic

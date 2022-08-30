@@ -1,8 +1,8 @@
 generic-catchall:
   metadata:
-    description: "This ruleset provides analysis of generic proprietary classes and\
-      \ constructs that may require individual attention when\n            migrating\
-      \ to JBoss EAP 6+."
+    description: This ruleset provides analysis of generic proprietary classes and
+      constructs that may require individual attention when migrating to JBoss EAP
+      6+.
     phase: PostMigrationRulesPhase
     sourceTechnologies:
     - id: java
@@ -27,10 +27,9 @@ generic-catchall:
               links:
               - href: https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html
                 title: java.util.concurrent JAVA API Documentation
-              message: "This is an old Doug Lea Concurrency util type and needs to\
-                \ be migrated to a compatible `java.util.concurrent` API.\n      \
-                \                      There is currently no detailed information\
-                \ about this type."
+              message: This is an old Doug Lea Concurrency util type and needs to
+                be migrated to a compatible `java.util.concurrent` API. There is currently
+                no detailed information about this type.
               tags:
               - catchall
               title: Doug Lea Concurrency util
@@ -50,10 +49,9 @@ generic-catchall:
               category-id: optional
               effort: '0'
               links: []
-              message: "This type is the backport of java.util.concurrent API, introduced\
-                \ in Java 5.0 and further refined in Java 6.0, to older Java platforms.\n\
-                \                                You should use java.util.concurrent\
-                \ API instead."
+              message: This type is the backport of java.util.concurrent API, introduced
+                in Java 5.0 and further refined in Java 6.0, to older Java platforms.
+                You should use java.util.concurrent API instead.
               tags:
               - catchall
               title: backport-util-concurrent type reference
@@ -74,9 +72,8 @@ generic-catchall:
               links:
               - href: http://camel.apache.org
                 title: Apache Camel
-              message: "Mule API `org.mule.{package-remainder}.{type}` was used.\n\
-                \                                You should convert these types to\
-                \ Apache Camel."
+              message: Mule API `org.mule.{package-remainder}.{type}` was used. You
+                should convert these types to Apache Camel.
               tags:
               - catchall
               - mule
@@ -165,8 +162,8 @@ generic-catchall:
               category-id: optional
               effort: '0'
               links: []
-              message: "Tibco `com.tibco.{package-remainder}.{type}` reference found.\n\
-                \                                No specific details available."
+              message: Tibco `com.tibco.{package-remainder}.{type}` reference found.
+                No specific details available.
               tags:
               - catchall
               - tibco
@@ -188,8 +185,8 @@ generic-catchall:
               category-id: optional
               effort: '0'
               links: []
-              message: "SAP CrystalReports `com.crystaldecisions.{package-remainder}.{type}`\
-                \ reference found.\n                         No specific details available."
+              message: SAP CrystalReports `com.crystaldecisions.{package-remainder}.{type}`
+                reference found. No specific details available.
               tags:
               - catchall
               - sap
@@ -211,8 +208,8 @@ generic-catchall:
               category-id: optional
               effort: '0'
               links: []
-              message: "IONA `com.iona.{package-remainder}.{type}` reference found.\n\
-                \                         No specific details available."
+              message: IONA `com.iona.{package-remainder}.{type}` reference found.
+                No specific details available.
               tags:
               - catchall
               - iona
@@ -234,8 +231,8 @@ generic-catchall:
               category-id: optional
               effort: '0'
               links: []
-              message: "Apache `org.apache.{subpackage}` API reference found.\n  \
-                \                        No specific details available."
+              message: Apache `org.apache.{subpackage}` API reference found. No specific
+                details available.
               tags:
               - catchall
               - apache

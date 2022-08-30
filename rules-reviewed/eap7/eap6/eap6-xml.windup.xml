@@ -1,8 +1,8 @@
 eap6-xml:
   metadata:
-    description: "This ruleset provides analysis of JBoss 6 XML descriptors and specific\
-      \ application parameters\n            which needs to be replaced by some alternative\
-      \ configuration when migrating to JBoss EAP 7+."
+    description: This ruleset provides analysis of JBoss 6 XML descriptors and specific
+      application parameters which needs to be replaced by some alternative configuration
+      when migrating to JBoss EAP 7+.
     sourceTechnologies:
     - id: eap
       versionRange: '[6,7)'
@@ -16,9 +16,9 @@ eap6-xml:
       perform:
         classification:
           category-id: mandatory
-          description: "The proprietary XML descriptors, previously used to setup\
-            \ JMS resources, are deprecated in EAP 7.\n                        An\
-            \ updated version of this file was generated using XSLT transformation."
+          description: The proprietary XML descriptors, previously used to setup JMS
+            resources, are deprecated in EAP 7. An updated version of this file was
+            generated using XSLT transformation.
           effort: '1'
           issue-display-mode: all
           links:

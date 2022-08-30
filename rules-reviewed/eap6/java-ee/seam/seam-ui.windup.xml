@@ -23,10 +23,9 @@ seam-ui-jsf:
           links:
           - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Web_Framework_Kit/2.7/html/Seam_Guide/_seam_2_ui_controls_migration_to_jsf.html
             title: Seam 2 UI controls migration to JSF
-          message: "Seam UI's `<s:button>` JSF control should be replaced by `<h:button>`.\n\
-            \                        There are differences in attributes, for example\
-            \ the _action_ attribute maps to _outcome_ and there is no _propagation_\
-            \ attribute."
+          message: Seam UI's `<s:button>` JSF control should be replaced by `<h:button>`.
+            There are differences in attributes, for example the _action_ attribute
+            maps to _outcome_ and there is no _propagation_ attribute.
           quickfix:
             name: sbutton-qf
             replacement: h:button
@@ -53,16 +52,14 @@ seam-ui-jsf:
       perform:
         classification:
           category-id: mandatory
-          description: "This JSF template includes references to the Seam 2.3 library.\n\
-            \                        Seam 2.3 is supported on JBoss EAP 6, however\
-            \ it is no longer supported\n                        on JBoss EAP 7 and\
-            \ above.\n\n                        There are two options available:\n\
-            \n                        1. Continue using Seam 2.3. This approach is\
-            \ low effort but the application will not use a tested and supported library\
-            \ and it may not work on EAP 7 at all.\n                        2. Switch\
-            \ to standard CDI beans and migrate to JSF 2.2 UI tags. This will require\
-            \ significant migration effort.\n\n                        The provided\
-            \ links describe the issue in more detail."
+          description: 'This JSF template includes references to the Seam 2.3 library.
+            Seam 2.3 is supported on JBoss EAP 6, however it is no longer supported
+            on JBoss EAP 7 and above. There are two options available: 1. Continue
+            using Seam 2.3. This approach is low effort but the application will not
+            use a tested and supported library and it may not work on EAP 7 at all.
+            2. Switch to standard CDI beans and migrate to JSF 2.2 UI tags. This will
+            require significant migration effort. The provided links describe the
+            issue in more detail.'
           effort: '1'
           issue-display-mode: all
           links:
@@ -84,9 +81,9 @@ seam-ui-jsf:
           links:
           - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Web_Framework_Kit/2.7/html/Seam_Guide/_seam_2_ui_controls_migration_to_jsf.html
             title: Seam 2 UI controls migration to JSF
-          message: "Seam UI's `<s:link>` should be replaced by `<h:link>`.\n     \
-            \                   There are differences in attributes, for example the\
-            \ _action_ attribute maps to _outcome_ and there is no _propagation_ attribute."
+          message: Seam UI's `<s:link>` should be replaced by `<h:link>`. There are
+            differences in attributes, for example the _action_ attribute maps to
+            _outcome_ and there is no _propagation_ attribute.
           quickfix:
             name: slink-qf
             replacement: h:link
@@ -222,11 +219,10 @@ seam-ui-jsf:
           links:
           - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Web_Framework_Kit/2.7/html/Seam_Guide/_seam_2_ui_controls_migration_to_jsf.html
             title: Seam 2 UI controls migration to JSF
-          message: "Seam UI's `<f:convertDateTime type=\"time\" pattern=\"kk:mm:ss\"\
-            >` should be replaced by `<f:convertDateTime>`.\n\n                  \
-            \      The format can be configured by setting  the locale,\n        \
-            \                or by setting the context-param `javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE`\
-            \ to `true`."
+          message: Seam UI's `<f:convertDateTime type="time" pattern="kk:mm:ss">`
+            should be replaced by `<f:convertDateTime>`. The format can be configured
+            by setting the locale, or by setting the context-param `javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE`
+            to `true`.
           tags:
           - seam
           - jsf
@@ -655,11 +651,9 @@ seam-ui-jsf:
           links:
           - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Web_Framework_Kit/2.7/html/Seam_Guide/_seam_2_ui_controls_migration_to_jsf.html
             title: Seam 2 UI controls migration to JSF
-          message: "There is no direct mapping for `<s:validateEquality>` in JSF UI\
-            \ controls.\n                    Use respective `<f:validate[constraint]>`\
-            \ like:\n\n                    * `<f:validateDoubleRange>`,\n        \
-            \            * `<f:validateLength>`,\n                    * `<f:validateLongRange>`,\n\
-            \                    * `<f:validateRequired>`."
+          message: 'There is no direct mapping for `<s:validateEquality>` in JSF UI
+            controls. Use respective `<f:validate[constraint]>` like: * `<f:validateDoubleRange>`,
+            * `<f:validateLength>`, * `<f:validateLongRange>`, * `<f:validateRequired>`.'
           tags:
           - seam
           - jsf
@@ -713,12 +707,12 @@ seam-ui-jsf:
           links:
           - href: https://access.redhat.com/documentation/en-us/Red_Hat_JBoss_Web_Framework_Kit/2.7/html/Seam_Guide/_seam_2_ui_controls_migration_to_jsf.html
             title: Seam 2 UI controls migration to JSF
-          message: "There is no direct mapping for `<s:decorate>` in JSF UI controls,\
-            \ but you can achieve the same functionality by using the UIInputContainer\
-            \ and a composite container, both of which are demonstrated in the [Open18\
-            \ migration example](https://github.com/seam/migration/blob/develop/open18_java_ee_6)\n\
-            \                        [input.xhtml](https://raw.githubusercontent.com/seam/migration/develop/open18_java_ee_6/src/main/webapp/resources/components/input.xhtml)\
-            \ file."
+          message: There is no direct mapping for `<s:decorate>` in JSF UI controls,
+            but you can achieve the same functionality by using the UIInputContainer
+            and a composite container, both of which are demonstrated in the [Open18
+            migration example](https://github.com/seam/migration/blob/develop/open18_java_ee_6)
+            [input.xhtml](https://raw.githubusercontent.com/seam/migration/develop/open18_java_ee_6/src/main/webapp/resources/components/input.xhtml)
+            file.
           tags:
           - seam
           - jsf

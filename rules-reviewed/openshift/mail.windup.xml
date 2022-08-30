@@ -26,15 +26,14 @@ mail:
             title: Twelve-factor app - Config
           - href: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
             title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
-          message: "The configuration parameters of SMTP services for outbound mail\
-            \ may contain environment-specific values such as static IP addresses,\
-            \ host names, properties, credentials, or certificates.\n\n          \
-            \          Recommendations\n\n                    * In a cloud environment,\
-            \ mail systems should be considered backing services and treated like\
-            \ attached resources.\n                    * Ensure that the configuration\
-            \ of the underlying outbound mail connection is not environment-specific.\n\
-            \                    * In OpenShift Container Platform, store configuration\
-            \ parameters as environment variables or in a ConfigMap."
+          message: The configuration parameters of SMTP services for outbound mail
+            may contain environment-specific values such as static IP addresses, host
+            names, properties, credentials, or certificates. Recommendations * In
+            a cloud environment, mail systems should be considered backing services
+            and treated like attached resources. * Ensure that the configuration of
+            the underlying outbound mail connection is not environment-specific. *
+            In OpenShift Container Platform, store configuration parameters as environment
+            variables or in a ConfigMap.
           tags:
           - mail
           title: Java Mail API

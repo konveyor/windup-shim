@@ -1,8 +1,8 @@
 weblogic-catchall:
   metadata:
-    description: "This ruleset provides analysis of Oracle WebLogic proprietary classes\
-      \ and constructs that may require individual attention when\n            migrating\
-      \ to JBoss EAP 6+."
+    description: This ruleset provides analysis of Oracle WebLogic proprietary classes
+      and constructs that may require individual attention when migrating to JBoss
+      EAP 6+.
     phase: PostMigrationRulesPhase
     sourceTechnologies:
     - id: weblogic
@@ -44,10 +44,10 @@ weblogic-catchall:
               category-id: optional
               effort: '0'
               links: []
-              message: "This is an Oracle proprietary SQL type (`oracle.sql.{remainder}`).\n\
-                \n                              It should be migrated to a compatible\
-                \ API either if you consider replacing your Oracle database or if\
-                \ you want to get rid of the Oracle proprietary API usage."
+              message: This is an Oracle proprietary SQL type (`oracle.sql.{remainder}`).
+                It should be migrated to a compatible API either if you consider replacing
+                your Oracle database or if you want to get rid of the Oracle proprietary
+                API usage.
               tags:
               - catchall
               title: Oracle proprietary SQL type reference
@@ -114,9 +114,9 @@ weblogic-catchall:
               category-id: optional
               effort: '0'
               links: []
-              message: "This is an Oracle proprietary JDBC type (`oracle.sql.{remainder}`).\n\
-                \n                              It should be replaced by standard\
-                \ Java EE JCA, datasource and JDBC types."
+              message: This is an Oracle proprietary JDBC type (`oracle.sql.{remainder}`).
+                It should be replaced by standard Java EE JCA, datasource and JDBC
+                types.
               tags:
               - catchall
               title: Oracle proprietary JDBC type reference

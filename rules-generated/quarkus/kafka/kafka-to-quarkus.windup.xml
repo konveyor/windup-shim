@@ -19,9 +19,9 @@ kafka-to-quarkus:
             links:
             - href: https://quarkus.io/guides/kafka
               title: Quarkus - Guide
-            message: "Replace the `org.apache.kafka:kafka-clients` dependency with\
-              \ the Quarkus dependency `io.quarkus:quarkus-kafka-client`  \n     \
-              \                       Further information in the link below."
+            message: Replace the `org.apache.kafka:kafka-clients` dependency with
+              the Quarkus dependency `io.quarkus:quarkus-kafka-client` Further information
+              in the link below.
             tags: []
             title: Replace the 'kafka-clients' dependency with Quarkus 'quarkus-kafka-client'
               extension
@@ -41,9 +41,9 @@ kafka-to-quarkus:
           links:
           - href: https://quarkus.io/guides/kafka
             title: Quarkus - Guide
-          message: "Replace the `org.apache.kafka:kafka-clients` dependency with the\
-            \ Quarkus dependency `io.quarkus:quarkus-kafka-client`  \n           \
-            \             Further information in the link below."
+          message: Replace the `org.apache.kafka:kafka-clients` dependency with the
+            Quarkus dependency `io.quarkus:quarkus-kafka-client` Further information
+            in the link below.
           tags: []
           title: Replace the 'kafka-clients' dependency with Quarkus 'quarkus-kafka-client'
             extension
@@ -61,9 +61,9 @@ kafka-to-quarkus:
             links:
             - href: https://quarkus.io/guides/kafka-streams
               title: Quarkus - Guide
-            message: "Replace the `org.apache.kafka:kafka-streams` dependency with\
-              \ the Quarkus dependency `io.quarkus:quarkus-kafka-streams`  \n    \
-              \                        Further information in the link below."
+            message: Replace the `org.apache.kafka:kafka-streams` dependency with
+              the Quarkus dependency `io.quarkus:quarkus-kafka-streams` Further information
+              in the link below.
             tags: []
             title: Replace the 'kafka-streams' dependency with Quarkus 'quarkus-kafka-streams'
               extension
@@ -83,9 +83,9 @@ kafka-to-quarkus:
           links:
           - href: https://quarkus.io/guides/kafka-streams
             title: Quarkus - Guide
-          message: "Replace the `org.apache.kafka:kafka-streams` dependency with the\
-            \ Quarkus dependency `io.quarkus:quarkus-kafka-streams`  \n          \
-            \              Further information in the link below."
+          message: Replace the `org.apache.kafka:kafka-streams` dependency with the
+            Quarkus dependency `io.quarkus:quarkus-kafka-streams` Further information
+            in the link below.
           tags: []
           title: Replace the 'kafka-streams' dependency with Quarkus 'quarkus-kafka-streams'
             extension

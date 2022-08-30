@@ -30,15 +30,13 @@ eap-to-azure-appservice-datasource-driver:
               - Set up data sources
           - href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management
             title: Datasource Management
-          message: "A datasource driver was found in a configuration file.\n\n   \
-            \                     There are three core steps when registering a data\
-            \ source with JBoss EAP in Azure App Service: uploading the JDBC driver,\
-            \ adding the JDBC driver as a module, and registering the module.\n\n\
-            \                        App Service is a stateless hosting service, so\
-            \ the configuration commands for adding and registering the data source\
-            \ module must be scripted and applied as the container starts.\n     \
-            \                   \n                        For more information, see\
-            \ Datasource Management in the JBoss EAP documentation."
+          message: 'A datasource driver was found in a configuration file. There are
+            three core steps when registering a data source with JBoss EAP in Azure
+            App Service: uploading the JDBC driver, adding the JDBC driver as a module,
+            and registering the module. App Service is a stateless hosting service,
+            so the configuration commands for adding and registering the data source
+            module must be scripted and applied as the container starts. For more
+            information, see Datasource Management in the JBoss EAP documentation.'
           tags: []
           title: Datasource driver found in configuration file
       when:

@@ -19,8 +19,8 @@ java-dsl-changes:
           links:
           - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_hystrix_eip
             title: Camel 3 - Migration Guide - Hystrix EIP
-          message: "Hystrix circuit breaker has been generalized as circuit breaker.\
-            \ Use `circuitBreaker()`\n                        instead of `hystrix()`"
+          message: Hystrix circuit breaker has been generalized as circuit breaker.
+            Use `circuitBreaker()` instead of `hystrix()`
           quickfix:
             name: camel.eip.hystrix.replacement
             replacement: .circuitBreaker()

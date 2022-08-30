@@ -1,8 +1,7 @@
 xml-glassfish:
   metadata:
-    description: "This ruleset provides analysis of Glassfish proprietary xml files\
-      \ that may require individual\n            attention when migrating to JBoss\
-      \ EAP 6+."
+    description: This ruleset provides analysis of Glassfish proprietary xml files
+      that may require individual attention when migrating to JBoss EAP 6+.
     sourceTechnologies:
     - id: glassfish
       versionRange: null
@@ -62,7 +61,7 @@ xml-glassfish:
         iteration:
           classification:
             category-id: optional
-            description: Glassfish-application  is a Glassfish specific EAR configuration
+            description: Glassfish-application is a Glassfish specific EAR configuration
               file used to configure security roles, url addresses, JNDI binding etc.
               This file is glassfish specific and needs to be migrated to application.xml
               or jboss-app.xml.

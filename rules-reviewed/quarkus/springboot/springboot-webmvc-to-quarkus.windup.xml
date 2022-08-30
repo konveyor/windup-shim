@@ -18,8 +18,8 @@ springboot-webmvc-to-quarkus:
           links:
           - href: https://quarkus.io/guides/spring-web#supported-spring-web-functionalities
             title: Quarkus - Supported Spring Web functionalities
-          message: "Spring MVC is not supported by Quarkus\n\n                   \
-            \     Use the following link to figure out the supported Spring Web functionalities."
+          message: Spring MVC is not supported by Quarkus Use the following link to
+            figure out the supported Spring Web functionalities.
           tags: []
           title: Spring MVC is not supported by Quarkus
       when:
@@ -38,9 +38,8 @@ springboot-webmvc-to-quarkus:
             title: Quarkus - Using Eclipse Vert.x
           - href: https://quarkus.io/guides/reactive-routes
             title: Quarkus - Using Reactive Routes
-          message: "Spring WebFlux is not supported by Quarkus\n\n               \
-            \         If the application needs a reactive stack, please refer to the\
-            \ following links to get more information."
+          message: Spring WebFlux is not supported by Quarkus If the application needs
+            a reactive stack, please refer to the following links to get more information.
           tags: []
           title: Spring WebFlux is not supported by Quarkus
       when:

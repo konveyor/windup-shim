@@ -1,8 +1,8 @@
 weblogic-ignore-references:
   metadata:
-    description: "This ruleset provides references within WebLogic classes implying\
-      \ the class should not be scanned by windup.\n            For example, an internal\
-      \ EJB generator API implies the class is used during build time."
+    description: This ruleset provides references within WebLogic classes implying
+      the class should not be scanned by windup. For example, an internal EJB generator
+      API implies the class is used during build time.
     sourceTechnologies:
     - id: weblogic
       versionRange: null

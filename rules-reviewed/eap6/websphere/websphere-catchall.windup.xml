@@ -1,10 +1,9 @@
 websphere-catchall:
   metadata:
-    description: "This ruleset provides analysis of WebSphere proprietary classes\
-      \ and constructs that may require individual attention when\n            migrating\
-      \ to JBoss EAP 6+. Specifically, this ruleset catches proprietary references\
-      \ that did not have more specific hints or\n            classifications added\
-      \ to them."
+    description: This ruleset provides analysis of WebSphere proprietary classes and
+      constructs that may require individual attention when migrating to JBoss EAP
+      6+. Specifically, this ruleset catches proprietary references that did not have
+      more specific hints or classifications added to them.
     phase: PostMigrationRulesPhase
     sourceTechnologies:
     - id: websphere
@@ -23,9 +22,9 @@ websphere-catchall:
               category-id: potential
               effort: '0'
               links: []
-              message: "This is an IBM proprietary type (`{package}.{type}`) and needs\
-                \ to be migrated to a compatible API. There is currently no detailed\n\
-                \                                information about this type."
+              message: This is an IBM proprietary type (`{package}.{type}`) and needs
+                to be migrated to a compatible API. There is currently no detailed
+                information about this type.
               tags:
               - catchall
               title: IBM proprietary type reference
@@ -46,10 +45,9 @@ websphere-catchall:
               category-id: potential
               effort: '0'
               links: []
-              message: "This is an IBM ILog proprietary type (`ilog.{subpackage}.{type}`)\
-                \ and needs to be migrated to a compatible API. There is currently\
-                \ no detailed\n                                information about this\
-                \ type."
+              message: This is an IBM ILog proprietary type (`ilog.{subpackage}.{type}`)
+                and needs to be migrated to a compatible API. There is currently no
+                detailed information about this type.
               tags:
               - catchall
               title: IBM ILog proprietary type reference

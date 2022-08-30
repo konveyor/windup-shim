@@ -1,8 +1,8 @@
 remove_thorntail_yaml_configuration_files:
   metadata:
-    description: "This ruleset provides analysis of Thorntail applications that use\
-      \ YAML Configuration Files,\n            which should be removed when migrating\
-      \ to JBoss EAP XP."
+    description: This ruleset provides analysis of Thorntail applications that use
+      YAML Configuration Files, which should be removed when migrating to JBoss EAP
+      XP.
     sourceTechnologies:
     - id: thorntail
       versionRange: null

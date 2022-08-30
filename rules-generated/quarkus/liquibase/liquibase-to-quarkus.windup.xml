@@ -20,9 +20,9 @@ liquibase-to-quarkus:
             links:
             - href: https://quarkus.io/guides/liquibase
               title: Quarkus - Guide
-            message: "Replace the `org.liquibase:liquibase-core` dependency with the\
-              \ Quarkus dependency `io.quarkus:quarkus-liquibase`  \n            \
-              \                Further information in the link below."
+            message: Replace the `org.liquibase:liquibase-core` dependency with the
+              Quarkus dependency `io.quarkus:quarkus-liquibase` Further information
+              in the link below.
             tags: []
             title: Replace the 'liquibase-core' dependency with Quarkus 'quarkus-liquibase'
               extension
@@ -42,9 +42,9 @@ liquibase-to-quarkus:
           links:
           - href: https://quarkus.io/guides/liquibase
             title: Quarkus - Guide
-          message: "Replace the `org.liquibase:liquibase-core` dependency with the\
-            \ Quarkus dependency `io.quarkus:quarkus-liquibase`  \n              \
-            \          Further information in the link below."
+          message: Replace the `org.liquibase:liquibase-core` dependency with the
+            Quarkus dependency `io.quarkus:quarkus-liquibase` Further information
+            in the link below.
           tags: []
           title: Replace the 'liquibase-core' dependency with Quarkus 'quarkus-liquibase'
             extension
@@ -62,9 +62,9 @@ liquibase-to-quarkus:
             links:
             - href: https://quarkus.io/guides/
               title: Quarkus - Guide
-            message: "Replace the `org.liquibase.ext:liquibase-mongodb` dependency\
-              \ with the Quarkus dependency `io.quarkus:quarkus-liquibase-mongodb`\
-              \  \n                            No specific guide is available."
+            message: Replace the `org.liquibase.ext:liquibase-mongodb` dependency
+              with the Quarkus dependency `io.quarkus:quarkus-liquibase-mongodb` No
+              specific guide is available.
             tags: []
             title: Replace the 'liquibase-mongodb' dependency with Quarkus 'quarkus-liquibase-mongodb'
               extension
@@ -84,9 +84,9 @@ liquibase-to-quarkus:
           links:
           - href: https://quarkus.io/guides/
             title: Quarkus - Guide
-          message: "Replace the `org.liquibase.ext:liquibase-mongodb` dependency with\
-            \ the Quarkus dependency `io.quarkus:quarkus-liquibase-mongodb`  \n  \
-            \                      No specific guide is available."
+          message: Replace the `org.liquibase.ext:liquibase-mongodb` dependency with
+            the Quarkus dependency `io.quarkus:quarkus-liquibase-mongodb` No specific
+            guide is available.
           tags: []
           title: Replace the 'liquibase-mongodb' dependency with Quarkus 'quarkus-liquibase-mongodb'
             extension

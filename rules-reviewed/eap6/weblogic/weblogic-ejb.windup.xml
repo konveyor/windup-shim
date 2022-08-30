@@ -1,8 +1,8 @@
 weblogic-ejb:
   metadata:
-    description: "This ruleset provides analysis of WebLogic proprietary classes and\
-      \ constructs for Enterprise Java Beans that may require\n            individual\
-      \ attention when migrating to JBoss EAP 6+."
+    description: This ruleset provides analysis of WebLogic proprietary classes and
+      constructs for Enterprise Java Beans that may require individual attention when
+      migrating to JBoss EAP 6+.
     sourceTechnologies:
     - id: weblogic
       versionRange: null

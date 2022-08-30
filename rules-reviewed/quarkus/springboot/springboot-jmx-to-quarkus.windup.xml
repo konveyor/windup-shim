@@ -17,10 +17,9 @@ springboot-jmx-to-quarkus:
           category-id: mandatory
           effort: '13'
           links: []
-          message: "Spring JMX XML configuration detected:\n\n                   \
-            \     Spring JMX is not supported by Quarkus with the GraalVM Native compilation.\n\
-            \                        Spring JMX can be used with the Quarkus Hotspot\
-            \ compilation however."
+          message: 'Spring JMX XML configuration detected: Spring JMX is not supported
+            by Quarkus with the GraalVM Native compilation. Spring JMX can be used
+            with the Quarkus Hotspot compilation however.'
           tags: []
           title: Spring JMX is not supported by Quarkus with GraalVM on a Native Image
       when:
@@ -36,10 +35,9 @@ springboot-jmx-to-quarkus:
           category-id: mandatory
           effort: '13'
           links: []
-          message: "Spring JMX annotation configuration detected:\n\n            \
-            \            Spring JMX is not supported by Quarkus with the GraalVM Native\
-            \ compilation.\n                        Spring JMX can be used with the\
-            \ Quarkus Hotspot compilation however."
+          message: 'Spring JMX annotation configuration detected: Spring JMX is not
+            supported by Quarkus with the GraalVM Native compilation. Spring JMX can
+            be used with the Quarkus Hotspot compilation however.'
           tags: []
           title: Spring JMX is not supported by Quarkus with GraalVM on a Native Image
       when:

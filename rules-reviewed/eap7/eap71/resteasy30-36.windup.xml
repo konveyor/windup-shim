@@ -1,8 +1,7 @@
 resteasy30-36:
   metadata:
-    description: "This ruleset provides analysis of applications that use RESTEasy\
-      \ 3.0 and may require\n            individual attention when migrating to RESTEasy\
-      \ 3.6."
+    description: This ruleset provides analysis of applications that use RESTEasy
+      3.0 and may require individual attention when migrating to RESTEasy 3.6.
     sourceTechnologies: []
     tags: []
     targetTechnologies:

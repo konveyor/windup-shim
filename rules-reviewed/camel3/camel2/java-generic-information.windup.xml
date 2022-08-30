@@ -122,9 +122,9 @@ java-generic-information:
           links:
           - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_generic_information
             title: 'Camel 3 - Migration Guide: Generic Information'
-          message: "The class `org.apache.camel.processor.loadbalancer.SimpleLoadBalancerSupport`\
-            \ has been removed. Use\n                        `org.apache.camel.processor.loadbalancer.LoadBalancerSupport`\
-            \ instead."
+          message: The class `org.apache.camel.processor.loadbalancer.SimpleLoadBalancerSupport`
+            has been removed. Use `org.apache.camel.processor.loadbalancer.LoadBalancerSupport`
+            instead.
           quickfix:
             name: LoadBalancer-replace
             replacement: org.apache.camel.processor.loadbalancer.LoadBalancerSupport
@@ -771,13 +771,12 @@ java-generic-information:
           links:
           - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_jmx
             title: Camel 3 - Managed Camel Context
-          message: "The method `org.apache.camel.CamelContext.{method}` has been moved\
-            \ to `org.apache.camel.api.management.ManagedCamelContext.{method}`. You\
-            \ can access it by adapting your CamelContext like so:\n\n           \
-            \             `ManagedCamelContext managed = context.adapt(ManagedCamelContext.class);`\n\
-            \                        `managed.{method}(...);`\n\n                \
-            \     If you want JMX to be enabled out of the box, `org.apache.camel:camel-management`\
-            \ needs to be on the classpath."
+          message: 'The method `org.apache.camel.CamelContext.{method}` has been moved
+            to `org.apache.camel.api.management.ManagedCamelContext.{method}`. You
+            can access it by adapting your CamelContext like so: `ManagedCamelContext
+            managed = context.adapt(ManagedCamelContext.class);` `managed.{method}(...);`
+            If you want JMX to be enabled out of the box, `org.apache.camel:camel-management`
+            needs to be on the classpath.'
           tags: []
           title: The methods on `CamelContext` that are related to JMX has been moved
             into a new `ManagedCamelContext` interface present in the `org.apache.camel:camel-management-api`
@@ -883,11 +882,10 @@ java-generic-information:
           links:
           - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_camelcontext
             title: Camel 3 - Catalog Camel Context
-          message: "The method `org.apache.camel.CamelContext.{method}` has moved\
-            \ to `org.apache.camel.CatalogCamelContext.{method}`. You can access it\
-            \ by adapting your `CamelContext` like so:\n\n                       \
-            \ `CatalogCamelContext ccc = context.adapt(CatalogCamelContext.class);`\n\
-            \                        `ccc.{method}(...);`"
+          message: 'The method `org.apache.camel.CamelContext.{method}` has moved
+            to `org.apache.camel.CatalogCamelContext.{method}`. You can access it
+            by adapting your `CamelContext` like so: `CatalogCamelContext ccc = context.adapt(CatalogCamelContext.class);`
+            `ccc.{method}(...);`'
           tags: []
           title: The methods on `CamelContext` that are related to the catalog have
             been moved into a new `CatalogCamelContext` interface
@@ -927,11 +925,10 @@ java-generic-information:
           links:
           - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_modelcamelcontext
             title: Camel 3 - Model Camel Context
-          message: "The method `org.apache.camel.CamelContext.{method}` has been moved\
-            \ to `org.apache.camel.model.Model.{method}`. You can access it by adapting\
-            \ your `CamelContext` like so:\n\n                        `ModelCamelContext\
-            \ ccc = context.adapt(ModelCamelContext.class);`\n                   \
-            \     `mcc.{method}(...);`"
+          message: 'The method `org.apache.camel.CamelContext.{method}` has been moved
+            to `org.apache.camel.model.Model.{method}`. You can access it by adapting
+            your `CamelContext` like so: `ModelCamelContext ccc = context.adapt(ModelCamelContext.class);`
+            `mcc.{method}(...);`'
           tags: []
           title: The methods on `CamelContext` that are related to the routes model
             have been moved into a new `Model` interface
@@ -950,11 +947,10 @@ java-generic-information:
           links:
           - href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_extended_camelcontext
             title: Camel 3 - Extended Camel Context
-          message: "The method `org.apache.camel.CamelContext.{method}` has been moved\
-            \ to `org.apache.camel.ExtendedCamelContext.{method}`. You can access\
-            \ it by adapting your `CamelContext` like so:\n\n                    \
-            \    `ExtendedCamelContext ecc = context.adapt(ExtendedCamelContext.class);`\n\
-            \                        `ecc.{method}(...);`"
+          message: 'The method `org.apache.camel.CamelContext.{method}` has been moved
+            to `org.apache.camel.ExtendedCamelContext.{method}`. You can access it
+            by adapting your `CamelContext` like so: `ExtendedCamelContext ecc = context.adapt(ExtendedCamelContext.class);`
+            `ecc.{method}(...);`'
           tags: []
           title: The methods on `CamelContext` that are intended for advanced use
             cases have been moved into a new `ExtendedCamelContext` interface

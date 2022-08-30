@@ -19,10 +19,9 @@ springboot-metrics-to-quarkus:
           links:
           - href: https://quarkus.io/guides/microprofile-metrics
             title: Quarkus metrics
-          message: "Replace the Micrometer dependency with Quarkus Microprofile 'metrics'\
-            \ extension.  \n                        Usually this is a transitive dependency\
-            \ brought by `org.springframework.boot:spring-boot-starter-actuator` and\
-            \ has to be replaced by `io.quarkus:quarkus-smallrye-metrics` artifact"
+          message: Replace the Micrometer dependency with Quarkus Microprofile 'metrics'
+            extension. Usually this is a transitive dependency brought by `org.springframework.boot:spring-boot-starter-actuator`
+            and has to be replaced by `io.quarkus:quarkus-smallrye-metrics` artifact
           tags: []
           title: Replace the Micrometer dependency with Quarkus Microprofile 'metrics'
             extension

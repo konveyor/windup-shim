@@ -26,11 +26,10 @@ weblogic-xml-descriptors-eap7:
             title: JBoss EAP 6 - Session Bean Transaction Timeout
           - href: https://access.redhat.com/solutions/90553
             title: How to set EJB transaction timeout in JBoss EAP 6
-          message: "The WebLogic `<trans-timeout-seconds>` configuration element sets\
-            \ the maximum duration for an EJB's container-initiated transactions,\
-            \ in seconds, after which the transaction is rolled back.  \n\n      \
-            \                In JBoss EAP 6+, you can achieve the same behavior by\
-            \ using the `TransactionTimeout` annotation."
+          message: The WebLogic `<trans-timeout-seconds>` configuration element sets
+            the maximum duration for an EJB's container-initiated transactions, in
+            seconds, after which the transaction is rolled back. In JBoss EAP 6+,
+            you can achieve the same behavior by using the `TransactionTimeout` annotation.
           tags:
           - ejb
           - database
@@ -44,11 +43,11 @@ weblogic-xml-descriptors-eap7:
       perform:
         classification:
           category-id: mandatory
-          description: "The `weblogic-application.xml` deployment descriptor file\
-            \ is used to describe Oracle WebLogic Server EAR archives. Oracle WebLogic\
-            \ Server EAR configures some application settings through the `application-param`\
-            \ element.\n                      These settings could be replaced with\
-            \ `context-param` elements in Java EE Servlet `web.xml` descriptor."
+          description: The `weblogic-application.xml` deployment descriptor file is
+            used to describe Oracle WebLogic Server EAR archives. Oracle WebLogic
+            Server EAR configures some application settings through the `application-param`
+            element. These settings could be replaced with `context-param` elements
+            in Java EE Servlet `web.xml` descriptor.
           effort: '1'
           issue-display-mode: all
           links:
@@ -97,15 +96,15 @@ weblogic-xml-descriptors-eap7:
           - href: https://access.redhat.com/articles/1326823
             title: Map delay-updates-until-end-of-tx element from weblogic-ejb-jar.xml
               Elements to the JBoss Enterprise Application Platform Equivalent
-          message: "The WebLogic `<delay-updates-until-end-of-tx>` configuration element,\
-            \ which defaults to `true`, is used for performance reasons to delay updates\
-            \ to the persistent store of all beans until the end of the transaction.\
-            \ When set to `false`, updates are sent to the database after each method\
-            \ invocation, but are not committed until the end of the transaction.\
-            \ This allows other processes to access the persisted data while the transaction\
-            \ is waiting to be completed.\n\n                      In JBoss EAP 6+,\
-            \ you can achieve the same behavior by specifying the `<sync-on-commit-only>`\
-            \ in the jbosscmp-jdbc.xml file."
+          message: The WebLogic `<delay-updates-until-end-of-tx>` configuration element,
+            which defaults to `true`, is used for performance reasons to delay updates
+            to the persistent store of all beans until the end of the transaction.
+            When set to `false`, updates are sent to the database after each method
+            invocation, but are not committed until the end of the transaction. This
+            allows other processes to access the persisted data while the transaction
+            is waiting to be completed. In JBoss EAP 6+, you can achieve the same
+            behavior by specifying the `<sync-on-commit-only>` in the jbosscmp-jdbc.xml
+            file.
           tags:
           - performance
           - ejb
@@ -160,9 +159,8 @@ weblogic-xml-descriptors-eap7:
           links:
           - href: http://docs.oracle.com/javaee/7/api/javax/ejb/AccessTimeout.html
             title: Java EE 7 annotation @AccessTimeout
-          message: "Replace WebLogic proprietary configuration by Java EE annotation\
-            \ `@AccessTimeout`.\n                  The equivalent usage is `@AccessTimeout(value=\
-            \ -1)`"
+          message: Replace WebLogic proprietary configuration by Java EE annotation
+            `@AccessTimeout`. The equivalent usage is `@AccessTimeout(value= -1)`
           tags:
           - ejb
           - configuration
@@ -259,13 +257,12 @@ weblogic-xml-descriptors-eap7:
       perform:
         classification:
           category-id: mandatory
-          description: "This file is a proprietary WebLogic JMS configuration and\
-            \ needs to be migrated.\n                        While there is no direct\
-            \ mapping of these descriptor elements, many of these features may be\
-            \ configured in the application deployment or JBoss server configuration\
-            \ files.\n\n                        For information on how to configure\
-            \ JBoss EAP JMS, please refer to the JBoss Enterprise Application Platform\
-            \ 7 messaging configuration documentation."
+          description: This file is a proprietary WebLogic JMS configuration and needs
+            to be migrated. While there is no direct mapping of these descriptor elements,
+            many of these features may be configured in the application deployment
+            or JBoss server configuration files. For information on how to configure
+            JBoss EAP JMS, please refer to the JBoss Enterprise Application Platform
+            7 messaging configuration documentation.
           effort: '3'
           issue-display-mode: all
           links:
@@ -284,14 +281,13 @@ weblogic-xml-descriptors-eap7:
       perform:
         classification:
           category-id: mandatory
-          description: "The Oracle WebLogic Server deployment descriptor file (`weblogic.xml`)\
-            \ provides functionality that is not included in the standard Java EE\
-            \ specification.\n                        While there is no direct mapping\
-            \ of these descriptor elements, many of these features may be configured\
-            \ in the application deployment or JBoss server configuration files.\n\
-            \n                        For more information on how to configure JBoss\
-            \ EAP, please refer to the Configuration Guide for JBoss Enterprise Application\
-            \ Platform 7."
+          description: The Oracle WebLogic Server deployment descriptor file (`weblogic.xml`)
+            provides functionality that is not included in the standard Java EE specification.
+            While there is no direct mapping of these descriptor elements, many of
+            these features may be configured in the application deployment or JBoss
+            server configuration files. For more information on how to configure JBoss
+            EAP, please refer to the Configuration Guide for JBoss Enterprise Application
+            Platform 7.
           effort: '3'
           issue-display-mode: all
           links:

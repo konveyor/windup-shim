@@ -21,12 +21,10 @@ springboot-shell-to-quarkus:
             title: Quarkus Command Mode with Picocli Guide
           - href: https://spring.io/projects/spring-shell
             title: Spring Shell Guide
-          message: "Replace the SpringBoot Shell artifacts with Quarkus `picocli`\
-            \ extension\n\n                        Add Quarkus dependency `io.quarkus:quarkus-picocli`\n\
-            \n                        PicoCli provides command-line mode like Spring\
-            \ Shell but does not reuse the Spring interfaces\n                   \
-            \     therefore re-coding is also required to use the appropriate PicoCli\
-            \ interfaces."
+          message: Replace the SpringBoot Shell artifacts with Quarkus `picocli` extension
+            Add Quarkus dependency `io.quarkus:quarkus-picocli` PicoCli provides command-line
+            mode like Spring Shell but does not reuse the Spring interfaces therefore
+            re-coding is also required to use the appropriate PicoCli interfaces.
           tags: []
           title: Replace the SpringBoot Shell artifact with Quarkus 'picocli' extension
       when:

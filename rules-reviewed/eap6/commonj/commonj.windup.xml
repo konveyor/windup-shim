@@ -1,7 +1,7 @@
 commonj:
   metadata:
-    description: "This ruleset provides rules that match when Commonj APIs are used\
-      \ when migrating\n            to JBoss EAP 6+."
+    description: This ruleset provides rules that match when Commonj APIs are used
+      when migrating to JBoss EAP 6+.
     sourceTechnologies:
     - id: weblogic
       versionRange: null
@@ -43,10 +43,9 @@ commonj:
             title: Java EE 6 Tutorial - Using the Timer Service
           - href: http://docs.oracle.com/javaee/6/api/javax/ejb/TimerService.html
             title: Java EE 6 TimerService API
-          message: "Commonj Timer Manager API is similar to the EJB 3.1 java.ejb.Timer\
-            \ Service.\n                        In Java EE 6, the Timer Service was\
-            \ updated to allow cron like configuration of scheduling which is similar\
-            \ to Quartz's timer configurations."
+          message: Commonj Timer Manager API is similar to the EJB 3.1 java.ejb.Timer
+            Service. In Java EE 6, the Timer Service was updated to allow cron like
+            configuration of scheduling which is similar to Quartz's timer configurations.
           tags:
           - commonj
           title: Migrate commonj.timers.TimerManager to Java EE TimerService API

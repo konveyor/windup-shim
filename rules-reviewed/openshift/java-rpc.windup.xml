@@ -22,10 +22,10 @@ java-rpc:
           links:
           - href: https://access.redhat.com/solutions/4030521
             title: JAX-RPC not supported in JBoss EAP 7
-          message: "The Java API for XML-based RPC (JAX-RPC) was deprecated in Java\
-            \ EE 6 and is optional in Java EE 7. It is no longer available or supported\
-            \ in JBoss EAP 7.\n\n                    Recommendation: Use JAX-WS, which\
-            \ is the current Java EE standard web services framework."
+          message: 'The Java API for XML-based RPC (JAX-RPC) was deprecated in Java
+            EE 6 and is optional in Java EE 7. It is no longer available or supported
+            in JBoss EAP 7. Recommendation: Use JAX-WS, which is the current Java
+            EE standard web services framework.'
           tags:
           - rpc
           title: Java API for XML-based RPC (JAX-RPC)

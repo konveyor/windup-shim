@@ -1,8 +1,8 @@
 maven-javax-to-jakarta:
   metadata:
-    description: "This ruleset provides analysis of Maven built applications that\
-      \ depend on Java EE artifacts, which were\n            replaced by Jakarta EE\
-      \ artifacts, starting with JBoss EAP 7.3."
+    description: This ruleset provides analysis of Maven built applications that depend
+      on Java EE artifacts, which were replaced by Jakarta EE artifacts, starting
+      with JBoss EAP 7.3.
     sourceTechnologies: []
     tags: []
     targetTechnologies:

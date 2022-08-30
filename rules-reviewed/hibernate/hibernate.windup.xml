@@ -115,12 +115,11 @@ hibernate:
           category-id: optional
           effort: '1'
           links: []
-          message: "Replace org.hibernate.jdbc.BatcherFactory by org.hibernate.engine.jdbc.batch.spi.BatchBuilder.\n\
-            \                  Their default implementations are in org.hibernate.engine.jdbc.batch.internal.\n\
-            \                  You can override the default BatchBuilder by defining\
-            \ the  \"hibernate.jdbc.batch.builder\" property as the name of a BatchBuilder\
-            \ implementation\n                   or by providing a BatchBuilder in\
-            \ a custom ServiceRegistry."
+          message: Replace org.hibernate.jdbc.BatcherFactory by org.hibernate.engine.jdbc.batch.spi.BatchBuilder.
+            Their default implementations are in org.hibernate.engine.jdbc.batch.internal.
+            You can override the default BatchBuilder by defining the "hibernate.jdbc.batch.builder"
+            property as the name of a BatchBuilder implementation or by providing
+            a BatchBuilder in a custom ServiceRegistry.
           tags:
           - hibernate
           title: Hibernate 4 - Replaced BatcherFactory
@@ -142,8 +141,8 @@ hibernate:
           category-id: optional
           effort: '1'
           links: []
-          message: "Replace org.hibernate.jdbc.Batcher by org.hibernate.engine.jdbc.batch.spi.Batch.\n\
-            \                  Their default implementations are in org.hibernate.engine.jdbc.batch.internal."
+          message: Replace org.hibernate.jdbc.Batcher by org.hibernate.engine.jdbc.batch.spi.Batch.
+            Their default implementations are in org.hibernate.engine.jdbc.batch.internal.
           tags:
           - hibernate
           title: Hibernate 4 - Replaced JDBC Batcher
@@ -222,9 +221,9 @@ hibernate:
           category-id: optional
           effort: '1'
           links: []
-          message: "This is an old Hibernate package name from version 2.x and needs\
-            \ to be migrated to a compatible API to Hibernate 4.x/5.x,\n         \
-            \         where package name is org.hibernate."
+          message: This is an old Hibernate package name from version 2.x and needs
+            to be migrated to a compatible API to Hibernate 4.x/5.x, where package
+            name is org.hibernate.
           tags:
           - hibernate
           title: Hibernate type reference net.sf.hibernate.{classname}
