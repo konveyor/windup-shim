@@ -29,9 +29,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:bean-validation
       when:
-        artifact:
-          artifactId: bean-validation
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: bean-validation
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-02:
       perform:
@@ -50,9 +51,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:cdi-config
       when:
-        artifact:
-          artifactId: cdi-config
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: cdi-config
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-03:
       perform:
@@ -71,9 +73,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:cdi
       when:
-        artifact:
-          artifactId: cdi
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: cdi
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-04:
       perform:
@@ -92,9 +95,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:config-api-runtime
       when:
-        artifact:
-          artifactId: config-api-runtime
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: config-api-runtime
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-05:
       perform:
@@ -113,9 +117,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:datasources
       when:
-        artifact:
-          artifactId: datasources
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: datasources
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-06:
       perform:
@@ -134,9 +139,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:ee-security
       when:
-        artifact:
-          artifactId: ee-security
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: ee-security
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-07:
       perform:
@@ -155,9 +161,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:ejb-mdb
       when:
-        artifact:
-          artifactId: ejb-mdb
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: ejb-mdb
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-08:
       perform:
@@ -176,9 +183,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:ejb
       when:
-        artifact:
-          artifactId: ejb
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: ejb
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-09:
       perform:
@@ -197,9 +205,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:elytron
       when:
-        artifact:
-          artifactId: elytron
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: elytron
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-10:
       perform:
@@ -218,9 +227,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:fraction-metadata
       when:
-        artifact:
-          artifactId: fraction-metadata
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: fraction-metadata
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-11:
       perform:
@@ -239,9 +249,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:hibernate-validator
       when:
-        artifact:
-          artifactId: hibernate-validator
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: hibernate-validator
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-12:
       perform:
@@ -260,9 +271,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:hibernate
       when:
-        artifact:
-          artifactId: hibernate
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: hibernate
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-13:
       perform:
@@ -281,9 +293,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:hystrix
       when:
-        artifact:
-          artifactId: hystrix
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: hystrix
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-14:
       perform:
@@ -302,9 +315,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:infinispan
       when:
-        artifact:
-          artifactId: infinispan
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: infinispan
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-15:
       perform:
@@ -323,9 +337,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jaeger
       when:
-        artifact:
-          artifactId: jaeger
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jaeger
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-16:
       perform:
@@ -344,9 +359,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jaxrs-jaxb
       when:
-        artifact:
-          artifactId: jaxrs-jaxb
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jaxrs-jaxb
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-17:
       perform:
@@ -365,9 +381,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jaxrs-jsonb
       when:
-        artifact:
-          artifactId: jaxrs-jsonb
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jaxrs-jsonb
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-18:
       perform:
@@ -386,9 +403,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jaxrs-jsonp
       when:
-        artifact:
-          artifactId: jaxrs-jsonp
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jaxrs-jsonp
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-19:
       perform:
@@ -407,9 +425,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jaxrs-multipart
       when:
-        artifact:
-          artifactId: jaxrs-multipart
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jaxrs-multipart
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-20:
       perform:
@@ -428,9 +447,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jaxrs-validator
       when:
-        artifact:
-          artifactId: jaxrs-validator
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jaxrs-validator
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-21:
       perform:
@@ -449,9 +469,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jaxrs
       when:
-        artifact:
-          artifactId: jaxrs
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jaxrs
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-22:
       perform:
@@ -470,9 +491,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jca
       when:
-        artifact:
-          artifactId: jca
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jca
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-23:
       perform:
@@ -491,9 +513,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jmx
       when:
-        artifact:
-          artifactId: jmx
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jmx
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-24:
       perform:
@@ -512,9 +535,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jpa
       when:
-        artifact:
-          artifactId: jpa
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jpa
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-25:
       perform:
@@ -533,9 +557,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jsf
       when:
-        artifact:
-          artifactId: jsf
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jsf
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-26:
       perform:
@@ -554,9 +579,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jsonb
       when:
-        artifact:
-          artifactId: jsonb
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jsonb
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-27:
       perform:
@@ -575,9 +601,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:jsonp
       when:
-        artifact:
-          artifactId: jsonp
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: jsonp
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-28:
       perform:
@@ -596,9 +623,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:keycloak
       when:
-        artifact:
-          artifactId: keycloak
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: keycloak
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-29:
       perform:
@@ -617,9 +645,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:logging
       when:
-        artifact:
-          artifactId: logging
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: logging
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-30:
       perform:
@@ -638,9 +667,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:management
       when:
-        artifact:
-          artifactId: management
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: management
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-31:
       perform:
@@ -659,9 +689,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:microprofile-config
       when:
-        artifact:
-          artifactId: microprofile-config
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: microprofile-config
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-32:
       perform:
@@ -680,9 +711,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:microprofile-fault-tolerance
       when:
-        artifact:
-          artifactId: microprofile-fault-tolerance
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: microprofile-fault-tolerance
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-33:
       perform:
@@ -701,9 +733,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:microprofile-health
       when:
-        artifact:
-          artifactId: microprofile-health
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: microprofile-health
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-34:
       perform:
@@ -722,9 +755,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:microprofile-jwt
       when:
-        artifact:
-          artifactId: microprofile-jwt
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: microprofile-jwt
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-35:
       perform:
@@ -743,9 +777,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:microprofile-metrics
       when:
-        artifact:
-          artifactId: microprofile-metrics
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: microprofile-metrics
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-36:
       perform:
@@ -764,9 +799,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:microprofile-openapi
       when:
-        artifact:
-          artifactId: microprofile-openapi
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: microprofile-openapi
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-37:
       perform:
@@ -785,9 +821,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:microprofile-opentracing
       when:
-        artifact:
-          artifactId: microprofile-opentracing
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: microprofile-opentracing
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-38:
       perform:
@@ -806,9 +843,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:microprofile-restclient
       when:
-        artifact:
-          artifactId: microprofile-restclient
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: microprofile-restclient
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-39:
       perform:
@@ -827,9 +865,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:microprofile
       when:
-        artifact:
-          artifactId: microprofile
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: microprofile
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-40:
       perform:
@@ -848,9 +887,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:opentracing
       when:
-        artifact:
-          artifactId: opentracing
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: opentracing
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-41:
       perform:
@@ -869,9 +909,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:remoting
       when:
-        artifact:
-          artifactId: remoting
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: remoting
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-42:
       perform:
@@ -890,9 +931,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:resource-adapters
       when:
-        artifact:
-          artifactId: resource-adapters
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: resource-adapters
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-43:
       perform:
@@ -911,9 +953,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:spi
       when:
-        artifact:
-          artifactId: spi
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: spi
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-44:
       perform:
@@ -932,9 +975,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:topology-openshift
       when:
-        artifact:
-          artifactId: topology-openshift
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: topology-openshift
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-45:
       perform:
@@ -953,9 +997,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:topology-webapp
       when:
-        artifact:
-          artifactId: topology-webapp
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: topology-webapp
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-46:
       perform:
@@ -974,9 +1019,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:transactions
       when:
-        artifact:
-          artifactId: transactions
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: transactions
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-47:
       perform:
@@ -995,9 +1041,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:undertow
       when:
-        artifact:
-          artifactId: undertow
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: undertow
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-48:
       perform:
@@ -1016,9 +1063,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:web
       when:
-        artifact:
-          artifactId: web
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: web
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-49:
       perform:
@@ -1037,9 +1085,10 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:archaius
       when:
-        artifact:
-          artifactId: archaius
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: archaius
+            groupId: io.thorntail
       where: {}
     replace_thorntail_fractions-50:
       perform:
@@ -1058,7 +1107,8 @@ replace_thorntail_fractions:
           - Thorntail
           title: Replace Thorntail Fractions - io.thorntail:monitor
       when:
-        artifact:
-          artifactId: monitor
-          groupId: io.thorntail
+        project:
+          artifact:
+            artifactId: monitor
+            groupId: io.thorntail
       where: {}

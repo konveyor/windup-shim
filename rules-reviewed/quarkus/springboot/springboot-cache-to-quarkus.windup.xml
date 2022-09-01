@@ -29,7 +29,8 @@ springboot-cache-to-quarkus:
         - dependency:
             artifactId: spring-boot-starter-cache
             groupId: org.springframework.boot
-        - artifact:
-            artifactId: spring-boot-starter-cache
-            groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-cache
+              groupId: org.springframework.boot
       where: {}

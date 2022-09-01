@@ -28,7 +28,8 @@ springboot-shell-to-quarkus:
           tags: []
           title: Replace the SpringBoot Shell artifact with Quarkus 'picocli' extension
       when:
-        artifact:
-          artifactId: spring-shell-core
-          groupId: org.springframework.shell
+        project:
+          artifact:
+            artifactId: spring-shell-core
+            groupId: org.springframework.shell
       where: {}

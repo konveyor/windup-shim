@@ -28,9 +28,10 @@ keycloak-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: keycloak-admin-client
-          groupId: org.keycloak
+        project:
+          artifact:
+            artifactId: keycloak-admin-client
+            groupId: org.keycloak
       where: {}
     quarkus-keycloak-admin-client-00010:
       perform:

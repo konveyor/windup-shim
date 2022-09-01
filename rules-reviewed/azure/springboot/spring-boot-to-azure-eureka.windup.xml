@@ -28,13 +28,16 @@ spring-boot-to-azure-eureka:
           title: eureka
       when:
         or:
-        - artifact:
-            artifactId: spring-cloud-netflix-eureka{*}
-            groupId: org.springframework.cloud
-        - artifact:
-            artifactId: spring-cloud-starter-netflix-eureka{*}
-            groupId: org.springframework.cloud
-        - artifact:
-            artifactId: '{*}'
-            groupId: com.netflix.eureka
+        - project:
+            artifact:
+              artifactId: spring-cloud-netflix-eureka{*}
+              groupId: org.springframework.cloud
+        - project:
+            artifact:
+              artifactId: spring-cloud-starter-netflix-eureka{*}
+              groupId: org.springframework.cloud
+        - project:
+            artifact:
+              artifactId: '{*}'
+              groupId: com.netflix.eureka
       where: {}

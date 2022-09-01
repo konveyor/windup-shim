@@ -21,9 +21,10 @@ configuration-management:
           tag: Spring Cloud Config
       when:
         or:
-        - artifact:
-            artifactId: spring-cloud-config-client
-            groupId: org.springframework.cloud
+        - project:
+            artifact:
+              artifactId: spring-cloud-config-client
+              groupId: org.springframework.cloud
         - dependency:
             artifactId: spring-cloud-config-client
             groupId: org.springframework.cloud

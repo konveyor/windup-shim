@@ -49,12 +49,14 @@ hibernate51-53:
           title: Hibernate 5.3 - hibernate-java8 module has been merged into hibernate-core
             and the Java 8 date/time types are now natively supported.
       when:
-        artifact:
-          artifactId: '{substitution}'
-          groupId: org.hibernate
         not:
+          project:
+            artifact:
+              artifactId: hibernate-core
+              groupId: org.hibernate
+        project:
           artifact:
-            artifactId: hibernate-core
+            artifactId: '{substitution}'
             groupId: org.hibernate
       where:
         substitution: (hibernate-java8|hibernate-entitymanager)

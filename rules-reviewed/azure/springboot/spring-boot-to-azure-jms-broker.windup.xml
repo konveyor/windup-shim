@@ -34,10 +34,12 @@ spring-boot-to-azure-jms-broker:
           title: Active MQ Broker
       when:
         or:
-        - artifact:
-            artifactId: spring-boot-starter-activemq
-            groupId: org.springframework.boot
-        - artifact:
-            artifactId: '{*}'
-            groupId: org.apache.activemq
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-activemq
+              groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: '{*}'
+              groupId: org.apache.activemq
       where: {}

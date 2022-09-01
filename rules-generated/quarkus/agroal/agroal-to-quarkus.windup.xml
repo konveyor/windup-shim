@@ -28,9 +28,10 @@ agroal-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: agroal-api
-          groupId: io.agroal
+        project:
+          artifact:
+            artifactId: agroal-api
+            groupId: io.agroal
       where: {}
     quarkus-agroal-00010:
       perform:

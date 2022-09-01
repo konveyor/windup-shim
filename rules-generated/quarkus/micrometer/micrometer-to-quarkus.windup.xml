@@ -28,9 +28,10 @@ micrometer-to-quarkus:
               'quarkus-micrometer-registry-prometheus' extension
           over: default
       when:
-        artifact:
-          artifactId: micrometer-registry-prometheus
-          groupId: io.micrometer
+        project:
+          artifact:
+            artifactId: micrometer-registry-prometheus
+            groupId: io.micrometer
       where: {}
     quarkus-micrometer-registry-prometheus-00010:
       perform:

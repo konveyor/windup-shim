@@ -28,9 +28,10 @@ config-to-quarkus:
               'quarkus-config-yaml' extension
           over: default
       when:
-        artifact:
-          artifactId: smallrye-config-source-yaml
-          groupId: io.smallrye.config
+        project:
+          artifact:
+            artifactId: smallrye-config-source-yaml
+            groupId: io.smallrye.config
       where: {}
     quarkus-config-yaml-00010:
       perform:

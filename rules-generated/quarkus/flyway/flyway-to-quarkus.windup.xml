@@ -28,9 +28,10 @@ flyway-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: flyway-core
-          groupId: org.flywaydb
+        project:
+          artifact:
+            artifactId: flyway-core
+            groupId: org.flywaydb
       where: {}
     quarkus-flyway-00010:
       perform:

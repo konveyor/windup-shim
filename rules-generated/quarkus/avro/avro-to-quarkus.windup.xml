@@ -26,9 +26,10 @@ avro-to-quarkus:
             title: Replace the 'avro' dependency with Quarkus 'quarkus-avro' extension
           over: default
       when:
-        artifact:
-          artifactId: avro
-          groupId: org.apache.avro
+        project:
+          artifact:
+            artifactId: avro
+            groupId: org.apache.avro
       where: {}
     quarkus-avro-00010:
       perform:

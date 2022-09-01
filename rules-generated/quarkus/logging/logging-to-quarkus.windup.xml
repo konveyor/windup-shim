@@ -28,9 +28,10 @@ logging-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: logstash-gelf
-          groupId: biz.paluch.logging
+        project:
+          artifact:
+            artifactId: logstash-gelf
+            groupId: biz.paluch.logging
       where: {}
     quarkus-logging-gelf-00010:
       perform:
@@ -68,9 +69,10 @@ logging-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: sentry-jul
-          groupId: io.sentry
+        project:
+          artifact:
+            artifactId: sentry-jul
+            groupId: io.sentry
       where: {}
     quarkus-logging-sentry-00010:
       perform:

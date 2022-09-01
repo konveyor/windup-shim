@@ -28,9 +28,10 @@ hibernate-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: hibernate-envers
-          groupId: org.hibernate
+        project:
+          artifact:
+            artifactId: hibernate-envers
+            groupId: org.hibernate
       where: {}
     quarkus-hibernate-envers-00010:
       perform:
@@ -68,9 +69,10 @@ hibernate-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: hibernate-reactive-core
-          groupId: org.hibernate.reactive
+        project:
+          artifact:
+            artifactId: hibernate-reactive-core
+            groupId: org.hibernate.reactive
       where: {}
     quarkus-hibernate-reactive-00010:
       perform:
@@ -108,9 +110,10 @@ hibernate-to-quarkus:
               with Quarkus 'quarkus-hibernate-search-orm-elasticsearch-aws' extension
           over: default
       when:
-        artifact:
-          artifactId: hibernate-search-backend-elasticsearch-aws
-          groupId: org.hibernate.search
+        project:
+          artifact:
+            artifactId: hibernate-search-backend-elasticsearch-aws
+            groupId: org.hibernate.search
       where: {}
     quarkus-hibernate-search-orm-elasticsearch-aws-00010:
       perform:
@@ -148,9 +151,10 @@ hibernate-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: hibernate-validator
-          groupId: org.hibernate.validator
+        project:
+          artifact:
+            artifactId: hibernate-validator
+            groupId: org.hibernate.validator
       where: {}
     quarkus-hibernate-validator-00010:
       perform:

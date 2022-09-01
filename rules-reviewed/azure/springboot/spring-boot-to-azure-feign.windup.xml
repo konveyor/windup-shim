@@ -31,10 +31,12 @@ spring-boot-to-azure-feign:
           title: Feign
       when:
         or:
-        - artifact:
-            artifactId: '{*}'
-            groupId: com.netflix.feign
-        - artifact:
-            artifactId: spring-cloud-starter-feign
-            groupId: org.springframework.cloud
+        - project:
+            artifact:
+              artifactId: '{*}'
+              groupId: com.netflix.feign
+        - project:
+            artifact:
+              artifactId: spring-cloud-starter-feign
+              groupId: org.springframework.cloud
       where: {}

@@ -431,12 +431,14 @@ security:
           tag: Spring Security
       when:
         or:
-        - artifact:
-            artifactId: spring-security-core
-            groupId: org.springframework.security
-        - artifact:
-            artifactId: spring-boot-starter-security
-            groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-security-core
+              groupId: org.springframework.security
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-security
+              groupId: org.springframework.boot
         - dependency:
             artifactId: spring-security-core
             groupId: org.springframework.security

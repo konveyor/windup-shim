@@ -32,10 +32,12 @@ spring-boot-to-azure-schedule-job:
           title: The application uses Quartz to scheduled jobs
       when:
         or:
-        - artifact:
-            artifactId: '{*}'
-            groupId: org.quartz-scheduler
-        - artifact:
-            artifactId: spring-boot-starter-quartz
-            groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: '{*}'
+              groupId: org.quartz-scheduler
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-quartz
+              groupId: org.springframework.boot
       where: {}

@@ -43,12 +43,14 @@ springboot-webmvc-to-quarkus:
           title: Spring WebFlux is not supported by Quarkus
       when:
         or:
-        - artifact:
-            artifactId: spring-webflux
-            groupId: org.springframework
-        - artifact:
-            artifactId: spring-boot-starter-webflux
-            groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-webflux
+              groupId: org.springframework
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-webflux
+              groupId: org.springframework.boot
         - dependency:
             artifactId: spring-webflux
             groupId: org.springframework

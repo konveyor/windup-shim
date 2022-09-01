@@ -28,9 +28,10 @@ liquibase-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: liquibase-core
-          groupId: org.liquibase
+        project:
+          artifact:
+            artifactId: liquibase-core
+            groupId: org.liquibase
       where: {}
     quarkus-liquibase-00010:
       perform:
@@ -68,9 +69,10 @@ liquibase-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: liquibase-mongodb
-          groupId: org.liquibase.ext
+        project:
+          artifact:
+            artifactId: liquibase-mongodb
+            groupId: org.liquibase.ext
       where: {}
     quarkus-liquibase-mongodb-00010:
       perform:

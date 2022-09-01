@@ -30,15 +30,18 @@ springboot-actuator-to-quarkus:
         - dependency:
             artifactId: spring-boot-actuator
             groupId: org.springframework.boot
-        - artifact:
-            artifactId: spring-boot-starter-actuator
-            groupId: org.springframework.boot
-        - artifact:
-            artifactId: spring-boot-actuator
-            groupId: org.springframework.boot
-        - artifact:
-            artifactId: spring-boot-actuator-autoconfigure
-            groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-actuator
+              groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-boot-actuator
+              groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-boot-actuator-autoconfigure
+              groupId: org.springframework.boot
       where: {}
     springboot-actuator-to-quarkus-0200:
       perform:

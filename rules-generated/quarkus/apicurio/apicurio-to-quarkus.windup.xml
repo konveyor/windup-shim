@@ -28,9 +28,10 @@ apicurio-to-quarkus:
               Quarkus 'quarkus-apicurio-registry-avro' extension
           over: default
       when:
-        artifact:
-          artifactId: apicurio-registry-serdes-avro-serde
-          groupId: io.apicurio
+        project:
+          artifact:
+            artifactId: apicurio-registry-serdes-avro-serde
+            groupId: io.apicurio
       where: {}
     quarkus-apicurio-registry-avro-00010:
       perform:

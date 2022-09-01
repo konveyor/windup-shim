@@ -85,15 +85,18 @@ mvc:
           tag: Spring MVC
       when:
         or:
-        - artifact:
-            artifactId: spring-webmvc
-            groupId: org.springframework
-        - artifact:
-            artifactId: spring-webflux
-            groupId: org.springframework
-        - artifact:
-            artifactId: spring-boot-starter-webflux
-            groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-webmvc
+              groupId: org.springframework
+        - project:
+            artifact:
+              artifactId: spring-webflux
+              groupId: org.springframework
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-webflux
+              groupId: org.springframework.boot
         - dependency:
             artifactId: spring-webflux
             groupId: org.springframework

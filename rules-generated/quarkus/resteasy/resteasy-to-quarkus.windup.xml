@@ -28,9 +28,10 @@ resteasy-to-quarkus:
               'quarkus-resteasy-multipart' extension
           over: default
       when:
-        artifact:
-          artifactId: resteasy-multipart-provider
-          groupId: org.jboss.resteasy
+        project:
+          artifact:
+            artifactId: resteasy-multipart-provider
+            groupId: org.jboss.resteasy
       where: {}
     quarkus-resteasy-multipart-00010:
       perform:

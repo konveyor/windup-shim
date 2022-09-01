@@ -39,8 +39,9 @@ eap-to-azure-appservice-pom:
           tags: []
           title: Get started with JBoss EAP on App Service
       when:
-        artifact:
-          artifactId: eap-runtime-artifacts
-          fromVersion: 7.3.0.Final
-          groupId: org.jboss.bom
+        project:
+          artifact:
+            artifactId: eap-runtime-artifacts
+            fromVersion: 7.3.0.Final
+            groupId: org.jboss.bom
       where: {}

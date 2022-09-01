@@ -28,11 +28,13 @@ maven-artemis-jms-client:
           title: Artemis JMS Client requires wildfly-client-properties
       when:
         and:
-        - artifact:
-            artifactId: artemis-jms-client
-            groupId: org.apache.activemq
+        - project:
+            artifact:
+              artifactId: artemis-jms-client
+              groupId: org.apache.activemq
         not:
-          artifact:
-            artifactId: wildfly-client-properties
-            groupId: org.jboss.eap
+          project:
+            artifact:
+              artifactId: wildfly-client-properties
+              groupId: org.jboss.eap
       where: {}

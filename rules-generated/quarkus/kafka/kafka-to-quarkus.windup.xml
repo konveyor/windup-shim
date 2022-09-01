@@ -27,9 +27,10 @@ kafka-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: kafka-clients
-          groupId: org.apache.kafka
+        project:
+          artifact:
+            artifactId: kafka-clients
+            groupId: org.apache.kafka
       where: {}
     quarkus-kafka-client-00010:
       perform:
@@ -67,9 +68,10 @@ kafka-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: kafka-streams
-          groupId: org.apache.kafka
+        project:
+          artifact:
+            artifactId: kafka-streams
+            groupId: org.apache.kafka
       where: {}
     quarkus-kafka-streams-00010:
       perform:

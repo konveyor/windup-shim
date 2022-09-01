@@ -28,9 +28,10 @@ artemis-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: artemis-jms-client
-          groupId: org.apache.activemq
+        project:
+          artifact:
+            artifactId: artemis-jms-client
+            groupId: org.apache.activemq
       where: {}
     quarkus-artemis-jms-00010:
       perform:

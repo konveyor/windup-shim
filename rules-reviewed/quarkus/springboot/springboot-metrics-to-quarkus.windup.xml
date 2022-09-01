@@ -44,9 +44,10 @@ springboot-metrics-to-quarkus:
             title: Replace the Micrometer code with Microprofile Metrics code
           over: default
       when:
-        artifact:
-          artifactId: micrometer-core
-          groupId: io.micrometer
+        project:
+          artifact:
+            artifactId: micrometer-core
+            groupId: io.micrometer
       where: {}
     springboot-metrics-to-quarkus-0300:
       perform:

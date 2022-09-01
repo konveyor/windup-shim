@@ -869,12 +869,14 @@ embedded-framework:
           tag: Spring Web
       when:
         or:
-        - artifact:
-            artifactId: spring-web
-            groupId: org.springframework
-        - artifact:
-            artifactId: spring-boot-starter-web
-            groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-web
+              groupId: org.springframework
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-web
+              groupId: org.springframework.boot
         - dependency:
             artifactId: spring-web
             groupId: org.springframework
@@ -892,9 +894,10 @@ embedded-framework:
           level: INFORMATIONAL
           tag: Spring Shell
       when:
-        artifact:
-          artifactId: spring-shell-core
-          groupId: org.springframework.shell
+        project:
+          artifact:
+            artifactId: spring-shell-core
+            groupId: org.springframework.shell
       where: {}
     embedded-framework-08600:
       perform:
@@ -946,9 +949,10 @@ embedded-framework:
           tag: Spring Cloud Function
       when:
         or:
-        - artifact:
-            artifactId: spring-cloud-function-context
-            groupId: org.springframework.cloud
+        - project:
+            artifact:
+              artifactId: spring-cloud-function-context
+              groupId: org.springframework.cloud
         - dependency:
             artifactId: spring-cloud-function-context
             groupId: org.springframework.cloud

@@ -34,16 +34,20 @@ spring-boot-to-azure-cache:
           title: Redis Cache found in the application
       when:
         or:
-        - artifact:
-            artifactId: spring-boot-starter-data-redis
-            groupId: org.springframework.boot
-        - artifact:
-            artifactId: spring-data-redis
-            groupId: org.springframework.data
-        - artifact:
-            artifactId: spring-session-data-redis
-            groupId: org.springframework.session
-        - artifact:
-            artifactId: spring-integration-redis
-            groupId: org.springframework.integration
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-data-redis
+              groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-data-redis
+              groupId: org.springframework.data
+        - project:
+            artifact:
+              artifactId: spring-session-data-redis
+              groupId: org.springframework.session
+        - project:
+            artifact:
+              artifactId: spring-integration-redis
+              groupId: org.springframework.integration
       where: {}

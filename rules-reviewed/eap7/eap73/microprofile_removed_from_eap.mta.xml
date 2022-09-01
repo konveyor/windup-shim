@@ -26,9 +26,10 @@ microprofile_removed_from_eap:
           - EclipseMicroProfile
           title: Eclipse MicroProfile removed from JBoss EAP - MicroProfile Opentracing
       when:
-        artifact:
-          artifactId: microprofile-opentracing-api
-          groupId: org.eclipse.microprofile.opentracing
+        project:
+          artifact:
+            artifactId: microprofile-opentracing-api
+            groupId: org.eclipse.microprofile.opentracing
       where: {}
     microprofile_removed_from_eap-00002:
       perform:
@@ -46,9 +47,10 @@ microprofile_removed_from_eap:
           - EclipseMicroProfile
           title: Eclipse MicroProfile removed from JBoss EAP - MicroProfile Health
       when:
-        artifact:
-          artifactId: microprofile-health-api
-          groupId: org.eclipse.microprofile.health
+        project:
+          artifact:
+            artifactId: microprofile-health-api
+            groupId: org.eclipse.microprofile.health
       where: {}
     microprofile_removed_from_eap-00003:
       perform:
@@ -66,9 +68,10 @@ microprofile_removed_from_eap:
           - EclipseMicroProfile
           title: Eclipse MicroProfile removed from JBoss EAP - MicroProfile Metrics
       when:
-        artifact:
-          artifactId: microprofile-metrics-api
-          groupId: org.eclipse.microprofile.metrics
+        project:
+          artifact:
+            artifactId: microprofile-metrics-api
+            groupId: org.eclipse.microprofile.metrics
       where: {}
     microprofile_removed_from_eap-00004:
       perform:
@@ -86,7 +89,8 @@ microprofile_removed_from_eap:
           - EclipseMicroProfile
           title: Eclipse MicroProfile removed from JBoss EAP - MicroProfile REST Client
       when:
-        artifact:
-          artifactId: microprofile-rest-client-api
-          groupId: org.eclipse.microprofile.rest.client
+        project:
+          artifact:
+            artifactId: microprofile-rest-client-api
+            groupId: org.eclipse.microprofile.rest.client
       where: {}

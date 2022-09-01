@@ -28,9 +28,10 @@ openshift-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: openshift-client
-          groupId: io.fabric8
+        project:
+          artifact:
+            artifactId: openshift-client
+            groupId: io.fabric8
       where: {}
     quarkus-openshift-client-00010:
       perform:

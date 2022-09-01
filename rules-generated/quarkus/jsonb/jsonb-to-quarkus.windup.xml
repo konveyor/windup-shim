@@ -26,9 +26,10 @@ jsonb-to-quarkus:
             title: Replace the 'yasson' dependency with Quarkus 'quarkus-jsonb' extension
           over: default
       when:
-        artifact:
-          artifactId: yasson
-          groupId: org.eclipse
+        project:
+          artifact:
+            artifactId: yasson
+            groupId: org.eclipse
       where: {}
     quarkus-jsonb-00010:
       perform:

@@ -24,9 +24,10 @@ xml-removed-components:
           tags: []
           title: '`org.apache.camel:camel-linkedin` artifact has been removed'
       when:
-        artifact:
-          artifactId: camel-linkedin
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-linkedin
+            groupId: org.apache.camel
       where: {}
     xml-removed-components-00001:
       perform:
@@ -41,9 +42,10 @@ xml-removed-components:
           tags: []
           title: '`org.apache.camel:camel-linkedin-starter` artifact has been removed'
       when:
-        artifact:
-          artifactId: camel-linkedin-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-linkedin-starter
+            groupId: org.apache.camel
       where: {}
     xml-removed-components-00002:
       perform:
@@ -60,9 +62,10 @@ xml-removed-components:
           tags: []
           title: '`org.apache.camel:camel-script` artifact has been removed'
       when:
-        artifact:
-          artifactId: camel-script
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-script
+            groupId: org.apache.camel
       where: {}
     xml-removed-components-00003:
       perform:
@@ -79,9 +82,10 @@ xml-removed-components:
           tags: []
           title: '`org.apache.camel:camel-script-starter` artifact has been removed'
       when:
-        artifact:
-          artifactId: camel-script-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-script-starter
+            groupId: org.apache.camel
       where: {}
     xml-removed-components-00004:
       perform:
@@ -97,9 +101,10 @@ xml-removed-components:
           tags: []
           title: '`org.apache.camel:camel-jibx` artifact has been removed'
       when:
-        artifact:
-          artifactId: camel-jibx
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-jibx
+            groupId: org.apache.camel
       where: {}
     xml-removed-components-00005:
       perform:
@@ -118,9 +123,10 @@ xml-removed-components:
           tags: []
           title: '`org.apache.camel:camel-restlet` artifact has been removed'
       when:
-        artifact:
-          artifactId: camel-restlet
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-restlet
+            groupId: org.apache.camel
       where: {}
     xml-removed-components-00006:
       perform:
@@ -136,9 +142,10 @@ xml-removed-components:
           tags: []
           title: '`org.apache.camel:camel-boon` artifact has been removed'
       when:
-        artifact:
-          artifactId: camel-boon
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-boon
+            groupId: org.apache.camel
       where: {}
     xml-removed-components-00007:
       perform:
@@ -154,9 +161,10 @@ xml-removed-components:
           tags: []
           title: '`org.apache.camel:camel-core-starter` artifact has been removed'
       when:
-        artifact:
-          artifactId: camel-core-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-core-starter
+            groupId: org.apache.camel
       where: {}
     xml-removed-components-00008:
       perform:

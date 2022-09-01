@@ -728,10 +728,11 @@ java-generic-information:
           title: '`org.apache.camel:camel-fhir` default FHIR specification has changed
             from DSTU3 to R4'
       when:
-        artifact:
-          artifactId: camel-fhir
-          groupId: org.apache.camel
-          toVersion: '2'
+        project:
+          artifact:
+            artifactId: camel-fhir
+            groupId: org.apache.camel
+            toVersion: '2'
       where: {}
     java-generic-information-00045:
       perform:

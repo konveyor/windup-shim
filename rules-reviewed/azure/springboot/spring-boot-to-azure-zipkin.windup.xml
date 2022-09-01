@@ -26,10 +26,12 @@ spring-boot-to-azure-zipkin:
           title: Zipkin
       when:
         or:
-        - artifact:
-            artifactId: spring-cloud-starter-zipkin
-            groupId: org.springframework.boot
-        - artifact:
-            artifactId: '{*}'
-            groupId: io.zipkin{*}
+        - project:
+            artifact:
+              artifactId: spring-cloud-starter-zipkin
+              groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: '{*}'
+              groupId: io.zipkin{*}
       where: {}

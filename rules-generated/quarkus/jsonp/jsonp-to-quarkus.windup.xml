@@ -26,9 +26,10 @@ jsonp-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: jakarta.json
-          groupId: org.glassfish
+        project:
+          artifact:
+            artifactId: jakarta.json
+            groupId: org.glassfish
       where: {}
     quarkus-jsonp-00010:
       perform:

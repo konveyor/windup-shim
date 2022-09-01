@@ -28,9 +28,10 @@ narayana-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: narayana-jta
-          groupId: org.jboss.narayana.jta
+        project:
+          artifact:
+            artifactId: narayana-jta
+            groupId: org.jboss.narayana.jta
       where: {}
     quarkus-narayana-jta-00010:
       perform:
@@ -68,9 +69,10 @@ narayana-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: narayana-lra
-          groupId: org.jboss.narayana.rts
+        project:
+          artifact:
+            artifactId: narayana-lra
+            groupId: org.jboss.narayana.rts
       where: {}
     quarkus-narayana-lra-00010:
       perform:
@@ -108,9 +110,10 @@ narayana-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: stm
-          groupId: org.jboss.narayana.stm
+        project:
+          artifact:
+            artifactId: stm
+            groupId: org.jboss.narayana.stm
       where: {}
     quarkus-narayana-stm-00010:
       perform:

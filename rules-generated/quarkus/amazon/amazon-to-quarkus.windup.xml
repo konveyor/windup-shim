@@ -28,9 +28,10 @@ amazon-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: dynamodb
-          groupId: software.amazon.awssdk
+        project:
+          artifact:
+            artifactId: dynamodb
+            groupId: software.amazon.awssdk
       where: {}
     quarkus-amazon-dynamodb-00010:
       perform:
@@ -68,9 +69,10 @@ amazon-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: iam
-          groupId: software.amazon.awssdk
+        project:
+          artifact:
+            artifactId: iam
+            groupId: software.amazon.awssdk
       where: {}
     quarkus-amazon-iam-00010:
       perform:
@@ -107,9 +109,10 @@ amazon-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: kms
-          groupId: software.amazon.awssdk
+        project:
+          artifact:
+            artifactId: kms
+            groupId: software.amazon.awssdk
       where: {}
     quarkus-amazon-kms-00010:
       perform:
@@ -146,9 +149,10 @@ amazon-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: aws-lambda-java-core
-          groupId: com.amazonaws
+        project:
+          artifact:
+            artifactId: aws-lambda-java-core
+            groupId: com.amazonaws
       where: {}
     quarkus-amazon-lambda-http-00010:
       perform:
@@ -186,9 +190,10 @@ amazon-to-quarkus:
               Quarkus 'quarkus-amazon-lambda-rest' extension
           over: default
       when:
-        artifact:
-          artifactId: aws-serverless-java-container-core
-          groupId: com.amazonaws.serverless
+        project:
+          artifact:
+            artifactId: aws-serverless-java-container-core
+            groupId: com.amazonaws.serverless
       where: {}
     quarkus-amazon-lambda-rest-00010:
       perform:
@@ -226,9 +231,10 @@ amazon-to-quarkus:
               Quarkus 'quarkus-amazon-lambda-xray' extension
           over: default
       when:
-        artifact:
-          artifactId: aws-xray-recorder-sdk-aws-sdk-v2
-          groupId: com.amazonaws
+        project:
+          artifact:
+            artifactId: aws-xray-recorder-sdk-aws-sdk-v2
+            groupId: com.amazonaws
       where: {}
     quarkus-amazon-lambda-xray-00010:
       perform:
@@ -265,9 +271,10 @@ amazon-to-quarkus:
             title: Replace the 's3' dependency with Quarkus 'quarkus-amazon-s3' extension
           over: default
       when:
-        artifact:
-          artifactId: s3
-          groupId: software.amazon.awssdk
+        project:
+          artifact:
+            artifactId: s3
+            groupId: software.amazon.awssdk
       where: {}
     quarkus-amazon-s3-00010:
       perform:
@@ -304,9 +311,10 @@ amazon-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: ses
-          groupId: software.amazon.awssdk
+        project:
+          artifact:
+            artifactId: ses
+            groupId: software.amazon.awssdk
       where: {}
     quarkus-amazon-ses-00010:
       perform:
@@ -343,9 +351,10 @@ amazon-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: sns
-          groupId: software.amazon.awssdk
+        project:
+          artifact:
+            artifactId: sns
+            groupId: software.amazon.awssdk
       where: {}
     quarkus-amazon-sns-00010:
       perform:
@@ -382,9 +391,10 @@ amazon-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: sqs
-          groupId: software.amazon.awssdk
+        project:
+          artifact:
+            artifactId: sqs
+            groupId: software.amazon.awssdk
       where: {}
     quarkus-amazon-sqs-00010:
       perform:
@@ -421,9 +431,10 @@ amazon-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: ssm
-          groupId: software.amazon.awssdk
+        project:
+          artifact:
+            artifactId: ssm
+            groupId: software.amazon.awssdk
       where: {}
     quarkus-amazon-ssm-00010:
       perform:

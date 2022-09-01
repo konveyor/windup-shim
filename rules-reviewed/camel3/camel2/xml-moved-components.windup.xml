@@ -79,9 +79,10 @@ xml-moved-components:
               title: '`org.apache.camel.main.Main` class has been moved'
           when:
             not:
-              artifact:
-                artifactId: camel-main
-                groupId: org.apache.camel
+              project:
+                artifact:
+                  artifactId: camel-main
+                  groupId: org.apache.camel
       when:
         javaclass:
           as: javaClass

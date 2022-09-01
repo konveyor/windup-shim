@@ -28,12 +28,14 @@ springboot-data-jpa-to-quarkus:
             extension
       when:
         or:
-        - artifact:
-            artifactId: spring-data-jpa
-            groupId: org.springframework.data
-        - artifact:
-            artifactId: spring-boot-starter-data-jpa
-            groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-data-jpa
+              groupId: org.springframework.data
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-data-jpa
+              groupId: org.springframework.boot
         - dependency:
             artifactId: spring-data-jpa
             groupId: org.springframework.data

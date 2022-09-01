@@ -713,9 +713,10 @@ hsearch:
             from Hibernate Search 5. We recommend to depend on the appropriate Lucene
             artifact directly, for example org.apache.lucene:lucene-analyzers-common.
       when:
-        artifact:
-          artifactId: hibernate-search-analyzers
-          groupId: org.hibernate
+        project:
+          artifact:
+            artifactId: hibernate-search-analyzers
+            groupId: org.hibernate
       where: {}
     hsearch-00201:
       perform:

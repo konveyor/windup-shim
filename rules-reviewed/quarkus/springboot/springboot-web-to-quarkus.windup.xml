@@ -31,12 +31,14 @@ springboot-web-to-quarkus:
           title: Replace the Spring Web artifact with Quarkus 'spring-web' extension
       when:
         or:
-        - artifact:
-            artifactId: spring-web
-            groupId: org.springframework
-        - artifact:
-            artifactId: spring-boot-starter-web
-            groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: spring-web
+              groupId: org.springframework
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-web
+              groupId: org.springframework.boot
         - dependency:
             artifactId: spring-web
             groupId: org.springframework
@@ -58,13 +60,15 @@ springboot-web-to-quarkus:
       when:
         or:
         - and:
-          - artifact:
-              artifactId: quarkus-spring-web
-              groupId: io.quarkus
-          - not:
+          - project:
               artifact:
-                artifactId: quarkus-resteasy-reactive-jackson
+                artifactId: quarkus-spring-web
                 groupId: io.quarkus
+          - not:
+              project:
+                artifact:
+                  artifactId: quarkus-resteasy-reactive-jackson
+                  groupId: io.quarkus
         - and:
           - dependency:
               artifactId: quarkus-spring-web

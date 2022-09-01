@@ -28,9 +28,10 @@ opentelemetry-to-quarkus:
               'quarkus-opentelemetry-exporter-jaeger' extension
           over: default
       when:
-        artifact:
-          artifactId: opentelemetry-exporter-jaeger
-          groupId: io.opentelemetry
+        project:
+          artifact:
+            artifactId: opentelemetry-exporter-jaeger
+            groupId: io.opentelemetry
       where: {}
     quarkus-opentelemetry-exporter-jaeger-00010:
       perform:
@@ -68,9 +69,10 @@ opentelemetry-to-quarkus:
               Quarkus 'quarkus-opentelemetry-exporter-otlp' extension
           over: default
       when:
-        artifact:
-          artifactId: opentelemetry-exporter-otlp-trace
-          groupId: io.opentelemetry
+        project:
+          artifact:
+            artifactId: opentelemetry-exporter-otlp-trace
+            groupId: io.opentelemetry
       where: {}
     quarkus-opentelemetry-exporter-otlp-00010:
       perform:

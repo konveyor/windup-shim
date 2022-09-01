@@ -59,9 +59,10 @@ maven-javax-to-jakarta:
           - JakartaEE
           title: Move to Jakarta EE Maven Artifacts - replace groupId javax.activation
       when:
-        artifact:
-          artifactId: activation
-          groupId: javax.activation
+        project:
+          artifact:
+            artifactId: activation
+            groupId: javax.activation
       where: {}
     maven-javax-to-jakarta-00003:
       perform:

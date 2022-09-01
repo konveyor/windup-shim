@@ -29,9 +29,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-http4` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-http4
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-http4
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00001:
       perform:
@@ -47,9 +48,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-http4-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-http4-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-http4-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-000019:
       perform:
@@ -72,9 +74,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-netty4-http` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-netty4-http
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-netty4-http
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00002:
       perform:
@@ -94,9 +97,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-rxjava2` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-rxjava2
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-rxjava2
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-000020:
       perform:
@@ -114,9 +118,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-netty4-http-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-netty4-http-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-netty4-http-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-000023:
       perform:
@@ -138,9 +143,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-quartz2` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-quartz2
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-quartz2
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-000024:
       perform:
@@ -158,9 +164,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-quartz2-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-quartz2-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-quartz2-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-000027:
       perform:
@@ -179,9 +186,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-jetty9` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-jetty9
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-jetty9
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-000028:
       perform:
@@ -196,9 +204,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-jetty9-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-jetty9-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-jetty9-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-000029:
       perform:
@@ -214,9 +223,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.activemq:activemq-camel` artifact has been moved'
       when:
-        artifact:
-          artifactId: activemq-camel
-          groupId: org.apache.activemq
+        project:
+          artifact:
+            artifactId: activemq-camel
+            groupId: org.apache.activemq
       where: {}
     xml-renamed-components-00003:
       perform:
@@ -232,9 +242,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-rxjava2-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-rxjava2-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-rxjava2-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00004:
       perform:
@@ -252,9 +263,10 @@ xml-renamed-components:
           title: '`org.apache.camel:camel-{substitution}-starter` artifact has been
             renamed'
       when:
-        artifact:
-          artifactId: camel-{substitution}-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-{substitution}-starter
+            groupId: org.apache.camel
       where:
         substitution: (?!rxjava2|http4|mongodb3|hdfs2|hdfs|mina2|mina|netty4|netty|netty4-http|netty-http|quartz2|quartz|jetty9|aws)([a-zA-Z0-9]|-)*
     xml-renamed-components-00005:
@@ -277,9 +289,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-mongodb3` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-mongodb3
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-mongodb3
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00006:
       perform:
@@ -297,9 +310,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-mongodb3-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-mongodb3-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-mongodb3-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00007:
       perform:
@@ -320,9 +334,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-hdfs2` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-hdfs2
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-hdfs2
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00008:
       perform:
@@ -339,9 +354,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-hdfs2-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-hdfs2-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-hdfs2-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00009:
       perform:
@@ -357,10 +373,11 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-hdfs` artifact has been replaced'
       when:
-        artifact:
-          artifactId: camel-hdfs
-          groupId: org.apache.camel
-          toVersion: '2'
+        project:
+          artifact:
+            artifactId: camel-hdfs
+            groupId: org.apache.camel
+            toVersion: '2'
       where: {}
     xml-renamed-components-00010:
       perform:
@@ -376,9 +393,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-hdfs-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-hdfs-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-hdfs-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00011:
       perform:
@@ -399,9 +417,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-mina2` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-mina2
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-mina2
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00012:
       perform:
@@ -418,9 +437,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-mina2-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-mina2-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-mina2-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00013:
       perform:
@@ -436,10 +456,11 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-mina` artifact has been replaced'
       when:
-        artifact:
-          artifactId: camel-mina
-          groupId: org.apache.camel
-          toVersion: '2'
+        project:
+          artifact:
+            artifactId: camel-mina
+            groupId: org.apache.camel
+            toVersion: '2'
       where: {}
     xml-renamed-components-00014:
       perform:
@@ -455,9 +476,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-mina-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-mina-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-mina-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00015:
       perform:
@@ -478,9 +500,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-netty4` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-netty4
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-netty4
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00016:
       perform:
@@ -497,9 +520,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-netty4-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-netty4-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-netty4-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00017:
       perform:
@@ -515,10 +539,11 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-netty` artifact has been replaced'
       when:
-        artifact:
-          artifactId: camel-netty
-          groupId: org.apache.camel
-          toVersion: '2'
+        project:
+          artifact:
+            artifactId: camel-netty
+            groupId: org.apache.camel
+            toVersion: '2'
       where: {}
     xml-renamed-components-00018:
       perform:
@@ -534,9 +559,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-netty-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-netty-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-netty-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00021:
       perform:
@@ -553,10 +579,11 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-netty-http` artifact has been replaced'
       when:
-        artifact:
-          artifactId: camel-netty-http
-          groupId: org.apache.camel
-          toVersion: '2'
+        project:
+          artifact:
+            artifactId: camel-netty-http
+            groupId: org.apache.camel
+            toVersion: '2'
       where: {}
     xml-renamed-components-00022:
       perform:
@@ -572,9 +599,10 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-netty-http-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-netty-http-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-netty-http-starter
+            groupId: org.apache.camel
       where: {}
     xml-renamed-components-00025:
       perform:
@@ -590,10 +618,11 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-quartz` artifact has been replaced'
       when:
-        artifact:
-          artifactId: camel-quartz
-          groupId: org.apache.camel
-          toVersion: '2'
+        project:
+          artifact:
+            artifactId: camel-quartz
+            groupId: org.apache.camel
+            toVersion: '2'
       where: {}
     xml-renamed-components-00026:
       perform:
@@ -609,7 +638,8 @@ xml-renamed-components:
           tags: []
           title: '`org.apache.camel:camel-quartz-starter` artifact has been renamed'
       when:
-        artifact:
-          artifactId: camel-quartz-starter
-          groupId: org.apache.camel
+        project:
+          artifact:
+            artifactId: camel-quartz-starter
+            groupId: org.apache.camel
       where: {}

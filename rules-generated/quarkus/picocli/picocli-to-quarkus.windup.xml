@@ -28,9 +28,10 @@ picocli-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: picocli
-          groupId: info.picocli
+        project:
+          artifact:
+            artifactId: picocli
+            groupId: info.picocli
       where: {}
     quarkus-picocli-00010:
       perform:

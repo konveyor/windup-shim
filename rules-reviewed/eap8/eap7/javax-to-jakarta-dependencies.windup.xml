@@ -95,9 +95,10 @@ javax-to-jakarta-dependencies:
           tags: []
           title: javax.activation groupId has been replaced by jakarta.activation
       when:
-        artifact:
-          artifactId: javax.activation-api
-          groupId: javax.activation
+        project:
+          artifact:
+            artifactId: javax.activation-api
+            groupId: javax.activation
       where: {}
     javax-to-jakarta-dependencies-00005:
       perform:

@@ -28,9 +28,10 @@ kubernetes-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: kubernetes-client
-          groupId: io.fabric8
+        project:
+          artifact:
+            artifactId: kubernetes-client
+            groupId: io.fabric8
       where: {}
     quarkus-kubernetes-client-00010:
       perform:

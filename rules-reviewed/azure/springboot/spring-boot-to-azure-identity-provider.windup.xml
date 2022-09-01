@@ -34,10 +34,12 @@ spring-boot-to-azure-identity-provider:
           title: Spring Security-related dependencies
       when:
         or:
-        - artifact:
-            artifactId: spring-boot-starter-security
-            groupId: org.springframework.boot
-        - artifact:
-            artifactId: '{*}'
-            groupId: org.springframework.security
+        - project:
+            artifact:
+              artifactId: spring-boot-starter-security
+              groupId: org.springframework.boot
+        - project:
+            artifact:
+              artifactId: '{*}'
+              groupId: org.springframework.security
       where: {}

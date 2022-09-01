@@ -19,9 +19,10 @@ Log4jRules:
             issues. It is recommended to use the built-in JBoss EAP Log4j module configured
             via `jboss-deployment-structure.xml`
       when:
-        artifact:
-          artifactId: log4j
-          groupId: log4j
+        project:
+          artifact:
+            artifactId: log4j
+            groupId: log4j
       where: {}
     log4j-02000:
       perform:

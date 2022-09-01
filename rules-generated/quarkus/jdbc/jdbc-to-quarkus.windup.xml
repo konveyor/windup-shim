@@ -25,9 +25,10 @@ jdbc-to-quarkus:
             title: Replace the 'jcc' dependency with Quarkus 'quarkus-jdbc-db2' extension
           over: default
       when:
-        artifact:
-          artifactId: jcc
-          groupId: com.ibm.db2
+        project:
+          artifact:
+            artifactId: jcc
+            groupId: com.ibm.db2
       where: {}
     quarkus-jdbc-db2-00010:
       perform:
@@ -63,9 +64,10 @@ jdbc-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: derbyclient
-          groupId: org.apache.derby
+        project:
+          artifact:
+            artifactId: derbyclient
+            groupId: org.apache.derby
       where: {}
     quarkus-jdbc-derby-00010:
       perform:
@@ -103,9 +105,10 @@ jdbc-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: mariadb-java-client
-          groupId: org.mariadb.jdbc
+        project:
+          artifact:
+            artifactId: mariadb-java-client
+            groupId: org.mariadb.jdbc
       where: {}
     quarkus-jdbc-mariadb-00010:
       perform:
@@ -143,9 +146,10 @@ jdbc-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: mysql-connector-java
-          groupId: mysql
+        project:
+          artifact:
+            artifactId: mysql-connector-java
+            groupId: mysql
       where: {}
     quarkus-jdbc-mysql-00010:
       perform:
@@ -183,9 +187,10 @@ jdbc-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: ojdbc11
-          groupId: com.oracle.database.jdbc
+        project:
+          artifact:
+            artifactId: ojdbc11
+            groupId: com.oracle.database.jdbc
       where: {}
     quarkus-jdbc-oracle-00010:
       perform:
@@ -223,9 +228,10 @@ jdbc-to-quarkus:
               extension
           over: default
       when:
-        artifact:
-          artifactId: postgresql
-          groupId: org.postgresql
+        project:
+          artifact:
+            artifactId: postgresql
+            groupId: org.postgresql
       where: {}
     quarkus-jdbc-postgresql-00010:
       perform:
