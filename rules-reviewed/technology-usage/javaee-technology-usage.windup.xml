@@ -69,11 +69,9 @@ technology-usage-javaee:
           tag: CDI
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: javax.enterprise.inject.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: javax.inject.{*}
       where: {}
     javaee-technology-usage-00021:
@@ -97,7 +95,6 @@ technology-usage-javaee:
           level: INFORMATIONAL
           tag: Java EE JSON-P
       when:
-        annotation-types: []
         javaclass:
           references: javax.json.{*}
       where: {}
@@ -129,10 +126,9 @@ technology-usage-javaee:
           level: INFORMATIONAL
           tag: JACC
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.security.jacc.{*}
-        location: IMPORT
       where: {}
     javaee-technology-usage-00050:
       perform:
@@ -147,10 +143,9 @@ technology-usage-javaee:
           level: INFORMATIONAL
           tag: MEJB
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.management.j2ee.{*}
-        location: IMPORT
       where: {}
     javaee-technology-usage-00060:
       perform:
@@ -181,10 +176,9 @@ technology-usage-javaee:
           level: INFORMATIONAL
           tag: WS Metadata
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.jws.{*}
-        location: IMPORT
       where: {}
     javaee-technology-usage-00080:
       perform:
@@ -199,10 +193,9 @@ technology-usage-javaee:
           level: INFORMATIONAL
           tag: Common Annotations
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.annotation.{annotation}
-        location: IMPORT
       where:
         annotation: PreDestroy|PostConstruct|Resource|Resources
     javaee-technology-usage-00090:
@@ -218,10 +211,9 @@ technology-usage-javaee:
           level: INFORMATIONAL
           tag: JAXB
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: '{package}.xml.bind.{*}'
-        location: IMPORT
       where:
         package: java|javax
     javaee-technology-usage-00100:
@@ -237,10 +229,9 @@ technology-usage-javaee:
           level: INFORMATIONAL
           tag: JAXR
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.xml.registry.{*}
-        location: IMPORT
       where: {}
     javaee-technology-usage-00110:
       perform:
@@ -255,10 +246,9 @@ technology-usage-javaee:
           level: INFORMATIONAL
           tag: Bean Validation
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.validation.constraints.{*}
-        location: IMPORT
       where: {}
     javaee-technology-usage-00120:
       perform:
@@ -273,10 +263,9 @@ technology-usage-javaee:
           level: INFORMATIONAL
           tag: Servlet
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.servlet.{*}
-        location: IMPORT
       where: {}
     javaee-technology-usage-00130:
       perform:
@@ -291,10 +280,9 @@ technology-usage-javaee:
           level: INFORMATIONAL
           tag: JSON-B
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.json.bind.{*}
-        location: IMPORT
       where: {}
     javaee-technology-usage-00140:
       perform:

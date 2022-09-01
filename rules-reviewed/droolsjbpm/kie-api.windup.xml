@@ -32,10 +32,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.KnowledgeBase is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.KnowledgeBase
-        location: IMPORT
       where: {}
     kie-api-01001:
       perform:
@@ -52,10 +51,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.event.AgendaEventListener is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.event.AgendaEventListener
-        location: IMPORT
       where: {}
     kie-api-01002:
       perform:
@@ -72,10 +70,9 @@ Kie5To6Upgrade:
           tags: []
           title: AgendaEventListener is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.event.rule.AgendaEventListener
-        location: IMPORT
       where: {}
     kie-api-01003:
       perform:
@@ -92,10 +89,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.event.DefaultAgendaEventListener is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.event.DefaultAgendaEventListener
-        location: IMPORT
       where: {}
     kie-api-01004:
       perform:
@@ -112,10 +108,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.event.rule.DefaultAgendaEventListener is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.event.rule.DefaultAgendaEventListener
-        location: IMPORT
       where: {}
     kie-api-01005:
       perform:
@@ -132,10 +127,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.event.process.ProcessEventListener is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.event.process.ProcessEventListener
-        location: IMPORT
       where: {}
     kie-api-01006:
       perform:
@@ -152,10 +146,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.event.process.DefaultProcessEventListener is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.event.process.DefaultProcessEventListener
-        location: IMPORT
       where: {}
     kie-api-01007:
       perform:
@@ -172,10 +165,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.logger.KnowledgeRuntimeLogger is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.logger.KnowledgeRuntimeLogger
-        location: IMPORT
       where: {}
     kie-api-01008:
       perform:
@@ -192,10 +184,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.logger.KnowledgeRuntimeLoggerFactory is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.logger.KnowledgeRuntimeLoggerFactory
-        location: IMPORT
       where: {}
     kie-api-01009:
       perform:
@@ -212,10 +203,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.runtime.StatefulKnowledgeSession is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.runtime.StatefulKnowledgeSession
-        location: IMPORT
       where: {}
     kie-api-01010:
       perform:
@@ -232,10 +222,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.runtime.StatelessKnowledgeSession is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.runtime.StatelessKnowledgeSession
-        location: IMPORT
       where: {}
     kie-api-01011:
       perform:
@@ -252,10 +241,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.builder.KnowledgeBuilderFactory is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.builder.KnowledgeBuilderFactory
-        location: IMPORT
       where: {}
     kie-api-01012:
       perform:
@@ -272,10 +260,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.io.ResourceFactory is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.io.ResourceFactory
-        location: IMPORT
       where: {}
     kie-api-01013:
       perform:
@@ -292,10 +279,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.io.ResourceType is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.io.ResourceType
-        location: IMPORT
       where: {}
     kie-api-01014:
       perform:
@@ -312,10 +298,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.runtime.Environment is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.runtime.Environment
-        location: IMPORT
       where: {}
     kie-api-01015:
       perform:
@@ -332,10 +317,9 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.runtime.EnvironmentName is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.runtime.EnvironmentName
-        location: IMPORT
       where: {}
     kie-api-01016:
       perform:
@@ -352,8 +336,7 @@ Kie5To6Upgrade:
           tags: []
           title: org.drools.runtime.KnowledgeSessionConfiguration is deprecated
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.drools.runtime.KnowledgeSessionConfiguration
-        location: IMPORT
       where: {}

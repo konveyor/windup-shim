@@ -31,18 +31,15 @@ technology-usage-connect:
           - Java EE
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.lang.System.{systemNativeMethods}({*})
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.lang.Runtime.load({*})
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.lang.Runtime.loadLibrary({*})
-          location: METHOD_CALL
       where:
         systemNativeMethods: (load|loadLibrary|mapLibraryName)
     technology-usage-connect-01101:
@@ -61,10 +58,9 @@ technology-usage-connect:
           - Other
           - Java EE
       when:
-        annotation-types: []
         javaclass:
+          location: VARIABLE_DECLARATION
           references: com.sun.jna.{*}
-        location: VARIABLE_DECLARATION
       where: {}
     technology-usage-connect-01200:
       perform:
@@ -83,17 +79,13 @@ technology-usage-connect:
           - Java EE
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: javax.mail.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: com.sun.mail.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.simplejavamail.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.apache.commons.mail.{*}
       where: {}
     technology-usage-connect-01300:
@@ -117,10 +109,9 @@ technology-usage-connect:
             filename: ra.xml
         - xmlfile:
             matches: //*[local-name()='jms-jca-provider']
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: VARIABLE_DECLARATION
             references: javax.resource.{*}
-          location: VARIABLE_DECLARATION
       where: {}
     technology-usage-connect-01400:
       perform:

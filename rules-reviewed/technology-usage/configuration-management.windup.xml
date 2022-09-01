@@ -97,8 +97,7 @@ configuration-management:
           level: INFORMATIONAL
           tag: Spring Properties
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.springframework.boot.context.properties.ConfigurationProperties
-        location: ANNOTATION
       where: {}

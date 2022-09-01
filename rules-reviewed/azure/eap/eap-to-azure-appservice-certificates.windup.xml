@@ -31,12 +31,10 @@ eap-to-azure-appservice-certificates:
           tag: Azure
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.security.KeyStore.getInstance({*})
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.security.KeyStore.load({*})
-          location: METHOD_CALL
       where: {}

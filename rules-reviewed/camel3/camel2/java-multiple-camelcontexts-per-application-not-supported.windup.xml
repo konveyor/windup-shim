@@ -26,13 +26,12 @@ java-multiple-camelcontexts-per-application-not-supported:
           tags: []
           title: '{class}: `context` attribute removed'
       when:
-        annotation-literal:
-          name: context
-          pattern: '{*}'
-        annotation-types: []
         javaclass:
+          annotation-literal:
+            name: context
+            pattern: '{*}'
+          location: ANNOTATION
           references: org.apache.camel.{class}
-        location: ANNOTATION
       where:
         class: (BeanInject|Consume|DynamicRouter|EndpointInject|Produce|PropertyInject|RecipientList|RoutingSlip)
     java-multiple-camelcontexts-per-application-not-supported-00001:
@@ -50,9 +49,8 @@ java-multiple-camelcontexts-per-application-not-supported:
           tags: []
           title: '{CdiCamelContextName} has been removed'
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.apache.camel.cdi.{CdiCamelContextName}
-        location: IMPORT
       where:
         CdiCamelContextName: (ContextName|ContextNames)

@@ -22,8 +22,7 @@ deprecated-singletonpolicy:
           tags: []
           title: Deprecated HA Singleton API
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.wildfly.clustering.singleton.SingletonPolicy
-        location: IMPORT
       where: {}

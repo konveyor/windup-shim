@@ -292,8 +292,7 @@ integration:
           level: INFORMATIONAL
           tag: Spring Integration
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.springframework.integration.dsl.IntegrationFlow
-        location: IMPORT
       where: {}

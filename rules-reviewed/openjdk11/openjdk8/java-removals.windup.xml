@@ -28,14 +28,12 @@ java-removals:
           title: Methods in `java.lang.Thread` have been removed
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.lang.Thread.stop({.+})
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.lang.Thread.destroy({*})
-          location: METHOD_CALL
       where: {}
     java-removals-00010:
       perform:
@@ -52,10 +50,9 @@ java-removals:
           tags: []
           title: sun.reflect.Reflection class was deprecated in Java 9
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: sun.reflect.Reflection{*}
-        location: METHOD_CALL
       where: {}
     java-removals-00020:
       perform:
@@ -70,10 +67,9 @@ java-removals:
           tags: []
           title: sun.reflect.CallerSensitive annotation was deprecated in Java 9
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: sun.reflect.CallerSensitive{*}
-        location: ANNOTATION
       where: {}
     java-removals-00030:
       perform:
@@ -93,7 +89,6 @@ java-removals:
           tags: []
           title: The `javax.security.auth.Policy` class has been removed
       when:
-        annotation-types: []
         javaclass:
           references: javax.security.auth.Policy
       where: {}
@@ -120,7 +115,6 @@ java-removals:
           title: AWT SecurityManager method java.lang.SecurityManager.{method-name}
             has been removed in Java 11
       when:
-        annotation-types: []
         javaclass:
           references: java.lang.SecurityManager.{method-name}({*})
       where:
@@ -142,7 +136,6 @@ java-removals:
           title: SecurityManager method java.lang.SecurityManager.checkMemberAccess
             has been removed
       when:
-        annotation-types: []
         javaclass:
           references: java.lang.SecurityManager.checkMemberAccess({*})
       where: {}
@@ -163,7 +156,6 @@ java-removals:
           title: The java.util.logging.LogManager.addPropertyChangeListener() method
             was removed in Java 9
       when:
-        annotation-types: []
         javaclass:
           references: java.util.logging.LogManager.addPropertyChangeListener({*})
       where: {}
@@ -184,7 +176,6 @@ java-removals:
           title: The java.util.logging.LogManager.removePropertyChangeListener() method
             was removed in Java 9
       when:
-        annotation-types: []
         javaclass:
           references: java.util.logging.LogManager.removePropertyChangeListener({*})
       where: {}
@@ -207,17 +198,13 @@ java-removals:
             have been removed
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.util.jar.Pack200.Packer.addPropertyChangeListener({*})
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.util.jar.Pack200.Packer.removePropertyChangeListener({*})
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.util.jar.Pack200.Unpacker.addPropertyChangeListener({*})
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.util.jar.Pack200.Unpacker.removePropertyChangeListener({*})
       where: {}
     java-removals-00110:
@@ -247,7 +234,6 @@ java-removals:
           tags: []
           title: Methods in `sun.misc.Unsafe` have been removed
       when:
-        annotation-types: []
         javaclass:
           references: sun.misc.Unsafe.{method-name}({*})
       where:
@@ -272,7 +258,6 @@ java-removals:
           tags: []
           title: The `sun.misc.BASE64{encoder-decoder}` class has been removed
       when:
-        annotation-types: []
         javaclass:
           references: sun.misc.BASE64{encoder-decoder}{*}
       where:
@@ -294,11 +279,9 @@ java-removals:
           title: The `runFinalizersOnExit` methods have been removed
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.lang.System.runFinalizersOnExit({*})
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.lang.Runtime.runFinalizersOnExit({*})
       where: {}
     java-removals-00140:
@@ -321,14 +304,12 @@ java-removals:
             methods have been removed
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.awt.Font.getPeer({*})
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.awt.Component.getPeer({*})
-          location: METHOD_CALL
       where: {}
     java-removals-00150:
       perform:
@@ -348,7 +329,6 @@ java-removals:
           tags: []
           title: Changes in ClassLoader hierarchy in JDK 11 may impact code
       when:
-        annotation-types: []
         javaclass:
           references: java.lang.ClassLoader
       where: {}

@@ -30,11 +30,10 @@ xml-moved-components:
             title: The classes from `org.apache.camel.util.component` have been moved
           over: javaClass
       when:
-        annotation-types: []
         javaclass:
           as: javaClass
+          location: IMPORT
           references: org.apache.camel.util.component.{*}
-        location: IMPORT
       where: {}
     xml-moved-components-00013:
       perform:
@@ -55,11 +54,10 @@ xml-moved-components:
             title: '`org.apache.camel.impl.{moved}` class has been moved'
           over: javaClass
       when:
-        annotation-types: []
         javaclass:
           as: javaClass
+          location: IMPORT
           references: org.apache.camel.impl.{moved}
-        location: IMPORT
       where:
         moved: (CamelPostProcessorHelper|DefaultAsyncProcessorAwaitManager|DefaultCamelBeanPostProcessor|DefaultCamelContextNameStrategy|DefaultClaimCheckRepository|DefaultClassResolver|DefaultComponentResolver|DefaultConsumerTemplate|DefaultDataFormatResolver|DefaultEndpointRegistry|DefaultEndpointUtilizationStatistics|DefaultFactoryFinder|DefaultFactoryFinderResolver|DefaultHeadersMapFactory|DefaultInflightRepository|DefaultInjector|DefaultLanguageResolver|DefaultManagementNameStrategy|DefaultMessageHistoryFactory|DefaultNodeIdFactory|DefaultPackageScanClassResolver|DefaultProcessorFactory|DefaultProducerTemplate|DefaultRoute|DefaultRouteContext|DefaultRouteController|DefaultRouteError|DefaultRouteStartupOrder|DefaultRuntimeEndpointRegistry|DefaultShutdownStrategy|DefaultStreamCachingStrategy|DefaultTransformerRegistry|DefaultUnitOfWork|DefaultUnitOfWorkFactory|DefaultUuidGenerator|DefaultValidatorRegistry|DeferProducer|DeferServiceStartupListener|DurationRoutePolicy|DurationRoutePolicyFactory|EndpointKey|EventDrivenConsumerRoute|EventNotifierCallback|ExplicitCamelContextNameStrategy|FileStateRepository|HashMapHeadersMapFactory|HeadersMapFactoryResolver|InterceptSendToEndpointProcessor|InterceptSendToMockEndpointStrategy|JavaUuidGenerator|LimitedPollingConsumerPollStrategy|MDCUnitOfWork|MemoryStateRepository|SubscribeMethodProcessor|SupervisingRouteController|SupervisingRouteController.FilterResult|SupervisingRouteControllerFilters|SupervisingRouteControllerFilters.BlackList|TypedProcessorFactory|WebSpherePackageScanClassResolver)
     xml-moved-components-00014:
@@ -85,11 +83,10 @@ xml-moved-components:
                 artifactId: camel-main
                 groupId: org.apache.camel
       when:
-        annotation-types: []
         javaclass:
           as: javaClass
+          location: IMPORT
           references: org.apache.camel.main.Main
-        location: IMPORT
       where: {}
     xml-moved-components-00015:
       perform:

@@ -30,7 +30,6 @@ resteasy-eap6:
           - resteasy
           title: RESTEasy 3 Cache Client package change
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.client.cache.{cache_class}
       where:
@@ -59,7 +58,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated class ClientRequest in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.client.ClientRequest
       where: {}
@@ -76,7 +74,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated class ClientResponse in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.client.ClientResponse
       where: {}
@@ -93,7 +90,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated class org.jboss.resteasy.client.{type} in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.client.{type}
       where:
@@ -115,7 +111,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated class EntityTypeFactory in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.client.EntityTypeFactory
       where: {}
@@ -133,7 +128,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface ClientExecutor in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.client.ClientExecutor
       where: {}
@@ -151,7 +145,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated class ClientRequestFactory in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.client.ClientRequestFactory
       where: {}
@@ -170,7 +163,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated exception ClientResponseFailure in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.client.ClientResponseFailure
       where: {}
@@ -189,7 +181,6 @@ resteasy-eap6:
           - resteasy
           title: RESTEasy 3 SPI Application Change for StringConverter
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.StringConverter
       where: {}
@@ -208,7 +199,6 @@ resteasy-eap6:
           - resteasy
           title: RESTEasy 3 SPI Application Changes for InjectorFactory
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.InjectorFactory
       where: {}
@@ -229,7 +219,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface MessageBodyWriterInterceptor in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.interception.MessageBodyWriterInterceptor
       where: {}
@@ -250,7 +239,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface MessageBodyReaderInterceptor in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.interception.MessageBodyReaderInterceptor
       where: {}
@@ -271,7 +259,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface MessageBodyWriterContext in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.interception.MessageBodyWriterContext
       where: {}
@@ -291,7 +278,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated class InterceptorRegistry in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.core.interception.InterceptorRegistry
       where: {}
@@ -311,7 +297,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface InterceptorRegistryListener in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.core.interception.InterceptorRegistryListener
       where: {}
@@ -330,7 +315,6 @@ resteasy-eap6:
           - resteasy
           title: Removed class ApacheHttpClientExecutor from in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.client.core.executors.ApacheHttpClientExecutor
       where: {}
@@ -351,7 +335,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface AcceptedByMethod in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.interception.AcceptedByMethod
       where: {}
@@ -373,7 +356,6 @@ resteasy-eap6:
           - resteasy
           title: Removed annotation ServerCached in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.annotations.cache.ServerCached
       where: {}
@@ -393,7 +375,6 @@ resteasy-eap6:
           - jax-rs
           title: Deprecated class Link in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.Link
       where: {}
@@ -413,7 +394,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface ClientExecutionContext in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.interception.ClientExecutionContext
       where: {}
@@ -432,7 +412,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface ClientExecutionInterceptor in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.interception.ClientExecutionInterceptor
       where: {}
@@ -456,10 +435,9 @@ resteasy-eap6:
           - resteasy
           title: ResteasyProviderFactory#add* methods were removed
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.spi.ResteasyProviderFactory.add{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000025:
       perform:
@@ -478,7 +456,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface MessageBodyReaderContext in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.interception.MessageBodyReaderContext
       where: {}
@@ -500,7 +477,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface PostProcessInterceptor in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.interception.PostProcessInterceptor
       where: {}
@@ -522,7 +498,6 @@ resteasy-eap6:
           - resteasy
           title: Deprecated interface PreProcessInterceptor in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.interception.PreProcessInterceptor
       where: {}
@@ -541,7 +516,6 @@ resteasy-eap6:
           - resteasy
           title: RESTEasy 3 SPI Registry changed
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.Registry
       where: {}
@@ -561,7 +535,6 @@ resteasy-eap6:
           - jax-rs
           title: Deprecated exception ForbiddenException in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.ForbiddenException
       where: {}
@@ -581,7 +554,6 @@ resteasy-eap6:
           - jax-rs
           title: Deprecated exception MethodNotAllowedException in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.MethodNotAllowedException
       where: {}
@@ -601,7 +573,6 @@ resteasy-eap6:
           - jax-rs
           title: Deprecated exception NotAcceptableException in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.NotAcceptableException
       where: {}
@@ -621,7 +592,6 @@ resteasy-eap6:
           - jax-rs
           title: Deprecated exception NotFoundException in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.NotFoundException
       where: {}
@@ -641,7 +611,6 @@ resteasy-eap6:
           - jax-rs
           title: Deprecated exception UnauthorizedException in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.UnauthorizedException
       where: {}
@@ -661,7 +630,6 @@ resteasy-eap6:
           - jax-rs
           title: Deprecated exception UnsupportedMediaTypeException in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.spi.UnsupportedMediaTypeException
       where: {}
@@ -680,10 +648,9 @@ resteasy-eap6:
           - resteasy
           title: Deprecated method ServerCookie#checkName in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.plugins.delegates.ServerCookie.checkName{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000119:
       perform:
@@ -699,10 +666,9 @@ resteasy-eap6:
           title: Deprecated method JAXBContextWrapper#createValidator in RESTEasy
             3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.plugins.providers.jaxb.JAXBContextWrapper.createValidator{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000120:
       perform:
@@ -720,10 +686,9 @@ resteasy-eap6:
           - resteasy
           title: Deprecated method ResteasyHttpServletResponseWrapper#encodeRedirectUrl
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.core.ResteasyHttpServletResponseWrapper.encodeRedirectUrl{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000121:
       perform:
@@ -741,10 +706,9 @@ resteasy-eap6:
           - resteasy
           title: Deprecated ResteasyHttpServletResponseWrapper#encodeUrl method
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.core.ResteasyHttpServletResponseWrapper.encodeUrl{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000122:
       perform:
@@ -763,10 +727,9 @@ resteasy-eap6:
           title: Deprecated method MultipartFormDataInputImpl#getFormData in RESTEasy
             3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInputImpl.getFormData{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000123:
       perform:
@@ -785,10 +748,9 @@ resteasy-eap6:
           title: Deprecated method MultipartFormDataInput#getFormData in RESTEasy
             3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput.getFormData{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000125:
       perform:
@@ -807,10 +769,9 @@ resteasy-eap6:
           title: Deprecated method ResteasyHttpServletRequestWrapper.isRequestedSessionIdFromURL
             in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.core.ResteasyHttpServletRequestWrapper.isRequestedSessionIdFromUrl{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000126:
       perform:
@@ -828,10 +789,9 @@ resteasy-eap6:
           - resteasy
           title: Deprecated method SecureUnmarshaller#isValidating in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.isValidating{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000127:
       perform:
@@ -850,10 +810,9 @@ resteasy-eap6:
           - resteasy
           title: Deprecated method ServerCookie#maybeQuote in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.plugins.delegates.ServerCookie.maybeQuote{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000128:
       perform:
@@ -871,10 +830,9 @@ resteasy-eap6:
           - resteasy
           title: Deprecated method SecureUnmarshaller#setAdapter in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.setAdapter{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000129:
       perform:
@@ -895,10 +853,9 @@ resteasy-eap6:
           title: Deprecated method ResteasyHttpServletResponseWrapper#setStatus in
             RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.core.ResteasyHttpServletResponseWrapper.setStatus{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000130:
       perform:
@@ -916,10 +873,9 @@ resteasy-eap6:
           - resteasy
           title: Deprecated method SecureUnmarshaller#setValidating in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.setValidating{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000131:
       perform:
@@ -937,10 +893,9 @@ resteasy-eap6:
           - resteasy
           title: Deprecated method OAuthValidator#validateMessage in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.resteasy.auth.oauth.OAuthValidator.validateMessage{*}
-        location: METHOD_CALL
       where: {}
     resteasy-eap6-000140:
       perform:
@@ -972,13 +927,12 @@ resteasy-eap6:
               file-exists:
                 filename: javax.ws.rs.ext.Providers
       when:
-        annotation-literal:
-          name: value
-          pattern: '{*}yaml'
-        annotation-types: []
         javaclass:
+          annotation-literal:
+            name: value
+            pattern: '{*}yaml'
+          location: ANNOTATION
           references: javax.ws.rs.Produces
-        location: ANNOTATION
       where: {}
     resteasy-eap6-000141:
       perform:
@@ -1008,20 +962,18 @@ resteasy-eap6:
                 filename: javax.ws.rs.ext.Providers
       when:
         or:
-        - annotation-literal:
-            name: value
-            pattern: application/x-java-serialized-object
-          annotation-types: []
-          javaclass:
+        - javaclass:
+            annotation-literal:
+              name: value
+              pattern: application/x-java-serialized-object
+            location: ANNOTATION
             references: javax.ws.rs.Produces
-          location: ANNOTATION
-        - annotation-literal:
-            name: value
-            pattern: application/x-java-serialized-object
-          annotation-types: []
-          javaclass:
+        - javaclass:
+            annotation-literal:
+              name: value
+              pattern: application/x-java-serialized-object
+            location: ANNOTATION
             references: javax.ws.rs.Consumes
-          location: ANNOTATION
       where: {}
     resteasy-eap6-000142:
       perform:
@@ -1048,18 +1000,16 @@ resteasy-eap6:
           title: RESTEasy Text default charset response changed
       when:
         or:
-        - annotation-literal:
-            name: value
-            pattern: application/xml{*}
-          annotation-types: []
-          javaclass:
+        - javaclass:
+            annotation-literal:
+              name: value
+              pattern: application/xml{*}
+            location: ANNOTATION
             references: javax.ws.rs.Produces
-          location: ANNOTATION
-        - annotation-literal:
-            name: value
-            pattern: text/{*}
-          annotation-types: []
-          javaclass:
+        - javaclass:
+            annotation-literal:
+              name: value
+              pattern: text/{*}
+            location: ANNOTATION
             references: javax.ws.rs.Produces
-          location: ANNOTATION
       where: {}

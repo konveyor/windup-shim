@@ -32,7 +32,6 @@ sonic-catchall:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: com.{subpackage}.{classname}
       where:

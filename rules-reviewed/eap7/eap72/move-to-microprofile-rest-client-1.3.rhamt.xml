@@ -25,8 +25,7 @@ move-to-microprofile-rest-client-1.3:
           tags: []
           title: Move to Microprofile REST Client 1.3
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.jboss.resteasy.client.microprofile.MicroprofileClientBuilderResolver
-        location: IMPORT
       where: {}

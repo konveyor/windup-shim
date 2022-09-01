@@ -30,8 +30,7 @@ jotm:
           - jta
           title: 'JTA: JOTM usage'
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.objectweb.jotm.{*}
-        location: IMPORT
       where: {}

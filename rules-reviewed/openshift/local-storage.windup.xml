@@ -42,22 +42,18 @@ local-storage:
           title: File system - Java IO
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: CONSTRUCTOR_CALL
             references: java.io.{ioclass}{*}
-          location: CONSTRUCTOR_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: CONSTRUCTOR_CALL
             references: java.util.zip.ZipFile{*}
-          location: CONSTRUCTOR_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.io.File.createTempFile({*})
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.nio.file.Paths.get({*})
-          location: METHOD_CALL
       where:
         ioclass: (FileWriter|FileReader|PrintStream|File|PrintWriter|RandomAccessFile)
     local-storage-00002:
@@ -92,11 +88,10 @@ local-storage:
           - storage
           title: File system - java.net.URL/URI
       when:
-        annotation-types: []
         javaclass:
+          location: CONSTRUCTOR_CALL
           matchesSource: '{*}file{*}'
           references: java.net.{class}({*})
-        location: CONSTRUCTOR_CALL
       where:
         class: (URL|URI)
     local-storage-00003:
@@ -209,20 +204,16 @@ local-storage:
             title: File system - Java NIO
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: java.nio.channels.AsynchronousFileChannel{*}
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: java.nio.channels.FileChannel{*}
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: java.nio.channels.FileLock{*}
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: java.nio.file.{*}
-          location: IMPORT
       where: {}

@@ -24,10 +24,9 @@ technology-usage-security:
         - xmlfile:
             in: '{*}ejb-jar.xml'
             matches: //*[local-name() = 'login-config']/*[local-name() = 'realm']
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: ANNOTATION
             references: javax.annotation.security.{*}
-          location: ANNOTATION
       where: {}
     technology-usage-security-01100:
       perform:

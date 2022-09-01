@@ -42,10 +42,9 @@ component-changes:
         - filecontent:
             filename: '{*}.java'
             pattern: .to("kafka:{[^"]+}{options}={*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: org.apache.camel.component.kafka.KafkaConfiguration.{method}({*})
-          location: METHOD_CALL
       where:
         method: (setBridgeEndpoint|setCircularTopicDetection)
         options: (circularTopicDetection|bridgeEndpoint)

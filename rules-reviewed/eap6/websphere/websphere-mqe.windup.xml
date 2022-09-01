@@ -32,7 +32,6 @@ websphere-mqe:
           - websphere
           title: IBM MQe client API
       when:
-        annotation-types: []
         javaclass:
           references: '{package}.{type}'
       where:
@@ -58,10 +57,9 @@ websphere-mqe:
           - websphere
           title: IBM MQe com.ibm.mqe.adapters.MQe{type}Adapter
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: com.ibm.mqe.adapters.MQe{type}Adapter
-        location: INHERITANCE
       where: {}
     websphere-mqe-02000:
       perform:
@@ -82,10 +80,9 @@ websphere-mqe:
           - websphere
           title: IBM MQe com.ibm.mqe.administration.MQe{type}AdminMsg
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: com.ibm.mqe.administration.MQe{type}AdminMsg
-        location: INHERITANCE
       where: {}
     websphere-mqe-03000:
       perform:
@@ -103,7 +100,6 @@ websphere-mqe:
           - websphere
           title: IBM MQe com.ibm.mqe.jms.MQeJMSAuthenticator
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.mqe.jms.MQeJMSAuthenticator
       where: {}
@@ -124,7 +120,6 @@ websphere-mqe:
           - websphere
           title: IBM MQe com.ibm.mqe.jms.MQeJMSMsgFieldNames
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.mqe.jms.MQeJMSMsgFieldNames
       where: {}

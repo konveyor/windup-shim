@@ -28,10 +28,9 @@ commonj:
           - commonj
           title: Commonj Timer Manager API
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: commonj.timers.{*}
-        location: IMPORT
       where: {}
     commonj-02000:
       perform:
@@ -50,7 +49,6 @@ commonj:
           - commonj
           title: Migrate commonj.timers.TimerManager to Java EE TimerService API
       when:
-        annotation-types: []
         javaclass:
           references: commonj.timers.TimerManager
       where: {}
@@ -71,7 +69,6 @@ commonj:
             - commonj
             title: Migrate commonj.timers.Timer to Java EE javax.ejb.Timer
       when:
-        annotation-types: []
         javaclass:
           references: commonj.timers.Timer
       where: {}
@@ -92,7 +89,6 @@ commonj:
           - commonj
           title: Commonj WorkManager API
       when:
-        annotation-types: []
         javaclass:
           references: commonj.work.{*}
       where: {}
@@ -109,7 +105,6 @@ commonj:
           - commonj
           title: Replace CommonJ WorkManager with a JCA Resource Adapter
       when:
-        annotation-types: []
         javaclass:
           references: commonj.work.WorkManager
       where: {}
@@ -124,7 +119,6 @@ commonj:
           - commonj
           title: Commonj WorkManager API
       when:
-        annotation-types: []
         javaclass:
           references: commonj.work.Work{part}
       where:
@@ -141,9 +135,8 @@ commonj:
           - commonj
           title: CommonJ WorkManager API Exception
       when:
-        annotation-types: []
         javaclass:
+          location: CATCH_EXCEPTION_STATEMENT
           references: commonj.work.Work{subpart}Exception
-        location: CATCH_EXCEPTION_STATEMENT
       where:
         subpart: (Completed|Rejected)?

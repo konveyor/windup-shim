@@ -27,8 +27,7 @@ picketlink25:
           - picketlink
           title: Picketlink STS token format change
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.picketlink.identity.federation.api.wstrust.WSTrustClient.issueToken{*}
-        location: METHOD_CALL
       where: {}

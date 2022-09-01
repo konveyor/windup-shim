@@ -31,10 +31,9 @@ weblogic-ejb:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: weblogic.{type}.{*}
-        location: IMPORT
       where:
         type: (ejb|ejb20|ejbgen)?
     weblogic-ejb-02000:
@@ -58,10 +57,9 @@ weblogic-ejb:
           - weblogic
           title: WebLogic proprietary timeout for transactions annotation
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: weblogic.javaee.TransactionTimeoutSeconds
-        location: ANNOTATION
       where: {}
     weblogic-ejb-03000:
       perform:
@@ -80,10 +78,9 @@ weblogic-ejb:
           - weblogic
           title: WebLogic proprietary MessageDriven annotation
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: weblogic.ejbgen.MessageDriven
-        location: ANNOTATION
       where: {}
     weblogic-ejb-04000:
       perform:
@@ -107,9 +104,8 @@ weblogic-ejb:
           - weblogic
           title: WebLogic proprietary EJB Bean
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: weblogic.ejb.{type}
-        location: INHERITANCE
       where:
         type: (GenericEntityBean|GenericMessageDrivenBean|GenericSessionBean)

@@ -35,7 +35,6 @@ websphere-jms:
           - websphere
           title: IBM JMS Client
       when:
-        annotation-types: []
         javaclass:
           references: '{package}.{type}'
       where:
@@ -57,7 +56,6 @@ websphere-jms:
           - websphere
           title: IBM {prefix}{type}ConnectionFactory reference
       when:
-        annotation-types: []
         javaclass:
           references: '{package}.{prefix}{type}ConnectionFactory'
       where:
@@ -80,7 +78,6 @@ websphere-jms:
           - websphere
           title: IBM JMS topic/queue message
       when:
-        annotation-types: []
         javaclass:
           references: '{package}.JmsMsg{type}'
       where:
@@ -101,7 +98,6 @@ websphere-jms:
           - websphere
           title: WebSphere implementation MQe{type}Queue of JMS Queue
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.mqe.jms.{type}Queue
       where: {}
@@ -126,7 +122,6 @@ websphere-jms:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: '{package}.{prefix}{type}Message'
       where:
@@ -153,7 +148,6 @@ websphere-jms:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: '{package}.{prefix}{type}'
       where:

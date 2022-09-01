@@ -32,10 +32,9 @@ weblogic-webservices:
           - weblogic
           title: WebLogic proprietary web service implementation class
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: weblogic.wsee.jaxrpc.ServiceImpl
-        location: INHERITANCE
       where: {}
     weblogic-webservices-02000:
       perform:
@@ -56,7 +55,6 @@ weblogic-webservices:
           - weblogic
           title: WebLogic asynchronous web service client
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.wsee.async.AsyncPreCallContext
       where: {}
@@ -82,10 +80,9 @@ weblogic-webservices:
           - weblogic
           title: WebLogic proprietary web service authentication
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: weblogic.wsee.connection.transport.http.HttpTransportInfo.setUsername({*})
-        location: METHOD_CALL
       where: {}
     weblogic-webservices-04000:
       perform:
@@ -105,7 +102,6 @@ weblogic-webservices:
           - weblogic
           title: WebLogic proprietary web services API - weblogic.wsee.context.WebServiceContext
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.wsee.context.WebServiceContext
       where: {}
@@ -123,7 +119,6 @@ weblogic-webservices:
           - weblogic
           title: WebLogic proprietary web services API - ContextNotFoundException
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.wsee.context.ContextNotFoundException
       where: {}
@@ -152,11 +147,9 @@ weblogic-webservices:
           title: WebLogic proprietary web services generated client classes
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: weblogic.wsee.tools.clientgen.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: weblogic.webservice.{*}
       where: {}
     weblogic-webservices-07000:
@@ -176,8 +169,7 @@ weblogic-webservices:
           - weblogic
           title: WebLogic proprietary web service annotation @Transactional
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: weblogic.jws.Transactional
-        location: ANNOTATION
       where: {}

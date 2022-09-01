@@ -27,10 +27,9 @@ oracle2openjdk:
           - JavaFX
           title: JavaFX usage
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javafx.{*}
-        location: IMPORT
       where: {}
     oracle2openjdk-00001:
       perform:
@@ -48,18 +47,15 @@ oracle2openjdk:
           title: Fonts usage
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: '{package}.Font'
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: '{package}.{*}Font{*}'
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: javax.swing.{*}.{*}Font{*}
-          location: METHOD_CALL
       where:
         package: (java\.awt|javafx\.scene\.text)
     oracle2openjdk-00002:
@@ -75,7 +71,6 @@ oracle2openjdk:
           - Oracle JDK resource management
           title: Resource management API usage
       when:
-        annotation-types: []
         javaclass:
           references: jdk.management.resource.{*}
       where: {}
@@ -96,7 +91,6 @@ oracle2openjdk:
           - JDK color management
           title: Color management usage
       when:
-        annotation-types: []
         javaclass:
           references: java.awt.Color
       where: {}
@@ -115,10 +109,9 @@ oracle2openjdk:
           - 2D library
           title: Java 2D library usage
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: java.awt.{package}{*}
-        location: IMPORT
       where:
         package: (geom|color|font|image|image\.renderable|print)
     oracle2openjdk-00005:
@@ -139,20 +132,16 @@ oracle2openjdk:
           title: 'Crypto: elliptic curves usage'
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.security.KeyPairGenerator.getInstance({*}
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: javax.crypto.KeyAgreement.getInstance({*}
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: VARIABLE_DECLARATION
             references: java.security.spec.EC{*}
-          location: VARIABLE_DECLARATION
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: VARIABLE_DECLARATION
             references: java.security.spec.EllipticCurve{*}
-          location: VARIABLE_DECLARATION
       where: {}

@@ -33,7 +33,6 @@ websphere-mq-eap7:
           - websphere
           title: IBM MQ client API
       when:
-        annotation-types: []
         javaclass:
           references: '{package}.{type}'
       where:

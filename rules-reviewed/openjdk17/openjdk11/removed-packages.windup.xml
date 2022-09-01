@@ -25,10 +25,9 @@ removed-packages:
           tags: []
           title: The java.rmi.activation detected
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: java.rmi.activation.{*}
-        location: IMPORT
       where: {}
     removed-packages-00010:
       perform:
@@ -50,10 +49,8 @@ removed-packages:
             been removed
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: jdk.nashorn.api.scripting.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: jdk.nashorn.api.tree.{*}
       where: {}

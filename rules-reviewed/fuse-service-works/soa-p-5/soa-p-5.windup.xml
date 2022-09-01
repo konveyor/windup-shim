@@ -623,7 +623,6 @@ soa-p-5:
             title: JBoss ESB 5 Action Handler
           over: javaclasses
       when:
-        annotation-types: []
         javaclass:
           as: javaclasses
           in: '{javaclassname}'

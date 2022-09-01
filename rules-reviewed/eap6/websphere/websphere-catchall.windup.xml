@@ -32,7 +32,6 @@ websphere-catchall:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: '{package}.{type}'
       where:
@@ -56,7 +55,6 @@ websphere-catchall:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: ilog.{subpackage}.{type}
       where:
@@ -81,7 +79,6 @@ websphere-catchall:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.db2.jcc.{type}
       where:

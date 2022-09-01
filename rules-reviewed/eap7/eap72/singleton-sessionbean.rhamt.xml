@@ -29,10 +29,9 @@ singleton-sessionbean:
             title: Removed SessionBean interface
           over: sessionbean
       when:
-        annotation-types: []
         javaclass:
           as: sessionbean
           from: singleton
+          location: IMPLEMENTS_TYPE
           references: javax.ejb.SessionBean
-        location: IMPLEMENTS_TYPE
       where: {}

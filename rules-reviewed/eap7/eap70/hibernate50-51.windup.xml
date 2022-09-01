@@ -32,10 +32,9 @@ hibernate50-51:
           - Hibernate
           title: Hibernate 5.1 - @Embeddable changes interpretation
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: javax.persistence.Embeddable
-        location: ANNOTATION
       where: {}
     hibernate50-51-00100:
       perform:
@@ -55,17 +54,14 @@ hibernate50-51:
           title: Hibernate 5.1 - Changes to schema management tooling
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: org.hibernate.tool.hbm2ddl.{hbm2ddl_classes}
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: org.hibernate.tool.schema.spi.SchemaManagementTool
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: org.hibernate.tool.schema.internal.HibernateSchemaManagementTool
-          location: IMPORT
       where:
         hbm2ddl_classes: (SchemaExport|SchemaUpdate|SchemaValidator)

@@ -33,10 +33,9 @@ sonic-esb:
           - camel
           title: Sonic ESB service - inheritance from com.sonicsw.xq.XQService
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: com.sonicsw.xq.XQService
-        location: INHERITANCE
       where: {}
     sonic-esb-02000:
       perform:
@@ -63,10 +62,9 @@ sonic-esb:
           - camel
           title: Reference to com.sonicsw.xq.XQServiceContext
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: com.sonicsw.xq.XQServiceContext
-        location: IMPORT
       where: {}
     sonic-esb-03000:
       perform:
@@ -88,10 +86,9 @@ sonic-esb:
           - camel
           title: Reference to com.sonicsw.xq.XQInitContext
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: com.sonicsw.xq.XQInitContext
-        location: IMPORT
       where: {}
     sonic-esb-04000:
       perform:
@@ -105,10 +102,9 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQInitContext.getParameters
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQInitContext.getParameters{*}
-        location: METHOD_CALL
       where: {}
     sonic-esb-05000:
       perform:
@@ -123,10 +119,9 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQParameters.getParameter
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQParameters.getParameter{*}
-        location: METHOD_CALL
       where: {}
     sonic-esb-06000:
       perform:
@@ -141,10 +136,9 @@ sonic-esb:
           - camel
           title: Reference to com.sonicsw.xq.XQParameters
       when:
-        annotation-types: []
         javaclass:
+          location: TYPE
           references: com.sonicsw.xq.XQParameters
-        location: TYPE
       where: {}
     sonic-esb-07000:
       perform:
@@ -159,10 +153,9 @@ sonic-esb:
           - camel
           title: Reference to com.sonicsw.xq.XQParameters
       when:
-        annotation-types: []
         javaclass:
+          location: TYPE
           references: com.sonicsw.xq.XQParameterInfo
-        location: TYPE
       where: {}
     sonic-esb-08000:
       perform:
@@ -176,10 +169,9 @@ sonic-esb:
           - camel
           title: Reference to com.sonicsw.xq.XQMessage
       when:
-        annotation-types: []
         javaclass:
+          location: TYPE
           references: com.sonicsw.xq.XQMessage
-        location: TYPE
       where: {}
     sonic-esb-09000:
       perform:
@@ -193,10 +185,9 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQMessage.getHeaderValue
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQMessage.getHeaderValue{*}
-        location: METHOD_CALL
       where: {}
     sonic-esb-10000:
       perform:
@@ -211,10 +202,9 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQMessage.setHeaderValue
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQMessage.setHeaderValue{*}
-        location: METHOD_CALL
       where: {}
     sonic-esb-11000:
       perform:
@@ -228,10 +218,9 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQMessage.getHeaderNames
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQMessage.getHeaderNames{*}
-        location: METHOD_CALL
       where: {}
     sonic-esb-12000:
       perform:
@@ -245,10 +234,9 @@ sonic-esb:
           - camel
           title: Reference to com.sonicsw.xq.XQPart
       when:
-        annotation-types: []
         javaclass:
+          location: TYPE
           references: com.sonicsw.xq.XQPart
-        location: TYPE
       where: {}
     sonic-esb-13000:
       perform:
@@ -262,10 +250,9 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQMessage.getPartCount
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQMessage.getPartCount{*}
-        location: METHOD_CALL
       where: {}
     sonic-esb-14000:
       perform:
@@ -279,10 +266,9 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQMessage.getPart
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQMessage.getPart({*}
-        location: METHOD_CALL
       where: {}
     sonic-esb-15000:
       perform:
@@ -297,10 +283,9 @@ sonic-esb:
           - camel
           title: Reference to com.sonicsw.xq.XQLog
       when:
-        annotation-types: []
         javaclass:
+          location: TYPE
           references: com.sonicsw.xq.XQLog
-        location: TYPE
       where: {}
     sonic-esb-16000:
       perform:
@@ -316,10 +301,9 @@ sonic-esb:
           - camel
           title: Reference to com.sonicsw.xq.XQServiceException
       when:
-        annotation-types: []
         javaclass:
+          location: TYPE
           references: com.sonicsw.xq.XQServiceException
-        location: TYPE
       where: {}
     sonic-esb-17000:
       perform:
@@ -334,10 +318,9 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQMessage.getCorrelationId
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQMessage.getCorrelationId{*}
-        location: METHOD_CALL
       where: {}
     sonic-esb-18000:
       perform:
@@ -355,10 +338,9 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQAddressFactory.createEndpointAddress
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQAddressFactory.createEndpointAddress{*}
-        location: METHOD_CALL
       where: {}
     sonic-esb-19000:
       perform:
@@ -375,10 +357,9 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQServiceContext.addOutgoing
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQServiceContext.addOutgoing{*}
-        location: METHOD_CALL
       where: {}
     sonic-esb-20000:
       perform:
@@ -392,10 +373,9 @@ sonic-esb:
           - camel
           title: Reference to com.sonicsw.xq.XQEnvelope
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: com.sonicsw.xq.XQEnvelope
-        location: IMPORT
       where: {}
     sonic-esb-21000:
       perform:
@@ -409,8 +389,7 @@ sonic-esb:
           - camel
           title: Call of com.sonicsw.xq.XQEnvelope.getMessage
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.sonicsw.xq.XQEnvelope.getMessage{*}
-        location: METHOD_CALL
       where: {}

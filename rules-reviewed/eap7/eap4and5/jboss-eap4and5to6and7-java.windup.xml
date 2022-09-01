@@ -26,10 +26,9 @@ jboss-eap4and5to6and7-java:
           tags: []
           title: Replace org.jboss.security.annotation.SecurityDomain annotation
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.security.annotation.SecurityDomain
-        location: ANNOTATION
       where: {}
     jboss-eap4and5to6and7-java-02000:
       perform:
@@ -49,10 +48,9 @@ jboss-eap4and5to6and7-java:
           tags: []
           title: Replace org.jboss.mx.util.MBeanProxyExt class
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.jboss.mx.util.MBeanProxyExt
-        location: IMPORT
       where: {}
     jboss-eap4and5to6and7-java-03000:
       perform:
@@ -71,9 +69,8 @@ jboss-eap4and5to6and7-java:
           tags: []
           title: Replace ServiceMBean and ServiceMBeanSupport
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: org.jboss.system.{classes}
-        location: INHERITANCE
       where:
         classes: (ServiceMBean|ServiceMBeanSupport)

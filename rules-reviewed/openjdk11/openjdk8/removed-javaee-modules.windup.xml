@@ -24,10 +24,9 @@ removed-javaee-modules:
           tags: []
           title: The java.activation (JAF) module has been removed from OpenJDK 11
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.activation{*}
-        location: IMPORT
       where: {}
     removed-javaee-modules-00010:
       perform:
@@ -46,18 +45,15 @@ removed-javaee-modules:
           title: The java.corba module has been removed from OpenJDK 11
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: javax.activity.{*}
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: javax.rmi.{*}
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: com.sun.corba.{*}
-          location: IMPORT
       where: {}
     removed-javaee-modules-00020:
       perform:
@@ -73,8 +69,7 @@ removed-javaee-modules:
           title: The java.annotation (Common Annotations) module has been removed
             from OpenJDK 11
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.annotation{*}
-        location: IMPORT
       where: {}

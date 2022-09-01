@@ -31,10 +31,9 @@ environment-dependent-calls:
           - classloader
           title: Dynamic class instantiation
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: java.lang.Class.forName({*}
-        location: METHOD_CALL
       where: {}
     environment-dependent-calls-02000:
       perform:
@@ -57,11 +56,10 @@ environment-dependent-calls:
             - jndi
             title: Call of JNDI lookup
       when:
-        annotation-types: []
         javaclass:
           as: default
+          location: METHOD_CALL
           references: javax.naming.Context.lookup{*}
-        location: METHOD_CALL
       where: {}
     environment-dependent-calls-03000:
       perform:
@@ -84,11 +82,10 @@ environment-dependent-calls:
             - jndi
             title: Proprietary InitialContext initialization
       when:
-        annotation-types: []
         javaclass:
           as: default
+          location: CONSTRUCTOR_CALL
           references: javax.naming.InitialContext(java.util.Hashtable{*}
-        location: CONSTRUCTOR_CALL
       where: {}
     environment-dependent-calls-03500:
       perform:
@@ -108,6 +105,7 @@ environment-dependent-calls:
             title: JNDI properties file
       when:
         file:
+          as: default
           filename: jndi.properties
       where: {}
     environment-dependent-calls-04000:
@@ -124,11 +122,10 @@ environment-dependent-calls:
             - jmx
             title: JMX MBean object name (javax.management.{suffix})
       when:
-        annotation-types: []
         javaclass:
           as: default
+          location: CONSTRUCTOR_CALL
           references: javax.management.{suffix}{*}
-        location: CONSTRUCTOR_CALL
       where:
         suffix: (ObjectName)
     environment-dependent-calls-04001:
@@ -145,11 +142,10 @@ environment-dependent-calls:
             - jmx
             title: JMX API connector server address (javax.management.{suffix})
       when:
-        annotation-types: []
         javaclass:
           as: default
+          location: CONSTRUCTOR_CALL
           references: javax.management.{suffix}{*}
-        location: CONSTRUCTOR_CALL
       where:
         suffix: (remote.JMXServiceURL)
     environment-dependent-calls-05000:
@@ -167,9 +163,8 @@ environment-dependent-calls:
             - jmx
             title: JMX connection factory parameters
       when:
-        annotation-types: []
         javaclass:
           as: default
+          location: METHOD_CALL
           references: javax.management.remote.JMXConnectorFactory.connect({*})
-        location: METHOD_CALL
       where: {}

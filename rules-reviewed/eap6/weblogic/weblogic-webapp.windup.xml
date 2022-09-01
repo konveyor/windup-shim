@@ -57,10 +57,9 @@ weblogic-webapp:
           - weblogic
           title: WebLogic proprietary servlet annotations
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: weblogic.servlet.annotation.WLServlet
-        location: ANNOTATION
       where: {}
     weblogic-webapp-03000:
       perform:
@@ -84,10 +83,9 @@ weblogic-webapp:
           - weblogic
           title: WebLogic proprietary servlet annotations
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: weblogic.servlet.annotation.WLInitParam
-        location: ANNOTATION
       where: {}
     weblogic-webapp-04000:
       perform:
@@ -111,10 +109,9 @@ weblogic-webapp:
           - weblogic
           title: WebLogic proprietary servlet annotations
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: weblogic.servlet.annotation.WLFilter
-        location: ANNOTATION
       where: {}
     weblogic-webapp-05000:
       perform:
@@ -141,10 +138,9 @@ weblogic-webapp:
           - weblogic
           title: WebLogic ApplicationLifecycleEvent
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: weblogic.application.ApplicationLifecycleEvent
-        location: IMPORT
       where: {}
     weblogic-webapp-06000:
       perform:
@@ -169,10 +165,9 @@ weblogic-webapp:
           - weblogic
           title: WebLogic ApplicationLifecycleListener
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: weblogic.application.ApplicationLifecycleListener
-        location: INHERITANCE
       where: {}
     weblogic-webapp-07000:
       perform:
@@ -196,7 +191,6 @@ weblogic-webapp:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.security.{*}
       where: {}
@@ -216,7 +210,6 @@ weblogic-webapp:
           - weblogic
           title: WebLogic proprietary security reference to weblogic.security.Security
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.security.Security
       where: {}
@@ -239,7 +232,6 @@ weblogic-webapp:
           - weblogic
           title: WebLogic proprietary ServletAuthentication annotation
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.servlet.security.ServletAuthentication
       where: {}

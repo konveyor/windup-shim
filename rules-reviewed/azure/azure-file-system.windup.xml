@@ -34,14 +34,11 @@ azure-file-system:
           title: The application uses Java APIs to read/write from the file system
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.io.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.nio.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.apache.commons.io.{*}
       where: {}
     azure-file-system-02000:

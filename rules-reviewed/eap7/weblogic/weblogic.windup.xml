@@ -40,10 +40,9 @@ weblogic-eap7-eap7:
           - weblogic
           title: WebLogic Scheduled Job
       when:
-        annotation-types: []
         javaclass:
+          location: IMPLEMENTS_TYPE
           references: weblogic.time.common.Triggerable
-        location: IMPLEMENTS_TYPE
       where: {}
     weblogic-eap7-016000:
       perform:
@@ -111,7 +110,6 @@ weblogic-eap7-eap7:
           - weblogic
           title: WebLogic StringUtils usage
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.utils.StringUtils.{*}
       where: {}
@@ -127,7 +125,6 @@ weblogic-eap7-eap7:
           - weblogic
           title: WebLogic specific Apache XML package
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.apache.xml.{*}
       where: {}
@@ -147,7 +144,6 @@ weblogic-eap7-eap7:
           - weblogic
           title: WebLogic TransactionManager usage
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.transaction.{classname}
       where:
@@ -166,22 +162,18 @@ weblogic-eap7-eap7:
           title: WebLogic TransactionManager usage of resume method
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: weblogic.transaction.TransactionManager.resume{*}
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: weblogic.transaction.TransactionManager.forceResume{*}
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: weblogic.transaction.ClientTransactionManager.resume{*}
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: weblogic.transaction.ClientTransactionManager.forceResume{*}
-          location: METHOD_CALL
       where: {}
     weblogic-eap7-06000:
       perform:
@@ -196,22 +188,18 @@ weblogic-eap7-eap7:
           title: WebLogic TransactionManager usage of suspend method
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: weblogic.transaction.TransactionManager.suspend{*}
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: weblogic.transaction.TransactionManager.forceSuspend{*}
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: weblogic.transaction.ClientTransactionManager.suspend{*}
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: weblogic.transaction.ClientTransactionManager.forceSuspend{*}
-          location: METHOD_CALL
       where: {}
     weblogic-eap7-07000:
       perform:
@@ -229,10 +217,9 @@ weblogic-eap7-eap7:
           - weblogic
           title: WebLogic TxHelper usage
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: weblogic.transaction.TxHelper
-        location: IMPORT
       where: {}
     weblogic-eap7-08000:
       perform:
@@ -250,10 +237,9 @@ weblogic-eap7-eap7:
             - weblogic
             title: WebLogic ClientTxHelper
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: weblogic.transaction.{classname}.getTransactionManager()
-        location: METHOD_CALL
       where:
         classname: (Client)*TxHelper
     weblogic-eap7-09000:
@@ -273,7 +259,6 @@ weblogic-eap7-eap7:
           - weblogic
           title: WebLogic proprietary Clob JDBC object (OracleThinClob)
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.jdbc.vendor.oracle.OracleThinClob
       where: {}
@@ -293,7 +278,6 @@ weblogic-eap7-eap7:
           - weblogic
           title: WebLogic JDBC code
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.jdbc.vendor.oracle.OracleThinClob.getCharacterOutputStream()
       where: {}
@@ -316,10 +300,9 @@ weblogic-eap7-eap7:
           - weblogic
           title: WebLogic proprietary logger (NonCatalogLogger)
       when:
-        annotation-types: []
         javaclass:
+          location: CONSTRUCTOR_CALL
           references: weblogic.i18n.logging.NonCatalogLogger{*}
-        location: CONSTRUCTOR_CALL
       where: {}
     weblogic-eap7-12000:
       perform:

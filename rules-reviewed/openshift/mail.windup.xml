@@ -39,16 +39,12 @@ mail:
           title: Java Mail API
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: javax.mail.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: com.sun.mail.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.simplejavamail.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.apache.commons.mail.{*}
       where: {}

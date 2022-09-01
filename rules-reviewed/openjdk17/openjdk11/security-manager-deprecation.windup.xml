@@ -24,7 +24,6 @@ security-manager-deprecation:
           tags: []
           title: The java.security.{class-name} class has been deprecated
       when:
-        annotation-types: []
         javaclass:
           references: java.security.{class-name}
       where:
@@ -42,7 +41,6 @@ security-manager-deprecation:
           tags: []
           title: The {fqcn} class has been deprecated
       when:
-        annotation-types: []
         javaclass:
           references: '{fqcn}'
       where:
@@ -60,7 +58,6 @@ security-manager-deprecation:
           tags: []
           title: The java.lang.System.{method-name} method has been deprecated
       when:
-        annotation-types: []
         javaclass:
           references: java.lang.System.{method-name}({*})
       where:
@@ -78,7 +75,6 @@ security-manager-deprecation:
           tags: []
           title: java.lang.Thread.checkAccess method has been deprecated
       when:
-        annotation-types: []
         javaclass:
           references: java.lang.Thread.checkAccess({*})
       where: {}
@@ -95,7 +91,6 @@ security-manager-deprecation:
           tags: []
           title: java.lang.ThreadGroup.checkAccess method has been deprecated
       when:
-        annotation-types: []
         javaclass:
           references: java.lang.ThreadGroup.checkAccess({*})
       where: {}
@@ -112,7 +107,6 @@ security-manager-deprecation:
           tags: []
           title: java.util.logging.LogManager.checkAccess method has been deprecated
       when:
-        annotation-types: []
         javaclass:
           references: java.util.logging.LogManager.checkAccess({*})
       where: {}
@@ -130,7 +124,6 @@ security-manager-deprecation:
           title: The java.util.concurrent.Executors.{method-names} method has been
             deprecated
       when:
-        annotation-types: []
         javaclass:
           references: java.util.concurrent.Executors.{method-names}({*})
       where:
@@ -148,7 +141,6 @@ security-manager-deprecation:
           tags: []
           title: javax.security.auth.Subject.{meth-name} method has been deprecated
       when:
-        annotation-types: []
         javaclass:
           references: javax.security.auth.Subject.{meth-name}({*})
       where:

@@ -31,16 +31,13 @@ java-rpc:
           title: Java API for XML-based RPC (JAX-RPC)
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             as: default
             references: javax.xml.rpc{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             as: default
             references: org.apache.xmlrpc{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             as: default
             references: redstone.xmlrpc{*}
       where: {}

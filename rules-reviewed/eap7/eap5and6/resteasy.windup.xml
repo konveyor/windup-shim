@@ -35,7 +35,6 @@ resteasy-eap5and6to7:
           - resteasy
           title: Deprecated class SimpleServerCache in RESTEasy 3
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.resteasy.plugins.cache.server.SimpleServerCache
       where: {}

@@ -32,15 +32,13 @@ jax-ws:
               title: JAX-WS 2.2 Requirements for WebServiceRef
           when:
             not:
-              annotation-types: []
               javaclass:
+                location: METHOD
                 references: '{*}(java.net.URL, javax.xml.namespace.QName, javax.xml.ws.WebServiceFeature{*})'
-              location: METHOD
       when:
-        annotation-types: []
         javaclass:
           as: step2
           from: step1
+          location: METHOD
           references: '{*}(java.net.URL, javax.xml.namespace.QName)'
-        location: METHOD
       where: {}

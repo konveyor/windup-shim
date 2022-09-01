@@ -26,13 +26,10 @@ applet-api-deprecation:
           title: The Java Applet API has been deprecated
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.applet.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.beans.AppletInitializer
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: javax.swing.JApplet
       where: {}

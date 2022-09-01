@@ -79,10 +79,9 @@ jboss-eap5and6to7-java:
             - jpa
             title: Entity EJB
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: javax.ejb.EntityBean
-        location: INHERITANCE
       where: {}
     jboss-eap5and6to7-java-04000:
       perform:
@@ -103,14 +102,12 @@ jboss-eap5and6to7-java:
             title: JBoss Web Valve
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPLEMENTS_TYPE
             references: org.apache.catalina.Valve
-          location: IMPLEMENTS_TYPE
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: INHERITANCE
             references: org.apache.catalina.valves.ValveBase
-          location: INHERITANCE
       where: {}
     jboss-eap5and6to7-java-05000:
       perform:
@@ -130,10 +127,9 @@ jboss-eap5and6to7-java:
             title: JSR 88 deployment plan not supported
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: javax.enterprise.deploy{*}
-          location: IMPORT
       where: {}
     jboss-eap5and6to7-java-06000:
       perform:
@@ -151,10 +147,9 @@ jboss-eap5and6to7-java:
             - singleton
             title: Outdated HA Singleton
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.jboss.as.clustering.singleton.SingletonService
-        location: IMPORT
       where: {}
     jboss-eap5and6to7-java-07000:
       perform:
@@ -176,10 +171,9 @@ jboss-eap5and6to7-java:
           - ejb
           title: Stateful Session EJB Clustering changes in EAP 7
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.jboss.ejb3.annotation.Clustered
-        location: IMPORT
       where: {}
     jboss-eap5and6to7-java-08000:
       perform:
@@ -200,7 +194,6 @@ jboss-eap5and6to7-java:
           - jms
           title: HornetQ was removed in EAP 7
       when:
-        annotation-types: []
         javaclass:
           references: org.hornetq.{*}
       where: {}
@@ -220,9 +213,8 @@ jboss-eap5and6to7-java:
           - logging
           title: JBoss deprecated logging annotations
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.logging.{annotation}
-        location: ANNOTATION
       where:
         annotation: (Cause|Field|FormatWith|LoggingClass|LogMessage|Message|MessageBundle|MessageLogger|Param|Property)

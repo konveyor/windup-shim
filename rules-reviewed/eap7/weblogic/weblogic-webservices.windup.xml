@@ -30,10 +30,9 @@ weblogic-webservices-eap7:
           - weblogic
           title: WebLogic proprietary web service annotation @Transactional
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: weblogic.jws.Transactional
-        location: ANNOTATION
       where: {}
     weblogic-webservices-eap7-01000:
       perform:
@@ -55,10 +54,9 @@ weblogic-webservices-eap7:
           - weblogic
           title: WebLogic proprietary web service implementation class
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: weblogic.wsee.jaxrpc.ServiceImpl
-        location: INHERITANCE
       where: {}
     weblogic-webservices-eap7-02000:
       perform:
@@ -79,7 +77,6 @@ weblogic-webservices-eap7:
           - weblogic
           title: WebLogic asynchronous web service client
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.wsee.async.AsyncPreCallContext
       where: {}
@@ -105,10 +102,9 @@ weblogic-webservices-eap7:
           - weblogic
           title: WebLogic proprietary web service authentication
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: weblogic.wsee.connection.transport.http.HttpTransportInfo.setUsername({*})
-        location: METHOD_CALL
       where: {}
     weblogic-webservices-eap7-04000:
       perform:
@@ -128,7 +124,6 @@ weblogic-webservices-eap7:
           - weblogic
           title: WebLogic proprietary web services API - weblogic.wsee.context.WebServiceContext
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.wsee.context.WebServiceContext
       where: {}
@@ -146,7 +141,6 @@ weblogic-webservices-eap7:
           - weblogic
           title: WebLogic proprietary web services API - ContextNotFoundException
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.wsee.context.ContextNotFoundException
       where: {}
@@ -175,10 +169,8 @@ weblogic-webservices-eap7:
           title: WebLogic proprietary web services generated client classes
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: weblogic.wsee.tools.clientgen.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: weblogic.webservice.{*}
       where: {}

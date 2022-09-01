@@ -928,10 +928,9 @@ embedded-framework:
           level: INFORMATIONAL
           tag: Spring Scheduled
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.springframework.scheduling.annotation.Scheduled
-        location: ANNOTATION
       where: {}
     embedded-framework-08800:
       perform:

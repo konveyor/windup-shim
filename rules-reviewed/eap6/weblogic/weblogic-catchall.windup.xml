@@ -31,7 +31,6 @@ weblogic-catchall:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: '{prefix}{remainder}'
       where:
@@ -56,7 +55,6 @@ weblogic-catchall:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: oracle.sql.{remainder}
       where:
@@ -79,7 +77,6 @@ weblogic-catchall:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: com.tangosol{subpackage}.{type}
       where:
@@ -103,7 +100,6 @@ weblogic-catchall:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: '{com}oracle{subpackage}.{type}'
       where:
@@ -128,7 +124,6 @@ weblogic-catchall:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: oracle.jdbc.{remainder}
       where:
@@ -137,16 +132,12 @@ weblogic-catchall:
       perform: {}
       when:
         and:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: com.weblogic.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: com.bea.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: bea.{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: weblogic.{*}
       where: {}

@@ -29,8 +29,7 @@ liberty-websphere-unavailable-technologies:
           title: The Activity Session service is unavailable
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{ActivitySessionRule_0_packages}'
         - filecontent:
             filename: '{*}.java'
@@ -90,7 +89,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Application Profiling APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.websphere.appprofile{*}
       where: {}
@@ -122,7 +120,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Asynchronous Beans API was superseded by a newer implementation
       when:
-        annotation-types: []
         javaclass:
           references: '{AsyncBeansSchedulerRule_0_packages}'
       where:
@@ -150,8 +147,7 @@ liberty-websphere-unavailable-technologies:
           title: The WebSphere Batch API and SPI are unavailable
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{BatchFeaturePackRule_0_packages}'
         - xmlfile:
             in: '{BatchFeaturePackRule_1_filesFilter}'
@@ -263,8 +259,7 @@ liberty-websphere-unavailable-technologies:
           title: Web Services Business Activity (WS-BA) is unavailable
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: com.ibm.websphere.wsba{*}
         - filecontent:
             filename: '{*}.java'
@@ -313,7 +308,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: Review use of the dynamic cache service
       when:
-        annotation-types: []
         javaclass:
           references: '{DynamicCacheRule_0_packages}'
       where:
@@ -335,8 +329,7 @@ liberty-websphere-unavailable-technologies:
           title: The WebSphere EJB Query API is unavailable
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{DynamicQueryRule_0_packages}'
         - xmlfile:
             in: '{DynamicQueryRule_1_filesFilter}'
@@ -361,7 +354,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere i18n APIs and SPIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{I18nRule_0_packages}'
       where:
@@ -399,10 +391,9 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: Review use of the javax.activation.DataHandler object
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: javax.activation.DataHandler.writeTo(java.io.OutputStream)
-        location: METHOD_CALL
       where: {}
     SOAPOverJMSRule:
       perform:
@@ -425,13 +416,12 @@ liberty-websphere-unavailable-technologies:
           title: SOAP over Java Message Service (JMS) is unavailable
       when:
         or:
-        - annotation-literal:
-            name: value
-            pattern: '{SOAPOverJMSRule_annotation_fields}'
-          annotation-types: []
-          javaclass:
+        - javaclass:
+            annotation-literal:
+              name: value
+              pattern: '{SOAPOverJMSRule_annotation_fields}'
+            location: ANNOTATION
             references: javax.xml.ws.BindingType
-          location: ANNOTATION
         - xmlfile:
             in: '{SOAPOverJMSRule_1_filesFilter}'
             matches: //*[local-name()='binding']/@transport[windup:matches(self::node(),
@@ -465,18 +455,15 @@ liberty-websphere-unavailable-technologies:
           title: Getting the server name on Liberty
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: com.ibm.websphere.management.AdminService.getProcessName({*})
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: com.ibm.ejs.ras.RasHelper.getServerName({*})
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: com.ibm.websphere.runtime.ServerName.{ServerName_2_methodNames}({*})
-          location: METHOD_CALL
       where:
         ServerName_2_methodNames: (getDisplayName|getFullName)
     StartupBeanRule:
@@ -508,8 +495,7 @@ liberty-websphere-unavailable-technologies:
             implementation
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{StartupBeanRule_0_packages}'
         - xmlfile:
             in: '{StartupBeanRule_1_filesFilter}'
@@ -579,16 +565,14 @@ liberty-websphere-unavailable-technologies:
           title: Some WebSphere z/OS Optimized Local Adapters APIs are unavailable
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WOLAMissingClassesRule_0_classes}'
-        - annotation-literal:
-            name: value
-            pattern: '{WOLAMissingClassesRule_annotation_fields}'
-          annotation-types: []
-          javaclass:
+        - javaclass:
+            annotation-literal:
+              name: value
+              pattern: '{WOLAMissingClassesRule_annotation_fields}'
+            location: ANNOTATION
             references: javax.ejb.RemoteHome
-          location: ANNOTATION
         - xmlfile:
             in: '{WOLAMissingClassesRule_2_filesFilter}'
             matches: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
@@ -621,7 +605,6 @@ liberty-websphere-unavailable-technologies:
           title: Review differences in the WebSphere z/OS Optimized Local Adapters
             API
       when:
-        annotation-types: []
         javaclass:
           references: '{WOLARule_0_packages}'
       where:
@@ -643,7 +626,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: Web Services Notification (WS-Notification) is unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.websphere.sib.wsn{*}
       where: {}
@@ -667,8 +649,7 @@ liberty-websphere-unavailable-technologies:
           title: The WebSphere Scheduler API was superseded by a newer implementation
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereSchedulerRule_0_packages}'
         - xmlfile:
             in: '{WebSphereSchedulerRule_1_filesFilter}'
@@ -693,7 +674,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Service Data Objects (SDO) APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{WebSphereSdoRule_0_packages}'
       where:
@@ -733,11 +713,9 @@ liberty-websphere-unavailable-technologies:
           title: The WebSphere Servlet API was superseded by a newer implementation
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereServletRule_0_packages}'
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereServletRule_1_classes}'
       where:
         WebSphereServletRule_0_packages: (com.ibm.websphere.servlet.request\.[^.]+|com.ibm.websphere.webcontainer.async\.[^.]+)
@@ -757,7 +735,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Application Client APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{WebSphereUnavailableAPIsAppClient_0_packages}'
       where:
@@ -777,7 +754,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Connector Architecture APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{WebSphereUnavailableAPIsConnectorArchitecture_0_packages}'
       where:
@@ -798,7 +774,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Enterprise JavaBeans APIs and SPIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{WebSphereUnavailableAPIsEnterpriseJavaBeans_0_packages}'
       where:
@@ -820,11 +795,9 @@ liberty-websphere-unavailable-technologies:
           title: Some WebSphere Exception APIs and SPIs are unavailable
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereUnavailableAPIsExceptions_0_classes}'
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereUnavailableAPIsExceptions_1_packages}'
       where:
         WebSphereUnavailableAPIsExceptions_0_classes: (com.ibm.websphere.exception.DistributedEJBCreateException|com.ibm.websphere.exception.DistributedEJBRemoveException)
@@ -844,7 +817,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: Some WebSphere Extension Helper SPIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.ws.extensionhelper{*}
       where: {}
@@ -863,7 +835,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The Extension Registry APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.workplace.extension{*}
       where: {}
@@ -882,7 +853,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The Integrated Solutions Console (ISC) APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.isc.api.platform{*}
       where: {}
@@ -908,11 +878,9 @@ liberty-websphere-unavailable-technologies:
           title: The WebSphere logging and RAS APIs and SPIs are unavailable
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereUnavailableAPIsLoggingAndRAS_0_packages}'
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereUnavailableAPIsLoggingAndRAS_1_classes}'
       where:
         WebSphereUnavailableAPIsLoggingAndRAS_0_packages: (com.ibm.ejs.ras*\.[^.]+|com.ibm.ffdc*\.[^.]+|com.ibm.ras*\.[^.]+|com.ibm.websphere.als*\.[^.]+|com.ibm.websphere.logging.cbe*\.[^.]+|com.ibm.websphere.ras*\.[^.]+|com.ibm.wsspi.rasdiag*\.[^.]+|com.ibm.wsspi.xct*\.[^.]+)
@@ -935,7 +903,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Management APIs and SPIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{WebSphereUnavailableAPIsManagement_0_packages}'
       where:
@@ -955,7 +922,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere ORB Extensions APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{WebSphereUnavailableAPIsORB_0_packages}'
       where:
@@ -978,7 +944,6 @@ liberty-websphere-unavailable-technologies:
           title: The WebSphere Performance Monitoring Infrastructure (PMI) APIs and
             SPIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{WebSphereUnavailableAPIsPMI_0_packages}'
       where:
@@ -998,7 +963,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Portal APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.portal{*}
       where: {}
@@ -1018,7 +982,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Resource Adapter APIs and SPIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{WebSphereUnavailableAPIsResourceAdapter_0_packages}'
       where:
@@ -1038,7 +1001,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Service Integration Bus (SIB) APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.websphere.sib{*}
       where: {}
@@ -1057,7 +1019,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere SMF recording APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.websphere.smf{*}
       where: {}
@@ -1116,11 +1077,9 @@ liberty-websphere-unavailable-technologies:
           title: Some WebSphere Security APIs and SPIs are unavailable
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereUnavailableAPIsSecurity_0_packages}'
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereUnavailableAPIsSecurity_1_classes}'
       where:
         WebSphereUnavailableAPIsSecurity_0_packages: (com.ibm.websphere.ssl.protocol\.[^.]+|com.ibm.IExtendedSecurity*\.[^.]+|com.ibm.websphere.security.oidc.util\.[^.]+|com.ibm.wsspi.security.audit\.[^.]+|com.ibm.wsspi.security.authorization\.[^.]+|com.ibm.wsspi.security.context\.[^.]+|com.ibm.wsspi.security.crypto.aes\.[^.]+|com.ibm.wsspi.security.csiv2\.[^.]+|com.ibm.wsspi.security.ltpa\.[^.]+|com.ibm.wsspi.security.policy\.[^.]+|com.ibm.wsspi.security.securitydomain\.[^.]+|com.ibm.wsspi.security.spnego\.[^.]+|com.ibm.wsspi.security.web.saml\.[^.]+)
@@ -1140,7 +1099,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The Tivoli Performance Viewer SPIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.ws.tpv{*}
       where: {}
@@ -1160,7 +1118,6 @@ liberty-websphere-unavailable-technologies:
           title: The Universal Description, Discovery and Integration (UDDI) APIs
             are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.uddi{*}
       where: {}
@@ -1179,7 +1136,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Workload Manager APIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{WebSphereUnavailableAPIsWLM_0_packages}'
       where:
@@ -1213,11 +1169,9 @@ liberty-websphere-unavailable-technologies:
             are unavailable
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereUnavailableAPIsWSADIE_0_packages}'
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: '{WebSphereUnavailableAPIsWSADIE_1_classes}'
       where:
         WebSphereUnavailableAPIsWSADIE_0_packages: (com.ibm.etools.ctc.plugin.binding.connector*\.[^.]+|com.ibm.etools.ctc.physicalrep*\.[^.]+|com.ibm.etools.ctc.wsdl.extensions.physicalrep*\.[^.]+|com.ibm.etools.logging*\.[^.]+|com.ibm.etools.xsltypeconverter*\.[^.]+|com.ibm.jca.importservice*\.[^.]+|com.ibm.wsdl.extensions.physicalrep*\.[^.]+|com.ibm.wsdl.extensions.transformer*\.[^.]+|com.ibm.wsif.format.jca*\.[^.]+|com.ibm.wsif.format.literal*\.[^.]+|com.ibm.wsif.format.transformer*\.[^.]+|com.ibm.wsif.jca*\.[^.]+|com.ibm.wsif.providers.ejb.proxy*\.[^.]+|com.ibm.wsif.providers.transformer*\.[^.]+|com.ibm.wsif.providers.transformerrt*\.[^.]+|org.xmlsoap.schemas.wsdl.wsadie.messages*\.[^.]+)
@@ -1241,10 +1195,9 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: Some WSSecurityHelper methods are unavailable
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.ibm.websphere.security.WSSecurityHelper.{WebSphereUnavailableAPIsWSSecurityHelper_0_methodNames}({*})
-        location: METHOD_CALL
       where:
         WebSphereUnavailableAPIsWSSecurityHelper_0_methodNames: (getFirstCaller|getFirstServer|getCallerList|getServerList|getPropagationAttributes|addPropagationAttribute|convertCookieStringToBytes|revokeSSOCookiesForPortlets)
     WebSphereUnavailableSPIsRRD:
@@ -1262,7 +1215,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Remote Request Dispatcher (RRD) SPIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.wsspi.rrd{*}
       where: {}
@@ -1315,10 +1267,9 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: Do not use the WSSecurityHelper revokeSSOCookies method
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.ibm.websphere.security.WSSecurityHelper.revokeSSOCookies({*})
-        location: METHOD_CALL
       where: {}
     WebSphereUnavailableSSOTokenMethod:
       perform:
@@ -1370,10 +1321,9 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: Do not use the WSSecurityHelper getLTPACookieFromSSOToken method
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: com.ibm.websphere.security.WSSecurityHelper.getLTPACookieFromSSOToken({*})
-        location: METHOD_CALL
       where: {}
     WebSphereWebServicesGeneratedClassesRule:
       perform:
@@ -1402,7 +1352,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: Application contains WSDL2Java generated classes
       when:
-        annotation-types: []
         javaclass:
           in: '{WebSphereWebServicesGeneratedClassesRule_0_files}'
           references: '{WebSphereWebServicesGeneratedClassesRule_0_packages}'
@@ -1430,7 +1379,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere web services APIs and SPIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           in: '{WebSphereWebServicesRule_0_files}'
           references: '{WebSphereWebServicesRule_0_packages}'
@@ -1452,7 +1400,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The WebSphere Work Area APIs and SPIs are unavailable
       when:
-        annotation-types: []
         javaclass:
           references: '{WorkAreaRule_0_packages}'
       where:
@@ -1473,7 +1420,6 @@ liberty-websphere-unavailable-technologies:
           tags: []
           title: The use of the WebSphere XPath, XQuery, and XSLT API requires configuration
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.xml.xapi{*}
       where: {}

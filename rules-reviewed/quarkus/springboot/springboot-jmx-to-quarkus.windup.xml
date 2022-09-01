@@ -41,8 +41,7 @@ springboot-jmx-to-quarkus:
           tags: []
           title: Spring JMX is not supported by Quarkus with GraalVM on a Native Image
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.springframework.jmx.{*}
-        location: ANNOTATION
       where: {}

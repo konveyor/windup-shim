@@ -29,8 +29,7 @@ java-dsl-changes:
           tags: []
           title: '`hystrix()` has been renamed.'
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: '{*}.hystrix()'
-        location: METHOD_CALL
       where: {}

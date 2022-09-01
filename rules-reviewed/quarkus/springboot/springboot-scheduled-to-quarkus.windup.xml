@@ -27,8 +27,7 @@ springboot-scheduled-to-quarkus:
           title: Replace the SpringBoot context artifact with Quarkus 'spring-scheduled'
             extension
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.springframework.scheduling.annotation.Scheduled
-        location: ANNOTATION
       where: {}

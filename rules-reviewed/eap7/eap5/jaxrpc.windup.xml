@@ -28,8 +28,7 @@ jaxrpc:
           - soap
           title: JAX-RPC Generic Handler not supported
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: javax.xml.rpc.handler.GenericHandler
-        location: INHERITANCE
       where: {}

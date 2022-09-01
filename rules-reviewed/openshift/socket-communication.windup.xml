@@ -35,17 +35,13 @@ socket-communication:
             title: Socket communication
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.net.{socketclass}{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.net.ServerSocket{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.nio.channels.AsynchronousServerSocketChannel{*}
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: java.nio.channels.ServerSocketChannel{*}
       where:
         socketclass: (Socket|MulticastSocket|DatagramSocket|InetSocketAddress)
@@ -68,7 +64,6 @@ socket-communication:
             - socket
             title: Java NIO channel
       when:
-        annotation-types: []
         javaclass:
           references: java.nio.channels.{niochannelclass}{*}
       where:

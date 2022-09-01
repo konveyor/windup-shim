@@ -25,10 +25,9 @@ clustering:
           tag: Clustering EJB
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: org.jboss.ejb3.annotation.Clustered
-          location: IMPORT
         - xmlfile:
             matches: /*[local-name()='ejb-jar']/*[local-name()='assembly-descriptor']/*[local-name()='clustering']/*[local-name()='clustered']
         - xmlfile:

@@ -28,7 +28,6 @@ weblogic-jms-eap7:
           - weblogic
           title: Oracle JMS
       when:
-        annotation-types: []
         javaclass:
           references: oracle.jms.{*}
       where: {}
@@ -49,7 +48,6 @@ weblogic-jms-eap7:
           - weblogic
           title: Oracle JMS Session
       when:
-        annotation-types: []
         javaclass:
           references: oracle.jms.AQjmsSession
       where: {}
@@ -69,7 +67,6 @@ weblogic-jms-eap7:
           - weblogic
           title: Oracle JMS Queue Browser
       when:
-        annotation-types: []
         javaclass:
           references: oracle.jms.AQjmsQueueBrowser
       where: {}
@@ -88,7 +85,6 @@ weblogic-jms-eap7:
           - weblogic
           title: Oracle JMS Producer
       when:
-        annotation-types: []
         javaclass:
           references: oracle.jms.AQjmsProducer
       where: {}
@@ -108,7 +104,6 @@ weblogic-jms-eap7:
           - weblogic
           title: Oracle JMS Consumer
       when:
-        annotation-types: []
         javaclass:
           references: oracle.jms.AQjmsConsumer
       where: {}
@@ -128,7 +123,6 @@ weblogic-jms-eap7:
           - weblogic
           title: Oracle JMS Consumer
       when:
-        annotation-types: []
         javaclass:
           references: oracle.jms.AQjmsConnection
       where: {}
@@ -148,7 +142,6 @@ weblogic-jms-eap7:
           - weblogic
           title: Oracle JMS {type}Message
       when:
-        annotation-types: []
         javaclass:
           references: oracle.jms.AQjms{type}Message
       where:
@@ -169,7 +162,6 @@ weblogic-jms-eap7:
           - weblogic
           title: Oracle JMS Destination
       when:
-        annotation-types: []
         javaclass:
           references: oracle.jms.AQjmsDestination
       where: {}
@@ -189,7 +181,6 @@ weblogic-jms-eap7:
           - weblogic
           title: Oracle JMS {type} Connection Factory
       when:
-        annotation-types: []
         javaclass:
           references: oracle.jms.AQjms{type}ConnectionFactory
       where:

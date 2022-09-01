@@ -30,8 +30,7 @@ springboot-annotations-to-quarkus:
           tags: []
           title: Remove the SpringBoot @SpringBootApplication annotation
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.springframework.boot.autoconfigure.SpringBootApplication
-        location: ANNOTATION
       where: {}

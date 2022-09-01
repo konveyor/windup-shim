@@ -43,8 +43,7 @@ springboot-integration-to-quarkus:
           tags: []
           title: SpringBoot IntegrationFlow class usage is not supported.
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.springframework.integration.dsl.IntegrationFlow
-        location: IMPORT
       where: {}

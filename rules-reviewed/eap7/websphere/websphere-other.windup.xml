@@ -33,10 +33,9 @@ websphere-other-eap7:
           - websphere
           title: WebSphere Work Manager
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: com.ibm.websphere.asynchbeans.Work
-        location: INHERITANCE
       where: {}
     websphere-other-eap7-02000:
       perform:
@@ -57,7 +56,6 @@ websphere-other-eap7:
           - websphere
           title: WebSphere Startup Service
       when:
-        annotation-types: []
         javaclass:
           references: com.ibm.websphere.startupservice.{*}StartUp{*}
       where: {}

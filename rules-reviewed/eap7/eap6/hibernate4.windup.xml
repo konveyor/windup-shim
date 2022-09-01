@@ -30,10 +30,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addFile()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addFile{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00002:
       perform:
@@ -51,10 +50,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.add()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.add({*})
-        location: METHOD_CALL
       where: {}
     hibernate4-00003:
       perform:
@@ -72,10 +70,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addXML()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addXML{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00004:
       perform:
@@ -92,10 +89,9 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addCacheableFile()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addCacheableFile{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00005:
       perform:
@@ -113,10 +109,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addURL()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addURL{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00006:
       perform:
@@ -134,10 +129,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addInputStream()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addInputStream{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00007:
       perform:
@@ -155,10 +149,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addResource()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addResource{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00008:
       perform:
@@ -176,10 +169,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addClass()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addClass{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00009:
       perform:
@@ -197,10 +189,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addAnnotatedClass()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addAnnotatedClass{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00010:
       perform:
@@ -218,10 +209,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addPackage()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addPackage{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00011:
       perform:
@@ -239,10 +229,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addJar()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addJar{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00012:
       perform:
@@ -260,10 +249,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addDirectory()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addDirectory{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00013:
       perform:
@@ -281,10 +269,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.registerTypeContributor()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.registerTypeContributor{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00014:
       perform:
@@ -302,10 +289,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.registerTypeOverride()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.registerTypeOverride{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00015:
       perform:
@@ -324,10 +310,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.setProperty()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.setProperty{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00016:
       perform:
@@ -345,10 +330,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.setProperties()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.setProperties{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00017:
       perform:
@@ -367,10 +351,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.addProperties()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.addProperties{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00018:
       perform:
@@ -397,10 +380,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.setNamingStrategy()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.setNamingStrategy{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00021:
       perform:
@@ -419,10 +401,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.configure()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.{configure}
-        location: METHOD_CALL
       where:
         configure: (configure\([^)]*\))
     hibernate4-00022:
@@ -442,10 +423,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.setInterceptor()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.setInterceptor{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00023:
       perform:
@@ -464,10 +444,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.setEntityNotFoundDelegate()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.setEntityNotFoundDelegate{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00024:
       perform:
@@ -486,10 +465,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.setSessionFactoryObserver()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.setSessionFactoryObserver{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00025:
       perform:
@@ -508,10 +486,9 @@ hibernate4:
           - configuration
           title: Hibernate 5 - Deprecated method org.hibernate.cfg.Configuration.setCurrentTenantIdentifierResolver()
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.cfg.Configuration.setCurrentTenantIdentifierResolver{*}
-        location: METHOD_CALL
       where: {}
     hibernate4-00026:
       perform:
@@ -528,7 +505,6 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Moved method org.hibernate.metamodel.spi.{type}
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.metamodel.spi.{type}
       where:
@@ -549,7 +525,6 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Removed class org.hibernate.cfg.AnnotationConfiguration
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.cfg.AnnotationConfiguration
       where: {}
@@ -568,7 +543,6 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Removed deprecated class org.hibernate.id.{idclass}
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.id.{idclass}
       where:
@@ -587,7 +561,6 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Moved class org.hibernate.hql.spi.{type}
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.hql.spi.{type}
       where:
@@ -606,7 +579,6 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Moved class org.hibernate.hql.spi.PersistentTableBulkIdStrategy
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.hql.spi.PersistentTableBulkIdStrategy
       where: {}
@@ -625,7 +597,6 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Replaced class org.hibernate.hql.spi.TemporaryTableBulkIdStrategy
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.hql.spi.TemporaryTableBulkIdStrategy
       where: {}
@@ -647,10 +618,9 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Changed interface org.hibernate.integrator.spi.Integrator
       when:
-        annotation-types: []
         javaclass:
+          location: IMPLEMENTS_TYPE
           references: org.hibernate.integrator.spi.Integrator
-        location: IMPLEMENTS_TYPE
       where: {}
     hibernate4-00034:
       perform:
@@ -670,7 +640,6 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Changed class org.hibernate.engine.jdbc.spi.JdbcServices
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.engine.jdbc.spi.JdbcServices
       where: {}
@@ -690,10 +659,9 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Changed signature org.hibernate.id.Configurable
       when:
-        annotation-types: []
         javaclass:
+          location: IMPLEMENTS_TYPE
           references: org.hibernate.id.Configurable
-        location: IMPLEMENTS_TYPE
       where: {}
     hibernate4-00036:
       perform:
@@ -717,10 +685,9 @@ hibernate4:
           title: Hibernate 5 - PersistentIdentifierGenerator implementations need
             to implement ExportableProducer#registerExportables
       when:
-        annotation-types: []
         javaclass:
+          location: IMPLEMENTS_TYPE
           references: org.hibernate.id.PersistentIdentifierGenerator
-        location: IMPLEMENTS_TYPE
       where: {}
     hibernate4-00037:
       perform:
@@ -738,7 +705,6 @@ hibernate4:
           - hibernate
           title: Hibernate 5 - Removed class org.hibernate.envers.configuration.AuditConfiguration
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.envers.configuration.AuditConfiguration
       where: {}
@@ -769,34 +735,27 @@ hibernate4:
             org.hibernate.type.descriptor.sql.SqlTypeDescriptor
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: INHERITANCE
             references: org.hibernate.spatial.dialect.{spatial}
-          location: INHERITANCE
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: INHERITANCE
             references: org.hibernate.spatial.JTSGeometryJavaTypeDescriptor
-          location: INHERITANCE
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: INHERITANCE
             references: org.hibernate.spatial.GeolatteGeometryJavaTypeDescriptor
-          location: INHERITANCE
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: INHERITANCE
             references: org.hibernate.type.descriptor.java.{javatype}
-          location: INHERITANCE
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: INHERITANCE
             references: org.hibernate.type.descriptor.sql.{sqltype}
-          location: INHERITANCE
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: INHERITANCE
             references: org.hibernate.type.descriptor.converter.AttributeConverterSqlTypeDescriptorAdapter
-          location: INHERITANCE
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: INHERITANCE
             references: org.hibernate.type.PostgresUUIDType.PostgresUUIDSqlTypeDescriptor
-          location: INHERITANCE
       where:
         javatype: (AbstractTypeDescriptor|BigDecimalTypeDescriptor|BigIntegerTypeDescriptor|BlobTypeDescriptor|BooleanTypeDescriptor|ByteArrayTypeDescriptor|ByteTypeDescriptor|CalendarDateTypeDescriptor|CalendarTimeTypeDescriptor|CalendarTypeDescriptor|CharacterArrayTypeDescriptor|CharacterTypeDescriptor|ClassTypeDescriptor|ClobTypeDescriptor|CurrencyTypeDescriptor|DateTypeDescriptor|DoubleTypeDescriptor|DurationJavaDescriptor|EnumJavaTypeDescriptor|FloatTypeDescriptor|InstantJavaDescriptor|IntegerTypeDescriptor|JavaTypeDescriptorRegistry.FallbackJavaTypeDescriptor|JdbcDateTypeDescriptor|JdbcTimestampTypeDescriptor|JdbcTimeTypeDescriptor|LocalDateTimeJavaDescriptor|LocalDateJavaDescriptor|LocaleTypeDescriptor|LocalTimeJavaDescriptor|LongTypeDescriptor|NClobTypeDescriptor|OffsetDateTimeJavaDescriptor|OffsetTimeJavaDescriptor|PrimitiveByteArrayTypeDescriptor|PrimitiveCharacterArrayTypeDescriptor|SerializableTypeDescriptor|ShortTypeDescriptor|StringTypeDescriptor|TimeZoneTypeDescriptor|UrlTypeDescriptor|UUIDTypeDescriptor|ZonedDateTimeJavaDescriptor)
         spatial: (mysql.MySQLGeometryTypeDescriptor | h2geodb.GeoDBGeometryTypeDescriptor
@@ -832,7 +791,6 @@ hibernate4:
             title: Hibernate 5 - Oracle12cDialect maps byte[] and Byte[] to BLOB
           over: mappings2
       when:
-        annotation-types: []
         filecontent:
           as: config_files
           filename: '{*}.{extension}'
@@ -840,8 +798,8 @@ hibernate4:
         javaclass:
           as: mappings2
           from: java_entities
+          location: RETURN_TYPE
           references: byte[]
-        location: RETURN_TYPE
       where:
         extension: (java|properties|xml)
     hibernate4-00040:
@@ -863,10 +821,9 @@ hibernate4:
             title: Hibernate 5.3 - Dialects not supporting Limit Offset
           over: dialects_used
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: '{param_classes_setfirstresult}.setFirstResult(int)'
-        location: METHOD_CALL
         xmlfile:
           as: dialects_used
           matches: //s:property[@name='hibernate.dialect' and windup:matches(@value,

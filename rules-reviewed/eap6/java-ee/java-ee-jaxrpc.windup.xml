@@ -31,9 +31,8 @@ java-ee-jaxrpc:
           - soap
           title: JAX-RPC Generic Handler
       when:
-        annotation-types: []
         javaclass:
           as: default
+          location: INHERITANCE
           references: javax.xml.rpc.handler.GenericHandler
-        location: INHERITANCE
       where: {}

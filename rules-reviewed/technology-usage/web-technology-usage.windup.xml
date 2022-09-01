@@ -56,10 +56,9 @@ technology-usage-web:
           - Web
           - Java EE
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: javax.websocket.server.ServerEndpoint
-        location: ANNOTATION
       where: {}
     technology-usage-web-01400:
       perform:
@@ -71,10 +70,9 @@ technology-usage-web:
           - Java EE
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: INHERITANCE
             references: java.applet.Applet
-          location: INHERITANCE
         - file:
             filename: '{*}applet{*}.jar'
       where: {}

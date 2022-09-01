@@ -28,7 +28,6 @@ removed-classes:
           tags: []
           title: The java.util.jar.{class-name} class has been removed
       when:
-        annotation-types: []
         javaclass:
           references: java.util.jar.{class-name}
       where:

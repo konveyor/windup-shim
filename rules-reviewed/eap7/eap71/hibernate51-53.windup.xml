@@ -28,10 +28,9 @@ hibernate51-53:
           - hibernate
           title: Hibernate 5.3 - SessionImplementor parameter changed to SharedSessionContractImplementor
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: '{methods_param}({*}org.hibernate.engine.spi.SessionImplementor{*})'
-        location: METHOD_CALL
       where:
         methods_param: (org.hibernate.usertype.UserVersionType.next|org.hibernate.type.VersionType.next|org.hibernate.type.SingleColumnType.set|org.hibernate.type.AbstractStandardBasicType.set|org.hibernate.type.Type.resolve|org.hibernate.usertype.UserVersionType.seed|org.hibernate.type.VersionType.seed|org.hibernate.collection.spi.PersistentCollection.setCurrentSession|org.hibernate.type.ProcedureParameterNamedBinder.nullSafeSet|org.hibernate.type.Type.nullSafeSet|org.hibernate.usertype.UserType.nullSafeSet|org.hibernate.usertype.CompositeUserType.nullSafeSet|org.hibernate.type.Type.beforeAssemble|org.hibernate.type.AbstractStandardBasicType.nullSafeGet|org.hibernate.type.Type.nullSafeGet|org.hibernate.type.SingleColumnType.nullSafeGet|org.hibernate.usertype.UserType.nullSafeGet|org.hibernate.usertype.CompositeUserType.nullSafeGet|org.hibernate.type.Type.replace|org.hibernate.usertype.CompositeUserType.replace|org.hibernate.usertype.UserCollectionType.replaceElements|org.hibernate.collection.spi.PersistentCollection.unsetSession|org.hibernate.type.Type.hydrate|org.hibernate.type.Type.semiResolve|org.hibernate.usertype.CompositeUserType.assemble|org.hibernate.type.Type.assemble|org.hibernate.usertype.UserCollectionType.instantiate|org.hibernate.usertype.CompositeUserType.disassemble|org.hibernate.type.Type.disassemble|org.hibernate.type.ProcedureParameterExtractionAware.extract|org.hibernate.type.Type.isDirty|org.hibernate.type.Type.isModified|org.hibernate.type.SingleColumnType.get|org.hibernate.type.AbstractStandardBasicType.get|org.hibernate.usertype.UserCollectionType.wrap)
     hibernate51-53-00100:
@@ -76,10 +75,9 @@ hibernate51-53:
           - hibernate
           title: Hibernate 5.3 - Exception Handling
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.hibernate.{className}
-        location: IMPORT
       where:
         className: (boot.archive.spi.ArchiveException|envers.exception.AuditException|jdbc.BatchFailedException|cache.CacheException|CallbackException
           |boot.registry.classloading.spi.ClassLoadingException|tool.schema.spi.CommandAcceptanceException|bytecode.enhance.spi.EnhancementException
@@ -120,10 +118,9 @@ hibernate51-53:
           title: Hibernate 5.3 - SessionFactoryImplementor.getQueryCache() method
             removed
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.engine.spi.SessionFactoryImplementor.getQueryCache()
-        location: METHOD_CALL
       where: {}
     hibernate51-53-00401:
       perform:
@@ -147,10 +144,9 @@ hibernate51-53:
           title: Hibernate 5.3 - SessionFactoryImplementor.getQueryCache(String regionName)
             method removed
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.engine.spi.SessionFactoryImplementor.getQueryCache({*}String{*})
-        location: METHOD_CALL
       where: {}
     hibernate51-53-00402:
       perform:
@@ -174,10 +170,9 @@ hibernate51-53:
           title: Hibernate 5.3 - SessionFactoryImplementor.getUpdateTimestampsCache()
             method removed
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.engine.spi.SessionFactoryImplementor.getUpdateTimestampsCache()
-        location: METHOD_CALL
       where: {}
     hibernate51-53-00403:
       perform:
@@ -201,10 +196,9 @@ hibernate51-53:
           title: Hibernate 5.3 - SessionFactoryImplementor.getSecondLevelCacheRegion(String
             regionName) method removed
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.engine.spi.SessionFactoryImplementor.getSecondLevelCacheRegion({*}String{*})
-        location: METHOD_CALL
       where: {}
     hibernate51-53-00404:
       perform:
@@ -227,10 +221,9 @@ hibernate51-53:
           title: Hibernate 5.3 - SessionFactoryImplementor.getSecondLevelCacheRegionAccessStrategy(String
             regionName) method removed
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.engine.spi.SessionFactoryImplementor.getSecondLevelCacheRegionAccessStrategy({*}String{*})
-        location: METHOD_CALL
       where: {}
     hibernate51-53-00405:
       perform:
@@ -254,10 +247,9 @@ hibernate51-53:
           title: Hibernate 5.3 - SessionFactoryImplementor.getNaturalIdCacheRegion(String
             regionName) method removed
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.engine.spi.SessionFactoryImplementor.getNaturalIdCacheRegion({*}String{*})
-        location: METHOD_CALL
       where: {}
     hibernate51-53-00406:
       perform:
@@ -282,10 +274,9 @@ hibernate51-53:
           title: Hibernate 5.3 - SessionFactoryImplementor.getNaturalIdCacheRegionAccessStrategy(String
             regionName) method removed
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.engine.spi.SessionFactoryImplementor.getNaturalIdCacheRegionAccessStrategy({*}String{*})
-        location: METHOD_CALL
       where: {}
     hibernate51-53-00407:
       perform:
@@ -304,10 +295,9 @@ hibernate51-53:
           title: Hibernate 5.3 - SessionFactoryImplementor.getAllSecondLevelCacheRegions()
             method removed
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.engine.spi.SessionFactoryImplementor.getAllSecondLevelCacheRegions()
-        location: METHOD_CALL
       where: {}
     hibernate51-53-00500:
       perform:
@@ -327,10 +317,9 @@ hibernate51-53:
           - hibernate
           title: Hibernate 5.3 - RegionFactory usage
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.hibernate.{className}
-        location: IMPORT
       where:
         className: (cache.RegionFactory|cache.spi.RegionFactory|cache.spi.AbstractRegionFactory|testing.cache.CachingRegionFactory|cache.spi.support.RegionFactoryTemplate|cache.ehcache.EhCacheRegionFactory|cache.infinispan.InfinispanRegionFactory|cache.infinispan.JndiInfinispanRegionFactory|cache.internal.NoCachingRegionFactory|cache.ehcache.SingletonEhCacheRegionFactory)
     hibernate51-53-00600:
@@ -360,10 +349,9 @@ hibernate51-53:
           - hibernate
           title: Hibernate 5.3 - org.hibernate.cache.spi.QueryCacheFactory implementations
       when:
-        annotation-types: []
         javaclass:
+          location: IMPLEMENTS_TYPE
           references: org.hibernate.cache.spi.QueryCacheFactory
-        location: IMPLEMENTS_TYPE
       where: {}
     hibernate51-53-00700:
       perform:
@@ -392,10 +380,9 @@ hibernate51-53:
           title: 'Hibernate 5.3 - SecondLevelCacheStatistics.getEntries() and NaturalIdCacheStatistics.getEntries():
             deprecated methods'
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.stat.{interfaces}.getEntries()
-        location: METHOD_CALL
       where:
         interfaces: (SecondLevelCacheStatistics|NaturalIdCacheStatistics)
     hibernate51-53-00701:
@@ -426,15 +413,13 @@ hibernate51-53:
               title: Hibernate 5.3 - NaturalIdCacheStatistics.getEntries() deprecated
                 method
           when:
-            annotation-types: []
             javaclass:
+              location: IMPLEMENTS_TYPE
               references: org.hibernate.stat.NaturalIdCacheStatistics
-            location: IMPLEMENTS_TYPE
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD
           references: '{*}.getEntries()'
-        location: METHOD
       where: {}
     hibernate51-53-00702:
       perform:
@@ -464,15 +449,13 @@ hibernate51-53:
               title: Hibernate 5.3 - SecondLevelCacheStatistics.getEntries() deprecated
                 method
           when:
-            annotation-types: []
             javaclass:
+              location: IMPLEMENTS_TYPE
               references: org.hibernate.stat.SecondLevelCacheStatistics
-            location: IMPLEMENTS_TYPE
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD
           references: '{*}.getEntries()'
-        location: METHOD
       where: {}
     hibernate51-53-00800:
       perform:
@@ -492,10 +475,9 @@ hibernate51-53:
           - hibernate
           title: Hibernate 5.3 - SPI in package org.hibernate.{packages} changed
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.hibernate.{packages}.{*}
-        location: IMPORT
       where:
         packages: (persister|tuple)
     hibernate51-53-01000:
@@ -576,10 +558,9 @@ hibernate51-53:
           - hibernate
           title: Hibernate 5.3 - @TableGenerator changes interpretation
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: javax.persistence.TableGenerator
-        location: IMPORT
       where: {}
     hibernate51-53-01200:
       perform:
@@ -601,7 +582,6 @@ hibernate51-53:
           - hibernate
           title: Hibernate 5.3 - QueryParameter.getType() renamed
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.{className}.getType({*})
       where:

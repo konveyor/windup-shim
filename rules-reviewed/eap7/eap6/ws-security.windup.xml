@@ -31,10 +31,9 @@ ws-security:
           - ws-security
           title: WS-Security WSPasswordCallback's package changed
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.apache.ws.security.WSPasswordCallback
-        location: IMPORT
       where: {}
     ws-security-00001:
       perform:
@@ -56,10 +55,9 @@ ws-security:
           - ws-security
           title: WS-Security SAML package changed
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.apache.ws.security.saml.ext.{SAMLClassAndPackages}{*}
-        location: IMPORT
       where:
         SAMLClassAndPackages: (bean.|builder.|OpenSAMLBootstrap|OpenSAMLUtil|SAMLCallback)
     ws-security-00002:
@@ -82,8 +80,7 @@ ws-security:
           - ws-security
           title: WS-Security AssertionWrapper renamed and moved
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.apache.ws.security.saml.ext.AssertionWrapper
-        location: IMPORT
       where: {}

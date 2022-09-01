@@ -27,7 +27,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search - API usage
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.{*}
       where: {}
@@ -45,7 +44,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Renamed class SearchMappingBuilder
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.impl.SearchMappingBuilder
       where: {}
@@ -63,7 +61,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Package change for Environment
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.Environment
       where: {}
@@ -81,7 +78,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Package change for FullTextFilter
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.FullTextFilter
       where: {}
@@ -100,7 +96,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Package change for DirectoryBasedIndexManager
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.indexes.impl.DirectoryBasedIndexManager
       where: {}
@@ -119,7 +114,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Package change for InfinispanDirectoryProvider
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.infinispan.impl.InfinispanDirectoryProvider
       where: {}
@@ -137,7 +131,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Package change for ProjectionConstants
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.ProjectionConstants
       where: {}
@@ -155,7 +148,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Package change for SearchException
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.SearchException
       where: {}
@@ -173,7 +165,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Package change for MassIndexerFactory
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.spi.MassIndexerFactory
       where: {}
@@ -193,7 +184,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated interface org.hibernate.search.spi.SearchFactoryBuilder
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.spi.SearchFactoryBuilder
       where: {}
@@ -215,7 +205,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated interface org.hibernate.search.spi.SearchFactoryIntegrator
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.spi.SearchFactoryIntegrator
       where: {}
@@ -233,7 +222,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Package change for Version
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.Version
       where: {}
@@ -253,11 +241,10 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated constructor NumericFieldMapping.NumericFieldMapping
       when:
-        annotation-types: []
         javaclass:
+          location: CONSTRUCTOR_CALL
           references: org.hibernate.search.cfg.NumericFieldMapping(org.hibernate.search.cfg.PropertyDescriptor,
             org.hibernate.search.cfg.EntityDescriptor, org.hibernate.search.cfg.SearchMapping)
-        location: CONSTRUCTOR_CALL
       where: {}
     hsearch-00101:
       perform:
@@ -276,7 +263,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated interface org.hibernate.search.store.IndexShardingStrategy
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.store.IndexShardingStrategy
       where: {}
@@ -294,7 +280,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated interface org.hibernate.search.store.Workspace
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.store.Workspace
       where: {}
@@ -315,7 +300,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated interface org.hibernate.search.filter.FilterKey
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.filter.FilterKey
       where: {}
@@ -339,7 +323,6 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated class org.hibernate.search.filter.StandardFilterKey
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.filter.StandardFilterKey
       where: {}
@@ -360,7 +343,6 @@ hsearch:
           - annotation
           title: Hibernate Search 5 - Deprecated enum FieldCacheType
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.search.annotations.FieldCacheType
       where: {}
@@ -384,10 +366,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated annotation CacheFromIndex
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.hibernate.search.annotations.CacheFromIndex
-        location: ANNOTATION
       where: {}
     hsearch-00109:
       perform:
@@ -413,10 +394,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated annotation Key
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.hibernate.search.annotations.Key
-        location: ANNOTATION
       where: {}
     hsearch-00110:
       perform:
@@ -436,10 +416,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated enum constant in IndexWriterSetting
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.hibernate.search.backend.configuration.impl.IndexWriterSetting.{constant}
-        location: IMPORT
       where:
         constant: (MAX_THREAD_STATES|TERM_INDEX_INTERVAL)
     hsearch-00111:
@@ -461,13 +440,12 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Renamed SpatialMode.GRID to HASH
       when:
-        annotation-literal:
-          name: spatialMode
-          pattern: SpatialMode.GRID
-        annotation-types: []
         javaclass:
+          annotation-literal:
+            name: spatialMode
+            pattern: SpatialMode.GRID
+          location: ANNOTATION
           references: org.hibernate.search.annotations.Spatial
-        location: ANNOTATION
       where: {}
     hsearch-00112:
       perform:
@@ -486,10 +464,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - FullTextIndexEventListener class is now final
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: org.hibernate.search.event.impl.FullTextIndexEventListener
-        location: INHERITANCE
       where: {}
     hsearch-00113:
       perform:
@@ -512,10 +489,9 @@ hsearch:
           title: Hibernate Search 5 - Internal AbstractJMSHibernateSearchController
             class used
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: org.hibernate.search.backend.impl.jms.AbstractJMSHibernateSearchController
-        location: INHERITANCE
       where: {}
     hsearch-00114:
       perform:
@@ -541,10 +517,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - ServiceProvider implementation
       when:
-        annotation-types: []
         javaclass:
+          location: IMPLEMENTS_TYPE
           references: org.hibernate.search.spi.ServiceProvider
-        location: IMPLEMENTS_TYPE
       where: {}
     hsearch-00115:
       perform:
@@ -565,10 +540,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Indexing of id fields of Embedded Relations
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.hibernate.search.annotations.IndexedEmbedded
-        location: ANNOTATION
       where: {}
     hsearch-00116:
       perform:
@@ -612,31 +586,31 @@ hsearch:
           title: Hibernate Search 5 - Changes in indexing numeric and date values
       when:
         or:
-        - annotation-literal:
-            name: index
-            pattern: Index.YES
-          annotation-types:
-          - pattern: org.hibernate.search.annotations.NumericFields
-          javaclass:
+        - javaclass:
+            annotation-literal:
+              name: index
+              pattern: Index.YES
+            annotation_types:
+            - pattern: org.hibernate.search.annotations.NumericFields
+            location: ANNOTATION
             references: org.hibernate.search.annotations.Field
-          location: ANNOTATION
-        - annotation-literal:
-            name: index
-            pattern: Index.YES
-          annotation-types:
-          - pattern: org.hibernate.search.annotations.NumericField
-          javaclass:
+        - javaclass:
+            annotation-literal:
+              name: index
+              pattern: Index.YES
+            annotation_types:
+            - pattern: org.hibernate.search.annotations.NumericField
+            location: ANNOTATION
             references: org.hibernate.search.annotations.Field
-          location: ANNOTATION
-        - annotation-types:
-          - pattern: org.hibernate.search.annotations.Field
-          - pattern: org.hibernate.search.annotations.Fields
-          javaclass:
+        - javaclass:
+            annotation_types:
+            - pattern: org.hibernate.search.annotations.Field
+            - pattern: org.hibernate.search.annotations.Fields
             references: java.util.{date}
-        - annotation-types:
-          - pattern: org.hibernate.search.annotations.Field
-          - pattern: org.hibernate.search.annotations.Fields
-          javaclass:
+        - javaclass:
+            annotation_types:
+            - pattern: org.hibernate.search.annotations.Field
+            - pattern: org.hibernate.search.annotations.Fields
             references: java.lang.{wrapper}
       where:
         date: (Calendar|Date)
@@ -661,13 +635,12 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Changes in indexing null values
       when:
-        annotation-literal:
-          name: indexNullAs
-          pattern: '{*}'
-        annotation-types: []
         javaclass:
+          annotation-literal:
+            name: indexNullAs
+            pattern: '{*}'
+          location: ANNOTATION
           references: org.hibernate.search.annotations.Field
-        location: ANNOTATION
       where: {}
     hsearch-00118:
       perform:
@@ -690,16 +663,13 @@ hsearch:
           title: Hibernate Search 5 - Improvements in Faceting Engine
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: org.hibernate.search.query.dsl.QueryBuilder.facet{*}
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: org.hibernate.search.FullTextQuery.getFacetManager{*}
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.hibernate.search.query.facet.{class}
       where:
         class: (Facet|FacetingRequest|FacetSelection|FacetSortOrder|RangeFacet)
@@ -725,13 +695,13 @@ hsearch:
           title: Hibernate Search 5 - Changes in indexing numeric values
       when:
         or:
-        - annotation-types:
-          - pattern: org.hibernate.search.annotations.Field
-          javaclass:
+        - javaclass:
+            annotation_types:
+            - pattern: org.hibernate.search.annotations.Field
             references: java.util.{date}
-        - annotation-types:
-          - pattern: org.hibernate.search.annotations.Field
-          javaclass:
+        - javaclass:
+            annotation_types:
+            - pattern: org.hibernate.search.annotations.Field
             references: java.lang.{wrapper}
       where:
         date: (Calendar|Date)
@@ -788,10 +758,9 @@ hsearch:
           - lucene
           title: Lucene 4.x - Changed constructor for org.apache.lucene.search.SortField
       when:
-        annotation-types: []
         javaclass:
+          location: CONSTRUCTOR_CALL
           references: org.apache.lucene.search.SortField({*})
-        location: CONSTRUCTOR_CALL
       where: {}
     hsearch-00211:
       perform:
@@ -810,10 +779,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method ContainedInMapping#numericField
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.cfg.ContainedInMapping.numericField{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00213:
       perform:
@@ -831,10 +799,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method FullTextSharedSessionBuilder#autoClose
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.FullTextSharedSessionBuilder.autoClose{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00214:
       perform:
@@ -851,10 +818,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method IndexedMapping#cacheFromIndex
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.cfg.IndexedMapping.cacheFromIndex{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00215:
       perform:
@@ -871,10 +837,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method EntityDescriptor#getCacheInMemory
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.cfg.EntityDescriptor.getCacheInMemory{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00216:
       perform:
@@ -891,10 +856,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method HSQuery#getExtendedSearchIntegrator
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.query.engine.spi.HSQuery.getExtendedSearchIntegrator{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00217:
       perform:
@@ -912,10 +876,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method DocumentBuilderIndexedEntity#getFieldCacheOption
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.engine.spi.DocumentBuilderIndexedEntity.getFieldCacheOption{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00218:
       perform:
@@ -931,10 +894,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method BuildContext#getIndexingStrategy
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.spi.BuildContext.getIndexingStrategy{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00219:
       perform:
@@ -951,10 +913,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method DirectoryHelper#getVerifiedIndexDir
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.store.spi.DirectoryHelper.getVerifiedIndexDir{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00220:
       perform:
@@ -972,10 +933,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method EntityDescriptor#setCacheInMemory
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.cfg.EntityDescriptor.setCacheInMemory{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00221:
       perform:
@@ -993,10 +953,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method MassIndexer#threadsForSubsequentFetching
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.MassIndexer.threadsForSubsequentFetching{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00222:
       perform:
@@ -1013,10 +972,9 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Deprecated method FuzzyContext#withThreshold
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.query.dsl.FuzzyContext.withThreshold{*}
-        location: METHOD_CALL
       where: {}
     hsearch-00224:
       perform:
@@ -1038,7 +996,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Classes repackaged to 'org.apache.lucene.queryparser.classic'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.queryParser.{type}
       where:
@@ -1063,7 +1020,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Renamed class org.apache.lucene.queryParser.QueryParserToken
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.queryParser.QueryParserToken
       where: {}
@@ -1087,7 +1043,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Renamed class org.apache.lucene.queryParser.QueryParserTokenMgrError
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.queryParser.QueryParserTokenMgrError
       where: {}
@@ -1111,7 +1066,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Classes repackaged to 'org.apache.lucene.analysis.core'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.analysis.{type}
       where:
@@ -1137,7 +1091,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Class 'PorterStemFilter' repackaged to 'org.apache.lucene.analysis.en'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.analysis.PorterStemFilter
       where: {}
@@ -1161,7 +1114,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Classes repackaged to 'org.apache.lucene.analysis.miscellaneous'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.analysis.{type}
       where:
@@ -1187,7 +1139,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Class 'TeeSinkTokenFilter' repackaged to 'org.apache.lucene.analysis.sinks'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.analysis.TeeSinkTokenFilter
       where: {}
@@ -1211,7 +1162,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Classes repackaged to 'org.apache.lucene.analysis.charfilter'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.analysis.{type}
       where:
@@ -1236,7 +1186,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Classes repackaged to 'org.apache.lucene.analysis.util'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.analysis.{type}
       where:
@@ -1262,7 +1211,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Class 'ReusableAnalyzerBase' renamed to 'org.apache.lucene.analysis.Analyzer'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.analysis.ReusableAnalyzerBase
       where: {}
@@ -1287,7 +1235,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Class 'CharacterUtils' repackaged to 'org.apache.lucene.analysis.util'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.util.CharacterUtils
       where: {}
@@ -1312,7 +1259,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Classes repackaged to 'org.apache.lucene.queries'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.search.function.{type}
       where:
@@ -1338,7 +1284,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Class 'NumericIndexDocValueSource' repackaged to 'org.apache.lucene.queries.function.valuesource'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.search.function.NumericIndexDocValueSource
       where: {}
@@ -1363,7 +1308,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Classes repackaged to 'org.apache.lucene.queries.function'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.search.function.{type}
       where:
@@ -1389,7 +1333,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Classes repackaged to 'org.apache.lucene.queries.function.valuesources'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.lucene.search.function.{type}
       where:
@@ -1413,7 +1356,6 @@ hsearch:
           - lucene
           title: Lucene 4.x - Solr classes repackaged to 'org.apache.lucene.analysis.util'
       when:
-        annotation-types: []
         javaclass:
           references: org.apache.solr.analysis.{type}
       where:
@@ -1432,8 +1374,7 @@ hsearch:
           - hibernate-search
           title: Hibernate Search 5 - Removed method MassIndexer#threadsForIndexWriter
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.search.MassIndexer.threadsForIndexWriter{*}
-        location: METHOD_CALL
       where: {}

@@ -23,10 +23,9 @@ springboot-webmvc-to-quarkus:
           tags: []
           title: Spring MVC is not supported by Quarkus
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.springframework.web.servlet.mvc.Controller
-        location: ANNOTATION
       where: {}
     springboot-webmvc-to-quarkus-01000:
       perform:

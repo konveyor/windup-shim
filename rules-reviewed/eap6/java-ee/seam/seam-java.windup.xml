@@ -54,7 +54,6 @@ seam-java:
           - jsf
           title: Seam API
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.seam.{*}
       where: {}
@@ -73,7 +72,6 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.core.Conversation
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.seam.core.Conversation
       where: {}
@@ -96,10 +94,9 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.Seam
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.seam.Seam.{*}
-        location: METHOD_CALL
       where: {}
     seam-java-00040:
       perform:
@@ -120,10 +117,9 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.annotations.Name
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Name
-        location: ANNOTATION
       where: {}
     seam-java-00050:
       perform:
@@ -143,10 +139,9 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.annotations.Scope
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Scope
-        location: ANNOTATION
       where: {}
     seam-java-00060:
       perform:
@@ -162,10 +157,9 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.annotations.In
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.In
-        location: ANNOTATION
       where: {}
     seam-java-00061:
       perform:
@@ -182,10 +176,9 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.annotations.AutoCreate
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.AutoCreate
-        location: ANNOTATION
       where: {}
     seam-java-00070:
       perform:
@@ -210,10 +203,9 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.annotations.Out
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Out
-        location: ANNOTATION
       where: {}
     seam-java-00071:
       perform:
@@ -239,10 +231,9 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.annotations.Factory
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Factory
-        location: ANNOTATION
       where: {}
     seam-java-00080:
       perform:
@@ -262,10 +253,9 @@ seam-java:
           - seam
           title: Seam API - org.jboss.seam.annotations.Startup
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Startup
-        location: ANNOTATION
       where: {}
     seam-java-00090:
       perform:
@@ -283,10 +273,9 @@ seam-java:
           - javaee
           title: Seam API - org.jboss.seam.annotations.Create
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Create
-        location: ANNOTATION
       where: {}
     seam-java-00091:
       perform:
@@ -304,10 +293,9 @@ seam-java:
           - javaee
           title: Seam API - org.jboss.seam.annotations.Destroy
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Destroy
-        location: ANNOTATION
       where: {}
     seam-java-00100:
       perform:
@@ -325,7 +313,6 @@ seam-java:
           - conversation
           title: Seam API - org.jboss.seam.faces.Switcher
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.seam.faces.Switcher
       where: {}
@@ -349,10 +336,9 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.Component calls
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.seam.Component.{*}
-        location: METHOD_CALL
       where: {}
     seam-java-00120:
       perform:
@@ -366,10 +352,9 @@ seam-java:
           - seam
           title: Seam API - org.jboss.seam.annotations.Redirect
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.exception.Redirect
-        location: ANNOTATION
       where: {}
     seam-java-00130:
       perform:
@@ -395,10 +380,9 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.annotations.Install
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Install
-        location: ANNOTATION
       where: {}
     seam-java-00140:
       perform:
@@ -415,7 +399,6 @@ seam-java:
           - javaee
           title: Seam API - org.jboss.seam.web.AbstractFilter
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.seam.web.AbstractFilter
       where: {}
@@ -435,10 +418,9 @@ seam-java:
           - servlet
           title: Seam API - org.jboss.seam.annotations.web.Filter
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.web.Filter
-        location: ANNOTATION
       where: {}
     seam-java-00160:
       perform:
@@ -453,10 +435,9 @@ seam-java:
           - seam
           title: Seam API - org.jboss.seam.contexts.Contexts
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.jboss.seam.contexts.Contexts.{*}
-        location: METHOD_CALL
       where: {}
     seam-java-00170:
       perform:
@@ -474,10 +455,9 @@ seam-java:
           - jbpm
           title: Seam integration with jBPM
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.bpm.{*}
-        location: ANNOTATION
       where: {}
     seam-java-00180:
       perform:
@@ -493,7 +473,6 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.core.ConversationEntry
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.seam.core.ConversationEntry
       where: {}
@@ -511,10 +490,9 @@ seam-java:
           - seam
           title: Seam API - org.jboss.seam.annotations.Begin
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Begin
-        location: ANNOTATION
       where: {}
     seam-java-00200:
       perform:
@@ -530,10 +508,9 @@ seam-java:
           - seam
           title: Seam API - org.jboss.seam.annotations.End
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.End
-        location: ANNOTATION
       where: {}
     seam-java-00210:
       perform:
@@ -555,10 +532,9 @@ seam-java:
           - jsf
           title: Seam API - org.jboss.seam.annotations.web.RequestParameter
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.web.RequestParameter
-        location: ANNOTATION
       where: {}
     seam-java-00220:
       perform:
@@ -585,10 +561,9 @@ seam-java:
           - cdi
           title: Seam API - org.jboss.seam.annotations.Logger
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Logger
-        location: ANNOTATION
       where: {}
     seam-java-00230:
       perform:
@@ -609,10 +584,9 @@ seam-java:
           - jsf
           title: Seam API - org.jboss.seam.annotations.datamodel.DataModel{*}
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.datamodel.DataModel{*}
-        location: ANNOTATION
       where: {}
     seam-java-00240:
       perform:
@@ -639,14 +613,12 @@ seam-java:
           title: Seam API - firing and observing events
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: ANNOTATION
             references: org.jboss.seam.annotations.Observer
-          location: ANNOTATION
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: org.jboss.seam.core.Events.{*}
-          location: METHOD_CALL
       where: {}
     seam-java-00250:
       perform:
@@ -670,10 +642,9 @@ seam-java:
           - javaee
           title: Seam API - Interceptors
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.intercept.{*}
-        location: ANNOTATION
       where: {}
     seam-java-00260:
       perform:
@@ -689,10 +660,9 @@ seam-java:
           - javaee
           title: Seam API - Asynchronous annotation
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.async.Asynchronous
-        location: ANNOTATION
       where: {}
     seam-java-00270:
       perform:
@@ -709,8 +679,7 @@ seam-java:
           - javaee
           title: Seam API - org.jboss.seam.annotations.Transactional annotation
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.seam.annotations.Transactional
-        location: ANNOTATION
       where: {}

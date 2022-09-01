@@ -33,12 +33,10 @@ eap-to-azure-appservice-environment-variables:
           title: App Service - The application reads environment variables
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.lang.System.getenv({*})
-          location: METHOD_CALL
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: METHOD_CALL
             references: java.lang.System.getProperty({*})
-          location: METHOD_CALL
       where: {}

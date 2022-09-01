@@ -89,6 +89,7 @@ websphere-xml:
       when:
         or:
         - file:
+            as: files
             filename: ibm-web-ext.{file_ext}
         - xmlfile:
             as: default

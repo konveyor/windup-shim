@@ -52,8 +52,7 @@ observability:
             namespace:
               prefix: c
               uri: http://www.springframework.org/schema/beans
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: ANNOTATION
             references: org.springframework.jmx.{*}
-          location: ANNOTATION
       where: {}

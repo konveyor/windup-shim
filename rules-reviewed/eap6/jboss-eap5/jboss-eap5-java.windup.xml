@@ -24,10 +24,9 @@ jboss-eap5-java:
           - jmx
           title: JBoss EAP 5 JMX ManagementBean
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.ejb3.annotation.Management
-        location: ANNOTATION
       where: {}
     jboss-eap5-java-02000:
       perform:
@@ -45,10 +44,9 @@ jboss-eap5-java:
           - jms
           title: JMS legacy javax.jms.QueueConnectionFactory
       when:
-        annotation-types: []
         javaclass:
+          location: VARIABLE_DECLARATION
           references: javax.jms.QueueConnectionFactory
-        location: VARIABLE_DECLARATION
       where: {}
     jboss-eap5-java-04000:
       perform:
@@ -71,10 +69,9 @@ jboss-eap5-java:
           - ejb
           title: org.jboss{package}.Service
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.jboss{package}.Service
-        location: IMPORT
       where:
         package: (\.ejb3)?\.annotation(\.ejb)?
     jboss-eap5-java-05000:
@@ -100,10 +97,9 @@ jboss-eap5-java:
           - jmx
           title: org.jboss{package}.Management
       when:
-        annotation-types: []
         javaclass:
+          location: IMPORT
           references: org.jboss{package}.Management
-        location: IMPORT
       where:
         package: (\.ejb3)?\.annotation(\.ejb)?
     jboss-eap5-java-06000:
@@ -128,10 +124,9 @@ jboss-eap5-java:
           - ejb
           title: org.jboss.annotation.ejb.LocalBinding
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.annotation.ejb.LocalBinding
-        location: ANNOTATION
       where: {}
     jboss-eap5-java-07000:
       perform:
@@ -150,10 +145,9 @@ jboss-eap5-java:
           - ejb
           title: org.jboss.annotation.ejb.Depends
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.jboss.annotation.ejb.Depends
-        location: ANNOTATION
       where: {}
     jboss-eap5-java-08000:
       perform:
@@ -169,7 +163,6 @@ jboss-eap5-java:
           - jbossws
           title: org.jboss.wsf.spi.annotation has been moved to org.jboss.ws.api.annotation
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.spi.annotation.{*}
       where: {}
@@ -187,7 +180,6 @@ jboss-eap5-java:
           - jbossws
           title: org.jboss.wsf.spi.binding has been moved to org.jboss.ws.api.binding
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.spi.binding.{*}
       where: {}
@@ -205,7 +197,6 @@ jboss-eap5-java:
           - jbossws
           title: org.jboss.wsf.spi.management.recording has been moved to org.jboss.ws.api.monitoring
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.spi.management.recording.{*}
       where: {}
@@ -223,7 +214,6 @@ jboss-eap5-java:
           - jbossws
           title: org.jboss.wsf.spi.tools.ant has been moved to org.jboss.ws.tools.ant
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.spi.tools.ant.{*}
       where: {}
@@ -241,7 +231,6 @@ jboss-eap5-java:
           - jbossws
           title: org.jboss.wsf.spi.tools.cmd has been moved to org.jboss.ws.tools.cmd
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.spi.tools.cmd.{*}
       where: {}
@@ -263,7 +252,6 @@ jboss-eap5-java:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.spi.tools.{*}
       where: {}
@@ -281,7 +269,6 @@ jboss-eap5-java:
           - jbossws
           title: org.jboss.wsf.spi.util.ServiceLoader has been moved to org.jboss.ws.api.util.ServiceLoader
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.spi.util.ServiceLoader
       where: {}
@@ -299,7 +286,6 @@ jboss-eap5-java:
           - jbossws
           title: org.jboss.wsf.common.handler has been moved to org.jboss.ws.api.handler
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.common.handler.{*}
       where: {}
@@ -317,7 +303,6 @@ jboss-eap5-java:
           - jbossws
           title: org.jboss.wsf.common.addressing has been moved to org.jboss.ws.api.addressing
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.common.addressing.{*}
       where: {}
@@ -335,7 +320,6 @@ jboss-eap5-java:
           - jbossws
           title: org.jboss.wsf.common.DOMUtils has been moved to org.jboss.ws.api.util.DOMUtils
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.common.DOMUtils
       where: {}
@@ -357,7 +341,6 @@ jboss-eap5-java:
             not:
               has-hint: true
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.wsf.common.{*}
       where: {}
@@ -375,7 +358,6 @@ jboss-eap5-java:
           - jbossws
           title: org.jboss.ws.annotation.EndpointConfig has been moved to org.jboss.ws.api.annotation.EndpointConfig
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.ws.annotation.EndpointConfig
       where: {}

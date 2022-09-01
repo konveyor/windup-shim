@@ -40,10 +40,9 @@ java-rmi:
           - cloud
           title: Java Remote Method Invocation (RMI) service
       when:
-        annotation-types: []
         javaclass:
+          location: INHERITANCE
           references: java.rmi.Remote
-        location: INHERITANCE
       where: {}
     java-rmi-00001:
       perform:
@@ -65,7 +64,6 @@ java-rmi:
               has-classification:
                 title: Java Remote Method Invocation (RMI) service
       when:
-        annotation-types: []
         javaclass:
           references: java.rmi.{*}
       where: {}

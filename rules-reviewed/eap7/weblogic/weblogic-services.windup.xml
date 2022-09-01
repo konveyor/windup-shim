@@ -30,10 +30,9 @@ weblogic-services-eap7:
           - weblogic
           title: WebLogic Startup Service
       when:
-        annotation-types: []
         javaclass:
+          location: IMPLEMENTS_TYPE
           references: weblogic.common.T3StartupDef
-        location: IMPLEMENTS_TYPE
       where: {}
     weblogic-services-eap7-02000:
       perform:
@@ -52,7 +51,6 @@ weblogic-services-eap7:
           - weblogic
           title: WebLogic T3ServicesDef usage
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.common.T3ServicesDef
       where: {}
@@ -72,7 +70,6 @@ weblogic-services-eap7:
           - weblogic
           title: WebLogic proprietary logging classes
       when:
-        annotation-types: []
         javaclass:
           references: weblogic.{logger}{*}
       where:

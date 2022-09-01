@@ -67,10 +67,9 @@ mvc:
           level: INFORMATIONAL
           tag: Spring MVC
       when:
-        annotation-types: []
         javaclass:
+          location: ANNOTATION
           references: org.springframework.web.servlet.mvc.Controller
-        location: ANNOTATION
       where: {}
     mvc-01220:
       perform:

@@ -31,7 +31,6 @@ base64:
           - base64
           title: The class org.jboss.util.Base64 has been moved
       when:
-        annotation-types: []
         javaclass:
           references: org.jboss.util.Base64
       where: {}

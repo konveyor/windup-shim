@@ -45,22 +45,18 @@ logging:
         - filecontent:
             filename: log4j.{extension}
             pattern: '{appenderpattern}'
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: org.apache.{*}log4j.{*}FileAppender{*}
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: java.util.logging.FileHandler{*}
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: ch.qos.logback.core.FileAppender
-          location: IMPORT
-        - annotation-types: []
-          javaclass:
+        - javaclass:
+            location: IMPORT
             references: org.pmw.tinylog.writers.FileWriter
-          location: IMPORT
       where:
         appenderpattern: ((Daily)?Rolling)?FileAppender
         extension: (xml|properties)
@@ -88,7 +84,6 @@ logging:
           level: INFORMATIONAL
           tag: Logging to Socket Handler
       when:
-        annotation-types: []
         javaclass:
           references: java.util.logging.SocketHandler{*}
       where: {}

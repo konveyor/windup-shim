@@ -81,10 +81,8 @@ session:
           title: HTTP Session data storage
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: javax.servlet.http.HttpSession.setAttribute({*})
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: javax.servlet.http.HttpSession.putValue({*})
       where: {}

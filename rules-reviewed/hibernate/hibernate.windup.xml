@@ -29,7 +29,6 @@ hibernate:
           - hibernate
           title: Hibernate 4 - Deprecated @Type(type=text)
       when:
-        annotation-types: []
         javaclass:
           matchesSource: '{*}text{*}'
           references: org.hibernate.annotations.Type
@@ -49,10 +48,9 @@ hibernate:
           - hibernate
           title: Hibernate 4 - Changed 'Projections' return types
       when:
-        annotation-types: []
         javaclass:
+          location: METHOD_CALL
           references: org.hibernate.criterion.Projections.{method}{*}
-        location: METHOD_CALL
       where:
         method: (count|rowCount|sum)
     hibernate-03000:
@@ -71,10 +69,9 @@ hibernate:
           title: Hibernate 4 - Changed naming strategy from 'DefaultNamingStrategy'
             to 'EJB3NamingStrategy'
       when:
-        annotation-types: []
         javaclass:
+          location: CONSTRUCTOR_CALL
           references: org.hibernate.cfg.AnnotationConfiguration{*}
-        location: CONSTRUCTOR_CALL
       where: {}
     hibernate-04000:
       perform:
@@ -90,7 +87,6 @@ hibernate:
           - hibernate
           title: Hibernate 4 - Removed classes in 'org.hibernate.classic'
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.classic.{*}
       where: {}
@@ -105,7 +101,6 @@ hibernate:
           - hibernate
           title: Hibernate 4 - Replaced DialectResolver
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.dialect.resolver.DialectResolver
       where: {}
@@ -125,14 +120,11 @@ hibernate:
           title: Hibernate 4 - Replaced BatcherFactory
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.hibernate.jdbc.BatcherFactory
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.hibernate.jdbc.BatchingBatcherFactory
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.hibernate.jdbc.NonBatchingBatcherFactory
       where: {}
     hibernate-07000:
@@ -148,17 +140,13 @@ hibernate:
           title: Hibernate 4 - Replaced JDBC Batcher
       when:
         or:
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.hibernate.jdbc.Batcher
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.hibernate.jdbc.AbstractBatcher
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.hibernate.jdbc.BatchingBatcher
-        - annotation-types: []
-          javaclass:
+        - javaclass:
             references: org.hibernate.jdbc.NonBatchingBatcher
       where: {}
     hibernate-08000:
@@ -172,7 +160,6 @@ hibernate:
           - hibernate
           title: Hibernate 4 - SessionImplementor replacement
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.engine.SessionImplementor
       where: {}
@@ -188,7 +175,6 @@ hibernate:
           - hibernate
           title: Hibernate 4 - Renamed package 'org.hibernate.connection'
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.connection.{classname}
       where:
@@ -205,7 +191,6 @@ hibernate:
           - hibernate
           title: Hibernate 4 - Replace org.hibernate.collection.PersistentBag
       when:
-        annotation-types: []
         javaclass:
           references: org.hibernate.collection.PersistentBag
       where: {}
@@ -228,7 +213,6 @@ hibernate:
           - hibernate
           title: Hibernate type reference net.sf.hibernate.{classname}
       when:
-        annotation-types: []
         javaclass:
           references: net.sf.hibernate.{classname}
       where:

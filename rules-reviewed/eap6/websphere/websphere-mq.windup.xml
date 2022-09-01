@@ -32,7 +32,6 @@ websphere-mq:
           - websphere
           title: IBM MQ client API
       when:
-        annotation-types: []
         javaclass:
           references: '{package}.{type}'
       where:

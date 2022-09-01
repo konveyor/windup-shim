@@ -25,7 +25,6 @@ jrun-catchall:
           - jrun
           title: JRun
       when:
-        annotation-types: []
         javaclass:
           references: jrun.{*}
       where: {}
@@ -41,7 +40,6 @@ jrun-catchall:
           - jrun
           title: JRunX
       when:
-        annotation-types: []
         javaclass:
           references: jrunx.{*}
       where: {}
