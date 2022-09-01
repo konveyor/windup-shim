@@ -53,8 +53,9 @@
               level: INFORMATIONAL
               tag: Spring Boot
           when:
-            file:
-              filename: spring-boot{*}test{*}.jar
+            not:
+              file:
+                filename: spring-boot{*}test{*}.jar
       when:
         file:
           filename: spring-boot{*}.jar

@@ -31,7 +31,5 @@ springboot-cache-to-quarkus:
             groupId: org.springframework.boot
         - artifact:
             artifactId: spring-boot-starter-cache
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
       where: {}

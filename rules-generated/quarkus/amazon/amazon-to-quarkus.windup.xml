@@ -30,9 +30,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: dynamodb
-          fromVersion: null
           groupId: software.amazon.awssdk
-          toVersion: null
       where: {}
     quarkus-amazon-dynamodb-00010:
       perform:
@@ -72,9 +70,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: iam
-          fromVersion: null
           groupId: software.amazon.awssdk
-          toVersion: null
       where: {}
     quarkus-amazon-iam-00010:
       perform:
@@ -113,9 +109,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: kms
-          fromVersion: null
           groupId: software.amazon.awssdk
-          toVersion: null
       where: {}
     quarkus-amazon-kms-00010:
       perform:
@@ -154,9 +148,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: aws-lambda-java-core
-          fromVersion: null
           groupId: com.amazonaws
-          toVersion: null
       where: {}
     quarkus-amazon-lambda-http-00010:
       perform:
@@ -196,9 +188,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: aws-serverless-java-container-core
-          fromVersion: null
           groupId: com.amazonaws.serverless
-          toVersion: null
       where: {}
     quarkus-amazon-lambda-rest-00010:
       perform:
@@ -238,9 +228,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: aws-xray-recorder-sdk-aws-sdk-v2
-          fromVersion: null
           groupId: com.amazonaws
-          toVersion: null
       where: {}
     quarkus-amazon-lambda-xray-00010:
       perform:
@@ -279,9 +267,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: s3
-          fromVersion: null
           groupId: software.amazon.awssdk
-          toVersion: null
       where: {}
     quarkus-amazon-s3-00010:
       perform:
@@ -320,9 +306,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: ses
-          fromVersion: null
           groupId: software.amazon.awssdk
-          toVersion: null
       where: {}
     quarkus-amazon-ses-00010:
       perform:
@@ -361,9 +345,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: sns
-          fromVersion: null
           groupId: software.amazon.awssdk
-          toVersion: null
       where: {}
     quarkus-amazon-sns-00010:
       perform:
@@ -402,9 +384,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: sqs
-          fromVersion: null
           groupId: software.amazon.awssdk
-          toVersion: null
       where: {}
     quarkus-amazon-sqs-00010:
       perform:
@@ -443,9 +423,7 @@ amazon-to-quarkus:
       when:
         artifact:
           artifactId: ssm
-          fromVersion: null
           groupId: software.amazon.awssdk
-          toVersion: null
       where: {}
     quarkus-amazon-ssm-00010:
       perform:

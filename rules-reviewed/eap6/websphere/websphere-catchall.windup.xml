@@ -29,7 +29,8 @@ websphere-catchall:
               - catchall
               title: IBM proprietary type reference
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:
@@ -52,7 +53,8 @@ websphere-catchall:
               - catchall
               title: IBM ILog proprietary type reference
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:
@@ -76,7 +78,8 @@ websphere-catchall:
               tags: []
               title: IBM DB2 driver type reference
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:

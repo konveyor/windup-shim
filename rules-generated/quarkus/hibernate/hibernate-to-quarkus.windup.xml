@@ -30,9 +30,7 @@ hibernate-to-quarkus:
       when:
         artifact:
           artifactId: hibernate-envers
-          fromVersion: null
           groupId: org.hibernate
-          toVersion: null
       where: {}
     quarkus-hibernate-envers-00010:
       perform:
@@ -72,9 +70,7 @@ hibernate-to-quarkus:
       when:
         artifact:
           artifactId: hibernate-reactive-core
-          fromVersion: null
           groupId: org.hibernate.reactive
-          toVersion: null
       where: {}
     quarkus-hibernate-reactive-00010:
       perform:
@@ -114,9 +110,7 @@ hibernate-to-quarkus:
       when:
         artifact:
           artifactId: hibernate-search-backend-elasticsearch-aws
-          fromVersion: null
           groupId: org.hibernate.search
-          toVersion: null
       where: {}
     quarkus-hibernate-search-orm-elasticsearch-aws-00010:
       perform:
@@ -156,9 +150,7 @@ hibernate-to-quarkus:
       when:
         artifact:
           artifactId: hibernate-validator
-          fromVersion: null
           groupId: org.hibernate.validator
-          toVersion: null
       where: {}
     quarkus-hibernate-validator-00010:
       perform:

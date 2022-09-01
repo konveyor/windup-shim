@@ -26,9 +26,7 @@ xml-removed-components:
       when:
         artifact:
           artifactId: camel-linkedin
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-removed-components-00001:
       perform:
@@ -45,9 +43,7 @@ xml-removed-components:
       when:
         artifact:
           artifactId: camel-linkedin-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-removed-components-00002:
       perform:
@@ -66,9 +62,7 @@ xml-removed-components:
       when:
         artifact:
           artifactId: camel-script
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-removed-components-00003:
       perform:
@@ -87,9 +81,7 @@ xml-removed-components:
       when:
         artifact:
           artifactId: camel-script-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-removed-components-00004:
       perform:
@@ -107,9 +99,7 @@ xml-removed-components:
       when:
         artifact:
           artifactId: camel-jibx
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-removed-components-00005:
       perform:
@@ -130,9 +120,7 @@ xml-removed-components:
       when:
         artifact:
           artifactId: camel-restlet
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-removed-components-00006:
       perform:
@@ -150,9 +138,7 @@ xml-removed-components:
       when:
         artifact:
           artifactId: camel-boon
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-removed-components-00007:
       perform:
@@ -170,9 +156,7 @@ xml-removed-components:
       when:
         artifact:
           artifactId: camel-core-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-removed-components-00008:
       perform:

@@ -30,7 +30,5 @@ springboot-shell-to-quarkus:
       when:
         artifact:
           artifactId: spring-shell-core
-          fromVersion: null
           groupId: org.springframework.shell
-          toVersion: null
       where: {}

@@ -28,9 +28,7 @@ avro-to-quarkus:
       when:
         artifact:
           artifactId: avro
-          fromVersion: null
           groupId: org.apache.avro
-          toVersion: null
       where: {}
     quarkus-avro-00010:
       perform:

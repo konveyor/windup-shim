@@ -968,8 +968,9 @@ resteasy-eap6:
               - yaml
               title: Resteasy Yaml Provider is deprecated and disabled by default
           when:
-            file-exists:
-              filename: javax.ws.rs.ext.Providers
+            not:
+              file-exists:
+                filename: javax.ws.rs.ext.Providers
       when:
         annotation-literal:
           name: value
@@ -1002,8 +1003,9 @@ resteasy-eap6:
               - resteasy
               title: Resteasy SerializableProvider is disabled by default
           when:
-            file-exists:
-              filename: javax.ws.rs.ext.Providers
+            not:
+              file-exists:
+                filename: javax.ws.rs.ext.Providers
       when:
         or:
         - annotation-literal:

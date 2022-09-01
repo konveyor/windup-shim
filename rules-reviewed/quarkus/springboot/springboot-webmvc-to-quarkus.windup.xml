@@ -46,14 +46,10 @@ springboot-webmvc-to-quarkus:
         or:
         - artifact:
             artifactId: spring-webflux
-            fromVersion: null
             groupId: org.springframework
-            toVersion: null
         - artifact:
             artifactId: spring-boot-starter-webflux
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
         - dependency:
             artifactId: spring-webflux
             groupId: org.springframework

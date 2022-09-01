@@ -31,9 +31,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-http4
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00001:
       perform:
@@ -51,9 +49,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-http4-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-000019:
       perform:
@@ -78,9 +74,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-netty4-http
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00002:
       perform:
@@ -102,9 +96,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-rxjava2
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-000020:
       perform:
@@ -124,9 +116,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-netty4-http-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-000023:
       perform:
@@ -150,9 +140,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-quartz2
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-000024:
       perform:
@@ -172,9 +160,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-quartz2-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-000027:
       perform:
@@ -195,9 +181,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-jetty9
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-000028:
       perform:
@@ -214,9 +198,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-jetty9-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-000029:
       perform:
@@ -234,9 +216,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: activemq-camel
-          fromVersion: null
           groupId: org.apache.activemq
-          toVersion: null
       where: {}
     xml-renamed-components-00003:
       perform:
@@ -254,9 +234,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-rxjava2-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00004:
       perform:
@@ -276,9 +254,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-{substitution}-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where:
         substitution: (?!rxjava2|http4|mongodb3|hdfs2|hdfs|mina2|mina|netty4|netty|netty4-http|netty-http|quartz2|quartz|jetty9|aws)([a-zA-Z0-9]|-)*
     xml-renamed-components-00005:
@@ -303,9 +279,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-mongodb3
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00006:
       perform:
@@ -325,9 +299,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-mongodb3-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00007:
       perform:
@@ -350,9 +322,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-hdfs2
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00008:
       perform:
@@ -371,9 +341,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-hdfs2-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00009:
       perform:
@@ -391,7 +359,6 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-hdfs
-          fromVersion: null
           groupId: org.apache.camel
           toVersion: '2'
       where: {}
@@ -411,9 +378,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-hdfs-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00011:
       perform:
@@ -436,9 +401,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-mina2
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00012:
       perform:
@@ -457,9 +420,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-mina2-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00013:
       perform:
@@ -477,7 +438,6 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-mina
-          fromVersion: null
           groupId: org.apache.camel
           toVersion: '2'
       where: {}
@@ -497,9 +457,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-mina-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00015:
       perform:
@@ -522,9 +480,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-netty4
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00016:
       perform:
@@ -543,9 +499,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-netty4-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00017:
       perform:
@@ -563,7 +517,6 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-netty
-          fromVersion: null
           groupId: org.apache.camel
           toVersion: '2'
       where: {}
@@ -583,9 +536,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-netty-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00021:
       perform:
@@ -604,7 +555,6 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-netty-http
-          fromVersion: null
           groupId: org.apache.camel
           toVersion: '2'
       where: {}
@@ -624,9 +574,7 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-netty-http-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}
     xml-renamed-components-00025:
       perform:
@@ -644,7 +592,6 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-quartz
-          fromVersion: null
           groupId: org.apache.camel
           toVersion: '2'
       where: {}
@@ -664,7 +611,5 @@ xml-renamed-components:
       when:
         artifact:
           artifactId: camel-quartz-starter
-          fromVersion: null
           groupId: org.apache.camel
-          toVersion: null
       where: {}

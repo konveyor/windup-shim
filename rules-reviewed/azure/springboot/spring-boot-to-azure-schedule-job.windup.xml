@@ -34,12 +34,8 @@ spring-boot-to-azure-schedule-job:
         or:
         - artifact:
             artifactId: '{*}'
-            fromVersion: null
             groupId: org.quartz-scheduler
-            toVersion: null
         - artifact:
             artifactId: spring-boot-starter-quartz
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
       where: {}

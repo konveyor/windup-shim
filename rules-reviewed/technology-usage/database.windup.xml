@@ -323,8 +323,9 @@ database:
               level: INFORMATIONAL
               tag: Spring Data
           when:
-            file:
-              filename: spring-data{*}test{*}.jar
+            not:
+              file:
+                filename: spring-data{*}test{*}.jar
       when:
         file:
           filename: spring-data{*}.jar
@@ -433,14 +434,10 @@ database:
         or:
         - artifact:
             artifactId: spring-data-jpa
-            fromVersion: null
             groupId: org.springframework.data
-            toVersion: null
         - artifact:
             artifactId: spring-boot-starter-data-jpa
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
         - dependency:
             artifactId: spring-data-jpa
             groupId: org.springframework.data

@@ -30,17 +30,11 @@ spring-boot-to-azure-eureka:
         or:
         - artifact:
             artifactId: spring-cloud-netflix-eureka{*}
-            fromVersion: null
             groupId: org.springframework.cloud
-            toVersion: null
         - artifact:
             artifactId: spring-cloud-starter-netflix-eureka{*}
-            fromVersion: null
             groupId: org.springframework.cloud
-            toVersion: null
         - artifact:
             artifactId: '{*}'
-            fromVersion: null
             groupId: com.netflix.eureka
-            toVersion: null
       where: {}

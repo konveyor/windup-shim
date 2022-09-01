@@ -27,9 +27,7 @@ jdbc-to-quarkus:
       when:
         artifact:
           artifactId: jcc
-          fromVersion: null
           groupId: com.ibm.db2
-          toVersion: null
       where: {}
     quarkus-jdbc-db2-00010:
       perform:
@@ -67,9 +65,7 @@ jdbc-to-quarkus:
       when:
         artifact:
           artifactId: derbyclient
-          fromVersion: null
           groupId: org.apache.derby
-          toVersion: null
       where: {}
     quarkus-jdbc-derby-00010:
       perform:
@@ -109,9 +105,7 @@ jdbc-to-quarkus:
       when:
         artifact:
           artifactId: mariadb-java-client
-          fromVersion: null
           groupId: org.mariadb.jdbc
-          toVersion: null
       where: {}
     quarkus-jdbc-mariadb-00010:
       perform:
@@ -151,9 +145,7 @@ jdbc-to-quarkus:
       when:
         artifact:
           artifactId: mysql-connector-java
-          fromVersion: null
           groupId: mysql
-          toVersion: null
       where: {}
     quarkus-jdbc-mysql-00010:
       perform:
@@ -193,9 +185,7 @@ jdbc-to-quarkus:
       when:
         artifact:
           artifactId: ojdbc11
-          fromVersion: null
           groupId: com.oracle.database.jdbc
-          toVersion: null
       where: {}
     quarkus-jdbc-oracle-00010:
       perform:
@@ -235,9 +225,7 @@ jdbc-to-quarkus:
       when:
         artifact:
           artifactId: postgresql
-          fromVersion: null
           groupId: org.postgresql
-          toVersion: null
       where: {}
     quarkus-jdbc-postgresql-00010:
       perform:

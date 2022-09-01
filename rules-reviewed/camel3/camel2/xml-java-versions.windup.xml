@@ -28,11 +28,10 @@ xml-java-versions:
           tags: []
           title: '''jaxb-api'' Maven dependency missing'
       when:
-        artifact:
-          artifactId: jaxb-api
-          fromVersion: null
-          groupId: javax.xml.bind
-          toVersion: null
+        not:
+          artifact:
+            artifactId: jaxb-api
+            groupId: javax.xml.bind
         xmlfile:
           as: dependencies-block
           in: pom.xml
@@ -58,11 +57,10 @@ xml-java-versions:
           tags: []
           title: '''jaxb-core'' Maven dependency missing'
       when:
-        artifact:
-          artifactId: jaxb-core
-          fromVersion: null
-          groupId: com.sun.xml.bind
-          toVersion: null
+        not:
+          artifact:
+            artifactId: jaxb-core
+            groupId: com.sun.xml.bind
         xmlfile:
           as: dependencies-block
           in: pom.xml
@@ -88,11 +86,10 @@ xml-java-versions:
           tags: []
           title: '''jaxb-impl'' Maven dependency missing'
       when:
-        artifact:
-          artifactId: jaxb-impl
-          fromVersion: null
-          groupId: com.sun.xml.bind
-          toVersion: null
+        not:
+          artifact:
+            artifactId: jaxb-impl
+            groupId: com.sun.xml.bind
         xmlfile:
           as: dependencies-block
           in: pom.xml

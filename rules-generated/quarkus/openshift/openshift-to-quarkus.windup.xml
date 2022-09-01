@@ -30,9 +30,7 @@ openshift-to-quarkus:
       when:
         artifact:
           artifactId: openshift-client
-          fromVersion: null
           groupId: io.fabric8
-          toVersion: null
       where: {}
     quarkus-openshift-client-00010:
       perform:

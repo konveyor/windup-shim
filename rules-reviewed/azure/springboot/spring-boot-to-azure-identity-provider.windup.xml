@@ -36,12 +36,8 @@ spring-boot-to-azure-identity-provider:
         or:
         - artifact:
             artifactId: spring-boot-starter-security
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
         - artifact:
             artifactId: '{*}'
-            fromVersion: null
             groupId: org.springframework.security
-            toVersion: null
       where: {}

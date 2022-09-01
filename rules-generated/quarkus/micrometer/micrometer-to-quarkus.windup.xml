@@ -30,9 +30,7 @@ micrometer-to-quarkus:
       when:
         artifact:
           artifactId: micrometer-registry-prometheus
-          fromVersion: null
           groupId: io.micrometer
-          toVersion: null
       where: {}
     quarkus-micrometer-registry-prometheus-00010:
       perform:

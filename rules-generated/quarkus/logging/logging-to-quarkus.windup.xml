@@ -30,9 +30,7 @@ logging-to-quarkus:
       when:
         artifact:
           artifactId: logstash-gelf
-          fromVersion: null
           groupId: biz.paluch.logging
-          toVersion: null
       where: {}
     quarkus-logging-gelf-00010:
       perform:
@@ -72,9 +70,7 @@ logging-to-quarkus:
       when:
         artifact:
           artifactId: sentry-jul
-          fromVersion: null
           groupId: io.sentry
-          toVersion: null
       where: {}
     quarkus-logging-sentry-00010:
       perform:

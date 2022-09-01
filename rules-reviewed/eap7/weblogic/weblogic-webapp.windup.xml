@@ -193,7 +193,8 @@ weblogic-webapp-eap7:
             - weblogic
             title: WebLogic proprietary security API
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:

@@ -28,9 +28,7 @@ jsonp-to-quarkus:
       when:
         artifact:
           artifactId: jakarta.json
-          fromVersion: null
           groupId: org.glassfish
-          toVersion: null
       where: {}
     quarkus-jsonp-00010:
       perform:

@@ -46,9 +46,7 @@ springboot-metrics-to-quarkus:
       when:
         artifact:
           artifactId: micrometer-core
-          fromVersion: null
           groupId: io.micrometer
-          toVersion: null
       where: {}
     springboot-metrics-to-quarkus-0300:
       perform:

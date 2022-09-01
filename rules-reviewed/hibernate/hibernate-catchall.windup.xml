@@ -29,7 +29,8 @@ hibernate-catchall:
               - catchall
               title: Hibernate
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:

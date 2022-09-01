@@ -30,9 +30,7 @@ picocli-to-quarkus:
       when:
         artifact:
           artifactId: picocli
-          fromVersion: null
           groupId: info.picocli
-          toVersion: null
       where: {}
     quarkus-picocli-00010:
       perform:

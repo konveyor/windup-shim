@@ -36,22 +36,14 @@ spring-boot-to-azure-cache:
         or:
         - artifact:
             artifactId: spring-boot-starter-data-redis
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
         - artifact:
             artifactId: spring-data-redis
-            fromVersion: null
             groupId: org.springframework.data
-            toVersion: null
         - artifact:
             artifactId: spring-session-data-redis
-            fromVersion: null
             groupId: org.springframework.session
-            toVersion: null
         - artifact:
             artifactId: spring-integration-redis
-            fromVersion: null
             groupId: org.springframework.integration
-            toVersion: null
       where: {}

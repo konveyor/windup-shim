@@ -31,9 +31,7 @@ springboot-cloud-config-to-quarkus:
         or:
         - artifact:
             artifactId: spring-cloud-config-client
-            fromVersion: null
             groupId: org.springframework.cloud
-            toVersion: null
         - dependency:
             artifactId: spring-cloud-config-client
             groupId: org.springframework.cloud

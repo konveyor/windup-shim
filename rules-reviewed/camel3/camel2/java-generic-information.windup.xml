@@ -759,7 +759,6 @@ java-generic-information:
       when:
         artifact:
           artifactId: camel-fhir
-          fromVersion: null
           groupId: org.apache.camel
           toVersion: '2'
       where: {}

@@ -61,9 +61,7 @@ maven-javax-to-jakarta:
       when:
         artifact:
           artifactId: activation
-          fromVersion: null
           groupId: javax.activation
-          toVersion: null
       where: {}
     maven-javax-to-jakarta-00003:
       perform:

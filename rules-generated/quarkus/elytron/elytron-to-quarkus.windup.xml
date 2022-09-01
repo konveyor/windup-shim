@@ -30,9 +30,7 @@ elytron-to-quarkus:
       when:
         artifact:
           artifactId: wildfly-elytron-realm-jdbc
-          fromVersion: null
           groupId: org.wildfly.security
-          toVersion: null
       where: {}
     quarkus-elytron-security-jdbc-00010:
       perform:
@@ -72,9 +70,7 @@ elytron-to-quarkus:
       when:
         artifact:
           artifactId: wildfly-elytron-realm-ldap
-          fromVersion: null
           groupId: org.wildfly.security
-          toVersion: null
       where: {}
     quarkus-elytron-security-ldap-00010:
       perform:
@@ -114,9 +110,7 @@ elytron-to-quarkus:
       when:
         artifact:
           artifactId: wildfly-elytron-realm-token
-          fromVersion: null
           groupId: org.wildfly.security
-          toVersion: null
       where: {}
     quarkus-elytron-security-oauth2-00010:
       perform:

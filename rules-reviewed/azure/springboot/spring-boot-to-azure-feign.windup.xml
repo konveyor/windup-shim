@@ -33,12 +33,8 @@ spring-boot-to-azure-feign:
         or:
         - artifact:
             artifactId: '{*}'
-            fromVersion: null
             groupId: com.netflix.feign
-            toVersion: null
         - artifact:
             artifactId: spring-cloud-starter-feign
-            fromVersion: null
             groupId: org.springframework.cloud
-            toVersion: null
       where: {}

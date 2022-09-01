@@ -30,9 +30,7 @@ apicurio-to-quarkus:
       when:
         artifact:
           artifactId: apicurio-registry-serdes-avro-serde
-          fromVersion: null
           groupId: io.apicurio
-          toVersion: null
       where: {}
     quarkus-apicurio-registry-avro-00010:
       perform:

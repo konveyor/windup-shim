@@ -30,9 +30,7 @@ kubernetes-to-quarkus:
       when:
         artifact:
           artifactId: kubernetes-client
-          fromVersion: null
           groupId: io.fabric8
-          toVersion: null
       where: {}
     quarkus-kubernetes-client-00010:
       perform:

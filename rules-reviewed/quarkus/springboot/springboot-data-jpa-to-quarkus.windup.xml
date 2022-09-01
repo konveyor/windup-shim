@@ -30,14 +30,10 @@ springboot-data-jpa-to-quarkus:
         or:
         - artifact:
             artifactId: spring-data-jpa
-            fromVersion: null
             groupId: org.springframework.data
-            toVersion: null
         - artifact:
             artifactId: spring-boot-starter-data-jpa
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
         - dependency:
             artifactId: spring-data-jpa
             groupId: org.springframework.data

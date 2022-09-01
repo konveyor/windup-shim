@@ -51,10 +51,12 @@ hibernate51-53:
             and the Java 8 date/time types are now natively supported.
       when:
         artifact:
-          artifactId: hibernate-core
-          fromVersion: null
+          artifactId: '{substitution}'
           groupId: org.hibernate
-          toVersion: null
+        not:
+          artifact:
+            artifactId: hibernate-core
+            groupId: org.hibernate
       where:
         substitution: (hibernate-java8|hibernate-entitymanager)
     hibernate51-53-00300:

@@ -30,12 +30,9 @@ maven-artemis-jms-client:
         and:
         - artifact:
             artifactId: artemis-jms-client
-            fromVersion: null
             groupId: org.apache.activemq
-            toVersion: null
-        artifact:
-          artifactId: wildfly-client-properties
-          fromVersion: null
-          groupId: org.jboss.eap
-          toVersion: null
+        not:
+          artifact:
+            artifactId: wildfly-client-properties
+            groupId: org.jboss.eap
       where: {}

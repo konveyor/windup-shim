@@ -30,9 +30,7 @@ config-to-quarkus:
       when:
         artifact:
           artifactId: smallrye-config-source-yaml
-          fromVersion: null
           groupId: io.smallrye.config
-          toVersion: null
       where: {}
     quarkus-config-yaml-00010:
       perform:

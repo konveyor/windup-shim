@@ -30,9 +30,7 @@ artemis-to-quarkus:
       when:
         artifact:
           artifactId: artemis-jms-client
-          fromVersion: null
           groupId: org.apache.activemq
-          toVersion: null
       where: {}
     quarkus-artemis-jms-00010:
       perform:

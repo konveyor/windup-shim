@@ -28,7 +28,8 @@ weblogic-catchall:
               - catchall
               title: WebLogic proprietary type reference
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:
@@ -52,7 +53,8 @@ weblogic-catchall:
               - catchall
               title: Oracle proprietary SQL type reference
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:
@@ -74,7 +76,8 @@ weblogic-catchall:
               - catchall
               title: Tangosol Proprietary type reference
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:
@@ -97,7 +100,8 @@ weblogic-catchall:
               - catchall
               title: Oracle proprietary type reference
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:
@@ -121,7 +125,8 @@ weblogic-catchall:
               - catchall
               title: Oracle proprietary JDBC type reference
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:

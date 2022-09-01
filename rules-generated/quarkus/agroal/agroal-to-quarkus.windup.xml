@@ -30,9 +30,7 @@ agroal-to-quarkus:
       when:
         artifact:
           artifactId: agroal-api
-          fromVersion: null
           groupId: io.agroal
-          toVersion: null
       where: {}
     quarkus-agroal-00010:
       perform:

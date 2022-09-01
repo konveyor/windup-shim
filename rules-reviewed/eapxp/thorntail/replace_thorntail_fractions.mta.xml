@@ -31,9 +31,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: bean-validation
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-02:
       perform:
@@ -54,9 +52,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: cdi-config
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-03:
       perform:
@@ -77,9 +73,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: cdi
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-04:
       perform:
@@ -100,9 +94,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: config-api-runtime
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-05:
       perform:
@@ -123,9 +115,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: datasources
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-06:
       perform:
@@ -146,9 +136,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: ee-security
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-07:
       perform:
@@ -169,9 +157,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: ejb-mdb
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-08:
       perform:
@@ -192,9 +178,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: ejb
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-09:
       perform:
@@ -215,9 +199,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: elytron
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-10:
       perform:
@@ -238,9 +220,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: fraction-metadata
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-11:
       perform:
@@ -261,9 +241,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: hibernate-validator
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-12:
       perform:
@@ -284,9 +262,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: hibernate
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-13:
       perform:
@@ -307,9 +283,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: hystrix
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-14:
       perform:
@@ -330,9 +304,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: infinispan
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-15:
       perform:
@@ -353,9 +325,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jaeger
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-16:
       perform:
@@ -376,9 +346,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jaxrs-jaxb
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-17:
       perform:
@@ -399,9 +367,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jaxrs-jsonb
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-18:
       perform:
@@ -422,9 +388,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jaxrs-jsonp
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-19:
       perform:
@@ -445,9 +409,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jaxrs-multipart
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-20:
       perform:
@@ -468,9 +430,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jaxrs-validator
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-21:
       perform:
@@ -491,9 +451,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jaxrs
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-22:
       perform:
@@ -514,9 +472,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jca
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-23:
       perform:
@@ -537,9 +493,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jmx
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-24:
       perform:
@@ -560,9 +514,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jpa
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-25:
       perform:
@@ -583,9 +535,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jsf
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-26:
       perform:
@@ -606,9 +556,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jsonb
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-27:
       perform:
@@ -629,9 +577,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: jsonp
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-28:
       perform:
@@ -652,9 +598,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: keycloak
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-29:
       perform:
@@ -675,9 +619,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: logging
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-30:
       perform:
@@ -698,9 +640,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: management
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-31:
       perform:
@@ -721,9 +661,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: microprofile-config
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-32:
       perform:
@@ -744,9 +682,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: microprofile-fault-tolerance
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-33:
       perform:
@@ -767,9 +703,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: microprofile-health
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-34:
       perform:
@@ -790,9 +724,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: microprofile-jwt
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-35:
       perform:
@@ -813,9 +745,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: microprofile-metrics
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-36:
       perform:
@@ -836,9 +766,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: microprofile-openapi
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-37:
       perform:
@@ -859,9 +787,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: microprofile-opentracing
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-38:
       perform:
@@ -882,9 +808,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: microprofile-restclient
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-39:
       perform:
@@ -905,9 +829,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: microprofile
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-40:
       perform:
@@ -928,9 +850,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: opentracing
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-41:
       perform:
@@ -951,9 +871,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: remoting
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-42:
       perform:
@@ -974,9 +892,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: resource-adapters
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-43:
       perform:
@@ -997,9 +913,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: spi
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-44:
       perform:
@@ -1020,9 +934,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: topology-openshift
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-45:
       perform:
@@ -1043,9 +955,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: topology-webapp
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-46:
       perform:
@@ -1066,9 +976,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: transactions
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-47:
       perform:
@@ -1089,9 +997,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: undertow
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-48:
       perform:
@@ -1112,9 +1018,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: web
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-49:
       perform:
@@ -1135,9 +1039,7 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: archaius
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}
     replace_thorntail_fractions-50:
       perform:
@@ -1158,7 +1060,5 @@ replace_thorntail_fractions:
       when:
         artifact:
           artifactId: monitor
-          fromVersion: null
           groupId: io.thorntail
-          toVersion: null
       where: {}

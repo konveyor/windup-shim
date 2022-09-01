@@ -30,9 +30,7 @@ liquibase-to-quarkus:
       when:
         artifact:
           artifactId: liquibase-core
-          fromVersion: null
           groupId: org.liquibase
-          toVersion: null
       where: {}
     quarkus-liquibase-00010:
       perform:
@@ -72,9 +70,7 @@ liquibase-to-quarkus:
       when:
         artifact:
           artifactId: liquibase-mongodb
-          fromVersion: null
           groupId: org.liquibase.ext
-          toVersion: null
       where: {}
     quarkus-liquibase-mongodb-00010:
       perform:

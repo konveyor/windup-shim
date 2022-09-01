@@ -28,9 +28,7 @@ jsonb-to-quarkus:
       when:
         artifact:
           artifactId: yasson
-          fromVersion: null
           groupId: org.eclipse
-          toVersion: null
       where: {}
     quarkus-jsonb-00010:
       perform:

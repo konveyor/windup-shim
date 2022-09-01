@@ -30,9 +30,7 @@ opentelemetry-to-quarkus:
       when:
         artifact:
           artifactId: opentelemetry-exporter-jaeger
-          fromVersion: null
           groupId: io.opentelemetry
-          toVersion: null
       where: {}
     quarkus-opentelemetry-exporter-jaeger-00010:
       perform:
@@ -72,9 +70,7 @@ opentelemetry-to-quarkus:
       when:
         artifact:
           artifactId: opentelemetry-exporter-otlp-trace
-          fromVersion: null
           groupId: io.opentelemetry
-          toVersion: null
       where: {}
     quarkus-opentelemetry-exporter-otlp-00010:
       perform:

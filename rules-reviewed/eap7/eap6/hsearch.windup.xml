@@ -745,9 +745,7 @@ hsearch:
       when:
         artifact:
           artifactId: hibernate-search-analyzers
-          fromVersion: null
           groupId: org.hibernate
-          toVersion: null
       where: {}
     hsearch-00201:
       perform:

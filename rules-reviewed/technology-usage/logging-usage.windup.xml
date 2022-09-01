@@ -230,8 +230,9 @@ logging-usage:
               level: INFORMATIONAL
               tag: Logging Utils
           when:
-            file:
-              filename: logging-{*}.jar
+            not:
+              file:
+                filename: logging-{*}.jar
       when:
         file:
           filename: logging{*}.jar
@@ -396,8 +397,9 @@ logging-usage:
               level: INFORMATIONAL
               tag: OW2 Log Util
           when:
-            file:
-              filename: util-logging{*}.jar
+            not:
+              file:
+                filename: util-logging{*}.jar
       when:
         file:
           filename: util-log{*}.jar

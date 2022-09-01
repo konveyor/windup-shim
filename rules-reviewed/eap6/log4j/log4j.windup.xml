@@ -21,9 +21,7 @@ Log4jRules:
       when:
         artifact:
           artifactId: log4j
-          fromVersion: null
           groupId: log4j
-          toVersion: null
       where: {}
     log4j-02000:
       perform:

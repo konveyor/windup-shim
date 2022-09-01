@@ -29,9 +29,7 @@ kafka-to-quarkus:
       when:
         artifact:
           artifactId: kafka-clients
-          fromVersion: null
           groupId: org.apache.kafka
-          toVersion: null
       where: {}
     quarkus-kafka-client-00010:
       perform:
@@ -71,9 +69,7 @@ kafka-to-quarkus:
       when:
         artifact:
           artifactId: kafka-streams
-          fromVersion: null
           groupId: org.apache.kafka
-          toVersion: null
       where: {}
     quarkus-kafka-streams-00010:
       perform:

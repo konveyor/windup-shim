@@ -124,7 +124,8 @@ websphere-jms-eap7:
               - websphere
               title: IBM JMS destination message
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:
@@ -150,7 +151,8 @@ websphere-jms-eap7:
               - websphere
               title: IBM JMS interface
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:

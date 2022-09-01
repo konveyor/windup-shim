@@ -29,7 +29,8 @@ sonic-catchall:
               - catchall
               title: Sonic proprietary type reference com.{subpackage}.{classname}
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:

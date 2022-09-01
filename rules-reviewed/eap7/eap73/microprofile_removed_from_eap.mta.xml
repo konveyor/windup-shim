@@ -28,9 +28,7 @@ microprofile_removed_from_eap:
       when:
         artifact:
           artifactId: microprofile-opentracing-api
-          fromVersion: null
           groupId: org.eclipse.microprofile.opentracing
-          toVersion: null
       where: {}
     microprofile_removed_from_eap-00002:
       perform:
@@ -50,9 +48,7 @@ microprofile_removed_from_eap:
       when:
         artifact:
           artifactId: microprofile-health-api
-          fromVersion: null
           groupId: org.eclipse.microprofile.health
-          toVersion: null
       where: {}
     microprofile_removed_from_eap-00003:
       perform:
@@ -72,9 +68,7 @@ microprofile_removed_from_eap:
       when:
         artifact:
           artifactId: microprofile-metrics-api
-          fromVersion: null
           groupId: org.eclipse.microprofile.metrics
-          toVersion: null
       where: {}
     microprofile_removed_from_eap-00004:
       perform:
@@ -94,7 +88,5 @@ microprofile_removed_from_eap:
       when:
         artifact:
           artifactId: microprofile-rest-client-api
-          fromVersion: null
           groupId: org.eclipse.microprofile.rest.client
-          toVersion: null
       where: {}

@@ -30,9 +30,7 @@ narayana-to-quarkus:
       when:
         artifact:
           artifactId: narayana-jta
-          fromVersion: null
           groupId: org.jboss.narayana.jta
-          toVersion: null
       where: {}
     quarkus-narayana-jta-00010:
       perform:
@@ -72,9 +70,7 @@ narayana-to-quarkus:
       when:
         artifact:
           artifactId: narayana-lra
-          fromVersion: null
           groupId: org.jboss.narayana.rts
-          toVersion: null
       where: {}
     quarkus-narayana-lra-00010:
       perform:
@@ -114,9 +110,7 @@ narayana-to-quarkus:
       when:
         artifact:
           artifactId: stm
-          fromVersion: null
           groupId: org.jboss.narayana.stm
-          toVersion: null
       where: {}
     quarkus-narayana-stm-00010:
       perform:

@@ -30,9 +30,7 @@ resteasy-to-quarkus:
       when:
         artifact:
           artifactId: resteasy-multipart-provider
-          fromVersion: null
           groupId: org.jboss.resteasy
-          toVersion: null
       where: {}
     quarkus-resteasy-multipart-00010:
       perform:

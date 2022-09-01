@@ -260,7 +260,8 @@ jboss-eap5-java:
             - jbossws
             title: org.jboss.wsf.spi.tools has been moved to org.jboss.ws.api.tools
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:
@@ -353,7 +354,8 @@ jboss-eap5-java:
             - jbossws
             title: org.jboss.wsf.common has been moved to org.jboss.ws.common
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         annotation-types: []
         javaclass:

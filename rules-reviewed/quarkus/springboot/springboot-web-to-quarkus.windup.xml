@@ -33,14 +33,10 @@ springboot-web-to-quarkus:
         or:
         - artifact:
             artifactId: spring-web
-            fromVersion: null
             groupId: org.springframework
-            toVersion: null
         - artifact:
             artifactId: spring-boot-starter-web
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
         - dependency:
             artifactId: spring-web
             groupId: org.springframework
@@ -64,19 +60,17 @@ springboot-web-to-quarkus:
         - and:
           - artifact:
               artifactId: quarkus-spring-web
-              fromVersion: null
               groupId: io.quarkus
-              toVersion: null
-          - artifact:
-              artifactId: quarkus-resteasy-reactive-jackson
-              fromVersion: null
-              groupId: io.quarkus
-              toVersion: null
+          - not:
+              artifact:
+                artifactId: quarkus-resteasy-reactive-jackson
+                groupId: io.quarkus
         - and:
           - dependency:
               artifactId: quarkus-spring-web
               groupId: io.quarkus
-          - dependency:
-              artifactId: quarkus-resteasy-reactive-jackson
-              groupId: io.quarkus
+          - not:
+              dependency:
+                artifactId: quarkus-resteasy-reactive-jackson
+                groupId: io.quarkus
       where: {}

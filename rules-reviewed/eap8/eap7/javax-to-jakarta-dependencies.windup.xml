@@ -97,9 +97,7 @@ javax-to-jakarta-dependencies:
       when:
         artifact:
           artifactId: javax.activation-api
-          fromVersion: null
           groupId: javax.activation
-          toVersion: null
       where: {}
     javax-to-jakarta-dependencies-00005:
       perform:

@@ -36,12 +36,8 @@ spring-boot-to-azure-jms-broker:
         or:
         - artifact:
             artifactId: spring-boot-starter-activemq
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
         - artifact:
             artifactId: '{*}'
-            fromVersion: null
             groupId: org.apache.activemq
-            toVersion: null
       where: {}

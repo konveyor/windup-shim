@@ -36,7 +36,8 @@ springboot-generic-catchall:
               - catchall
               title: Spring component {artifact} requires investigation
           when:
-            has-hint: true
+            not:
+              has-hint: true
       when:
         dependency:
           artifactId: '{artifact}'

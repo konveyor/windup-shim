@@ -30,9 +30,7 @@ flyway-to-quarkus:
       when:
         artifact:
           artifactId: flyway-core
-          fromVersion: null
           groupId: org.flywaydb
-          toVersion: null
       where: {}
     quarkus-flyway-00010:
       perform:

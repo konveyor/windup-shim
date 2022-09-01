@@ -26,7 +26,5 @@ maven-jboss-rmi-api_1.0_spec:
       when:
         artifact:
           artifactId: jboss-rmi-api_1.0_spec
-          fromVersion: null
           groupId: org.jboss.spec.javax.rmi
-          toVersion: null
       where: {}

@@ -433,14 +433,10 @@ security:
         or:
         - artifact:
             artifactId: spring-security-core
-            fromVersion: null
             groupId: org.springframework.security
-            toVersion: null
         - artifact:
             artifactId: spring-boot-starter-security
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
         - dependency:
             artifactId: spring-security-core
             groupId: org.springframework.security

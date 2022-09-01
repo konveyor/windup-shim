@@ -165,8 +165,9 @@ embedded-framework:
               level: INFORMATIONAL
               tag: Spring Batch
           when:
-            file:
-              filename: spring-batch{*}test{*}.jar
+            not:
+              file:
+                filename: spring-batch{*}test{*}.jar
       when:
         file:
           filename: spring-batch{*}.jar
@@ -266,8 +267,9 @@ embedded-framework:
               level: INFORMATIONAL
               tag: Blaze
           when:
-            file:
-              filename: '{*}blazeds{*}.jar'
+            not:
+              file:
+                filename: '{*}blazeds{*}.jar'
       when:
         file:
           filename: blaze{*}.jar
@@ -869,14 +871,10 @@ embedded-framework:
         or:
         - artifact:
             artifactId: spring-web
-            fromVersion: null
             groupId: org.springframework
-            toVersion: null
         - artifact:
             artifactId: spring-boot-starter-web
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
         - dependency:
             artifactId: spring-web
             groupId: org.springframework
@@ -896,9 +894,7 @@ embedded-framework:
       when:
         artifact:
           artifactId: spring-shell-core
-          fromVersion: null
           groupId: org.springframework.shell
-          toVersion: null
       where: {}
     embedded-framework-08600:
       perform:
@@ -953,9 +949,7 @@ embedded-framework:
         or:
         - artifact:
             artifactId: spring-cloud-function-context
-            fromVersion: null
             groupId: org.springframework.cloud
-            toVersion: null
         - dependency:
             artifactId: spring-cloud-function-context
             groupId: org.springframework.cloud
@@ -1054,8 +1048,9 @@ embedded-framework:
             level: INFORMATIONAL
             tag: Spring
           when:
-            has-classification:
-              title: Embedded framework - Spring {pattern}
+            not:
+              has-classification:
+                title: Embedded framework - Spring {pattern}
       when:
         file:
           filename: spring{*}.jar

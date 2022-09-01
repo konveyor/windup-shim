@@ -28,12 +28,8 @@ spring-boot-to-azure-zipkin:
         or:
         - artifact:
             artifactId: spring-cloud-starter-zipkin
-            fromVersion: null
             groupId: org.springframework.boot
-            toVersion: null
         - artifact:
             artifactId: '{*}'
-            fromVersion: null
             groupId: io.zipkin{*}
-            toVersion: null
       where: {}

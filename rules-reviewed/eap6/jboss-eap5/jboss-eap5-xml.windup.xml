@@ -187,8 +187,9 @@ jboss-eap5-xml:
             - jboss-eap5
             title: JBoss EAR descriptor
           when:
-            xmlfile:
-              public-id: .*JBoss.+DTD Java EE.+5.*
+            not:
+              xmlfile:
+                public-id: .*JBoss.+DTD Java EE.+5.*
       when:
         xmlfile:
           in: jboss-app.xml

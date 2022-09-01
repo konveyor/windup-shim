@@ -29,7 +29,5 @@ resteasy30-36:
       when:
         artifact:
           artifactId: jboss-jaxrs-api_2.0_spec
-          fromVersion: null
           groupId: org.jboss.spec.javax.ws.rs
-          toVersion: null
       where: {}

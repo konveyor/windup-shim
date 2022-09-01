@@ -30,9 +30,7 @@ keycloak-to-quarkus:
       when:
         artifact:
           artifactId: keycloak-admin-client
-          fromVersion: null
           groupId: org.keycloak
-          toVersion: null
       where: {}
     quarkus-keycloak-admin-client-00010:
       perform:
