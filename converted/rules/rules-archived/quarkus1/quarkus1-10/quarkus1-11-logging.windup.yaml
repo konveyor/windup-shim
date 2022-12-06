@@ -1,0 +1,42 @@
+metadata:
+- description: "\n            Quarkus project Release 1.11 changes to logging properties
+    configuration\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  sourceTechnology:
+  - id: quarkus1
+    versionRange: (,10]
+  targetTechnology:
+  - id: quarkus1
+    versionRange: '[11,)'
+rules:
+  rule:
+  - when:
+      filecontent:
+      - pattern: '{logLevel}'
+        filename: application.properties
+    perform:
+      hint:
+      - message: "If you are using `DEBUG` or `TRACE` log levels, we made an important
+          change in our logging layer: \n                        a new build-time
+          `min-level` configuration property was introduced that sets the minimum
+          log level you will be able to use at runtime.\n                        So
+          if you are logging at `DEBUG` level for some loggers, setting `min-level`
+          to `DEBUG` (or `TRACE`) is required."
+        link:
+        - value: ""
+          title: Quarkus - Configuring Logging
+          href: https://quarkus.io/guides/logging
+        - value: ""
+          title: Quarkus - Migraton Guide 1.11
+          href: https://github.com/quarkusio/quarkus/wiki/Migration-Guide-1.11
+        title: Log `min-level`
+        category-id: potential
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: (.level\s*=\s*(DEBUG|TRACE))
+      param: logLevel
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-logging.windup.xml

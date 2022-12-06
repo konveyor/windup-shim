@@ -1,0 +1,55 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate openshift components
+    to Quarkus extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: openshift
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: io.fabric8
+          artifactId: openshift-client
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `io.fabric8:openshift-client`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-openshift-client`
+            \ \n                            Further information in the link below.\n
+            \                       "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/kubernetes-client
+          title: Replace the 'openshift-client' dependency with Quarkus 'quarkus-openshift-client'
+            extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: io.fabric8
+        artifactId: openshift-client
+    perform:
+      hint:
+      - message: "\n                        Replace the `io.fabric8:openshift-client`
+          dependency with the Quarkus dependency `io.quarkus:quarkus-openshift-client`
+          \ \n                        Further information in the link below.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/kubernetes-client
+        title: Replace the 'openshift-client' dependency with Quarkus 'quarkus-openshift-client'
+          extension
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/openshift/openshift-to-quarkus.windup.xml

@@ -1,0 +1,40 @@
+metadata:
+- description: "\n            Identify Zipkin dependencies.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: azure-aks
+  - id: azure-appservice
+  - id: azure-container-apps
+  tag:
+  - zipkin
+rules:
+  rule:
+  - when:
+      or:
+      - project:
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-cloud-starter-zipkin
+        - artifact:
+            value: ""
+            groupId: io.zipkin{*}
+            artifactId: '{*}'
+    perform:
+      hint:
+      - message: "\n                        \n                        The application
+          uses Zipkin.\n                        \n                    "
+        link:
+        - value: ""
+          title: 'Migrate Spring Boot applications to Azure Kubernetes Service - '
+          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-kubernetes-service#identify-zipkin-dependencies
+        - value: ""
+          title: Distributed Tracing
+          href: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
+        title: Zipkin
+        category-id: information
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-zipkin.windup.xml

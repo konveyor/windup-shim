@@ -1,0 +1,269 @@
+metadata:
+- description: "\n            Rules for changes in XML file (e.g. pom.xml) to run
+    on Apache Camel 3\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  sourceTechnology:
+  - id: camel
+    versionRange: '[2,3)'
+  targetTechnology:
+  - id: camel
+    versionRange: '[3,)'
+rules:
+  rule:
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://camel.apache.org/schema/blueprint
+          matches: //*[(count(b:zip)+count(b:gzip)) >0]
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://camel.apache.org/schema/spring
+          matches: //*[(count(c:gzip)+count(c:zip)) > 0]
+    perform:
+      hint:
+      - message: "`zip` and `gzip` dataformats were renamed to `zipdeflater` and `gzipdeflater`\n\n
+          \                   "
+        link:
+        - value: ""
+          title: 'Camel 3 - Migration Guide: Zip and Gzip dafaformats'
+          href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_zip_and_gzip_dataformat
+        title: '`zip` and `gzip` dataformat was renamed'
+        category-id: mandatory
+        effort: 1
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://camel.apache.org/schema/blueprint
+          matches: //*/b:route/b:loadBalance/b:custom
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://camel.apache.org/schema/spring
+          matches: //*/c:route/c:loadBalance/c:custom
+    perform:
+      hint:
+      - message: "`custom` load balancer was renamed to `customLoadBalancer`\n\n                    "
+        link:
+        - value: ""
+          title: Camel 3 - Migration Guide
+          href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_xml_dsl_migration
+        quickfix:
+        - replacement: customLoadBalancer
+          search: custom
+          type: REPLACE
+          name: camel.customLoadBalancerReplacement
+        title: '`custom` load balancer was renamed `customLoadBalancer`'
+        category-id: mandatory
+        effort: 1
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://camel.apache.org/schema/blueprint
+          matches: //*/b:marshal/b:zipFile
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://camel.apache.org/schema/blueprint
+          matches: //*/b:unmarshal/b:zipFile
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://camel.apache.org/schema/spring
+          matches: //*/c:marshal/c:zipFile
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://camel.apache.org/schema/spring
+          matches: //*/c:unmarshal/c:zipFile
+    perform:
+      hint:
+      - message: "`zipFile` data format was renamed to `zipfile`\n\n                    "
+        link:
+        - value: ""
+          title: Camel 3 - Migration Guide
+          href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_xml_dsl_migration
+        quickfix:
+        - replacement: zipfile
+          search: zipFile
+          type: REPLACE
+          name: camel.dataformat.zipfile.replacement
+        title: '`zipFile` data format was renamed to `zipfile`'
+        category-id: mandatory
+        effort: 1
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://camel.apache.org/schema/blueprint
+          matches: //*/b:secureXML/@keyOrTrustStoreParametersId
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://camel.apache.org/schema/spring
+          matches: //*/c:secureXML/@keyOrTrustStoreParametersId
+    perform:
+      hint:
+      - message: "`keyOrTrustStoreParametersId` attribute was renamed to `keyOrTrustStoreParametersRef`\n\n
+          \                   "
+        link:
+        - value: ""
+          title: Camel 3 - Migration Guide
+          href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_xml_dsl_migration
+        quickfix:
+        - replacement: keyOrTrustStoreParametersRef
+          search: keyOrTrustStoreParametersId
+          type: REPLACE
+          name: camel.dataformat.securexml.replacement
+        title: '`keyOrTrustStoreParametersId` attribute was renamed'
+        category-id: mandatory
+        effort: 1
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://camel.apache.org/schema/blueprint
+          matches: //b:hystrix
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://camel.apache.org/schema/spring
+          matches: //*/c:hystrix
+    perform:
+      hint:
+      - message: "Hystrix circuit breaker has been generalized as circuit breaker.
+          Use `circuitBreaker`\n                        instead of `hystrix'.\n                    "
+        link:
+        - value: ""
+          title: Camel 3 - Migration Guide
+          href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_xml_dsl_migration
+        quickfix:
+        - replacement: circuitBreaker
+          search: hystrix
+          type: REPLACE
+          name: camel.eip.hystrix.replacement
+        title: '`hystrix` was renamed'
+        category-id: mandatory
+        effort: 1
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://camel.apache.org/schema/blueprint
+          matches: //*/b:aggregate/b:completionSize
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://camel.apache.org/schema/spring
+          matches: //*/c:aggregate/c:completionSize
+    perform:
+      hint:
+      - message: "Use `completionSizeExpression` instead of `completionSize`. Expressions
+          (not the attributes) for\n                        setting correlation size/timeout
+          were renamed.\n                    "
+        link:
+        - value: ""
+          title: Camel 3 - Migration Guide - Aggregate EIP changes
+          href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_aggregate_eip_in_xml_dsl
+        title: '`completionSize` in aggregate was renamed'
+        category-id: mandatory
+        effort: 1
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://camel.apache.org/schema/blueprint
+          matches: //*/b:aggregate/b:completionTimeout
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://camel.apache.org/schema/spring
+          matches: //*/c:aggregate/c:completionTimeout
+    perform:
+      hint:
+      - message: "Use `completionTimeoutExpression` instead of `completionTimeout`.
+          Expressions (not the\n                        attributes) for\n                        setting
+          correlation size/timeout were renamed.\n                    "
+        link:
+        - value: ""
+          title: Camel 3 - Migration Guide - Aggregate EIP changes
+          href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_aggregate_eip_in_xml_dsl
+        title: '`completionTimeout` in aggregate was renamed'
+        category-id: mandatory
+        effort: 1
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://camel.apache.org/schema/blueprint
+          matches: //*/b:setHeader/@headerName
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://camel.apache.org/schema/spring
+          matches: //*/c:setHeader/@headerName
+    perform:
+      hint:
+      - message: The attribute `headerName` was renamed to `name`.
+        link:
+        - value: ""
+          title: Camel 3 - Migration Guide - Aggregate EIP changes
+          href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_setheader_and_setproperty_in_xml_dsl
+        quickfix:
+        - replacement: setHeader/@name
+          search: setHeader/@headerName
+          type: REPLACE
+          name: camel.header.name.replacement
+        title: '`headerName` attribute was renamed'
+        category-id: mandatory
+        effort: 1
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://camel.apache.org/schema/blueprint
+          matches: //*/b:setProperty/@propertyName
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://camel.apache.org/schema/spring
+          matches: //*/c:setProperty/@propertyName
+    perform:
+      hint:
+      - message: The attribute `propertyName` was renamed to `name`.
+        link:
+        - value: ""
+          title: Camel 3 - Migration Guide - Aggregate EIP changes
+          href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_setheader_and_setproperty_in_xml_dsl
+        quickfix:
+        - replacement: setProperty/@name
+          search: setProperty/@propertyName
+          type: REPLACE
+          name: camel.header.name.replacement.spring
+        title: '`propertyName` attribute was renamed'
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml

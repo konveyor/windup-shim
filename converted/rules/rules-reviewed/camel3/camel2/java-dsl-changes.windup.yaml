@@ -1,0 +1,37 @@
+metadata:
+- description: "\n            Rules for changes in XML file (e.g. pom.xml) to run
+    on Apache Camel 3\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  sourceTechnology:
+  - id: camel
+    versionRange: '[2,3)'
+  targetTechnology:
+  - id: camel
+    versionRange: '[3,)'
+rules:
+  rule:
+  - when:
+      javaclass:
+      - location:
+        - METHOD_CALL
+        references: '{*}.hystrix()'
+    perform:
+      hint:
+      - message: "Hystrix circuit breaker has been generalized as circuit breaker.
+          Use `circuitBreaker()`\n                        instead of `hystrix()`\n
+          \                   "
+        link:
+        - value: ""
+          title: Camel 3 - Migration Guide - Hystrix EIP
+          href: https://camel.apache.org/manual/latest/camel-3-migration-guide.html#_hystrix_eip
+        quickfix:
+        - replacement: .circuitBreaker()
+          search: .hystrix()
+          type: REPLACE
+          name: camel.eip.hystrix.replacement
+        title: '`hystrix()` has been renamed.'
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/java-dsl-changes.windup.xml

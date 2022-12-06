@@ -1,0 +1,134 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate narayana components
+    to Quarkus extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: narayana
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: org.jboss.narayana.jta
+          artifactId: narayana-jta
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `org.jboss.narayana.jta:narayana-jta`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-narayana-jta`
+            \ \n                            Further information in the link below.\n
+            \                       "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/transaction
+          title: Replace the 'narayana-jta' dependency with Quarkus 'quarkus-narayana-jta'
+            extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: org.jboss.narayana.jta
+        artifactId: narayana-jta
+    perform:
+      hint:
+      - message: "\n                        Replace the `org.jboss.narayana.jta:narayana-jta`
+          dependency with the Quarkus dependency `io.quarkus:quarkus-narayana-jta`
+          \ \n                        Further information in the link below.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/transaction
+        title: Replace the 'narayana-jta' dependency with Quarkus 'quarkus-narayana-jta'
+          extension
+        category-id: mandatory
+        effort: 1
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: org.jboss.narayana.rts
+          artifactId: narayana-lra
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `org.jboss.narayana.rts:narayana-lra`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-narayana-lra`
+            \ \n                            Further information in the link below.\n
+            \                       "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/lra
+          title: Replace the 'narayana-lra' dependency with Quarkus 'quarkus-narayana-lra'
+            extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: org.jboss.narayana.rts
+        artifactId: narayana-lra
+    perform:
+      hint:
+      - message: "\n                        Replace the `org.jboss.narayana.rts:narayana-lra`
+          dependency with the Quarkus dependency `io.quarkus:quarkus-narayana-lra`
+          \ \n                        Further information in the link below.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/lra
+        title: Replace the 'narayana-lra' dependency with Quarkus 'quarkus-narayana-lra'
+          extension
+        category-id: mandatory
+        effort: 1
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: org.jboss.narayana.stm
+          artifactId: stm
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `org.jboss.narayana.stm:stm`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-narayana-stm`
+            \ \n                            Further information in the link below.\n
+            \                       "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/software-transactional-memory
+          title: Replace the 'stm' dependency with Quarkus 'quarkus-narayana-stm'
+            extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: org.jboss.narayana.stm
+        artifactId: stm
+    perform:
+      hint:
+      - message: "\n                        Replace the `org.jboss.narayana.stm:stm`
+          dependency with the Quarkus dependency `io.quarkus:quarkus-narayana-stm`
+          \ \n                        Further information in the link below.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/software-transactional-memory
+        title: Replace the 'stm' dependency with Quarkus 'quarkus-narayana-stm' extension
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml

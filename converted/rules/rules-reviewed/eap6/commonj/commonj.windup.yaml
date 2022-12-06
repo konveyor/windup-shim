@@ -1,0 +1,149 @@
+metadata:
+- description: "\n            This ruleset provides rules that match when Commonj
+    APIs are used when migrating\n            to JBoss EAP 6+.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.4.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.4.0.Final
+  sourceTechnology:
+  - id: weblogic
+  - id: websphere
+  targetTechnology:
+  - id: eap
+    versionRange: '[6,)'
+  - id: java-ee
+    versionRange: '[6,)'
+  tag:
+  - commonj
+rules:
+  rule:
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: commonj.timers.{*}
+    perform:
+      classification:
+      - link:
+        - value: ""
+          title: Replacement for JSR-236 (Timer Manager) and JSR-237 (Work Manager)
+            in JBoss EAP
+          href: https://access.redhat.com/solutions/199183
+        tag:
+        - commonj
+        title: Commonj Timer Manager API
+        issue-display-mode: all
+  - when:
+      javaclass:
+      - references: commonj.timers.TimerManager
+    perform:
+      hint:
+      - message: "Commonj Timer Manager API is similar to the EJB 3.1 java.ejb.Timer
+          Service.\n                        In Java EE 6, the Timer Service was updated
+          to allow cron like configuration of scheduling which is similar to Quartz's
+          timer configurations.\n                    "
+        link:
+        - value: ""
+          title: Java EE 6 Tutorial - Using the Timer Service
+          href: http://docs.oracle.com/javaee/6/tutorial/doc/bnboy.html
+        - value: ""
+          title: Java EE 6 TimerService API
+          href: http://docs.oracle.com/javaee/6/api/javax/ejb/TimerService.html
+        tag:
+        - commonj
+        title: Migrate commonj.timers.TimerManager to Java EE TimerService API
+        category-id: mandatory
+        effort: 7
+  - when:
+      javaclass:
+      - references: commonj.timers.Timer
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Commonj Timer Interface is similar
+            to the EJB 3.1 javax.ejb.Timer Interface.\n                        "
+          link:
+          - value: ""
+            title: Java EE 6 Tutorial - Using the Timer Service
+            href: http://docs.oracle.com/javaee/6/tutorial/doc/bnboy.html
+          - value: ""
+            title: Java EE 6 TimerService API
+            href: http://docs.oracle.com/javaee/6/api/javax/ejb/Timer.html
+          tag:
+          - commonj
+          title: Migrate commonj.timers.Timer to Java EE javax.ejb.Timer
+          category-id: mandatory
+          effort: 7
+  - when:
+      javaclass:
+      - references: commonj.work.{*}
+    perform:
+      classification:
+      - link:
+        - value: ""
+          title: Replacement for JSR-236 (Timer Manager) and JSR-237 (Work Manager)
+            in JBoss EAP
+          href: https://access.redhat.com/solutions/199183
+        - value: ""
+          title: Java EE 6 documentation for javax.resource.spi.work package
+          href: http://docs.oracle.com/javaee/6/api/index.html?javax/resource/spi/work/package-summary.html
+        - value: ""
+          title: IronJacamar javax.resource.spi.work.* API
+          href: http://www.ironjacamar.org/doc/api/spec/1.7/index.html?javax/resource/spi/work/package-summary.html
+        tag:
+        - commonj
+        title: Commonj WorkManager API
+        issue-display-mode: all
+  - when:
+      javaclass:
+      - references: commonj.work.WorkManager
+    perform:
+      hint:
+      - message: The CommonJ WorkManager can be replaced with a JCA Resource Adapter.
+        link:
+        - value: ""
+          title: Ironjacamar WorkManager SPI
+          href: http://www.ironjacamar.org/doc/api/spec/1.7/index.html?javax/resource/spi/work/WorkManager.html
+        tag:
+        - commonj
+        title: Replace CommonJ WorkManager with a JCA Resource Adapter
+        category-id: mandatory
+        effort: 7
+  - when:
+      javaclass:
+      - references: commonj.work.Work{part}
+    perform:
+      hint:
+      - message: Replace commonj.work.Work{part} with javax.resource.spi.work.Work{part}.
+        tag:
+        - commonj
+        title: Commonj WorkManager API
+        category-id: mandatory
+        effort: 3
+    where:
+    - matches:
+      - value: ""
+        pattern: (Event|Item|Listener)?
+      param: part
+  - when:
+      javaclass:
+      - location:
+        - THROW_STATEMENT
+        - THROWS_METHOD_DECLARATION
+        - CATCH_EXCEPTION_STATEMENT
+        references: commonj.work.Work{subpart}Exception
+    perform:
+      hint:
+      - message: Replace CommonJ Work related Exception with a javax.resource.spi.work.Work{subpart}Exception
+          subclass.
+        tag:
+        - commonj
+        title: CommonJ WorkManager API Exception
+        category-id: mandatory
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: (Completed|Rejected)?
+      param: subpart
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/eap6/commonj/commonj.windup.xml

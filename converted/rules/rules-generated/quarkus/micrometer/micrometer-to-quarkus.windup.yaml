@@ -1,0 +1,55 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate micrometer components
+    to Quarkus extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: micrometer
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: io.micrometer
+          artifactId: micrometer-registry-prometheus
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `io.micrometer:micrometer-registry-prometheus`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-micrometer-registry-prometheus`
+            \ \n                            Further information in the link below.\n
+            \                       "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/micrometer
+          title: Replace the 'micrometer-registry-prometheus' dependency with Quarkus
+            'quarkus-micrometer-registry-prometheus' extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: io.micrometer
+        artifactId: micrometer-registry-prometheus
+    perform:
+      hint:
+      - message: "\n                        Replace the `io.micrometer:micrometer-registry-prometheus`
+          dependency with the Quarkus dependency `io.quarkus:quarkus-micrometer-registry-prometheus`
+          \ \n                        Further information in the link below.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/micrometer
+        title: Replace the 'micrometer-registry-prometheus' dependency with Quarkus
+          'quarkus-micrometer-registry-prometheus' extension
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/micrometer/micrometer-to-quarkus.windup.xml

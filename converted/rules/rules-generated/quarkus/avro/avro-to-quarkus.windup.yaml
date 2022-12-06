@@ -1,0 +1,52 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate avro components
+    to Quarkus extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: avro
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: org.apache.avro
+          artifactId: avro
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `org.apache.avro:avro`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-avro`  \n                            Further
+            information in the link below.\n                        "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/kafka
+          title: Replace the 'avro' dependency with Quarkus 'quarkus-avro' extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: org.apache.avro
+        artifactId: avro
+    perform:
+      hint:
+      - message: "\n                        Replace the `org.apache.avro:avro` dependency
+          with the Quarkus dependency `io.quarkus:quarkus-avro`  \n                        Further
+          information in the link below.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/kafka
+        title: Replace the 'avro' dependency with Quarkus 'quarkus-avro' extension
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/avro/avro-to-quarkus.windup.xml

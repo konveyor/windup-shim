@@ -1,0 +1,42 @@
+metadata:
+- description: "\n            This ruleset gives hints for upgrading to quarkus 1.11
+    for applications that use Jackson \n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: quarkus1
+    versionRange: (,10]
+  targetTechnology:
+  - id: quarkus1
+    versionRange: '[11,)'
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: io.quarkus
+          artifactId: quarkus-resteasy-jackson
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            The default `ObjectMapper` obtained
+            via CDI and consumed by the Quarkus extensions now ignores unknown properties
+            \n                            (by disabling the `DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES`
+            feature).  \n                            Refer to the guide below for
+            more details about how to return to the previous behaviour.\n                        "
+          link:
+          - value: ""
+            title: Quarkus - Writing JSON REST Services
+            href: https://quarkus.io/guides/rest-json#jackson
+          - value: ""
+            title: Quarkus - Migraton Guide 1.11
+            href: https://github.com/quarkusio/quarkus/wiki/Migration-Guide-1.11
+          title: The Jackson ObjectMapper ignores unknown properties
+          category-id: potential
+          effort: 1
+        over: default
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-resteasy-jackson.windup.xml

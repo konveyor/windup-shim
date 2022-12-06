@@ -1,0 +1,85 @@
+metadata:
+- description: "\n            This ruleset provides analysis of Glassfish proprietary
+    xml files that may require individual\n            attention when migrating to
+    JBoss EAP 6+.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-xml,2.3.0.Final
+  sourceTechnology:
+  - id: glassfish
+  targetTechnology:
+  - id: eap
+    versionRange: '[6,)'
+  tag:
+  - web-app
+  - glassfish
+  - configuration
+rules:
+  rule:
+  - when:
+      xmlfile:
+      - as: default
+        public-id: .+GlassFish Application Server .+Servlet.+
+    perform:
+      iteration:
+      - classification:
+        - description:
+          - ' Glassfish specific web descriptor file that is by convention named glassfish-web.xml.
+            It is used to configure web application properties likes cache, session
+            configuration, JNDI name binding etc.'
+          link:
+          - value: ""
+            title: JBoss EAP web descriptor
+            href: https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Security_Guide/jboss-webxml_Configuration_Reference.html
+          tag:
+          - configuration
+          title: Glassfish Web Descriptor
+          effort: 3
+          category-id: mandatory
+          issue-display-mode: all
+  - when:
+      xmlfile:
+      - as: default
+        matches: /glassfish-ejb-jar
+    perform:
+      iteration:
+      - classification:
+        - description:
+          - ' Glassfish specific ejb configuration file used to configure EJBs, map
+            them to jndi names etc.'
+          link:
+          - value: ""
+            title: JBoss EAP 6 - jboss-ejb3.xml Deployment Descriptor Reference
+            href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/development_guide/#jboss-ejb3xml_Deployment_Descriptor_Reference
+          - value: ""
+            title: JBoss EAP 7 - jboss-ejb3.xml Deployment Descriptor Reference
+            href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html-single/developing_ejb_applications/#jboss_ejb3_xml_deployment_descriptor_reference
+          tag:
+          - configuration
+          title: Glassfish EJB Descriptor
+          effort: 3
+          category-id: mandatory
+          issue-display-mode: all
+  - when:
+      xmlfile:
+      - as: default
+        matches: /glassfish-application
+    perform:
+      iteration:
+      - classification:
+        - description:
+          - ' Glassfish-application  is a Glassfish specific EAR configuration file
+            used to configure security roles, url addresses, JNDI binding etc. This
+            file is glassfish specific and needs to be migrated to application.xml
+            or jboss-app.xml.'
+          link:
+          - value: ""
+            title: JBoss application configuration xsd file
+            href: http://www.jboss.org/schema/jbossas/jboss-app_7_0.xsd
+          tag:
+          - configuration
+          title: Glassfish Application EAR configuration file
+          effort: 3
+          category-id: optional
+          issue-display-mode: all
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml

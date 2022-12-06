@@ -1,0 +1,54 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate keycloak components
+    to Quarkus extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: keycloak
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: org.keycloak
+          artifactId: keycloak-admin-client
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `org.keycloak:keycloak-admin-client`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-keycloak-admin-client`
+            \ \n                            No specific guide is available.\n                        "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/
+          title: Replace the 'keycloak-admin-client' dependency with Quarkus 'quarkus-keycloak-admin-client'
+            extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: org.keycloak
+        artifactId: keycloak-admin-client
+    perform:
+      hint:
+      - message: "\n                        Replace the `org.keycloak:keycloak-admin-client`
+          dependency with the Quarkus dependency `io.quarkus:quarkus-keycloak-admin-client`
+          \ \n                        No specific guide is available.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/
+        title: Replace the 'keycloak-admin-client' dependency with Quarkus 'quarkus-keycloak-admin-client'
+          extension
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/keycloak/keycloak-to-quarkus.windup.xml

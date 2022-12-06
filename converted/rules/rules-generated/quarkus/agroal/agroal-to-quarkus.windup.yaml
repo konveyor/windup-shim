@@ -1,0 +1,53 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate agroal components
+    to Quarkus extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: agroal
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: io.agroal
+          artifactId: agroal-api
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `io.agroal:agroal-api`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-agroal`  \n
+            \                           Further information in the link below.\n                        "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/datasource
+          title: Replace the 'agroal-api' dependency with Quarkus 'quarkus-agroal'
+            extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: io.agroal
+        artifactId: agroal-api
+    perform:
+      hint:
+      - message: "\n                        Replace the `io.agroal:agroal-api` dependency
+          with the Quarkus dependency `io.quarkus:quarkus-agroal`  \n                        Further
+          information in the link below.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/datasource
+        title: Replace the 'agroal-api' dependency with Quarkus 'quarkus-agroal' extension
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/agroal/agroal-to-quarkus.windup.xml

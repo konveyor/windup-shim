@@ -1,0 +1,262 @@
+metadata:
+- description: "\n             This ruleset provides help for migrating to a unified
+    KIE (Knowledge Is Everything) API in the\n             upgrade from version 5
+    to 6.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.4.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.4.0.Final
+  sourceTechnology:
+  - id: drools
+    versionRange: '[5]'
+  - id: jbpm
+    versionRange: '[5]'
+  targetTechnology:
+  - id: drools
+    versionRange: '[6,)'
+  - id: jbpm
+    versionRange: '[6,)'
+  tag:
+  - drools
+  - jbpm
+rules:
+  rule:
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.KnowledgeBase
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.KieBase'
+        quickfix:
+        - replacement: org.kie.api.KieBase
+          search: org.drools.KnowledgeBase
+          type: REPLACE
+          name: knowledgebase
+        title: org.drools.KnowledgeBase is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.event.AgendaEventListener
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.event.rule.AgendaEventListener'
+        quickfix:
+        - replacement: org.kie.api.event.rule.AgendaEventListener
+          search: org.drools.event.AgendaEventListener
+          type: REPLACE
+          name: AgendaEventListener-qf1
+        title: org.drools.event.AgendaEventListener is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.event.rule.AgendaEventListener
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.event.rule.AgendaEventListener'
+        quickfix:
+        - replacement: org.kie.api.event.rule.AgendaEventListener
+          search: org.drools.event.rule.AgendaEventListener
+          type: REPLACE
+          name: AgendaEventListener-qf2
+        title: AgendaEventListener is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.event.DefaultAgendaEventListener
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.drools.core.event.DefaultAgendaEventListener'
+        quickfix:
+        - replacement: org.kie.drools.core.event.DefaultAgendaEventListener
+          search: org.drools.event.DefaultAgendaEventListener
+          type: REPLACE
+          name: DefaultAgendaEventListener-qf1
+        title: org.drools.event.DefaultAgendaEventListener is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.event.rule.DefaultAgendaEventListener
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.event.rule.DefaultAgendaEventListener'
+        quickfix:
+        - replacement: org.kie.api.event.rule.DefaultAgendaEventListener
+          search: org.drools.event.rule.DefaultAgendaEventListener
+          type: REPLACE
+          name: DefaultAgendaEventListener-qf2
+        title: org.drools.event.rule.DefaultAgendaEventListener is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.event.process.ProcessEventListener
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.event.process.ProcessEventListener'
+        quickfix:
+        - replacement: org.kie.api.event.process.ProcessEventListener
+          search: org.drools.event.process.ProcessEventListener
+          type: REPLACE
+          name: ProcessEventListener-qf
+        title: org.drools.event.process.ProcessEventListener is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.event.process.DefaultProcessEventListener
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.event.process.DefaultProcessEventListener'
+        quickfix:
+        - replacement: org.kie.api.event.process.DefaultProcessEventListener
+          search: org.drools.event.process.DefaultProcessEventListener
+          type: REPLACE
+          name: DefaultProcessEventListener-qf
+        title: org.drools.event.process.DefaultProcessEventListener is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.logger.KnowledgeRuntimeLogger
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.logger.KieRuntimeLogger'
+        quickfix:
+        - replacement: org.kie.api.logger.KieRuntimeLogger
+          search: org.drools.logger.KnowledgeRuntimeLogger
+          type: REPLACE
+          name: KnowledgeRuntimeLogger-qf
+        title: org.drools.logger.KnowledgeRuntimeLogger is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.logger.KnowledgeRuntimeLoggerFactory
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.logger.KieLoggers'
+        quickfix:
+        - replacement: org.kie.api.logger.KieLoggers
+          search: org.drools.logger.KnowledgeRuntimeLoggerFactory
+          type: REPLACE
+          name: Kielogger
+        title: org.drools.logger.KnowledgeRuntimeLoggerFactory is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.runtime.StatefulKnowledgeSession
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.runtime.KieSession'
+        quickfix:
+        - replacement: org.kie.api.runtime.KieSession
+          search: org.drools.runtime.StatefulKnowledgeSession
+          type: REPLACE
+          name: StatefulKnowledgeSession-qf
+        title: org.drools.runtime.StatefulKnowledgeSession is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.runtime.StatelessKnowledgeSession
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.runtime.KieSession'
+        quickfix:
+        - replacement: org.kie.api.runtime.KieSession
+          search: org.drools.runtime.StatelessKnowledgeSession
+          type: REPLACE
+          name: StatelessKnowledgeSession-qf
+        title: org.drools.runtime.StatelessKnowledgeSession is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.builder.KnowledgeBuilderFactory
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.internal.builder.KnowledgeBuilderFactory'
+        quickfix:
+        - replacement: org.kie.internal.builder.KnowledgeBuilderFactory
+          search: org.drools.builder.KnowledgeBuilderFactory
+          type: REPLACE
+          name: KnowledgeBuilderFactory-qf
+        title: org.drools.builder.KnowledgeBuilderFactory is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.io.ResourceFactory
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.internal.io.ResourceFactory'
+        quickfix:
+        - replacement: org.kie.internal.io.ResourceFactory
+          search: 'org.drools.io.ResourceFactory '
+          type: REPLACE
+          name: ResourceFactory-qf
+        title: org.drools.io.ResourceFactory is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.io.ResourceType
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.internal.io.ResourceType'
+        quickfix:
+        - replacement: org.kie.internal.io.ResourceType
+          search: org.drools.io.ResourceType
+          type: REPLACE
+          name: ResourceType-qf
+        title: org.drools.io.ResourceType is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.runtime.Environment
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.runtime.Environment'
+        quickfix:
+        - replacement: org.kie.api.runtime.Environment
+          search: org.drools.runtime.Environment
+          type: REPLACE
+          name: Environment-qf
+        title: org.drools.runtime.Environment is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.runtime.EnvironmentName
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.runtime.EnvironmentName'
+        quickfix:
+        - replacement: org.kie.api.runtime.EnvironmentName
+          search: org.drools.runtime.EnvironmentName
+          type: REPLACE
+          name: EnvironmentName-qf
+        title: org.drools.runtime.EnvironmentName is deprecated
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.drools.runtime.KnowledgeSessionConfiguration
+    perform:
+      hint:
+      - message: 'Replace with : org.kie.api.runtime.KieSessionConfiguration'
+        quickfix:
+        - replacement: org.kie.api.runtime.KieSessionConfiguration
+          search: org.drools.runtime.KnowledgeSessionConfiguration
+          type: REPLACE
+          name: KnowledgeSessionConfiguration-qf
+        title: org.drools.runtime.KnowledgeSessionConfiguration is deprecated
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml

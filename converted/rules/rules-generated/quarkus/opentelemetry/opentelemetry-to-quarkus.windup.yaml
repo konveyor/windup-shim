@@ -1,0 +1,95 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate opentelemetry components
+    to Quarkus extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: opentelemetry
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: io.opentelemetry
+          artifactId: opentelemetry-exporter-jaeger
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `io.opentelemetry:opentelemetry-exporter-jaeger`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-jaeger`
+            \ \n                            Further information in the link below.\n
+            \                       "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/opentelemetry
+          title: Replace the 'opentelemetry-exporter-jaeger' dependency with Quarkus
+            'quarkus-opentelemetry-exporter-jaeger' extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: io.opentelemetry
+        artifactId: opentelemetry-exporter-jaeger
+    perform:
+      hint:
+      - message: "\n                        Replace the `io.opentelemetry:opentelemetry-exporter-jaeger`
+          dependency with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-jaeger`
+          \ \n                        Further information in the link below.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/opentelemetry
+        title: Replace the 'opentelemetry-exporter-jaeger' dependency with Quarkus
+          'quarkus-opentelemetry-exporter-jaeger' extension
+        category-id: mandatory
+        effort: 1
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: io.opentelemetry
+          artifactId: opentelemetry-exporter-otlp-trace
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `io.opentelemetry:opentelemetry-exporter-otlp-trace`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-otlp`
+            \ \n                            Further information in the link below.\n
+            \                       "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/opentelemetry
+          title: Replace the 'opentelemetry-exporter-otlp-trace' dependency with Quarkus
+            'quarkus-opentelemetry-exporter-otlp' extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: io.opentelemetry
+        artifactId: opentelemetry-exporter-otlp-trace
+    perform:
+      hint:
+      - message: "\n                        Replace the `io.opentelemetry:opentelemetry-exporter-otlp-trace`
+          dependency with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-otlp`
+          \ \n                        Further information in the link below.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/opentelemetry
+        title: Replace the 'opentelemetry-exporter-otlp-trace' dependency with Quarkus
+          'quarkus-opentelemetry-exporter-otlp' extension
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml

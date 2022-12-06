@@ -1,0 +1,55 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate resteasy components
+    to Quarkus extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: resteasy
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: org.jboss.resteasy
+          artifactId: resteasy-multipart-provider
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the `org.jboss.resteasy:resteasy-multipart-provider`
+            dependency with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart`
+            \ \n                            Further information in the link below.\n
+            \                       "
+          link:
+          - value: ""
+            title: Quarkus - Guide
+            href: https://quarkus.io/guides/rest-json#multipart-support
+          title: Replace the 'resteasy-multipart-provider' dependency with Quarkus
+            'quarkus-resteasy-multipart' extension
+          category-id: mandatory
+          effort: 1
+        over: default
+  - when:
+      dependency:
+      - value: ""
+        groupId: org.jboss.resteasy
+        artifactId: resteasy-multipart-provider
+    perform:
+      hint:
+      - message: "\n                        Replace the `org.jboss.resteasy:resteasy-multipart-provider`
+          dependency with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart`
+          \ \n                        Further information in the link below.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Guide
+          href: https://quarkus.io/guides/rest-json#multipart-support
+        title: Replace the 'resteasy-multipart-provider' dependency with Quarkus 'quarkus-resteasy-multipart'
+          extension
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/resteasy/resteasy-to-quarkus.windup.xml
