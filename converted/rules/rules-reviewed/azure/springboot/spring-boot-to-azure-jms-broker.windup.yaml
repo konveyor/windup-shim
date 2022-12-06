@@ -1,0 +1,52 @@
+metadata:
+- description: "\n            Determine whether application relies on a message broker.\n
+    \       "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: azure-appservice
+  - id: azure-aks
+  - id: azure-container-apps
+  tag:
+  - broker
+  - activemq
+rules:
+  rule:
+  - when:
+      or:
+      - project:
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-boot-starter-activemq
+        - artifact:
+            value: ""
+            groupId: org.apache.activemq
+            artifactId: '{*}'
+    perform:
+      hint:
+      - message: "\n                        \n                        The application
+          uses an ActiveMQ message broker.\n                        \n                        Checkout
+          Azure Service Bus for a fully managed message broker.\n                        \n
+          \                   "
+        link:
+        - value: ""
+          title: Spring Boot application using an Active MQ Broker
+          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#jms-message-brokers
+        - value: ""
+          title: Azure Service Bus
+          href: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview
+        - value: ""
+          title: How to use the Spring Boot Starter for Azure Service Bus JMS
+          href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus
+        - value: ""
+          title: Azure Spring Boot Starter for Azure Service Bus JMS
+          href: https://search.maven.org/artifact/com.azure.spring/azure-spring-boot-starter-servicebus-jms
+        tag:
+        - activemq
+        title: Active MQ Broker
+        category-id: information
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-jms-broker.windup.xml

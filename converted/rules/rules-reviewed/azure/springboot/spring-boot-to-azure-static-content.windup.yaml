@@ -1,0 +1,46 @@
+metadata:
+- description: "\n            Read-only static content.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: azure-appservice
+  - id: azure-aks
+  - id: azure-container-apps
+  tag:
+  - static-content
+rules:
+  rule:
+  - when:
+      file:
+      - filename: '{*}.{extensions}'
+    perform:
+      hint:
+      - message: "\n                    \n                        Your application
+          currently serves static content, you'll need an alternate location for it.
+          You may wish to consider moving static content to Azure Blob Storage and
+          adding Azure CDN for lightning-fast downloads globally.\n                        \n
+          \                       For more information, see Static website hosting
+          in Azure Storage and Quickstart: Integrate an Azure storage account with
+          Azure CDN.\n                        \n                    "
+        link:
+        - value: ""
+          title: Static content found in the application
+          href: https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#read-only-static-content
+        - value: ""
+          title: Static website hosting in Azure Storage
+          href: https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website
+        - value: ""
+          title: 'Quickstart: Integrate an Azure Storage account with Azure CDN'
+          href: https://docs.microsoft.com/en-us/azure/cdn/cdn-create-a-storage-account-with-cdn
+        title: Static content found in the application
+        category-id: optional
+        effort: 5
+    where:
+    - matches:
+      - value: ""
+        pattern: (htm|html|css|scss|js)
+      param: extensions
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-static-content.windup.xml

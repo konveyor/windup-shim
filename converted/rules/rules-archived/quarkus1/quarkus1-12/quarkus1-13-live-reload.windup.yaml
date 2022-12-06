@@ -1,0 +1,34 @@
+metadata:
+- description: "\n            This ruleset gives hints for upgrading to Quarkus 1.13
+    - Live Reload Instrumentation\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: quarkus1
+    versionRange: (,12]
+  targetTechnology:
+  - id: quarkus1
+    versionRange: '[13,)'
+rules:
+  rule:
+  - when:
+      filecontent:
+      - pattern: quarkus.dev.instrumentation
+        filename: application.properties
+    perform:
+      hint:
+      - message: "\n                        \n                        `quarkus.dev.instrumentation`
+          has been renamed to `quarkus.live-reload.instrumentation` \n                        to
+          be more consistent with other configuration properties related to live reload.
+          \n                        \n                    "
+        link:
+        - value: ""
+          title: Quarkus - Migration Guide 1.13
+          href: https://github.com/quarkusio/quarkus/wiki/Migration-Guide-1.13#live-reload-instrumentation
+        title: Live Reload Instrumentation
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-live-reload.windup.xml

@@ -1,0 +1,64 @@
+metadata:
+- description: "\n            This ruleset gives hints for upgrading to Quarkus 1.13
+    - Jackson Resteasy\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: quarkus1
+    versionRange: (,12]
+  targetTechnology:
+  - id: quarkus1
+    versionRange: '[13,)'
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: io.quarkus
+          artifactId: quarkus-resteasy-jackson
+    perform:
+      hint:
+      - message: "\n                        \n                        `SerializationFeature.WRITE_DATES_AS_TIMESTAMPS`
+          is now disabled by default \n                        which means your temporal
+          types will be serialized as strings (e.g. `1988-11-17T00:00:00Z`) \n                        starting
+          1.13, instead of numeric values.\n\n                        You can easily
+          go back to the previous behavior by adding \n                        `quarkus.jackson.write-dates-as-timestamps=true`
+          to your `application.properties`.\n                        \n                    "
+        link:
+        - value: ""
+          title: Quarkus - Migration Guide 1.13
+          href: https://github.com/quarkusio/quarkus/wiki/Migration-Guide-1.13#jackson
+        - value: ""
+          title: Quarkus - Writing JSON REST Services
+          href: https://quarkus.io/guides/rest-json#jackson
+        title: Jackson Dates as Timestamps
+        category-id: potential
+        effort: 1
+  - when:
+      dependency:
+      - value: ""
+        groupId: io.quarkus
+        artifactId: quarkus-resteasy-jackson
+    perform:
+      hint:
+      - message: "\n                        \n                        `SerializationFeature.WRITE_DATES_AS_TIMESTAMPS`
+          is now disabled by default \n                        which means your temporal
+          types will be serialized as strings (e.g. `1988-11-17T00:00:00Z`) \n                        starting
+          1.13, instead of numeric values.\n\n                        You can easily
+          go back to the previous behavior by adding \n                        `quarkus.jackson.write-dates-as-timestamps=true`
+          to your `application.properties`.\n                        \n                    "
+        link:
+        - value: ""
+          title: Quarkus - Migration Guide 1.13
+          href: https://github.com/quarkusio/quarkus/wiki/Migration-Guide-1.13#jackson
+        - value: ""
+          title: Quarkus - Writing JSON REST Services
+          href: https://quarkus.io/guides/rest-json#jackson
+        title: Jackson Dates as Timestamps
+        category-id: potential
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-jackson.windup.xml

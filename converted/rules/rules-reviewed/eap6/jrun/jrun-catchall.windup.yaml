@@ -1,0 +1,40 @@
+metadata:
+- description: "\n            This ruleset provides analysis of JRun proprietary xml
+    files that may require individual\n            attention when migrating to JBoss
+    EAP 6+.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-xml,2.3.0.Final
+  sourceTechnology:
+  - id: jrun
+  targetTechnology:
+  - id: eap
+    versionRange: '[6,)'
+  tag:
+  - web-app
+  - jrun
+rules:
+  rule:
+  - when:
+      javaclass:
+      - references: jrun.{*}
+    perform:
+      classification:
+      - tag:
+        - catchall
+        - jrun
+        title: JRun
+        category-id: potential
+        issue-display-mode: all
+  - when:
+      javaclass:
+      - references: jrunx.{*}
+    perform:
+      classification:
+      - tag:
+        - catchall
+        - jrun
+        title: JRunX
+        category-id: potential
+        issue-display-mode: all
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/eap6/jrun/jrun-catchall.windup.xml

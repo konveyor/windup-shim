@@ -1,0 +1,43 @@
+metadata:
+- description: "\n            This ruleset gives hints for upgrading to Quarkus 1.12
+    for applications that call io.quarkus.mailer.MailTemplate.MailTemplateInstance.send()
+    \n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: quarkus1
+    versionRange: (,11]
+  targetTechnology:
+  - id: quarkus1
+    versionRange: '[12,)'
+rules:
+  rule:
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: io.quarkus.mailer.MailTemplate.MailTemplateInstance
+        as: mailtemplateinstance
+      filecontent:
+      - from: mailtemplateinstance
+        pattern: .send(
+        as: sendmethod
+    perform:
+      iteration:
+      - hint:
+        - message: "The `MailTemplateInstance` now returns a `Uni<Void>` instead of
+            `CompletionStage<Void>`.  \n                                To convert
+            a `Uni` to a `CompletionStage`, call `.subscribeAsCompletionStage()`.\n
+            \                           "
+          link:
+          - value: ""
+            title: Quarkus - Migration Guide 1.12
+            href: https://github.com/quarkusio/quarkus/wiki/Migration-Guide-1.12#mailer
+          title: Mailer - change to returned type
+          category-id: potential
+          effort: 1
+        over: sendmethod
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mailer.windup.xml
