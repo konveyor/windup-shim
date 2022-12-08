@@ -44,4 +44,4 @@ rules:
         title: App Service - The application reads environment variables
         category-id: optional
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-environment-variables.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-environment-variables.windup.xml

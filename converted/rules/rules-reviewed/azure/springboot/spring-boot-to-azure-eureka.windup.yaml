@@ -41,4 +41,4 @@ rules:
           href: https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing
         title: eureka
         category-id: information
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-eureka.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-eureka.windup.xml

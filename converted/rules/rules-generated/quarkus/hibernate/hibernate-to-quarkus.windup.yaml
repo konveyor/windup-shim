@@ -172,4 +172,4 @@ rules:
           extension
         category-id: mandatory
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml

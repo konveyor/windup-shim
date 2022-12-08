@@ -377,4 +377,4 @@ rules:
         title: org.jboss.ws.annotation.EndpointConfig has been moved to org.jboss.ws.api.annotation.EndpointConfig
         category-id: mandatory
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml

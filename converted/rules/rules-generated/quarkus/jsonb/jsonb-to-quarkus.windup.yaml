@@ -49,4 +49,4 @@ rules:
         title: Replace the 'yasson' dependency with Quarkus 'quarkus-jsonb' extension
         category-id: mandatory
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/jsonb/jsonb-to-quarkus.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jsonb/jsonb-to-quarkus.windup.xml

@@ -49,4 +49,4 @@ rules:
         title: Replace the 'picocli' dependency with Quarkus 'quarkus-picocli' extension
         category-id: mandatory
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/picocli/picocli-to-quarkus.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/picocli/picocli-to-quarkus.windup.xml

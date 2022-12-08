@@ -259,4 +259,4 @@ rules:
           type: REPLACE
           name: KnowledgeSessionConfiguration-qf
         title: org.drools.runtime.KnowledgeSessionConfiguration is deprecated
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml

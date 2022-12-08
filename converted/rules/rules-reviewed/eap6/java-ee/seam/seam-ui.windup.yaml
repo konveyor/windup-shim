@@ -956,4 +956,4 @@ rules:
         title: JSF Seam 2 UI control s:graphicImage
         category-id: mandatory
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml

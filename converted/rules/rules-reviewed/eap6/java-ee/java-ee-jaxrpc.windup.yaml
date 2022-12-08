@@ -42,4 +42,4 @@ rules:
         title: JAX-RPC Generic Handler
         category-id: optional
         issue-display-mode: detail-only
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/java-ee-jaxrpc.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/java-ee-jaxrpc.windup.xml

@@ -50,4 +50,4 @@ rules:
         title: Replace the 'agroal-api' dependency with Quarkus 'quarkus-agroal' extension
         category-id: mandatory
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/agroal/agroal-to-quarkus.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/agroal/agroal-to-quarkus.windup.xml

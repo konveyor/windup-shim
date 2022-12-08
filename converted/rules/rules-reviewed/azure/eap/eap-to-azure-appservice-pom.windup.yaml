@@ -55,4 +55,4 @@ rules:
         title: Get started with JBoss EAP on App Service
         category-id: optional
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-pom.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-pom.windup.xml

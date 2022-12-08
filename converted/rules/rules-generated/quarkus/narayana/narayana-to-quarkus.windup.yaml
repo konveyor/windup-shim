@@ -131,4 +131,4 @@ rules:
         title: Replace the 'stm' dependency with Quarkus 'quarkus-narayana-stm' extension
         category-id: mandatory
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml

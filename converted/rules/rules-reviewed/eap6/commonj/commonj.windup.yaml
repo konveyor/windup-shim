@@ -146,4 +146,4 @@ rules:
       - value: ""
         pattern: (Completed|Rejected)?
       param: subpart
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/eap6/commonj/commonj.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml

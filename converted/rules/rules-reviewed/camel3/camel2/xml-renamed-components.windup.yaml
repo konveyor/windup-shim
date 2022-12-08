@@ -611,4 +611,4 @@ rules:
         title: '`org.apache.activemq:activemq-camel` artifact has been moved'
         category-id: mandatory
         effort: 3
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml
