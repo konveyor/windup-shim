@@ -10,6 +10,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strings"
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
@@ -31,17 +32,18 @@ func main() {
 func processXML(root string) fs.WalkDirFunc {
 	return func(path string, d fs.DirEntry, err error) error {
 		if !strings.HasSuffix(path, ".xml") {
+			fmt.Printf("Skipping %s because it is not a ruleset\n", path)
 			return nil
 		}
 		xmlFile, err := os.Open(path)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Printf("Skipping %s because of an error opening the file: %s\n", path, err.Error())
 			return err
 		}
 		defer xmlFile.Close()
 		byteValue, err := ioutil.ReadAll(xmlFile)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Printf("Skipping %s because of an error reading the file: %s\n", path, err.Error())
 			return err
 		}
 
@@ -49,8 +51,13 @@ func processXML(root string) fs.WalkDirFunc {
 
 		err = xml.Unmarshal(byteValue, &ruleset)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Printf("Skipping %s because of an error unmarhsaling the file: %s\n", path, err.Error())
 			return err
+		}
+		if reflect.ValueOf(ruleset).IsZero() {
+			// TODO parse tests as well
+			fmt.Printf("Skipping %s because it is not a ruleset\n", path)
+			return nil
 		}
 
 		ruleset.SourceFile = strings.Replace(path, root, "http://github.com/windup/windup-rulesets/tree/master/", 1)
@@ -59,12 +66,12 @@ func processXML(root string) fs.WalkDirFunc {
 		dirName := filepath.Dir(yamlPath)
 		err = os.MkdirAll(dirName, 0777)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Printf("Skipping %s because of an error creating %s: %s\n", path, yamlPath, err.Error())
 			return err
 		}
 		file, err := os.OpenFile(yamlPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Printf("Skipping %s because of an error opening %s: %s\n", path, yamlPath, err.Error())
 			return err
 		}
 		defer file.Close()
@@ -73,7 +80,7 @@ func processXML(root string) fs.WalkDirFunc {
 
 		err = enc.Encode(ruleset)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Printf("Skipping %s because of an error writing the yaml: %s\n", path, err.Error())
 			return err
 		}
 		return nil
