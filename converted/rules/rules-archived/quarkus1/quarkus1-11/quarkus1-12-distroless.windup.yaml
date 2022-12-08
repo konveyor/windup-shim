@@ -33,4 +33,4 @@ rules:
         title: Version of distroless image
         category-id: potential
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-distroless.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-distroless.windup.xml

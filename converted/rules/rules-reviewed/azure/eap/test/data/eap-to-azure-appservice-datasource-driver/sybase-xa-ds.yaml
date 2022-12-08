@@ -1,2 +1,2 @@
 rules: {}
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/eap/test/data/eap-to-azure-appservice-datasource-driver/sybase-xa-ds.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/test/data/eap-to-azure-appservice-datasource-driver/sybase-xa-ds.xml

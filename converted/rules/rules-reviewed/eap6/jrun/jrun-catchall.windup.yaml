@@ -37,4 +37,4 @@ rules:
         title: JRunX
         category-id: potential
         issue-display-mode: all
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/eap6/jrun/jrun-catchall.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jrun/jrun-catchall.windup.xml

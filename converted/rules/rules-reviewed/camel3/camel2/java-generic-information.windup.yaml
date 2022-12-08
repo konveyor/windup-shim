@@ -953,4 +953,4 @@ rules:
       - value: ""
         pattern: (setupRoutes|isSetupRoutes|getRouteStartupOrder|getManagementMBeanAssembler|addInterceptStrategy|getInterceptStrategies|getErrorHandlerExecutorService|getDataFormatResolver|setDataFormatResolver|getDefaultFactoryFinder|setFactoryFinderResolver|getFactoryFinder|getPackageScanClassResolver|setPackageScanClassResolver|setNodeIdFactory|getNodeIdFactory|getAsyncProcessorAwaitManager|setAsyncProcessorAwaitManager|getProcessorFactory|setProcessorFactory|getUnitOfWorkFactory|setUnitOfWorkFactory|getModelJAXBContextFactory|setModelJAXBContextFactory|getLogListeners|addLogListener)
       param: method
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml

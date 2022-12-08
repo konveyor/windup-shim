@@ -62,4 +62,4 @@ rules:
       - value: ""
         pattern: (ContextName|ContextNames)
       param: CdiCamelContextName
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/java-multiple-camelcontexts-per-application-not-supported.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-multiple-camelcontexts-per-application-not-supported.windup.xml

@@ -41,4 +41,4 @@ rules:
         title: 'JTA: JOTM usage'
         category-id: mandatory
         effort: 5
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/eap6/jotm/jotm.rhamt.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jotm/jotm.rhamt.xml

@@ -70,4 +70,4 @@ rules:
         title: Datasource driver found in configuration file
         category-id: potential
         effort: 3
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-datasource-driver.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-datasource-driver.windup.xml

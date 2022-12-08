@@ -1,2 +1,2 @@
 rules: {}
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-generated/quarkus/keycloak/tests/data/pom.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/keycloak/tests/data/pom.xml

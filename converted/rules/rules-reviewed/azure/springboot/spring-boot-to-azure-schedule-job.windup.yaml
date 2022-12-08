@@ -46,4 +46,4 @@ rules:
         title: The application uses Quartz to scheduled jobs
         category-id: mandatory
         effort: 7
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-schedule-job.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-schedule-job.windup.xml

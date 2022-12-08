@@ -43,4 +43,4 @@ rules:
       - value: ""
         pattern: (htm|html|css|scss|js)
       param: extensions
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-static-content.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-static-content.windup.xml

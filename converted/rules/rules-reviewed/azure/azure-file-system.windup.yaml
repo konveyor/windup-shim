@@ -92,4 +92,4 @@ rules:
       - value: ""
         pattern: \/home
       param: path
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/azure-file-system.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml

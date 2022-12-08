@@ -40,4 +40,4 @@ rules:
           effort: 3
           category-id: mandatory
           issue-display-mode: all
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/eap6/jonas/xml-jonas.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jonas/xml-jonas.windup.xml

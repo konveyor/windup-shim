@@ -40,4 +40,4 @@ rules:
           category-id: potential
           effort: 1
         over: default
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-hibernate-elasticsearch.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-hibernate-elasticsearch.windup.xml

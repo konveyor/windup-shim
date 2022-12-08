@@ -43,4 +43,4 @@ rules:
           category-id: potential
           effort: 1
         over: default
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-resteasy-reactive.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-resteasy-reactive.windup.xml

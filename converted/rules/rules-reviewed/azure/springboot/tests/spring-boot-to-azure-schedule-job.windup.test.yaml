@@ -1,2 +1,2 @@
 rules: {}
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/tests/spring-boot-to-azure-schedule-job.windup.test.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/tests/spring-boot-to-azure-schedule-job.windup.test.xml

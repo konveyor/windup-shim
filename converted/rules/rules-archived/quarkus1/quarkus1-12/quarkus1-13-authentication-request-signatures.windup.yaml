@@ -34,4 +34,4 @@ rules:
           interface
         category-id: mandatory
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-authentication-request-signatures.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-authentication-request-signatures.windup.xml

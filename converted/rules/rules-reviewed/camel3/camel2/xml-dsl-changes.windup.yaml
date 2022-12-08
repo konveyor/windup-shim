@@ -266,4 +266,4 @@ rules:
         title: '`propertyName` attribute was renamed'
         category-id: mandatory
         effort: 1
-sourceFile: http://github.com/windup/windup-rulesets/tree/master/../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml
