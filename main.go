@@ -17,7 +17,11 @@ import (
 )
 
 func main() {
-	err := filepath.WalkDir("../rules/", processXML)
+	if len(os.Args) != 2 {
+		log.Fatal("The location of your windup directory must be passed")
+	}
+	windupLocation := os.Args[1]
+	err := filepath.WalkDir(windupLocation+"/rules/", processXML(windupLocation))
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -49,7 +53,7 @@ func processXML(root string) fs.WalkDirFunc {
 			return err
 		}
 
-		ruleset.SourceFile = strings.Replace(path, "../", "http://github.com/windup/windup-rulesets/tree/master/", 1)
+		ruleset.SourceFile = strings.Replace(path, root, "http://github.com/windup/windup-rulesets/tree/master/", 1)
 
 		yamlPath := strings.Replace(strings.Replace(path, root, "converted/", 1), ".xml", ".yaml", 1)
 		dirName := filepath.Dir(yamlPath)
