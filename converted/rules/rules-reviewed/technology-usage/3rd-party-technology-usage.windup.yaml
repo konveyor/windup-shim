@@ -1,0 +1,239 @@
+metadata:
+- description: "\n            This ruleset provides statistical summaries of embedded
+    3rd party frameworks.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  phase: PostMigrationRulesPhase
+rules:
+  rule:
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Liferay
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Oracle Forms
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Spring Boot
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Elasticsearch
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Logstash
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Jetty
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Tomcat
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Kibana
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Apache Karaf
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Neo4j
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Spark
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Apache Hadoop
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Apache Geronimo
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Apache Aries
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Cloudera
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: MapR
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: TensorFlow
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Weka
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Embedded
+        - name: 3rd party
+        name: Apache Mahout
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party-technology-usage.windup.xml

@@ -1,0 +1,454 @@
+metadata:
+- description: "\n            This ruleset provides analysis of test frameworks and
+    libraries.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+rules:
+  rule:
+  - when:
+      file:
+      - filename: '{*}easymock{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the EasyMock library.
+        title: Embedded framework - EasyMock
+        category-id: information
+      technology-tag:
+      - value: EasyMock
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}powermock{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the PowerMock library.
+        title: Embedded framework - PowerMock
+        category-id: information
+      technology-tag:
+      - value: PowerMock
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}mockito{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the Mockito library.
+        title: Embedded framework - Mockito
+        category-id: information
+      technology-tag:
+      - value: Mockito
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}testng{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the TestNG library.
+        title: Embedded framework - TestNG
+        category-id: information
+      technology-tag:
+      - value: TestNG
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}hamcrest{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the Hamcrest library.
+        title: Embedded framework - Hamcrest
+        category-id: information
+      technology-tag:
+      - value: Hamcrest
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: spring{*}test{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a Spring Test framework.
+        title: Embedded framework - Spring Test
+        category-id: information
+      technology-tag:
+      - value: Spring Test
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: spock{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the Spock framework.
+        title: Embedded framework - Spock
+        category-id: information
+      technology-tag:
+      - value: Spock
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: xmlunit{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the XMLUnit framework.
+        title: Embedded framework - XMLUnit
+        category-id: information
+      technology-tag:
+      - value: XMLUnit
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: akka-testkit{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the Akka Testkit library.
+        title: Embedded framework - Akka Testkit
+        category-id: information
+      technology-tag:
+      - value: Akka Testkit
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: rest-assured{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the REST Assured library.
+        title: Embedded framework - REST Assured
+        category-id: information
+      technology-tag:
+      - value: REST Assured
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: dbunit{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the DbUnit library.
+        title: Embedded library - DbUnit
+        category-id: information
+      technology-tag:
+      - value: DbUnit
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: mule-test{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the Mule Functional Test Framework (TCK).
+        title: Embedded framework - Mule Functional Test Framework (TCK)
+        category-id: information
+      technology-tag:
+      - value: Mule Functional Test Framework
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: guava-testlib{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the Guava Testing Library.
+        title: Embedded framework - Guava Testing Library
+        category-id: information
+      technology-tag:
+      - value: Guava Testing
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: randomizedtesting-runner{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the RandomizedTesting Randomized Runner library.
+        title: Embedded framework - RandomizedTesting Randomized Runner
+        category-id: information
+      technology-tag:
+      - value: RandomizedTesting Runner
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: httpunit{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the HttpUnit library.
+        title: Embedded framework - HttpUnit
+        category-id: information
+      technology-tag:
+      - value: HttpUnit
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: jcunit{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the JCunit library.
+        title: Embedded framework - JCUnit
+        category-id: information
+      technology-tag:
+      - value: JCunit
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: jpa-matchers{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the JPA Matchers library.
+        title: Embedded framework - JPA Matchers
+        category-id: information
+      technology-tag:
+      - value: JPA Matchers
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: multithreadedtc{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the MultithreadedTC library.
+        title: Embedded framework - MultithreadedTC
+        category-id: information
+      technology-tag:
+      - value: MultithreadedTC
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: specsy{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the Specsy framework.
+        title: Embedded framework - Specsy
+        category-id: information
+      technology-tag:
+      - value: Specsy
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: jfunk{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the JFunk framework.
+        title: Embedded framework - JFunk
+        category-id: information
+      technology-tag:
+      - value: JFunk
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: restito{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the Restito framework.
+        title: Embedded framework - Restito
+        category-id: information
+      technology-tag:
+      - value: Restito
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: test-interface{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the Test Interface library.
+        title: Embedded framework - Test Interface
+        category-id: information
+      technology-tag:
+      - value: Test Interface
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: play-test{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds the Play Test framework.
+        title: Embedded framework - Play Test
+        category-id: information
+      technology-tag:
+      - value: Play Test
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}arquillian{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the Arquillian framework.
+        title: Embedded framework - Arquillian
+        category-id: information
+      technology-tag:
+      - value: Arquillian
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}cactus{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the Cactus framework.
+        title: Embedded framework - Cactus
+        category-id: information
+      technology-tag:
+      - value: Cactus
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}concordion{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the Concordion framework.
+        title: Embedded framework - Concordion
+        category-id: information
+      technology-tag:
+      - value: Concordion
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}cucumber{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the Cucumber framework.
+        title: Embedded framework - Cucumber
+        category-id: information
+      technology-tag:
+      - value: Cucumber
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}etlunit{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the EtlUnit framework.
+        title: Embedded framework - EtlUnit
+        category-id: information
+      technology-tag:
+      - value: EtlUnit
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}havarunner{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the HavaRunner framework.
+        title: Embedded framework - HavaRunner
+        category-id: information
+      technology-tag:
+      - value: HavaRunner
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}jbehave{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the JBehave framework.
+        title: Embedded framework - JBehave
+        category-id: information
+      technology-tag:
+      - value: JBehave
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}jmock-{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the JMock framework.
+        title: Embedded framework - JMock
+        category-id: information
+      technology-tag:
+      - value: JMock
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}jmockit{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the JMockit framework.
+        title: Embedded framework - JMockit
+        category-id: information
+      technology-tag:
+      - value: JMockit
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}jukito{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the Jukito framework.
+        title: Embedded framework - Jukito
+        category-id: information
+      technology-tag:
+      - value: Jukito
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}needle{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the Needle framework.
+        title: Embedded framework - Needle
+        category-id: information
+      technology-tag:
+      - value: Needle
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}openpojo{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the OpenPojo framework.
+        title: Embedded framework - OpenPojo
+        category-id: information
+      technology-tag:
+      - value: OpenPojo
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}unitils{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the Unitils library.
+        title: Embedded framework - Unitils
+        category-id: information
+      technology-tag:
+      - value: Unitils
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}junit{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds the JUnit framework.
+        title: Embedded framework - JUnit
+        category-id: information
+      technology-tag:
+      - value: JUnit
+        level: INFORMATIONAL
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml

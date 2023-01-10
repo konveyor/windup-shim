@@ -1,0 +1,35 @@
+metadata:
+- description: "\n            This is a simple ruleset for detecting usage of clustering
+    technologies.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+rules:
+  rule:
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          prefix: w
+          uri: http://java.sun.com/xml/ns/javaee
+        matches: /w:web-app/w:distributable
+    perform:
+      technology-tag:
+      - value: Clustering Web Session
+        level: INFORMATIONAL
+  - when:
+      or:
+      - javaclass:
+        - location:
+          - ANNOTATION
+          - IMPORT
+          references: org.jboss.ejb3.annotation.Clustered
+        xmlfile:
+        - matches: /*[local-name()='ejb-jar']/*[local-name()='assembly-descriptor']/*[local-name()='clustering']/*[local-name()='clustered']
+        - matches: /*[local-name()='jboss']/*[local-name()='enterprise-beans']/*[local-name()='session']/*[local-name()='clustered']
+    perform:
+      technology-tag:
+      - value: Clustering EJB
+        level: INFORMATIONAL
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/clustering.windup.xml

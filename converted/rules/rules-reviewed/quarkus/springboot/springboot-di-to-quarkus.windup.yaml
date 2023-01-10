@@ -1,0 +1,62 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate from SpringBoot
+    DI to Quarkus spring-di extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      dependency:
+      - value: ""
+        groupId: org.springframework
+        artifactId: spring-beans
+    perform:
+      hint:
+      - message: "\n                        Replace the SpringBoot Dependency Injection
+          artifact with Quarkus `spring-di` extension\n\n                        Spring
+          DI is in spring-beans artifact brought transitively by any `org.springframework.boot:spring-boot-*`
+          dependency\n                        Add Quarkus dependency `io.quarkus:quarkus-spring-di`\n
+          \                   "
+        link:
+        - value: ""
+          title: Quarkus DI Guide
+          href: https://quarkus.io/guides/spring-di
+        title: Replace the SpringBoot Dependency Injection artifact with Quarkus 'spring-di'
+          extension
+        category-id: potential
+        effort: 1
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: b
+            uri: http://www.springframework.org/schema/beans
+          matches: //*/b:bean/@class
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://www.springframework.org/schema/context
+          matches: //*/c:annotation-config
+    perform:
+      hint:
+      - message: Quarkus only supports the java-based configuration of Spring beans.
+        link:
+        - value: ""
+          title: 'Quarkus Extension for Spring DI API- Guide '
+          href: https://quarkus.io/guides/spring-di
+        - value: ""
+          title: Quarkus Extension for Spring DI API - Technical Limitations
+          href: https://quarkus.io/guides/spring-di#important-technical-note
+        title: 'For Spring DI the XML-based bean configuration metadata is not supported
+          by Quarkus '
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-di-to-quarkus.windup.xml

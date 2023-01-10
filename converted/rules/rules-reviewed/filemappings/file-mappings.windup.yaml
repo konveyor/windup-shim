@@ -1,0 +1,46 @@
+metadata:
+- description: "\n            This rule set configures the organization matching functionality,
+    using known root-package prefixes to identify libraries and other code.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-base,2.3.0.Final
+rules:
+  file-mapping:
+  - from: .*\.tld$
+    to: XmlFileModel
+  - from: .*\.bpel$
+    to: XmlFileModel
+  - from: .*\.wsdl$
+    to: XmlFileModel
+  - from: .*\.wsdd$
+    to: XmlFileModel
+  - from: .*\.bpelex$
+    to: XmlFileModel
+  - from: .*\.mon$
+    to: XmlFileModel
+  - from: .*\.xmi$
+    to: XmlFileModel
+  - from: .*\.export$
+    to: XmlFileModel
+  - from: .*\.import$
+    to: XmlFileModel
+  - from: .*\.bcfg$
+    to: XmlFileModel
+  - from: .*\.map$
+    to: XmlFileModel
+    onParseError: ignore
+  - from: .*\.brg$
+    to: XmlFileModel
+  - from: .*\.brgt$
+    to: XmlFileModel
+  - from: .*\.ruleset$
+    to: XmlFileModel
+  - from: .*\.module$
+    to: XmlFileModel
+  - from: .*\.modulex$
+    to: XmlFileModel
+  - from: .*\.composite$
+    to: XmlFileModel
+  - from: .*\.requirements$
+    to: XmlFileModel
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/filemappings/file-mappings.windup.xml

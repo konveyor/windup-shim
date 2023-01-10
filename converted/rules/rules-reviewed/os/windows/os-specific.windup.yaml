@@ -1,0 +1,48 @@
+metadata:
+- description: "\n            This is a ruleset for Windows operating system specific
+    rules while migrating to Linux operating system.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.4.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.4.0.Final
+  targetTechnology:
+  - id: linux
+  tag:
+  - ms-windows
+rules:
+  rule:
+  - when:
+      filecontent:
+      - pattern: '{pattern}'
+        filename: '{*}.{extensions}'
+    perform:
+      hint:
+      - message: This file system path is Microsoft Windows platform dependent. It
+          needs to be replaced with a Linux-style path.
+        tag:
+        - ms-windows
+        title: Windows file system path
+        category-id: mandatory
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: (java|properties|jsp|jspf|tag|xml|txt)
+      param: extensions
+    - matches:
+      - value: ""
+        pattern: '[A-z]:([\\][^\n\t]+)+|(\\\\([^\\\,\n\t]+)\\\S+)+'
+      param: pattern
+  - when:
+      file:
+      - filename: '{*}.dll'
+    perform:
+      hint:
+      - message: This Dynamic-Link Library is Microsoft Windows platform dependent.
+          It needs to be replaced with a Linux-style shared library.
+        tag:
+        - ms-windows
+        title: Dynamic-Link Library (DLL)
+        category-id: mandatory
+        effort: 5
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/os/windows/os-specific.windup.xml

@@ -1,0 +1,44 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate from SpringBoot
+    Cloud config client  to Quarkus spring-cloud-config-client extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      or:
+      - project:
+        - artifact:
+            value: ""
+            groupId: org.springframework.cloud
+            artifactId: spring-cloud-config-client
+        dependency:
+        - value: ""
+          groupId: org.springframework.cloud
+          artifactId: spring-cloud-config-client
+    perform:
+      hint:
+      - message: "\n                        Replace the Spring Cloud Config Client
+          artifact with Quarkus `quarkus-spring-cloud-config-client` extension\n\n
+          \                       Add Quarkus dependency `io.quarkus:quarkus-spring-cloud-config-client`.\n
+          \                       \n                        A change may also be required
+          to the code and configuration.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Reading properties from Spring Cloud Config server
+          href: https://quarkus.io/guides/spring-cloud-config-client
+        - value: ""
+          title: Spring Cloud Config
+          href: https://cloud.spring.io/spring-cloud-config/reference/html/
+        title: Replace the Spring Cloud Config Client artifact with Quarkus 'quarkus-spring-cloud-config-client'
+          extension
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-cloud-config-client-to-quarkus.windup.xml

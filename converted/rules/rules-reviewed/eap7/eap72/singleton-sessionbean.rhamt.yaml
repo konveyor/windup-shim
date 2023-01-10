@@ -1,0 +1,45 @@
+metadata:
+- description: "\n            This ruleset provides analysis of any java class with
+    type annotation javax.ejb.Singleton that also implement interface javax.ejb.SessionBean
+    because SessionBean API was deprecated starting with JBoss EAP 7.3.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  targetTechnology:
+  - id: eap
+    versionRange: '[7,8)'
+rules:
+  rule:
+  - when:
+      javaclass:
+      - location:
+        - ANNOTATION
+        references: javax.ejb.Singleton
+        as: singleton
+      - location:
+        - IMPLEMENTS_TYPE
+        references: javax.ejb.SessionBean
+        as: sessionbean
+        from: singleton
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            \n                            When
+            a singleton EJB bean class implements `javax.ejb.SessionBean` interface,
+            this interface should be removed from the implements clause.  \n                            All
+            methods declared in `javax.ejb.SessionBean` interface (see below) that
+            are implemented in the bean class or its super classes should be checked
+            for `@Override` annotation and remove this annotation too if present.
+            \ \n                            Methods declared by `javax.ejb.SessionBean`
+            interface:  \n                            \n                            ```\n
+            \                           void setSessionContext(SessionContext ctx);
+            \ \n                            \n                            void ejbRemove();
+            \ \n                            \n                            void ejbActivate();
+            \ \n                            \n                            void ejbPassivate();
+            \ \n                            ```\n                            \n                        "
+          title: Removed SessionBean interface
+          category-id: mandatory
+          effort: 1
+        over: sessionbean
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/singleton-sessionbean.rhamt.xml

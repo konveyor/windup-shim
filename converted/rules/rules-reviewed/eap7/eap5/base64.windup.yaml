@@ -1,0 +1,40 @@
+metadata:
+- description: "\n            This ruleset assists with the migration of the org.jboss.util.Base64
+    class.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.5.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.5.0.Final
+  sourceTechnology:
+  - id: java-ee
+  - id: eap
+  targetTechnology:
+  - id: eap
+    versionRange: '[6,)'
+  tag:
+  - eap7
+  - base64
+rules:
+  rule:
+  - when:
+      javaclass:
+      - references: org.jboss.util.Base64
+    perform:
+      hint:
+      - message: "\n                        This API is not considered a public API
+          for EAP. For JDK 8+, the recommended solution is to migrate to\n                        [java.util.Base64](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html).\n\n
+          \                       For JDK 7, it is recommended to migrate to another
+          Base 64 library, for example\n                        [Apache Commons Codec](https://commons.apache.org/proper/commons-codec/).\n
+          \                   "
+        link:
+        - value: ""
+          title: Can application use the JBoss EAP org.jboss.util.Base64 built in
+            class?
+          href: https://access.redhat.com/solutions/403703
+        tag:
+        - eap7
+        - base64
+        title: The class org.jboss.util.Base64 has been moved
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/base64.windup.xml

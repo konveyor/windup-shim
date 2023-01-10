@@ -1,0 +1,44 @@
+metadata:
+- description: "\n            This ruleset provides analysis of Java EE applications
+    that need to change their import statements to replace javax.* with jakarta.*\n
+    \       "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  targetTechnology:
+  - id: jakarta-ee
+    versionRange: '[9,)'
+  - id: eap
+    versionRange: '[8,9)'
+rules:
+  rule:
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: javax.{renamed}{*}
+        as: javaClass
+    perform:
+      iteration:
+      - hint:
+        - message: 'Replace the `javax.{renamed}` import statement with `jakarta.{renamed}` '
+          link:
+          - value: ""
+            title: Jakarta EE
+            href: https://jakarta.ee/
+          quickfix:
+          - replacement: jakarta
+            search: javax
+            type: REPLACE
+            name: javax-replace
+          title: javax.{renamed} has been replaced by jakarta.{renamed}
+          category-id: mandatory
+          effort: 1
+        over: javaClass
+    where:
+    - matches:
+      - value: ""
+        pattern: (activation|annotation|batch|decorator|ejb|el|enterprise|faces|inject|interceptor|jms|json|jws|mail|persistence|resource|security|servlet|transaction|validation|websocket|ws|xml)
+      param: renamed
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-package.windup.xml

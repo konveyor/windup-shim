@@ -1,0 +1,37 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate from Spring Scheduled
+    to Quarkus spring-scheduled extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      javaclass:
+      - location:
+        - ANNOTATION
+        references: org.springframework.boot.autoconfigure.SpringBootApplication
+    perform:
+      hint:
+      - message: "\n                        Remove the SpringBoot @SpringBootApplication
+          annotation.\n\n                        A Spring Boot application contains
+          a \"main\" class with the @SpringBootApplication annotation. A Quarkus application
+          does not have such a class. Two different alternatives can be followed -
+          either\n                        to remove the \"main\" class associated
+          with the annotation, or add the `org.springframework.boot:spring-boot-autoconfigure`
+          dependency as an `optional` Maven dependency. An optional dependency \n
+          \                       is available when an application compiles but is
+          not packaged with the application at runtime. Doing this would allow the
+          application to compile without modification, but you\n                        would
+          also need to maintain a Spring version along with the Quarkus application.\n
+          \                   "
+        title: Remove the SpringBoot @SpringBootApplication annotation
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-annotations-to-quarkus.windup.xml

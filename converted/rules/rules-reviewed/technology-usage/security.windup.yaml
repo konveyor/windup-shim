@@ -1,0 +1,340 @@
+metadata:
+- description: "\n            This ruleset provides analysis of Java security libraries.\n
+    \       "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+rules:
+  rule:
+  - when:
+      file:
+      - filename: '{*}spring-security{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Spring Security library.
+        title: Embedded library - Spring Security
+        category-id: information
+      technology-tag:
+      - value: Spring Security
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}shiro{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an Apache Shiro library.
+        title: Embedded library - Apache Shiro
+        category-id: information
+      technology-tag:
+      - value: Apache Shiro
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}hdiv{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an Hdiv library.
+        title: Embedded library - Hdiv
+        category-id: information
+      technology-tag:
+      - value: Hdiv
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}acciente-oacc{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an OACC library.
+        title: Embedded library - OACC
+        category-id: information
+      technology-tag:
+      - value: OACC
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}picketlink{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a PicketLink library.
+        title: Embedded library - PicketLink
+        category-id: information
+      technology-tag:
+      - value: PicketLink
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}picketbox{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a PicketBox library.
+        title: Embedded library - PicketBox
+        category-id: information
+      technology-tag:
+      - value: PicketBox
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}keyczar{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Keyczar library.
+        title: Embedded library - Keyczar
+        category-id: information
+      technology-tag:
+      - value: Keyczar
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}xacml{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an XACML library.
+        title: Embedded library - XACML
+        category-id: information
+      technology-tag:
+      - value: XACML
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}saml{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a SAML library.
+        title: Embedded library - SAML
+        category-id: information
+      technology-tag:
+      - value: SAML
+        level: INFORMATIONAL
+  - when:
+      or:
+      - file:
+        - filename: '{*}lcrypto{*}.jar'
+        - filename: '{*}bcprov{*}.jar'
+        - filename: '{*}bcpg{*}.jar'
+        - filename: '{*}bcmail{*}.jar'
+        - filename: '{*}bcpkix{*}.jar'
+        - filename: '{*}bctls{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Bouncy Castle library.
+        title: Embedded library - Bouncy Castle
+        category-id: information
+      technology-tag:
+      - value: Bouncy Castle
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}jasypt{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Jasypt library.
+        title: Embedded library - Jasypt
+        category-id: information
+      technology-tag:
+      - value: Jasypt
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}xmlsec{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Apache Santuario library.
+        title: Embedded library - Apache Santuario
+        category-id: information
+      technology-tag:
+      - value: Apache Santuario
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}ssl{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an SSL library.
+        title: Embedded library - SSL
+        category-id: information
+      technology-tag:
+      - value: SSL
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: vlad{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a Vlad library.
+        title: Embedded library - Vlad
+        category-id: information
+      technology-tag:
+      - value: Vlad
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: commons-validator{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds an Apache Commons Validator library.
+        title: Embedded library - Apache Commons Validator
+        category-id: information
+      technology-tag:
+      - value: Apache Commons Validator
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}esapi{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an OWASP ESAPI library.
+        title: Embedded library - OWASP ESAPI
+        category-id: information
+      technology-tag:
+      - value: OWASP ESAPI
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}wss4j{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a WSS4J library.
+        title: Embedded library - WSS4J
+        category-id: information
+      technology-tag:
+      - value: WSS4J
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}opensaml{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an OpenSAML library.
+        title: Embedded library - OpenSAML
+        category-id: information
+      technology-tag:
+      - value: OpenSAML
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}otr4j{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an OTR4J library.
+        title: Embedded library - OTR4J
+        category-id: information
+      technology-tag:
+      - value: OTR4J
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}csrfguard{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an OWASP CSRF Guard library.
+        title: Embedded library - OWASP CSRF Guard
+        category-id: information
+      technology-tag:
+      - value: OWASP CSRF Guard
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}oauth{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an OAUTH library.
+        title: Embedded library - OAUTH
+        category-id: information
+      technology-tag:
+      - value: OAUTH
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}acegi-security{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an Acegi Security library.
+        title: Embedded library - Acegi Security
+        category-id: information
+      technology-tag:
+      - value: Acegi Security
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}jsecurity{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a JSecurity library.
+        title: Embedded library - JSecurity
+        category-id: information
+      technology-tag:
+      - value: JSecurity
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}acris-security{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds an AcrIS Security library.
+        title: Embedded library - AcrIS Security
+        category-id: information
+      technology-tag:
+      - value: AcrIS Security
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}jguard{*}.jar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Trunk JGuard library.
+        title: Embedded library - Trunk JGuard
+        category-id: information
+      technology-tag:
+      - value: Trunk JGuard
+        level: INFORMATIONAL
+  - when:
+      or:
+      - project:
+        - artifact:
+            value: ""
+            groupId: org.springframework.security
+            artifactId: spring-security-core
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-boot-starter-security
+        dependency:
+        - value: ""
+          groupId: org.springframework.security
+          artifactId: spring-security-core
+    perform:
+      classification:
+      - description:
+        - The application embeds a Spring Security library.
+        title: Embedded library - Spring Security
+        category-id: information
+      technology-tag:
+      - value: Spring Security
+        level: INFORMATIONAL
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml

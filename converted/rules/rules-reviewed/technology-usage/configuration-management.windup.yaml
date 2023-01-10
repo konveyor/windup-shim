@@ -1,0 +1,110 @@
+metadata:
+- description: "\n            This ruleset generates tags for configuration-management
+    related technologies \n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+rules:
+  rule:
+  - when:
+      or:
+      - project:
+        - artifact:
+            value: ""
+            groupId: org.springframework.cloud
+            artifactId: spring-cloud-config-client
+        dependency:
+        - value: ""
+          groupId: org.springframework.cloud
+          artifactId: spring-cloud-config-client
+    perform:
+      classification:
+      - description:
+        - The application embeds Spring Cloud Config.
+        title: Embedded library - Spring Cloud Config
+        category-id: information
+      technology-tag:
+      - value: Spring Cloud Config
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: application{profile}.{extension}
+    perform:
+      classification:
+      - description:
+        - Spring application properties detected
+        title: Spring application properties detected
+        category-id: information
+      technology-tag:
+      - value: Spring Properties
+        level: INFORMATIONAL
+    where:
+    - matches:
+      - value: ""
+        pattern: .*
+      param: profile
+    - matches:
+      - value: ""
+        pattern: (properties|yml|yaml)
+      param: extension
+  - when:
+      filecontent:
+      - pattern: spring.datasource
+        filename: application{profile}.{extension}
+    perform:
+      classification:
+      - description:
+        - Spring datasource properties detected
+        title: Spring datasource properties detected
+        category-id: information
+      technology-tag:
+      - value: Spring Properties
+        level: INFORMATIONAL
+    where:
+    - matches:
+      - value: ""
+        pattern: .*
+      param: profile
+    - matches:
+      - value: ""
+        pattern: (properties|yml|yaml)
+      param: extension
+  - when:
+      filecontent:
+      - pattern: logging.level.org.springframework
+        filename: application{profile}.{extension}
+    perform:
+      classification:
+      - description:
+        - Spring logging properties detected
+        title: Spring logging properties detected
+        category-id: information
+      technology-tag:
+      - value: Spring Properties
+        level: INFORMATIONAL
+    where:
+    - matches:
+      - value: ""
+        pattern: .*
+      param: profile
+    - matches:
+      - value: ""
+        pattern: (properties|yml|yaml)
+      param: extension
+  - when:
+      javaclass:
+      - location:
+        - ANNOTATION
+        references: org.springframework.boot.context.properties.ConfigurationProperties
+    perform:
+      classification:
+      - description:
+        - Spring configuration properties annotation detected
+        title: Spring configuration properties annotation detected
+        category-id: information
+      technology-tag:
+      - value: Spring Properties
+        level: INFORMATIONAL
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml

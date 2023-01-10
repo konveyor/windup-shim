@@ -1,0 +1,142 @@
+metadata:
+- description: "\n            Provides analysis of WebSphere MQ proprietary classes
+    and configuration that may require individual attention when migrating to\n            JBoss
+    EAP 7+.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.7.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.7.0.Final
+  sourceTechnology:
+  - id: websphere
+  targetTechnology:
+  - id: eap
+    versionRange: '[7,8)'
+  - id: java-ee
+    versionRange: '[7,)'
+  tag:
+  - jms
+  - messaging
+  - websphere
+rules:
+  rule:
+  - when:
+      javaclass:
+      - references: '{package}.{type}'
+    perform:
+      classification:
+      - description:
+        - "WebSphere MQe client API is used to communicate with the MQ server from
+          client-side applications.\n                        For JBoss EAP 7, this
+          needs to be replaced with standard Java EE 6 JMS API, or with ActiveMQ Artemis
+          client API.\n                    "
+        link:
+        - value: ""
+          title: Java EE 7 JMS Tutorial
+          href: https://docs.oracle.com/javaee/7/tutorial/jms-concepts003.htm#BNCEH
+        - value: ""
+          title: WebSphere MQe JavaDoc
+          href: http://www-01.ibm.com/support/knowledgecenter/SSVHEW_6.2.0/com.ibm.mqe.javadoc/java/overview-summary.html
+        tag:
+        - jms
+        - websphere
+        title: IBM MQe client API
+        effort: 3
+        category-id: mandatory
+        issue-display-mode: all
+    where:
+    - matches:
+      - value: ""
+        pattern: com.ibm(\..*)?\.(mqe).*
+      param: package
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: type
+  - when:
+      javaclass:
+      - location:
+        - INHERITANCE
+        references: com.ibm.mqe.adapters.MQe{type}Adapter
+    perform:
+      hint:
+      - message: "\n                        IBM MQe {type} adapter provides plug-in
+          communications adapters or data storage adapters for queue managers. These
+          can\n                        be deployed to JBoss EAP.\n                    "
+        link:
+        - value: ""
+          title: 'JBoss EAP 7 Configuring Messaging: Deploy a WebSphere MQ Resource
+            Adapter'
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/configuring_messaging/#deploy_the_websphere_mq_resource_adapter
+        - value: ""
+          title: MQe Adapter Javadoc
+          href: http://www-01.ibm.com/support/knowledgecenter/SSVHEW_6.2.0/com.ibm.mqe.javadoc/java/com/ibm/mqe/adapters/package-summary.html
+        tag:
+        - jms
+        - messaging
+        - websphere
+        title: IBM MQe com.ibm.mqe.adapters.MQe{type}Adapter
+        category-id: mandatory
+        effort: 3
+  - when:
+      javaclass:
+      - location:
+        - INHERITANCE
+        references: com.ibm.mqe.administration.MQe{type}AdminMsg
+    perform:
+      hint:
+      - message: "IBM MQe {type} administration API provides classes used to administer
+          and monitor a WebSphere MQ Everyplace queue manager. In\n                        JBoss
+          EAP 7, the JMS destinations can be configured with the JBoss Admin CLI.\n
+          \                   "
+        link:
+        - value: ""
+          title: JBoss EAP 7 - Configuring Messaging Destinations
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/configuring_messaging/#configure_destinations_artemis
+        - value: ""
+          title: IBM MQe Admin API Javadoc
+          href: http://www-01.ibm.com/support/knowledgecenter/SSVHEW_6.2.0/com.ibm.mqe.javadoc/java/com/ibm/mqe/administration/package-summary.html
+        tag:
+        - jms
+        - messaging
+        - websphere
+        title: IBM MQe com.ibm.mqe.administration.MQe{type}AdminMsg
+        category-id: mandatory
+        effort: 3
+  - when:
+      javaclass:
+      - references: com.ibm.mqe.jms.MQeJMSAuthenticator
+    perform:
+      hint:
+      - message: "\n                        `MQeJMSAuthenticator` is a WebSphere proprietary
+          JMS authentication API.\n                        To migrate to JBoss EAP
+          7, replace with Java EE 6 JAAS for JMS authentication.\n                    "
+        link:
+        - value: ""
+          title: 'JBoss EAP 7 Configuring Messaging: Configuring Security'
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/configuring_messaging/#configuring_messaging_security
+        tag:
+        - jms
+        - messaging
+        - websphere
+        title: IBM MQe com.ibm.mqe.jms.MQeJMSAuthenticator
+        category-id: mandatory
+        effort: 5
+  - when:
+      javaclass:
+      - references: com.ibm.mqe.jms.MQeJMSMsgFieldNames
+    perform:
+      hint:
+      - message: "\n                        IBM MQe constants are used to name fields
+          when a JMS message is mapped to an `MQeMsgObject`. These are provided to\n
+          \                       enable WebSphere MQ Everyplace applications to interpret
+          messages sent by JMS or to construct messages that a JMS application\n                        will
+          understand.\n\n                        These settings can be discarded when
+          migrating to JBoss EAP 7 with ActiveMQ Artemis.\n                    "
+        tag:
+        - jms
+        - messaging
+        - websphere
+        title: IBM MQe com.ibm.mqe.jms.MQeJMSMsgFieldNames
+        category-id: optional
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml

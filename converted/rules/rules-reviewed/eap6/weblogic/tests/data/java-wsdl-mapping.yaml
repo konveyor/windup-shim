@@ -1,0 +1,5 @@
+rules: {}
+package-mapping:
+- from: ""
+  to: ""
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/tests/data/java-wsdl-mapping.xml

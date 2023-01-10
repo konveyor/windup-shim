@@ -1,0 +1,87 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate from Spring Web
+    to Quarkus spring-web extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      or:
+      - project:
+        - artifact:
+            value: ""
+            groupId: org.springframework
+            artifactId: spring-web
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-boot-starter-web
+        dependency:
+        - value: ""
+          groupId: org.springframework
+          artifactId: spring-web
+    perform:
+      hint:
+      - message: "\n                        Replace the Spring Web artifact with Quarkus
+          `spring-web` extension\n\n                        Spring Web is a spring-web
+          artifact brought transitively by any `org.springframework:spring-web*` dependency
+          \ \n                        Add Quarkus dependency `io.quarkus:quarkus-spring-web`
+          \ \n                        \n                        Starting with Quarkus
+          version 2.5, the underlying JAX-RS engine must be chosen. For performance
+          reasons,\n                        the `quarkus-resteasy-reactive-jackson`
+          dependency should be used.\n                    "
+        link:
+        - value: ""
+          title: Quarkus Spring Web Guide
+          href: https://quarkus.io/guides/spring-web
+        - value: ""
+          title: Quarkus Migration Guide 2.5
+          href: https://github.com/quarkusio/quarkus/wiki/Migration-Guide-2.5#spring-web
+        title: Replace the Spring Web artifact with Quarkus 'spring-web' extension
+        category-id: mandatory
+        effort: 1
+  - when:
+      or:
+      - and:
+        - project:
+          - artifact:
+              value: ""
+              groupId: io.quarkus
+              artifactId: quarkus-spring-web
+          not:
+          - project:
+            - artifact:
+                value: ""
+                groupId: io.quarkus
+                artifactId: quarkus-resteasy-reactive-jackson
+        - dependency:
+          - value: ""
+            groupId: io.quarkus
+            artifactId: quarkus-spring-web
+          not:
+          - dependency:
+            - value: ""
+              groupId: io.quarkus
+              artifactId: quarkus-resteasy-reactive-jackson
+    perform:
+      hint:
+      - message: "\n                        Add the Quarkus `quarkus-resteasy-reactive-jackson`
+          dependency.\n\n                        Starting with Quarkus version 2.5,
+          the underlying JAX-RS engine must be chosen. For performance reasons,\n
+          \                       the `quarkus-resteasy-reactive-jackson` dependency
+          should be used.\"\n                    "
+        link:
+        - value: ""
+          title: Quarkus Migration Guide 2.5
+          href: https://github.com/quarkusio/quarkus/wiki/Migration-Guide-2.5#spring-web
+        title: Add the Quarkus 'quarkus-resteasy-reactive-jackson' dependency
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-web-to-quarkus.windup.xml

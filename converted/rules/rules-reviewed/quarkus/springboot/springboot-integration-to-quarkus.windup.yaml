@@ -1,0 +1,49 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate from SpringBoot
+    Integration to Quarkus\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          prefix: int
+          uri: http://www.springframework.org/schema/integration
+        matches: //*/int:channel
+    perform:
+      hint:
+      - message: "\n                        SpringBoot Integration flows are not supported.
+          A migration to Apache Camel route is mandatory.\n                    "
+        link:
+        - value: ""
+          title: Quarkus Apache Camel
+          href: https://quarkus.io/guides/camel
+        title: SpringBoot Integration flows are not supported.
+        category-id: mandatory
+        effort: 5
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: org.springframework.integration.dsl.IntegrationFlow
+    perform:
+      hint:
+      - message: "\n                        SpringBoot IntegrationFlow class usage
+          is not supported. A migration to Apache Camel route using From is mandatory.\n
+          \                   "
+        link:
+        - value: ""
+          title: Quarkus Apache Camel
+          href: https://quarkus.io/guides/camel
+        title: SpringBoot IntegrationFlow class usage is not supported.
+        category-id: mandatory
+        effort: 5
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-integration-to-quarkus.windup.xml

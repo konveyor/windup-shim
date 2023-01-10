@@ -1,0 +1,47 @@
+metadata:
+- description: "\n         This ruleset provides analysis that may require individual
+    attention when\n         migrating from Sonic classes.\n      "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.3.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.3.0.Final
+  sourceTechnology:
+  - id: sonic
+  targetTechnology:
+  - id: camel
+    versionRange: '[2,)'
+  - id: fuse
+    versionRange: '[6,)'
+  tag:
+  - sonic
+rules:
+  rule:
+  - when:
+      javaclass:
+      - references: com.{subpackage}.{classname}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: "\n                                This com.{subpackage}.{classname}
+              is a Sonic proprietary type and needs to be migrated to a compatible
+              API. There are currently no detailed\n                                migration
+              rules about this type.\n                            "
+            tag:
+            - sonic
+            - catchall
+            title: Sonic proprietary type reference com.{subpackage}.{classname}
+            category-id: potential
+    where:
+    - matches:
+      - value: ""
+        pattern: (sonic|sonicsw)(\..*)?
+      param: subpackage
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: classname
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonic-catchall.windup.xml
