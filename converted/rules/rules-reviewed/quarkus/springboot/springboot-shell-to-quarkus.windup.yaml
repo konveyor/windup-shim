@@ -1,0 +1,39 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate from SpringBoot
+    Shell to Quarkus picocli extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: org.springframework.shell
+          artifactId: spring-shell-core
+    perform:
+      hint:
+      - message: "\n                        Replace the SpringBoot Shell artifacts
+          with Quarkus `picocli` extension\n\n                        Add Quarkus
+          dependency `io.quarkus:quarkus-picocli`\n\n                        PicoCli
+          provides command-line mode like Spring Shell but does not reuse the Spring
+          interfaces\n                        therefore re-coding is also required
+          to use the appropriate PicoCli interfaces.\n                    "
+        link:
+        - value: ""
+          title: Quarkus Command Mode with Picocli Guide
+          href: https://quarkus.io/guides/picocli
+        - value: ""
+          title: Spring Shell Guide
+          href: https://spring.io/projects/spring-shell
+        title: Replace the SpringBoot Shell artifact with Quarkus 'picocli' extension
+        category-id: mandatory
+        effort: 3
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-shell-to-quarkus.windup.xml

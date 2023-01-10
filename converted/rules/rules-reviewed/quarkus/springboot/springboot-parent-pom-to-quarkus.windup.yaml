@@ -1,0 +1,45 @@
+metadata:
+- description: "\n            This ruleset gives hints to replace the Spring Parent
+    POM with Quarkus BOM\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: m
+            uri: http://maven.apache.org/POM/4.0.0
+          matches: /m:project/m:parent[m:groupId/text() = 'org.springframework.boot'
+            and m:artifactId/text() = 'spring-boot-starter-parent']
+          in: pom.xml
+        - namespace:
+          - value: ""
+            prefix: m
+            uri: http://maven.apache.org/POM/4.0.0
+          matches: /m:project/m:parent[m:groupId/text() = 'org.springframework.boot'
+            and m:artifactId/text() = 'spring-boot-parent']
+          in: pom.xml
+    perform:
+      hint:
+      - message: "\n                        Replace the Spring Parent POM with Quarkus
+          BOM in `<dependencyManagement>` section of the application's `pom.xml` file.
+          \ \n                        Leverage the link below to fulfill this change.\n
+          \                   "
+        link:
+        - value: ""
+          title: Quarkus - Building applications with Maven Guide
+          href: https://quarkus.io/guides/maven-tooling#build-tool-maven
+        title: Replace the Spring Parent POM with Quarkus BOM
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-parent-pom-to-quarkus.windup.xml

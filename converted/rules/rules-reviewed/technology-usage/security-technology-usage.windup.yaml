@@ -1,0 +1,329 @@
+metadata:
+- description: "\n            This ruleset provides statistical summaries of the security
+    related items in the input application (eg, security realms).\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  phase: PostMigrationRulesPhase
+rules:
+  rule:
+  - when:
+      or:
+      - javaclass:
+        - location:
+          - ANNOTATION
+          references: javax.annotation.security.{*}
+        xmlfile:
+        - matches: //*[local-name() = 'login-config']/*[local-name() = 'realm-name']
+          in: web.xml
+        - matches: //*[local-name() = 'login-config']/*[local-name() = 'realm']
+          in: '{*}ejb-jar.xml'
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Java EE
+        name: Security Realm
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Spring Security
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Shiro
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Hdiv
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: OACC
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: PicketLink
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: PicketBox
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Keyczar
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: XACML
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: SAML
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Bouncy Castle
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Jasypt
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Santuario
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: SSL
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Vlad
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Apache Commons Validator
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: OWASP ESAPI
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: WSS4J
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: OpenSAML
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: OTR4J
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: OWASP CSRF Guard
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: OAUTH
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Acegi Security
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: JSecurity
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: AcrIS Security
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Sustain
+        - name: Security
+        - name: Embedded
+        name: Trunk JGuard
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security-technology-usage.windup.xml

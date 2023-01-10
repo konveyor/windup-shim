@@ -1,0 +1,180 @@
+metadata:
+- description: "\n            This ruleset provides statistical summaries of web (view)
+    related items that were found during the analysis.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  phase: PostMigrationRulesPhase
+rules:
+  rule:
+  - when:
+      graph-query:
+      - property:
+          name: ""
+        discriminator: JsfSourceFile
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Web
+        - name: Java EE
+        name: JSF Page
+  - when:
+      graph-query:
+      - property:
+          name: ""
+        discriminator: JspSourceFileModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Web
+        - name: Java EE
+        name: JSP Page
+  - when:
+      graph-query:
+      - property:
+          name: ""
+        discriminator: WebXmlModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Web
+        - name: Java EE
+        name: Web XML File
+  - when:
+      javaclass:
+      - location:
+        - ANNOTATION
+        references: javax.websocket.server.ServerEndpoint
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Web
+        - name: Java EE
+        name: WebSocket
+  - when:
+      or:
+      - javaclass:
+        - location:
+          - INHERITANCE
+          references: java.applet.Applet
+        file:
+        - filename: '{*}applet{*}.jar'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Java EE
+        name: Applet
+  - when:
+      file:
+      - filename: '{*}.jnlp'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Java EE
+        name: JNLP
+  - when:
+      or:
+      - file:
+        - filename: '{*}jnlp{*}.jar'
+        - filename: '{*}webstart{*}.jar'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Embedded
+        name: JNLP
+  - when:
+      file:
+      - filename: '{*}swing{*}.jar'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Embedded
+        name: Swing
+  - when:
+      file:
+      - filename: '{*}miglayout{*}.jar'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Embedded
+        name: MiGLayout
+  - when:
+      file:
+      - filename: '{*}jgoodies{*}.jar'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Embedded
+        name: JGoodies
+  - when:
+      file:
+      - filename: '{*}formlayoutmakerx{*}.jar'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Embedded
+        name: FormLayoutMaker
+  - when:
+      file:
+      - filename: '{*}magicgrouplayout{*}.jar'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Embedded
+        name: Magicgrouplayout
+  - when:
+      file:
+      - filename: '{*}swt{*}.jar'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Embedded
+        name: Standard Widget Toolkit (SWT)
+  - when:
+      file:
+      - filename: '{*}javafx{*}.jar'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Embedded
+        name: JavaFX
+  - when:
+      or:
+      - file:
+        - filename: rcp{*}.jar
+        - filename: '{*}eclipse.rcp{*}.jar'
+        - filename: '{*}eclipse{*}runtime{*}.jar'
+        - filename: '{*}eclipse.ui{*}.jar'
+    perform:
+      technology-identified:
+      - tag:
+        - name: View
+        - name: Rich
+        - name: Embedded
+        name: Eclipse RCP
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml

@@ -1,0 +1,55 @@
+metadata:
+- description: "\n            This ruleset provides analysis with respect to packages
+    removed between OpenJDK 11 to 17.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  sourceTechnology:
+  - id: openjdk
+    versionRange: (,11]
+  targetTechnology:
+  - id: openjdk
+    versionRange: '[17,)'
+rules:
+  rule:
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: java.rmi.activation.{*}
+    perform:
+      hint:
+      - message: "\n                        RMI activation and its associated daemon,
+          rmid, and code package, java.rmi.activation were deprecated in OpenJDK 15
+          and removed in OpenJDK 17.\n                    "
+        link:
+        - value: ""
+          title: 'JEP 407: Remove RMI Activation'
+          href: https://openjdk.org/jeps/407
+        title: The java.rmi.activation detected
+        category-id: mandatory
+        effort: 3
+  - when:
+      or:
+      - javaclass:
+        - references: jdk.nashorn.api.scripting.{*}
+        - references: jdk.nashorn.api.tree.{*}
+    perform:
+      hint:
+      - message: "\n                        The Nashorn scripting implementation has
+          been removed from OpenJDK 15 onwards. \n                        The javax.script
+          API is still present and third party implementations, such as Rhino or Nashorn
+          itself, can be installed if needed. Any references to its packages should
+          be removed or substituted with the third party implementations.\n                    "
+        link:
+        - value: ""
+          title: 'JEP 372: Remove RMI Activation'
+          href: https://openjdk.org/jeps/372
+        - value: ""
+          title: openjdk/nashorn
+          href: https://github.com/openjdk/nashorn
+        title: The jdk.nashorn.api.scripting and jdk.nashorn.api.tree packages have
+          been removed
+        category-id: mandatory
+        effort: 3
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/removed-packages.windup.xml

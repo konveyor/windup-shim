@@ -1,0 +1,11 @@
+metadata:
+- description: "\n            This ruleset provides the 'discovery' target to run
+    an analysis to just discover the technologies and frameworks used with the application(s).\n
+    \       "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  targetTechnology:
+  - id: discovery
+rules: {}
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/discovery-target.windup.xml

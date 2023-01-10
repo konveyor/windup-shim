@@ -1,0 +1,365 @@
+metadata:
+- description: "\n            This ruleset provides statistical summaries of the Java
+    EE technologies related items in the input application (eg. Batch, CDI).\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  phase: PostMigrationRulesPhase
+rules:
+  rule:
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          uri: http://xmlns.jcp.org/xml/ns/javaee
+        matches: //*[local-name() = 'batch-artifacts']
+        in: batch.xml
+    perform:
+      technology-tag:
+      - value: Java EE Batch API
+        level: INFORMATIONAL
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          uri: http://xmlns.jcp.org/xml/ns/javaee
+        matches: //*[local-name() = 'job']
+        in: '{*}.xml'
+    perform:
+      technology-tag:
+      - value: Java EE Batch
+        level: INFORMATIONAL
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Processing
+        - name: Java EE
+        name: Java EE Batch API
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Processing
+        - name: Java EE
+        name: Java EE Batch
+  - when:
+      or:
+      - javaclass:
+        - references: javax.enterprise.inject.{*}
+        - references: javax.inject.{*}
+    perform:
+      technology-tag:
+      - value: CDI
+        level: INFORMATIONAL
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Processing
+        - name: Java EE
+        name: CDI
+  - when:
+      javaclass:
+      - references: javax.json.{*}
+    perform:
+      technology-tag:
+      - value: Java EE JSON-P
+        level: INFORMATIONAL
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Execute
+        - name: Processing
+        - name: Java EE
+        name: Java EE JSON-P
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: javax.security.jacc.{*}
+    perform:
+      classification:
+      - description:
+        - The application uses JACC.
+        title: Java Authorization Contract for Containers
+        category-id: information
+      technology-tag:
+      - value: JACC
+        level: INFORMATIONAL
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: javax.management.j2ee.{*}
+    perform:
+      classification:
+      - description:
+        - The application uses Java EE Management.
+        title: Java EE Management
+        category-id: information
+      technology-tag:
+      - value: MEJB
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}.ear'
+    perform:
+      classification:
+      - description:
+        - The application uses Java EE Application Deployment.
+        title: Java EE Application Deployment
+        category-id: information
+      technology-tag:
+      - value: EAR
+        level: INFORMATIONAL
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: javax.jws.{*}
+    perform:
+      classification:
+      - description:
+        - The application uses Web Services Metadata
+        title: Web Services Metadata
+        category-id: information
+      technology-tag:
+      - value: WS Metadata
+        level: INFORMATIONAL
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: javax.annotation.{annotation}
+    perform:
+      classification:
+      - description:
+        - The application uses Common Annotations
+        title: Common Annotations
+        category-id: information
+      technology-tag:
+      - value: Common Annotations
+        level: INFORMATIONAL
+    where:
+    - matches:
+      - value: ""
+        pattern: PreDestroy|PostConstruct|Resource|Resources
+      param: annotation
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: '{package}.xml.bind.{*}'
+    perform:
+      classification:
+      - description:
+        - The application uses JAXB
+        title: JAXB
+        category-id: information
+      technology-tag:
+      - value: JAXB
+        level: INFORMATIONAL
+    where:
+    - matches:
+      - value: ""
+        pattern: java|javax
+      param: package
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: javax.xml.registry.{*}
+    perform:
+      classification:
+      - description:
+        - The application uses JAXR
+        title: JAXR
+        category-id: information
+      technology-tag:
+      - value: JAXR
+        level: INFORMATIONAL
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: javax.validation.constraints.{*}
+    perform:
+      classification:
+      - description:
+        - The application uses Bean Validation
+        title: Bean Validation
+        category-id: information
+      technology-tag:
+      - value: Bean Validation
+        level: INFORMATIONAL
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: javax.servlet.{*}
+    perform:
+      classification:
+      - description:
+        - The application uses Java Servlets
+        title: Java Servlet
+        category-id: information
+      technology-tag:
+      - value: Servlet
+        level: INFORMATIONAL
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: javax.json.bind.{*}
+    perform:
+      classification:
+      - description:
+        - The application uses JSON binding
+        title: JSON Binding
+        category-id: information
+      technology-tag:
+      - value: JSON-B
+        level: INFORMATIONAL
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Security
+        - name: Sustain
+        - name: Java EE
+        name: Java EE JACC
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Connect
+        - name: Bean
+        - name: Java EE
+        name: Management EJB
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Other
+        - name: Connect
+        - name: Java EE
+        name: EAR Deployment
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Connect
+        - name: Http
+        - name: Java EE
+        name: Web Services Metadata
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Connect
+        - name: Other
+        - name: Java EE
+        name: Common Annotations
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Connect
+        - name: Binding
+        - name: Java EE
+        name: Java EE JAXB
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Connect
+        - name: Other
+        - name: Java EE
+        name: Java EE JAXR
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Validation
+        - name: Store
+        - name: Java EE
+        name: Bean Validation
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Binding
+        - name: Connect
+        - name: Java EE
+        name: JSON-B
+  - when:
+      graph-query:
+      - property:
+          name: name
+        discriminator: TechnologyTagModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: HTTP
+        - name: Connect
+        - name: Java EE
+        name: Servlet
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml

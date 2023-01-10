@@ -1,0 +1,70 @@
+metadata:
+- description: "\n            This ruleset provides analysis of Log4J classes and
+    constructs that may require individual attention when migrating to JBoss EAP 6+.\n
+    \       "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.0.1.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.0.0.Final
+  sourceTechnology:
+  - id: log4j
+  targetTechnology:
+  - id: eap
+    versionRange: '[6,)'
+  tag:
+  - log4j
+rules:
+  rule:
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: log4j
+          artifactId: log4j
+    perform:
+      lineitem:
+      - value: ""
+        message: Deploying log4j.jar can result in non-deterministic ClassLoading
+          issues. It is recommended to use the built-in JBoss EAP Log4j module configured
+          via `jboss-deployment-structure.xml`
+  - when:
+      filecontent:
+      - pattern: '{*}'
+        filename: log4j.xml
+    perform:
+      classification:
+      - link:
+        - value: ""
+          title: How to configure Log4J in JBoss EAP 6/7
+          href: https://access.redhat.com/solutions/405893
+        - value: ""
+          title: How to separate Log4J application logging from the 'server.log' in
+            JBoss EAP 6
+          href: https://access.redhat.com/solutions/105653
+        - value: ""
+          title: Use my own 'log4j.xml' with EAP 6.1
+          href: https://access.redhat.com/discussions/478983
+        - value: ""
+          title: EAP 6 deadlocks on a ConsoleHandler and java.io.PrintStream
+          href: https://access.redhat.com/solutions/375273
+        title: Log4j Configuration
+        effort: 1
+        issue-display-mode: all
+  - when:
+      filecontent:
+      - pattern: org.apache.log4j.ConsoleAppender
+        filename: log4j.{suffix}
+    perform:
+      hint:
+      - message: |2-
+
+                                  Using ConsoleAppender configured in log4j.{suffix} can cause a deadlock on JBoss EAP 6.
+                                  It is recommended to Remove application level log4j ConsoleAppenders.
+        link:
+        - value: ""
+          title: EAP 6 deadlocks when using ConsoleHandler and java.io.PrintStream
+          href: https://access.redhat.com/solutions/375273
+        title: Log4j ConsoleAppender Configuration - Potential Deadlock
+        category-id: optional
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/log4j/log4j.windup.xml

@@ -1,0 +1,254 @@
+metadata:
+- description: "\n            This ruleset provides analysis of WebLogic proprietary
+    code related to web-apps that may require individual\n            attention when\n
+    \           migrating to JBoss EAP 6+.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.3.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.3.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,2.3.0.Final
+  sourceTechnology:
+  - id: weblogic
+  targetTechnology:
+  - id: eap
+    versionRange: '[6,7)'
+  tag:
+  - web-app
+  - weblogic
+rules:
+  rule:
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          prefix: wl
+          uri: http://xmlns.oracle.com/weblogic/weblogic-web-app
+        matches: //wl:virtual-directory-mapping
+        in: weblogic.xml
+    perform:
+      hint:
+      - message: Virtual directories supported in WebLogic are not supported in JBoss
+          EAP.
+        link:
+        - value: ""
+          title: Detailed description of how to migrate virtual directories.
+          href: https://access.redhat.com/articles/1332613
+        tag:
+        - file-system
+        - weblogic
+        title: WebLogic Virtual directory mapping
+        category-id: mandatory
+        effort: 1
+  - when:
+      javaclass:
+      - location:
+        - ANNOTATION
+        references: weblogic.servlet.annotation.WLServlet
+    perform:
+      hint:
+      - message: "\n                      \n                      Replace the proprietary
+          WebLogic `@WLServlet` annotation with the Java EE standard `@WebServlet`
+          annotation.\n\n                      See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)
+          for more information.\n                      \n                    "
+        link:
+        - value: ""
+          title: WebLogic proprietary servlet annotations
+          href: https://access.redhat.com/articles/1249423
+        tag:
+        - servlet
+        - weblogic
+        quickfix:
+        - replacement: WebServlet
+          search: WLServlet
+          type: REPLACE
+          name: WebServlet
+        - replacement: urlPatterns
+          search: mapping
+          type: REPLACE
+          name: Mapping Attribute
+        title: WebLogic proprietary servlet annotations
+        category-id: mandatory
+        effort: 1
+  - when:
+      javaclass:
+      - location:
+        - ANNOTATION
+        references: weblogic.servlet.annotation.WLInitParam
+    perform:
+      hint:
+      - message: "\n                      \n                      Replace the proprietary
+          WebLogic `@WLInitParam` annotation with the Java EE standard `@WebInitParam`
+          annotation.\n\n                      See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)
+          for more information.\n                      \n                    "
+        link:
+        - value: ""
+          title: WebLogic proprietary servlet annotations
+          href: https://access.redhat.com/articles/1249423
+        tag:
+        - servlet
+        - weblogic
+        quickfix:
+        - replacement: WebInitParam
+          search: WLInitParam
+          type: REPLACE
+          name: WebInitParam
+        title: WebLogic proprietary servlet annotations
+        category-id: mandatory
+        effort: 1
+  - when:
+      javaclass:
+      - location:
+        - ANNOTATION
+        references: weblogic.servlet.annotation.WLFilter
+    perform:
+      hint:
+      - message: "\n                      \n                      Replace the proprietary
+          WebLogic `@WLFilter` annotation with the Java EE standard `@WebFilter` annotation.\n\n
+          \                     See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)
+          for more information.\n                      \n                    "
+        link:
+        - value: ""
+          title: WebLogic proprietary servlet annotations
+          href: https://access.redhat.com/articles/1249423
+        tag:
+        - servlet
+        - weblogic
+        quickfix:
+        - replacement: WebFilter
+          search: WLFilter
+          type: REPLACE
+          name: WebFilter
+        title: WebLogic proprietary servlet annotations
+        category-id: mandatory
+        effort: 3
+  - when:
+      javaclass:
+      - location:
+        - IMPLEMENTS_TYPE
+        - INHERITANCE
+        - IMPORT
+        references: weblogic.application.ApplicationLifecycleEvent
+    perform:
+      hint:
+      - message: "\n                      \n                      WebLogic `ApplicationLifecycleEvent`
+          must be replaced with standard Java EE `ServletContextEvent`. Otherwise,
+          a custom solution using CDI's `ApplicationScoped` beans or EJB's `@Startup`
+          beans is required in order to propagate a custom event object because `ServletContextEvent`
+          types are not extendible in the standard Java EE programming model.\n\n
+          \                     Use a `javax.servlet.ServletContextListener` with
+          `@javax.annotation.servlet.WebListener`, or an EJB 3.1 `@javax.ejb.Startup`
+          `@javax.ejb.Singleton` service bean.\n                      \n                    "
+        link:
+        - value: ""
+          title: Migrate WebLogic ApplicationLifecycleEvent to standard EJB with JBoss
+            EAP
+          href: https://access.redhat.com/articles/1326703
+        - value: ""
+          title: Java EE ServletContextEvent JavaDoc
+          href: http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContextEvent.html
+        - value: ""
+          title: WebLogic custom ApplicationLifecycleEvent Documentation
+          href: http://docs.oracle.com/cd/E13222_01/wls/docs90/programming/lifecycle.html
+        tag:
+        - lifecycle
+        - weblogic
+        title: WebLogic ApplicationLifecycleEvent
+        category-id: mandatory
+        effort: 3
+  - when:
+      javaclass:
+      - location:
+        - IMPLEMENTS_TYPE
+        - INHERITANCE
+        references: weblogic.application.ApplicationLifecycleListener
+    perform:
+      hint:
+      - message: "\n                      \n                      WebLogic `ApplicationLifecycleListener`
+          must be replaced with standard Java EE `ServletContextListener` types. Otherwise,
+          a solution using CDI's `ApplicationScoped` beans or EJB's `@Startup` beans
+          is required.\n\n                      Use a `javax.servlet.ServletContextListener`
+          with `@javax.annotation.servlet.WebListener`, or an EJB 3.1 `@javax.ejb.Startup`
+          `@javax.ejb.Singleton` service bean.\n                      \n                    "
+        link:
+        - value: ""
+          title: Migrate Oracle WebLogic Server ApplicationLifecycleListener Code
+            to Red Hat JBoss EAP 6+
+          href: https://access.redhat.com/articles/1326703
+        - value: ""
+          title: Java EE ServletContextEvent JavaDoc
+          href: http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContextEvent.html
+        - value: ""
+          title: WebLogic custom ApplicationLifecycleEvent Documentation
+          href: http://docs.oracle.com/cd/E13222_01/wls/docs90/programming/lifecycle.html
+        tag:
+        - lifecycle
+        - weblogic
+        title: WebLogic ApplicationLifecycleListener
+        category-id: mandatory
+        effort: 3
+  - when:
+      javaclass:
+      - references: weblogic.security.{*}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        hint:
+        - message: The usage of the WebLogic proprietary security API should be replaced
+            by standard Java EE mechanisms or the ones provided by JBoss EAP.
+          link:
+          - value: ""
+            title: WebLogic security API documentation
+            href: http://docs.oracle.com/cd/E12839_01/apirefs.1111/e13941/weblogic/security/Security.html
+          - value: ""
+            title: EAP security documentation
+            href: https://access.redhat.com/documentation/en-us/red-hat-jboss-enterprise-application-platform?category=security&version=6.4
+          tag:
+          - security
+          - weblogic
+          title: WebLogic proprietary security API
+          category-id: mandatory
+          effort: 3
+  - when:
+      javaclass:
+      - references: weblogic.security.Security
+    perform:
+      hint:
+      - message: 'Migrate to JBoss EAP 6: `org.jboss.security.SecurityContextAssociation`.'
+        link:
+        - value: ""
+          title: Security Context - JBoss EAP 6
+          href: https://access.redhat.com/webassets/avalon/d/JBoss_Enterprise_Application_Platform-6-API_Documentation-en-US/files/javadoc/org/jboss/security/SecurityContextAssociation.html
+        - value: ""
+          title: Security context retrieval in POJOs
+          href: https://access.redhat.com/solutions/55114
+        tag:
+        - security
+        - weblogic
+        title: WebLogic proprietary security reference to weblogic.security.Security
+        category-id: mandatory
+        effort: 3
+  - when:
+      javaclass:
+      - references: weblogic.servlet.security.ServletAuthentication
+    perform:
+      hint:
+      - message: "\n                      \n                      Oracle WebLogic
+          Server provides a proprietary `ServletAuthentication` class to perform programmatic
+          login.\n\n                      In Red Hat JBoss EAP 6, you can use the
+          standard Java EE 6 servlet security 3.0 `HttpServletRequest.login()` method
+          or you can define a `<security-constraint>` element in the web.xml file.
+          You must also replace code that uses the Oracle WebLogic Server proprietary
+          `ServletAuthentication` class.\n                      \n                    "
+        link:
+        - value: ""
+          title: Migrate Oracle WebLogic programmatic login to JBoss EAP 6
+          href: https://access.redhat.com/articles/1329213
+        tag:
+        - security
+        - weblogic
+        title: WebLogic proprietary ServletAuthentication annotation
+        category-id: mandatory
+        effort: 3
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml

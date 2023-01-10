@@ -1,0 +1,188 @@
+metadata:
+- description: "\n            This ruleset provides analysis of Java EE applications
+    that need to change their pom dependencies to replace javax.* with jakarta.*\n
+    \       "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  targetTechnology:
+  - id: jakarta-ee
+    versionRange: '[9,)'
+  - id: eap
+    versionRange: '[8,9)'
+rules:
+  rule:
+  - when:
+      filecontent:
+      - pattern: groupId>javax.{renamed-g}<
+        filename: pom.xml
+    perform:
+      hint:
+      - message: Update the group dependency by replacing the `javax.{renamed-g}`
+          groupId with `jakarta.{renamed-g}`
+        link:
+        - value: ""
+          title: Jakarta EE
+          href: https://jakarta.ee/
+        quickfix:
+        - replacement: jakarta
+          search: javax
+          type: REPLACE
+          name: javax-to-jakarta-pom-dependencies-g
+        title: javax.{renamed-g} groupId has been replaced by jakarta.{renamed-g}
+        category-id: mandatory
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: (annotation|batch|ejb|el|enterprise.concurrent|enterprise.deploy|faces|interceptor|jms|jws|mail|management.j2ee|resource|security.auth.message|security.jacc|servlet|servlet.jsp|servlet.jsp.jstl|transaction|websocket|ws.rs|xml.bind|xml.registry|xml.rpc|xml.soap|xml.ws)
+      param: renamed-g
+  - when:
+      filecontent:
+      - pattern: artifactId>javax.{renamed-a}-api<
+        filename: pom.xml
+    perform:
+      hint:
+      - message: Update artifact dependency by replacing the `javax.{renamed-a}-api`
+          artifactId with `jakarta.{renamed-a}-api`
+        link:
+        - value: ""
+          title: Jakarta EE
+          href: https://jakarta.ee/
+        quickfix:
+        - replacement: jakarta
+          search: javax
+          type: REPLACE
+          name: javax-to-jakarta-pom-dependencies-a
+        title: javax.{renamed-a} javax.{renamed-a}-api artifactId has been replaced
+          by jakarta.{renamed-a} jakarta.{renamed-a}-api
+        category-id: mandatory
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: (activation|annotation|batch|ejb|el|enterprise.concurrent|enterprise.deploy|faces|interceptor|jms|jws|mail|management.j2ee|resource|security.auth.message|security.jacc|servlet|servlet.jsp|servlet.jsp.jstl|transaction|websocket|ws.rs|xml.registry|xml.rpc|xml.soap|xml.ws)
+      param: renamed-a
+  - when:
+      filecontent:
+      - pattern: artifactId>jaxb-api<
+        filename: pom.xml
+    perform:
+      hint:
+      - message: Replace the `jaxb-api` artifact dependency with `jakarta.xml.bind-api`
+        link:
+        - value: ""
+          title: Jakarta EE
+          href: https://jakarta.ee/
+        quickfix:
+        - replacement: jakarta.xml.bind-api
+          search: jaxb-api
+          type: REPLACE
+          name: javax-to-jakarta-pom-dependencies-jaxb-api-a
+        title: javax.xml.bind jaxb-api artifactId has been replaced by jakarta.xml.bind
+          jakarta.xml.bind-api
+        category-id: mandatory
+        effort: 1
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: javax.activation
+          artifactId: javax.activation-api
+    perform:
+      hint:
+      - message: Replace dependency groupId `javax.activation` with `jakarta.activation`
+        link:
+        - value: ""
+          title: Jakarta EE
+          href: https://jakarta.ee/
+        quickfix:
+        - replacement: jakarta
+          search: javax
+          type: REPLACE
+          name: javax-to-jakarta-activation-g
+        title: javax.activation groupId has been replaced by jakarta.activation
+        category-id: mandatory
+        effort: 1
+  - when:
+      filecontent:
+      - pattern: artifactId>javax.faces<
+        filename: pom.xml
+    perform:
+      hint:
+      - message: Replace the `javax.faces` artifactId with `jakarta.faces`
+        link:
+        - value: ""
+          title: Jakarta EE
+          href: https://jakarta.ee/
+        quickfix:
+        - replacement: jakarta
+          search: javax
+          type: REPLACE
+          name: javax-to-jakarta-pom-dependencies-faces-a
+        title: org.glassfish javax.faces artifactId has been replaced by org.glassfish
+          jakarta.faces
+        category-id: mandatory
+        effort: 1
+  - when:
+      filecontent:
+      - pattern: groupId>javax<
+        filename: pom.xml
+    perform:
+      hint:
+      - message: Update group dependency by replacing the `javax` groupId with `jakarta.platform`
+        link:
+        - value: ""
+          title: Jakarta EE
+          href: https://jakarta.ee/
+        quickfix:
+        - replacement: jakarta.platform
+          search: javax
+          type: REPLACE
+          name: javax-to-jakarta-pom-dependencies-javax
+        title: javax groupId has been replaced by jakarta.platform
+        category-id: mandatory
+        effort: 1
+  - when:
+      filecontent:
+      - pattern: artifactId>javaee-api<
+        filename: pom.xml
+    perform:
+      hint:
+      - message: Update artifact dependency by replacing the `javaee-api` artifactId
+          with `jakarta.jakartaee-api`
+        link:
+        - value: ""
+          title: Jakarta EE
+          href: https://jakarta.ee/
+        quickfix:
+        - replacement: jakarta.jakartaee-api
+          search: javaee-api
+          type: REPLACE
+          name: javax-to-jakarta-pom-dependencies-platform-profile
+        title: javax javaee-api artifactId has been replaced by jakarta.platform jakarta.jakartaee-api
+        category-id: mandatory
+        effort: 1
+  - when:
+      filecontent:
+      - pattern: artifactId>javaee-web-api<
+        filename: pom.xml
+    perform:
+      hint:
+      - message: Update artifact dependency by replacing the `javaee-web-api` artifactId
+          with `jakarta.jakartaee-web-api`
+        link:
+        - value: ""
+          title: Jakarta EE
+          href: https://jakarta.ee/
+        quickfix:
+        - replacement: jakarta.jakartaee-web-api
+          search: javaee-web-api
+          type: REPLACE
+          name: javax-to-jakarta-pom-dependencies-web-profile
+        title: javax javaee-web-api artifactId has been replaced by jakarta.platform
+          jakarta.jakartaee-web-api
+        category-id: mandatory
+        effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml

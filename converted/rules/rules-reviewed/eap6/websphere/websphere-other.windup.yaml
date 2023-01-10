@@ -1,0 +1,71 @@
+metadata:
+- description: "\n            Provides analysis of WebSphere proprietary classes and
+    constructs that may require individual attention when migrating to JBoss EAP 6+.\n
+    \       "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.2.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.2.0.Final
+  sourceTechnology:
+  - id: websphere
+  targetTechnology:
+  - id: eap
+    versionRange: '[6,7)'
+  - id: java-ee
+    versionRange: '[6,)'
+  tag:
+  - websphere
+rules:
+  rule:
+  - when:
+      javaclass:
+      - location:
+        - INHERITANCE
+        references: com.ibm.websphere.asynchbeans.Work
+    perform:
+      hint:
+      - message: "\n                      \n                      WebSphere Asynchronous
+          Work is a Work Manager, whose purpose is to allow the user utilizing threads
+          while letting the container manage them.\n\n                      For migration
+          to JBoss EAP 6, [replace with JCA Work Manager](https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Administration_and_Configuration_Guide/Configure_the_Java_Connector_Architecture_JCA_Subsystem.html).\n
+          \                     \n                    "
+        link:
+        - value: ""
+          title: Configure the Java Connector Architecture (JCA) Subsystem
+          href: https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Administration_and_Configuration_Guide/Configure_the_Java_Connector_Architecture_JCA_Subsystem.html
+        - value: ""
+          title: Description of WebSphere Asynchronous Work
+          href: http://www.javaworld.com/article/2077671/build-ci-sdlc/the-wise-work-manager-for-context-based-scoping.html
+        - value: ""
+          title: 'JSR 237: Work Manager for Application Servers'
+          href: https://jcp.org/en/jsr/detail?id=237
+        tag:
+        - asynchronous
+        - websphere
+        title: WebSphere Work Manager
+        category-id: mandatory
+        effort: 5
+  - when:
+      javaclass:
+      - references: com.ibm.websphere.startupservice.{*}StartUp{*}
+    perform:
+      hint:
+      - message: "\n                      \n                      WebSphere Startup
+          Service serves as a callback to be invoked when the server or application
+          starts.\n\n                      When migrating to JBoss EAP 6, this has
+          to be replaced with standard EJB 3.1 Startup Bean, using `@Startup @Singleton`
+          class and `@PostConstruct` method.\n                      \n                    "
+        link:
+        - value: ""
+          title: EJB 3.1 Singleton Bean
+          href: http://docs.oracle.com/javaee/6/api/javax/ejb/Singleton.html
+        - value: ""
+          title: EJB 3.1 Startup Bean
+          href: http://docs.oracle.com/javaee/6/api/javax/ejb/Startup.html
+        tag:
+        - startup
+        - websphere
+        title: WebSphere Startup Service
+        category-id: mandatory
+        effort: 4
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-other.windup.xml

@@ -1,0 +1,271 @@
+metadata:
+- description: "\n            This ruleset provides analysis of Java Transaction libraries.\n
+    \       "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+rules:
+  rule:
+  - when:
+      file:
+      - filename: mycontainer-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a Mycontainer JTA library.
+        title: Embedded library - Mycontainer JTA
+        category-id: information
+      technology-tag:
+      - value: Mycontainer JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: geronimo-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a Geronimo JTA library.
+        title: Embedded library - Geronimo JTA
+        category-id: information
+      technology-tag:
+      - value: Geronimo JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: ow2-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds an OW2 JTA library.
+        title: Embedded library - OW2 JTA
+        category-id: information
+      technology-tag:
+      - value: OW2 JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: evo-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds an Evo JTA library.
+        title: Embedded library - Evo JTA
+        category-id: information
+      technology-tag:
+      - value: Evo JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: akka-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds an AKKA JTA library.
+        title: Embedded library - AKKA JTA
+        category-id: information
+      technology-tag:
+      - value: AKKA JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: kumuluzee-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a KumuluzEE JTA library.
+        title: Embedded library - KumuluzEE JTA
+        category-id: information
+      technology-tag:
+      - value: KumuluzEE JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: ignite-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds an Ignite JTA library.
+        title: Embedded library - Ignite JTA
+        category-id: information
+      technology-tag:
+      - value: Ignite JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: nuxeo-runtime-jtajca{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a Nuxeo JTA/JCA library.
+        title: Embedded library - Nuxeo JTA/JCA
+        category-id: information
+      technology-tag:
+      - value: Nuxeo JTA/JCA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: org.everit.transaction.propagator.jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds an Everit JTA library.
+        title: Embedded library - Everit JTA
+        category-id: information
+      technology-tag:
+      - value: Everit JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: demoiselle-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a Demoiselle JTA library.
+        title: Embedded library - Demoiselle JTA
+        category-id: information
+      technology-tag:
+      - value: Demoiselle JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: meecrowave-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds an Apache Meecrowave JTA library.
+        title: Embedded library - Apache Meecrowave JTA
+        category-id: information
+      technology-tag:
+      - value: Apache Meecrowave JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: sirona-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds an Apache Sirona JTA library.
+        title: Embedded library - Apache Sirona JTA
+        category-id: information
+      technology-tag:
+      - value: Apache Sirona JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: lift-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a Lift JTA library.
+        title: Embedded library - Lift JTA
+        category-id: information
+      technology-tag:
+      - value: Lift JTA
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: wf-core-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a WF Core JTA library.
+        title: Embedded library - WF Core JTA
+        category-id: information
+      technology-tag:
+      - value: WF Core JTA
+        level: INFORMATIONAL
+  - when:
+      or:
+      - file:
+        - filename: jta{*}.jar
+        - filename: javax-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a Java Transaction API library.
+        title: Embedded library - Java Transaction API (JTA)
+        category-id: information
+      technology-tag:
+      - value: Java Transaction API
+        level: INFORMATIONAL
+  - when:
+      or:
+      - file:
+        - filename: jboss{*}jta{*}.jar
+        - filename: jboss{*}jts{*}.jar
+        - filename: jbossxts{*}.jar
+        - filename: jbossts{*}.jar
+        - filename: arquillian-transaction-jta{*}.jar
+        - filename: weld-jta{*}.jar
+        - filename: wildfly{*}jta{*}.jar
+        - filename: transactions{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a JBoss Transactions library.
+        title: Embedded library - JBoss Transactions
+        category-id: information
+      technology-tag:
+      - value: JBoss Transactions
+        level: INFORMATIONAL
+  - when:
+      or:
+      - file:
+        - filename: glassfish-jta{*}.jar
+        - filename: osgi-jta{*}.jar
+        - filename: jta-l10n{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a GlassFish JTA library.
+        title: Embedded library - GlassFish JTA
+        category-id: information
+      technology-tag:
+      - value: GlassFish JTA
+        level: INFORMATIONAL
+  - when:
+      or:
+      - file:
+        - filename: transactions-jta{*}.jar
+        - filename: ks-jta{*}.jar
+        - filename: evo-jta-atomikos{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds an Atomikos JTA library.
+        title: Embedded library - Atomikos JTA
+        category-id: information
+      technology-tag:
+      - value: Atomikos JTA
+        level: INFORMATIONAL
+  - when:
+      or:
+      - file:
+        - filename: '{*}narayana{*}.jar'
+        - filename: '{*}arjuna{*}.jar'
+        - filename: tomcat-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a Narayana Arjuna library.
+        title: Embedded library - Narayana Arjuna
+        category-id: information
+      technology-tag:
+      - value: Narayana Arjuna
+        level: INFORMATIONAL
+  - when:
+      or:
+      - file:
+        - filename: spring-{*}jta{*}.jar
+        - filename: insight-plugin-jta{*}.jar
+    perform:
+      classification:
+      - description:
+        - The application embeds a Spring Transactions library.
+        title: Embedded library - Spring Transactions
+        category-id: information
+      technology-tag:
+      - value: Spring Transactions
+        level: INFORMATIONAL
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml

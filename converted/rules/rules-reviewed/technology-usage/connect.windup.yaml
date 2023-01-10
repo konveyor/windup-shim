@@ -1,0 +1,283 @@
+metadata:
+- description: "\n            This ruleset provides analysis of connectivity related
+    libraries.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+rules:
+  rule:
+  - when:
+      file:
+      - filename: '{*}.rar'
+    perform:
+      classification:
+      - description:
+        - The application embeds a resource adapter.
+        title: Embedded Resource Adapter
+        category-id: information
+      technology-tag:
+      - value: Resource Adapter
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}activemq{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds an ActiveMQ client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - ActiveMQ
+        category-id: information
+      technology-tag:
+      - value: ActiveMQ
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}openws{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds an OpenWS library.
+        title: Embedded library - OpenWS
+        category-id: information
+      technology-tag:
+      - value: OpenWS
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}wsdl{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a WSDL library.
+        title: Embedded library - WSDL
+        category-id: information
+      technology-tag:
+      - value: WSDL
+        level: INFORMATIONAL
+  - when:
+      or:
+      - file:
+        - filename: '{*}amqp-client{*}'
+        - filename: '{*}rabbitmq{*}'
+        - filename: '{*}spring-rabbit{*}'
+        - filename: '{*}lyra{*}'
+        - filename: '{*}conduit{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a RabbitMQ client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - RabbitMQ Client
+        category-id: information
+      technology-tag:
+      - value: RabbitMQ Client
+        level: INFORMATIONAL
+  - when:
+      or:
+      - file:
+        - filename: '{*}spring-messaging{*}'
+        - filename: '{*}spring-jms{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Spring Messaging client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - Spring Messaging Client
+        category-id: information
+      technology-tag:
+      - value: Spring Messaging Client
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}camel-jms{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Camel Messaging client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - Camel Messaging Client
+        category-id: information
+      technology-tag:
+      - value: Camel Messaging Client
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}aws-java-sdk-sqs{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Amazon SQS client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - Amazon SQS Client
+        category-id: information
+      technology-tag:
+      - value: Amazon SQS Client
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}hornetq{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a HornetQ client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - HornetQ Client
+        category-id: information
+      technology-tag:
+      - value: HornetQ Client
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}amqp{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds an AMQP client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - AMQP Client
+        category-id: information
+      technology-tag:
+      - value: AMQP Client
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}rocketmq-client{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a RocketMQ client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - RocketMQ Client
+        category-id: information
+      technology-tag:
+      - value: RocketMQ Client
+        level: INFORMATIONAL
+  - when:
+      or:
+      - file:
+        - filename: '{*}jzmq{*}'
+        - filename: '{*}jeromq{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a 0MQ client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - 0MQ Client
+        category-id: information
+      technology-tag:
+      - value: 0MQ Client
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}jbossmq-client{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a JBossMQ client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - JBossMQ Client
+        category-id: information
+      technology-tag:
+      - value: JBossMQ Client
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}zbus-client{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Zbus client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - Zbus Client
+        category-id: information
+      technology-tag:
+      - value: Zbus Client
+        level: INFORMATIONAL
+  - when:
+      file:
+      - filename: '{*}qpid{*}'
+    perform:
+      classification:
+      - description:
+        - The application embeds a Qpid client library.
+        link:
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 6 Supported Configurations
+          href: https://access.redhat.com/articles/111663
+        - value: ""
+          title: Red Hat JBoss Enterprise Application Platform (EAP) 7 Supported Configurations
+          href: https://access.redhat.com/articles/2026253
+        title: Embedded library - Qpid Client
+        category-id: information
+      technology-tag:
+      - value: Qpid Client
+        level: INFORMATIONAL
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml

@@ -1,0 +1,273 @@
+metadata:
+- description: "\n            This ruleset detects local storage usage, which is problematic
+    when migrating an application to a cloud environment.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  targetTechnology:
+  - id: cloud-readiness
+  tag:
+  - storage
+rules:
+  rule:
+  - when:
+      or:
+      - javaclass:
+        - location:
+          - CONSTRUCTOR_CALL
+          references: java.io.{ioclass}{*}
+        - location:
+          - CONSTRUCTOR_CALL
+          references: java.util.zip.ZipFile{*}
+        - location:
+          - METHOD_CALL
+          references: java.io.File.createTempFile({*})
+        - location:
+          - METHOD_CALL
+          references: java.nio.file.Paths.get({*})
+    perform:
+      hint:
+      - message: "\n                    An application running inside a container
+          could lose access to a file in local storage.\n\n                    Recommendations\n\n
+          \                   The following recommendations depend on the function
+          of the file in local storage:\n\n                    * Logging: Log to standard
+          output and use a centralized log collector to analyze the logs.\n                    *
+          Caching: Use a cache backing service.\n                    * Configuration:
+          Store configuration settings in environment variables so that they can be
+          updated without code changes.\n                    * Data storage: Use a
+          database backing service for relational data or use a persistent data storage
+          system.\n                    * Temporary data storage: Use the file system
+          of a running container as a brief, single-transaction cache.\n                    "
+        link:
+        - value: ""
+          title: 'Twelve-Factor App: Logs'
+          href: https://12factor.net/logs
+        - value: ""
+          title: 'OpenShift Container Platform: Understanding cluster logging'
+          href: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+        - value: ""
+          title: 'Twelve-Factor App: Backing services'
+          href: https://12factor.net/backing-services
+        - value: ""
+          title: 'Twelve-Factor App: Config'
+          href: https://12factor.net/config
+        - value: ""
+          title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+          href: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+        - value: ""
+          title: 'OpenShift Container Platform: Understanding persistent storage'
+          href: https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html
+        tag:
+        - storage
+        title: File system - Java IO
+        category-id: cloud-mandatory
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: (FileWriter|FileReader|PrintStream|File|PrintWriter|RandomAccessFile)
+      param: ioclass
+  - when:
+      javaclass:
+      - location:
+        - CONSTRUCTOR_CALL
+        references: java.net.{class}({*})
+        matchesSource: '{*}file{*}'
+    perform:
+      hint:
+      - message: "\n                    An application running inside a container
+          could lose access to a file in local storage.\n\n                    Recommendations\n\n
+          \                   The following recommendations depend on the function
+          of the file in local storage:\n\n                    * Logging: Log to standard
+          output and use a centralized log collector to analyze the logs.\n                    *
+          Caching: Use a cache backing service.\n                    * Configuration:
+          Store configuration settings in environment variables so that they can be
+          updated without code changes.\n                    * Data storage: Use a
+          database backing service for relational data or use a persistent data storage
+          system.\n                    * Temporary data storage: Use the file system
+          of a running container as a brief, single-transaction cache.\n                    "
+        link:
+        - value: ""
+          title: 'Twelve-Factor App: Logs'
+          href: https://12factor.net/logs
+        - value: ""
+          title: 'OpenShift Container Platform: Understanding cluster logging'
+          href: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+        - value: ""
+          title: 'Twelve-Factor App: Backing services'
+          href: https://12factor.net/backing-services
+        - value: ""
+          title: 'Twelve-Factor App: Config'
+          href: https://12factor.net/config
+        - value: ""
+          title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+          href: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+        - value: ""
+          title: 'OpenShift Container Platform: Understanding persistent storage'
+          href: https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html
+        tag:
+        - storage
+        title: File system - java.net.URL/URI
+        category-id: cloud-mandatory
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: (URL|URI)
+      param: class
+  - when:
+      filecontent:
+      - pattern: '{path1}'
+        filename: '{*}{extensions}'
+    perform:
+      hint:
+      - message: "\n                    An application running inside a container
+          could lose access to a file in local storage.\n\n                    Recommendations\n\n
+          \                   The following recommendations depend on the function
+          of the file in local storage:\n\n                    * Logging: Log to standard
+          output and use a centralized log collector to analyze the logs.\n                    *
+          Caching: Use a cache backing service.\n                    * Configuration:
+          Store configuration settings in environment variables so that they can be
+          updated without code changes.\n                    * Data storage: Use a
+          database backing service for relational data or use a persistent data storage
+          system.\n                    * Temporary data storage: Use the file system
+          of a running container as a brief, single-transaction cache.\n                    "
+        link:
+        - value: ""
+          title: 'Twelve-Factor App: Logs'
+          href: https://12factor.net/logs
+        - value: ""
+          title: 'OpenShift Container Platform: Understanding cluster logging'
+          href: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+        - value: ""
+          title: 'Twelve-Factor App: Backing services'
+          href: https://12factor.net/backing-services
+        - value: ""
+          title: 'Twelve-Factor App: Config'
+          href: https://12factor.net/config
+        - value: ""
+          title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+          href: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+        - value: ""
+          title: 'OpenShift Container Platform: Understanding persistent storage'
+          href: https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html
+        tag:
+        - storage
+        title: File system - File path URL
+        category-id: cloud-mandatory
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: (([:=(,\{])([ ])*(["'])?([a-zA-Z]):)(?<![\<\\\/\d\w])([\\\/]\w+)+(\.\w+)?
+      param: path1
+    - matches:
+      - value: ""
+        pattern: (\.java|\.properties|\.jsp|\.jspf|\.tag|[^pom]\.xml|\.txt)
+      param: extensions
+  - when:
+      filecontent:
+      - pattern: '{path2}'
+        filename: '{*}.{extensions}'
+    perform:
+      hint:
+      - message: "\n                    An application running inside a container
+          could lose access to a file in local storage.\n\n                    Recommendations\n\n
+          \                   The following recommendations depend on the function
+          of the file in local storage:\n\n                    * Logging: Log to standard
+          output and use a centralized log collector to analyze the logs.\n                    *
+          Caching: Use a cache backing service.\n                    * Configuration:
+          Store configuration settings in environment variables so that they can be
+          updated without code changes.\n                    * Data storage: Use a
+          database backing service for relational data or use a persistent data storage
+          system.\n                    * Temporary data storage: Use the file system
+          of a running container as a brief, single-transaction cache.\n                    "
+        link:
+        - value: ""
+          title: 'Twelve-Factor App: Logs'
+          href: https://12factor.net/logs
+        - value: ""
+          title: 'OpenShift Container Platform: Understanding cluster logging'
+          href: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+        - value: ""
+          title: 'Twelve-Factor App: Backing services'
+          href: https://12factor.net/backing-services
+        - value: ""
+          title: 'Twelve-Factor App: Config'
+          href: https://12factor.net/config
+        - value: ""
+          title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+          href: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+        - value: ""
+          title: 'OpenShift Container Platform: Understanding persistent storage'
+          href: https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html
+        tag:
+        - storage
+        title: File system - 'file://' scheme
+        category-id: cloud-mandatory
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: file://
+      param: path2
+    - matches:
+      - value: ""
+        pattern: (\\.java|\\.properties|\\.jsp|\\.jspf|\\.tag|[^pom]\\.xml|\\.txt)
+      param: extensions
+  - when:
+      or:
+      - javaclass:
+        - location:
+          - IMPORT
+          references: java.nio.channels.AsynchronousFileChannel{*}
+        - location:
+          - IMPORT
+          references: java.nio.channels.FileChannel{*}
+        - location:
+          - IMPORT
+          references: java.nio.channels.FileLock{*}
+        - location:
+          - IMPORT
+          references: java.nio.file.{*}
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                    An application running inside a container
+            could lose access to a file in local storage.\n\n                    Recommendations\n\n
+            \                   The following recommendations depend on the function
+            of the file in local storage:\n\n                    * Logging: Log to
+            standard output and use a centralized log collector to analyze the logs.\n
+            \                   * Caching: Use a cache backing service.\n                    *
+            Configuration: Store configuration settings in environment variables so
+            that they can be updated without code changes.\n                    *
+            Data storage: Use a database backing service for relational data or use
+            a persistent data storage system.\n                    * Temporary data
+            storage: Use the file system of a running container as a brief, single-transaction
+            cache.\n                    "
+          link:
+          - value: ""
+            title: 'Twelve-Factor App: Logs'
+            href: https://12factor.net/logs
+          - value: ""
+            title: 'OpenShift Container Platform: Understanding cluster logging'
+            href: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+          - value: ""
+            title: 'Twelve-Factor App: Backing services'
+            href: https://12factor.net/backing-services
+          - value: ""
+            title: 'Twelve-Factor App: Config'
+            href: https://12factor.net/config
+          - value: ""
+            title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+            href: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+          - value: ""
+            title: 'OpenShift Container Platform: Understanding persistent storage'
+            href: https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html
+          tag:
+          - storage
+          title: File system - Java NIO
+          category-id: cloud-mandatory
+          effort: 1
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml

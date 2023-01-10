@@ -1,0 +1,211 @@
+metadata:
+- description: "\n            This ruleset provides analysis of deprecated Hibernate
+    java constructs and their migration to newer one.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.3.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.3.0.Final
+  sourceTechnology:
+  - id: hibernate
+    versionRange: '[,3.9)'
+  targetTechnology:
+  - id: hibernate
+    versionRange: '[4,)'
+  - id: eap
+    versionRange: '[6,7)'
+  tag:
+  - hibernate
+rules:
+  rule:
+  - when:
+      javaclass:
+      - references: org.hibernate.annotations.Type
+        matchesSource: '{*}text{*}'
+    perform:
+      hint:
+      - message: "\n                         In versions of Hibernate prior to 3.5,
+          text type was mapped to JDBC CLOB. A new Hibernate type, materialized_clob,
+          was added in Hibernate 4 to map Java String properties to JDBC CLOB. Therefore,
+          Hibernate 4 text LOB type definitions should be defined using `@Lob`, instead.\n
+          \                    "
+        link:
+        - value: ""
+          title: Hibernate 4 java @Type migration.
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/index#Migrate_Your_Hibernate_33x_Application_to_Hibernate_4x
+        tag:
+        - hibernate
+        title: Hibernate 4 - Deprecated @Type(type=text)
+        category-id: optional
+        effort: 1
+  - when:
+      javaclass:
+      - location:
+        - METHOD_CALL
+        references: org.hibernate.criterion.Projections.{method}{*}
+    perform:
+      hint:
+      - message: "\n                         The return types of the numeric aggregate
+          criteria projections has changed to Long in hibernate 4. This change may
+          introduce conflicts in the code.\n                     "
+        link:
+        - value: ""
+          title: Hibernate 4 projections return type change.
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/index#Migrate_Your_Hibernate_33x_Application_to_Hibernate_4x
+        tag:
+        - hibernate
+        title: Hibernate 4 - Changed 'Projections' return types
+        category-id: optional
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: (count|rowCount|sum)
+      param: method
+  - when:
+      javaclass:
+      - location:
+        - CONSTRUCTOR_CALL
+        references: org.hibernate.cfg.AnnotationConfiguration{*}
+    perform:
+      hint:
+      - message: "\n                         The initial/default naming strategy in
+          Hibernate 4 was changed from DefaultNamingStrategy to EJB3NamingStrategy.
+          This can result in naming mismatches. If you rely on the naming strategy,
+          call Configuration#setNamingStrategy.\n                     "
+        link:
+        - value: ""
+          title: Hibernate 4 naming strategy change documentation.
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/index#Migrate_Your_Hibernate_3.5.x_Application_to_Hibernate_4.x
+        tag:
+        - hibernate
+        title: Hibernate 4 - Changed naming strategy from 'DefaultNamingStrategy'
+          to 'EJB3NamingStrategy'
+        category-id: optional
+        effort: 1
+  - when:
+      javaclass:
+      - references: org.hibernate.classic.{*}
+    perform:
+      hint:
+      - message: The deprecated classes in org.hibernate.classic package was removed
+          in Hibernate 4.
+        link:
+        - value: ""
+          title: 'JBoss EAP - Migration Guide: Hibernate and JPA Changes'
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/#sect-Hibernate_and_JPA_Changes
+        tag:
+        - hibernate
+        title: Hibernate 4 - Removed classes in 'org.hibernate.classic'
+        category-id: optional
+        effort: 1
+  - when:
+      javaclass:
+      - references: org.hibernate.dialect.resolver.DialectResolver
+    perform:
+      hint:
+      - message: Replace org.hibernate.dialect.resolver.DialectResolver with org.hibernate.service.jdbc.dialect.spi.DialectResolver.
+        tag:
+        - hibernate
+        title: Hibernate 4 - Replaced DialectResolver
+        category-id: optional
+        effort: 1
+  - when:
+      or:
+      - javaclass:
+        - references: org.hibernate.jdbc.BatcherFactory
+        - references: org.hibernate.jdbc.BatchingBatcherFactory
+        - references: org.hibernate.jdbc.NonBatchingBatcherFactory
+    perform:
+      hint:
+      - message: "Replace org.hibernate.jdbc.BatcherFactory by org.hibernate.engine.jdbc.batch.spi.BatchBuilder.\n
+          \                 Their default implementations are in org.hibernate.engine.jdbc.batch.internal.\n
+          \                 You can override the default BatchBuilder by defining
+          the  \"hibernate.jdbc.batch.builder\" property as the name of a BatchBuilder
+          implementation\n                   or by providing a BatchBuilder in a custom
+          ServiceRegistry.\n                  "
+        tag:
+        - hibernate
+        title: Hibernate 4 - Replaced BatcherFactory
+        category-id: optional
+        effort: 1
+  - when:
+      or:
+      - javaclass:
+        - references: org.hibernate.jdbc.Batcher
+        - references: org.hibernate.jdbc.AbstractBatcher
+        - references: org.hibernate.jdbc.BatchingBatcher
+        - references: org.hibernate.jdbc.NonBatchingBatcher
+    perform:
+      hint:
+      - message: "Replace org.hibernate.jdbc.Batcher by org.hibernate.engine.jdbc.batch.spi.Batch.\n
+          \                 Their default implementations are in org.hibernate.engine.jdbc.batch.internal.\n
+          \                 "
+        tag:
+        - hibernate
+        title: Hibernate 4 - Replaced JDBC Batcher
+        category-id: optional
+        effort: 1
+  - when:
+      javaclass:
+      - references: org.hibernate.engine.SessionImplementor
+    perform:
+      hint:
+      - message: "Replace org.hibernate.engine.SessionImplementor with org.hibernate.engine.spi.SessionImplementor\n
+          \              "
+        tag:
+        - hibernate
+        title: Hibernate 4 - SessionImplementor replacement
+        category-id: optional
+        effort: 1
+  - when:
+      javaclass:
+      - references: org.hibernate.connection.{classname}
+    perform:
+      hint:
+      - message: The classes in org.hibernate.connection package was moved to org.hibernate.service.jdbc.connections.internal
+          in Hibernate 4
+        tag:
+        - hibernate
+        title: Hibernate 4 - Renamed package 'org.hibernate.connection'
+        category-id: optional
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: classname
+  - when:
+      javaclass:
+      - references: org.hibernate.collection.PersistentBag
+    perform:
+      hint:
+      - message: The class org.hibernate.collection.PersistentBag was moved to org.hibernate.collection.internal.PersistentBag
+          in Hibernate 4
+        tag:
+        - hibernate
+        title: Hibernate 4 - Replace org.hibernate.collection.PersistentBag
+        category-id: optional
+        effort: 1
+  - when:
+      javaclass:
+      - references: net.sf.hibernate.{classname}
+    perform:
+      classification:
+      - title: Hibernate 2.x - Renamed package 'net.sf.hibernate'
+        category-id: optional
+        issue-display-mode: detail-only
+      hint:
+      - message: "\n                  This is an old Hibernate package name from version
+          2.x and needs to be migrated to a compatible API to Hibernate 4.x/5.x,\n
+          \                 where package name is org.hibernate.\n               "
+        tag:
+        - hibernate
+        title: Hibernate type reference net.sf.hibernate.{classname}
+        category-id: optional
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: classname
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml

@@ -1,0 +1,47 @@
+metadata:
+- description: "\n            This ruleset provides statistical summaries of the messaging
+    items that were found during the analysis.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+  phase: PostMigrationRulesPhase
+rules:
+  rule:
+  - when:
+      graph-query:
+      - property:
+          name: destinationType
+        discriminator: JmsDestinationModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Connect
+        - name: Messaging
+        - name: Java EE
+        name: JMS Queue
+  - when:
+      graph-query:
+      - property:
+          name: destinationType
+        discriminator: JmsDestinationModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Connect
+        - name: Messaging
+        - name: Java EE
+        name: JMS Topic
+  - when:
+      graph-query:
+      - property:
+          name: ""
+        discriminator: JmsConnectionFactoryModel
+    perform:
+      technology-identified:
+      - tag:
+        - name: Connect
+        - name: Messaging
+        - name: Java EE
+        name: JMS Connection Factory
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/messaging-technology-usage.windup.xml

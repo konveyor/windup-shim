@@ -1,0 +1,234 @@
+metadata:
+- description: "\n            This ruleset provides analysis of WebSphere proprietary
+    xml files and constructs that may require individual attention when migrating
+    to JBoss EAP 7+.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-xml,2.7.0.Final
+  sourceTechnology:
+  - id: websphere
+  targetTechnology:
+  - id: eap
+    versionRange: '[7,8)'
+  tag:
+  - websphere
+  - configuration
+rules:
+  rule:
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          prefix: rl
+          uri: http://www.ibm.com/xmlns/prod/websphere/wbi/br/6.0.0
+        matches: /rl:RuleSet
+    perform:
+      classification:
+      - description:
+        - WBI is a WebSphere proprietary business integration solution. This needs
+          to be migrated to JBoss Drools or JBPM/BRMS.
+        tag:
+        - ibm-wbi
+        - rules
+        - websphere
+        title: IBM Process Server Rules 6.0
+        effort: 3
+        issue-display-mode: all
+      xslt:
+      - title: Drools (MTA-generated)
+        extension: -drools-example.drl
+        template: transformations/xslt/websphere-psrules-to-drools.xsl
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          prefix: applicationbnd
+          uri: applicationbnd.xmi
+        matches: /applicationbnd:ApplicationBinding
+    perform:
+      classification:
+      - description:
+        - This WebSphere application binding is an IBM proprietary method for binding
+          user roles for authorization and needs to be migrated to JAAS or KeyCloak.
+        link:
+        - value: ""
+          title: Enabling Role-Based Access Control in JBoss EAP 7
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/how_to_configure_server_security/#enabling_role_based_access_control
+        tag:
+        - security
+        - websphere
+        title: WebSphere EAR Application Binding
+        effort: 3
+        category-id: mandatory
+        issue-display-mode: all
+      hint:
+      - message: "\n                      \n                      This file contains
+          a specific IBM WebSphere Application binding configuration.\n\n                      To
+          migrate to EAP 7+, configure EAP 7+ accordingly using the CLI interface
+          or web console.\n                      \n                    "
+        link:
+        - value: ""
+          title: Migrate IBM WebSphere Application Server Web Application Extension
+            or Binding Files
+          href: https://access.redhat.com/articles/1330673
+        title: WebSphere Application Binding Configuration
+        category-id: mandatory
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: webappext
+            uri: webappext.xmi
+          as: default
+          matches: /webappext:WebAppExtension
+          from: files
+        - namespace:
+          - value: ""
+            prefix: ext
+            uri: http://websphere.ibm.com/xml/ns/javaee
+          as: default
+          matches: /ext:web-ext
+        file:
+        - filename: ibm-web-ext.{file_ext}
+          as: files
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            \n                            This
+            file contains WebSphere proprietary JSP engine configuration.\n\n                            To
+            migrate to EAP 7, configure it accordingly using the CLI or the web console.\n
+            \                           \n                        "
+          link:
+          - value: ""
+            title: JSP engine configuration migration to EAP 6
+            href: https://access.redhat.com/articles/1330673#jspattributes
+          title: WebSphere JSP engine configuration (ibm-web-ext)
+          category-id: mandatory
+          effort: 1
+        over: default
+    where:
+    - matches:
+      - value: ""
+        pattern: xml|xmi
+      param: file_ext
+  - when:
+      or:
+      - xmlfile:
+        - namespace:
+          - value: ""
+            prefix: ext
+            uri: http://websphere.ibm.com/xml/ns/javaee
+          matches: /ext:web-bnd
+        - namespace:
+          - value: ""
+            prefix: webappbnd
+            uri: webappbnd.xmi
+          matches: /webappbnd:WebAppBinding
+    perform:
+      hint:
+      - message: "\n                      \n                      This file contains
+          WebSphere proprietary binding configuration.\n\n                      To
+          migrate to EAP 7+, configure EAP 7+ accordingly using the CLI interface
+          or web console.\n                      \n                    "
+        link:
+        - value: ""
+          title: Configure the EAP 7 Web Server (Undertow)
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/configuration_guide/#configuring_the_web_server_undertow
+        - value: ""
+          title: Undertow documentation
+          href: http://undertow.io/undertow-docs/undertow-docs-1.3.0/index.html
+        - value: ""
+          title: Migrate IBM WebSphere Application Server Web Application Extension
+            or Binding Files
+          href: https://access.redhat.com/articles/1330673
+        title: WebSphere web application binding (ibm-web-bnd)
+        category-id: mandatory
+        effort: 3
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          prefix: com.ibm.etools.webservice.wscext
+          uri: http://www.ibm.com/websphere/appserver/schemas/5.0.2/wscext.xmi
+        matches: /com.ibm.etools.webservice.wscext:WsClientExtension
+    perform:
+      classification:
+      - description:
+        - "\n                    \n                    Client IBM specific deployment
+          descriptor extension that needs to be migrated to JBossWS.\n                    JBossWS
+          implements the latest JAX-WS specification, which users can reference for
+          any vendor-agnostic web service usage need.\n                    You can
+          migrate deployment descriptors following the links below.\n                    \n
+          \                   "
+        link:
+        - value: ""
+          title: Developing JAX-WS Web Services
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/developing_web_services_applications/developing_jax_ws_web_services
+        - value: ""
+          title: Assigning Client and Endpoint Configurations
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/developing_web_services_applications/#ws_endpoint_assign_config
+        tag:
+        - webservice
+        - websphere
+        title: WebSphere web service client extension descriptor (ibm-webservicesclient-ext)
+        effort: 3
+        category-id: mandatory
+        issue-display-mode: all
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          prefix: com.ibm.etools.webservice.wscbnd
+          uri: http://www.ibm.com/websphere/appserver/schemas/5.0.2/wscbnd.xmi
+        matches: /com.ibm.etools.webservice.wscbnd:ClientBinding
+    perform:
+      classification:
+      - description:
+        - "\n                    \n                    Client IBM specific deployment
+          descriptor binding that needs to be migrated to JBossWS.\n                    JBossWS
+          implements the latest JAX-WS specification, which users can reference for
+          any vendor-agnostic web service usage need.\n                    You can
+          get more information about developing web services in the links below.\n
+          \                   \n                    "
+        link:
+        - value: ""
+          title: Developing JAX-WS Web Services
+          href: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/developing_web_services_applications/developing_jax_ws_web_services
+        tag:
+        - webservice
+        - websphere
+        title: WebSphere web service client binding descriptor (ibm-webservicesclient-bnd)
+        effort: 3
+        category-id: mandatory
+        issue-display-mode: all
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          prefix: appdeployment
+          uri: http://www.ibm.com/websphere/appserver/schemas/5.0/appdeployment.xmi
+        matches: /appdeployment:Deployment
+    perform:
+      classification:
+      - description:
+        - "\n                        This file is an IBM WebSphere proprietary deployment
+          descriptor that is typically generated when development of the EAR was done
+          using IBM products.\n                        The XML schema documentation
+          can be found within the WebSphere Application Server 7.0 directory under
+          `/web/configDocs/packages/appdeployment/Deployment.html`.\n                        It
+          should be safe to delete this file, unless it was created manually.\n                    "
+        link:
+        - value: ""
+          title: IBM WebSphere configuration document descriptions
+          href: https://www.ibm.com/support/knowledgecenter/SSAW57_9.0.5/com.ibm.websphere.nd.multiplatform.doc/ae/rcfg_rconfdoc_descriptions.html
+        - value: ""
+          title: IBM WebSphere configuration documents
+          href: https://www.ibm.com/support/knowledgecenter/SSAW57_9.0.5/com.ibm.websphere.nd.multiplatform.doc/ae/ccfg_confdoc.html
+        tag:
+        - websphere
+        title: WebSphere deployment descriptor (deployment.xml)
+        effort: 1
+        category-id: mandatory
+        issue-display-mode: all
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml

@@ -1,0 +1,75 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate from SpringBoot
+    Actuator to Quarkus Smallrye Health extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      or:
+      - project:
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-boot-starter-actuator
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-boot-actuator
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-boot-actuator-autoconfigure
+        dependency:
+        - value: ""
+          groupId: org.springframework.boot
+          artifactId: spring-boot-actuator
+    perform:
+      hint:
+      - message: "\n                        Replace the Spring Boot Actuator dependency
+          with Quarkus Smallrye Health extension.  \n                        It has
+          to be replaced by `io.quarkus:quarkus-smallrye-health` artifact.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Smallrye Health
+          href: https://quarkus.io/guides/smallrye-health
+        title: Replace the Spring Boot Actuator dependency with Quarkus Smallrye Health
+          extension
+        category-id: mandatory
+        effort: 5
+  - when:
+      filecontent:
+      - pattern: management.endpoints.web.exposure.include{wildcard}health
+        filename: application{profile}.{extension}
+    perform:
+      hint:
+      - message: "\n                        Replace `management.endpoints.web.exposure.include=health`
+          with `quarkus.smallrye-health.root-path=/actuator/health`\n                    "
+        link:
+        - value: ""
+          title: Quarkus Guide - Smallrye Health
+          href: https://quarkus.io/guides/smallrye-health
+        title: Replace Spring Health endpoint mapping
+        category-id: mandatory
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: .*
+      param: profile
+    - matches:
+      - value: ""
+        pattern: (properties|yml|yaml)
+      param: extension
+    - matches:
+      - value: ""
+        pattern: .*
+      param: wildcard
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-actuator-to-quarkus.windup.xml

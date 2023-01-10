@@ -1,0 +1,312 @@
+metadata:
+- description: "\n            This ruleset provides analysis of generic proprietary
+    classes and constructs that may require individual attention when\n            migrating
+    to JBoss EAP 6+.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.3.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.3.0.Final
+  sourceTechnology:
+  - id: java
+  - id: javaee
+  - id: soa
+  targetTechnology:
+  - id: eap
+    versionRange: '[6,)'
+  phase: PostMigrationRulesPhase
+rules:
+  rule:
+  - when:
+      javaclass:
+      - references: '{domain}.oswego.cs.dl.util.concurrent.{*}'
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: "\n                            This is an old Doug Lea Concurrency
+              util type and needs to be migrated to a compatible `java.util.concurrent`
+              API.\n                            There is currently no detailed information
+              about this type.\n                            "
+            link:
+            - value: ""
+              title: java.util.concurrent JAVA API Documentation
+              href: https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html
+            tag:
+            - catchall
+            title: Doug Lea Concurrency util
+            category-id: optional
+    where:
+    - matches:
+      - value: ""
+        pattern: (edu|EDU)
+      param: domain
+  - when:
+      javaclass:
+      - references: edu.emory.mathcs.backport.java.util.{*}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: "\n                                This type is the backport
+              of java.util.concurrent API, introduced in Java 5.0 and further refined
+              in Java 6.0, to older Java platforms.\n                                You
+              should use java.util.concurrent API instead.\n                            "
+            tag:
+            - catchall
+            title: backport-util-concurrent type reference
+            category-id: optional
+  - when:
+      javaclass:
+      - references: org.mule.{package-remainder}.{type}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: "\n                                Mule API `org.mule.{package-remainder}.{type}`
+              was used.\n                                You should convert these
+              types to Apache Camel.\n                            "
+            link:
+            - value: ""
+              title: Apache Camel
+              href: http://camel.apache.org
+            tag:
+            - catchall
+            - mule
+            title: Mule API reference
+            category-id: optional
+    where:
+    - matches:
+      - value: ""
+        pattern: (.*)?
+      param: package-remainder
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: type
+  - when:
+      javaclass:
+      - references: mx4j.{package-remainder}.{type}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: MX4J `mx4j.{package-remainder}.{type}` reference was used.
+            tag:
+            - catchall
+            - mx4j
+            title: MX4J type reference
+            category-id: optional
+    where:
+    - matches:
+      - value: ""
+        pattern: (.*)?
+      param: package-remainder
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: type
+  - when:
+      javaclass:
+      - references: org.osoa.sca.annotations.{type}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: Apache Tuscany `org.osoa.sca.annotations.{type}` reference was
+              used.
+            tag:
+            - catchall
+            - soa
+            - apache-tuscany
+            title: Apache Tuscany type reference
+            category-id: potential
+    where:
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: type
+  - when:
+      javaclass:
+      - location:
+        - IMPORT
+        references: amx_.{*}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: Tibco ActiveMatrix Stub; regenerate the SOAP Client for the class
+            tag:
+            - tibco
+            - soa
+            title: Tibco ActiveMatrix Stub
+            category-id: optional
+  - when:
+      javaclass:
+      - references: com.tibco.{package-remainder}.{type}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: "\n                                Tibco `com.tibco.{package-remainder}.{type}`
+              reference found.\n                                No specific details
+              available.\n                            "
+            tag:
+            - catchall
+            - tibco
+            title: Tibco type reference
+            category-id: optional
+    where:
+    - matches:
+      - value: ""
+        pattern: (.*)?
+      param: package-remainder
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: type
+  - when:
+      javaclass:
+      - references: com.crystaldecisions.{package-remainder}.{type}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: |-
+              SAP CrystalReports `com.crystaldecisions.{package-remainder}.{type}` reference found.
+                                       No specific details available.
+            tag:
+            - catchall
+            - sap
+            title: SAP CrystalReports type reference
+            category-id: optional
+    where:
+    - matches:
+      - value: ""
+        pattern: (.*)?
+      param: package-remainder
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: type
+  - when:
+      javaclass:
+      - references: com.iona.{package-remainder}.{type}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: |-
+              IONA `com.iona.{package-remainder}.{type}` reference found.
+                                       No specific details available.
+            tag:
+            - catchall
+            - iona
+            title: IONA type reference
+            category-id: optional
+    where:
+    - matches:
+      - value: ""
+        pattern: (.*)?
+      param: package-remainder
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: type
+  - when:
+      javaclass:
+      - references: org.apache.{subpackage}.{*}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: |-
+              Apache `org.apache.{subpackage}` API reference found.
+                                        No specific details available.
+            tag:
+            - catchall
+            - apache
+            title: Apache org.apache.{subpackage} type reference
+            category-id: optional
+    where:
+    - matches:
+      - value: ""
+        pattern: (activeio|activemq)
+      param: subpackage
+  - when:
+      javaclass:
+      - references: org.{subpackage}.{package-remainder}{type}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: '`org.{subpackage}.{package-remainder}{type}` reference found.
+              No specific details available.'
+            tag:
+            - catchall
+            - jboss
+            title: JBoss API reference
+            category-id: potential
+    where:
+    - matches:
+      - value: ""
+        pattern: (jboss|jbpm)
+      param: subpackage
+    - matches:
+      - value: ""
+        pattern: ([a-z]+\.)*
+      param: package-remainder
+    - matches:
+      - value: ""
+        pattern: '[^.()]+'
+      param: type
+  - when:
+      javaclass:
+      - references: java.sql.DriverManager
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: '`java.sql.DriverManager` type reference found. No specific details
+              available.'
+            tag:
+            - catchall
+            - jdbc
+            title: java.sql.DriverManager type reference
+            category-id: optional
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml

@@ -1,0 +1,62 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate from Spring MVC
+    to Quarkus\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      javaclass:
+      - location:
+        - ANNOTATION
+        references: org.springframework.web.servlet.mvc.Controller
+    perform:
+      hint:
+      - message: "\n                        Spring MVC is not supported by Quarkus\n\n
+          \                       Use the following link to figure out the supported
+          Spring Web functionalities.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Supported Spring Web functionalities
+          href: https://quarkus.io/guides/spring-web#supported-spring-web-functionalities
+        title: Spring MVC is not supported by Quarkus
+        category-id: mandatory
+        effort: 13
+  - when:
+      or:
+      - project:
+        - artifact:
+            value: ""
+            groupId: org.springframework
+            artifactId: spring-webflux
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-boot-starter-webflux
+        dependency:
+        - value: ""
+          groupId: org.springframework
+          artifactId: spring-webflux
+    perform:
+      hint:
+      - message: "\n                        Spring WebFlux is not supported by Quarkus\n\n
+          \                       If the application needs a reactive stack, please
+          refer to the following links to get more information.\n                    "
+        link:
+        - value: ""
+          title: Quarkus - Using Eclipse Vert.x
+          href: https://quarkus.io/guides/vertx
+        - value: ""
+          title: Quarkus - Using Reactive Routes
+          href: https://quarkus.io/guides/reactive-routes
+        title: Spring WebFlux is not supported by Quarkus
+        category-id: mandatory
+        effort: 13
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-webmvc-to-quarkus.windup.xml

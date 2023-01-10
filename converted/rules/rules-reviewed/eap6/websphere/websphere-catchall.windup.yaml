@@ -1,0 +1,99 @@
+metadata:
+- description: "\n            This ruleset provides analysis of WebSphere proprietary
+    classes and constructs that may require individual attention when\n            migrating
+    to JBoss EAP 6+. Specifically, this ruleset catches proprietary references that
+    did not have more specific hints or\n            classifications added to them.\n
+    \       "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,2.7.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,2.7.0.Final
+  sourceTechnology:
+  - id: websphere
+  targetTechnology:
+  - id: eap
+    versionRange: '[6,8)'
+  phase: PostMigrationRulesPhase
+rules:
+  rule:
+  - when:
+      javaclass:
+      - references: com.ibm.db2.jcc.{type}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: "\n                                This is a reference to the
+              IBM DB2 driver type (`com.ibm.db2.jcc.{type}`). It probably does not
+              need to be migrated. However the IBM DB2 driver should be configured
+              properly.\n                            "
+            link:
+            - value: ""
+              title: Configure datasource settings in EAP 6
+              href: https://access.redhat.com/solutions/93693
+            title: IBM DB2 driver type reference
+            category-id: potential
+            effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: type
+  - when:
+      javaclass:
+      - references: '{package}.{type}'
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: "\n                                This is an IBM proprietary
+              type (`{package}.{type}`) and needs to be migrated to a compatible API.
+              There is currently no detailed\n                                information
+              about this type.\n                            "
+            tag:
+            - catchall
+            title: IBM proprietary type reference
+            category-id: potential
+    where:
+    - matches:
+      - value: ""
+        pattern: (com\.)?(websphere|ibm)(\..*)?
+      param: package
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: type
+  - when:
+      javaclass:
+      - references: ilog.{subpackage}.{type}
+    perform:
+      iteration:
+      - when:
+          not:
+          - {}
+        perform:
+          hint:
+          - message: "\n                                This is an IBM ILog proprietary
+              type (`ilog.{subpackage}.{type}`) and needs to be migrated to a compatible
+              API. There is currently no detailed\n                                information
+              about this type.\n                            "
+            tag:
+            - catchall
+            title: IBM ILog proprietary type reference
+            category-id: potential
+    where:
+    - matches:
+      - value: ""
+        pattern: .*
+      param: subpackage
+    - matches:
+      - value: ""
+        pattern: '[^.]+'
+      param: type
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-catchall.windup.xml

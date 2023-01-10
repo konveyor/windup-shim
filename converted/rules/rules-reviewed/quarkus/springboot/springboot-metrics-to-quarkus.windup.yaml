@@ -1,0 +1,83 @@
+metadata:
+- description: "\n            This ruleset gives hints to migrate from SpringBoot
+    Metrics to Quarkus Microprofile Metrics extension\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+  sourceTechnology:
+  - id: springboot
+  targetTechnology:
+  - id: quarkus
+rules:
+  rule:
+  - when:
+      dependency:
+      - value: ""
+        groupId: io.micrometer
+        artifactId: micrometer-core
+    perform:
+      hint:
+      - message: "\n                        Replace the Micrometer dependency with
+          Quarkus Microprofile 'metrics' extension.  \n                        Usually
+          this is a transitive dependency brought by `org.springframework.boot:spring-boot-starter-actuator`
+          and has to be replaced by `io.quarkus:quarkus-smallrye-metrics` artifact\n
+          \                   "
+        link:
+        - value: ""
+          title: Quarkus metrics
+          href: https://quarkus.io/guides/microprofile-metrics
+        title: Replace the Micrometer dependency with Quarkus Microprofile 'metrics'
+          extension
+        category-id: mandatory
+        effort: 5
+  - when:
+      project:
+      - artifact:
+          value: ""
+          groupId: io.micrometer
+          artifactId: micrometer-core
+    perform:
+      iteration:
+      - hint:
+        - message: "\n                            Replace the Micrometer code with
+            Microprofile Metrics code\n                        "
+          link:
+          - value: ""
+            title: Quarkus metrics
+            href: https://quarkus.io/guides/microprofile-metrics
+          title: Replace the Micrometer code with Microprofile Metrics code
+          category-id: mandatory
+          effort: 5
+        over: default
+  - when:
+      filecontent:
+      - pattern: management.endpoints.web.exposure.include{wildcards}prometheus
+        filename: application{profile}.{extension}
+    perform:
+      hint:
+      - message: "\n                        Replace `management.endpoints.web.exposure.include=prometheus`
+          with `quarkus.micrometer.export.prometheus.path=/actuator/prometheus`\n
+          \                   "
+        link:
+        - value: ""
+          title: Quarkus Guide - Micrometer Metrics
+          href: https://quarkus.io/guides/micrometer
+        title: Replace Spring Prometheus Metrics endpoint mapping
+        category-id: mandatory
+        effort: 1
+    where:
+    - matches:
+      - value: ""
+        pattern: .*
+      param: profile
+    - matches:
+      - value: ""
+        pattern: (properties|yml|yaml)
+      param: extension
+    - matches:
+      - value: ""
+        pattern: .*
+      param: wildcards
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml

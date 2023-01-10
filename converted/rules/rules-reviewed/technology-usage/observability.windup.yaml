@@ -1,0 +1,60 @@
+metadata:
+- description: "\n            This ruleset generates tags for observability related
+    technologies \n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-java,3.0.0.Final
+    - id: org.jboss.windup.rules,windup-rules-xml,3.0.0.Final
+rules:
+  rule:
+  - when:
+      or:
+      - project:
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-boot-starter-actuator
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-boot-actuator
+        - artifact:
+            value: ""
+            groupId: org.springframework.boot
+            artifactId: spring-boot-actuator-autoconfigure
+        dependency:
+        - value: ""
+          groupId: org.springframework.boot
+          artifactId: spring-boot-actuator
+    perform:
+      classification:
+      - description:
+        - The application embeds Spring Boot Actuator.
+        title: Embedded library - Spring Boot Actuator
+        category-id: information
+      technology-tag:
+      - value: Spring Boot Actuator
+        level: INFORMATIONAL
+  - when:
+      or:
+      - javaclass:
+        - location:
+          - ANNOTATION
+          references: org.springframework.jmx.{*}
+        xmlfile:
+        - namespace:
+          - value: ""
+            prefix: c
+            uri: http://www.springframework.org/schema/beans
+          matches: //*/c:bean/@class[windup:matches(self::node(), 'org.springframework.jmx.export.MBeanExporter')]
+    perform:
+      classification:
+      - description:
+        - The application uses Spring JMX.
+        title: Spring JMX configuration detected
+        category-id: information
+      technology-tag:
+      - value: Spring JMX
+        level: INFORMATIONAL
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/observability.windup.xml

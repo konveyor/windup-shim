@@ -1,0 +1,46 @@
+metadata:
+- description: "\n            This ruleset provides analysis of Resin proprietary
+    xml files that may require individual\n            attention when migrating to
+    JBoss EAP 6+.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-xml,2.3.0.Final
+  sourceTechnology:
+  - id: resin
+  targetTechnology:
+  - id: eap
+    versionRange: '[6,)'
+  tag:
+  - web-app
+  - resin
+  - configuration
+rules:
+  rule:
+  - when:
+      xmlfile:
+      - namespace:
+        - value: ""
+          prefix: resin
+          uri: http://caucho.com/ns/resin
+        as: default
+        matches: /resin:web-app
+    perform:
+      iteration:
+      - classification:
+        - description:
+          - "An Resin specific file defining an application configuration. Such a
+            file may define URL paths, internal resin ids, root directory path etc.\n
+            \                           This is Resin specific and needs to be migrated
+            to web.xml or jboss-web.xml\n                        "
+          link:
+          - value: ""
+            title: JBoss EAP web descriptor
+            href: https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Security_Guide/jboss-webxml_Configuration_Reference.html
+          tag:
+          - configuration
+          - resin
+          title: Resin Web Application Descriptor
+          effort: 3
+          category-id: mandatory
+          issue-display-mode: all
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/resin/xml-resin.windup.xml

@@ -1,0 +1,177 @@
+metadata:
+- description: "\n            This rule set configures the organization matching functionality,
+    using known root-package prefixes to identify libraries and other code.\n        "
+  dependencies:
+    addon:
+    - id: org.jboss.windup.rules,windup-rules-java,2.3.0.Final
+rules:
+  package-mapping:
+  - from: bea
+    to: WebLogic
+  - from: com.bea
+    to: WebLogic
+  - from: com.weblogic
+    to: WebLogic
+  - from: weblogic
+    to: WebLogic
+  - from: oracle
+    to: WebLogic
+  - from: ilog
+    to: IBM
+  - from: ibm
+    to: IBM
+  - from: com.ibm
+    to: IBM
+  - from: websphere
+    to: IBM
+  - from: com.iona
+    to: Iona
+  - from: com.lombardi
+    to: Lombardi
+  - from: com.sonic
+    to: Progress
+  - from: com.sybase
+    to: Sybase
+  - from: sybase
+    to: Sybase
+  - from: com.tangosol
+    to: Tangosol
+  - from: com.tibco
+    to: Tibco
+  - from: commonj
+    to: CommonJ
+  - from: java.
+    to: Sun
+  - from: com.sun
+    to: Sun
+  - from: javax
+    to: Sun
+  - from: mx4j
+    to: MX4J
+  - from: net.sf.hibernate
+    to: JBoss
+  - from: org.jboss
+    to: JBoss
+  - from: org.ajax4jsf
+    to: JBoss
+  - from: org.hibernate
+    to: JBoss
+  - from: org.jgroups
+    to: JBoss
+  - from: org.modeshape
+    to: JBoss
+  - from: org.drools
+    to: JBoss
+  - from: org.jbpm
+    to: JBoss
+  - from: org.hornetq
+    to: JBoss
+  - from: org.quartz
+    to: Quartz
+  - from: com.opensymphony
+    to: Open Symphony
+  - from: org.apache
+    to: Apache
+  - from: org.mule
+    to: Mule ESB
+  - from: org.springframework
+    to: Spring
+  - from: org.postgresql
+    to: Postgres
+  - from: com.mysql
+    to: MySQL
+  - from: org.hsqldb
+    to: HypersonicDB
+  - from: microsoft
+    to: Microsoft
+  - from: org.xml.sax
+    to: Oasis
+  - from: com.thoughtworks
+    to: Thoughtworks
+  - from: org.w3c
+    to: W3C
+  - from: org.osoa
+    to: OSOA
+  - from: org.mvel
+    to: MVEL
+  - from: org.codehaus
+    to: Codehaus
+  - from: net.sf
+    to: Sourceforge
+  - from: net.sourceforge
+    to: Sourceforge
+  - from: org.dom4j
+    to: DOM4J
+  - from: edu.oswego.cs.dl.util.concurrent
+    to: OSWego Util Concurrent
+  - from: EDU.oswego.cs.dl.util.concurrent
+    to: OSWego Util Concurrent
+  - from: edu.emory.mathcs.backport.java.util
+    to: Backport Util Concurrent
+  - from: com.adobe
+    to: Adobe
+  - from: coldfusion
+    to: Adobe
+  - from: flex.graphics
+    to: Adobe
+  - from: flex.management
+    to: Adobe
+  - from: flex.messaging
+    to: Adobe
+  - from: com.google
+    to: Google
+  - from: org.eclipse
+    to: Eclipse Foundation
+  - from: org.mozilla
+    to: Mozilla Foundation
+  - from: org.bouncycastle
+    to: Bouncy Castle
+  - from: com.wso2
+    to: WSO2
+  - from: com.sap
+    to: SAP
+  - from: com.businessobjects
+    to: SAP
+  - from: com.mchange
+    to: Machinery For Change
+  - from: com.atlassian
+    to: Atlassian
+  - from: atlassian
+    to: Atlassian
+  - from: net.sf
+    to: SourceForge
+  - from: org.scannotation
+    to: Scannotation
+  - from: org.slf4j
+    to: SLF4J
+  - from: org.joda
+    to: Joda Time
+  - from: freemarker
+    to: Freemarker
+  - from: org.milyn
+    to: Milyn
+  - from: junit
+    to: JUnit
+  - from: org.junit
+    to: JUnit
+  - from: org.jdom
+    to: JDOM
+  - from: org.jfree
+    to: JFree
+  - from: com.google
+    to: Google
+  - from: com.yahoo
+    to: Yahoo
+  - from: org.antlr
+    to: Antlr
+  - from: com.crystaldecisions
+    to: SAP CrystalDecisions
+  - from: com.crystalreports
+    to: SAP CrystalReports
+  - from: com.lowagie
+    to: iText
+  - from: org.primefaces
+    to: PrimeFaces
+  - from: org.dozer
+    to: Dozer
+sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/filemappings/default-package-to-organization-names.windup.xml
