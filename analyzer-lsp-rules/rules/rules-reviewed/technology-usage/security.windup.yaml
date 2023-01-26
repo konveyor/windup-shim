@@ -1,0 +1,89 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-0
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-1
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-2
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-3
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-4
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-5
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-6
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-7
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-8
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-9
+    when:
+    - or:
+      - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-10
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-11
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-12
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-13
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-14
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-15
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-16
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-17
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-18
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-19
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-20
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-21
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-22
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-23
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-24
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-25
+    when:
+    - or:
+      - dependency:
+          artifactID: spring-security-core
+          groupID: org.springframework.security
+      - dependency:
+          artifactID: spring-boot-starter-security
+          groupID: org.springframework.boot
+      - dependency:
+          artifactID: spring-security-core
+          groupID: org.springframework.security

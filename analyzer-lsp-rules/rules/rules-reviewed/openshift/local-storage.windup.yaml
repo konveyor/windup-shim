@@ -1,0 +1,46 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-0
+    when:
+    - or:
+      - java.referenced:
+          location: CONSTRUCTOR_CALL
+          pattern: java.io.{ioclass}{*}
+      - java.referenced:
+          location: CONSTRUCTOR_CALL
+          pattern: java.util.zip.ZipFile{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.io.File.createTempFile({*})
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.nio.file.Paths.get({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-1
+    when:
+    - java.referenced:
+        location: CONSTRUCTOR_CALL
+        pattern: java.net.{class}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-2
+    when:
+    - filecontent:
+        filename: '{*}{extensions}'
+        pattern: '{path1}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-3
+    when:
+    - filecontent:
+        filename: '{*}.{extensions}'
+        pattern: '{path2}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-4
+    when:
+    - or:
+      - java.referenced:
+          location: IMPORT
+          pattern: java.nio.channels.AsynchronousFileChannel{*}
+      - java.referenced:
+          location: IMPORT
+          pattern: java.nio.channels.FileChannel{*}
+      - java.referenced:
+          location: IMPORT
+          pattern: java.nio.channels.FileLock{*}
+      - java.referenced:
+          location: IMPORT
+          pattern: java.nio.file.{*}

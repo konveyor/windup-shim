@@ -18,8 +18,7 @@ rules:
   rule:
   - when:
       dependency:
-      - value: ""
-        groupId: '{group}'
+      - groupId: '{group}'
         artifactId: '{artifact}'
     perform:
       iteration:

@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-linkedin
     perform:
@@ -32,7 +31,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-linkedin-starter
     perform:
@@ -49,7 +47,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-script
     perform:
@@ -68,7 +65,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-script-starter
     perform:
@@ -87,7 +83,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-jibx
     perform:
@@ -104,7 +99,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-jibx-starter
     perform:
@@ -122,7 +116,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-boon
     perform:
@@ -140,7 +133,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-boon-starter
     perform:
@@ -186,7 +178,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-restlet
     perform:
@@ -208,7 +199,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-core-starter
     perform:

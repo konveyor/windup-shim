@@ -1,0 +1,23 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-0
+    when:
+    - java.referenced:
+        pattern: '{package}.{type}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-1
+    when:
+    - java.referenced:
+        location: INHERITANCE
+        pattern: com.ibm.mqe.adapters.MQe{type}Adapter
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-2
+    when:
+    - java.referenced:
+        location: INHERITANCE
+        pattern: com.ibm.mqe.administration.MQe{type}AdminMsg
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-3
+    when:
+    - java.referenced:
+        pattern: com.ibm.mqe.jms.MQeJMSAuthenticator
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-4
+    when:
+    - java.referenced:
+        pattern: com.ibm.mqe.jms.MQeJMSMsgFieldNames

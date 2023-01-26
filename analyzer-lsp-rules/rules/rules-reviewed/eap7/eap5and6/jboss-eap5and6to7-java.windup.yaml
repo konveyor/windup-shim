@@ -1,0 +1,56 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-0
+    when:
+    - filecontent:
+        filename: MANIFEST.MF
+        pattern: 'Dependencies:'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-1
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-2
+    when:
+      or:
+      - java.referenced:
+          location: IMPLEMENTS_TYPE
+          pattern: javax.ejb.EntityBean
+      - java.referenced:
+          location: INHERITANCE
+          pattern: javax.ejb.EntityBean
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-3
+    when:
+    - or:
+      - java.referenced:
+          location: IMPLEMENTS_TYPE
+          pattern: org.apache.catalina.Valve
+      - java.referenced:
+          location: INHERITANCE
+          pattern: org.apache.catalina.valves.ValveBase
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-4
+    when:
+    - or:
+      - java.referenced:
+          location: IMPORT
+          pattern: javax.enterprise.deploy{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-5
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.jboss.as.clustering.singleton.SingletonService
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-6
+    when:
+      or:
+      - java.referenced:
+          location: ANNOTATION
+          pattern: org.jboss.ejb3.annotation.Clustered
+      - java.referenced:
+          location: IMPORT
+          pattern: org.jboss.ejb3.annotation.Clustered
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-7
+    when:
+    - java.referenced:
+        pattern: org.hornetq.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-8
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.jboss.logging.{annotation}

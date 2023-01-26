@@ -1,0 +1,11 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/apicurio/apicurio-to-quarkus.windup.xml-0
+    when:
+    - dependency:
+        artifactID: apicurio-registry-serdes-avro-serde
+        groupID: io.apicurio
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/apicurio/apicurio-to-quarkus.windup.xml-1
+    when:
+    - dependency:
+        artifactID: apicurio-registry-serdes-avro-serde
+        groupID: io.apicurio

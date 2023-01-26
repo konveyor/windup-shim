@@ -1,0 +1,87 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-0
+    when:
+    - or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.lang.Thread.stop({.+})
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.lang.Thread.destroy({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-1
+    when:
+      or:
+      - java.referenced:
+          location: IMPORT
+          pattern: sun.reflect.Reflection{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: sun.reflect.Reflection{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-2
+    when:
+      or:
+      - java.referenced:
+          location: IMPORT
+          pattern: sun.reflect.CallerSensitive{*}
+      - java.referenced:
+          location: ANNOTATION
+          pattern: sun.reflect.CallerSensitive{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-3
+    when:
+    - java.referenced:
+        pattern: javax.security.auth.Policy
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-4
+    when:
+    - java.referenced:
+        pattern: java.lang.SecurityManager.{method-name}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-5
+    when:
+    - java.referenced:
+        pattern: java.lang.SecurityManager.checkMemberAccess({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-6
+    when:
+    - java.referenced:
+        pattern: java.util.logging.LogManager.addPropertyChangeListener({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-7
+    when:
+    - java.referenced:
+        pattern: java.util.logging.LogManager.removePropertyChangeListener({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-8
+    when:
+    - or:
+      - java.referenced:
+          pattern: java.util.jar.Pack200.Packer.addPropertyChangeListener({*})
+      - java.referenced:
+          pattern: java.util.jar.Pack200.Packer.removePropertyChangeListener({*})
+      - java.referenced:
+          pattern: java.util.jar.Pack200.Unpacker.addPropertyChangeListener({*})
+      - java.referenced:
+          pattern: java.util.jar.Pack200.Unpacker.removePropertyChangeListener({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-9
+    when:
+    - java.referenced:
+        pattern: sun.misc.Unsafe.{method-name}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-10
+    when:
+    - java.referenced:
+        pattern: sun.misc.BASE64{encoder-decoder}{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-11
+    when:
+    - or:
+      - java.referenced:
+          pattern: java.lang.System.runFinalizersOnExit({*})
+      - java.referenced:
+          pattern: java.lang.Runtime.runFinalizersOnExit({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-12
+    when:
+    - or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.awt.Font.getPeer({*})
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.awt.Component.getPeer({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-13
+    when:
+    - java.referenced:
+        pattern: java.lang.ClassLoader

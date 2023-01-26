@@ -1,0 +1,251 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-0
+    when:
+    - dependency:
+        artifactID: bean-validation
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-1
+    when:
+    - dependency:
+        artifactID: cdi-config
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-2
+    when:
+    - dependency:
+        artifactID: cdi
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-3
+    when:
+    - dependency:
+        artifactID: config-api-runtime
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-4
+    when:
+    - dependency:
+        artifactID: datasources
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-5
+    when:
+    - dependency:
+        artifactID: ee-security
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-6
+    when:
+    - dependency:
+        artifactID: ejb-mdb
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-7
+    when:
+    - dependency:
+        artifactID: ejb
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-8
+    when:
+    - dependency:
+        artifactID: elytron
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-9
+    when:
+    - dependency:
+        artifactID: fraction-metadata
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-10
+    when:
+    - dependency:
+        artifactID: hibernate-validator
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-11
+    when:
+    - dependency:
+        artifactID: hibernate
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-12
+    when:
+    - dependency:
+        artifactID: hystrix
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-13
+    when:
+    - dependency:
+        artifactID: infinispan
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-14
+    when:
+    - dependency:
+        artifactID: jaeger
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-15
+    when:
+    - dependency:
+        artifactID: jaxrs-jaxb
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-16
+    when:
+    - dependency:
+        artifactID: jaxrs-jsonb
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-17
+    when:
+    - dependency:
+        artifactID: jaxrs-jsonp
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-18
+    when:
+    - dependency:
+        artifactID: jaxrs-multipart
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-19
+    when:
+    - dependency:
+        artifactID: jaxrs-validator
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-20
+    when:
+    - dependency:
+        artifactID: jaxrs
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-21
+    when:
+    - dependency:
+        artifactID: jca
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-22
+    when:
+    - dependency:
+        artifactID: jmx
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-23
+    when:
+    - dependency:
+        artifactID: jpa
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-24
+    when:
+    - dependency:
+        artifactID: jsf
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-25
+    when:
+    - dependency:
+        artifactID: jsonb
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-26
+    when:
+    - dependency:
+        artifactID: jsonp
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-27
+    when:
+    - dependency:
+        artifactID: keycloak
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-28
+    when:
+    - dependency:
+        artifactID: logging
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-29
+    when:
+    - dependency:
+        artifactID: management
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-30
+    when:
+    - dependency:
+        artifactID: microprofile-config
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-31
+    when:
+    - dependency:
+        artifactID: microprofile-fault-tolerance
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-32
+    when:
+    - dependency:
+        artifactID: microprofile-health
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-33
+    when:
+    - dependency:
+        artifactID: microprofile-jwt
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-34
+    when:
+    - dependency:
+        artifactID: microprofile-metrics
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-35
+    when:
+    - dependency:
+        artifactID: microprofile-openapi
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-36
+    when:
+    - dependency:
+        artifactID: microprofile-opentracing
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-37
+    when:
+    - dependency:
+        artifactID: microprofile-restclient
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-38
+    when:
+    - dependency:
+        artifactID: microprofile
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-39
+    when:
+    - dependency:
+        artifactID: opentracing
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-40
+    when:
+    - dependency:
+        artifactID: remoting
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-41
+    when:
+    - dependency:
+        artifactID: resource-adapters
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-42
+    when:
+    - dependency:
+        artifactID: spi
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-43
+    when:
+    - dependency:
+        artifactID: topology-openshift
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-44
+    when:
+    - dependency:
+        artifactID: topology-webapp
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-45
+    when:
+    - dependency:
+        artifactID: transactions
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-46
+    when:
+    - dependency:
+        artifactID: undertow
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-47
+    when:
+    - dependency:
+        artifactID: web
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-48
+    when:
+    - dependency:
+        artifactID: archaius
+        groupID: io.thorntail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-49
+    when:
+    - dependency:
+        artifactID: monitor
+        groupID: io.thorntail

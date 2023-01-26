@@ -1,0 +1,31 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-0
+    when:
+    - dependency:
+        artifactID: narayana-jta
+        groupID: org.jboss.narayana.jta
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-1
+    when:
+    - dependency:
+        artifactID: narayana-jta
+        groupID: org.jboss.narayana.jta
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-2
+    when:
+    - dependency:
+        artifactID: narayana-lra
+        groupID: org.jboss.narayana.rts
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-3
+    when:
+    - dependency:
+        artifactID: narayana-lra
+        groupID: org.jboss.narayana.rts
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-4
+    when:
+    - dependency:
+        artifactID: stm
+        groupID: org.jboss.narayana.stm
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-5
+    when:
+    - dependency:
+        artifactID: stm
+        groupID: org.jboss.narayana.stm

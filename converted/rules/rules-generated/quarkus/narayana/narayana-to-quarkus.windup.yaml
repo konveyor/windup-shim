@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.narayana.jta
           artifactId: narayana-jta
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.jboss.narayana.jta
+      - groupId: org.jboss.narayana.jta
         artifactId: narayana-jta
     perform:
       hint:
@@ -55,7 +53,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.narayana.rts
           artifactId: narayana-lra
     perform:
@@ -76,8 +73,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.jboss.narayana.rts
+      - groupId: org.jboss.narayana.rts
         artifactId: narayana-lra
     perform:
       hint:
@@ -95,7 +91,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.narayana.stm
           artifactId: stm
     perform:
@@ -116,8 +111,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.jboss.narayana.stm
+      - groupId: org.jboss.narayana.stm
         artifactId: stm
     perform:
       hint:

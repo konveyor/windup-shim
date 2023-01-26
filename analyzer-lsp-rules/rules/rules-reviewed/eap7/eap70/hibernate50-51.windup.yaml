@@ -1,0 +1,18 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap70/hibernate50-51.windup.xml-0
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: javax.persistence.Embeddable
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap70/hibernate50-51.windup.xml-1
+    when:
+    - or:
+      - java.referenced:
+          location: IMPORT
+          pattern: org.hibernate.tool.hbm2ddl.{hbm2ddl_classes}
+      - java.referenced:
+          location: IMPORT
+          pattern: org.hibernate.tool.schema.spi.SchemaManagementTool
+      - java.referenced:
+          location: IMPORT
+          pattern: org.hibernate.tool.schema.internal.HibernateSchemaManagementTool

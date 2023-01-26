@@ -1,0 +1,62 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-1
+    when:
+    - or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.lang.System.{systemNativeMethods}({*})
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.lang.Runtime.load({*})
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.lang.Runtime.loadLibrary({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-2
+    when:
+      or:
+      - java.referenced:
+          location: CONSTRUCTOR_CALL
+          pattern: com.sun.jna.{*}
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sun.jna.{*}
+      - java.referenced:
+          location: INHERITANCE
+          pattern: com.sun.jna.{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: com.sun.jna.{*}
+      - java.referenced:
+          location: VARIABLE_DECLARATION
+          pattern: com.sun.jna.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-3
+    when:
+    - or:
+      - java.referenced:
+          pattern: javax.mail.{*}
+      - java.referenced:
+          pattern: com.sun.mail.{*}
+      - java.referenced:
+          pattern: org.simplejavamail.{*}
+      - java.referenced:
+          pattern: org.apache.commons.mail.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-4
+    when:
+    - or:
+      - java.referenced:
+          location: CONSTRUCTOR_CALL
+          pattern: javax.resource.{*}
+      - java.referenced:
+          location: IMPORT
+          pattern: javax.resource.{*}
+      - java.referenced:
+          location: INHERITANCE
+          pattern: javax.resource.{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: javax.resource.{*}
+      - java.referenced:
+          location: VARIABLE_DECLARATION
+          pattern: javax.resource.{*}
+      - xmlfile: null
+      - file: null

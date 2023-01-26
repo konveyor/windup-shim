@@ -1,0 +1,156 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-0
+    when:
+    - dependency:
+        artifactID: camel-http4
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-1
+    when:
+    - dependency:
+        artifactID: camel-http4-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-2
+    when:
+    - dependency:
+        artifactID: camel-rxjava2
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-3
+    when:
+    - dependency:
+        artifactID: camel-rxjava2-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-4
+    when:
+    - dependency:
+        artifactID: camel-{substitution}-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-5
+    when:
+    - dependency:
+        artifactID: camel-mongodb3
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-6
+    when:
+    - dependency:
+        artifactID: camel-mongodb3-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-7
+    when:
+    - dependency:
+        artifactID: camel-hdfs2
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-8
+    when:
+    - dependency:
+        artifactID: camel-hdfs2-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-9
+    when:
+    - dependency:
+        artifactID: camel-hdfs
+        groupID: org.apache.camel
+        upperBound: "2"
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-10
+    when:
+    - dependency:
+        artifactID: camel-hdfs-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-11
+    when:
+    - dependency:
+        artifactID: camel-mina2
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-12
+    when:
+    - dependency:
+        artifactID: camel-mina2-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-13
+    when:
+    - dependency:
+        artifactID: camel-mina
+        groupID: org.apache.camel
+        upperBound: "2"
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-14
+    when:
+    - dependency:
+        artifactID: camel-mina-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-15
+    when:
+    - dependency:
+        artifactID: camel-netty4
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-16
+    when:
+    - dependency:
+        artifactID: camel-netty4-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-17
+    when:
+    - dependency:
+        artifactID: camel-netty
+        groupID: org.apache.camel
+        upperBound: "2"
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-18
+    when:
+    - dependency:
+        artifactID: camel-netty-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-19
+    when:
+    - dependency:
+        artifactID: camel-netty4-http
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-20
+    when:
+    - dependency:
+        artifactID: camel-netty4-http-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-21
+    when:
+    - dependency:
+        artifactID: camel-netty-http
+        groupID: org.apache.camel
+        upperBound: "2"
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-22
+    when:
+    - dependency:
+        artifactID: camel-netty-http-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-23
+    when:
+    - dependency:
+        artifactID: camel-quartz2
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-24
+    when:
+    - dependency:
+        artifactID: camel-quartz2-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-25
+    when:
+    - dependency:
+        artifactID: camel-quartz
+        groupID: org.apache.camel
+        upperBound: "2"
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-26
+    when:
+    - dependency:
+        artifactID: camel-quartz-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-27
+    when:
+    - dependency:
+        artifactID: camel-jetty9
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-28
+    when:
+    - dependency:
+        artifactID: camel-jetty9-starter
+        groupID: org.apache.camel
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-29
+    when:
+    - dependency:
+        artifactID: activemq-camel
+        groupID: org.apache.activemq

@@ -731,7 +731,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.hibernate
           artifactId: hibernate-search-analyzers
     perform:

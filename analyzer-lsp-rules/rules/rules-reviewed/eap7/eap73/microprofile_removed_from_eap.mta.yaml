@@ -1,0 +1,26 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap73/microprofile_removed_from_eap.mta.xml-0
+    when:
+    - dependency:
+        artifactID: microprofile-config-api
+        groupID: org.eclipse.microprofile.config
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap73/microprofile_removed_from_eap.mta.xml-1
+    when:
+    - dependency:
+        artifactID: microprofile-health-api
+        groupID: org.eclipse.microprofile.health
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap73/microprofile_removed_from_eap.mta.xml-2
+    when:
+    - dependency:
+        artifactID: microprofile-metrics-api
+        groupID: org.eclipse.microprofile.metrics
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap73/microprofile_removed_from_eap.mta.xml-3
+    when:
+    - dependency:
+        artifactID: microprofile-rest-client-api
+        groupID: org.eclipse.microprofile.rest.client
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap73/microprofile_removed_from_eap.mta.xml-4
+    when:
+    - dependency:
+        artifactID: microprofile-opentracing-api
+        groupID: org.eclipse.microprofile.opentracing

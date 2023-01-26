@@ -1,0 +1,4 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/eapxp2/eapxp_bootable_jar_maven_plugin_configuration_changes.mta.xml-0
+    when:
+    - xmlfile: null

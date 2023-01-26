@@ -1,0 +1,25 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-java-versions.windup.xml-0
+    when:
+      or:
+      - dependency:
+          artifactID: jaxb-api
+          groupID: javax.xml.bind
+        not: true
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-java-versions.windup.xml-1
+    when:
+      or:
+      - dependency:
+          artifactID: jaxb-core
+          groupID: com.sun.xml.bind
+        not: true
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-java-versions.windup.xml-2
+    when:
+      or:
+      - dependency:
+          artifactID: jaxb-impl
+          groupID: com.sun.xml.bind
+        not: true
+      - xmlfile: null

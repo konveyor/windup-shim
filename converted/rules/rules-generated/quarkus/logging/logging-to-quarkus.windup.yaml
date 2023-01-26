@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: biz.paluch.logging
           artifactId: logstash-gelf
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: biz.paluch.logging
+      - groupId: biz.paluch.logging
         artifactId: logstash-gelf
     perform:
       hint:
@@ -55,7 +53,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.sentry
           artifactId: sentry-jul
     perform:
@@ -76,8 +73,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: io.sentry
+      - groupId: io.sentry
         artifactId: sentry-jul
     perform:
       hint:

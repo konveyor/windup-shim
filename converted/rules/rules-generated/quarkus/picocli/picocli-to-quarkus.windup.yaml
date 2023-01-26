@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: info.picocli
           artifactId: picocli
     perform:
@@ -34,8 +33,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: info.picocli
+      - groupId: info.picocli
         artifactId: picocli
     perform:
       hint:

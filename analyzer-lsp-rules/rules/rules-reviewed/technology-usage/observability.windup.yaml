@@ -1,0 +1,23 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/observability.windup.xml-0
+    when:
+    - or:
+      - dependency:
+          artifactID: spring-boot-starter-actuator
+          groupID: org.springframework.boot
+      - dependency:
+          artifactID: spring-boot-actuator
+          groupID: org.springframework.boot
+      - dependency:
+          artifactID: spring-boot-actuator-autoconfigure
+          groupID: org.springframework.boot
+      - dependency:
+          artifactID: spring-boot-actuator
+          groupID: org.springframework.boot
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/observability.windup.xml-1
+    when:
+    - or:
+      - java.referenced:
+          location: ANNOTATION
+          pattern: org.springframework.jmx.{*}
+      - xmlfile: null

@@ -19,11 +19,9 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.quartz-scheduler
             artifactId: '{*}'
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-starter-quartz
     perform:

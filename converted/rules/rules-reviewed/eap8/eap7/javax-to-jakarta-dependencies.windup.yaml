@@ -87,7 +87,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: javax.activation
           artifactId: javax.activation-api
     perform:

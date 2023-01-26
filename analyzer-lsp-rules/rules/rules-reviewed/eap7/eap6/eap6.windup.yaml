@@ -1,0 +1,30 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-0
+    when:
+    - filecontent:
+        filename: '{*}.{extension}'
+        pattern: remote://{node}:{port}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-1
+    when:
+    - filecontent:
+        filename: jboss-ejb-client.properties
+        pattern: remote.connection.{*}.port{portnumber}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-2
+    when:
+    - filecontent:
+        filename: '{*}.java'
+        pattern: remote.connection.{*}.port{portnumber}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-3
+    when:
+    - or:
+      - filecontent:
+          filename: '{*}.java'
+          pattern: com.sun.faces.facelets.FACELET_CONTEXT
+      - filecontent:
+          filename: '{*}.java'
+          pattern: FaceletContext.FACELET_CONTEXT_KEY
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-4
+    when:
+    - filecontent:
+        filename: '{*}.{extension}'
+        pattern: org.jboss.security.ignoreHttpsHost

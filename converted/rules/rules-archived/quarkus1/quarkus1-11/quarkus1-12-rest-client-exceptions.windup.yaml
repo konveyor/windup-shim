@@ -45,7 +45,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.quarkus
           artifactId: quarkus-rest-client
     perform:

@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.micrometer
           artifactId: micrometer-registry-prometheus
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: io.micrometer
+      - groupId: io.micrometer
         artifactId: micrometer-registry-prometheus
     perform:
       hint:

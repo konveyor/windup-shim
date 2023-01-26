@@ -1,0 +1,70 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk7/oraclejdk7/oracle2openjdk.rhamt.xml-0
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: javafx.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk7/oraclejdk7/oracle2openjdk.rhamt.xml-1
+    when:
+    - or:
+      - java.referenced:
+          location: IMPORT
+          pattern: '{package}.Font'
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: '{package}.{*}Font{*}'
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: javax.swing.{*}.{*}Font{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk7/oraclejdk7/oracle2openjdk.rhamt.xml-2
+    when:
+    - java.referenced:
+        pattern: jdk.management.resource.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk7/oraclejdk7/oracle2openjdk.rhamt.xml-3
+    when:
+    - java.referenced:
+        pattern: java.awt.Color
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk7/oraclejdk7/oracle2openjdk.rhamt.xml-4
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: java.awt.{package}{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk7/oraclejdk7/oracle2openjdk.rhamt.xml-5
+    when:
+    - or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.security.KeyPairGenerator.getInstance({*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: javax.crypto.KeyAgreement.getInstance({*}
+      - java.referenced:
+          location: CONSTRUCTOR_CALL
+          pattern: java.security.spec.EC{*}
+      - java.referenced:
+          location: IMPORT
+          pattern: java.security.spec.EC{*}
+      - java.referenced:
+          location: INHERITANCE
+          pattern: java.security.spec.EC{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.security.spec.EC{*}
+      - java.referenced:
+          location: VARIABLE_DECLARATION
+          pattern: java.security.spec.EC{*}
+      - java.referenced:
+          location: CONSTRUCTOR_CALL
+          pattern: java.security.spec.EllipticCurve{*}
+      - java.referenced:
+          location: IMPORT
+          pattern: java.security.spec.EllipticCurve{*}
+      - java.referenced:
+          location: INHERITANCE
+          pattern: java.security.spec.EllipticCurve{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: java.security.spec.EllipticCurve{*}
+      - java.referenced:
+          location: VARIABLE_DECLARATION
+          pattern: java.security.spec.EllipticCurve{*}

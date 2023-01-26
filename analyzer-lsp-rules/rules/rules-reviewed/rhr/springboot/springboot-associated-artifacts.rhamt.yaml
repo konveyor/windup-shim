@@ -1,0 +1,66 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-0
+    when:
+    - dependency:
+        artifactID: amqp-10-jms-spring-boot-starter
+        groupID: org.amqphub.spring
+        upperBound: 2.0.9
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-1
+    when:
+    - dependency:
+        artifactID: cxf-spring-boot-starter-jaxrs
+        groupID: org.apache.cxf
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-2
+    when:
+    - dependency:
+        artifactID: resteasy-spring-boot-starter
+        groupID: org.jboss.resteasy
+        upperBound: 2.9.9
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-3
+    when:
+    - dependency:
+        artifactID: '{infinispanArtifactName}'
+        groupID: org.infinispan
+        upperBound: 2.1.2
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-4
+    when:
+    - dependency:
+        artifactID: keycloak-spring-boot-starter
+        groupID: org.keycloak
+        upperBound: 4.8.2
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-5
+    when:
+    - dependency:
+        artifactID: narayana-spring-boot-starter
+        groupID: me.snowdrop
+        upperBound: 2.0.9
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-6
+    when:
+    - dependency:
+        artifactID: opentracing-spring-jaeger-web-starter
+        groupID: io.opentracing.contrib
+        upperBound: 1.0.0
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-7
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-8
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-9
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-10
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-11
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-12
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-13
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-14
+    when:
+    - xmlfile: null

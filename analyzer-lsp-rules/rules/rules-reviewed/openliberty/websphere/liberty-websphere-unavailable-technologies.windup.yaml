@@ -1,0 +1,244 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-0
+    when:
+    - or:
+      - filecontent:
+          filename: '{*}.java'
+          pattern: '{ActivitySessionRule_1_stringLiterals}'
+      - java.referenced:
+          pattern: '{ActivitySessionRule_0_packages}'
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-1
+    when:
+    - java.referenced:
+        pattern: com.ibm.websphere.appprofile{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-2
+    when:
+    - java.referenced:
+        pattern: '{AsyncBeansSchedulerRule_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-3
+    when:
+    - or:
+      - java.referenced:
+          pattern: '{BatchFeaturePackRule_0_packages}'
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-4
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-5
+    when:
+    - or:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-6
+    when:
+    - or:
+      - filecontent:
+          filename: '{*}.java'
+          pattern: '{DetectWSBAJava_1_stringLiterals}'
+      - java.referenced:
+          pattern: com.ibm.websphere.wsba{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-7
+    when:
+    - java.referenced:
+        pattern: '{DynamicCacheRule_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-8
+    when:
+    - or:
+      - java.referenced:
+          pattern: '{DynamicQueryRule_0_packages}'
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-9
+    when:
+    - java.referenced:
+        pattern: '{I18nRule_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-10
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: javax.activation.DataHandler.writeTo(java.io.OutputStream)
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-11
+    when:
+    - or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: com.ibm.websphere.management.AdminService.getProcessName({*})
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: com.ibm.ejs.ras.RasHelper.getServerName({*})
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: com.ibm.websphere.runtime.ServerName.{ServerName_2_methodNames}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-12
+    when:
+    - or:
+      - java.referenced:
+          location: ANNOTATION
+          pattern: javax.xml.ws.BindingType
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-13
+    when:
+    - or:
+      - java.referenced:
+          pattern: '{StartupBeanRule_0_packages}'
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-14
+    when:
+    - java.referenced:
+        pattern: '{WebSphereSdoRule_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-15
+    when:
+    - or:
+      - java.referenced:
+          pattern: '{WebSphereSchedulerRule_0_packages}'
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-16
+    when:
+    - or:
+      - java.referenced:
+          pattern: '{WebSphereServletRule_0_packages}'
+      - java.referenced:
+          pattern: '{WebSphereServletRule_1_classes}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-17
+    when:
+    - java.referenced:
+        pattern: '{WebSphereUnavailableAPIsAppClient_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-18
+    when:
+    - java.referenced:
+        pattern: '{WebSphereUnavailableAPIsConnectorArchitecture_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-19
+    when:
+    - java.referenced:
+        pattern: '{WebSphereUnavailableAPIsEnterpriseJavaBeans_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-20
+    when:
+    - or:
+      - java.referenced:
+          pattern: '{WebSphereUnavailableAPIsExceptions_0_classes}'
+      - java.referenced:
+          pattern: '{WebSphereUnavailableAPIsExceptions_1_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-21
+    when:
+    - java.referenced:
+        pattern: com.ibm.workplace.extension{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-22
+    when:
+    - java.referenced:
+        pattern: com.ibm.isc.api.platform{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-23
+    when:
+    - or:
+      - java.referenced:
+          pattern: '{WebSphereUnavailableAPIsLoggingAndRAS_0_packages}'
+      - java.referenced:
+          pattern: '{WebSphereUnavailableAPIsLoggingAndRAS_1_classes}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-24
+    when:
+    - java.referenced:
+        pattern: '{WebSphereUnavailableAPIsManagement_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-25
+    when:
+    - java.referenced:
+        pattern: '{WebSphereUnavailableAPIsORB_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-26
+    when:
+    - java.referenced:
+        pattern: '{WebSphereUnavailableAPIsPMI_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-27
+    when:
+    - java.referenced:
+        pattern: com.ibm.portal{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-28
+    when:
+    - java.referenced:
+        pattern: '{WebSphereUnavailableAPIsResourceAdapter_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-29
+    when:
+    - or:
+      - java.referenced:
+          pattern: '{WebSphereUnavailableAPIsSecurity_0_packages}'
+      - java.referenced:
+          pattern: '{WebSphereUnavailableAPIsSecurity_1_classes}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-30
+    when:
+    - java.referenced:
+        pattern: com.ibm.websphere.sib{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-31
+    when:
+    - java.referenced:
+        pattern: com.ibm.websphere.smf{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-32
+    when:
+    - java.referenced:
+        pattern: com.ibm.ws.tpv{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-33
+    when:
+    - java.referenced:
+        pattern: com.ibm.ws.extensionhelper{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-34
+    when:
+    - java.referenced:
+        pattern: com.ibm.uddi{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-35
+    when:
+    - java.referenced:
+        pattern: '{WebSphereUnavailableAPIsWLM_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-36
+    when:
+    - or:
+      - java.referenced:
+          pattern: '{WebSphereUnavailableAPIsWSADIE_0_packages}'
+      - java.referenced:
+          pattern: '{WebSphereUnavailableAPIsWSADIE_1_classes}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-37
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.ibm.websphere.security.WSSecurityHelper.{WebSphereUnavailableAPIsWSSecurityHelper_0_methodNames}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-38
+    when:
+    - java.referenced:
+        pattern: com.ibm.wsspi.rrd{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-39
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.ibm.websphere.security.WSSecurityHelper.revokeSSOCookies({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-40
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.ibm.websphere.security.WSSecurityHelper.getLTPACookieFromSSOToken({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-41
+    when:
+    - or:
+      - java.referenced:
+          pattern: '{WOLAMissingClassesRule_0_classes}'
+      - java.referenced:
+          location: ANNOTATION
+          pattern: javax.ejb.RemoteHome
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-42
+    when:
+    - java.referenced:
+        pattern: '{WOLARule_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-43
+    when:
+    - java.referenced:
+        pattern: '{WorkAreaRule_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-44
+    when:
+    - java.referenced:
+        pattern: com.ibm.websphere.sib.wsn{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-45
+    when:
+    - java.referenced:
+        pattern: com.ibm.xml.xapi{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-46
+    when:
+    - java.referenced:
+        pattern: '{WebSphereWebServicesRule_0_packages}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-47
+    when:
+    - java.referenced:
+        pattern: '{WebSphereWebServicesGeneratedClassesRule_0_packages}'

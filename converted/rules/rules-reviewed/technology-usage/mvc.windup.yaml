@@ -60,20 +60,16 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework
             artifactId: spring-webmvc
         - artifact:
-            value: ""
             groupId: org.springframework
             artifactId: spring-webflux
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-starter-webflux
         dependency:
-        - value: ""
-          groupId: org.springframework
+        - groupId: org.springframework
           artifactId: spring-webflux
     perform:
       classification:

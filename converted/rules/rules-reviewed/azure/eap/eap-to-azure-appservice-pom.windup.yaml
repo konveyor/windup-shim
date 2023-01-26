@@ -16,7 +16,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.bom
           artifactId: eap-runtime-artifacts
           fromVersion: 7.3.0.Final

@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: software.amazon.awssdk
           artifactId: dynamodb
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: software.amazon.awssdk
+      - groupId: software.amazon.awssdk
         artifactId: dynamodb
     perform:
       hint:
@@ -55,7 +53,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: software.amazon.awssdk
           artifactId: iam
     perform:
@@ -75,8 +72,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: software.amazon.awssdk
+      - groupId: software.amazon.awssdk
         artifactId: iam
     perform:
       hint:
@@ -93,7 +89,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: software.amazon.awssdk
           artifactId: kms
     perform:
@@ -113,8 +108,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: software.amazon.awssdk
+      - groupId: software.amazon.awssdk
         artifactId: kms
     perform:
       hint:
@@ -131,7 +125,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: com.amazonaws
           artifactId: aws-lambda-java-core
     perform:
@@ -152,8 +145,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: com.amazonaws
+      - groupId: com.amazonaws
         artifactId: aws-lambda-java-core
     perform:
       hint:
@@ -171,7 +163,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: com.amazonaws.serverless
           artifactId: aws-serverless-java-container-core
     perform:
@@ -192,8 +183,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: com.amazonaws.serverless
+      - groupId: com.amazonaws.serverless
         artifactId: aws-serverless-java-container-core
     perform:
       hint:
@@ -211,7 +201,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: com.amazonaws
           artifactId: aws-xray-recorder-sdk-aws-sdk-v2
     perform:
@@ -232,8 +221,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: com.amazonaws
+      - groupId: com.amazonaws
         artifactId: aws-xray-recorder-sdk-aws-sdk-v2
     perform:
       hint:
@@ -251,7 +239,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: software.amazon.awssdk
           artifactId: s3
     perform:
@@ -271,8 +258,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: software.amazon.awssdk
+      - groupId: software.amazon.awssdk
         artifactId: s3
     perform:
       hint:
@@ -289,7 +275,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: software.amazon.awssdk
           artifactId: ses
     perform:
@@ -309,8 +294,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: software.amazon.awssdk
+      - groupId: software.amazon.awssdk
         artifactId: ses
     perform:
       hint:
@@ -327,7 +311,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: software.amazon.awssdk
           artifactId: sns
     perform:
@@ -347,8 +330,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: software.amazon.awssdk
+      - groupId: software.amazon.awssdk
         artifactId: sns
     perform:
       hint:
@@ -365,7 +347,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: software.amazon.awssdk
           artifactId: sqs
     perform:
@@ -385,8 +366,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: software.amazon.awssdk
+      - groupId: software.amazon.awssdk
         artifactId: sqs
     perform:
       hint:
@@ -403,7 +383,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: software.amazon.awssdk
           artifactId: ssm
     perform:
@@ -423,8 +402,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: software.amazon.awssdk
+      - groupId: software.amazon.awssdk
         artifactId: ssm
     perform:
       hint:

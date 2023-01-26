@@ -1,0 +1,16 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-0
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.apache.ws.security.WSPasswordCallback
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-1
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.apache.ws.security.saml.ext.{SAMLClassAndPackages}{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-2
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.apache.ws.security.saml.ext.AssertionWrapper

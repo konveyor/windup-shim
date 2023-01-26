@@ -1,0 +1,25 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-0
+    when:
+    - java.referenced:
+        pattern: '{package}.{type}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-1
+    when:
+    - java.referenced:
+        pattern: '{package}.{prefix}{type}ConnectionFactory'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-2
+    when:
+    - java.referenced:
+        pattern: '{package}.JmsMsg{type}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-3
+    when:
+    - java.referenced:
+        pattern: com.ibm.mqe.jms.{type}Queue
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-4
+    when:
+    - java.referenced:
+        pattern: '{package}.{prefix}{type}Message'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-5
+    when:
+    - java.referenced:
+        pattern: '{package}.{prefix}{type}'

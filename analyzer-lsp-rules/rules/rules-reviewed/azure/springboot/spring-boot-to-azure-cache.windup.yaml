@@ -1,0 +1,16 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-cache.windup.xml-0
+    when:
+    - or:
+      - dependency:
+          artifactID: spring-boot-starter-data-redis
+          groupID: org.springframework.boot
+      - dependency:
+          artifactID: spring-data-redis
+          groupID: org.springframework.data
+      - dependency:
+          artifactID: spring-session-data-redis
+          groupID: org.springframework.session
+      - dependency:
+          artifactID: spring-integration-redis
+          groupID: org.springframework.integration

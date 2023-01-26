@@ -623,8 +623,7 @@ rules:
         level: INFORMATIONAL
   - when:
       dependency:
-      - value: ""
-        groupId: org.springframework
+      - groupId: org.springframework
         artifactId: spring-beans
     perform:
       classification:
@@ -637,8 +636,7 @@ rules:
         level: INFORMATIONAL
   - when:
       dependency:
-      - value: ""
-        groupId: io.micrometer
+      - groupId: io.micrometer
         artifactId: micrometer-core
     perform:
       classification:
@@ -653,16 +651,13 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework
             artifactId: spring-web
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-starter-web
         dependency:
-        - value: ""
-          groupId: org.springframework
+        - groupId: org.springframework
           artifactId: spring-web
     perform:
       classification:
@@ -676,7 +671,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.springframework.shell
           artifactId: spring-shell-core
     perform:
@@ -728,12 +722,10 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework.cloud
             artifactId: spring-cloud-function-context
         dependency:
-        - value: ""
-          groupId: org.springframework.cloud
+        - groupId: org.springframework.cloud
           artifactId: spring-cloud-function-context
     perform:
       classification:

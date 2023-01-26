@@ -16,7 +16,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.eclipse.microprofile.config
           artifactId: microprofile-config-api
     perform:
@@ -37,7 +36,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.eclipse.microprofile.health
           artifactId: microprofile-health-api
     perform:
@@ -58,7 +56,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.eclipse.microprofile.metrics
           artifactId: microprofile-metrics-api
     perform:
@@ -79,7 +76,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.eclipse.microprofile.rest.client
           artifactId: microprofile-rest-client-api
     perform:
@@ -100,7 +96,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.eclipse.microprofile.opentracing
           artifactId: microprofile-opentracing-api
     perform:

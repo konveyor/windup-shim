@@ -1,0 +1,38 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-0
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: commonj.timers.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-1
+    when:
+    - java.referenced:
+        pattern: commonj.timers.TimerManager
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-2
+    when:
+    - java.referenced:
+        pattern: commonj.timers.Timer
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-3
+    when:
+    - java.referenced:
+        pattern: commonj.work.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-4
+    when:
+    - java.referenced:
+        pattern: commonj.work.WorkManager
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-5
+    when:
+    - java.referenced:
+        pattern: commonj.work.Work{part}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-6
+    when:
+      or:
+      - java.referenced:
+          location: THROW_STATEMENT
+          pattern: commonj.work.Work{subpart}Exception
+      - java.referenced:
+          location: THROWS_METHOD_DECLARATION
+          pattern: commonj.work.Work{subpart}Exception
+      - java.referenced:
+          location: CATCH_EXCEPTION_STATEMENT
+          pattern: commonj.work.Work{subpart}Exception

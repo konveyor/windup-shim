@@ -16,16 +16,13 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework
             artifactId: spring-web
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-starter-web
         dependency:
-        - value: ""
-          groupId: org.springframework
+        - groupId: org.springframework
           artifactId: spring-web
     perform:
       hint:
@@ -52,23 +49,19 @@ rules:
       - and:
         - project:
           - artifact:
-              value: ""
               groupId: io.quarkus
               artifactId: quarkus-spring-web
           not:
           - project:
             - artifact:
-                value: ""
                 groupId: io.quarkus
                 artifactId: quarkus-resteasy-reactive-jackson
         - dependency:
-          - value: ""
-            groupId: io.quarkus
+          - groupId: io.quarkus
             artifactId: quarkus-spring-web
           not:
           - dependency:
-            - value: ""
-              groupId: io.quarkus
+            - groupId: io.quarkus
               artifactId: quarkus-resteasy-reactive-jackson
     perform:
       hint:

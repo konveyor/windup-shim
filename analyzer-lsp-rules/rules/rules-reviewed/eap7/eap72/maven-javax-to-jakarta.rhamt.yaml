@@ -1,0 +1,81 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-0
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>javax.mail<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-1
+    when:
+    - dependency:
+        artifactID: activation
+        groupID: javax.activation
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-2
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>activation<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-3
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: groupId>javax.{renamed-g}<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-4
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>javax.{renamed-a}-api<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-5
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>cdi-api<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-6
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>validation-api<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-7
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>javax.inject<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-8
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>jboss-saaj-api_1.3_spec<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-9
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>jboss-transaction-api_1.2_spec<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-10
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>jboss-eap-javaee8<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-11
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>jboss-eap-javaee8-with-spring4<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-12
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>jboss-eap-javaee8-with-tools<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-13
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>jboss-javaee-8.0<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-14
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>jboss-javaee-web-8.0<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-15
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>jboss-javaee-all-8.0<

@@ -17,13 +17,11 @@ rules:
       and:
       - project:
         - artifact:
-            value: ""
             groupId: org.apache.activemq
             artifactId: artemis-jms-client
       not:
       - project:
         - artifact:
-            value: ""
             groupId: org.jboss.eap
             artifactId: wildfly-client-properties
     perform:

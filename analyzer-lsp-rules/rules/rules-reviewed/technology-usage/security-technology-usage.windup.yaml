@@ -1,0 +1,8 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security-technology-usage.windup.xml-0
+    when:
+    - or:
+      - java.referenced:
+          location: ANNOTATION
+          pattern: javax.annotation.security.{*}
+      - xmlfile: null

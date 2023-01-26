@@ -1,0 +1,13 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mailer.windup.xml-0
+    when:
+      or:
+      - as: sendmethod
+        filecontent:
+          filename: ""
+          pattern: .send(
+        from: mailtemplateinstance
+      - as: mailtemplateinstance
+        java.referenced:
+          location: IMPORT
+          pattern: io.quarkus.mailer.MailTemplate.MailTemplateInstance

@@ -17,11 +17,9 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: com.netflix.feign
             artifactId: '{*}'
         - artifact:
-            value: ""
             groupId: org.springframework.cloud
             artifactId: spring-cloud-starter-feign
     perform:

@@ -17,15 +17,12 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework.cloud
             artifactId: spring-cloud-netflix-eureka{*}
         - artifact:
-            value: ""
             groupId: org.springframework.cloud
             artifactId: spring-cloud-starter-netflix-eureka{*}
         - artifact:
-            value: ""
             groupId: com.netflix.eureka
             artifactId: '{*}'
     perform:

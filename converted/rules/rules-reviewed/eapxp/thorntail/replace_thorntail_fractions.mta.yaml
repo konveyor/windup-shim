@@ -20,7 +20,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: bean-validation
     perform:
@@ -42,7 +41,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: cdi-config
     perform:
@@ -64,7 +62,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: cdi
     perform:
@@ -86,7 +83,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: config-api-runtime
     perform:
@@ -108,7 +104,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: datasources
     perform:
@@ -130,7 +125,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: ee-security
     perform:
@@ -152,7 +146,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: ejb-mdb
     perform:
@@ -174,7 +167,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: ejb
     perform:
@@ -196,7 +188,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: elytron
     perform:
@@ -218,7 +209,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: fraction-metadata
     perform:
@@ -240,7 +230,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: hibernate-validator
     perform:
@@ -262,7 +251,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: hibernate
     perform:
@@ -284,7 +272,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: hystrix
     perform:
@@ -306,7 +293,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: infinispan
     perform:
@@ -328,7 +314,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jaeger
     perform:
@@ -350,7 +335,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jaxrs-jaxb
     perform:
@@ -372,7 +356,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jaxrs-jsonb
     perform:
@@ -394,7 +377,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jaxrs-jsonp
     perform:
@@ -416,7 +398,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jaxrs-multipart
     perform:
@@ -438,7 +419,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jaxrs-validator
     perform:
@@ -460,7 +440,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jaxrs
     perform:
@@ -482,7 +461,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jca
     perform:
@@ -504,7 +482,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jmx
     perform:
@@ -526,7 +503,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jpa
     perform:
@@ -548,7 +524,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jsf
     perform:
@@ -570,7 +545,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jsonb
     perform:
@@ -592,7 +566,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: jsonp
     perform:
@@ -614,7 +587,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: keycloak
     perform:
@@ -636,7 +608,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: logging
     perform:
@@ -658,7 +629,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: management
     perform:
@@ -680,7 +650,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: microprofile-config
     perform:
@@ -702,7 +671,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: microprofile-fault-tolerance
     perform:
@@ -724,7 +692,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: microprofile-health
     perform:
@@ -746,7 +713,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: microprofile-jwt
     perform:
@@ -768,7 +734,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: microprofile-metrics
     perform:
@@ -790,7 +755,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: microprofile-openapi
     perform:
@@ -812,7 +776,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: microprofile-opentracing
     perform:
@@ -834,7 +797,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: microprofile-restclient
     perform:
@@ -856,7 +818,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: microprofile
     perform:
@@ -878,7 +839,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: opentracing
     perform:
@@ -900,7 +860,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: remoting
     perform:
@@ -922,7 +881,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: resource-adapters
     perform:
@@ -944,7 +902,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: spi
     perform:
@@ -966,7 +923,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: topology-openshift
     perform:
@@ -988,7 +944,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: topology-webapp
     perform:
@@ -1010,7 +965,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: transactions
     perform:
@@ -1032,7 +986,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: undertow
     perform:
@@ -1054,7 +1007,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: web
     perform:
@@ -1076,7 +1028,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: archaius
     perform:
@@ -1098,7 +1049,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.thorntail
           artifactId: monitor
     perform:

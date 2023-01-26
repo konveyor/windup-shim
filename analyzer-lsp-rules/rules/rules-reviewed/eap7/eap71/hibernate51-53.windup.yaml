@@ -1,0 +1,107 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-0
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: '{methods_param}({*}org.hibernate.engine.spi.SessionImplementor{*})'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-1
+    when:
+      or:
+      - dependency:
+          artifactID: '{substitution}'
+          groupID: org.hibernate
+      - dependency:
+          artifactID: hibernate-core
+          groupID: org.hibernate
+        not: true
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-2
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.hibernate.{className}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-3
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getQueryCache()
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-4
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getQueryCache({*}String{*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-5
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getUpdateTimestampsCache()
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-6
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getSecondLevelCacheRegion({*}String{*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-7
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getSecondLevelCacheRegionAccessStrategy({*}String{*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-8
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getNaturalIdCacheRegion({*}String{*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-9
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getNaturalIdCacheRegionAccessStrategy({*}String{*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-10
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getAllSecondLevelCacheRegions()
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-11
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.hibernate.{className}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-12
+    when:
+    - java.referenced:
+        location: IMPLEMENTS_TYPE
+        pattern: org.hibernate.cache.spi.QueryCacheFactory
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-13
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.stat.{interfaces}.getEntries()
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-14
+    when:
+    - java.referenced:
+        location: METHOD
+        pattern: '{*}.getEntries()'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-15
+    when:
+    - java.referenced:
+        location: METHOD
+        pattern: '{*}.getEntries()'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-16
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.hibernate.{packages}.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-17
+    when:
+    - and:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-18
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-19
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: javax.persistence.TableGenerator
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-20
+    when:
+    - java.referenced:
+        pattern: org.hibernate.{className}.getType({*})

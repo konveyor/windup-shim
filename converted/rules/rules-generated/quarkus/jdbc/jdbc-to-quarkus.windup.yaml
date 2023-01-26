@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: com.ibm.db2
           artifactId: jcc
     perform:
@@ -34,8 +33,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: com.ibm.db2
+      - groupId: com.ibm.db2
         artifactId: jcc
     perform:
       hint:
@@ -52,7 +50,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.derby
           artifactId: derbyclient
     perform:
@@ -73,8 +70,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.apache.derby
+      - groupId: org.apache.derby
         artifactId: derbyclient
     perform:
       hint:
@@ -92,7 +88,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.mariadb.jdbc
           artifactId: mariadb-java-client
     perform:
@@ -113,8 +108,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.mariadb.jdbc
+      - groupId: org.mariadb.jdbc
         artifactId: mariadb-java-client
     perform:
       hint:
@@ -132,7 +126,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: mysql
           artifactId: mysql-connector-java
     perform:
@@ -153,8 +146,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: mysql
+      - groupId: mysql
         artifactId: mysql-connector-java
     perform:
       hint:
@@ -172,7 +164,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: com.oracle.database.jdbc
           artifactId: ojdbc11
     perform:
@@ -193,8 +184,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: com.oracle.database.jdbc
+      - groupId: com.oracle.database.jdbc
         artifactId: ojdbc11
     perform:
       hint:
@@ -212,7 +202,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.postgresql
           artifactId: postgresql
     perform:
@@ -233,8 +222,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.postgresql
+      - groupId: org.postgresql
         artifactId: postgresql
     perform:
       hint:

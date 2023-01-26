@@ -1,0 +1,33 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-0
+    when:
+    - java.referenced:
+        pattern: java.security.{class-name}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-1
+    when:
+    - java.referenced:
+        pattern: '{fqcn}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-2
+    when:
+    - java.referenced:
+        pattern: java.lang.System.{method-name}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-3
+    when:
+    - java.referenced:
+        pattern: java.lang.Thread.checkAccess({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-4
+    when:
+    - java.referenced:
+        pattern: java.lang.ThreadGroup.checkAccess({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-5
+    when:
+    - java.referenced:
+        pattern: java.util.logging.LogManager.checkAccess({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-6
+    when:
+    - java.referenced:
+        pattern: java.util.concurrent.Executors.{method-names}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-7
+    when:
+    - java.referenced:
+        pattern: javax.security.auth.Subject.{meth-name}({*})

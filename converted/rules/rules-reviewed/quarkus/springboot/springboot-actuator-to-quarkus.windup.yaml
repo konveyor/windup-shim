@@ -16,20 +16,16 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-starter-actuator
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-actuator
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-actuator-autoconfigure
         dependency:
-        - value: ""
-          groupId: org.springframework.boot
+        - groupId: org.springframework.boot
           artifactId: spring-boot-actuator
     perform:
       hint:

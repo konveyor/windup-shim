@@ -1,0 +1,98 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-0
+    when:
+    - java.referenced:
+        location: IMPLEMENTS_TYPE
+        pattern: weblogic.time.common.Triggerable
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-1
+    when:
+    - java.referenced:
+        pattern: weblogic.utils.StringUtils.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-2
+    when:
+    - java.referenced:
+        pattern: weblogic.apache.xml.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-3
+    when:
+    - java.referenced:
+        pattern: weblogic.transaction.{classname}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-4
+    when:
+    - or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: weblogic.transaction.TransactionManager.resume{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: weblogic.transaction.TransactionManager.forceResume{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: weblogic.transaction.ClientTransactionManager.resume{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: weblogic.transaction.ClientTransactionManager.forceResume{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-5
+    when:
+    - or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: weblogic.transaction.TransactionManager.suspend{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: weblogic.transaction.TransactionManager.forceSuspend{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: weblogic.transaction.ClientTransactionManager.suspend{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: weblogic.transaction.ClientTransactionManager.forceSuspend{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-6
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: weblogic.transaction.TxHelper
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-7
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: weblogic.transaction.{classname}.getTransactionManager()
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-8
+    when:
+    - java.referenced:
+        pattern: weblogic.jdbc.vendor.oracle.OracleThinClob
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-9
+    when:
+    - java.referenced:
+        pattern: weblogic.jdbc.vendor.oracle.OracleThinClob.getCharacterOutputStream()
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-10
+    when:
+      or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: weblogic.i18n.logging.NonCatalogLogger{*}
+      - java.referenced:
+          location: CONSTRUCTOR_CALL
+          pattern: weblogic.i18n.logging.NonCatalogLogger{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-11
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-12
+    when:
+    - filecontent:
+        filename: MANIFEST.MF
+        pattern: 'Weblogic-Application-Version:'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-13
+    when:
+    - filecontent:
+        filename: '{*}.{ext}'
+        pattern: oracle.net.wallet_location
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-14
+    when:
+    - filecontent:
+        filename: '{*}.{ext}'
+        pattern: weblogic.jndi.WLInitialContextFactory
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-15
+    when:
+    - filecontent:
+        filename: '{*}.{ext}'
+        pattern: '{t3url}'

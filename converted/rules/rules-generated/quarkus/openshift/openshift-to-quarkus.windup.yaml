@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.fabric8
           artifactId: openshift-client
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: io.fabric8
+      - groupId: io.fabric8
         artifactId: openshift-client
     perform:
       hint:

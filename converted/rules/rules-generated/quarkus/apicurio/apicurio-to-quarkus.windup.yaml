@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.apicurio
           artifactId: apicurio-registry-serdes-avro-serde
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: io.apicurio
+      - groupId: io.apicurio
         artifactId: apicurio-registry-serdes-avro-serde
     perform:
       hint:

@@ -24,7 +24,6 @@ rules:
       not:
       - project:
         - artifact:
-            value: ""
             groupId: javax.xml.bind
             artifactId: jaxb-api
     perform:
@@ -57,7 +56,6 @@ rules:
       not:
       - project:
         - artifact:
-            value: ""
             groupId: com.sun.xml.bind
             artifactId: jaxb-core
     perform:
@@ -91,7 +89,6 @@ rules:
       not:
       - project:
         - artifact:
-            value: ""
             groupId: com.sun.xml.bind
             artifactId: jaxb-impl
     perform:

@@ -1,0 +1,23 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/removed-javaee-modules.windup.xml-0
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: javax.activation{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/removed-javaee-modules.windup.xml-1
+    when:
+    - or:
+      - java.referenced:
+          location: IMPORT
+          pattern: javax.activity.{*}
+      - java.referenced:
+          location: IMPORT
+          pattern: javax.rmi.{*}
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sun.corba.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/removed-javaee-modules.windup.xml-2
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: javax.annotation{*}

@@ -1,0 +1,218 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-0
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.client.cache.{cache_class}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-1
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.client.ClientRequest
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-2
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.client.ClientResponse
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-3
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.client.{type}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-4
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.client.EntityTypeFactory
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-5
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.client.ClientExecutor
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-6
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.client.ClientRequestFactory
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-7
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.client.ClientResponseFailure
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-8
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.StringConverter
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-9
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.InjectorFactory
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-10
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.interception.MessageBodyWriterInterceptor
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-11
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.interception.MessageBodyReaderInterceptor
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-12
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.interception.MessageBodyWriterContext
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-13
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.core.interception.InterceptorRegistry
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-14
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.core.interception.InterceptorRegistryListener
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-15
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.client.core.executors.ApacheHttpClientExecutor
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-16
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.interception.AcceptedByMethod
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-17
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.annotations.cache.ServerCached
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-18
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.Link
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-19
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.interception.ClientExecutionContext
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-20
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.interception.ClientExecutionInterceptor
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-21
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.spi.ResteasyProviderFactory.add{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-22
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.interception.MessageBodyReaderContext
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-23
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.interception.PostProcessInterceptor
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-24
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.interception.PreProcessInterceptor
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-25
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.Registry
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-26
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.ForbiddenException
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-27
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.MethodNotAllowedException
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-28
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.NotAcceptableException
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-29
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.NotFoundException
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-30
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.UnauthorizedException
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-31
+    when:
+    - java.referenced:
+        pattern: org.jboss.resteasy.spi.UnsupportedMediaTypeException
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-32
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.plugins.delegates.ServerCookie.checkName{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-33
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.plugins.providers.jaxb.JAXBContextWrapper.createValidator{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-34
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.core.ResteasyHttpServletResponseWrapper.encodeRedirectUrl{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-35
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.core.ResteasyHttpServletResponseWrapper.encodeUrl{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-36
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInputImpl.getFormData{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-37
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput.getFormData{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-38
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.core.ResteasyHttpServletRequestWrapper.isRequestedSessionIdFromUrl{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-39
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.isValidating{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-40
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.plugins.delegates.ServerCookie.maybeQuote{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-41
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.setAdapter{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-42
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.core.ResteasyHttpServletResponseWrapper.setStatus{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-43
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.setValidating{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-44
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.jboss.resteasy.auth.oauth.OAuthValidator.validateMessage{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-45
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: javax.ws.rs.Produces
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-46
+    when:
+    - or:
+      - java.referenced:
+          location: ANNOTATION
+          pattern: javax.ws.rs.Produces
+      - java.referenced:
+          location: ANNOTATION
+          pattern: javax.ws.rs.Consumes
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-47
+    when:
+    - or:
+      - java.referenced:
+          location: ANNOTATION
+          pattern: javax.ws.rs.Produces
+      - java.referenced:
+          location: ANNOTATION
+          pattern: javax.ws.rs.Produces

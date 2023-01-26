@@ -16,7 +16,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.bom
           artifactId: jboss-eap-jakartaee8
     perform:
@@ -30,7 +29,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.bom
           artifactId: jboss-eap-jakartaee8-with-tools
     perform:
@@ -44,7 +42,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec
           artifactId: jboss-jakartaee-8.0
     perform:
@@ -58,7 +55,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec
           artifactId: jboss-jakartaee-web-8.0
     perform:
@@ -72,7 +68,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: com.sun.activation
           artifactId: jakarta.activation
     perform:
@@ -86,7 +81,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.annotation
           artifactId: jboss-annotations-api_1.3_spec
     perform:
@@ -100,7 +94,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.security.auth.message
           artifactId: jboss-jaspi-api_1.0_spec
     perform:
@@ -114,7 +107,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.security.jacc
           artifactId: jboss-jacc-api_1.5_spec
     perform:
@@ -128,7 +120,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.batch
           artifactId: jboss-batch-api_1.0_spec
     perform:
@@ -142,7 +133,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.ejb
           artifactId: jboss-ejb-api_3.2_spec
     perform:
@@ -156,7 +146,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.el
           artifactId: jboss-el-api_3.0_spec
     perform:
@@ -170,7 +159,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.enterprise.concurrent
           artifactId: jboss-concurrency-api_1.0_spec
     perform:
@@ -184,7 +172,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.faces
           artifactId: jboss-jsf-api_2.3_spec
     perform:
@@ -198,7 +185,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.interceptor
           artifactId: jboss-interceptors-api_1.2_spec
     perform:
@@ -212,7 +198,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.jms
           artifactId: jboss-jms-api_2.0_spec
     perform:
@@ -226,7 +211,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: com.sun.mail
           artifactId: jakarta.mail
     perform:
@@ -240,7 +224,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.resource
           artifactId: jboss-connector-api_1.7_spec
     perform:
@@ -254,7 +237,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.servlet
           artifactId: jboss-servlet-api_4.0_spec
     perform:
@@ -268,7 +250,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.servlet.jsp
           artifactId: jboss-jsp-api_2.3_spec
     perform:
@@ -282,7 +263,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.taglibs
           artifactId: taglibs-standard-spec
     perform:
@@ -296,7 +276,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.transaction
           artifactId: jboss-transaction-api_1.3_spec
     perform:
@@ -310,7 +289,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.xml.bind
           artifactId: jboss-jaxb-api_2.3_spec
     perform:
@@ -324,7 +302,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.xml.ws
           artifactId: jboss-jaxws-api_2.3_spec
     perform:
@@ -338,7 +315,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.websocket
           artifactId: jboss-websocket-api_1.1_spec
     perform:
@@ -352,7 +328,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.ws.rs
           artifactId: jboss-jaxrs-api_2.1_spec
     perform:
@@ -366,7 +341,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.xml.soap
           artifactId: jboss-saaj-api_1.4_spec
     perform:
@@ -380,7 +354,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.hibernate
           artifactId: hibernate-core
     perform:
@@ -394,7 +367,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.hibernate
           artifactId: hibernate-jpamodelgen
     perform:
@@ -408,7 +380,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.narayana.xts
           artifactId: jbossxts
     perform:
@@ -422,7 +393,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.bom
           artifactId: eap-runtime-artifacts
     perform:
@@ -436,7 +406,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: javax.jws
           artifactId: jsr181-api
     perform:

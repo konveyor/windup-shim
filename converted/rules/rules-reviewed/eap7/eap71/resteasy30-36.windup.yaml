@@ -18,7 +18,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.spec.javax.ws.rs
           artifactId: jboss-jaxrs-api_2.0_spec
     perform:

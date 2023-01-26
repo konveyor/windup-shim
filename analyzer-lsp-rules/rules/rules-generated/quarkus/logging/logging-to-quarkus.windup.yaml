@@ -1,0 +1,21 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-0
+    when:
+    - dependency:
+        artifactID: logstash-gelf
+        groupID: biz.paluch.logging
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-1
+    when:
+    - dependency:
+        artifactID: logstash-gelf
+        groupID: biz.paluch.logging
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-2
+    when:
+    - dependency:
+        artifactID: sentry-jul
+        groupID: io.sentry
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-3
+    when:
+    - dependency:
+        artifactID: sentry-jul
+        groupID: io.sentry

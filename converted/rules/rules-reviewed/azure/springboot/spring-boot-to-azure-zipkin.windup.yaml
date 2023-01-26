@@ -17,11 +17,9 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-cloud-starter-zipkin
         - artifact:
-            value: ""
             groupId: io.zipkin{*}
             artifactId: '{*}'
     perform:

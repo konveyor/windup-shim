@@ -1,0 +1,6 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jotm/jotm.rhamt.xml-0
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.objectweb.jotm.{*}
