@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.eclipse
           artifactId: yasson
     perform:
@@ -34,8 +33,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.eclipse
+      - groupId: org.eclipse
         artifactId: yasson
     perform:
       hint:

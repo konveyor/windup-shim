@@ -77,7 +77,6 @@ rules:
           not:
           - project:
             - artifact:
-                value: ""
                 groupId: org.apache.camel
                 artifactId: camel-main
         perform:

@@ -1,0 +1,21 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kafka/kafka-to-quarkus.windup.xml-0
+    when:
+    - dependency:
+        artifactID: kafka-clients
+        groupID: org.apache.kafka
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kafka/kafka-to-quarkus.windup.xml-1
+    when:
+    - dependency:
+        artifactID: kafka-clients
+        groupID: org.apache.kafka
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kafka/kafka-to-quarkus.windup.xml-2
+    when:
+    - dependency:
+        artifactID: kafka-streams
+        groupID: org.apache.kafka
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kafka/kafka-to-quarkus.windup.xml-3
+    when:
+    - dependency:
+        artifactID: kafka-streams
+        groupID: org.apache.kafka

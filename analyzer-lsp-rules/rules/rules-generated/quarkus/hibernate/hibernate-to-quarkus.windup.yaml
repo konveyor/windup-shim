@@ -1,0 +1,41 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-0
+    when:
+    - dependency:
+        artifactID: hibernate-envers
+        groupID: org.hibernate
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-1
+    when:
+    - dependency:
+        artifactID: hibernate-envers
+        groupID: org.hibernate
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-2
+    when:
+    - dependency:
+        artifactID: hibernate-reactive-core
+        groupID: org.hibernate.reactive
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-3
+    when:
+    - dependency:
+        artifactID: hibernate-reactive-core
+        groupID: org.hibernate.reactive
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-4
+    when:
+    - dependency:
+        artifactID: hibernate-search-backend-elasticsearch-aws
+        groupID: org.hibernate.search
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-5
+    when:
+    - dependency:
+        artifactID: hibernate-search-backend-elasticsearch-aws
+        groupID: org.hibernate.search
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-6
+    when:
+    - dependency:
+        artifactID: hibernate-validator
+        groupID: org.hibernate.validator
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-7
+    when:
+    - dependency:
+        artifactID: hibernate-validator
+        groupID: org.hibernate.validator

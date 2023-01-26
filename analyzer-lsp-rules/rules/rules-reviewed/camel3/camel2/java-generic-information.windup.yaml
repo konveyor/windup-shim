@@ -1,0 +1,236 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-0
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.processor.aggregate.AggregationStrategy
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-1
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.impl.{SupportClass}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-2
+    when:
+      or:
+      - or:
+        - filecontent:
+            filename: ""
+            pattern: .zip({*})
+          from: routeBuilders
+        - filecontent:
+            filename: ""
+            pattern: .gzip({*})
+          from: routeBuilders
+      - as: routeBuilders
+        java.referenced:
+          location: INHERITANCE
+          pattern: org.apache.camel.builder.RouteBuilder
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-3
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.impl.{registry}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-4
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.processor.loadbalancer.SimpleLoadBalancerSupport
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-5
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.{removed}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-6
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.util.toolbox.AggregationStrategies
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-7
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.management.JmxSystemPropertyKeys
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-8
+    when:
+    - filecontent:
+        filename: '{*}.java'
+        pattern: .includeRoutes({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-9
+    when:
+    - as: annotations
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.language.Bean
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-10
+    when:
+    - as: annotations
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.language.Simple
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-11
+    when:
+    - as: annotations
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.language.SpEL
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-12
+    when:
+    - as: annotations
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.{annotation}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-13
+    when:
+    - as: annotation
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.Constant
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-14
+    when:
+    - as: class
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.builder.xml.XPathBuilder
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-15
+    when:
+    - as: annotations
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.language.XPath
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-16
+    when:
+    - as: annotations
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.builder.xml.InvalidXPathExpression
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-17
+    when:
+    - as: annotations
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.processor.validation.PredicateValidationException
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-18
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.apache.camel.util.toolbox.AggregationStrategies.xslt({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-19
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.language.LanguageAnnotation
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-20
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.util.{moved}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-21
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.util.ServiceHelper
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-22
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.spi.RestProducerFactoryHelper
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-23
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.util.ObjectHelper
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-24
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.support.RoutePolicySupport
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-25
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.impl.ThrottlingInflightRoutePolicy
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-26
+    when:
+    - or:
+      - java.referenced:
+          location: IMPORT
+          pattern: org.apache.camel.processor.idempotent.{moved}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-27
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.FallbackConverter
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-28
+    when:
+    - or:
+      - java.referenced:
+          location: IMPORT
+          pattern: org.apache.camel.util.toolbox.XsltAggregationStrategy
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-29
+    when:
+    - or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: org.apache.camel.CamelContext.{get|set}Propert{y|ies}({*})
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-30
+    when:
+    - dependency:
+        artifactID: camel-fhir
+        groupID: org.apache.camel
+        upperBound: "2"
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-31
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.apache.camel.CamelContext.{method}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-32
+    when:
+    - or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: org.apache.camel.language.simple.SimpleLanguage.{languageMethods}({*})
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: org.apache.camel.language.simple.SimpleTokenizer.{tokenizerMethods})({*})
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-33
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.apache.camel.{class}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-34
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.apache.camel.{class}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-35
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.apache.camel.CamelContext.{method}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-36
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.apache.camel.CamelContext.{method}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-37
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.apache.camel.CamelContext.{method}({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-38
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.apache.camel.CamelContext.{method}({*})

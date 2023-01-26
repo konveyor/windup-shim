@@ -1,0 +1,7 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_boms.mta.xml-0
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_boms.mta.xml-1
+    when:
+    - xmlfile: null

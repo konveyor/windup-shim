@@ -1,0 +1,11 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/agroal/agroal-to-quarkus.windup.xml-0
+    when:
+    - dependency:
+        artifactID: agroal-api
+        groupID: io.agroal
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/agroal/agroal-to-quarkus.windup.xml-1
+    when:
+    - dependency:
+        artifactID: agroal-api
+        groupID: io.agroal

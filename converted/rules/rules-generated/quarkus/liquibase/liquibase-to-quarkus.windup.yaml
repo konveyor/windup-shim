@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.liquibase
           artifactId: liquibase-core
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.liquibase
+      - groupId: org.liquibase
         artifactId: liquibase-core
     perform:
       hint:
@@ -55,7 +53,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.liquibase.ext
           artifactId: liquibase-mongodb
     perform:
@@ -75,8 +72,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.liquibase.ext
+      - groupId: org.liquibase.ext
         artifactId: liquibase-mongodb
     perform:
       hint:

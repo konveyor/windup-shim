@@ -1,0 +1,31 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-0
+    when:
+    - dependency:
+        artifactID: wildfly-elytron-realm-jdbc
+        groupID: org.wildfly.security
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-1
+    when:
+    - dependency:
+        artifactID: wildfly-elytron-realm-jdbc
+        groupID: org.wildfly.security
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-2
+    when:
+    - dependency:
+        artifactID: wildfly-elytron-realm-ldap
+        groupID: org.wildfly.security
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-3
+    when:
+    - dependency:
+        artifactID: wildfly-elytron-realm-ldap
+        groupID: org.wildfly.security
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-4
+    when:
+    - dependency:
+        artifactID: wildfly-elytron-realm-token
+        groupID: org.wildfly.security
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-5
+    when:
+    - dependency:
+        artifactID: wildfly-elytron-realm-token
+        groupID: org.wildfly.security

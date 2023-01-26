@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.glassfish
           artifactId: jakarta.json
     perform:
@@ -35,8 +34,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.glassfish
+      - groupId: org.glassfish
         artifactId: jakarta.json
     perform:
       hint:

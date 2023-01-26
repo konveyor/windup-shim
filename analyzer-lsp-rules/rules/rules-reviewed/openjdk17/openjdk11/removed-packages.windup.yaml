@@ -1,0 +1,13 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/removed-packages.windup.xml-0
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: java.rmi.activation.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/removed-packages.windup.xml-1
+    when:
+    - or:
+      - java.referenced:
+          pattern: jdk.nashorn.api.scripting.{*}
+      - java.referenced:
+          pattern: jdk.nashorn.api.tree.{*}

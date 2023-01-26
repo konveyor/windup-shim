@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.wildfly.security
           artifactId: wildfly-elytron-realm-jdbc
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.wildfly.security
+      - groupId: org.wildfly.security
         artifactId: wildfly-elytron-realm-jdbc
     perform:
       hint:
@@ -55,7 +53,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.wildfly.security
           artifactId: wildfly-elytron-realm-ldap
     perform:
@@ -76,8 +73,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.wildfly.security
+      - groupId: org.wildfly.security
         artifactId: wildfly-elytron-realm-ldap
     perform:
       hint:
@@ -95,7 +91,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.wildfly.security
           artifactId: wildfly-elytron-realm-token
     perform:
@@ -116,8 +111,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.wildfly.security
+      - groupId: org.wildfly.security
         artifactId: wildfly-elytron-realm-token
     perform:
       hint:

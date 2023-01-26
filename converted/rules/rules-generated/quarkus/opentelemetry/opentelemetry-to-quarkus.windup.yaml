@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.opentelemetry
           artifactId: opentelemetry-exporter-jaeger
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: io.opentelemetry
+      - groupId: io.opentelemetry
         artifactId: opentelemetry-exporter-jaeger
     perform:
       hint:
@@ -55,7 +53,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.opentelemetry
           artifactId: opentelemetry-exporter-otlp-trace
     perform:
@@ -76,8 +73,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: io.opentelemetry
+      - groupId: io.opentelemetry
         artifactId: opentelemetry-exporter-otlp-trace
     perform:
       hint:

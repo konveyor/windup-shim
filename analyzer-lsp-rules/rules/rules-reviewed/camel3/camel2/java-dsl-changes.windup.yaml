@@ -1,0 +1,6 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-dsl-changes.windup.xml-0
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: '{*}.hystrix()'

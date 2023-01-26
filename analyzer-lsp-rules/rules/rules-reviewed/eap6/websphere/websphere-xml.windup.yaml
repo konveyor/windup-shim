@@ -1,0 +1,25 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-0
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-1
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-2
+    when:
+    - or:
+      - xmlfile: null
+      - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-3
+    when:
+    - or:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-4
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-5
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-6
+    when:
+    - xmlfile: null

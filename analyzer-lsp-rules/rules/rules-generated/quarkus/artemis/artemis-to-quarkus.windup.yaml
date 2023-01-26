@@ -1,0 +1,11 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/artemis/artemis-to-quarkus.windup.xml-0
+    when:
+    - dependency:
+        artifactID: artemis-jms-client
+        groupID: org.apache.activemq
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/artemis/artemis-to-quarkus.windup.xml-1
+    when:
+    - dependency:
+        artifactID: artemis-jms-client
+        groupID: org.apache.activemq

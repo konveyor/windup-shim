@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.agroal
           artifactId: agroal-api
     perform:
@@ -35,8 +34,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: io.agroal
+      - groupId: io.agroal
         artifactId: agroal-api
     perform:
       hint:

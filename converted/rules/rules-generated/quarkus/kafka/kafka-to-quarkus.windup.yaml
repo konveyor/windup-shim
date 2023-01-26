@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.kafka
           artifactId: kafka-clients
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.apache.kafka
+      - groupId: org.apache.kafka
         artifactId: kafka-clients
     perform:
       hint:
@@ -55,7 +53,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.kafka
           artifactId: kafka-streams
     perform:
@@ -76,8 +73,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.apache.kafka
+      - groupId: org.apache.kafka
         artifactId: kafka-streams
     perform:
       hint:

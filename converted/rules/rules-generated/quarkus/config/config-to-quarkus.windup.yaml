@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.smallrye.config
           artifactId: smallrye-config-source-yaml
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: io.smallrye.config
+      - groupId: io.smallrye.config
         artifactId: smallrye-config-source-yaml
     perform:
       hint:

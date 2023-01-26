@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.springframework.shell
           artifactId: spring-shell-core
     perform:

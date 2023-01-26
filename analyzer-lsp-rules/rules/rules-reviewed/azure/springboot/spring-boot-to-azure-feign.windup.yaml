@@ -1,0 +1,10 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-feign.windup.xml-0
+    when:
+    - or:
+      - dependency:
+          artifactID: '{*}'
+          groupID: com.netflix.feign
+      - dependency:
+          artifactID: spring-cloud-starter-feign
+          groupID: org.springframework.cloud

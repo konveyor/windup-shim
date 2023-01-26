@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.avro
           artifactId: avro
     perform:
@@ -34,8 +33,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.apache.avro
+      - groupId: org.apache.avro
         artifactId: avro
     perform:
       hint:

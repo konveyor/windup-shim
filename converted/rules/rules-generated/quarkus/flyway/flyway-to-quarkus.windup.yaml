@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.flywaydb
           artifactId: flyway-core
     perform:
@@ -35,8 +34,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.flywaydb
+      - groupId: org.flywaydb
         artifactId: flyway-core
     perform:
       hint:

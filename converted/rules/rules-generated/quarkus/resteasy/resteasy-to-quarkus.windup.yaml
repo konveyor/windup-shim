@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.jboss.resteasy
           artifactId: resteasy-multipart-provider
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.jboss.resteasy
+      - groupId: org.jboss.resteasy
         artifactId: resteasy-multipart-provider
     perform:
       hint:

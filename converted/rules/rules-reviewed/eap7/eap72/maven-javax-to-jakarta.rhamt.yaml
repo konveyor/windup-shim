@@ -43,7 +43,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: javax.activation
           artifactId: activation
     perform:

@@ -45,13 +45,11 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.hibernate
           artifactId: '{substitution}'
       not:
       - project:
         - artifact:
-            value: ""
             groupId: org.hibernate
             artifactId: hibernate-core
     perform:

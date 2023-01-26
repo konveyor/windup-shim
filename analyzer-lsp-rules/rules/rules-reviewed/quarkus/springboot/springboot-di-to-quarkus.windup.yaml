@@ -1,0 +1,10 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-di-to-quarkus.windup.xml-0
+    when:
+    - dependency:
+        artifactID: spring-beans
+        groupID: org.springframework
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-di-to-quarkus.windup.xml-1
+    when:
+    - or:
+      - xmlfile: null

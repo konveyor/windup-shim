@@ -1,0 +1,6 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-native-image-goal.windup.xml-0
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: native-image

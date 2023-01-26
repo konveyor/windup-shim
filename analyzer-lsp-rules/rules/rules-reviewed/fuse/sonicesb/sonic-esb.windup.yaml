@@ -1,0 +1,142 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-0
+    when:
+    - java.referenced:
+        location: INHERITANCE
+        pattern: com.sonicsw.xq.XQService
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-1
+    when:
+      or:
+      - java.referenced:
+          location: TYPE
+          pattern: com.sonicsw.xq.XQServiceContext
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sonicsw.xq.XQServiceContext
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-2
+    when:
+      or:
+      - java.referenced:
+          location: TYPE
+          pattern: com.sonicsw.xq.XQInitContext
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sonicsw.xq.XQInitContext
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-3
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQInitContext.getParameters{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-4
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQParameters.getParameter{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-5
+    when:
+      or:
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sonicsw.xq.XQParameters
+      - java.referenced:
+          location: TYPE
+          pattern: com.sonicsw.xq.XQParameters
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-6
+    when:
+      or:
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sonicsw.xq.XQParameterInfo
+      - java.referenced:
+          location: TYPE
+          pattern: com.sonicsw.xq.XQParameterInfo
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-7
+    when:
+      or:
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sonicsw.xq.XQMessage
+      - java.referenced:
+          location: TYPE
+          pattern: com.sonicsw.xq.XQMessage
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-8
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQMessage.getHeaderValue{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-9
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQMessage.setHeaderValue{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-10
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQMessage.getHeaderNames{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-11
+    when:
+      or:
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sonicsw.xq.XQPart
+      - java.referenced:
+          location: TYPE
+          pattern: com.sonicsw.xq.XQPart
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-12
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQMessage.getPartCount{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-13
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQMessage.getPart({*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-14
+    when:
+      or:
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sonicsw.xq.XQLog
+      - java.referenced:
+          location: TYPE
+          pattern: com.sonicsw.xq.XQLog
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-15
+    when:
+      or:
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sonicsw.xq.XQServiceException
+      - java.referenced:
+          location: TYPE
+          pattern: com.sonicsw.xq.XQServiceException
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-16
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQMessage.getCorrelationId{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-17
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQAddressFactory.createEndpointAddress{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-18
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQServiceContext.addOutgoing{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-19
+    when:
+      or:
+      - java.referenced:
+          location: TYPE
+          pattern: com.sonicsw.xq.XQEnvelope
+      - java.referenced:
+          location: IMPORT
+          pattern: com.sonicsw.xq.XQEnvelope
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-20
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: com.sonicsw.xq.XQEnvelope.getMessage{*}

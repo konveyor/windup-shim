@@ -18,7 +18,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: log4j
           artifactId: log4j
     perform:

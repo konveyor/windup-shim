@@ -1,0 +1,6 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/resteasy30-36.windup.xml-0
+    when:
+    - dependency:
+        artifactID: jboss-jaxrs-api_2.0_spec
+        groupID: org.jboss.spec.javax.ws.rs

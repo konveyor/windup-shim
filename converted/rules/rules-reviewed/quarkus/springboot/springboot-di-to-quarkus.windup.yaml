@@ -14,8 +14,7 @@ rules:
   rule:
   - when:
       dependency:
-      - value: ""
-        groupId: org.springframework
+      - groupId: org.springframework
         artifactId: spring-beans
     perform:
       hint:

@@ -1,0 +1,31 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-web-to-quarkus.windup.xml-0
+    when:
+    - or:
+      - dependency:
+          artifactID: spring-web
+          groupID: org.springframework
+      - dependency:
+          artifactID: spring-boot-starter-web
+          groupID: org.springframework.boot
+      - dependency:
+          artifactID: spring-web
+          groupID: org.springframework
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-web-to-quarkus.windup.xml-1
+    when:
+    - or:
+      - and:
+        - dependency:
+            artifactID: quarkus-spring-web
+            groupID: io.quarkus
+        - dependency:
+            artifactID: quarkus-resteasy-reactive-jackson
+            groupID: io.quarkus
+          not: true
+        - dependency:
+            artifactID: quarkus-spring-web
+            groupID: io.quarkus
+        - dependency:
+            artifactID: quarkus-resteasy-reactive-jackson
+            groupID: io.quarkus
+          not: true

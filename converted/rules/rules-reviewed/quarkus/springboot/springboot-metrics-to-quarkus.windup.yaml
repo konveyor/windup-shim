@@ -14,8 +14,7 @@ rules:
   rule:
   - when:
       dependency:
-      - value: ""
-        groupId: io.micrometer
+      - groupId: io.micrometer
         artifactId: micrometer-core
     perform:
       hint:
@@ -35,7 +34,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.micrometer
           artifactId: micrometer-core
     perform:

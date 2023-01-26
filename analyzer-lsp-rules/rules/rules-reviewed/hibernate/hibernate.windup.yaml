@@ -1,0 +1,59 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-0
+    when:
+    - java.referenced:
+        pattern: org.hibernate.annotations.Type
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-1
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.criterion.Projections.{method}{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-2
+    when:
+    - java.referenced:
+        location: CONSTRUCTOR_CALL
+        pattern: org.hibernate.cfg.AnnotationConfiguration{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-3
+    when:
+    - java.referenced:
+        pattern: org.hibernate.classic.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-4
+    when:
+    - java.referenced:
+        pattern: org.hibernate.dialect.resolver.DialectResolver
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-5
+    when:
+    - or:
+      - java.referenced:
+          pattern: org.hibernate.jdbc.BatcherFactory
+      - java.referenced:
+          pattern: org.hibernate.jdbc.BatchingBatcherFactory
+      - java.referenced:
+          pattern: org.hibernate.jdbc.NonBatchingBatcherFactory
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-6
+    when:
+    - or:
+      - java.referenced:
+          pattern: org.hibernate.jdbc.Batcher
+      - java.referenced:
+          pattern: org.hibernate.jdbc.AbstractBatcher
+      - java.referenced:
+          pattern: org.hibernate.jdbc.BatchingBatcher
+      - java.referenced:
+          pattern: org.hibernate.jdbc.NonBatchingBatcher
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-7
+    when:
+    - java.referenced:
+        pattern: org.hibernate.engine.SessionImplementor
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-8
+    when:
+    - java.referenced:
+        pattern: org.hibernate.connection.{classname}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-9
+    when:
+    - java.referenced:
+        pattern: org.hibernate.collection.PersistentBag
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-10
+    when:
+    - java.referenced:
+        pattern: net.sf.hibernate.{classname}

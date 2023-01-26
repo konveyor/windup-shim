@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.keycloak
           artifactId: keycloak-admin-client
     perform:
@@ -35,8 +34,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.keycloak
+      - groupId: org.keycloak
         artifactId: keycloak-admin-client
     perform:
       hint:

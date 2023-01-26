@@ -1,0 +1,175 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-0
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-1
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-2
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-3
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.springframework.web.servlet.mvc.Controller
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-4
+    when:
+    - or:
+      - dependency:
+          artifactID: spring-webmvc
+          groupID: org.springframework
+      - dependency:
+          artifactID: spring-webflux
+          groupID: org.springframework
+      - dependency:
+          artifactID: spring-boot-starter-webflux
+          groupID: org.springframework.boot
+      - dependency:
+          artifactID: spring-webflux
+          groupID: org.springframework
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-5
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-6
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-7
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-8
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-9
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-10
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-11
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-12
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-13
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-14
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-15
+    when:
+    - or:
+      - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-16
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-17
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-18
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-19
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-20
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-21
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-22
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-23
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-24
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-25
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-26
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-27
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-28
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-29
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-30
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-31
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-32
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-33
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-34
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-35
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-36
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-37
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-38
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-39
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-40
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-41
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-42
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-43
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-44
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-45
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-46
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-47
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-48
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-49
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-50
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-51
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-52
+    when:
+    - file: null

@@ -17,7 +17,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: io.quarkus
           artifactId: quarkus-resteasy-jackson
     perform:
@@ -40,8 +39,7 @@ rules:
         effort: 1
   - when:
       dependency:
-      - value: ""
-        groupId: io.quarkus
+      - groupId: io.quarkus
         artifactId: quarkus-resteasy-jackson
     perform:
       hint:

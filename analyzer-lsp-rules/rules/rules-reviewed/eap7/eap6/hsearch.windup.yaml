@@ -1,0 +1,292 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-0
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-1
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.impl.SearchMappingBuilder
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-2
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.Environment
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-3
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.FullTextFilter
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-4
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.indexes.impl.DirectoryBasedIndexManager
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-5
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.infinispan.impl.InfinispanDirectoryProvider
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-6
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.ProjectionConstants
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-7
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.SearchException
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-8
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.spi.MassIndexerFactory
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-9
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.spi.SearchFactoryBuilder
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-10
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.spi.SearchFactoryIntegrator
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-11
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.Version
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-12
+    when:
+    - java.referenced:
+        location: CONSTRUCTOR_CALL
+        pattern: org.hibernate.search.cfg.NumericFieldMapping(org.hibernate.search.cfg.PropertyDescriptor,
+          org.hibernate.search.cfg.EntityDescriptor, org.hibernate.search.cfg.SearchMapping)
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-13
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.store.IndexShardingStrategy
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-14
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.store.Workspace
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-15
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.filter.FilterKey
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-16
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.filter.StandardFilterKey
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-17
+    when:
+    - java.referenced:
+        pattern: org.hibernate.search.annotations.FieldCacheType
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-18
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.hibernate.search.annotations.CacheFromIndex
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-19
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.hibernate.search.annotations.Key
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-20
+    when:
+      or:
+      - java.referenced:
+          location: ENUM_CONSTANT
+          pattern: org.hibernate.search.backend.configuration.impl.IndexWriterSetting.{constant}
+      - java.referenced:
+          location: IMPORT
+          pattern: org.hibernate.search.backend.configuration.impl.IndexWriterSetting.{constant}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-21
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.hibernate.search.annotations.Spatial
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-22
+    when:
+    - java.referenced:
+        location: INHERITANCE
+        pattern: org.hibernate.search.event.impl.FullTextIndexEventListener
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-23
+    when:
+    - java.referenced:
+        location: INHERITANCE
+        pattern: org.hibernate.search.backend.impl.jms.AbstractJMSHibernateSearchController
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-24
+    when:
+    - java.referenced:
+        location: IMPLEMENTS_TYPE
+        pattern: org.hibernate.search.spi.ServiceProvider
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-25
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.hibernate.search.annotations.IndexedEmbedded
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-26
+    when:
+    - or:
+      - java.referenced:
+          location: ANNOTATION
+          pattern: org.hibernate.search.annotations.Field
+      - java.referenced:
+          location: ANNOTATION
+          pattern: org.hibernate.search.annotations.Field
+      - java.referenced:
+          pattern: java.util.{date}
+      - java.referenced:
+          pattern: java.lang.{wrapper}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-27
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.hibernate.search.annotations.Field
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-28
+    when:
+    - or:
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: org.hibernate.search.query.dsl.QueryBuilder.facet{*}
+      - java.referenced:
+          location: METHOD_CALL
+          pattern: org.hibernate.search.FullTextQuery.getFacetManager{*}
+      - java.referenced:
+          pattern: org.hibernate.search.query.facet.{class}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-29
+    when:
+    - or:
+      - java.referenced:
+          pattern: java.util.{date}
+      - java.referenced:
+          pattern: java.lang.{wrapper}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-30
+    when:
+    - dependency:
+        artifactID: hibernate-search-analyzers
+        groupID: org.hibernate
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-31
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-32
+    when:
+    - java.referenced:
+        location: CONSTRUCTOR_CALL
+        pattern: org.apache.lucene.search.SortField({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-33
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.cfg.ContainedInMapping.numericField{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-34
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.FullTextSharedSessionBuilder.autoClose{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-35
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.cfg.IndexedMapping.cacheFromIndex{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-36
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.cfg.EntityDescriptor.getCacheInMemory{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-37
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.query.engine.spi.HSQuery.getExtendedSearchIntegrator{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-38
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.engine.spi.DocumentBuilderIndexedEntity.getFieldCacheOption{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-39
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.spi.BuildContext.getIndexingStrategy{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-40
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.store.spi.DirectoryHelper.getVerifiedIndexDir{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-41
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.cfg.EntityDescriptor.setCacheInMemory{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-42
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.MassIndexer.threadsForSubsequentFetching{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-43
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.query.dsl.FuzzyContext.withThreshold{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-44
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.queryParser.{type}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-45
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.queryParser.QueryParserToken
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-46
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.queryParser.QueryParserTokenMgrError
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-47
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.analysis.{type}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-48
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.analysis.PorterStemFilter
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-49
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.analysis.{type}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-50
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.analysis.TeeSinkTokenFilter
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-51
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.analysis.{type}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-52
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.analysis.{type}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-53
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.analysis.ReusableAnalyzerBase
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-54
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.util.CharacterUtils
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-55
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.search.function.{type}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-56
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.search.function.NumericIndexDocValueSource
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-57
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.search.function.{type}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-58
+    when:
+    - java.referenced:
+        pattern: org.apache.lucene.search.function.{type}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-59
+    when:
+    - java.referenced:
+        pattern: org.apache.solr.analysis.{type}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-60
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: org.hibernate.search.MassIndexer.threadsForIndexWriter{*}

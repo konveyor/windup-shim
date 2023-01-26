@@ -16,12 +16,10 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-starter-cache
         dependency:
-        - value: ""
-          groupId: org.springframework.boot
+        - groupId: org.springframework.boot
           artifactId: spring-boot-starter-cache
     perform:
       hint:

@@ -1,0 +1,22 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-0
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.util.component.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-1
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.impl.{moved}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-2
+    when:
+    - as: javaClass
+      java.referenced:
+        location: IMPORT
+        pattern: org.apache.camel.main.Main
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-3
+    when:
+    - xmlfile: null

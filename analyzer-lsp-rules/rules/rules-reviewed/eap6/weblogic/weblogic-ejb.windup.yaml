@@ -1,0 +1,21 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml-0
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: weblogic.{type}.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml-1
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: weblogic.javaee.TransactionTimeoutSeconds
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml-2
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: weblogic.ejbgen.MessageDriven
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml-3
+    when:
+    - java.referenced:
+        location: INHERITANCE
+        pattern: weblogic.ejb.{type}

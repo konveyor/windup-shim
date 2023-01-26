@@ -1,0 +1,109 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-0
+    when:
+      or:
+      - as: methods1
+        filecontent:
+          filename: ""
+          pattern: '{*}.collectItems(){*}'
+        from: files1
+      - as: files1
+        java.referenced:
+          location: IMPORT
+          pattern: io.smallrye.mutiny.Multi
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-1
+    when:
+      or:
+      - as: methods2
+        filecontent:
+          filename: ""
+          pattern: '{*}.groupItems(){*}'
+        from: files2
+      - as: files2
+        java.referenced:
+          location: IMPORT
+          pattern: io.smallrye.mutiny.Multi
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-2
+    when:
+      or:
+      - as: methods3
+        filecontent:
+          filename: ""
+          pattern: '{*}.toHotStream(){*}'
+        from: files3
+      - as: files3
+        java.referenced:
+          location: IMPORT
+          pattern: io.smallrye.mutiny.Multi
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-3
+    when:
+      or:
+      - as: methods4
+        filecontent:
+          filename: ""
+          pattern: '{*}.subscribeOn{*}'
+        from: files4
+      - as: files4
+        java.referenced:
+          location: IMPORT
+          pattern: io.smallrye.mutiny.Multi
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-4
+    when:
+      or:
+      - as: methods5
+        filecontent:
+          filename: ""
+          pattern: '{*}.subscribeOn{*}'
+        from: files5
+      - as: files5
+        java.referenced:
+          location: IMPORT
+          pattern: io.smallrye.mutiny.Uni
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-5
+    when:
+      or:
+      - as: methods6
+        filecontent:
+          filename: ""
+          pattern: '{*}.byTakingFirstItems{*}'
+        from: files6
+      - as: files6
+        java.referenced:
+          location: IMPORT
+          pattern: io.smallrye.mutiny.Multi
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-6
+    when:
+      or:
+      - as: methods6
+        filecontent:
+          filename: ""
+          pattern: '{*}.byTestingItemsWith{*}'
+        from: files6
+      - as: files6
+        java.referenced:
+          location: IMPORT
+          pattern: io.smallrye.mutiny.Multi
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-7
+    when:
+      or:
+      - as: methods6
+        filecontent:
+          filename: ""
+          pattern: '{*}.byFilteringItemsWith{*}'
+        from: files6
+      - as: files6
+        java.referenced:
+          location: IMPORT
+          pattern: io.smallrye.mutiny.Multi
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-8
+    when:
+      or:
+      - as: methods6
+        filecontent:
+          filename: ""
+          pattern: '{*}.bySkippingFirstItems{*}'
+        from: files6
+      - as: files6
+        java.referenced:
+          location: IMPORT
+          pattern: io.smallrye.mutiny.Multi

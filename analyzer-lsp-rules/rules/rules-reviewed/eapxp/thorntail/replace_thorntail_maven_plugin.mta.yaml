@@ -1,0 +1,4 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_maven_plugin.mta.xml-0
+    when:
+    - xmlfile: null

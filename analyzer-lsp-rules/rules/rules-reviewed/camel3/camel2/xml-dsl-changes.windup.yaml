@@ -1,0 +1,37 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-0
+    when:
+    - or:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-1
+    when:
+    - or:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-2
+    when:
+    - or:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-3
+    when:
+    - or:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-4
+    when:
+    - or:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-5
+    when:
+    - or:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-6
+    when:
+    - or:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-7
+    when:
+    - or:
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-8
+    when:
+    - or:
+      - xmlfile: null

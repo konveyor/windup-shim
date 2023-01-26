@@ -1,0 +1,9 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-jmx-to-quarkus.windup.xml-0
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-jmx-to-quarkus.windup.xml-1
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.springframework.jmx.{*}

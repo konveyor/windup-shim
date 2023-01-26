@@ -1,0 +1,21 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-0
+    when:
+    - dependency:
+        artifactID: opentelemetry-exporter-jaeger
+        groupID: io.opentelemetry
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-1
+    when:
+    - dependency:
+        artifactID: opentelemetry-exporter-jaeger
+        groupID: io.opentelemetry
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-2
+    when:
+    - dependency:
+        artifactID: opentelemetry-exporter-otlp-trace
+        groupID: io.opentelemetry
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-3
+    when:
+    - dependency:
+        artifactID: opentelemetry-exporter-otlp-trace
+        groupID: io.opentelemetry

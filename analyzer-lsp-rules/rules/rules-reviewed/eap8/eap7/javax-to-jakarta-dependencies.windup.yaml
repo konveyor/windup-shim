@@ -1,0 +1,41 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-0
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: groupId>javax.{renamed-g}<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-1
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>javax.{renamed-a}-api<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-2
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>jaxb-api<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-3
+    when:
+    - dependency:
+        artifactID: javax.activation-api
+        groupID: javax.activation
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-4
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>javax.faces<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-5
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: groupId>javax<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-6
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>javaee-api<
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-7
+    when:
+    - filecontent:
+        filename: pom.xml
+        pattern: artifactId>javaee-web-api<

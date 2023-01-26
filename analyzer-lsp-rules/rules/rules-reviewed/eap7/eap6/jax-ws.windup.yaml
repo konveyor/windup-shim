@@ -1,0 +1,13 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/jax-ws.windup.xml-0
+    when:
+      or:
+      - as: step1
+        java.referenced:
+          location: INHERITANCE
+          pattern: javax.xml.ws.Service
+      - as: step2
+        from: step1
+        java.referenced:
+          location: METHOD
+          pattern: '{*}(java.net.URL, javax.xml.namespace.QName)'

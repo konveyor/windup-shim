@@ -1,0 +1,13 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/java-rpc.windup.xml-0
+    when:
+    - or:
+      - as: default
+        java.referenced:
+          pattern: javax.xml.rpc{*}
+      - as: default
+        java.referenced:
+          pattern: org.apache.xmlrpc{*}
+      - as: default
+        java.referenced:
+          pattern: redstone.xmlrpc{*}

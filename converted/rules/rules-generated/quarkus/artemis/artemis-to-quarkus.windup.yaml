@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.activemq
           artifactId: artemis-jms-client
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.apache.activemq
+      - groupId: org.apache.activemq
         artifactId: artemis-jms-client
     perform:
       hint:

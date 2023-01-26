@@ -1,0 +1,83 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-0
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.jboss.ejb3.annotation.Management
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-1
+    when:
+      or:
+      - java.referenced:
+          location: FIELD_DECLARATION
+          pattern: javax.jms.QueueConnectionFactory
+      - java.referenced:
+          location: VARIABLE_DECLARATION
+          pattern: javax.jms.QueueConnectionFactory
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-2
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.jboss{package}.Service
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-3
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.jboss{package}.Management
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-4
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.jboss.annotation.ejb.LocalBinding
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-5
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.jboss.annotation.ejb.Depends
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-6
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.spi.annotation.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-7
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.spi.binding.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-8
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.spi.management.recording.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-9
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.spi.tools.ant.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-10
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.spi.tools.cmd.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-11
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.spi.tools.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-12
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.spi.util.ServiceLoader
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-13
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.common.handler.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-14
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.common.addressing.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-15
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.common.DOMUtils
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-16
+    when:
+    - java.referenced:
+        pattern: org.jboss.wsf.common.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-17
+    when:
+    - java.referenced:
+        pattern: org.jboss.ws.annotation.EndpointConfig

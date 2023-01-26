@@ -1,0 +1,28 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-0
+    when:
+    - or:
+      - dependency:
+          artifactID: spring-cloud-config-client
+          groupID: org.springframework.cloud
+      - dependency:
+          artifactID: spring-cloud-config-client
+          groupID: org.springframework.cloud
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-1
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-2
+    when:
+    - filecontent:
+        filename: application{profile}.{extension}
+        pattern: spring.datasource
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-3
+    when:
+    - filecontent:
+        filename: application{profile}.{extension}
+        pattern: logging.level.org.springframework
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-4
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.springframework.boot.context.properties.ConfigurationProperties

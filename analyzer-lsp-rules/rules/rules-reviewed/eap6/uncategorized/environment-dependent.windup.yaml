@@ -1,0 +1,39 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-0
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: java.lang.Class.forName({*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-1
+    when:
+    - as: default
+      java.referenced:
+        location: METHOD_CALL
+        pattern: javax.naming.Context.lookup{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-2
+    when:
+    - as: default
+      java.referenced:
+        location: CONSTRUCTOR_CALL
+        pattern: javax.naming.InitialContext(java.util.Hashtable{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-3
+    when:
+    - file: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-4
+    when:
+    - as: default
+      java.referenced:
+        location: CONSTRUCTOR_CALL
+        pattern: javax.management.{suffix}{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-5
+    when:
+    - as: default
+      java.referenced:
+        location: CONSTRUCTOR_CALL
+        pattern: javax.management.{suffix}{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-6
+    when:
+    - as: default
+      java.referenced:
+        location: METHOD_CALL
+        pattern: javax.management.remote.JMXConnectorFactory.connect({*})

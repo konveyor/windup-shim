@@ -16,12 +16,10 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework.cloud
             artifactId: spring-cloud-config-client
         dependency:
-        - value: ""
-          groupId: org.springframework.cloud
+        - groupId: org.springframework.cloud
           artifactId: spring-cloud-config-client
     perform:
       hint:

@@ -1,0 +1,156 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-0
+    when:
+    - dependency:
+        artifactID: jboss-eap-jakartaee8
+        groupID: org.jboss.bom
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-1
+    when:
+    - dependency:
+        artifactID: jboss-eap-jakartaee8-with-tools
+        groupID: org.jboss.bom
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-2
+    when:
+    - dependency:
+        artifactID: jboss-jakartaee-8.0
+        groupID: org.jboss.spec
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-3
+    when:
+    - dependency:
+        artifactID: jboss-jakartaee-web-8.0
+        groupID: org.jboss.spec
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-4
+    when:
+    - dependency:
+        artifactID: jakarta.activation
+        groupID: com.sun.activation
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-5
+    when:
+    - dependency:
+        artifactID: jboss-annotations-api_1.3_spec
+        groupID: org.jboss.spec.javax.annotation
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-6
+    when:
+    - dependency:
+        artifactID: jboss-jaspi-api_1.0_spec
+        groupID: org.jboss.spec.javax.security.auth.message
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-7
+    when:
+    - dependency:
+        artifactID: jboss-jacc-api_1.5_spec
+        groupID: org.jboss.spec.javax.security.jacc
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-8
+    when:
+    - dependency:
+        artifactID: jboss-batch-api_1.0_spec
+        groupID: org.jboss.spec.javax.batch
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-9
+    when:
+    - dependency:
+        artifactID: jboss-ejb-api_3.2_spec
+        groupID: org.jboss.spec.javax.ejb
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-10
+    when:
+    - dependency:
+        artifactID: jboss-el-api_3.0_spec
+        groupID: org.jboss.spec.javax.el
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-11
+    when:
+    - dependency:
+        artifactID: jboss-concurrency-api_1.0_spec
+        groupID: org.jboss.spec.javax.enterprise.concurrent
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-12
+    when:
+    - dependency:
+        artifactID: jboss-jsf-api_2.3_spec
+        groupID: org.jboss.spec.javax.faces
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-13
+    when:
+    - dependency:
+        artifactID: jboss-interceptors-api_1.2_spec
+        groupID: org.jboss.spec.javax.interceptor
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-14
+    when:
+    - dependency:
+        artifactID: jboss-jms-api_2.0_spec
+        groupID: org.jboss.spec.javax.jms
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-15
+    when:
+    - dependency:
+        artifactID: jakarta.mail
+        groupID: com.sun.mail
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-16
+    when:
+    - dependency:
+        artifactID: jboss-connector-api_1.7_spec
+        groupID: org.jboss.spec.javax.resource
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-17
+    when:
+    - dependency:
+        artifactID: jboss-servlet-api_4.0_spec
+        groupID: org.jboss.spec.javax.servlet
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-18
+    when:
+    - dependency:
+        artifactID: jboss-jsp-api_2.3_spec
+        groupID: org.jboss.spec.javax.servlet.jsp
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-19
+    when:
+    - dependency:
+        artifactID: taglibs-standard-spec
+        groupID: org.apache.taglibs
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-20
+    when:
+    - dependency:
+        artifactID: jboss-transaction-api_1.3_spec
+        groupID: org.jboss.spec.javax.transaction
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-21
+    when:
+    - dependency:
+        artifactID: jboss-jaxb-api_2.3_spec
+        groupID: org.jboss.spec.javax.xml.bind
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-22
+    when:
+    - dependency:
+        artifactID: jboss-jaxws-api_2.3_spec
+        groupID: org.jboss.spec.javax.xml.ws
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-23
+    when:
+    - dependency:
+        artifactID: jboss-websocket-api_1.1_spec
+        groupID: org.jboss.spec.javax.websocket
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-24
+    when:
+    - dependency:
+        artifactID: jboss-jaxrs-api_2.1_spec
+        groupID: org.jboss.spec.javax.ws.rs
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-25
+    when:
+    - dependency:
+        artifactID: jboss-saaj-api_1.4_spec
+        groupID: org.jboss.spec.javax.xml.soap
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-26
+    when:
+    - dependency:
+        artifactID: hibernate-core
+        groupID: org.hibernate
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-27
+    when:
+    - dependency:
+        artifactID: hibernate-jpamodelgen
+        groupID: org.hibernate
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-28
+    when:
+    - dependency:
+        artifactID: jbossxts
+        groupID: org.jboss.narayana.xts
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-29
+    when:
+    - dependency:
+        artifactID: eap-runtime-artifacts
+        groupID: org.jboss.bom
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/jboss-dependencies.windup.xml-30
+    when:
+    - dependency:
+        artifactID: jsr181-api
+        groupID: javax.jws

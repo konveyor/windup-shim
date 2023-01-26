@@ -718,7 +718,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.apache.camel
           artifactId: camel-fhir
           toVersion: "2"

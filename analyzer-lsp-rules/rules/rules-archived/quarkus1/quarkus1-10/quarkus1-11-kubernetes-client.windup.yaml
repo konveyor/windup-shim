@@ -1,0 +1,6 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-kubernetes-client.windup.xml-0
+    when:
+    - dependency:
+        artifactID: quarkus-kubernetes-client
+        groupID: io.quarkus

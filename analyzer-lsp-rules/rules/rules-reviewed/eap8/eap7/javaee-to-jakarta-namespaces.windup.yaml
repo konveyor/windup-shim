@@ -1,0 +1,377 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-0
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: http://xmlns.jcp.org/xml/ns/javaee
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-1
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: http://xmlns.jcp.org/xml/ns/persistence
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-2
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: http://xmlns.jcp.org/xml/ns/validation
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-3
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: javaee_web_services_metadata_handler_2_0.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-4
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: batchXML_1_0.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-5
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: beans_1_1.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-6
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: beans_2_0.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-7
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: jobXML_1_0.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-8
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: application_7.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-9
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: application_8.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-10
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: application-client_7.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-11
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: application-client_8.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-12
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: connector_1_7.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-13
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: ejb-jar_3_2.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-14
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: javaee_web_services_1_4.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-15
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: permissions_7.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-16
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-app_3_1.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-17
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-app_4_0.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-18
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-fragment_3_1.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-19
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-fragment_4_0.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-20
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-facesconfig_2_2.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-21
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-facesconfig_2_3.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-22
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-facelettaglibrary_2_2.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-23
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-facelettaglibrary_2_3.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-24
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-partialresponse_2_2.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-25
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-partialresponse_2_3.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-26
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: web-jsptaglibrary_2_1.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-27
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: validation-mapping-2.0.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-28
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: validation-configuration-2.0.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-29
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: persistence_2_1.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-30
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: orm_2_1.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-31
+    when:
+    - filecontent:
+        filename: '{*}.xml'
+        pattern: orm_2_2.xsd
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-32
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.1{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-33
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}7{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-34
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}1.1{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-35
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.0{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-36
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}7{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-37
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}8{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-38
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}7{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-39
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}8{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-40
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}1.7{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-41
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}3.2{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-42
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}1.4{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-43
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}3.1{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-44
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}4.0{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-45
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}3.1{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-46
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}4.0{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-47
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.2{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-48
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.3{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-49
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.2{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-50
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.3{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-51
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.1{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-52
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.0{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-53
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.0{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-54
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.1{quotes}
+        from: xml-file
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-55
+    when:
+      or:
+      - as: result
+        filecontent:
+          filename: ""
+          pattern: version={quotes}2.2{quotes}
+        from: xml-file
+      - xmlfile: null

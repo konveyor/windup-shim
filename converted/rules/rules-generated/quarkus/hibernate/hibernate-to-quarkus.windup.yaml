@@ -15,7 +15,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.hibernate
           artifactId: hibernate-envers
     perform:
@@ -36,8 +35,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.hibernate
+      - groupId: org.hibernate
         artifactId: hibernate-envers
     perform:
       hint:
@@ -55,7 +53,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.hibernate.reactive
           artifactId: hibernate-reactive-core
     perform:
@@ -76,8 +73,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.hibernate.reactive
+      - groupId: org.hibernate.reactive
         artifactId: hibernate-reactive-core
     perform:
       hint:
@@ -95,7 +91,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.hibernate.search
           artifactId: hibernate-search-backend-elasticsearch-aws
     perform:
@@ -116,8 +111,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.hibernate.search
+      - groupId: org.hibernate.search
         artifactId: hibernate-search-backend-elasticsearch-aws
     perform:
       hint:
@@ -135,7 +129,6 @@ rules:
   - when:
       project:
       - artifact:
-          value: ""
           groupId: org.hibernate.validator
           artifactId: hibernate-validator
     perform:
@@ -156,8 +149,7 @@ rules:
         over: default
   - when:
       dependency:
-      - value: ""
-        groupId: org.hibernate.validator
+      - groupId: org.hibernate.validator
         artifactId: hibernate-validator
     perform:
       hint:

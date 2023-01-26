@@ -18,11 +18,9 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-starter-security
         - artifact:
-            value: ""
             groupId: org.springframework.security
             artifactId: '{*}'
     perform:

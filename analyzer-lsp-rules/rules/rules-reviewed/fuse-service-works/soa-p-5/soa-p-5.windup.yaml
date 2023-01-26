@@ -1,0 +1,155 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-0
+    when:
+      or:
+      - as: javaclasses
+        java.referenced:
+          pattern: org.jboss.soa.esb.message.Message
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-1
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-2
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-3
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-4
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-5
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-6
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-7
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-8
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-9
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-10
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-11
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-12
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-13
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-14
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-15
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-16
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-17
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-18
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-19
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-20
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-21
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-22
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-23
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-24
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-25
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-26
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-27
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-28
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-29
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-30
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-31
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-32
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-33
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-34
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-35
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-36
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-37
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-38
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-39
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-40
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-41
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-42
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-43
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-44
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-45
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-46
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-47
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-48
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-49
+    when:
+    - xmlfile: null

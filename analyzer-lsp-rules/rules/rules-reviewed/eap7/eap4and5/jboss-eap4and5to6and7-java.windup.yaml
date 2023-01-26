@@ -1,0 +1,16 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-java.windup.xml-0
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: org.jboss.security.annotation.SecurityDomain
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-java.windup.xml-1
+    when:
+    - java.referenced:
+        location: IMPORT
+        pattern: org.jboss.mx.util.MBeanProxyExt
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-java.windup.xml-2
+    when:
+    - java.referenced:
+        location: INHERITANCE
+        pattern: org.jboss.system.{classes}

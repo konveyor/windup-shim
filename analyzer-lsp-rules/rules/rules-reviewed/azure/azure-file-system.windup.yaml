@@ -1,0 +1,20 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-0
+    when:
+    - or:
+      - java.referenced:
+          pattern: java.io.{*}
+      - java.referenced:
+          pattern: java.nio.{*}
+      - java.referenced:
+          pattern: org.apache.commons.io.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-1
+    when:
+    - filecontent:
+        filename: '{*}.{extensions}'
+        pattern: '{path}'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-2
+    when:
+    - filecontent:
+        filename: '{*}.{extensions}'
+        pattern: '{path}'

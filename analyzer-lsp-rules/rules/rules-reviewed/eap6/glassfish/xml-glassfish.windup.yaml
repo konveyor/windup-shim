@@ -1,0 +1,10 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-0
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-1
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-2
+    when:
+    - xmlfile: null

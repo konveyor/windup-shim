@@ -1,0 +1,30 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-0
+    when:
+    - filecontent:
+        filename: hibernate.{file-ext}
+        pattern: hibernate.transaction.factory_class
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-1
+    when:
+    - filecontent:
+        filename: '{*}.hbm.xml'
+        pattern: org.hibernate.id.{idclass}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-2
+    when:
+    - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-3
+    when:
+    - or:
+      - as: properties
+        filecontent:
+          filename: hibernate.properties
+          pattern: hibernate.hql.bulk_id_strategy=org.hibernate.hql.spi.TemporaryTableBulkIdStrategy
+      - xmlfile: null
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-4
+    when:
+    - or:
+      - as: properties
+        filecontent:
+          filename: hibernate.properties
+          pattern: hibernate.hql.bulk_id_strategy=org.hibernate.hql.spi.PersistentTableBulkIdStrategy
+      - xmlfile: null

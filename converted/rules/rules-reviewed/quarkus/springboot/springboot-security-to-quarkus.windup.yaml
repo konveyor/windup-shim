@@ -16,16 +16,13 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework.security
             artifactId: spring-security-core
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-starter-security
         dependency:
-        - value: ""
-          groupId: org.springframework.security
+        - groupId: org.springframework.security
           artifactId: spring-security-core
     perform:
       hint:

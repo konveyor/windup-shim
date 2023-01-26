@@ -1,0 +1,11 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-database.windup.xml-0
+    when:
+    - filecontent:
+        filename: application{*}.{extensions}
+        pattern: 'jdbc:'
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-database.windup.xml-1
+    when:
+    - filecontent:
+        filename: application{*}.{extensions}
+        pattern: 'mongodb:'

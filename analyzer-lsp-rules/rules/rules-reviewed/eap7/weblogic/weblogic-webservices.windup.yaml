@@ -1,0 +1,35 @@
+- rules:
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webservices.windup.xml-0
+    when:
+    - java.referenced:
+        location: INHERITANCE
+        pattern: weblogic.wsee.jaxrpc.ServiceImpl
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webservices.windup.xml-1
+    when:
+    - java.referenced:
+        pattern: weblogic.wsee.async.AsyncPreCallContext
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webservices.windup.xml-2
+    when:
+    - java.referenced:
+        location: METHOD_CALL
+        pattern: weblogic.wsee.connection.transport.http.HttpTransportInfo.setUsername({*})
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webservices.windup.xml-3
+    when:
+    - java.referenced:
+        pattern: weblogic.wsee.context.WebServiceContext
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webservices.windup.xml-4
+    when:
+    - java.referenced:
+        pattern: weblogic.wsee.context.ContextNotFoundException
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webservices.windup.xml-5
+    when:
+    - or:
+      - java.referenced:
+          pattern: weblogic.wsee.tools.clientgen.{*}
+      - java.referenced:
+          pattern: weblogic.webservice.{*}
+  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webservices.windup.xml-6
+    when:
+    - java.referenced:
+        location: ANNOTATION
+        pattern: weblogic.jws.Transactional

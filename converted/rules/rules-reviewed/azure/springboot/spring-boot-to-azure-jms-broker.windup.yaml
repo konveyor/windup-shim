@@ -19,11 +19,9 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-starter-activemq
         - artifact:
-            value: ""
             groupId: org.apache.activemq
             artifactId: '{*}'
     perform:

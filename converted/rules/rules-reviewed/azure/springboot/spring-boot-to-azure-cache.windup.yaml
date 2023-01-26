@@ -18,19 +18,15 @@ rules:
       or:
       - project:
         - artifact:
-            value: ""
             groupId: org.springframework.boot
             artifactId: spring-boot-starter-data-redis
         - artifact:
-            value: ""
             groupId: org.springframework.data
             artifactId: spring-data-redis
         - artifact:
-            value: ""
             groupId: org.springframework.session
             artifactId: spring-session-data-redis
         - artifact:
-            value: ""
             groupId: org.springframework.integration
             artifactId: spring-integration-redis
     perform:
