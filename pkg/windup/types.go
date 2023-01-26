@@ -5,8 +5,11 @@ type Addon struct {
 }
 
 type Annotationlist struct {
-	Annotationtype    *Annotationtype    `xml:"annotation-type,omitempty" yaml:"annotation-type,omitempty"`
-	Annotationlist    *Annotationlist    `xml:"annotation-list,omitempty" yaml:"annotation-list,omitempty"`
+	// 1 rule (rules-reviewed/eap7/eap6/hsearch.windup.xml)
+	Annotationtype *Annotationtype `xml:"annotation-type,omitempty" yaml:"annotation-type,omitempty"`
+	// 0 rules
+	Annotationlist *Annotationlist `xml:"annotation-list,omitempty" yaml:"annotation-list,omitempty"`
+	// 5 rules
 	Annotationliteral *Annotationliteral `xml:"annotation-literal,omitempty" yaml:"annotation-literal,omitempty"`
 	Name              string             `xml:"name,attr,omitempty" yaml:"name,omitempty"`
 	Index             int                `xml:"index,attr,omitempty" yaml:"index,omitempty"`
@@ -23,14 +26,6 @@ type Annotationtype struct {
 	Annotationliteral *Annotationliteral `xml:"annotation-literal,omitempty" yaml:"annotation-literal,omitempty"`
 	Name              string             `xml:"name,attr,omitempty" yaml:"name,omitempty"`
 	Pattern           string             `xml:"pattern,attr,omitempty" yaml:"pattern,omitempty"`
-}
-
-type Artifact struct {
-	Value       string `xml:",chardata" yaml:"value"`
-	GroupId     string `xml:"groupId,attr,omitempty" yaml:"groupId,omitempty"`
-	ArtifactId  string `xml:"artifactId,attr,omitempty" yaml:"artifactId,omitempty"`
-	FromVersion string `xml:"fromVersion,attr,omitempty" yaml:"fromVersion,omitempty"`
-	ToVersion   string `xml:"toVersion,attr,omitempty" yaml:"toVersion,omitempty"`
 }
 
 type Categoryidtype string
@@ -57,7 +52,6 @@ type Dependencies struct {
 }
 
 type Dependency struct {
-	Value       string `xml:",chardata" yaml:"value"`
 	GroupId     string `xml:"groupId,attr,omitempty" yaml:"groupId,omitempty"`
 	ArtifactId  string `xml:"artifactId,attr,omitempty" yaml:"artifactId,omitempty"`
 	FromVersion string `xml:"fromVersion,attr,omitempty" yaml:"fromVersion,omitempty"`
@@ -258,7 +252,7 @@ type OnParseErrortype string
 type Phase string
 
 type Project struct {
-	Artifact Artifact `xml:"artifact" yaml:"artifact"`
+	Artifact Dependency `xml:"artifact" yaml:"artifact"`
 }
 
 type Property struct {
