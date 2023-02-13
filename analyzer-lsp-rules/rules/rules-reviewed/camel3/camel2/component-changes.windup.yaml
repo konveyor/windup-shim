@@ -1,5 +1,11 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/component-changes.windup.xml-0
+  - message: The `org.apache.camel:camel-kafka` component has removed the options
+      `bridgeEndpoint` and `circularEndpointDetection` as they are no longer needed
+      because the component is acting as bridging would work on Camel 2.x. In other
+      words camel-kafka will send messages to the topic from the endpoint uri. To
+      override this use the KafkaConstants.OVERRIDE_TOPIC header with the new topic.
+      See more details in the camel-kafka component documentation.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/component-changes.windup.xml-0
     when:
     - or:
       - filecontent:

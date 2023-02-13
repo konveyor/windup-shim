@@ -1,5 +1,10 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-scheduled-to-quarkus.windup.xml-0
+  - message: "\n                        Replace the Spring Context artifact with Quarkus
+      `spring-scheduled` extension\n\n                        Spring Scheduled is
+      in spring-context artifact brought transitively by any `org.springframework.boot:spring-boot-*`
+      dependency\n                        Add Quarkus dependency `io.quarkus:quarkus-spring-scheduled`\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-scheduled-to-quarkus.windup.xml-0
     when:
     - java.referenced:
         location: ANNOTATION

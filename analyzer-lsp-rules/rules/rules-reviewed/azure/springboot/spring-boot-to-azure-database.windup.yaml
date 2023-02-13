@@ -1,10 +1,18 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-database.windup.xml-0
+  - message: "\n                        \n                        The application
+      uses a JDBC connection string.\n\n                        Checkout the different
+      types of databases that are fully managed on Azure.\n                        \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-database.windup.xml-0
     when:
     - filecontent:
         filename: application{*}.{extensions}
         pattern: 'jdbc:'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-database.windup.xml-1
+  - message: "\n                        \n                        The application
+      uses a MongoDB connection string.\n\n                        Checkout the different
+      types of databases that are fully managed on Azure.\n                        \n
+      \                       "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-database.windup.xml-1
     when:
     - filecontent:
         filename: application{*}.{extensions}

@@ -78,12 +78,9 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-25
     when:
     - or:
-      - dependency:
-          artifactID: spring-security-core
-          groupID: org.springframework.security
-      - dependency:
-          artifactID: spring-boot-starter-security
-          groupID: org.springframework.boot
-      - dependency:
-          artifactID: spring-security-core
-          groupID: org.springframework.security
+      - java.dependency:
+          name: org.springframework.security.spring-security-core
+      - java.dependency:
+          name: org.springframework.boot.spring-boot-starter-security
+      - java.dependency:
+          name: org.springframework.security.spring-security-core

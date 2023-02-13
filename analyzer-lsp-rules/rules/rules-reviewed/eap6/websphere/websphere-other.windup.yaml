@@ -1,10 +1,20 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-other.windup.xml-0
+  - message: "\n                      \n                      WebSphere Asynchronous
+      Work is a Work Manager, whose purpose is to allow the user utilizing threads
+      while letting the container manage them.\n\n                      For migration
+      to JBoss EAP 6, [replace with JCA Work Manager](https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Administration_and_Configuration_Guide/Configure_the_Java_Connector_Architecture_JCA_Subsystem.html).\n
+      \                     \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-other.windup.xml-0
     when:
     - java.referenced:
         location: INHERITANCE
         pattern: com.ibm.websphere.asynchbeans.Work
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-other.windup.xml-1
+  - message: "\n                      \n                      WebSphere Startup Service
+      serves as a callback to be invoked when the server or application starts.\n\n
+      \                     When migrating to JBoss EAP 6, this has to be replaced
+      with standard EJB 3.1 Startup Bean, using `@Startup @Singleton` class and `@PostConstruct`
+      method.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-other.windup.xml-1
     when:
     - java.referenced:
         pattern: com.ibm.websphere.startupservice.{*}StartUp{*}

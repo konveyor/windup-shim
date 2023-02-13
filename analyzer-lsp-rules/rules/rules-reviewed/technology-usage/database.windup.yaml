@@ -57,12 +57,9 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-17
     when:
     - or:
-      - dependency:
-          artifactID: spring-data-jpa
-          groupID: org.springframework.data
-      - dependency:
-          artifactID: spring-boot-starter-data-jpa
-          groupID: org.springframework.boot
-      - dependency:
-          artifactID: spring-data-jpa
-          groupID: org.springframework.data
+      - java.dependency:
+          name: org.springframework.data.spring-data-jpa
+      - java.dependency:
+          name: org.springframework.boot.spring-boot-starter-data-jpa
+      - java.dependency:
+          name: org.springframework.data.spring-data-jpa

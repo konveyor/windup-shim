@@ -1,5 +1,12 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-authentication-request-signatures.windup.xml-0
+  - message: "\n                    \n                    New methods signatures have
+      been added to the `AuthenticationRequest` interface to allow transportation
+      \n                    of additional context information with the request such
+      as context path, HTTP header or query parameter values. \n                    If
+      you were implementing this interface before, you can now extend `BaseAuthenticationRequest`
+      in 1.13 without having to implement the new methods.\n                    \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-authentication-request-signatures.windup.xml-0
     when:
     - java.referenced:
         location: IMPLEMENTS_TYPE

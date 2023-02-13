@@ -23,7 +23,12 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-7
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-8
+  - message: "\n                        In JBoss EAP 6, the classloading configuration
+      is not done through `jboss-classloading.xml`.\n                        Since
+      EAP 6 it is of modular nature, based on JBoss Modules.\n                        Learn
+      how to divide your application's dependencies into modules\n                        and
+      what dependencies and APIs are available automatically.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-8
     when:
     - xmlfile: null
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-9
@@ -35,10 +40,18 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-11
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-12
+  - message: "\n                        `java:/jaas/` is a JBoss EAP `security-domain`
+      URI.\n                        Remove the `java:/jaas/` prefix for `security-domain`
+      elements in AS 7 / EAP 6.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-12
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-13
+  - message: "Before JBoss EAP 6, authentication security domains and login modules
+      could be configured in a `login-config.xml` file.\n                    JBoss
+      EAP 6+ does not support the `login-config.xml` descriptor. Security is now configured
+      inside the server configuration. Please refer to the corresponding server security
+      guide.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-13
     when:
     - xmlfile: null
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-14

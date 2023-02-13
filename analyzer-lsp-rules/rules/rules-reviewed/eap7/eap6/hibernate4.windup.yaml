@@ -1,167 +1,236 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-0
+  - message: Use `org.hibernate.boot.MetadataSources#addFile` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-0
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addFile{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-1
+  - message: There is no direct replacement for method `org.hibernate.cfg.Configuration#add()`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-1
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.add({*})
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-2
+  - message: There is no direct replacement for method `org.hibernate.cfg.Configuration#addXML`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-2
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addXML{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-3
+  - message: Use `org.hibernate.boot.MetadataSources#addCacheableFile` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-3
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addCacheableFile{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-4
+  - message: Use `org.hibernate.boot.MetadataSources#addURL` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-4
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addURL{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-5
+  - message: Use `org.hibernate.boot.MetadataSources#addInputStream` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-5
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addInputStream{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-6
+  - message: Use `org.hibernate.boot.MetadataSources#addResource` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-6
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addResource{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-7
+  - message: Use `org.hibernate.boot.MetadataSources#addClass` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-7
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addClass{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-8
+  - message: Use `org.hibernate.boot.MetadataSources#addAnnotatedClass` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-8
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addAnnotatedClass{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-9
+  - message: Use `org.hibernate.boot.MetadataSources#addPackage` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-9
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addPackage{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-10
+  - message: Use `org.hibernate.boot.MetadataSources#addJar` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-10
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addJar{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-11
+  - message: Use `org.hibernate.boot.MetadataSources#addDirectory` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-11
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addDirectory{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-12
+  - message: Use `org.hibernate.boot.MetadataBuilder#applyTypes` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-12
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.registerTypeContributor{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-13
+  - message: Use `org.hibernate.boot.MetadataBuilder#applyBasicType` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-13
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.registerTypeOverride{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-14
+  - message: Use `org.hibernate.boot.registry.StandardServiceRegistryBuilder#applySetting`
+      instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-14
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.setProperty{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-15
+  - message: There is no direct replacement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-15
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.setProperties{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-16
+  - message: Use `org.hibernate.boot.registry.StandardServiceRegistryBuilder#applySettings`
+      instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-16
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addProperties{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-17
+  - message: "\n                        Historically Hibernate provided just a singular
+      contract for applying a \"naming strategy\".\n                        Starting
+      in 5.0 this has been split into 2 distinct contracts:\n\n                        *
+      ImplicitNamingStrategy - is used whenever a table or column is not explicitly
+      named to determine the name to use.\n                        * PhysicalNamingStrategy
+      - is used to convert a \"logical name\" (either implicit or explicit) name of
+      a table or column into a physical name (e.g. following corporate naming guidelines)\n\n
+      \                       Use methods `org.hibernate.boot.MetadataBuilder#setImplicitNamingStrategy(ImplicitNamingStrategy
+      implicitNamingStrategy)` or\n                        `org.hibernate.boot.MetadataBuilder#setPhysicalNamingStrategy(PhysicalNamingStrategy
+      physicalNamingStrategy)`\n                        instead of `public Configuration
+      setNamingStrategy(NamingStrategy namingStrategy)()`\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-17
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.setNamingStrategy{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-18
+  - message: Use `org.hibernate.boot.registry.StandardServiceRegistryBuilder#configure`
+      instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-18
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.{configure}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-19
+  - message: Use `org.hibernate.boot.SessionFactoryBuilder#applyInterceptor` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-19
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.setInterceptor{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-20
+  - message: Use `org.hibernate.boot.SessionFactoryBuilder#applyEntityNotFoundDelegate`
+      instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-20
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.setEntityNotFoundDelegate{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-21
+  - message: Use `org.hibernate.boot.SessionFactoryBuilder#addSessionFactoryObservers`
+      instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-21
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.setSessionFactoryObserver{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-22
+  - message: Use `org.hibernate.boot.SessionFactoryBuilder#applyCurrentTenantIdentifierResolver`
+      instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-22
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.setCurrentTenantIdentifierResolver{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-23
+  - message: Use `org.hibernate.boot.model.{type}` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-23
     when:
     - java.referenced:
         pattern: org.hibernate.metamodel.spi.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-24
+  - message: "\n                    All functionality from `org.hibernate.cfg.AnnotationConfiguration`
+      has been moved to `org.hibernate.cfg.Configuration`.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-24
     when:
     - java.referenced:
         pattern: org.hibernate.cfg.AnnotationConfiguration
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-25
+  - message: Use `org.hibernate.id.enhanced.SequenceStyleGenerator` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-25
     when:
     - java.referenced:
         pattern: org.hibernate.id.{idclass}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-26
+  - message: Hibernate 5 moved `org.hibernate.hql.spi.{type}` class to new `org.hibernate.hql.spi.id`
+      package.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-26
     when:
     - java.referenced:
         pattern: org.hibernate.hql.spi.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-27
+  - message: Hibernate 5 moved `org.hibernate.hql.spi.PersistentTableBulkIdStrategy`
+      class to new `org.hibernate.hql.spi.id.persistent` package.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-27
     when:
     - java.referenced:
         pattern: org.hibernate.hql.spi.PersistentTableBulkIdStrategy
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-28
+  - message: Hibernate 5 replaced `org.hibernate.hql.spi.TemporaryTableBulkIdStrategy`
+      class with `org.hibernate.hql.spi.id.global.GlobalTemporaryTableBulkIdStrategy`
+      and `org.hibernate.hql.spi.id.local.LocalTemporaryTableBulkIdStrategy`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-28
     when:
     - java.referenced:
         pattern: org.hibernate.hql.spi.TemporaryTableBulkIdStrategy
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-29
+  - message: "Hibernate 5 changed contract `org.hibernate.integrator.spi.Integrator`
+      to account for bootstrap redesign.\n                    Check if you implement
+      method `integrate(Configuration configuration, SessionFactoryImplementor sessionFactory,
+      SessionFactoryServiceRegistry serviceRegistry)` which is no longer there.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-29
     when:
     - java.referenced:
         location: IMPLEMENTS_TYPE
         pattern: org.hibernate.integrator.spi.Integrator
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-30
+  - message: Hibernate 5 extracted new interface `org.hibernate.engine.jdbc.env.spi.JdbcEnvironment`
+      from `org.hibernate.engine.jdbc.spi.JdbcServices`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-30
     when:
     - java.referenced:
         pattern: org.hibernate.engine.jdbc.spi.JdbcServices
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-31
+  - message: Hibernate 5 changed the signature of `org.hibernate.id.Configurable#configure`
+      method to accept `ServiceRegistry` rather than just `Dialect`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-31
     when:
     - java.referenced:
         location: IMPLEMENTS_TYPE
         pattern: org.hibernate.id.Configurable
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-32
+  - message: |-
+      Since Hibernate 5, The `org.hibernate.id.PersistentIdentifierGenerator` extends new `org.hibernate.boot.model.relational.ExportableProducer` interface which will affect all `org.hibernate.id.PersistentIdentifierGenerator` implementations.
+                          Therefore you need to implement additionally `ExportableProducer#registerExportables(org.hibernate.boot.model.relational.Database database)` method.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-32
     when:
     - java.referenced:
         location: IMPLEMENTS_TYPE
         pattern: org.hibernate.id.PersistentIdentifierGenerator
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-33
+  - message: Hibernate 5 removed `AuditConfiguration` in preference for new `org.hibernate.envers.boot.internal.EnversService`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-33
     when:
     - java.referenced:
         pattern: org.hibernate.envers.configuration.AuditConfiguration
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-34
+  - message: |-
+      Built-in implementations of `org.hibernate.type.descriptor.sql.SqlTypeDescriptor` and `org.hibernate.type.descriptor.java.JavaTypeDescriptor` no longer
+                              auto-register themselves with `org.hibernate.type.descriptor.sql.SqlTypeDescriptorRegistry` and `org.hibernate.type.descriptor.java.JavaTypeDescriptorRegistry`.
+                              Applications using custom `SqlTypeDescriptor`/`JavaTypeDescriptor` implementations which extends the built-in ones and
+                              rely on that behavior should be updated to call `SqlTypeDescriptorRegistry#addDescriptor` or `JavaTypeDescriptorRegistry#addDescriptor` themselves.
+                           This warning is important especially for users of Hibernate 4.3.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-34
     when:
     - or:
       - java.referenced:

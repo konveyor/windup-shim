@@ -1,85 +1,102 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-0
+  - message: 'Replace with : org.kie.api.KieBase'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-0
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.KnowledgeBase
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-1
+  - message: 'Replace with : org.kie.api.event.rule.AgendaEventListener'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-1
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.event.AgendaEventListener
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-2
+  - message: 'Replace with : org.kie.api.event.rule.AgendaEventListener'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-2
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.event.rule.AgendaEventListener
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-3
+  - message: 'Replace with : org.kie.drools.core.event.DefaultAgendaEventListener'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-3
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.event.DefaultAgendaEventListener
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-4
+  - message: 'Replace with : org.kie.api.event.rule.DefaultAgendaEventListener'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-4
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.event.rule.DefaultAgendaEventListener
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-5
+  - message: 'Replace with : org.kie.api.event.process.ProcessEventListener'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-5
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.event.process.ProcessEventListener
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-6
+  - message: 'Replace with : org.kie.api.event.process.DefaultProcessEventListener'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-6
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.event.process.DefaultProcessEventListener
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-7
+  - message: 'Replace with : org.kie.api.logger.KieRuntimeLogger'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-7
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.logger.KnowledgeRuntimeLogger
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-8
+  - message: 'Replace with : org.kie.api.logger.KieLoggers'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-8
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.logger.KnowledgeRuntimeLoggerFactory
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-9
+  - message: 'Replace with : org.kie.api.runtime.KieSession'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-9
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.runtime.StatefulKnowledgeSession
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-10
+  - message: 'Replace with : org.kie.api.runtime.KieSession'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-10
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.runtime.StatelessKnowledgeSession
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-11
+  - message: 'Replace with : org.kie.internal.builder.KnowledgeBuilderFactory'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-11
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.builder.KnowledgeBuilderFactory
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-12
+  - message: 'Replace with : org.kie.internal.io.ResourceFactory'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-12
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.io.ResourceFactory
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-13
+  - message: 'Replace with : org.kie.internal.io.ResourceType'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-13
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.io.ResourceType
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-14
+  - message: 'Replace with : org.kie.api.runtime.Environment'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-14
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.runtime.Environment
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-15
+  - message: 'Replace with : org.kie.api.runtime.EnvironmentName'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-15
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.drools.runtime.EnvironmentName
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-16
+  - message: 'Replace with : org.kie.api.runtime.KieSessionConfiguration'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/droolsjbpm/kie-api.windup.xml-16
     when:
     - java.referenced:
         location: IMPORT

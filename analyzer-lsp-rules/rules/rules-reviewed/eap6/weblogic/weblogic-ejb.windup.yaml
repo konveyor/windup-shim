@@ -4,17 +4,23 @@
     - java.referenced:
         location: IMPORT
         pattern: weblogic.{type}.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml-1
+  - message: "\n                        This application contains WebLogic proprietary
+      `weblogic.javaee.TransactionTimeoutSeconds` annotation.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml-1
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: weblogic.javaee.TransactionTimeoutSeconds
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml-2
+  - message: "\n                        This application contains WebLogic proprietary
+      `weblogic.ejbgen.MessageDriven` annotation.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml-2
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: weblogic.ejbgen.MessageDriven
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml-3
+  - message: "\n                        This class extends `weblogic.ejb.{type}` that
+      needs to be removed.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml-3
     when:
     - java.referenced:
         location: INHERITANCE

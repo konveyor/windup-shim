@@ -36,7 +36,10 @@
     - java.referenced:
         location: IMPORT
         pattern: org.jboss.as.clustering.singleton.SingletonService
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-6
+  - message: "\n                        The `@Clustered` annotation is ignored in
+      EAP 7 and is not useful. In case the application is started using HA profile,
+      the replication will be done automatically.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-6
     when:
       or:
       - java.referenced:
@@ -49,7 +52,11 @@
     when:
     - java.referenced:
         pattern: org.hornetq.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-8
+  - message: 'JBoss Logging annotations in package `org.jboss.logging` are deprecated.
+      You should replace them by the corresponding annotations from package `org.jboss.logging.annotations`.
+      Note that using the `org.jboss.logging.annotations` package requires adding
+      a new dependency: `org.jboss.logging:jboss-logging-annotations`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-8
     when:
     - java.referenced:
         location: ANNOTATION

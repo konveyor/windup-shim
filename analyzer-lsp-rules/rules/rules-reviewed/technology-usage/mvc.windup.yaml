@@ -16,18 +16,14 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-4
     when:
     - or:
-      - dependency:
-          artifactID: spring-webmvc
-          groupID: org.springframework
-      - dependency:
-          artifactID: spring-webflux
-          groupID: org.springframework
-      - dependency:
-          artifactID: spring-boot-starter-webflux
-          groupID: org.springframework.boot
-      - dependency:
-          artifactID: spring-webflux
-          groupID: org.springframework
+      - java.dependency:
+          name: org.springframework.spring-webmvc
+      - java.dependency:
+          name: org.springframework.spring-webflux
+      - java.dependency:
+          name: org.springframework.boot.spring-boot-starter-webflux
+      - java.dependency:
+          name: org.springframework.spring-webflux
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/mvc.windup.xml-5
     when:
     - file: null

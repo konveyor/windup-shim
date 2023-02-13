@@ -3,35 +3,70 @@
     when:
     - java.referenced:
         pattern: oracle.jms.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-1
+  - message: "\n                        Oracle JMS sessions are used for producing
+      and consuming messaging API objects such as message producers, message\n                        consumers,
+      messages, queue browsers, and temporary queues and topics.\n\n                        This
+      reference should be replaced with the Java EE\n                        standard
+      API: `javax.jms.Session`.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-1
     when:
     - java.referenced:
         pattern: oracle.jms.AQjmsSession
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-2
+  - message: "\n                        Oracle JMS queue browsers are used for browsing
+      messages in a JMS queue.\n\n                        This reference should be
+      replaced with the Java\n                        EE standard API: `javax.jms.QueueBrowser`.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-2
     when:
     - java.referenced:
         pattern: oracle.jms.AQjmsQueueBrowser
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-3
+  - message: "\n                        Oracle JMS producers are used for sending
+      messages to a destination.\n\n                        This reference should
+      be replaced with the Java\n                        EE\n                        standard
+      API: `javax.jms.MessageProducer`.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-3
     when:
     - java.referenced:
         pattern: oracle.jms.AQjmsProducer
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-4
+  - message: "\n                        Oracle JMS consumers are used for receiving
+      messages sent to a destination.\n\n                        This reference should
+      be replaced with the\n                        Java EE standard API: `javax.jms.MessageConsumer`.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-4
     when:
     - java.referenced:
         pattern: oracle.jms.AQjmsConsumer
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-5
+  - message: "\n                        Oracle JMS connections represent virtual connections
+      with a JMS provider.\n\n                        This reference should be replaced
+      with the\n                        Java\n                        EE standard
+      API: `javax.jms.Connection`.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-5
     when:
     - java.referenced:
         pattern: oracle.jms.AQjmsConnection
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-6
+  - message: "\n                        Oracle JMS {type} messages represent the actual
+      data passed through JMS destinations.\n\n                        This reference
+      should be replaced\n                        with the\n                        Java\n
+      \                       EE standard API: `javax.jms.{type}Message`.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-6
     when:
     - java.referenced:
         pattern: oracle.jms.AQjms{type}Message
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-7
+  - message: "\n                        Oracle JMS destinations are the objects a
+      client uses to specify the target of messages it produces and the source of\n
+      \                       messages it consumes.\n\n                        This
+      reference should be replaced with the\n                        Java\n                        EE
+      standard API: `javax.jms.Destination`.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-7
     when:
     - java.referenced:
         pattern: oracle.jms.AQjmsDestination
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-8
+  - message: "\n                        Oracle {type}ConnectionFactory is an encapsulation
+      of JMS servers to which Connections can be created for message distribution.\n\n
+      \                       This reference should be replaced with the\n                        Java\n
+      \                       EE standard API: `javax.jms.{type}ConnectionFactory`.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-8
     when:
     - java.referenced:
         pattern: oracle.jms.AQjms{type}ConnectionFactory

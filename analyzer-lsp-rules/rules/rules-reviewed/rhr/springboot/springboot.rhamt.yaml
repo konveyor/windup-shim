@@ -1,60 +1,52 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot.rhamt.xml-0
+  - message: Spring Boot has to be updated to Spring Boot 2.2.6 before being able
+      to be migrated to a version supported by Red Hat Runtimes
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot.rhamt.xml-0
     when:
-    - dependency:
-        artifactID: '{*}'
-        groupID: org.springframework.boot
+    - java.dependency:
+        name: org.springframework.boot.{*}
         upperBound: 2.2.5.RELEASE
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot.rhamt.xml-1
+  - message: Spring Boot has to be updated to a version supported by Red Hat Runtimes
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot.rhamt.xml-1
     when:
     - or:
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.springframework.boot
+      - java.dependency:
           lowerBound: 2.0.0
+          name: org.springframework.boot.{*}
           upperBound: 2.1.1.RELEASE
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.springframework.boot
+      - java.dependency:
           lowerBound: 2.2.7.RELEASE
+          name: org.springframework.boot.{*}
           upperBound: 2.2.9.RELEASE
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.springframework.boot
+      - java.dependency:
           lowerBound: 2.2.12.RELEASE
+          name: org.springframework.boot.{*}
           upperBound: 2.3.3.RELEASE
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.springframework.boot
+      - java.dependency:
           lowerBound: 2.3.5.RELEASE
+          name: org.springframework.boot.{*}
           upperBound: 2.3.5.RELEASE
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.springframework.boot
+      - java.dependency:
           lowerBound: 2.3.7.RELEASE
+          name: org.springframework.boot.{*}
           upperBound: 2.3.9.RELEASE
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.springframework.boot
+      - java.dependency:
           lowerBound: 2.3.11.RELEASE
+          name: org.springframework.boot.{*}
           upperBound: 2.3.13.RELEASE
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.springframework.boot
+      - java.dependency:
           lowerBound: 2.4.0
+          name: org.springframework.boot.{*}
           upperBound: 2.4.8
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.springframework.boot
+      - java.dependency:
           lowerBound: 2.4.10
+          name: org.springframework.boot.{*}
           upperBound: 2.5.9
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.springframework.boot
+      - java.dependency:
           lowerBound: 2.5.11
+          name: org.springframework.boot.{*}
           upperBound: 2.5.11
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.springframework.boot
+      - java.dependency:
           lowerBound: 2.5.13
+          name: org.springframework.boot.{*}
           upperBound: 2.7.4

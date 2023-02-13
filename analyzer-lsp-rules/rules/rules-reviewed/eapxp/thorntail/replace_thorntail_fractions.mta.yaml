@@ -1,251 +1,401 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-0
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:bean-validation` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-0
     when:
-    - dependency:
-        artifactID: bean-validation
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-1
+    - java.dependency:
+        name: io.thorntail.bean-validation
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:cdi-config` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-1
     when:
-    - dependency:
-        artifactID: cdi-config
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-2
+    - java.dependency:
+        name: io.thorntail.cdi-config
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:cdi` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-2
     when:
-    - dependency:
-        artifactID: cdi
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-3
+    - java.dependency:
+        name: io.thorntail.cdi
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:config-api-runtime` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-3
     when:
-    - dependency:
-        artifactID: config-api-runtime
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-4
+    - java.dependency:
+        name: io.thorntail.config-api-runtime
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:datasources` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-4
     when:
-    - dependency:
-        artifactID: datasources
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-5
+    - java.dependency:
+        name: io.thorntail.datasources
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:ee-security` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-5
     when:
-    - dependency:
-        artifactID: ee-security
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-6
+    - java.dependency:
+        name: io.thorntail.ee-security
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:ejb-mdb` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-6
     when:
-    - dependency:
-        artifactID: ejb-mdb
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-7
+    - java.dependency:
+        name: io.thorntail.ejb-mdb
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:ejb` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-7
     when:
-    - dependency:
-        artifactID: ejb
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-8
+    - java.dependency:
+        name: io.thorntail.ejb
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:elytron` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-8
     when:
-    - dependency:
-        artifactID: elytron
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-9
+    - java.dependency:
+        name: io.thorntail.elytron
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:fraction-metadata` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-9
     when:
-    - dependency:
-        artifactID: fraction-metadata
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-10
+    - java.dependency:
+        name: io.thorntail.fraction-metadata
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:hibernate-validator` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-10
     when:
-    - dependency:
-        artifactID: hibernate-validator
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-11
+    - java.dependency:
+        name: io.thorntail.hibernate-validator
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:hibernate` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-11
     when:
-    - dependency:
-        artifactID: hibernate
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-12
+    - java.dependency:
+        name: io.thorntail.hibernate
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:hystrix` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-12
     when:
-    - dependency:
-        artifactID: hystrix
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-13
+    - java.dependency:
+        name: io.thorntail.hystrix
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:infinispan` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-13
     when:
-    - dependency:
-        artifactID: infinispan
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-14
+    - java.dependency:
+        name: io.thorntail.infinispan
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jaeger` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-14
     when:
-    - dependency:
-        artifactID: jaeger
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-15
+    - java.dependency:
+        name: io.thorntail.jaeger
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jaxrs-jaxb` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-15
     when:
-    - dependency:
-        artifactID: jaxrs-jaxb
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-16
+    - java.dependency:
+        name: io.thorntail.jaxrs-jaxb
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jaxrs-jsonb` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-16
     when:
-    - dependency:
-        artifactID: jaxrs-jsonb
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-17
+    - java.dependency:
+        name: io.thorntail.jaxrs-jsonb
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jaxrs-jsonp` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-17
     when:
-    - dependency:
-        artifactID: jaxrs-jsonp
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-18
+    - java.dependency:
+        name: io.thorntail.jaxrs-jsonp
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jaxrs-multipart` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-18
     when:
-    - dependency:
-        artifactID: jaxrs-multipart
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-19
+    - java.dependency:
+        name: io.thorntail.jaxrs-multipart
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jaxrs-validator` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-19
     when:
-    - dependency:
-        artifactID: jaxrs-validator
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-20
+    - java.dependency:
+        name: io.thorntail.jaxrs-validator
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jaxrs` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-20
     when:
-    - dependency:
-        artifactID: jaxrs
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-21
+    - java.dependency:
+        name: io.thorntail.jaxrs
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jca` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-21
     when:
-    - dependency:
-        artifactID: jca
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-22
+    - java.dependency:
+        name: io.thorntail.jca
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jmx` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-22
     when:
-    - dependency:
-        artifactID: jmx
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-23
+    - java.dependency:
+        name: io.thorntail.jmx
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jpa` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-23
     when:
-    - dependency:
-        artifactID: jpa
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-24
+    - java.dependency:
+        name: io.thorntail.jpa
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jsf` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-24
     when:
-    - dependency:
-        artifactID: jsf
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-25
+    - java.dependency:
+        name: io.thorntail.jsf
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jsonb` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-25
     when:
-    - dependency:
-        artifactID: jsonb
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-26
+    - java.dependency:
+        name: io.thorntail.jsonb
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:jsonp` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-26
     when:
-    - dependency:
-        artifactID: jsonp
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-27
+    - java.dependency:
+        name: io.thorntail.jsonp
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:keycloak` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-27
     when:
-    - dependency:
-        artifactID: keycloak
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-28
+    - java.dependency:
+        name: io.thorntail.keycloak
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:logging` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-28
     when:
-    - dependency:
-        artifactID: logging
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-29
+    - java.dependency:
+        name: io.thorntail.logging
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:management` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-29
     when:
-    - dependency:
-        artifactID: management
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-30
+    - java.dependency:
+        name: io.thorntail.management
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:microprofile-config` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-30
     when:
-    - dependency:
-        artifactID: microprofile-config
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-31
+    - java.dependency:
+        name: io.thorntail.microprofile-config
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:microprofile-fault-tolerance` with the related
+      Eclipse MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-31
     when:
-    - dependency:
-        artifactID: microprofile-fault-tolerance
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-32
+    - java.dependency:
+        name: io.thorntail.microprofile-fault-tolerance
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:microprofile-health` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-32
     when:
-    - dependency:
-        artifactID: microprofile-health
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-33
+    - java.dependency:
+        name: io.thorntail.microprofile-health
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:microprofile-jwt` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-33
     when:
-    - dependency:
-        artifactID: microprofile-jwt
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-34
+    - java.dependency:
+        name: io.thorntail.microprofile-jwt
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:microprofile-metrics` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-34
     when:
-    - dependency:
-        artifactID: microprofile-metrics
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-35
+    - java.dependency:
+        name: io.thorntail.microprofile-metrics
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:microprofile-openapi` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-35
     when:
-    - dependency:
-        artifactID: microprofile-openapi
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-36
+    - java.dependency:
+        name: io.thorntail.microprofile-openapi
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:microprofile-opentracing` with the related
+      Eclipse MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-36
     when:
-    - dependency:
-        artifactID: microprofile-opentracing
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-37
+    - java.dependency:
+        name: io.thorntail.microprofile-opentracing
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:microprofile-restclient` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-37
     when:
-    - dependency:
-        artifactID: microprofile-restclient
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-38
+    - java.dependency:
+        name: io.thorntail.microprofile-restclient
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:microprofile` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-38
     when:
-    - dependency:
-        artifactID: microprofile
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-39
+    - java.dependency:
+        name: io.thorntail.microprofile
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:opentracing` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-39
     when:
-    - dependency:
-        artifactID: opentracing
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-40
+    - java.dependency:
+        name: io.thorntail.opentracing
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:remoting` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-40
     when:
-    - dependency:
-        artifactID: remoting
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-41
+    - java.dependency:
+        name: io.thorntail.remoting
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:resource-adapters` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-41
     when:
-    - dependency:
-        artifactID: resource-adapters
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-42
+    - java.dependency:
+        name: io.thorntail.resource-adapters
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:spi` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-42
     when:
-    - dependency:
-        artifactID: spi
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-43
+    - java.dependency:
+        name: io.thorntail.spi
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:topology-openshift` with the related Eclipse
+      MicroProfile and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-43
     when:
-    - dependency:
-        artifactID: topology-openshift
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-44
+    - java.dependency:
+        name: io.thorntail.topology-openshift
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:topology-webapp` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-44
     when:
-    - dependency:
-        artifactID: topology-webapp
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-45
+    - java.dependency:
+        name: io.thorntail.topology-webapp
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:transactions` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-45
     when:
-    - dependency:
-        artifactID: transactions
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-46
+    - java.dependency:
+        name: io.thorntail.transactions
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:undertow` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-46
     when:
-    - dependency:
-        artifactID: undertow
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-47
+    - java.dependency:
+        name: io.thorntail.undertow
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:web` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-47
     when:
-    - dependency:
-        artifactID: web
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-48
+    - java.dependency:
+        name: io.thorntail.web
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:archaius` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-48
     when:
-    - dependency:
-        artifactID: archaius
-        groupID: io.thorntail
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-49
+    - java.dependency:
+        name: io.thorntail.archaius
+  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+      to ensure its Maven building, running or testing works as expected, replace
+      Thorntail Fraction `io.thorntail:monitor` with the related Eclipse MicroProfile
+      and/or Jakarta EE artifacts.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-49
     when:
-    - dependency:
-        artifactID: monitor
-        groupID: io.thorntail
+    - java.dependency:
+        name: io.thorntail.monitor

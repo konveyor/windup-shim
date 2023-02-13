@@ -1,10 +1,16 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-schedule-job.windup.xml-0
+  - message: "\n                        \n                        Scheduled jobs,
+      such as Quartz Scheduler tasks or cron jobs, can't be used with App Service.\n
+      \                       App Service won't prevent you from deploying an application
+      containing scheduled tasks internally.\n                        However, if
+      your application is scaled out, the same scheduled job may run more than once
+      per scheduled period.\n                        This situation can lead to unintended
+      consequences.\n\n                        Inventory any scheduled jobs, inside
+      or outside the application process.\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-schedule-job.windup.xml-0
     when:
     - or:
-      - dependency:
-          artifactID: '{*}'
-          groupID: org.quartz-scheduler
-      - dependency:
-          artifactID: spring-boot-starter-quartz
-          groupID: org.springframework.boot
+      - java.dependency:
+          name: org.quartz-scheduler.{*}
+      - java.dependency:
+          name: org.springframework.boot.spring-boot-starter-quartz

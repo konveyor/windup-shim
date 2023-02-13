@@ -1,61 +1,67 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-0
     when:
-    - dependency:
-        artifactID: jcc
-        groupID: com.ibm.db2
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-1
+    - java.dependency:
+        name: com.ibm.db2.jcc
+  - message: "\n                        Replace the `com.ibm.db2:jcc` dependency with
+      the Quarkus dependency `io.quarkus:quarkus-jdbc-db2`  \n                        Further
+      information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-1
     when:
-    - dependency:
-        artifactID: jcc
-        groupID: com.ibm.db2
+    - java.dependency:
+        name: com.ibm.db2.jcc
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-2
     when:
-    - dependency:
-        artifactID: derbyclient
-        groupID: org.apache.derby
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-3
+    - java.dependency:
+        name: org.apache.derby.derbyclient
+  - message: "\n                        Replace the `org.apache.derby:derbyclient`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-jdbc-derby`  \n                        Further
+      information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-3
     when:
-    - dependency:
-        artifactID: derbyclient
-        groupID: org.apache.derby
+    - java.dependency:
+        name: org.apache.derby.derbyclient
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-4
     when:
-    - dependency:
-        artifactID: mariadb-java-client
-        groupID: org.mariadb.jdbc
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-5
+    - java.dependency:
+        name: org.mariadb.jdbc.mariadb-java-client
+  - message: "\n                        Replace the `org.mariadb.jdbc:mariadb-java-client`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-jdbc-mariadb`  \n
+      \                       Further information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-5
     when:
-    - dependency:
-        artifactID: mariadb-java-client
-        groupID: org.mariadb.jdbc
+    - java.dependency:
+        name: org.mariadb.jdbc.mariadb-java-client
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-6
     when:
-    - dependency:
-        artifactID: mysql-connector-java
-        groupID: mysql
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-7
+    - java.dependency:
+        name: mysql.mysql-connector-java
+  - message: "\n                        Replace the `mysql:mysql-connector-java` dependency
+      with the Quarkus dependency `io.quarkus:quarkus-jdbc-mysql`  \n                        Further
+      information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-7
     when:
-    - dependency:
-        artifactID: mysql-connector-java
-        groupID: mysql
+    - java.dependency:
+        name: mysql.mysql-connector-java
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-8
     when:
-    - dependency:
-        artifactID: ojdbc11
-        groupID: com.oracle.database.jdbc
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-9
+    - java.dependency:
+        name: com.oracle.database.jdbc.ojdbc11
+  - message: "\n                        Replace the `com.oracle.database.jdbc:ojdbc11`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-jdbc-oracle`  \n
+      \                       Further information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-9
     when:
-    - dependency:
-        artifactID: ojdbc11
-        groupID: com.oracle.database.jdbc
+    - java.dependency:
+        name: com.oracle.database.jdbc.ojdbc11
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-10
     when:
-    - dependency:
-        artifactID: postgresql
-        groupID: org.postgresql
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-11
+    - java.dependency:
+        name: org.postgresql.postgresql
+  - message: "\n                        Replace the `org.postgresql:postgresql` dependency
+      with the Quarkus dependency `io.quarkus:quarkus-jdbc-postgresql`  \n                        Further
+      information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-11
     when:
-    - dependency:
-        artifactID: postgresql
-        groupID: org.postgresql
+    - java.dependency:
+        name: org.postgresql.postgresql

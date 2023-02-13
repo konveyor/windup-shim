@@ -1,11 +1,12 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kubernetes/kubernetes-to-quarkus.windup.xml-0
     when:
-    - dependency:
-        artifactID: kubernetes-client
-        groupID: io.fabric8
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kubernetes/kubernetes-to-quarkus.windup.xml-1
+    - java.dependency:
+        name: io.fabric8.kubernetes-client
+  - message: "\n                        Replace the `io.fabric8:kubernetes-client`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-kubernetes-client`
+      \ \n                        Further information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kubernetes/kubernetes-to-quarkus.windup.xml-1
     when:
-    - dependency:
-        artifactID: kubernetes-client
-        groupID: io.fabric8
+    - java.dependency:
+        name: io.fabric8.kubernetes-client

@@ -1,33 +1,57 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-0
+  - message: "\n                        Replace the SpringBoot artifact with Quarkus
+      `spring-boot-properties` extension\n\n                        Spring Configuration
+      Properties is in spring-boot artifact brought transitively by any `org.springframework.boot:spring-boot-*`
+      dependency\n                        Add Quarkus dependency `io.quarkus:quarkus-spring-boot-properties`\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-0
     when:
-    - dependency:
-        artifactID: spring-boot
-        groupID: org.springframework.boot
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-1
+    - java.dependency:
+        name: org.springframework.boot.spring-boot
+  - message: "\n                        Spring property profile in separate file 'application-{profile}.{extension}'
+      must have\n                        their individual properties refactored to
+      use Quarkus profile naming conventions within a single properties file,\n\n
+      \                       ie in the format  %{profile}.config.key=value\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-1
     when:
     - file: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-2
+  - message: "\n                        Spring datasource property key/value pairs
+      have been detected in the application property file.\n\n                        View
+      advice in the Quarkus datasource guide to convert these to Quarkus datasource
+      properties.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-2
     when:
     - filecontent:
         filename: application{profile}.{extension}
         pattern: spring.datasource
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-3
+  - message: "\n                        Spring log level property configuration have
+      been detected in the application property file.\n\n                        View
+      advice in the Quarkus datasource guide to convert these to Quarkus log level
+      properties.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-3
     when:
     - filecontent:
         filename: application{profile}.{extension}
         pattern: logging.level.org.springframework
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-4
+  - message: "\n                        Replace `spring.jpa.hibernate.ddl-auto=create-drop`
+      with `quarkus.hibernate-orm.database.generation=drop-and-create`\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-4
     when:
     - filecontent:
         filename: application{profile}.{extension}
         pattern: spring.jpa.hibernate.ddl-auto=create-drop
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-5
+  - message: "\n                        Replace `springdoc.swagger-ui.path` with `quarkus.swagger-ui.path`\n
+      \                       \n                        By adding `quarkus.swagger-ui.always-include=true`
+      Quarkus will always expose the Swagger UI endpoint. \n                        It
+      is only exposed in Dev mode by default.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-5
     when:
     - filecontent:
         filename: application{profile}.{extension}
         pattern: springdoc.swagger-ui.path
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-6
+  - message: "\n                        Replace `springdoc.api-docs.path` with `quarkus.smallrye-openapi.path`\n
+      \                       \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-6
     when:
     - filecontent:
         filename: application{profile}.{extension}

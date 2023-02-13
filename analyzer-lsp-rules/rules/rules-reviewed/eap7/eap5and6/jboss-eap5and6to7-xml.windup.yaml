@@ -39,33 +39,93 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-12
     when:
     - file: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-13
+  - message: "\n                       The EAP 7 Web Session Clustering configuration
+      deprecates `replication-trigger` element in `jboss-web.xml` file descriptor.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-13
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-14
+  - message: "\n                       The EAP 7 Web Session Clustering configuration
+      deprecates element `replication-mode` element without replacement in `jboss-web.xml`
+      file descriptor.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-14
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-15
+  - message: "\n                       The EAP 7 Web Session Clustering configuration
+      deprecates `backups` element without replacement in `jboss-web.xml` file descriptor.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-15
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-16
+  - message: "\n                         The EAP 7 Web Session Clustering configuration
+      deprecates `use-jk` element without replacement in `jboss-web.xml` file descriptor.\n\n
+      \                        Previously by specifying `use-jk` element, the instance-id
+      of the node handling a given request was appended to the jsessionid (foruse
+      by load balancers such as mod_jk, mod_proxy_balancer, mod_cluster, etc.) depending
+      on the value specified for `use-jk`.\n\n                         In the new
+      implementation, the instance-id, if defined, is always appended to the jsessionid.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-16
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-17
+  - message: "\n                       The EAP 7 Web Session Clustering configuration
+      deprecates `max-unreplicated-interval` element in `jboss-web.xml` file descriptor.\n\n
+      \                      Previously, this configuration option was an optimization
+      that would prevent the replication of a session’s timestamp if no session attribute
+      was changed. While this sounds nice, in practice it doesn't prevent any RPCs,
+      since session access requires cache transaction RPCs regardless of whether any
+      session attributes changed.\n\n                       In the new implementation,
+      the timestamp of a session is replicated on every request.\n                       This
+      prevents stale session metadata following failover.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-17
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-18
+  - message: "\n                     The EAP 7 Web Session Clustering configuration
+      deprecates `snapshot-mode` element in `jboss-web.xml` file descriptor.\n\n                     Previously,
+      one could configure `snapshot-mode` as INSTANT or INTERVAL. Infinispan’s replication
+      queue renders this configuration option obsolete.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-18
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-19
+  - message: "\n                       The EAP 7 Web Session Clustering configuration
+      removed `snapshot-interval` element from `jboss-web.xml` file descriptor.\n
+      \                      This option was only relevant for `<snapshot-mode>INTERVAL</snapshot-mode>`.
+      Since `snapshot-mode` is no longer used, this option is no longer used as well.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-19
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-20
+  - message: "\n                       The EAP 7 Web Session Clustering configuration
+      deprecates `session-notification-policy` element in `jboss-web.xml` file descriptor.\n\n
+      \                      Previously `session-notification-policy` element defined
+      a policy for triggering session events.\n\n                       In the new
+      implementation, this behaviour is specification driven and not configurable.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-20
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-21
+  - message: "\n                       The EAP 7 Web Session Clustering configuration
+      deprecates `passivation-config` element and its sub-elements `use-session-passivation`,
+      `passivation-min-idle-time` and `passivation-max-idle-time` completely in `jboss-web.xml`
+      file descriptor.\n\n                       * `use-session-passivation` enabled
+      the passivation, but now passivation is enabled by specifying a non-negative
+      value for `max-active-sessions` element.\n\n                       * `passivation-min-idle-time`
+      is not supported and the new implementation avoids waiting some time before
+      the passivation.\n\n                       * `passivation-max-idle-time` is
+      not supported and the new implementation supports only lazy passivation. Sessions
+      are only passivated when necessary to comply with `max-active-sessions`.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-21
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-22
+  - message: "\n                       The EAP 7 Web Session Clustering configuration
+      changed `max-active-sessions` element meaning in `jboss-web.xml` file descriptor.\n\n
+      \                      Previously, session creation would fail if an additional
+      session would cause the number of active sessions to exceed the value specified
+      by `<max-active-sessions/>`.\n\n                       In the new implementation,
+      `<max-active-sessions/>` is used to enable session passivation. If session creation
+      would cause the number of active sessions to exceed `<max-active-sessions/>`,\n
+      then the oldest session known to the session manager will passivate to make
+      room for the new session.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-22
     when:
     - xmlfile: null

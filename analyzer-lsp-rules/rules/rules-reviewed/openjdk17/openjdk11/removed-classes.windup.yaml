@@ -1,5 +1,10 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/removed-classes.windup.xml-0
+  - message: "\n                        After being deprecated in OpenJDK 11, the
+      pack200, \n                        unpack200 and corresponding java.util.jar.Pack200*
+      classes were removed in OpenJDK 14. \n                        Please look into
+      switching to either the jlink tool or the jpackage tool to create \n                        application-specific
+      runtimes with an optimized factor.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/removed-classes.windup.xml-0
     when:
     - java.referenced:
         pattern: java.util.jar.{class-name}

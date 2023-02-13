@@ -1,22 +1,32 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-0
+  - message: "\n                      \n                      WebLogic scheduled jobs
+      should be migrated to use the standard EJB `javax.ejb.TimerService`.\n                      \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-0
     when:
     - java.referenced:
         location: IMPLEMENTS_TYPE
         pattern: weblogic.time.common.Triggerable
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-1
+  - message: Replace with the `StringUtils` class from Apache Commons.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-1
     when:
     - java.referenced:
         pattern: weblogic.utils.StringUtils.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-2
+  - message: "\n                        Code using this package should be replaced
+      with code using the org.apache.xml package from [Apache Xerces](http://xerces.apache.org/).\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-2
     when:
     - java.referenced:
         pattern: weblogic.apache.xml.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-3
+  - message: Replace with the Java EE standard [javax.transaction.TransactionManager](http://docs.oracle.com/javaee/7/api/javax/transaction/TransactionManager.html)
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-3
     when:
     - java.referenced:
         pattern: weblogic.transaction.{classname}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-4
+  - message: Replace with the Java EE standard method `javax.transaction.TransactionManager.resume(Transaction
+      tx)`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-4
     when:
     - or:
       - java.referenced:
@@ -31,7 +41,8 @@
       - java.referenced:
           location: METHOD_CALL
           pattern: weblogic.transaction.ClientTransactionManager.forceResume{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-5
+  - message: Replace with the Java EE standard `javax.transaction.TransactionManager.suspend()`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-5
     when:
     - or:
       - java.referenced:
@@ -46,7 +57,8 @@
       - java.referenced:
           location: METHOD_CALL
           pattern: weblogic.transaction.ClientTransactionManager.forceSuspend{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-6
+  - message: Remove the `weblogic.transaction.TxHelper` import statement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-6
     when:
     - java.referenced:
         location: IMPORT
@@ -56,15 +68,26 @@
     - java.referenced:
         location: METHOD_CALL
         pattern: weblogic.transaction.{classname}.getTransactionManager()
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-8
+  - message: "\n                        This Oracle and WebLogic proprietary code
+      (`OracleThinClob`) should be replaced with the use of the java.sql.Clob interface.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-8
     when:
     - java.referenced:
         pattern: weblogic.jdbc.vendor.oracle.OracleThinClob
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-9
+  - message: "\n                        This code is specific to WebLogic and should
+      be replaced with `java.sql.Clob.setCharacterStream(1)`\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-9
     when:
     - java.referenced:
         pattern: weblogic.jdbc.vendor.oracle.OracleThinClob.getCharacterOutputStream()
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-10
+  - message: "\n                      \n                      The WebLogic `NonCatalogLogger`
+      is not supported on JBoss EAP, and should be migrated to a supported logging
+      framework,\n                      such as the JDK Logger or JBoss Logging:\n\n
+      \                     ```java\n                      import java.util.logging.Logger;\n
+      \                     Logger LOG = Logger.getLogger(\"MyLogger\");\n                      ```\n
+      \                     \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-10
     when:
       or:
       - java.referenced:
@@ -73,25 +96,64 @@
       - java.referenced:
           location: CONSTRUCTOR_CALL
           pattern: weblogic.i18n.logging.NonCatalogLogger{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-11
+  - message: "\n                      \n                      Oracle Fast Connection
+      Failover is specific property supported only by Oracle JDBC driver which provides
+      support for their vendor's special features transparently to the application
+      server in which they are deployed.\n\n                      For example, one
+      can supply a URL like this to the Oracle JDBC driver and the driver will provide
+      transparent load-balancing and fail-over:\n                      ```\n                      <xa-datasource-property
+      name=\"URL\">jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(LOAD_BALANCE=ON)(FAILOVER=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=my.host.org)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=my.host.org)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=servjboss)(failover_mode=(type=select)(method=basic)))</xa-datasource-property>\n
+      \                     ```\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-11
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-12
+  - message: "\n                      \n                      Oracle WebLogic Server
+      includes a proprietary side-by-side production redeployment feature. For applications
+      that meet certain requirements and restrictions, the new version of the application
+      is deployed while the older version is still running.\n                      The
+      old and new applications must be running on the same server or cluster. The
+      new version of the application accepts new web session requests while the older
+      version finishes processing requests already in process. Upon completion of
+      the existing session requests, the older version of the application is then
+      undeployed.\n\n                      In JBoss EAP, you can either deploy the
+      new application to a secondary server group or cluster, or deploy the new application
+      serially to the same clustered domain.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-12
     when:
     - filecontent:
         filename: MANIFEST.MF
         pattern: 'Weblogic-Application-Version:'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-13
+  - message: "\n                      \n                      WebLogic administrators
+      use wallets created by Oracle Wallet Manager to manage public key security credentials
+      on application clients and servers.\n\n                      These wallets must
+      first be converted to standard Java KeyStore (JKS) entries that can then be
+      used to configure the credentials in JBoss EAP 6.\n                      \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-13
     when:
     - filecontent:
         filename: '{*}'
         pattern: oracle.net.wallet_location
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-14
+  - message: "\n                    \n                    `weblogic.jndi.WLInitialContextFactory`
+      is an implementation of `InitialContextFactory` used to get object instances
+      from JNDI.\n\n                    The equivalent functionality needs to be configured
+      on JBoss EAP 6 using `org.jboss.naming.remote.client.InitialContextFactory`.
+      Then the context could be instanticated as follows: `InitialContext ctx = new
+      InitialContext();`.\n                    \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-14
     when:
     - filecontent:
         filename: '{*}.{ext}'
         pattern: weblogic.jndi.WLInitialContextFactory
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-15
+  - message: "\n                    \n                    Weblogic’s implementation
+      of the RMI specification uses a proprietary protocol known as T3. T3S is the
+      version of the protocol over SSL.\n                     `t3://` and `t3s://`
+      URLs are used to configure a JNDI InitialContext within WebLogic.\n\n                    The
+      equivalent functionality needs to be configured in JBoss EAP 6.\n                    This
+      could be done either by using standard Java EE JNDI names or by using a WebLogic
+      proprietary library if the connectivity to WebLogic server is still required.\n
+      \                   \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-15
     when:
     - filecontent:
         filename: '{*}.{ext}'

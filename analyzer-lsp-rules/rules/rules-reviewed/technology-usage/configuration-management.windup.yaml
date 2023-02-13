@@ -2,12 +2,10 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-0
     when:
     - or:
-      - dependency:
-          artifactID: spring-cloud-config-client
-          groupID: org.springframework.cloud
-      - dependency:
-          artifactID: spring-cloud-config-client
-          groupID: org.springframework.cloud
+      - java.dependency:
+          name: org.springframework.cloud.spring-cloud-config-client
+      - java.dependency:
+          name: org.springframework.cloud.spring-cloud-config-client
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-1
     when:
     - file: null

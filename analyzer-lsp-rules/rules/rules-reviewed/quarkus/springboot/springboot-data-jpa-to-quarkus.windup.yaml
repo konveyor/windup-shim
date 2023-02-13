@@ -1,13 +1,15 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-data-jpa-to-quarkus.windup.xml-0
+  - message: "\n                        Replace the SpringBoot JPA artifact with Quarkus
+      `spring-data-jpa` extension\n\n                        Spring Data JPA is in
+      spring-data-jpa artifact brought transitively by any `org.springframework.data:spring-data-*`
+      dependency  \n                        Add Quarkus dependency `io.quarkus:quarkus-spring-data-jpa`\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-data-jpa-to-quarkus.windup.xml-0
     when:
     - or:
-      - dependency:
-          artifactID: spring-data-jpa
-          groupID: org.springframework.data
-      - dependency:
-          artifactID: spring-boot-starter-data-jpa
-          groupID: org.springframework.boot
-      - dependency:
-          artifactID: spring-data-jpa
-          groupID: org.springframework.data
+      - java.dependency:
+          name: org.springframework.data.spring-data-jpa
+      - java.dependency:
+          name: org.springframework.boot.spring-boot-starter-data-jpa
+      - java.dependency:
+          name: org.springframework.data.spring-data-jpa

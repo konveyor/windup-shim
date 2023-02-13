@@ -1,13 +1,15 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-security-to-quarkus.windup.xml-0
+  - message: "\n                        Replace the SpringBoot Security artifact with
+      Quarkus `spring-security` extension\n\n                        Spring Security
+      is in spring-security-core artifact brought transitively by `org.springframework.boot:spring-boot-starter-security`
+      dependency.  \n                        Add Quarkus dependency `io.quarkus:quarkus-spring-security`\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-security-to-quarkus.windup.xml-0
     when:
     - or:
-      - dependency:
-          artifactID: spring-security-core
-          groupID: org.springframework.security
-      - dependency:
-          artifactID: spring-boot-starter-security
-          groupID: org.springframework.boot
-      - dependency:
-          artifactID: spring-security-core
-          groupID: org.springframework.security
+      - java.dependency:
+          name: org.springframework.security.spring-security-core
+      - java.dependency:
+          name: org.springframework.boot.spring-boot-starter-security
+      - java.dependency:
+          name: org.springframework.security.spring-security-core

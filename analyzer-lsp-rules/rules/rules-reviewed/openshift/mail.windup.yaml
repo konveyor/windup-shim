@@ -1,5 +1,14 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/mail.windup.xml-0
+  - message: "\n                    The configuration parameters of SMTP services
+      for outbound mail may contain environment-specific values such as static IP
+      addresses, host names, properties, credentials, or certificates.\n\n                    Recommendations\n\n
+      \                   * In a cloud environment, mail systems should be considered
+      backing services and treated like attached resources.\n                    *
+      Ensure that the configuration of the underlying outbound mail connection is
+      not environment-specific.\n                    * In OpenShift Container Platform,
+      store configuration parameters as environment variables or in a ConfigMap.\n
+      \               "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/mail.windup.xml-0
     when:
     - or:
       - java.referenced:
