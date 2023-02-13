@@ -1,21 +1,23 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/liquibase/liquibase-to-quarkus.windup.xml-0
     when:
-    - dependency:
-        artifactID: liquibase-core
-        groupID: org.liquibase
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/liquibase/liquibase-to-quarkus.windup.xml-1
+    - java.dependency:
+        name: org.liquibase.liquibase-core
+  - message: "\n                        Replace the `org.liquibase:liquibase-core`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-liquibase`  \n                        Further
+      information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/liquibase/liquibase-to-quarkus.windup.xml-1
     when:
-    - dependency:
-        artifactID: liquibase-core
-        groupID: org.liquibase
+    - java.dependency:
+        name: org.liquibase.liquibase-core
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/liquibase/liquibase-to-quarkus.windup.xml-2
     when:
-    - dependency:
-        artifactID: liquibase-mongodb
-        groupID: org.liquibase.ext
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/liquibase/liquibase-to-quarkus.windup.xml-3
+    - java.dependency:
+        name: org.liquibase.ext.liquibase-mongodb
+  - message: "\n                        Replace the `org.liquibase.ext:liquibase-mongodb`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-liquibase-mongodb`
+      \ \n                        No specific guide is available.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/liquibase/liquibase-to-quarkus.windup.xml-3
     when:
-    - dependency:
-        artifactID: liquibase-mongodb
-        groupID: org.liquibase.ext
+    - java.dependency:
+        name: org.liquibase.ext.liquibase-mongodb

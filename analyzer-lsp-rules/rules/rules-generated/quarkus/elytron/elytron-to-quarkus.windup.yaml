@@ -1,31 +1,34 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-0
     when:
-    - dependency:
-        artifactID: wildfly-elytron-realm-jdbc
-        groupID: org.wildfly.security
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-1
+    - java.dependency:
+        name: org.wildfly.security.wildfly-elytron-realm-jdbc
+  - message: "\n                        Replace the `org.wildfly.security:wildfly-elytron-realm-jdbc`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-elytron-security-jdbc`
+      \ \n                        Further information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-1
     when:
-    - dependency:
-        artifactID: wildfly-elytron-realm-jdbc
-        groupID: org.wildfly.security
+    - java.dependency:
+        name: org.wildfly.security.wildfly-elytron-realm-jdbc
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-2
     when:
-    - dependency:
-        artifactID: wildfly-elytron-realm-ldap
-        groupID: org.wildfly.security
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-3
+    - java.dependency:
+        name: org.wildfly.security.wildfly-elytron-realm-ldap
+  - message: "\n                        Replace the `org.wildfly.security:wildfly-elytron-realm-ldap`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-elytron-security-ldap`
+      \ \n                        Further information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-3
     when:
-    - dependency:
-        artifactID: wildfly-elytron-realm-ldap
-        groupID: org.wildfly.security
+    - java.dependency:
+        name: org.wildfly.security.wildfly-elytron-realm-ldap
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-4
     when:
-    - dependency:
-        artifactID: wildfly-elytron-realm-token
-        groupID: org.wildfly.security
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-5
+    - java.dependency:
+        name: org.wildfly.security.wildfly-elytron-realm-token
+  - message: "\n                        Replace the `org.wildfly.security:wildfly-elytron-realm-token`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-elytron-security-oauth2`
+      \ \n                        Further information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-5
     when:
-    - dependency:
-        artifactID: wildfly-elytron-realm-token
-        groupID: org.wildfly.security
+    - java.dependency:
+        name: org.wildfly.security.wildfly-elytron-realm-token

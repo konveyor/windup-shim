@@ -152,31 +152,25 @@
     - file: null
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-50
     when:
-    - dependency:
-        artifactID: spring-beans
-        groupID: org.springframework
+    - java.dependency:
+        name: org.springframework.spring-beans
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-51
     when:
-    - dependency:
-        artifactID: micrometer-core
-        groupID: io.micrometer
+    - java.dependency:
+        name: io.micrometer.micrometer-core
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-52
     when:
     - or:
-      - dependency:
-          artifactID: spring-web
-          groupID: org.springframework
-      - dependency:
-          artifactID: spring-boot-starter-web
-          groupID: org.springframework.boot
-      - dependency:
-          artifactID: spring-web
-          groupID: org.springframework
+      - java.dependency:
+          name: org.springframework.spring-web
+      - java.dependency:
+          name: org.springframework.boot.spring-boot-starter-web
+      - java.dependency:
+          name: org.springframework.spring-web
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-53
     when:
-    - dependency:
-        artifactID: spring-shell-core
-        groupID: org.springframework.shell
+    - java.dependency:
+        name: org.springframework.shell.spring-shell-core
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-54
     when:
     - filecontent:
@@ -190,12 +184,10 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-56
     when:
     - or:
-      - dependency:
-          artifactID: spring-cloud-function-context
-          groupID: org.springframework.cloud
-      - dependency:
-          artifactID: spring-cloud-function-context
-          groupID: org.springframework.cloud
+      - java.dependency:
+          name: org.springframework.cloud.spring-cloud-function-context
+      - java.dependency:
+          name: org.springframework.cloud.spring-cloud-function-context
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-57
     when:
     - file: null

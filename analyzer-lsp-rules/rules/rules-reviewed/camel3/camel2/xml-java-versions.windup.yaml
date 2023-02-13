@@ -1,25 +1,46 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-java-versions.windup.xml-0
+  - message: "\n                        \n                        `jaxb-api` Maven
+      dependency missing.\n\n                        Apache Camel 3 supports Java
+      11 and in this Java version JAXB modules have been removed from the JDK, therefore
+      you will need to add them as Maven dependencies since there are couple of components
+      rely on them:\n\n                        ```Xml\n                        <dependency>\n
+      \                           <groupId>javax.xml.bind</groupId>\n                            <artifactId>jaxb-api</artifactId>\n
+      \                           <version>2.3.1</version>\n                        </dependency>\n
+      \                       ```\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-java-versions.windup.xml-0
     when:
       or:
-      - dependency:
-          artifactID: jaxb-api
-          groupID: javax.xml.bind
+      - java.dependency:
+          name: javax.xml.bind.jaxb-api
         not: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-java-versions.windup.xml-1
+  - message: "\n                        \n                        `jaxb-core` Maven
+      dependency missing.\n\n                        Apache Camel 3 supports Java
+      11 and in this Java version JAXB modules have been removed from the JDK, therefore
+      you will need to add them as Maven dependencies since there are couple of components
+      rely on them:\n\n                        ```Xml\n                        <dependency>\n
+      \                           <groupId>com.sun.xml.bind</groupId>\n                            <artifactId>jaxb-core</artifactId>\n
+      \                           <version>2.3.0.1</version>\n                        </dependency>\n
+      \                       ```\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-java-versions.windup.xml-1
     when:
       or:
-      - dependency:
-          artifactID: jaxb-core
-          groupID: com.sun.xml.bind
+      - java.dependency:
+          name: com.sun.xml.bind.jaxb-core
         not: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-java-versions.windup.xml-2
+  - message: "\n                        \n                        `jaxb-impl` Maven
+      dependency missing.\n\n                        Apache Camel 3 supports Java
+      11 and in this Java version JAXB modules have been removed from the JDK, therefore
+      you will need to add them as Maven dependencies since there are couple of components
+      rely on them:\n\n                        ```Xml\n                        <dependency>\n
+      \                           <groupId>com.sun.xml.bind</groupId>\n                            <artifactId>jaxb-impl</artifactId>\n
+      \                           <version>2.3.2</version>\n                        </dependency>\n
+      \                       ```\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-java-versions.windup.xml-2
     when:
       or:
-      - dependency:
-          artifactID: jaxb-impl
-          groupID: com.sun.xml.bind
+      - java.dependency:
+          name: com.sun.xml.bind.jaxb-impl
         not: true
       - xmlfile: null

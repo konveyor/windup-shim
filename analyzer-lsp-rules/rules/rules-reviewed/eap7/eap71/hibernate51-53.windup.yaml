@@ -1,75 +1,128 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-0
+  - message: '`org.hibernate.engine.spi.SessionImplementor` parameter has to be changed
+      to `org.hibernate.engine.spi.SharedSessionContractImplementor`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-0
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: '{methods_param}({*}org.hibernate.engine.spi.SessionImplementor{*})'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-1
+  - message: 'change reference to hibernate-java8 to hibernate-core (since hibernate-java8
+      has been merged into hibernate-core module) '
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-1
     when:
       or:
-      - dependency:
-          artifactID: '{substitution}'
-          groupID: org.hibernate
-      - dependency:
-          artifactID: hibernate-core
-          groupID: org.hibernate
+      - java.dependency:
+          name: org.hibernate.{substitution}
+      - java.dependency:
+          name: org.hibernate.hibernate-core
         not: true
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-2
+  - message: |2-
+       If the `SessionFactory` is built via Hibernate’s native bootstrapping and `org.hibernate.HibernateException` or a subclass is referenced by the application
+                              then set `hibernate.native_exception_handling_51_compliance` configuration property to `true`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-2
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.hibernate.{className}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-3
+  - message: '`org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getDefaultQueryResultsCache()`
+      should be used instead of `SessionFactoryImplementor.getQueryCache()` method.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-3
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getQueryCache()
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-4
+  - message: '`org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getDefaultQueryResultsCache(String
+      regionName)` should be used instead of `SessionFactoryImplementor.getQueryCache(String
+      regionName)` method.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-4
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getQueryCache({*}String{*})
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-5
+  - message: '`org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getTimestampsCache()`
+      should be used instead of `SessionFactoryImplementor.getUpdateTimestampsCache()`
+      method.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-5
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getUpdateTimestampsCache()
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-6
+  - message: '`org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getRegion(String
+      regionName)` should be used instead of `SessionFactoryImplementor.getSecondLevelCacheRegion(String
+      regionName)` method.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-6
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getSecondLevelCacheRegion({*}String{*})
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-7
+  - message: "\n                        Depending on the type of region, the appropriate
+      method should be used instead:  \n\n                        * For an entity
+      cache region, `org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().entityPersister(
+      entityName ).getCacheAccessStrategy()` should be used instead\n                        *
+      For a collection region, `org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().collectionPersister(
+      role ).getCacheAccessStrategy()` should be used instead\n                        *
+      For a natural ID region, `org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().entityPersister(
+      entityName ).getNaturalIdCacheAccessStrategy()` should be used instead\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-7
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getSecondLevelCacheRegionAccessStrategy({*}String{*})
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-8
+  - message: '`org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getRegion(String
+      regionName)` should be used instead of `SessionFactoryImplementor.getNaturalIdCacheRegion(String
+      regionName)` method.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-8
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getNaturalIdCacheRegion({*}String{*})
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-9
+  - message: '`org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().entityPersister(
+      entityName ).getNaturalIdCacheAccessStrategy()` should be used instead of `SessionFactoryImplementor.getNaturalIdCacheRegionAccessStrategy(String
+      regionName)` method.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-9
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getNaturalIdCacheRegionAccessStrategy({*}String{*})
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-10
+  - message: "\n                        `org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getCacheRegionNames()`
+      should be used to obtain all cache region names, then `org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getRegion(String
+      regionName)` should be used to look up each region.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-10
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getAllSecondLevelCacheRegions()
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-11
+  - message: "Review usage of classes in `org.hibernate.cache.spi.RegionFactory`,
+      as SPIs for this class has changed.  \n                        See Javadoc for
+      `org.hibernate.cache.spi.RegionFactory` for details."
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-11
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.hibernate.{className}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-12
+  - message: "\n                        One potential upgrade concern is any custom
+      `org.hibernate.cache.spi.QueryCacheFactory` implementations.  \n                        `org.hibernate.cache.spi.QueryCacheFactory`
+      was meant as a means to allow service providers the ability to define query
+      result caching, generally with more stale-tolerant query result invalidation
+      handling.  \n                        However, the contract also bound it to
+      the old second level cache contracts so they had to be updated.  \n                        Its
+      responsibilities also changed so we also decided to \"rename it\" to `org.hibernate.cache.spi.TimestampsCacheFactory`.
+      \ \n                        Details can be found in HHH-11356 JIRA issue (link
+      below).\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-12
     when:
     - java.referenced:
         location: IMPLEMENTS_TYPE
         pattern: org.hibernate.cache.spi.QueryCacheFactory
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-13
+  - message: "\n                        A change to be aware of is accessing cache
+      entries via `SecondLevelCacheStatistics.getEntries()` and `NaturalIdCacheStatistics.getEntries()`.
+      \ \n                        These methods have been deprecated, however the
+      new caching SPI does not really require caching providers to support this.  \n
+      \                       As of Hibernate 5.3 these methods inherently return
+      an empty Map (`Collections#emptyMap`).  \n                        This has always
+      been something that providers did not implement \"correctly\" anyway.  \n                        Details
+      can be found in HHH-11356 JIRA issue (link below).\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-13
     when:
     - java.referenced:
         location: METHOD_CALL
@@ -84,7 +137,11 @@
     - java.referenced:
         location: METHOD
         pattern: '{*}.getEntries()'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-16
+  - message: "\n                        The SPIs in the `org.hibernate.{packages}`
+      package have changed.  \n                        Any custom classes using those
+      SPIs will need to be reviewed and updated.  \n                        See Javadoc
+      for these packages for details.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-16
     when:
     - java.referenced:
         location: IMPORT
@@ -96,12 +153,16 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-18
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-19
+  - message: Applications using the `@TableGenerator` should set the `hibernate.id.generator.stored_last_used`
+      configuration property to `false`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-19
     when:
     - java.referenced:
         location: IMPORT
         pattern: javax.persistence.TableGenerator
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-20
+  - message: Any references to `org.hibernate.{className}.getType()` must be replaced
+      with `org.hibernate.{className}.getHibernateType()`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-20
     when:
     - java.referenced:
         pattern: org.hibernate.{className}.getType({*})

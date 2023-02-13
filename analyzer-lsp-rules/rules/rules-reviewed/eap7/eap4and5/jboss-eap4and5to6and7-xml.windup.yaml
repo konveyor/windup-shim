@@ -1,23 +1,61 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-0
+  - message: "\n                        \n                        MBeans were part
+      of the core architecture in previous versions of Red Hat JBoss Enterprise Application
+      Platform.  \n                        JBoss Service Archive (SAR) deployments
+      using the JBoss specific `jboss-service.xml` and `jboss-beans.xml` service-style
+      descriptors were used by the application server to create MBeans based on JBoss
+      Beans.  \n                        The internal architecture has changed in JBoss
+      EAP 6+ and is no longer based on an MBean JMX architecture.\n                        \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-0
     when:
     - file: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-1
+  - message: "\n                        \n                        `BarrierController`
+      service is no longer available in JBoss EAP 6+.  \n                         In
+      JBoss EAP 4.x the JBoss 'kernel' layer was an extension of JMX which is why
+      everything was an MBean, though most of the MBean functionality still worked
+      in JBoss EAP 5.  \n                         JBoss EAP 6 is no longer based on
+      Mbeans, and the Mbeans which are seen in jconsole are actually just facades
+      over the JBoss management API, so declaring Mbean dependencies on any other
+      Mbeans that appear to be JBoss Mbeans does not work since they are not real
+      Mbeans.  \n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-1
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-2
+  - message: "\n                        \n                        `CompressingMarshaller`
+      marshaller is no longer available in JBoss EAP 6+.  \n                        In
+      JBoss EAP 6.3.0 and later, data compression hints can be specified via the JBoss
+      annotation `org.jboss.ejb.client.annotation.CompressionHint`\n                        \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-2
     when:
     - or:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-3
+  - message: "\n                        \n                        In JBoss EAP 6+,
+      Security is configured in the `<security-domain>` element in the server configuration
+      file.\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-3
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-4
+  - message: "\n                        \n                        The `class-loading`
+      and `loader-repository` configuration in `jboss.xml`, `jboss-web.xml` and `jboss-service.xml`
+      were JBoss EAP 4.x & 5.x configuration options for specifying classloader isolation
+      on a deployment.  \n                        In JBoss EAP 6+, it uses JBoss Modules
+      for its classloader implementation so all deployments are isolated in their
+      own classloader / JBoss Module and the `loader-repository` is no longer valid.
+      \ \n                        The `jboss-deployment-structure.xml` can be used
+      to specify classloader / module dependencies if needed.\n                        \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-4
     when:
     - xmlfile: null
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-5
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-6
+  - message: "\n                        \n                        In JBoss EAP 6 and
+      7 you can set the JAAS cache timeout, changing the `cache-type` to `infinispan`
+      which uses Infinispan cache which has an expiration capability.\n                        \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-6
     when:
     - xmlfile: null

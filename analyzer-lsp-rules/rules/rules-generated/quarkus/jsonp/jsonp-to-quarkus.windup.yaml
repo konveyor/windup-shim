@@ -1,11 +1,12 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jsonp/jsonp-to-quarkus.windup.xml-0
     when:
-    - dependency:
-        artifactID: jakarta.json
-        groupID: org.glassfish
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jsonp/jsonp-to-quarkus.windup.xml-1
+    - java.dependency:
+        name: org.glassfish.jakarta.json
+  - message: "\n                        Replace the `org.glassfish:jakarta.json` dependency
+      with the Quarkus dependency `io.quarkus:quarkus-jsonp`  \n                        No
+      specific guide is available.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jsonp/jsonp-to-quarkus.windup.xml-1
     when:
-    - dependency:
-        artifactID: jakarta.json
-        groupID: org.glassfish
+    - java.dependency:
+        name: org.glassfish.jakarta.json

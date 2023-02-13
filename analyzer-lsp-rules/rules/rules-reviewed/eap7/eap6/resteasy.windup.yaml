@@ -1,194 +1,302 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-0
+  - message: "Caching in the RESTEasy client framework in resteasy-jaxrs is replaced
+      by caching in the JAX-RS 2.0 compliant resteasy-client module.\n                    Use
+      `org.jboss.resteasy.client.jaxrs.cache` package instead of `org.jboss.resteasy.client.cache`.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-0
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.cache.{cache_class}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-1
+  - message: "\n                    Replace class `org.jboss.resteasy.client.ClientRequest`
+      with `org.jboss.resteasy.client.jaxrs.ResteasyClient`.\n\n                    The
+      following is an example of how to send a link header with the RESTEasy client
+      in EAP 6 with RESTEasy 2.3.x.\n\n                    ```java\n                    ClientRequest
+      request = new ClientRequest(generateURL(\"/linkheader/str\"));\n                    request.addLink(\"previous
+      chapter\", \"previous\", \"http://example.com/TheBook/chapter2\", null);\n                    ClientResponse
+      response = request.post();\n                    LinkHeader header = response.getLinkHeader();\n
+      \                   ```\n\n                    The following is an example of
+      how to accomplish the same task with the RESTEasy client in RESTEasy 3.\n\n
+      \                   ```java\n                    ResteasyClient client = new
+      ResteasyClientBuilder().build();\n                    Response response = client.target(generateURL(\"/linkheader/str\")).request()\n
+      \                       .header(\"Link\", \"<http://example.com/TheBook/chapter2>;
+      rel=\"previous\";\n                    title=\"previous chapter\">\").post(Entity.text(new
+      String()));\n                    javax.ws.rs.core.Link link = response.getLink(\"previous\");\n
+      \                   ```\n\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-1
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.ClientRequest
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-2
+  - message: Replace `org.jboss.resteasy.client.ClientResponse` class with `javax.ws.rs.core.Response`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-2
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.ClientResponse
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-3
+  - message: Replace this class with `org.jboss.resteasy.client.jaxrs.{type}`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-3
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-4
+  - message: "\n                    There is no direct replacement for `org.jboss.resteasy.client.EntityTypeFactory`
+      class.\n\n                    `org.jboss.resteasy.client.ClientResponse<T>`
+      is a generic type in the RESTEasy client framework,\n                    but
+      `org.jboss.resteasy.client.jaxrs.internal.ClientResponse` in the resteasy-client
+      module is not, so\n                    `EntityTypeFactory` is no longer useful.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-4
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.EntityTypeFactory
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-5
+  - message: Replace the `org.jboss.resteasy.client.ClientExecutor` usage with `org.jboss.resteasy.client.jaxrs.ClientHttpEngine`
+      class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-5
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.ClientExecutor
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-6
+  - message: Replace the `org.jboss.resteasy.client.ClientRequestFactory` usage with
+      `org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder` class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-6
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.ClientRequestFactory
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-7
+  - message: |-
+      Replace the `org.jboss.resteasy.client.ClientResponseFailure` with `javax.ws.rs.client.ResponseProcessingException`
+                          or with `javax.ws.rs.client.ProcessingException` or with `javax.ws.rs.client.WebApplicationException` class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-7
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.ClientResponseFailure
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-8
+  - message: Replace `org.jboss.resteasy.spi.StringConverter` by `javax.ws.rs.ext.ParamConverterProvider`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-8
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.StringConverter
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-9
+  - message: There were multiple changes on adding/removing methods on `org.jboss.resteasy.spi.InjectorFactory`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-9
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.InjectorFactory
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-10
+  - message: The interface `org.jboss.resteasy.spi.interception.MessageBodyWriterInterceptor`
+      is deprecated and you should use `javax.ws.rs.ext.WriterInterceptor` from JAX-RS
+      API.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-10
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.MessageBodyWriterInterceptor
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-11
+  - message: The interface `org.jboss.resteasy.spi.interception.MessageBodyReaderInterceptor`
+      is deprecated and you should use `javax.ws.rs.ext.ReaderInterceptor` from JAX-RS
+      API.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-11
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.MessageBodyReaderInterceptor
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-12
+  - message: The interface `org.jboss.resteasy.spi.interception.MessageBodyWriterContext`
+      is replaced by the `javax.ws.rs.ext.WriterInterceptorContext` interface by JAX-RS
+      2.0 compliant interceptor facility.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-12
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.MessageBodyWriterContext
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-13
+  - message: '`org.jboss.resteasy.core.interception.InterceptorRegistry` is deprecated
+      in favor of the JAX-RS 2.0 Interceptor and filter API.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-13
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.core.interception.InterceptorRegistry
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-14
+  - message: '`org.jboss.resteasy.core.interception.InterceptorRegistryListener` is
+      deprecated in favor of the JAX-RS 2.0 Interceptor and filter API.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-14
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.core.interception.InterceptorRegistryListener
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-15
+  - message: No direct replacement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-15
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.core.executors.ApacheHttpClientExecutor
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-16
+  - message: Use `javax.ws.rs.container.DynamicFeature` for Dynamic binding instead
+      of implementing `org.jboss.resteasy.spi.interception.AcceptedByMethod` interface.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-16
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.AcceptedByMethod
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-17
+  - message: Remove annotation `@org.jboss.resteasy.annotations.cache.ServerCached'
+      as it was removed in RESTEasy 3.x.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-17
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.annotations.cache.ServerCached
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-18
+  - message: Replaced by `javax.ws.rs.core.Link` in JAX-RS API.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-18
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.Link
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-19
+  - message: '`org.jboss.resteasy.spi.interception.ClientExecutionContext` is deprecated
+      in favor of the JAX-RS 2.0 Interceptor and filter API.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-19
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.ClientExecutionContext
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-20
+  - message: |-
+      Use `javax.ws.rs.client.Invocation` instead of `org.jboss.resteasy.spi.interception.ClientExecutionInterceptor`.
+                          The RESTEasy interceptor facility introduced in release 2.x is replaced by the JAX-RS 2.0 compliant interceptor facility in release 3.0.x.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-20
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.ClientExecutionInterceptor
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-21
+  - message: |-
+      Most of the `org.jboss.resteasy.spi.ResteasyProviderFactory#add*` methods have been removed or made protected in RESTEasy 3.0.
+                          For example, the `addBuiltInMessageBodyReader()` and `addBuiltInMessageBodyWriter()` methods have been removed and the `addMessageBodyReader()` and `addMessageBodyWriter()` methods have been made protected.
+                          You should now use the `registerProvider()` and `registerProviderInstance()` methods.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-21
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.spi.ResteasyProviderFactory.add{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-22
+  - message: |-
+      Use `javax.ws.rs.ext.ReaderInterceptorContext` instead of `org.jboss.resteasy.spi.interception.MessageBodyReaderContext`.
+                          The RESTEasy interceptor facility introduced in release 2.x is replaced by the JAX-RS 2.0 compliant interceptor facility in release 3.0.x.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-22
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.MessageBodyReaderContext
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-23
+  - message: |-
+      Use `javax.ws.rs.container.ContainerResponseFilter` instead of `org.jboss.resteasy.spi.interception.PostProcessInterceptor`.
+                          The RESTEasy interceptor facility introduced in release 2.x is replaced by the JAX-RS 2.0 compliant filters and interceptor facility in release 3.0.x.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-23
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.PostProcessInterceptor
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-24
+  - message: |-
+      Use `javax.ws.rs.container.ContainerRequestFilter` instead of `org.jboss.resteasy.spi.interception.PreProcessInterceptor`.
+                          The RESTEasy interceptor facility introduced in release 2.x is replaced by the JAX-RS 2.0 compliant filters and interceptor facility in release 3.0.x.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-24
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.PreProcessInterceptor
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-25
+  - message: There were multiple changes on adding/removing methods on `org.jboss.resteasy.spi.Registry`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-25
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.Registry
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-26
+  - message: Replaced by `javax.ws.rs.ForbiddenException` in jaxrs-api module.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-26
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.ForbiddenException
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-27
+  - message: Replaced by `javax.ws.rs.NotAllowedException` in jaxrs-api module.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-27
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.MethodNotAllowedException
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-28
+  - message: Replaced by `javax.ws.rs.NotAcceptableException` in jaxrs-api module.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-28
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.NotAcceptableException
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-29
+  - message: Replaced by `javax.ws.rs.NotFoundException` in jaxrs-api module.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-29
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.NotFoundException
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-30
+  - message: Replaced by `javax.ws.rs.NotAuthorizedException` in jaxrs-api module.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-30
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.UnauthorizedException
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-31
+  - message: Replaced by `javax.ws.rs.NotSupportedException` in jaxrs-api module.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-31
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.UnsupportedMediaTypeException
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-32
+  - message: |-
+      RESTEasy 3 deprecates method `org.jboss.resteasy.plugins.delegates.ServerCookie#checkName` without a replacement.
+                          It was deprecated in the original `org.apache.tomcat.util.http.ServerCookie` class which was a template for this method.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-32
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.plugins.delegates.ServerCookie.checkName{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-33
+  - message: Empty
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-33
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.plugins.providers.jaxb.JAXBContextWrapper.createValidator{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-34
+  - message: Replace method calls of `encodeRedirectUrl` with `encodeRedirectURL(String
+      url)`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-34
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.core.ResteasyHttpServletResponseWrapper.encodeRedirectUrl{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-35
+  - message: Replace `ResteasyHttpServletResponseWrapper#encodeUrl` with `ResteasyHttpServletResponseWrapper#encodeURL(String
+      url)`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-35
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.core.ResteasyHttpServletResponseWrapper.encodeUrl{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-36
+  - message: '`MultipartFormDataInputImpl#getFormData` method will be removed in the
+      future. Use `MultipartFormDataInput#getFormDataMap()` instead.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-36
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInputImpl.getFormData{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-37
+  - message: '`MultipartFormDataInput#getFormData` method will be removed in the future.
+      Use `MultipartFormDataInput#getFormDataMap()` instead.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-37
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput.getFormData{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-38
+  - message: As of Version 2.1 of the Java Servlet API, use `ResteasyHttpServletRequestWrapper.isRequestedSessionIdFromURL()`
+      instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-38
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.core.ResteasyHttpServletRequestWrapper.isRequestedSessionIdFromUrl{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-39
+  - message: Method `org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller#isValidating`
+      is deprecated without a replacement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-39
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.isValidating{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-40
+  - message: |-
+      RESTEasy 3 deprecates method `org.jboss.resteasy.plugins.delegates.ServerCookie#maybeQuote` without a replacement.
+                          It was deprecated in the original `org.apache.tomcat.util.http.ServerCookie` class which was a template for this method.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-40
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.plugins.delegates.ServerCookie.maybeQuote{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-41
+  - message: Method `org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller#setAdapter`
+      is deprecated in RESTEasy 3.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-41
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.setAdapter{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-42
+  - message: |-
+      As of version 2.1, due to ambiguous meaning of the message parameter. To set a status code use `setStatus(int)` instead,
+                          to send an error with a description use `sendError(int, String)`. Sets the status code and message for this response.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-42
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.core.ResteasyHttpServletResponseWrapper.setStatus{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-43
+  - message: RESTEasy 3 deprecates method `org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller#setValidating`
+      without a replacement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-43
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.setValidating{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-44
+  - message: RESTEasy 3 deprecates `org.jboss.resteasy.auth.oauth.OAuthValidator#validateMessage`
+      method without a replacement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-44
     when:
     - java.referenced:
         location: METHOD_CALL
@@ -207,7 +315,17 @@
       - java.referenced:
           location: ANNOTATION
           pattern: javax.ws.rs.Consumes
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-47
+  - message: "RESTEasy fixes the issue when it doesn't set/add correctly character
+      set meta data specified in JAX-RS specification. Therefore UTF-8 as the character
+      set for text media types is set by default.\n                    This behavior
+      results in adding `charset=UTF-8` string to the returned content-type header
+      when the resource method returns a `text/*` or `application/xml*` media type
+      without an explicit charset.\n                    The behavior is controlled
+      by `resteasy.add.charset` parameter which is set to `true` by default and you
+      can customize the `resteasy.add.charset` parameter to `false` in _web.xml_'s
+      `context-param` element \n                    in case of wanting to keep previous
+      behavior.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-47
     when:
     - or:
       - java.referenced:

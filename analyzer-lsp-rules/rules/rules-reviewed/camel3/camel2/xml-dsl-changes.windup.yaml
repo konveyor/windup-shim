@@ -1,37 +1,53 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-0
+  - message: "`zip` and `gzip` dataformats were renamed to `zipdeflater` and `gzipdeflater`\n\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-0
     when:
     - or:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-1
+  - message: "`custom` load balancer was renamed to `customLoadBalancer`\n\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-1
     when:
     - or:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-2
+  - message: "`zipFile` data format was renamed to `zipfile`\n\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-2
     when:
     - or:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-3
+  - message: "`keyOrTrustStoreParametersId` attribute was renamed to `keyOrTrustStoreParametersRef`\n\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-3
     when:
     - or:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-4
+  - message: "Hystrix circuit breaker has been generalized as circuit breaker. Use
+      `circuitBreaker`\n                        instead of `hystrix'.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-4
     when:
     - or:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-5
+  - message: "Use `completionSizeExpression` instead of `completionSize`. Expressions
+      (not the attributes) for\n                        setting correlation size/timeout
+      were renamed.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-5
     when:
     - or:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-6
+  - message: "Use `completionTimeoutExpression` instead of `completionTimeout`. Expressions
+      (not the\n                        attributes) for\n                        setting
+      correlation size/timeout were renamed.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-6
     when:
     - or:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-7
+  - message: The attribute `headerName` was renamed to `name`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-7
     when:
     - or:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-8
+  - message: The attribute `propertyName` was renamed to `name`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-8
     when:
     - or:
       - xmlfile: null

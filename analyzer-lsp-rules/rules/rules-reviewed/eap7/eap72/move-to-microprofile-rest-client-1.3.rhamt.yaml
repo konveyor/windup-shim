@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/move-to-microprofile-rest-client-1.3.rhamt.xml-0
+  - message: The application imports class `org.jboss.resteasy.client.microprofile.MicroprofileClientBuilderResolver`,
+      and should be changed to use instead `org.eclipse.microprofile.rest.client.RestClientBuilder`,
+      from Microprofile REST Client 1.3.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/move-to-microprofile-rest-client-1.3.rhamt.xml-0
     when:
     - java.referenced:
         location: IMPORT

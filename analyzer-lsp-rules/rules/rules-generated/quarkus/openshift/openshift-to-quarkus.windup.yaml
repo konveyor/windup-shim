@@ -1,11 +1,12 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/openshift/openshift-to-quarkus.windup.xml-0
     when:
-    - dependency:
-        artifactID: openshift-client
-        groupID: io.fabric8
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/openshift/openshift-to-quarkus.windup.xml-1
+    - java.dependency:
+        name: io.fabric8.openshift-client
+  - message: "\n                        Replace the `io.fabric8:openshift-client`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-openshift-client`
+      \ \n                        Further information in the link below.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/openshift/openshift-to-quarkus.windup.xml-1
     when:
-    - dependency:
-        artifactID: openshift-client
-        groupID: io.fabric8
+    - java.dependency:
+        name: io.fabric8.openshift-client

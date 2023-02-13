@@ -1,10 +1,22 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap70/hibernate50-51.windup.xml-0
+  - message: "\n                        Previous releases of Hibernate interpreted
+      all null column values for an `@Embeddable` to mean the `@Embeddable` itself
+      should be null.\n\n                        In this release, applications can
+      dictate that Hibernate should instead use an empty `@Embeddable` instance by
+      specifying the `hibernate.create_empty_composites.enabled` opt-in setting.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap70/hibernate50-51.windup.xml-0
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: javax.persistence.Embeddable
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap70/hibernate50-51.windup.xml-1
+  - message: "\n                        The changes mainly focused on:\n\n                        *
+      \ Unifying handling of hbm2ddl.auto and Hibernate’s JPA schema-generation support.\n
+      \                       *  Removing JDBC concerns from the SPI to facilitate
+      true replacement (for OGM)\n\n                        These changes are a migration
+      concern since the application is directly using some of the changed classes.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap70/hibernate50-51.windup.xml-1
     when:
     - or:
       - java.referenced:

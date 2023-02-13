@@ -3,21 +3,36 @@
     when:
     - java.referenced:
         pattern: '{package}.{type}'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-1
+  - message: "\n                        IBM MQe {type} adapter provides plug-in communications
+      adapters or data storage adapters for queue managers. These can\n                        be
+      deployed to JBoss EAP.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-1
     when:
     - java.referenced:
         location: INHERITANCE
         pattern: com.ibm.mqe.adapters.MQe{type}Adapter
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-2
+  - message: "IBM MQe {type} administration API provides classes used to administer
+      and monitor a WebSphere MQ Everyplace queue manager. In\n                        JBoss
+      EAP 6, the JMS destinations can be configured with the JBoss Admin CLI.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-2
     when:
     - java.referenced:
         location: INHERITANCE
         pattern: com.ibm.mqe.administration.MQe{type}AdminMsg
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-3
+  - message: "\n                        `MQeJMSAuthenticator` is a WebSphere proprietary
+      JMS authentication API.\n                        To migrate to JBoss EAP 6,
+      replace with Java EE 6 JAAS for JMS authentication.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-3
     when:
     - java.referenced:
         pattern: com.ibm.mqe.jms.MQeJMSAuthenticator
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-4
+  - message: "\n                        IBM MQe constants are used to name fields
+      when a JMS message is mapped to an `MQeMsgObject`. These are provided to\n                        enable
+      WebSphere MQ Everyplace applications to interpret messages sent by JMS or to
+      construct messages that a JMS application\n                        will understand.\n\n
+      \                       These settings can be discarded when migrating to JBoss
+      EAP 6 with HornetQ.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mqe.windup.xml-4
     when:
     - java.referenced:
         pattern: com.ibm.mqe.jms.MQeJMSMsgFieldNames

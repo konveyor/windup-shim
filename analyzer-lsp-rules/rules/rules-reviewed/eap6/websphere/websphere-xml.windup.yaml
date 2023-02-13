@@ -2,7 +2,11 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-0
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-1
+  - message: "\n                      \n                      This file contains a
+      specific IBM WebSphere Application binding configuration.\n\n                      To
+      migrate to EAP 6.x, configure EAP 6.x accordingly using the CLI interface or
+      web console.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-1
     when:
     - xmlfile: null
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-2
@@ -10,7 +14,11 @@
     - or:
       - xmlfile: null
       - file: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-3
+  - message: "\n                      \n                      This file contains WebSphere
+      proprietary binding configuration.\n\n                      To migrate to EAP
+      6.x, configure EAP 6.x accordingly using the CLI interface or web console.\n
+      \                     \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-3
     when:
     - or:
       - xmlfile: null

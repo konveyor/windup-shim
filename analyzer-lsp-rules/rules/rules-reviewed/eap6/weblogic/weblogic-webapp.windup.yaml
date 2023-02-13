@@ -1,23 +1,45 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-0
+  - message: Virtual directories supported in WebLogic are not supported in JBoss
+      EAP.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-0
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-1
+  - message: "\n                      \n                      Replace the proprietary
+      WebLogic `@WLServlet` annotation with the Java EE standard `@WebServlet` annotation.\n\n
+      \                     See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)
+      for more information.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-1
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: weblogic.servlet.annotation.WLServlet
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-2
+  - message: "\n                      \n                      Replace the proprietary
+      WebLogic `@WLInitParam` annotation with the Java EE standard `@WebInitParam`
+      annotation.\n\n                      See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)
+      for more information.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-2
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: weblogic.servlet.annotation.WLInitParam
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-3
+  - message: "\n                      \n                      Replace the proprietary
+      WebLogic `@WLFilter` annotation with the Java EE standard `@WebFilter` annotation.\n\n
+      \                     See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)
+      for more information.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-3
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: weblogic.servlet.annotation.WLFilter
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-4
+  - message: "\n                      \n                      WebLogic `ApplicationLifecycleEvent`
+      must be replaced with standard Java EE `ServletContextEvent`. Otherwise, a custom
+      solution using CDI's `ApplicationScoped` beans or EJB's `@Startup` beans is
+      required in order to propagate a custom event object because `ServletContextEvent`
+      types are not extendible in the standard Java EE programming model.\n\n                      Use
+      a `javax.servlet.ServletContextListener` with `@javax.annotation.servlet.WebListener`,
+      or an EJB 3.1 `@javax.ejb.Startup` `@javax.ejb.Singleton` service bean.\n                      \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-4
     when:
       or:
       - java.referenced:
@@ -29,7 +51,13 @@
       - java.referenced:
           location: IMPORT
           pattern: weblogic.application.ApplicationLifecycleEvent
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-5
+  - message: "\n                      \n                      WebLogic `ApplicationLifecycleListener`
+      must be replaced with standard Java EE `ServletContextListener` types. Otherwise,
+      a solution using CDI's `ApplicationScoped` beans or EJB's `@Startup` beans is
+      required.\n\n                      Use a `javax.servlet.ServletContextListener`
+      with `@javax.annotation.servlet.WebListener`, or an EJB 3.1 `@javax.ejb.Startup`
+      `@javax.ejb.Singleton` service bean.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-5
     when:
       or:
       - java.referenced:
@@ -42,11 +70,19 @@
     when:
     - java.referenced:
         pattern: weblogic.security.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-7
+  - message: 'Migrate to JBoss EAP 6: `org.jboss.security.SecurityContextAssociation`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-7
     when:
     - java.referenced:
         pattern: weblogic.security.Security
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-8
+  - message: "\n                      \n                      Oracle WebLogic Server
+      provides a proprietary `ServletAuthentication` class to perform programmatic
+      login.\n\n                      In Red Hat JBoss EAP 6, you can use the standard
+      Java EE 6 servlet security 3.0 `HttpServletRequest.login()` method or you can
+      define a `<security-constraint>` element in the web.xml file. You must also
+      replace code that uses the Oracle WebLogic Server proprietary `ServletAuthentication`
+      class.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-8
     when:
     - java.referenced:
         pattern: weblogic.servlet.security.ServletAuthentication

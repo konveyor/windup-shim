@@ -1,6 +1,10 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-shell-to-quarkus.windup.xml-0
+  - message: "\n                        Replace the SpringBoot Shell artifacts with
+      Quarkus `picocli` extension\n\n                        Add Quarkus dependency
+      `io.quarkus:quarkus-picocli`\n\n                        PicoCli provides command-line
+      mode like Spring Shell but does not reuse the Spring interfaces\n                        therefore
+      re-coding is also required to use the appropriate PicoCli interfaces.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-shell-to-quarkus.windup.xml-0
     when:
-    - dependency:
-        artifactID: spring-shell-core
-        groupID: org.springframework.shell
+    - java.dependency:
+        name: org.springframework.shell.spring-shell-core

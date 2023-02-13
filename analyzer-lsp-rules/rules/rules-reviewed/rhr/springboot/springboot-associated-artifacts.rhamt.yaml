@@ -1,44 +1,51 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-0
+  - message: Check the links below for the Red Hat Runtimes supported version of AMQP
+      SpringBoot starter
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-0
     when:
-    - dependency:
-        artifactID: amqp-10-jms-spring-boot-starter
-        groupID: org.amqphub.spring
+    - java.dependency:
+        name: org.amqphub.spring.amqp-10-jms-spring-boot-starter
         upperBound: 2.0.9
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-1
+  - message: Check the links below for the Red Hat Runtimes supported version of CXF
+      JAXRS SpringBoot starter
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-1
     when:
-    - dependency:
-        artifactID: cxf-spring-boot-starter-jaxrs
-        groupID: org.apache.cxf
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-2
+    - java.dependency:
+        name: org.apache.cxf.cxf-spring-boot-starter-jaxrs
+  - message: Check the links below for the Red Hat Runtimes supported version of Resteasy
+      SpringBoot starter
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-2
     when:
-    - dependency:
-        artifactID: resteasy-spring-boot-starter
-        groupID: org.jboss.resteasy
+    - java.dependency:
+        name: org.jboss.resteasy.resteasy-spring-boot-starter
         upperBound: 2.9.9
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-3
+  - message: Check the links below for the Red Hat Runtimes supported version of Infinispan
+      SpringBoot starter
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-3
     when:
-    - dependency:
-        artifactID: '{infinispanArtifactName}'
-        groupID: org.infinispan
+    - java.dependency:
+        name: org.infinispan.{infinispanArtifactName}
         upperBound: 2.1.2
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-4
+  - message: Check the links below for the Red Hat Runtimes supported version of Keycloak
+      SpringBoot starter
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-4
     when:
-    - dependency:
-        artifactID: keycloak-spring-boot-starter
-        groupID: org.keycloak
+    - java.dependency:
+        name: org.keycloak.keycloak-spring-boot-starter
         upperBound: 4.8.2
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-5
+  - message: Check the links below for the Red Hat Runtimes supported version of Narayana
+      SpringBoot starter
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-5
     when:
-    - dependency:
-        artifactID: narayana-spring-boot-starter
-        groupID: me.snowdrop
+    - java.dependency:
+        name: me.snowdrop.narayana-spring-boot-starter
         upperBound: 2.0.9
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-6
+  - message: Check the links below for the Red Hat Runtimes supported version of OpenTracing
+      Spring Jaeger SpringBoot web starter
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-6
     when:
-    - dependency:
-        artifactID: opentracing-spring-jaeger-web-starter
-        groupID: io.opentracing.contrib
+    - java.dependency:
+        name: io.opentracing.contrib.opentracing-spring-jaeger-web-starter
         upperBound: 1.0.0
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-7
     when:

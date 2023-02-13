@@ -1,11 +1,21 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-jackson.windup.xml-0
+  - message: "\n                        \n                        `SerializationFeature.WRITE_DATES_AS_TIMESTAMPS`
+      is now disabled by default \n                        which means your temporal
+      types will be serialized as strings (e.g. `1988-11-17T00:00:00Z`) \n                        starting
+      1.13, instead of numeric values.\n\n                        You can easily go
+      back to the previous behavior by adding \n                        `quarkus.jackson.write-dates-as-timestamps=true`
+      to your `application.properties`.\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-jackson.windup.xml-0
     when:
-    - dependency:
-        artifactID: quarkus-resteasy-jackson
-        groupID: io.quarkus
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-jackson.windup.xml-1
+    - java.dependency:
+        name: io.quarkus.quarkus-resteasy-jackson
+  - message: "\n                        \n                        `SerializationFeature.WRITE_DATES_AS_TIMESTAMPS`
+      is now disabled by default \n                        which means your temporal
+      types will be serialized as strings (e.g. `1988-11-17T00:00:00Z`) \n                        starting
+      1.13, instead of numeric values.\n\n                        You can easily go
+      back to the previous behavior by adding \n                        `quarkus.jackson.write-dates-as-timestamps=true`
+      to your `application.properties`.\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-jackson.windup.xml-1
     when:
-    - dependency:
-        artifactID: quarkus-resteasy-jackson
-        groupID: io.quarkus
+    - java.dependency:
+        name: io.quarkus.quarkus-resteasy-jackson

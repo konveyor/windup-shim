@@ -1,156 +1,212 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-0
+  - message: '`org.apache.camel:camel-http4` artifact has been renamed in Apache Camel
+      3 to `org.apache.camel:camel-http` artifact'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-0
     when:
-    - dependency:
-        artifactID: camel-http4
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-1
+    - java.dependency:
+        name: org.apache.camel.camel-http4
+  - message: '`org.apache.camel:camel-http4-starter` artifact has been renamed in
+      Apache Camel 3 to `org.apache.camel.springboot:camel-http-starter` artifact'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-1
     when:
-    - dependency:
-        artifactID: camel-http4-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-2
+    - java.dependency:
+        name: org.apache.camel.camel-http4-starter
+  - message: '`org.apache.camel:camel-rxjava2` artifact has been renamed in Apache
+      Camel 3 to `org.apache.camel:camel-rxjava` artifact'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-2
     when:
-    - dependency:
-        artifactID: camel-rxjava2
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-3
+    - java.dependency:
+        name: org.apache.camel.camel-rxjava2
+  - message: '`org.apache.camel:camel-rxjava2-starter` artifact has been renamed in
+      Apache Camel 3 to `org.apache.camel.springboot:camel-rxjava-starter` artifact'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-3
     when:
-    - dependency:
-        artifactID: camel-rxjava2-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-4
+    - java.dependency:
+        name: org.apache.camel.camel-rxjava2-starter
+  - message: '`org.apache.camel:camel-{substitution}-starter` artifact has been renamed
+      in Apache Camel 3 to `org.apache.camel.springboot:camel-{substitution}-starter`
+      artifact'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-4
     when:
-    - dependency:
-        artifactID: camel-{substitution}-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-5
+    - java.dependency:
+        name: org.apache.camel.camel-{substitution}-starter
+  - message: '`org.apache.camel:camel-mongodb3` artifact has been renamed to `org.apache.camel:camel-mongodb`.
+      It’s corresponding component package was renamed from `org.apache.camel.component.mongodb3`
+      to `org.apache.camel.component.mongodb`. The supported scheme is now `mongodb`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-5
     when:
-    - dependency:
-        artifactID: camel-mongodb3
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-6
+    - java.dependency:
+        name: org.apache.camel.camel-mongodb3
+  - message: '`org.apache.camel:camel-mongodb3-starter` artifact has been renamed
+      to `org.apache.camel.springboot:camel-mongodb-starter`. It’s corresponding component
+      package was renamed from `org.apache.camel.component.mongodb3` to `org.apache.camel.component.mongodb`.
+      The supported scheme is now `mongodb`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-6
     when:
-    - dependency:
-        artifactID: camel-mongodb3-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-7
+    - java.dependency:
+        name: org.apache.camel.camel-mongodb3-starter
+  - message: '`org.apache.camel:camel-hdfs2` artifact has been renamed to `org.apache.camel:camel-hdfs`.
+      It’s corresponding component package was renamed from `org.apache.camel.component.hdfs2`
+      to `org.apache.camel.component.hdfs`. The supported scheme is now `hdfs`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-7
     when:
-    - dependency:
-        artifactID: camel-hdfs2
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-8
+    - java.dependency:
+        name: org.apache.camel.camel-hdfs2
+  - message: '`org.apache.camel:camel-hdfs2-starter` artifact has been renamed to
+      `org.apache.camel.springboot:camel-hdfs-starter`. It’s corresponding component
+      package was renamed from `org.apache.camel.component.hdfs2` to `org.apache.camel.component.hdfs`.
+      The supported scheme is now `hdfs`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-8
     when:
-    - dependency:
-        artifactID: camel-hdfs2-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-9
+    - java.dependency:
+        name: org.apache.camel.camel-hdfs2-starter
+  - message: In Camel 3, the `org.apache.camel:camel-hdfs` artifact has the same implementation
+      as the Camel 2 `org.apache.camel:camel-hdfs2` artifact. The component now depends
+      on Hadoop 2.x, upgrade efforts may vary.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-9
     when:
-    - dependency:
-        artifactID: camel-hdfs
-        groupID: org.apache.camel
+    - java.dependency:
+        name: org.apache.camel.camel-hdfs
         upperBound: "2"
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-10
+  - message: '`org.apache.camel:camel-hdfs-starter` artifact has been renamed to `org.apache.camel.springboot:camel-hdfs-starter`.
+      The component now depends on Hadoop 2.x, upgrade efforts may vary.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-10
     when:
-    - dependency:
-        artifactID: camel-hdfs-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-11
+    - java.dependency:
+        name: org.apache.camel.camel-hdfs-starter
+  - message: '`org.apache.camel:camel-mina2` artifact has been renamed to `org.apache.camel:camel-mina`.
+      It’s corresponding component package was renamed from `org.apache.camel.component.mina2`
+      to `org.apache.camel.component.mina`. The supported scheme is now `mina`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-11
     when:
-    - dependency:
-        artifactID: camel-mina2
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-12
+    - java.dependency:
+        name: org.apache.camel.camel-mina2
+  - message: '`org.apache.camel:camel-mina2-starter` artifact has been renamed to
+      `org.apache.camel.springboot:camel-mina-starter`. It’s corresponding component
+      package was renamed from `org.apache.camel.component.mina2` to `org.apache.camel.component.mina`.
+      The supported scheme is now `mina`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-12
     when:
-    - dependency:
-        artifactID: camel-mina2-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-13
+    - java.dependency:
+        name: org.apache.camel.camel-mina2-starter
+  - message: In Camel 3, the `org.apache.camel:camel-mina` artifact has the same implementation
+      as the Camel 2 `org.apache.camel:camel-mina2` artifact. The component now depends
+      on Mina 2.x, upgrade efforts may vary.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-13
     when:
-    - dependency:
-        artifactID: camel-mina
-        groupID: org.apache.camel
+    - java.dependency:
+        name: org.apache.camel.camel-mina
         upperBound: "2"
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-14
+  - message: '`org.apache.camel:camel-mina-starter` artifact has been renamed to `org.apache.camel.springboot:camel-mina-starter`.
+      The component now depends on Mina 2.x, upgrade efforts may vary.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-14
     when:
-    - dependency:
-        artifactID: camel-mina-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-15
+    - java.dependency:
+        name: org.apache.camel.camel-mina-starter
+  - message: '`org.apache.camel:camel-netty4` artifact has been renamed to `org.apache.camel:camel-netty`.
+      It’s corresponding component package was renamed from `org.apache.camel.component.netty4`
+      to `org.apache.camel.component.netty`. The supported scheme is now `netty`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-15
     when:
-    - dependency:
-        artifactID: camel-netty4
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-16
+    - java.dependency:
+        name: org.apache.camel.camel-netty4
+  - message: '`org.apache.camel:camel-netty4-starter` artifact has been renamed to
+      `org.apache.camel.springboot:camel-netty-starter`. It’s corresponding component
+      package was renamed from `org.apache.camel.component.netty4` to `org.apache.camel.component.netty`.
+      The supported scheme is now `netty`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-16
     when:
-    - dependency:
-        artifactID: camel-netty4-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-17
+    - java.dependency:
+        name: org.apache.camel.camel-netty4-starter
+  - message: In Camel 3, the `org.apache.camel:camel-netty` artifact has the same
+      implementation as the Camel 2 `org.apache.camel:camel-netty4` artifact. The
+      component now depends on Netty 4.x, upgrade efforts may vary.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-17
     when:
-    - dependency:
-        artifactID: camel-netty
-        groupID: org.apache.camel
+    - java.dependency:
+        name: org.apache.camel.camel-netty
         upperBound: "2"
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-18
+  - message: '`org.apache.camel:camel-netty-starter` artifact has been renamed to
+      `org.apache.camel.springboot:camel-netty-starter` artifact. The component now
+      depends on Netty 4.x, upgrade efforts may vary.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-18
     when:
-    - dependency:
-        artifactID: camel-netty-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-19
+    - java.dependency:
+        name: org.apache.camel.camel-netty-starter
+  - message: '`org.apache.camel:camel-netty4-http` artifact has been renamed to `org.apache.camel:camel-netty-http`.
+      It’s corresponding component package was renamed from `org.apache.camel.component.netty4.http`
+      to `org.apache.camel.component.netty.http`. The supported scheme is now `netty-http`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-19
     when:
-    - dependency:
-        artifactID: camel-netty4-http
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-20
+    - java.dependency:
+        name: org.apache.camel.camel-netty4-http
+  - message: '`org.apache.camel:camel-netty4-http` artifact has been renamed to `org.apache.camel.springboot:camel-netty-http-starter`.
+      It’s corresponding component package was renamed from `org.apache.camel.component.netty4.http`
+      to `org.apache.camel.component.netty.http`. The supported scheme is now `netty-http`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-20
     when:
-    - dependency:
-        artifactID: camel-netty4-http-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-21
+    - java.dependency:
+        name: org.apache.camel.camel-netty4-http-starter
+  - message: In Camel 3, the `org.apache.camel:camel-netty-http` artifact has the
+      same implementation as the Camel 2 `org.apache.camel:camel-netty4-http` artifact.
+      The component now depends on Netty 4.x, upgrade efforts may vary.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-21
     when:
-    - dependency:
-        artifactID: camel-netty-http
-        groupID: org.apache.camel
+    - java.dependency:
+        name: org.apache.camel.camel-netty-http
         upperBound: "2"
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-22
+  - message: '`org.apache.camel:camel-netty-http-starter` artifact has been renamed
+      to `org.apache.camel.springboot:camel-netty-http-starter`. The component now
+      depends on Netty 4.x, upgrade efforts may vary.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-22
     when:
-    - dependency:
-        artifactID: camel-netty-http-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-23
+    - java.dependency:
+        name: org.apache.camel.camel-netty-http-starter
+  - message: '`org.apache.camel:camel-quartz2` artifact has been renamed to `org.apache.camel:camel-quartz`.
+      It’s corresponding component package was renamed from `org.apache.camel.component.quartz2`
+      to `org.apache.camel.component.quartz`. The supported scheme is now `quartz`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-23
     when:
-    - dependency:
-        artifactID: camel-quartz2
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-24
+    - java.dependency:
+        name: org.apache.camel.camel-quartz2
+  - message: '`org.apache.camel:camel-quartz2-starter` artifact has been renamed to
+      `org.apache.camel.springboot:camel-quartz-starter`. It’s corresponding component
+      package was renamed from `org.apache.camel.component.quartz2` to `org.apache.camel.component.quartz`.
+      The supported scheme is now `quartz`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-24
     when:
-    - dependency:
-        artifactID: camel-quartz2-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-25
+    - java.dependency:
+        name: org.apache.camel.camel-quartz2-starter
+  - message: In Camel 3, the `org.apache.camel:camel-quartz` artifact has the same
+      implementation as the Camel 2 `org.apache.camel:camel-quartz2` artifact. The
+      component now depends on Quartz 2.x, upgrade efforts may vary.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-25
     when:
-    - dependency:
-        artifactID: camel-quartz
-        groupID: org.apache.camel
+    - java.dependency:
+        name: org.apache.camel.camel-quartz
         upperBound: "2"
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-26
+  - message: '`org.apache.camel:camel-quartz-starter` artifact has been renamed to
+      `org.apache.camel.springboot:camel-quartz-starter`. The component now depends
+      on Quartz 2.x, upgrade efforts may vary.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-26
     when:
-    - dependency:
-        artifactID: camel-quartz-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-27
+    - java.dependency:
+        name: org.apache.camel.camel-quartz-starter
+  - message: '`org.apache.camel:camel-jetty9` artifact has been renamed to `org.apache.camel:camel-jetty`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-27
     when:
-    - dependency:
-        artifactID: camel-jetty9
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-28
+    - java.dependency:
+        name: org.apache.camel.camel-jetty9
+  - message: '`org.apache.camel:camel-jetty9-starter` artifact has been renamed to
+      `org.apache.camel.springboot:camel-jetty-starter`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-28
     when:
-    - dependency:
-        artifactID: camel-jetty9-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-29
+    - java.dependency:
+        name: org.apache.camel.camel-jetty9-starter
+  - message: The `org.apache.activemq:activemq-camel` artifact has been moved to `org.apache.camel:camel-activemq`,
+      where the component name has changed from `org.apache.activemq.camel.component.ActiveMQComponent`
+      to `org.apache.camel.component.activemq.ActiveMQComponent`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-29
     when:
-    - dependency:
-        artifactID: activemq-camel
-        groupID: org.apache.activemq
+    - java.dependency:
+        name: org.apache.activemq.activemq-camel

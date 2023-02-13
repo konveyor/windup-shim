@@ -1,14 +1,25 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-services.windup.xml-0
+  - message: Replace this class with a class using the EJB 3.1 `@Singleton` and `@Startup`
+      annotations.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-services.windup.xml-0
     when:
     - java.referenced:
         location: IMPLEMENTS_TYPE
         pattern: weblogic.common.T3StartupDef
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-services.windup.xml-1
+  - message: "\n                      \n                      `T3ServicesDef` provides
+      access to core services of the container, such as Timers and Logging facilities.\n\n
+      \                     Replace the services provided by this with a Singleton
+      EJB (using the `@Singleton` annotation) that provides access to the equivalent
+      services from JBoss EAP.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-services.windup.xml-1
     when:
     - java.referenced:
         pattern: weblogic.common.T3ServicesDef
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-services.windup.xml-2
+  - message: "\n                      \n                      Oracle WebLogic logging
+      classes should be replaced with SLF4J, Log4J, or Java Logging.\n\n                      Please
+      refer to the [JBoss EAP migration guide](https://access.redhat.com/documentation/en-us/JBoss_Enterprise_Application_Platform/6.4/html/Migration_Guide/chap-Migrate_Your_Application.html#sect-Logging_Changes)
+      for more information on this.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-services.windup.xml-2
     when:
     - java.referenced:
         pattern: weblogic.{logger}{*}

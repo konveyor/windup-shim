@@ -1,5 +1,17 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-maven-plugin.windup.xml-0
+  - message: "\n                        \n                        Few things have
+      been cleaned up in the Quarkus Maven Plugin.  \n                        Make
+      sure the `quarkus-maven-plugin section` of the `pom.xml` of your project looks
+      like:\n\n                        ```Xml\n                        <plugin>\n
+      \                           <groupId>io.quarkus</groupId>\n                            <artifactId>quarkus-maven-plugin</artifactId>\n
+      \                           <version>${quarkus-plugin.version}</version>\n                            <extensions>true</extensions>\n
+      \                           <executions>\n                                <execution>\n
+      \                                   <goals>\n                                        <goal>build</goal>\n
+      \                                       <goal>generate-code</goal>\n                                        <goal>generate-code-tests</goal>\n
+      \                                   </goals>\n                                </execution>\n
+      \                           </executions>\n                        </plugin>\n
+      \                       ```\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-maven-plugin.windup.xml-0
     when:
     - filecontent:
         filename: pom.xml

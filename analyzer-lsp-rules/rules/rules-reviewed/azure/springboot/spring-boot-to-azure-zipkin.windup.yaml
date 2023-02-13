@@ -1,10 +1,10 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-zipkin.windup.xml-0
+  - message: "\n                        \n                        The application
+      uses Zipkin.\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-zipkin.windup.xml-0
     when:
     - or:
-      - dependency:
-          artifactID: spring-cloud-starter-zipkin
-          groupID: org.springframework.boot
-      - dependency:
-          artifactID: '{*}'
-          groupID: io.zipkin{*}
+      - java.dependency:
+          name: org.springframework.boot.spring-cloud-starter-zipkin
+      - java.dependency:
+          name: io.zipkin{*}.{*}

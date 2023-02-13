@@ -1,5 +1,10 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-distroless.windup.xml-0
+  - message: "\n                        \n                        If you are using
+      the distroless image, please note that it now has an immutable version\n                        so
+      you might have to update your Dockerfiles to use:\n\n                        `quay.io/quarkus/quarkus-distroless-image:1.0`
+      instead of\n                        `quay.io/quarkus/quarkus-distroless-image:20.3-java11`.\n
+      \                       \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-distroless.windup.xml-0
     when:
     - filecontent:
         filename: Dockerfile

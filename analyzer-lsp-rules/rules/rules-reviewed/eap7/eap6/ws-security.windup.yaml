@@ -1,15 +1,25 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-0
+  - message: "\n                        The `org.apache.ws.security.WSPasswordCallback`
+      class has moved to package `org.apache.wss4j.common.ext`.\n                        The
+      application must be changed to reference to the new package.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-0
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.apache.ws.security.WSPasswordCallback
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-1
+  - message: "\n                        Most of the SAML bean objects from the `org.apache.ws.security.saml.ext`
+      package have been moved to the `org.apache.wss4j.common.saml` package.\n                        The
+      application must be changed to reference to the new package.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-1
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.apache.ws.security.saml.ext.{SAMLClassAndPackages}{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-2
+  - message: "\n                        The `org.apache.ws.security.saml.ext.AssertionWrapper`
+      class have been renamed and moved to the `org.apache.wss4j.common.saml.SamlAssertionWrapper`
+      class.\n                        The application must be changed to reference
+      and use the new class.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-2
     when:
     - java.referenced:
         location: IMPORT

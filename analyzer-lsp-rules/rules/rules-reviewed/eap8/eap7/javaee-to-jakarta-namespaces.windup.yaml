@@ -1,160 +1,221 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-0
+  - message: 'Replace `http://xmlns.jcp.org/xml/ns/javaee` with `https://jakarta.ee/xml/ns/jakartaee`
+      and change the schema version number '
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-0
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: http://xmlns.jcp.org/xml/ns/javaee
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-1
+  - message: 'Replace `http://xmlns.jcp.org/xml/ns/persistence` with `https://jakarta.ee/xml/ns/persistence`
+      and change the schema version number '
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-1
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: http://xmlns.jcp.org/xml/ns/persistence
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-2
+  - message: 'Replace `http://xmlns.jcp.org/xml/ns/validation` with `https://jakarta.ee/xml/ns/validation`
+      and change the schema version number '
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-2
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: http://xmlns.jcp.org/xml/ns/validation
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-3
+  - message: Replace `javaee_web_services_metadata_handler_2_0.xsd` with `jakartaee_web_services_metadata_handler_3_0.xsd`
+      and update the version attribute to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-3
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: javaee_web_services_metadata_handler_2_0.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-4
+  - message: Replace `batchXML_1_0.xsd` with `batchXML_2_0.xsd`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-4
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: batchXML_1_0.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-5
+  - message: Replace `beans_1_1.xsd` with `beans_3_0.xsd` and update the version attribute
+      to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-5
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: beans_1_1.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-6
+  - message: Replace `beans_2_0.xsd` with `beans_3_0.xsd` and update the version attribute
+      to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-6
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: beans_2_0.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-7
+  - message: Replace `jobXML_1_0.xsd` with `jobXML_2_0.xsd` and update the version
+      attribute to `"2.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-7
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: jobXML_1_0.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-8
+  - message: Replace `application_7.xsd` with `application_9.xsd` and update the version
+      attribute to `"9"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-8
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: application_7.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-9
+  - message: Replace `application_8.xsd` with `application_9.xsd` and update the version
+      attribute to `"9"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-9
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: application_8.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-10
+  - message: Replace `application-client_7.xsd` with `application-client_9.xsd` and
+      update the version attribute to `"9"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-10
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: application-client_7.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-11
+  - message: Replace `application-client_8.xsd` with `application-client_9.xsd` and
+      update the version attribute to `"9"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-11
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: application-client_8.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-12
+  - message: Replace `connector_1_7.xsd` with `connector_2_0.xsd` and update the version
+      attribute to `"2.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-12
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: connector_1_7.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-13
+  - message: Replace `ejb-jar_3_2.xsd` with `ejb-jar_4_0.xsd` and update the version
+      attribute to `"4.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-13
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: ejb-jar_3_2.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-14
+  - message: Replace `javaee_web_services_1_4.xsd` with `jakartaee_web_services_2_0.xsd`
+      and update the version attribute to `"2.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-14
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: javaee_web_services_1_4.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-15
+  - message: Replace `permissions_7.xsd` with `permissions_9.xsd` and update the version
+      attribute to `"9"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-15
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: permissions_7.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-16
+  - message: Replace `web-app_3_1.xsd` with `web-app_5_0.xsd` and update the version
+      attribute to `"5.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-16
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-app_3_1.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-17
+  - message: Replace `web-app_4_0.xsd` with `web-app_5_0.xsd` and update the version
+      attribute to `"5.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-17
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-app_4_0.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-18
+  - message: Replace `web-fragment_3_1.xsd` with `web-fragment_5_0.xsd` and update
+      the version attribute to `"5.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-18
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-fragment_3_1.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-19
+  - message: Replace `web-fragment_4_0.xsd` with `web-fragment_5_0.xsd` and update
+      the version attribute to `"5.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-19
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-fragment_4_0.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-20
+  - message: Replace `web-facesconfig_2_2.xsd` with `web-facesconfig_3_0.xsd` and
+      update the version attribute to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-20
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-facesconfig_2_2.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-21
+  - message: Replace `web-facesconfig_2_3.xsd` with `web-facesconfig_3_0.xsd` and
+      update the version attribute to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-21
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-facesconfig_2_3.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-22
+  - message: Replace `web-facelettaglibrary_2_2.xsd` with `web-facelettaglibrary_3_0.xsd`
+      and update the version attribute to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-22
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-facelettaglibrary_2_2.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-23
+  - message: Replace `web-facelettaglibrary_2_3.xsd` with `web-facelettaglibrary_3_0.xsd`
+      and update the version attribute to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-23
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-facelettaglibrary_2_3.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-24
+  - message: Replace `web-partialresponse_2_2.xsd` with `web-partialresponse_3_0.xsd`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-24
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-partialresponse_2_2.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-25
+  - message: Replace `web-partialresponse_2_3.xsd` with `web-partialresponse_3_0.xsd`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-25
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-partialresponse_2_3.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-26
+  - message: Replace `web-jsptaglibrary_2_1.xsd` with `web-jsptaglibrary_3_0.xsd`
+      and update the version attribute to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-26
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: web-jsptaglibrary_2_1.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-27
+  - message: Replace `validation-mapping-2.0.xsd` with `validation-mapping-3.0.xsd`
+      and update the version attribute to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-27
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: validation-mapping-2.0.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-28
+  - message: Replace `validation-configuration-2.0.xsd` with `validation-configuration-3.0.xsd`
+      and update the version attribute to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-28
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: validation-configuration-2.0.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-29
+  - message: Replace `persistence_2_1.xsd` with `persistence_3_0.xsd` and update the
+      version attribute to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-29
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: persistence_2_1.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-30
+  - message: Replace `orm_2_1.xsd` with `orm_3_0.xsd` and update the version attribute
+      to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-30
     when:
     - filecontent:
         filename: '{*}.xml'
         pattern: orm_2_1.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-31
+  - message: Replace `orm_2_2.xsd` with `orm_3_0.xsd` and update the version attribute
+      to `"3.0"`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-31
     when:
     - filecontent:
         filename: '{*}.xml'

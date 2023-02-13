@@ -1,62 +1,87 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-0
+  - message: '`org.apache.camel:camel-linkedin` artifact has been removed in Apache
+      Camel 3 so it won''t be available'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-0
     when:
-    - dependency:
-        artifactID: camel-linkedin
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-1
+    - java.dependency:
+        name: org.apache.camel.camel-linkedin
+  - message: '`org.apache.camel:camel-linkedin-starter` artifact has been removed
+      in Apache Camel 3 so it won''t be available'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-1
     when:
-    - dependency:
-        artifactID: camel-linkedin-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-2
+    - java.dependency:
+        name: org.apache.camel.camel-linkedin-starter
+  - message: '`org.apache.camel:camel-script` artifact has been deprecated in Apache
+      Camel 2 and removed in Apache Camel 3 as there is no support for javax.script,
+      which is also deprecated in the JDK and to be removed from Java 11 onwards.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-2
     when:
-    - dependency:
-        artifactID: camel-script
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-3
+    - java.dependency:
+        name: org.apache.camel.camel-script
+  - message: '`org.apache.camel:camel-script-starter` artifact has been deprecated
+      in Apache Camel 2 and removed in Apache Camel 3 as there is no support for javax.script,
+      which is also deprecated in the JDK and to be removed from Java 11 onwards.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-3
     when:
-    - dependency:
-        artifactID: camel-script-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-4
+    - java.dependency:
+        name: org.apache.camel.camel-script-starter
+  - message: '`org.apache.camel:camel-jibx` artifact has been deprecated in Apache
+      Camel 2 and removed in Apache Camel 3 because it did not support JDK8.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-4
     when:
-    - dependency:
-        artifactID: camel-jibx
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-5
+    - java.dependency:
+        name: org.apache.camel.camel-jibx
+  - message: '`org.apache.camel:camel-jibx-starter` artifact has been deprecated in
+      Apache Camel 2 and removed in Apache Camel 3 because it did not support JDK8.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-5
     when:
-    - dependency:
-        artifactID: camel-jibx-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-6
+    - java.dependency:
+        name: org.apache.camel.camel-jibx-starter
+  - message: '`org.apache.camel:camel-boon` artifact has been deprecated in Apache
+      Camel 2 and removed in Apache Camel 3 because it did not support JDK9 and later.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-6
     when:
-    - dependency:
-        artifactID: camel-boon
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-7
+    - java.dependency:
+        name: org.apache.camel.camel-boon
+  - message: '`org.apache.camel:camel-boon-starter` artifact has been deprecated in
+      Apache Camel 2 and removed in Apache Camel 3 because it did not support JDK9
+      and later.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-7
     when:
-    - dependency:
-        artifactID: camel-boon-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-8
+    - java.dependency:
+        name: org.apache.camel.camel-boon-starter
+  - message: '`twitter-streaming` component has been deprecated in Apache Camel 2
+      and removed in Apache Camel 3 because it relied on the deprecated Twitter Streaming
+      API and is no longer functional.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-8
     when:
     - or:
       - filecontent:
           filename: '{*}.java'
           pattern: from("twitter-streaming:{*}
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-9
+  - message: '`org.apache.camel:camel-restlet` artifact has been deprecated in Apache
+      Camel 2 and removed in Apache Camel 3. Use any of the other REST capable components,
+      such as `camel-rest`, `camel-jetty`, `camel-netty-http` or `camel-undertow`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-9
     when:
-    - dependency:
-        artifactID: camel-restlet
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-10
+    - java.dependency:
+        name: org.apache.camel.camel-restlet
+  - message: '`org.apache.camel:camel-core-starter` artifact has been removed and
+      split into several modules. Please add the relevant starter artifacts to your
+      pom.xml file.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-10
     when:
-    - dependency:
-        artifactID: camel-core-starter
-        groupID: org.apache.camel
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-11
+    - java.dependency:
+        name: org.apache.camel.camel-core-starter
+  - message: 'The `camel-maven-plugin` has been split up into two Maven plugins: `camel-maven-plugin`
+      and `camel-report-maven-plugin`. The `camel-maven-plugin` contains the `run`
+      goal which is intended for quickly running Camel applications. The `camel-report-maven-plugin`
+      has the `validate` and `route-coverage` goals which is used for generating reports
+      of your Camel projects by validating Camel endpoint URIs and performing route
+      coverage reports. Please use the `org.apache.camel:camel-report-maven-plugin`
+      in this case.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-11
     when:
     - or:
       - xmlfile: null

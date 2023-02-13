@@ -3,87 +3,136 @@
     when:
     - java.referenced:
         pattern: org.hibernate.search.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-1
+  - message: The class `org.hibernate.search.impl.SearchMappingBuilder` was replaced
+      by `org.hibernate.search.engine.spi.SearchMappingHelper` class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-1
     when:
     - java.referenced:
         pattern: org.hibernate.search.impl.SearchMappingBuilder
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-2
+  - message: The class `org.hibernate.search.Environment` was replaced by `org.hibernate.search.cfg.Environment`
+      class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-2
     when:
     - java.referenced:
         pattern: org.hibernate.search.Environment
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-3
+  - message: The class `org.hibernate.search.FullTextFilter` was replaced by `org.hibernate.search.filter.FullTextFilter`
+      class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-3
     when:
     - java.referenced:
         pattern: org.hibernate.search.FullTextFilter
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-4
+  - message: The class `org.hibernate.search.indexes.impl.DirectoryBasedIndexManager`
+      was replaced by `org.hibernate.search.indexes.spi.DirectoryBasedIndexManager`
+      class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-4
     when:
     - java.referenced:
         pattern: org.hibernate.search.indexes.impl.DirectoryBasedIndexManager
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-5
+  - message: The class `org.hibernate.search.infinispan.impl.InfinispanDirectoryProvider`
+      was replaced by `org.hibernate.search.infinispan.spi.InfinispanDirectoryProvider`
+      class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-5
     when:
     - java.referenced:
         pattern: org.hibernate.search.infinispan.impl.InfinispanDirectoryProvider
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-6
+  - message: The class `org.hibernate.search.ProjectionConstants` was replaced by
+      `org.hibernate.search.engine.ProjectionConstants` class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-6
     when:
     - java.referenced:
         pattern: org.hibernate.search.ProjectionConstants
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-7
+  - message: The class `org.hibernate.search.SearchException` was replaced by `org.hibernate.search.exception.SearchException`
+      class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-7
     when:
     - java.referenced:
         pattern: org.hibernate.search.SearchException
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-8
+  - message: The class `org.hibernate.search.spi.MassIndexerFactory` was replaced
+      by `org.hibernate.search.batchindexing.spi.MassIndexerFactory` class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-8
     when:
     - java.referenced:
         pattern: org.hibernate.search.spi.MassIndexerFactory
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-9
+  - message: The class `org.hibernate.search.spi.SearchFactoryBuilder` was replaced
+      by `org.hibernate.search.spi.SearchIntegratorBuilder` class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-9
     when:
     - java.referenced:
         pattern: org.hibernate.search.spi.SearchFactoryBuilder
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-10
+  - message: |-
+      Do not use `org.hibernate.search.spi.SearchFactoryIntegrator`. You should migrate all code to use `org.hibernate.search.spi.SearchIntegrator`.
+                          This interface is a temporary placeholder and will be removed at the next micro release!
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-10
     when:
     - java.referenced:
         pattern: org.hibernate.search.spi.SearchFactoryIntegrator
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-11
+  - message: The class `org.hibernate.search.Version` was replaced by `org.hibernate.search.engine.Version`
+      class.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-11
     when:
     - java.referenced:
         pattern: org.hibernate.search.Version
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-12
+  - message: Use `NumericFieldMapping.NumericFieldMapping(String, PropertyDescriptor,
+      EntityDescriptor, SearchMapping)` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-12
     when:
     - java.referenced:
         location: CONSTRUCTOR_CALL
         pattern: org.hibernate.search.cfg.NumericFieldMapping(org.hibernate.search.cfg.PropertyDescriptor,
           org.hibernate.search.cfg.EntityDescriptor, org.hibernate.search.cfg.SearchMapping)
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-13
+  - message: |-
+      `org.hibernate.search.store.IndexShardingStrategy` interface is deprecated as of Hibernate Search 4.4. Might be removed in Hibernate Search 5.
+                          Use `org.hibernate.search.store.ShardIdentifierProvider` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-13
     when:
     - java.referenced:
         pattern: org.hibernate.search.store.IndexShardingStrategy
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-14
+  - message: '`org.hibernate.search.store.Workspace` interface will be moved and considered
+      as non-public API.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-14
     when:
     - java.referenced:
         pattern: org.hibernate.search.store.Workspace
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-15
+  - message: Custom filter keys are deprecated and are scheduled for removal in Hibernate
+      Search 6. As of Hibernate Search 5.1, keys for caching Lucene filters are calculated
+      automatically based on the given filter parameters.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-15
     when:
     - java.referenced:
         pattern: org.hibernate.search.filter.FilterKey
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-16
+  - message: |-
+      Custom filter keys `StandardFilterKey` are deprecated and are scheduled for removal in Hibernate Search 6.
+                          As of Hibernate Search 5.1, keys for caching Lucene filters are calculated automatically based on the given filter parameters.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-16
     when:
     - java.referenced:
         pattern: org.hibernate.search.filter.StandardFilterKey
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-17
+  - message: Remove the `@FieldCacheType` annotation. No alternative replacement necessary
+      as the Field Cache in Apache Lucene feature does no longer exist.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-17
     when:
     - java.referenced:
         pattern: org.hibernate.search.annotations.FieldCacheType
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-18
+  - message: Remove the `@CacheFromIndex` annotation. No alternative replacement necessary.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-18
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: org.hibernate.search.annotations.CacheFromIndex
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-19
+  - message: "Custom filter cache keys are a deprecated feature and are scheduled
+      to be removed in Hibernate Search 6.\n                     As of Hibernate Search
+      5.1, the filter cache keys are determined automatically based on the filter
+      parameters so it is no longer required to provide a key object. "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-19
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: org.hibernate.search.annotations.Key
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-20
+  - message: |-
+      The `IndexWriterSetting.MAX_THREAD_STATES` and `IndexWriterSetting.TERM_INDEX_INTERVAL` enum constants are deprecated.
+                          They affect which properties are read from the configuration, so the fact they they are missing means that configuration properties such as `hibernate.search.Animals.2.indexwriter.term_index_interval = default` are now ignored.
+                          The only side effect is that the property is not applied.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-20
     when:
       or:
       - java.referenced:
@@ -92,32 +141,74 @@
       - java.referenced:
           location: IMPORT
           pattern: org.hibernate.search.backend.configuration.impl.IndexWriterSetting.{constant}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-21
+  - message: The enum value `SpatialMode.GRID` for `@Spatial` annotation was renamed
+      to `SpatialMode.HASH`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-21
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: org.hibernate.search.annotations.Spatial
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-22
+  - message: The class `FullTextIndexEventListener` is now a final class. If you currently
+      extend this class, you must find an alternate solution to achieve the same functionality.
+      You could in some cases use an `EntityIndexingInterceptor`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-22
     when:
     - java.referenced:
         location: INHERITANCE
         pattern: org.hibernate.search.event.impl.FullTextIndexEventListener
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-23
+  - message: |-
+      The JMS backend was depending to Hibernate ORM. This dependency was removed, so that the backend can be used in other (non ORM) environments as well.
+                          A consequence is that implementors of `org.hibernate.search.backend.impl.jms.AbstractJMSHibernateSearchController` will need to adjust to the new signature.
+                           This class is really considered internal. We suggest to take this class as an example instead of extending it.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-23
     when:
     - java.referenced:
         location: INHERITANCE
         pattern: org.hibernate.search.backend.impl.jms.AbstractJMSHibernateSearchController
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-24
+  - message: |-
+      The `org.hibernate.search.spi.ServiceProvider` SPI has been refactored.
+                          If you where integrating with the old service contract, refer to the javadoc of `ServiceManager`, `Service`, `Startable` and `Stoppable` for details about the new contract.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-24
     when:
     - java.referenced:
         location: IMPLEMENTS_TYPE
         pattern: org.hibernate.search.spi.ServiceProvider
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-25
+  - message: "\n                     When using an `@IndexedEmbedded` annotation to
+      include fields from a related entity,\n                     the id of the related
+      entity is no longer included.\n\n                     You can enable the inclusion
+      of the id by using the `includeEmbeddedObjectId` attribute of the `@IndexedEmbedded`
+      annotation.\n\n                     ```java\n                     @IndexedEmbedded(includeEmbeddedObjectId=true)\n
+      \                    ```\n\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-25
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: org.hibernate.search.annotations.IndexedEmbedded
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-26
+  - message: "\n            Numbers and dates are now indexed as numeric fields by
+      default. Properties of type int, long, float, double, and their\n            corresponding
+      wrapper classes are no longer indexed as strings. Instead, they are now indexed
+      using Lucene’s appropriate numeric\n            encoding. The id fields are
+      an exception to this rule. Even when they are represented by a numeric type,
+      they are still indexed as\n            a string keyword by default. The use
+      of `@NumericField` is now obsolete unless you want to specify a custom precision
+      for the numeric\n            encoding. You can keep the old string-based index
+      format by explicitly specifying a string encoding field bridge. In the case
+      of\n            integers, this is the `org.hibernate.search.bridge.builtin.IntegerBridge`.
+      Check the `org.hibernate.search.bridge.builtin` package for\n            other
+      publicly available field bridges.\n\n            Date and Calendar are no longer
+      indexed as strings. Instead, instances are encoded as long values representing
+      the number\n            of milliseconds since January 1, 1970, 00:00:00 GMT.
+      You can switch the indexing format by using the new EncodingType enum. For example:\n\n
+      \           ```java\n            @DateBridge(encoding=EncodingType.STRING)\n
+      \           @CalendarBridge(encoding=EncodingType.STRING)\n            ```\n\n
+      \           The encoding change for numbers and dates is important and can have
+      a big impact on application behavior. If you have\n            a query that
+      targets a field that was previously string-encoded, but is now encoded numerically,
+      you must update the query. Numeric\n             fields must be searched with
+      a NumericRangeQuery. You must also make sure that all fields targeted by faceting
+      are string encoded.\n            If you use the Search query DSL, the correct
+      query should be created automatically for you.\n            "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-26
     when:
     - or:
       - java.referenced:
@@ -130,12 +221,22 @@
           pattern: java.util.{date}
       - java.referenced:
           pattern: java.lang.{wrapper}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-27
+  - message: "When using `@Field(indexNullAs=)` to encode a null marker value in the
+      index, the type of the marker must be compatible with all other values that
+      are indexed in that same field.\n                    For example, it was previously
+      possible to encode a null value for numeric fields using a string _null_.\n
+      \                   This is no longer allowed. Instead, you must choose a number
+      to represent the null value, such as -1. "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-27
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: org.hibernate.search.annotations.Field
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-28
+  - message: Significant improvements were made to the faceting engine. Most of the
+      changes do not affect the API. The one notable exception is that you must now
+      annotate any fields you intend to use for faceting with the `@Facet` or `@Facets`
+      annotation.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-28
     when:
     - or:
       - java.referenced:
@@ -146,7 +247,12 @@
           pattern: org.hibernate.search.FullTextQuery.getFacetManager{*}
       - java.referenced:
           pattern: org.hibernate.search.query.facet.{class}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-29
+  - message: |-
+      Numbers and dates now indexed as numeric fields by default.
+      Properties of type `Date`, `Calendar` as well as `int`, `long`, `float`, `double` and their corresponding wrappers, are no longer indexed as strings. Instead, they are now indexed using Lucene’s appropriate numeric encoding.
+
+      The `id` fields are an exception to this rule: even when these are represented by a numeric type, they will still be indexed as a string keyword by default..
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-29
     when:
     - or:
       - java.referenced:
@@ -155,137 +261,213 @@
           pattern: java.lang.{wrapper}
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-30
     when:
-    - dependency:
-        artifactID: hibernate-search-analyzers
-        groupID: org.hibernate
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-31
+    - java.dependency:
+        name: org.hibernate.hibernate-search-analyzers
+  - message: |-
+      The hibernate-search-analyzers module was removed. The recommended approach is to directly use the appropriate Lucene artifact,
+                           for example org.apache.lucene:lucene-analyzers-common.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-31
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-32
+  - message: "\n                    The Lucene SortField API requires the following
+      application code change. In the previous release of JBoss EAP, you set the type
+      of the sort field in the query as follows.\n\n```java\nfulltextQuery.setSort(new
+      Sort(new SortField(\"title\", SortField.STRING)));\n```\n\nThe following is
+      an example of how you set it in JBoss EAP 7.\n\n```java\nfulltextQuery.setSort(new
+      Sort(new SortField(\"title\", SortField.Type.STRING)))\n```\n\n                     "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-32
     when:
     - java.referenced:
         location: CONSTRUCTOR_CALL
         pattern: org.apache.lucene.search.SortField({*})
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-33
+  - message: Method `ContainedInMapping#numericField()` has been deprecated and is
+      scheduled for removal. Invoke `ContainedInMapping#field().numericField()` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-33
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.cfg.ContainedInMapping.numericField{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-34
+  - message: Don't use `FullTextSharedSessionBuilder#autoclose()` and `FullTextSharedSessionBuilder#autoclose(boolean)`
+      method. There is no replacement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-34
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.FullTextSharedSessionBuilder.autoClose{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-35
+  - message: This will be removed with no replacement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-35
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.cfg.IndexedMapping.cacheFromIndex{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-36
+  - message: This will be removed with no replacement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-36
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.cfg.EntityDescriptor.getCacheInMemory{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-37
+  - message: should be at most SearchIntegrator, preferably removed altogether
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-37
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.query.engine.spi.HSQuery.getExtendedSearchIntegrator{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-38
+  - message: The `DocumentBuilderIndexedEntity#getFieldCacheOption()` method has been
+      deprecated. There is no replacement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-38
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.engine.spi.DocumentBuilderIndexedEntity.getFieldCacheOption{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-39
+  - message: The `BuildContext#getIndexingStrategy()` method is deprecated. Use `BuildContext#getIndexingMode()`
+      instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-39
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.spi.BuildContext.getIndexingStrategy{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-40
+  - message: 'The `DirectoryHelper#getVerifiedIndexDir(String, Properties, boolean)`
+      method is deprecated. Use `DirectoryHelper#getVerifiedIndexPath(java.lang.String,
+      java.util.Properties, boolean)` instead. '
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-40
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.store.spi.DirectoryHelper.getVerifiedIndexDir{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-41
+  - message: Method `org.hibernate.search.cfg.EntityDescriptor.setCacheInMemory` is
+      deprecated and there is no replacement.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-41
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.cfg.EntityDescriptor.setCacheInMemory{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-42
+  - message: Method `org.hibernate.search.MassIndexer.threadsForSubsequentFetching(int)`
+      is deprecated and will be removed.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-42
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.MassIndexer.threadsForSubsequentFetching{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-43
+  - message: Use `FuzzyContext.withEditDistanceUpTo(int)` instead.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-43
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.search.query.dsl.FuzzyContext.withThreshold{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-44
+  - message: Lucene's core `org.apache.lucene.queryParser.{type}` have been consolidated
+      into lucene/queryparser, that results in changing package name so it is now
+      named as `org.apache.lucene.queryparser.classic.{type}`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-44
     when:
     - java.referenced:
         pattern: org.apache.lucene.queryParser.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-45
+  - message: Lucene's core `org.apache.lucene.queryParser.QueryParserToken` have been
+      consolidated into lucene/queryparser, that results in changing package name
+      so it is now named as `org.apache.lucene.queryparser.classic.Token`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-45
     when:
     - java.referenced:
         pattern: org.apache.lucene.queryParser.QueryParserToken
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-46
+  - message: Lucene's core `org.apache.lucene.queryParser.QueryParserTokenMgrError`
+      have been consolidated into lucene/queryparser, that results in changing package
+      name so it is now named as `org.apache.lucene.queryparser.classic.TokenMgrError`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-46
     when:
     - java.referenced:
         pattern: org.apache.lucene.queryParser.QueryParserTokenMgrError
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-47
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.analysis.{type}` to `org.apache.lucene.analysis.core.{type}`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-47
     when:
     - java.referenced:
         pattern: org.apache.lucene.analysis.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-48
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.analysis.PorterStemFilter` to `org.apache.lucene.analysis.en.PorterStemFilter`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-48
     when:
     - java.referenced:
         pattern: org.apache.lucene.analysis.PorterStemFilter
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-49
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.analysis.{type}` to `org.apache.lucene.analysis.miscellaneous.{type}`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-49
     when:
     - java.referenced:
         pattern: org.apache.lucene.analysis.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-50
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.analysis.TeeSinkTokenFilter` to `org.apache.lucene.analysis.sinks.TeeSinkTokenFilter`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-50
     when:
     - java.referenced:
         pattern: org.apache.lucene.analysis.TeeSinkTokenFilter
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-51
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.analysis.{type}` to `org.apache.lucene.analysis.charfilter.{type}`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-51
     when:
     - java.referenced:
         pattern: org.apache.lucene.analysis.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-52
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.analysis.{type}` to `org.apache.lucene.analysis.util.{type}`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-52
     when:
     - java.referenced:
         pattern: org.apache.lucene.analysis.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-53
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring class name have changed for `org.apache.lucene.analysis.ReusableAnalyzerBase` to `org.apache.lucene.analysis.Analyzer`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-53
     when:
     - java.referenced:
         pattern: org.apache.lucene.analysis.ReusableAnalyzerBase
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-54
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.util.CharacterUtils` to `org.apache.lucene.analysis.util.CharacterUtils`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-54
     when:
     - java.referenced:
         pattern: org.apache.lucene.util.CharacterUtils
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-55
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.search.function.{type}` to `org.apache.lucene.queries.{type}`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-55
     when:
     - java.referenced:
         pattern: org.apache.lucene.search.function.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-56
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.search.function.NumericIndexDocValueSource` to `org.apache.lucene.queries.function.valuesource.NumericIndexDocValueSource`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-56
     when:
     - java.referenced:
         pattern: org.apache.lucene.search.function.NumericIndexDocValueSource
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-57
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.search.function.{type}` to `org.apache.lucene.queries.function.{type}`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-57
     when:
     - java.referenced:
         pattern: org.apache.lucene.search.function.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-58
+  - message: |-
+      Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
+                           During the refactoring package name have changed for `org.apache.lucene.search.function.{type}` to `org.apache.lucene.queries.function.valuesources.{type}`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-58
     when:
     - java.referenced:
         pattern: org.apache.lucene.search.function.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-59
+  - message: Solr utilities class `org.apache.solr.analysis.{type}` was moved into
+      Apache Lucene so you can use `org.apache.lucene.analysis.util.{type}`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-59
     when:
     - java.referenced:
         pattern: org.apache.solr.analysis.{type}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-60
+  - message: Method `org.hibernate.search.MassIndexer#threadsForIndexWriter(int)`
+      was removed in Hibernate Search 5.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-60
     when:
     - java.referenced:
         location: METHOD_CALL

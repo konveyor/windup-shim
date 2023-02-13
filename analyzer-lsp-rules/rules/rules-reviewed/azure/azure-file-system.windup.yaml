@@ -1,5 +1,10 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-0
+  - message: "\n                        \n                        The application
+      uses Java APIs to read/write from the file system.\n                        \n
+      \                       Any usage of the file system on the application will
+      require reconfiguration or, in rare cases, architectural changes.\n                        \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-0
     when:
     - or:
       - java.referenced:
@@ -8,12 +13,20 @@
           pattern: java.nio.{*}
       - java.referenced:
           pattern: org.apache.commons.io.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-1
+  - message: "\n                        \n                        Relative path found.\n
+      \                       \n                        Any usage of the file system
+      on the application will require reconfiguration or, in rare cases, architectural
+      changes.\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-1
     when:
     - filecontent:
         filename: '{*}.{extensions}'
         pattern: '{path}'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-2
+  - message: "\n                        \n                        Home path found.\n
+      \                       \n                        Any usage of the file system
+      on the application will require reconfiguration or, in rare cases, architectural
+      changes.\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-2
     when:
     - filecontent:
         filename: '{*}.{extensions}'

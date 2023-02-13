@@ -2,9 +2,7 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/embedded-cache-libraries.windup.xml-14
     when:
     - or:
-      - dependency:
-          artifactID: spring-boot-starter-cache
-          groupID: org.springframework.boot
-      - dependency:
-          artifactID: spring-boot-starter-cache
-          groupID: org.springframework.boot
+      - java.dependency:
+          name: org.springframework.boot.spring-boot-starter-cache
+      - java.dependency:
+          name: org.springframework.boot.spring-boot-starter-cache

@@ -3,12 +3,23 @@
     when:
     - java.referenced:
         pattern: '{package}.{type}'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-1
+  - message: "`WMQInitialContextFactory` is an implementation of `InitialContextFactory`\n
+      \                       used to get object instances from JNDI. The\n                        equivalent
+      functionality needs to be configured on JBoss EAP 7 using ActiveMQ Artemis.\n
+      \                       `InitialContextFactory` is provided\n                        by
+      EAP and you only need to instantiate `InitialContext ctx = new InitialContext();`.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-1
     when:
     - filecontent:
         filename: '{*}.{ext}'
         pattern: com.ibm.mq.jms.context.WMQInitialContextFactory
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-2
+  - message: "\n                        WebSphere `.scp` files contain scripts for
+      the `jmsadmin` program which is used\n                        to configure the
+      WebSphere MQ destinations\n                        and routing. To configure
+      messaging in JBoss EAP 7 with ActiveMQ Artemis, use either the Management Console
+      or Management CLI with it's\n                        scripting feature.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-2
     when:
     - filecontent:
         filename: '{*}.scp'

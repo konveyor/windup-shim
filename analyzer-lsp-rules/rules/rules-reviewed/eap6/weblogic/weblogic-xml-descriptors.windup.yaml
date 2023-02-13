@@ -5,14 +5,28 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-1
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-2
+  - message: "\n                      \n                      The WebLogic `<delay-updates-until-end-of-tx>`
+      configuration element, which defaults to `true`, is used for performance reasons
+      to delay updates to the persistent store of all beans until the end of the transaction.
+      When set to `false`, updates are sent to the database after each method invocation,
+      but are not committed until the end of the transaction. This allows other processes
+      to access the persisted data while the transaction is waiting to be completed.\n\n
+      \                     In JBoss EAP 6+, you can achieve the same behavior by
+      specifying the `<sync-on-commit-only>` in the jbosscmp-jdbc.xml file.\n                      \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-2
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-3
+  - message: The elements of proprietary `weblogic-ejb-jar.xml` descriptor need to
+      be mapped to the `jboss-ejb3.xml` one according to the attached knowledge article.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-3
     when:
     - or:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-4
+  - message: |-
+      Replace WebLogic proprietary configuration by Java EE annotation `@AccessTimeout`.
+                        The equivalent usage is `@AccessTimeout(value= -1)`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-4
     when:
     - xmlfile: null
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-5
@@ -51,6 +65,11 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-16
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-17
+  - message: "\n                        \n                      The WebLogic `<trans-timeout-seconds>`
+      configuration element sets the maximum duration for an EJB's container-initiated
+      transactions, in seconds, after which the transaction is rolled back.  \n\n
+      \                     In JBoss EAP 6+, you can achieve the same behavior by
+      using the `TransactionTimeout` annotation.\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-17
     when:
     - xmlfile: null

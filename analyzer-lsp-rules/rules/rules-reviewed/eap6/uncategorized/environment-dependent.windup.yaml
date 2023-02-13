@@ -1,5 +1,10 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-0
+  - message: "\n                       \n                       The class is dynamically
+      loaded within application. During the migration, multiple classes that are provided
+      on classpath by a different server may not be present anymore.\n\n                       Please
+      review the class-loading mechanisms and ensure that the dynamically loaded class
+      is available in JBoss EAP.\n                       \n                     "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-0
     when:
     - java.referenced:
         location: METHOD_CALL

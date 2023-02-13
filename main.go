@@ -34,8 +34,7 @@ func main() {
 
 func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[string]interface{} {
 	dependency := map[string]interface{}{
-		"groupID":    windupDependency.GroupId,
-		"artifactID": windupDependency.ArtifactId,
+		"name": strings.Join([]string{windupDependency.GroupId, windupDependency.ArtifactId}, "."),
 	}
 
 	if windupDependency.FromVersion != "" {
@@ -156,6 +155,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When) []map[string]interface{
 			}
 		}
 	}
+	// TODO below here
 	if windupWhen.Xmlfile != nil {
 		conditions = append(conditions, map[string]interface{}{"xmlfile": nil})
 	}
@@ -195,6 +195,29 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When) []map[string]interface{
 	return conditions
 }
 
+// TODO handle perform fully
+func convertWindupPerformToAnalyzer(perform windup.Iteration) map[string]interface{} {
+	if perform.Hint != nil {
+		if len(perform.Hint) != 1 {
+			// TODO
+			fmt.Println("More than one hint in a rule")
+			return nil
+		}
+		hint := perform.Hint[0]
+		if hint.Message != "" {
+			return map[string]interface{}{
+				"message": hint.Message,
+			}
+		}
+	} else if perform.Iteration != nil {
+		fmt.Println("Can't handle iteration yet")
+	} else {
+		fmt.Println("Can only handle Hint")
+	}
+	return nil
+
+}
+
 func convertWindupToAnalyzer(windups []windup.Ruleset) error {
 	outputRulesets := map[string][]map[string]interface{}{}
 	for _, windupRuleset := range windups {
@@ -225,6 +248,13 @@ func convertWindupToAnalyzer(windups []windup.Ruleset) error {
 			}
 
 			// TODO Rule.Perform
+			if !reflect.DeepEqual(windupRule.Perform, windup.Iteration{}) {
+				perform := convertWindupPerformToAnalyzer(windupRule.Perform)
+				for k, v := range perform {
+					rule[k] = v
+				}
+			}
+
 			// TODO - Iteration
 			// TODO Rule.Otherwise
 			// TODO Rule.Where

@@ -1,6 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/resteasy30-36.windup.xml-0
+  - message: If you migrate your application from JBoss EAP from 7.1.1 to 7.2.x and
+      want to retain the stricter behavior as defined in the JAX-RS 2.0 specification,
+      set the `jaxrs.2.0.request.matching` option to `true`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/resteasy30-36.windup.xml-0
     when:
-    - dependency:
-        artifactID: jboss-jaxrs-api_2.0_spec
-        groupID: org.jboss.spec.javax.ws.rs
+    - java.dependency:
+        name: org.jboss.spec.javax.ws.rs.jboss-jaxrs-api_2.0_spec

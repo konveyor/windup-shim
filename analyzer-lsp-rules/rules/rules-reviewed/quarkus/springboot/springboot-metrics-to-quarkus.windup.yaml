@@ -1,15 +1,19 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-0
+  - message: "\n                        Replace the Micrometer dependency with Quarkus
+      Microprofile 'metrics' extension.  \n                        Usually this is
+      a transitive dependency brought by `org.springframework.boot:spring-boot-starter-actuator`
+      and has to be replaced by `io.quarkus:quarkus-smallrye-metrics` artifact\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-0
     when:
-    - dependency:
-        artifactID: micrometer-core
-        groupID: io.micrometer
+    - java.dependency:
+        name: io.micrometer.micrometer-core
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-1
     when:
-    - dependency:
-        artifactID: micrometer-core
-        groupID: io.micrometer
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-2
+    - java.dependency:
+        name: io.micrometer.micrometer-core
+  - message: "\n                        Replace `management.endpoints.web.exposure.include=prometheus`
+      with `quarkus.micrometer.export.prometheus.path=/actuator/prometheus`\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-2
     when:
     - filecontent:
         filename: application{profile}.{extension}

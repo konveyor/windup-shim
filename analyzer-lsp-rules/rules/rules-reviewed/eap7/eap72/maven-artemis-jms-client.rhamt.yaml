@@ -1,12 +1,14 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-artemis-jms-client.rhamt.xml-0
+  - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
+      to ensure its Maven building, running or testing works as expected, if the application
+      depends on Artemis JMS Client artifact then it should also depend on artifact
+      with groupId `org.jboss.eap`, and artifactId `wildfly-client-properties`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-artemis-jms-client.rhamt.xml-0
     when:
       or:
       - and:
-        - dependency:
-            artifactID: artemis-jms-client
-            groupID: org.apache.activemq
-      - dependency:
-          artifactID: wildfly-client-properties
-          groupID: org.jboss.eap
+        - java.dependency:
+            name: org.apache.activemq.artemis-jms-client
+      - java.dependency:
+          name: org.jboss.eap.wildfly-client-properties
         not: true

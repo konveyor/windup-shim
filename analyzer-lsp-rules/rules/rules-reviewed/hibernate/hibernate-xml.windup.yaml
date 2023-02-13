@@ -5,7 +5,11 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-1
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-2
+  - message: "From Hibernate 4.0 there were moved classes from package `org.hibernate.connection`
+      to package `org.hibernate.service.jdbc.connections.internal`.\n                     You
+      should change your Hibernate setup to replace references to the old package
+      names.\n                     "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-2
     when:
     - filecontent:
         filename: hibernate-configuration.xml

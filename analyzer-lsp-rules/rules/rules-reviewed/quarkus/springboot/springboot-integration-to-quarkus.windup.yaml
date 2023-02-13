@@ -1,8 +1,13 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-integration-to-quarkus.windup.xml-0
+  - message: "\n                        SpringBoot Integration flows are not supported.
+      A migration to Apache Camel route is mandatory.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-integration-to-quarkus.windup.xml-0
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-integration-to-quarkus.windup.xml-1
+  - message: "\n                        SpringBoot IntegrationFlow class usage is
+      not supported. A migration to Apache Camel route using From is mandatory.\n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-integration-to-quarkus.windup.xml-1
     when:
     - java.referenced:
         location: IMPORT

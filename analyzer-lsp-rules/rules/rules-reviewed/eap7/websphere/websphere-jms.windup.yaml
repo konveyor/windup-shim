@@ -3,15 +3,25 @@
     when:
     - java.referenced:
         pattern: '{package}.{type}'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-1
+  - message: "\n                        IBM {prefix}{type}ConnectionFactory is a proprietary
+      encapsulation of JMS servers to which Connections can be created for\n                        message
+      distribution. This reference should be replaced with the Java EE standard API:
+      `javax.jms.{type}ConnectionFactory`.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-1
     when:
     - java.referenced:
         pattern: '{package}.{prefix}{type}ConnectionFactory'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-2
+  - message: "\n                        IBM JMS API {type}s are used for sending/reading
+      messages to/from a topic or queue. This reference should be\n                        replaced
+      with the Java EE standard API `javax.jms.Message{type}`.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-2
     when:
     - java.referenced:
         pattern: '{package}.JmsMsg{type}'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-3
+  - message: "\n                        `MQe{type}Queue` is a WebSphere implementation
+      of a JMS `Queue` and should be migrated to\n                        the Java
+      EE 6 JMS standard interface `javax.jms.Queue`.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-3
     when:
     - java.referenced:
         pattern: com.ibm.mqe.jms.{type}Queue

@@ -1,4 +1,17 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-dockerfile-fast-jar.windup.xml-0
+  - message: "\n                            \n                            For existing
+      applications, you have two Dockerfiles:\n\n                            1. `Dockerfile.jvm`:
+      this is the one for the `legacy-jar` packaging\n                            2.
+      `Dockerfile.fast-jar`: this is the one for `fast-jar` packaging (so the new
+      default)\n                            \n                            For newly
+      generated applications, the situation is a bit different:\n\n                            1.
+      `Dockerfile.jvm`: this is the one for the `fast-jar` packaging (so the new default)\n
+      \                           2. `Dockerfile.legacy-jar`: this is the one for
+      `legacy-jar`\n                            \n                            Note
+      that if you want all your applications to be consistent, you can just update
+      the Dockerfiles of \n                            your existing applications
+      with the ones of a newly generated project.\n                                                    \n
+      \                       "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-dockerfile-fast-jar.windup.xml-0
     when:
     - file: null

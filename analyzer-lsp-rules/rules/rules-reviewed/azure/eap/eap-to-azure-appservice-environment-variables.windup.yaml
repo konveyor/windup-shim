@@ -1,5 +1,13 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-environment-variables.windup.xml-0
+  - message: "\n                        \n                        App Service - The
+      application reads environment variables.\n\n                        Any environment
+      variables used in the code will need to be defined as App Settings, which are
+      exposed\n                        as environment variables in App Service.\n\n
+      \                       Any System properties that the code depends on will
+      need to be provided either in a custom Startup Script\n                        or
+      by defining an App Setting with the name JAVA_OPTS and include any system properties
+      in it.\n                        \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-environment-variables.windup.xml-0
     when:
     - or:
       - java.referenced:

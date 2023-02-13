@@ -1,5 +1,9 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/java-rpc.windup.xml-0
+  - message: "\n                    The Java API for XML-based RPC (JAX-RPC) was deprecated
+      in Java EE 6 and is optional in Java EE 7. It is no longer available or supported
+      in JBoss EAP 7.\n\n                    Recommendation: Use JAX-WS, which is
+      the current Java EE standard web services framework.\n                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/java-rpc.windup.xml-0
     when:
     - or:
       - as: default
