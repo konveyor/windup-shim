@@ -14,7 +14,7 @@
     when:
     - java.referenced:
         location: IMPORT
-        pattern: org.apache.camel.impl.{SupportClass}
+        pattern: org.apache.camel.impl.(BaseSelectorProducer|AsyncCallbackToCompletableFutureAdapter|BridgeExceptionHandlerToErrorHandler|DefaultAsyncProducer|DefaultComponent|DefaultConsumer|DefaultEndpoint|DefaultExchange|DefaultExchangeHolder|DefaultHeaderFilterStrategy|DefaultMessage|DefaultMessageHistory|DefaultPollingConsumerPollStrategy|DefaultPollingEndpoint|DefaultProducer|DefaultScheduledPollConsumer|DefaultScheduledPollConsumerScheduler|DefaultThreadPoolFactory|EventDrivenPollingConsumer|ExpressionAdapter|ExpressionComparator|ExpressionListComparator|ExpressionSupport|HeaderFilterStrategyComponent|HeaderSelectorProducer|LoggingExceptionHandler|MessageSupport|PollingConsumerSupport|ProcessorEndpoint|ProcessorPollingConsumer|ScheduledBatchPollingConsumer|ScheduledPollConsumer|ScheduledPollEndpoint|SimpleRegistry|SimpleUuidGeneratorSynchronizationAdapter|SynchronousDelegateProducer)
   - message: "`zip` and `gzip` dataformats were renamed to `zipdeflater and `gzipdeflater`\n
       \                       "
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-2
@@ -43,7 +43,7 @@
       ignore: true
       java.referenced:
         location: IMPORT
-        pattern: org.apache.camel.impl.{registry}
+        pattern: org.apache.camel.impl.(PropertyPlaceholderDelegateRegistry|CompositeRegistry)
   - message: "\n                        The class `org.apache.camel.processor.loadbalancer.SimpleLoadBalancerSupport`
       has been removed. Use\n                        `org.apache.camel.processor.loadbalancer.LoadBalancerSupport`
       instead.\n                    "
@@ -62,7 +62,7 @@
       ignore: true
       java.referenced:
         location: IMPORT
-        pattern: org.apache.camel.{removed}
+        pattern: org.apache.camel.(impl.FileWatcherReloadStrategy|support.ReloadStrategySupport)
   - message: "\n                        The class `org.apache.camel.util.toolbox.AggregationStrategies`
       has been moved to `org.apache.camel.builder.AggregationStrategies`.\n                    "
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-6
@@ -115,7 +115,7 @@
       ignore: true
       java.referenced:
         location: IMPORT
-        pattern: org.apache.camel.{annotation}
+        pattern: org.apache.camel.(InvokeOnHeaders|InvokeOnHeader)
   - message: Annotation `org.apache.camel.Constant` has been removed. Use `@Simple`
       instead.`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-13
@@ -182,7 +182,7 @@
       ignore: true
       java.referenced:
         location: IMPORT
-        pattern: org.apache.camel.util.{moved}
+        pattern: org.apache.camel.util.(AsyncProcessorHelper|AsyncProcessorConverterHelper|EndpointHelper|EventHelper|ExchangeHelper|GZIPHelper|JsonSchemaHelper|MessageHelper|PlatformHelper|PredicateAssertHelper|ResolverHelper|ResourceHelper|UnitOfWorkHelper)
   - message: The class `org.apache.camel.util.ServiceHelper` has been moved to `org.apache.camel.support.service.ServiceHelper`.
       It has been moved out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-api`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-21
@@ -244,7 +244,7 @@
     - or:
       - java.referenced:
           location: IMPORT
-          pattern: org.apache.camel.processor.idempotent.{moved}
+          pattern: org.apache.camel.processor.idempotent.(FileIdempotentRepository|MemoryIdempotentRepository)
   - message: Annotation `org.apache.camel.FallbackConverter` has been removed. You
       should use `@org.apache.camel.Converter(fallback = true)` from `org.apache.camel:camel-api`
       instead. You can also set `@org.apache.camel.Converter(generateLoader = true)`
@@ -296,7 +296,7 @@
     when:
     - java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.CamelContext.{method}({*})
+        pattern: org.apache.camel.CamelContext.(getManagedCamelContext|getManagedProcessor|getManagedRoute)({*})
   - message: The functionality to change the simple language tokens for start/end
       functions has been removed. The default tokens with `${xxx}` and `$simple{xxx}`
       is now hardcoded (optimized). The functionality to change these tokens was never
@@ -306,10 +306,10 @@
     - or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: org.apache.camel.language.simple.SimpleLanguage.{languageMethods}({*})
+          pattern: org.apache.camel.language.simple.SimpleLanguage.(changeFunctionStartToken|changeFunctionEndToken|setFunctionStartToken|setFunctionEndToken)({*})
       - java.referenced:
           location: METHOD_CALL
-          pattern: org.apache.camel.language.simple.SimpleTokenizer.{tokenizerMethods})({*})
+          pattern: org.apache.camel.language.simple.SimpleTokenizer.(changeFunctionStartToken|changeFunctionEndToken))({*})
       - xmlfile: null
   - message: The `uri` attribute in the @{class} annotation has been deprecated. Instead
       use `value`, which allows a shorthand style, from using `@{class}(uri = "jms:cheese")`
@@ -318,14 +318,14 @@
     when:
     - java.referenced:
         location: ANNOTATION
-        pattern: org.apache.camel.{class}
+        pattern: org.apache.camel.(Consume|EndpointInject|Produce)
   - message: The `ref` attribute in the @{class} annotation has been removed. Instead
       use the `ref` component in the `value` attribute, e.g @{class}("ref:myName").
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-34
     when:
     - java.referenced:
         location: ANNOTATION
-        pattern: org.apache.camel.{class}
+        pattern: org.apache.camel.(Consume|EndpointInject|Produce)
   - message: "The method `org.apache.camel.CamelContext.{method}` has moved to `org.apache.camel.CatalogCamelContext.{method}`.
       You can access it by adapting your `CamelContext` like so:\n\n                        `CatalogCamelContext
       ccc = context.adapt(CatalogCamelContext.class);`\n                        `ccc.{method}(...);`\n
@@ -334,7 +334,7 @@
     when:
     - java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.CamelContext.{method}({*})
+        pattern: org.apache.camel.CamelContext.(getComponentParameterJsonSchema|getDataFormatParameterJsonSchema|getLanguageParameterJsonSchema|getEipParameterJsonSchema)({*})
   - message: "The duplicate method `org.apache.camel.CamelContext.{method}` has been
       removed. You should use the `static` method `org.apache.camel.model.ModelHelper{method}`
       instead.\n                    "
@@ -342,7 +342,7 @@
     when:
     - java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.CamelContext.{method}({*})
+        pattern: org.apache.camel.CamelContext.(loadRoutesDefinition|loadRestsDefinition)({*})
   - message: "The method `org.apache.camel.CamelContext.{method}` has been moved to
       `org.apache.camel.model.Model.{method}`. You can access it by adapting your
       `CamelContext` like so:\n\n                        `ModelCamelContext ccc =
@@ -352,7 +352,7 @@
     when:
     - java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.CamelContext.{method}({*})
+        pattern: org.apache.camel.CamelContext.(getRouteDefinitions|getRouteDefinition|addRouteDefinitions|addRouteDefinition|removeRouteDefinitions|removeRouteDefinition|getRestDefinitions|addRestDefinitions|setDataFormats|getDataFormats|resolveDataFormatDefinition|getProcessorDefinition|setValidators|getHystrixConfiguration|setHystrixConfiguration|setHystrixConfigurations|addHystrixConfiguration|getValidators|setTransformers|getTransformers|addServiceCallConfiguration|setServiceCallConfigurations|setServiceCallConfiguration|getServiceCallConfiguration)({*})
   - message: "The method `org.apache.camel.CamelContext.{method}` has been moved to
       `org.apache.camel.ExtendedCamelContext.{method}`. You can access it by adapting
       your `CamelContext` like so:\n\n                        `ExtendedCamelContext
@@ -362,4 +362,4 @@
     when:
     - java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.CamelContext.{method}({*})
+        pattern: org.apache.camel.CamelContext.(setupRoutes|isSetupRoutes|getRouteStartupOrder|getManagementMBeanAssembler|addInterceptStrategy|getInterceptStrategies|getErrorHandlerExecutorService|getDataFormatResolver|setDataFormatResolver|getDefaultFactoryFinder|setFactoryFinderResolver|getFactoryFinder|getPackageScanClassResolver|setPackageScanClassResolver|setNodeIdFactory|getNodeIdFactory|getAsyncProcessorAwaitManager|setAsyncProcessorAwaitManager|getProcessorFactory|setProcessorFactory|getUnitOfWorkFactory|setUnitOfWorkFactory|getModelJAXBContextFactory|setModelJAXBContextFactory|getLogListeners|addLogListener)({*})

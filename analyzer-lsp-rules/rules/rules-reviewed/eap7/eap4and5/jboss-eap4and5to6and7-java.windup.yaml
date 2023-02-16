@@ -30,4 +30,4 @@
     when:
     - java.referenced:
         location: INHERITANCE
-        pattern: org.jboss.system.{classes}
+        pattern: org.jboss.system.(ServiceMBean|ServiceMBeanSupport)

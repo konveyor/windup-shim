@@ -38,12 +38,12 @@
     when:
     - java.referenced:
         location: IMPORT
-        pattern: javax.annotation.{annotation}
+        pattern: javax.annotation.PreDestroy|PostConstruct|Resource|Resources
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-13
     when:
     - java.referenced:
         location: IMPORT
-        pattern: '{package}.xml.bind.{*}'
+        pattern: java|javax.xml.bind.{*}
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-14
     when:
     - java.referenced:

@@ -52,7 +52,7 @@
       ignore: true
       java.referenced:
         location: CONSTRUCTOR_CALL
-        pattern: javax.management.{suffix}{*}
+        pattern: javax.management.(ObjectName){*}
   - message: "\n                            \n                          After migration,
       some of the JMX beans provided by the previous server may not be present anymore.\n
       \                         Ensure that the `javax.management.{suffix}` does not
@@ -63,7 +63,7 @@
       ignore: true
       java.referenced:
         location: CONSTRUCTOR_CALL
-        pattern: javax.management.{suffix}{*}
+        pattern: javax.management.(remote.JMXServiceURL){*}
   - message: "\n                          \n                          After migration,
       JMX connection String or parameters may be different than the one provided by
       previous server.\n                          As an example, `javax.management.remote.JMXConnectorFactory.PROTOCOL_PROVIDER_PACKAGES`

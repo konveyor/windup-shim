@@ -15,7 +15,7 @@
     - or:
       - java.referenced:
           location: CONSTRUCTOR_CALL
-          pattern: java.io.{ioclass}{*}
+          pattern: java.io.(FileWriter|FileReader|PrintStream|File|PrintWriter|RandomAccessFile){*}
       - java.referenced:
           location: CONSTRUCTOR_CALL
           pattern: java.util.zip.ZipFile{*}
@@ -40,7 +40,7 @@
     when:
     - java.referenced:
         location: CONSTRUCTOR_CALL
-        pattern: java.net.{class}({*})
+        pattern: java.net.(URL|URI)({*})
   - message: "\n                    An application running inside a container could
       lose access to a file in local storage.\n\n                    Recommendations\n\n
       \                   The following recommendations depend on the function of

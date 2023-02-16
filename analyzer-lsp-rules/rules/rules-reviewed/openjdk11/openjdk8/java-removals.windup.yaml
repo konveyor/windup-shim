@@ -66,7 +66,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-4
     when:
     - java.referenced:
-        pattern: java.lang.SecurityManager.{method-name}({*})
+        pattern: java.lang.SecurityManager.(checkAwtEventQueueAccess|checkSystemClipboardAccess|checkTopLevelWindow)({*})
   - message: "\n                        The implementation of `java.lang.SecurityManager.checkMemberAccess(java.lang.Class,
       int)` relies on an assumption\n                        that the caller is at
       a stack depth of 4, which is not something that can be enforced, making the
@@ -128,7 +128,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-9
     when:
     - java.referenced:
-        pattern: sun.misc.Unsafe.{method-name}({*})
+        pattern: sun.misc.Unsafe.(getInt|putInt|getFloat|putFloat|getDouble|putDouble|getBoolean|putBoolean|getObject|putObject|getByte|putByte|getChar|putChar|getShort|putShort|getLong|putLong|fieldOffset|staticFieldBase|tryMonitorEnter|monitorEnter|monitorExit)({*})
   - message: "\n                        The `sun.misc.BASE64{encoder-decoder}` class
       has been removed.  \n                        It can be replaced with `Base64.{encoder-decoder}`
       class instantiated using `java.util.Base64.getMime{encoder-decoder}()` method.
@@ -138,7 +138,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-10
     when:
     - java.referenced:
-        pattern: sun.misc.BASE64{encoder-decoder}{*}
+        pattern: sun.misc.BASE64(Encoder|Decoder){*}
   - message: "\n                        The `java.lang.System.runFinalizersOnExit(boolean
       value)` and `java.lang.Runtime.runFinalizersOnExit(boolean value)`\n                        have
       been removed as they are regarded as inherently unsafe. Running finalizers on

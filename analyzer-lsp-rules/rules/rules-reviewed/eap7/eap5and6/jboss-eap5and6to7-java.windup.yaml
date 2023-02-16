@@ -68,4 +68,4 @@
     when:
     - java.referenced:
         location: ANNOTATION
-        pattern: org.jboss.logging.{annotation}
+        pattern: org.jboss.logging.(Cause|Field|FormatWith|LoggingClass|LogMessage|Message|MessageBundle|MessageLogger|Param|Property)

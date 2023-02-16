@@ -28,7 +28,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-1
     when:
     - java.referenced:
-        pattern: '{DetectJavaPortlet_0_packages}'
+        pattern: (javax.portlet\.[^.]+|javax.portlet.filter\.[^.]+)
   - message: "<div class=\"Text\"> <span class=\"SubHeader\">Java API for XML Registries
       (JAXR)</span> \n <p> This rule flags Java code that has references to the following
       packages: </p> \n <ul> \n  <li><code>javax.xml.registry</code></li> \n  <li><code>javax.xml.registry.infomodel</code></li>
@@ -41,21 +41,21 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-2
     when:
     - java.referenced:
-        pattern: '{DetectJAXRJava_0_packages}'
+        pattern: (javax.xml.registry\.[^.]+|javax.xml.registry.infomodel\.[^.]+)
   - message: "<div class=\"Text\"> \n <p>The OSGI repository service APIs is not supported
       in Liberty or Liberty Core.</p> \n <p>This rule flags java references to APIs
       in the <code>org.osgi.service.repository</code> package.</p> \n</div>"
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-3
     when:
     - java.referenced:
-        pattern: '{DetectRemoteBundleRepositoriesJava_0_packages}'
+        pattern: org.osgi.service.repository\.[^.]+
   - message: "<div class=\"Text\"> \n <p>The OSGI Remote Service Admin is not supported
       in Liberty or Liberty Core.</p> \n <p>This rule flags java references to APIs
       in the <code>org.osgi.service.remoteserviceadmin</code> package.</p> \n</div>"
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-4
     when:
     - java.referenced:
-        pattern: '{DetectRemoteServicesJava_0_packages}'
+        pattern: org.osgi.service.remoteserviceadmin\.[^.]+
   - message: "<div class=\"Text\">  \n <p> This rule flags Java code that has references
       to the <code>org.oasis_open.docs.wsn</code> package. </p> \n <p>This rule also
       flags the following references in WSDL files: </p> \n <ul> \n  <li><code>&lt;import
@@ -146,7 +146,7 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{DetectTransactionPropagationEJBRemote_0_classes}'
+          pattern: (javax.ejb.Remote|javax.ejb.RemoteHome)
       - xmlfile: null
   - message: |-
       <div class="Text"><p>This rule flags the use of any JAX-RPC specific packages and configuration files. Also, this rule will flag any use of the

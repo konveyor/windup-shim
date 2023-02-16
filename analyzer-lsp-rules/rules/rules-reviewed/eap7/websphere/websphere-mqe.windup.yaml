@@ -2,7 +2,7 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-0
     when:
     - java.referenced:
-        pattern: '{package}.{type}'
+        pattern: com.ibm(\..*)?\.(mqe).*.[^.]+
   - message: "\n                        IBM MQe {type} adapter provides plug-in communications
       adapters or data storage adapters for queue managers. These can\n                        be
       deployed to JBoss EAP.\n                    "

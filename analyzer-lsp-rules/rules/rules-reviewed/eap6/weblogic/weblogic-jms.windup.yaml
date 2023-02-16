@@ -51,7 +51,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-6
     when:
     - java.referenced:
-        pattern: oracle.jms.AQjms{type}Message
+        pattern: oracle.jms.AQjms(Text|Stream|Object|Map|Bytes)?Message
   - message: "\n                        Oracle JMS destinations are the objects a
       client uses to specify the target of messages it produces and the source of\n
       \                       messages it consumes.\n\n                        This
@@ -69,4 +69,4 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml-8
     when:
     - java.referenced:
-        pattern: oracle.jms.AQjms{type}ConnectionFactory
+        pattern: oracle.jms.AQjms(Topic|Queue)?ConnectionFactory

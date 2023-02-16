@@ -4,7 +4,7 @@
     - or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: java.lang.System.{systemNativeMethods}({*})
+          pattern: java.lang.System.(load|loadLibrary|mapLibraryName)({*})
       - java.referenced:
           location: METHOD_CALL
           pattern: java.lang.Runtime.load({*})

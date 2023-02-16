@@ -21,7 +21,7 @@
     - or:
       - java.referenced:
           location: IMPORT
-          pattern: org.hibernate.tool.hbm2ddl.{hbm2ddl_classes}
+          pattern: org.hibernate.tool.hbm2ddl.(SchemaExport|SchemaUpdate|SchemaValidator)
       - java.referenced:
           location: IMPORT
           pattern: org.hibernate.tool.schema.spi.SchemaManagementTool

@@ -13,5 +13,5 @@
           pattern: .to("kafka:{[^"]+}{options}={*}
       - java.referenced:
           location: METHOD_CALL
-          pattern: org.apache.camel.component.kafka.KafkaConfiguration.{method}({*})
+          pattern: org.apache.camel.component.kafka.KafkaConfiguration.(setBridgeEndpoint|setCircularTopicDetection)({*})
       - xmlfile: null

@@ -25,7 +25,7 @@
     when:
     - java.referenced:
         location: IMPORT
-        pattern: org.jboss{package}.Service
+        pattern: org.jboss(\.ejb3)?\.annotation(\.ejb)?.Service
   - message: "\n                        The `@Management` annotation is one of JBoss
       EJB 3.0 extensions which wraps the the bean\n                        as an MBean
       and install it in the JBoss MBean Server.\n                        To achieve
@@ -35,7 +35,7 @@
     when:
     - java.referenced:
         location: IMPORT
-        pattern: org.jboss{package}.Management
+        pattern: org.jboss(\.ejb3)?\.annotation(\.ejb)?.Management
   - message: "\n                        The `@LocalBinding` annotation is one of JBoss
       EJB 3.0 extensions\n                        which specifies the local jndi binding
       for an EJB local interface.\n                        Migrate to `org.jboss.ejb3.annotation.LocalBinding`.\n

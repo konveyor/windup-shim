@@ -6,4 +6,4 @@
       ignore: true
       java.referenced:
         location: IMPORT
-        pattern: javax.{renamed}{*}
+        pattern: javax.(activation|annotation|batch|decorator|ejb|el|enterprise|faces|inject|interceptor|jms|json|jws|mail|persistence|resource|security|servlet|transaction|validation|websocket|ws|xml){*}
