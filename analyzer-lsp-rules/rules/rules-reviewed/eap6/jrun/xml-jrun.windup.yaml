@@ -1,9 +1,27 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jrun/xml-jrun.windup.xml-0
+    tag:
+    - configuration
+    - jrun
     when:
     - or:
-      - xmlfile: null
+      - xml:
+          XPath: /jrun-web-app
+      - xml:
+          XPath: ""
+      - xml:
+          XPath: ""
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jrun/xml-jrun.windup.xml-1
+    tag:
+    - configuration
+    - jrun
     when:
     - or:
-      - xmlfile: null
+      - as: default
+        ignore: true
+        xml:
+          XPath: /*[local-name()='jrun-ejb-jar']
+      - as: default
+        ignore: true
+        xml:
+          XPath: ""

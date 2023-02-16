@@ -1,15 +1,59 @@
 - rules:
-  - message: "\n                        \n                        A datasource driver
-      was found in a configuration file.\n\n                        There are three
+  - message: 'A datasource driver was found in a configuration file.. There are three
       core steps when registering a data source with JBoss EAP in Azure App Service:
       uploading the JDBC driver, adding the JDBC driver as a module, and registering
-      the module.\n\n                        App Service is a stateless hosting service,
-      so the configuration commands for adding and registering the data source module
-      must be scripted and applied as the container starts.\n                        \n
-      \                       For more information, see Datasource Management in the
-      JBoss EAP documentation.                        \n                        \n
-      \                   "
+      the module.. App Service is a stateless hosting service, so the configuration
+      commands for adding and registering the data source module must be scripted
+      and applied as the container starts.. For more information, see Datasource Management
+      in the JBoss EAP documentation.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-datasource-driver.windup.xml-0
     when:
     - or:
-      - xmlfile: null
+      - xml:
+          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:db2')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'db2')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:mysql')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'mysql')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:oracle')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'oracle')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:postgres')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'postgres')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:microsoft:sqlserver')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'sqlserver')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:sybase')]
+          filepaths:
+          - '{*}-ds.xml'
+      - xml:
+          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'sybase')]
+          filepaths:
+          - '{*}-ds.xml'

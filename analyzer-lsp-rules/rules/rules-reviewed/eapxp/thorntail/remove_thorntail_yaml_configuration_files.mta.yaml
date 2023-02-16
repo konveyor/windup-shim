@@ -4,4 +4,4 @@
       Thorntail YAML Configuration Files.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/remove_thorntail_yaml_configuration_files.mta.xml-0
     when:
-    - file: null
+    - file: project-defaults.yml

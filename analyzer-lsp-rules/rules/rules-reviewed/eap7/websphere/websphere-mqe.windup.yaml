@@ -1,37 +1,37 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-0
+    tag:
+    - jms
+    - websphere
     when:
     - java.referenced:
         pattern: com.ibm(\..*)?\.(mqe).*.[^.]+
-  - message: "\n                        IBM MQe {type} adapter provides plug-in communications
-      adapters or data storage adapters for queue managers. These can\n                        be
-      deployed to JBoss EAP.\n                    "
+  - message: IBM MQe {type} adapter provides plug-in communications adapters or data
+      storage adapters for queue managers. These can. be deployed to JBoss EAP.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-1
     when:
     - java.referenced:
         location: INHERITANCE
         pattern: com.ibm.mqe.adapters.MQe{type}Adapter
-  - message: "IBM MQe {type} administration API provides classes used to administer
-      and monitor a WebSphere MQ Everyplace queue manager. In\n                        JBoss
-      EAP 7, the JMS destinations can be configured with the JBoss Admin CLI.\n                    "
+  - message: IBM MQe {type} administration API provides classes used to administer
+      and monitor a WebSphere MQ Everyplace queue manager. In. JBoss EAP 7, the JMS
+      destinations can be configured with the JBoss Admin CLI.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-2
     when:
     - java.referenced:
         location: INHERITANCE
         pattern: com.ibm.mqe.administration.MQe{type}AdminMsg
-  - message: "\n                        `MQeJMSAuthenticator` is a WebSphere proprietary
-      JMS authentication API.\n                        To migrate to JBoss EAP 7,
-      replace with Java EE 6 JAAS for JMS authentication.\n                    "
+  - message: '`MQeJMSAuthenticator` is a WebSphere proprietary JMS authentication
+      API.. To migrate to JBoss EAP 7, replace with Java EE 6 JAAS for JMS authentication.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-3
     when:
     - java.referenced:
         pattern: com.ibm.mqe.jms.MQeJMSAuthenticator
-  - message: "\n                        IBM MQe constants are used to name fields
-      when a JMS message is mapped to an `MQeMsgObject`. These are provided to\n                        enable
-      WebSphere MQ Everyplace applications to interpret messages sent by JMS or to
-      construct messages that a JMS application\n                        will understand.\n\n
-      \                       These settings can be discarded when migrating to JBoss
-      EAP 7 with ActiveMQ Artemis.\n                    "
+  - message: IBM MQe constants are used to name fields when a JMS message is mapped
+      to an `MQeMsgObject`. These are provided to. enable WebSphere MQ Everyplace
+      applications to interpret messages sent by JMS or to construct messages that
+      a JMS application. will understand.. These settings can be discarded when migrating
+      to JBoss EAP 7 with ActiveMQ Artemis.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-4
     when:
     - java.referenced:

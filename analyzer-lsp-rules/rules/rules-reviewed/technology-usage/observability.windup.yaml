@@ -1,5 +1,6 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/observability.windup.xml-0
+    tag: []
     when:
     - or:
       - java.dependency:
@@ -11,9 +12,11 @@
       - java.dependency:
           name: org.springframework.boot.spring-boot-actuator
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/observability.windup.xml-1
+    tag: []
     when:
     - or:
       - java.referenced:
           location: ANNOTATION
           pattern: org.springframework.jmx.{*}
-      - xmlfile: null
+      - xml:
+          XPath: //*/c:bean/@class[windup:matches(self::node(), 'org.springframework.jmx.export.MBeanExporter')]

@@ -1,4 +1,10 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/resin/xml-resin.windup.xml-0
+    tag:
+    - configuration
+    - resin
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /resin:web-app

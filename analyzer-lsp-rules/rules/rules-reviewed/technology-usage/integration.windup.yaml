@@ -1,47 +1,62 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-2
     when:
-    - file: null
+    - file: spring-integration{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-3
+    tag: []
     when:
-    - file: null
+    - file: '{*}ikasan{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-4
+    tag: []
     when:
-    - file: null
+    - file: '{*}swagger{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-5
+    tag: []
     when:
-    - file: null
+    - file: '{*}apiman{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-6
+    tag: []
     when:
-    - file: null
+    - file: '{*}3scale{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-7
+    tag: []
     when:
-    - file: null
+    - file: '{*}istio{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-8
+    tag: []
     when:
-    - file: null
+    - file: '{*}servicemix{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-9
+    tag: []
     when:
-    - file: null
+    - file: '{*}mule{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-10
+    tag: []
     when:
-    - file: null
+    - file: '{*}petals{*}eip{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-11
+    tag: []
     when:
-    - file: null
+    - file: '{*}switchyard{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-12
+    tag: []
     when:
-    - file: null
+    - file: '{*}synapse{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-13
+    tag: []
     when:
-    - file: null
+    - file: '{*}wso2{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-14
+    tag: []
     when:
-    - file: null
+    - file: '{*}talend{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-15
+    tag: []
     when:
-    - xmlfile: null
+    - xml:
+        XPath: //*/int:channel
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-16
+    tag: []
     when:
     - java.referenced:
         location: IMPORT

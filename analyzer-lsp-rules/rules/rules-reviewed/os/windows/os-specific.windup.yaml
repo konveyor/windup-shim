@@ -10,4 +10,4 @@
       needs to be replaced with a Linux-style shared library.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/os/windows/os-specific.windup.xml-1
     when:
-    - file: null
+    - file: '{*}.dll'

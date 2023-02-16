@@ -1,6 +1,5 @@
 - rules:
-  - message: "\n                        \n                        The application
-      uses Zipkin.\n                        \n                    "
+  - message: The application uses Zipkin.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-zipkin.windup.xml-0
     when:
     - or:

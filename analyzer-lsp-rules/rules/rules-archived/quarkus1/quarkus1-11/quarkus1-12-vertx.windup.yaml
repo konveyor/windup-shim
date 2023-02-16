@@ -1,7 +1,6 @@
 - rules:
-  - message: "\n                        \n                        The Axle and RX
-      Java API from Vert.x are no more exposed, use the Mutiny API instead.\n                        These
-      features were deprecated since February 2020.\n                        \n                    "
+  - message: The Axle and RX Java API from Vert.x are no more exposed, use the Mutiny
+      API instead.. These features were deprecated since February 2020.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-vertx.windup.xml-0
     when:
     - java.referenced:

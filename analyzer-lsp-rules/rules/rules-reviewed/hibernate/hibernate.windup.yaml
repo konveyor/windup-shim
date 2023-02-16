@@ -1,24 +1,22 @@
 - rules:
-  - message: "\n                         In versions of Hibernate prior to 3.5, text
-      type was mapped to JDBC CLOB. A new Hibernate type, materialized_clob, was added
-      in Hibernate 4 to map Java String properties to JDBC CLOB. Therefore, Hibernate
-      4 text LOB type definitions should be defined using `@Lob`, instead.\n                     "
+  - message: In versions of Hibernate prior to 3.5, text type was mapped to JDBC CLOB.
+      A new Hibernate type, materialized_clob, was added in Hibernate 4 to map Java
+      String properties to JDBC CLOB. Therefore, Hibernate 4 text LOB type definitions
+      should be defined using `@Lob`, instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-0
     when:
     - java.referenced:
         pattern: org.hibernate.annotations.Type
-  - message: "\n                         The return types of the numeric aggregate
-      criteria projections has changed to Long in hibernate 4. This change may introduce
-      conflicts in the code.\n                     "
+  - message: The return types of the numeric aggregate criteria projections has changed
+      to Long in hibernate 4. This change may introduce conflicts in the code.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-1
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.criterion.Projections.(count|rowCount|sum){*}
-  - message: "\n                         The initial/default naming strategy in Hibernate
-      4 was changed from DefaultNamingStrategy to EJB3NamingStrategy. This can result
-      in naming mismatches. If you rely on the naming strategy, call Configuration#setNamingStrategy.\n
-      \                    "
+  - message: The initial/default naming strategy in Hibernate 4 was changed from DefaultNamingStrategy
+      to EJB3NamingStrategy. This can result in naming mismatches. If you rely on
+      the naming strategy, call Configuration#setNamingStrategy.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-2
     when:
     - java.referenced:
@@ -35,12 +33,11 @@
     when:
     - java.referenced:
         pattern: org.hibernate.dialect.resolver.DialectResolver
-  - message: "Replace org.hibernate.jdbc.BatcherFactory by org.hibernate.engine.jdbc.batch.spi.BatchBuilder.\n
-      \                 Their default implementations are in org.hibernate.engine.jdbc.batch.internal.\n
-      \                 You can override the default BatchBuilder by defining the
-      \ \"hibernate.jdbc.batch.builder\" property as the name of a BatchBuilder implementation\n
-      \                  or by providing a BatchBuilder in a custom ServiceRegistry.\n
-      \                 "
+  - message: Replace org.hibernate.jdbc.BatcherFactory by org.hibernate.engine.jdbc.batch.spi.BatchBuilder..
+      Their default implementations are in org.hibernate.engine.jdbc.batch.internal..
+      You can override the default BatchBuilder by defining the  "hibernate.jdbc.batch.builder"
+      property as the name of a BatchBuilder implementation. or by providing a BatchBuilder
+      in a custom ServiceRegistry.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-5
     when:
     - or:
@@ -50,9 +47,8 @@
           pattern: org.hibernate.jdbc.BatchingBatcherFactory
       - java.referenced:
           pattern: org.hibernate.jdbc.NonBatchingBatcherFactory
-  - message: "Replace org.hibernate.jdbc.Batcher by org.hibernate.engine.jdbc.batch.spi.Batch.\n
-      \                 Their default implementations are in org.hibernate.engine.jdbc.batch.internal.\n
-      \                 "
+  - message: Replace org.hibernate.jdbc.Batcher by org.hibernate.engine.jdbc.batch.spi.Batch..
+      Their default implementations are in org.hibernate.engine.jdbc.batch.internal.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-6
     when:
     - or:
@@ -64,8 +60,7 @@
           pattern: org.hibernate.jdbc.BatchingBatcher
       - java.referenced:
           pattern: org.hibernate.jdbc.NonBatchingBatcher
-  - message: "Replace org.hibernate.engine.SessionImplementor with org.hibernate.engine.spi.SessionImplementor\n
-      \              "
+  - message: Replace org.hibernate.engine.SessionImplementor with org.hibernate.engine.spi.SessionImplementor
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-7
     when:
     - java.referenced:
@@ -82,9 +77,8 @@
     when:
     - java.referenced:
         pattern: org.hibernate.collection.PersistentBag
-  - message: "\n                  This is an old Hibernate package name from version
-      2.x and needs to be migrated to a compatible API to Hibernate 4.x/5.x,\n                  where
-      package name is org.hibernate.\n               "
+  - message: This is an old Hibernate package name from version 2.x and needs to be
+      migrated to a compatible API to Hibernate 4.x/5.x,. where package name is org.hibernate.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-10
     when:
     - java.referenced:

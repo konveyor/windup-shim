@@ -47,51 +47,104 @@
     - java.dependency:
         name: io.opentracing.contrib.opentracing-spring-jaeger-web-starter
         upperBound: 1.0.0
-  - message: "Migrate `org.amqphub.spring:amqp-10-jms-spring-boot-starter` dependency
+  - message: Migrate `org.amqphub.spring:amqp-10-jms-spring-boot-starter` dependency
       to a version compatible with the supported versions of the RHOAR components
-      provided in the link.\n                        "
+      provided in the link.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-7
     when:
-    - xmlfile: null
-  - message: "Migrate `org.apache.cxf:cxf-spring-boot-starter-jaxrs` dependency to
+    - as: dependencies-block
+      ignore: true
+      xml:
+        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.amqphub.spring'
+          and ../m:artifactId='amqp-10-jms-spring-boot-starter' and not(contains(.,
+          'redhat'))]
+        filepaths:
+        - pom.xml
+  - message: Migrate `org.apache.cxf:cxf-spring-boot-starter-jaxrs` dependency to
       a version compatible with the supported versions of the RHOAR components provided
-      in the link.\n                        "
+      in the link.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-8
     when:
-    - xmlfile: null
-  - message: "Migrate `org.jboss.resteasy:resteasy-spring-boot-starter` dependency
+    - as: dependencies-block
+      ignore: true
+      xml:
+        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.apache.cxf'
+          and ../m:artifactId='cxf-spring-boot-starter-jaxrs' and not(contains(.,
+          'redhat'))]
+        filepaths:
+        - pom.xml
+  - message: Migrate `org.jboss.resteasy:resteasy-spring-boot-starter` dependency
       to a version compatible with the supported versions of the RHOAR components
-      provided in the link.\n                        "
+      provided in the link.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-9
     when:
-    - xmlfile: null
-  - message: "Migrate `org.infinispan:infinispan-spring-boot-starter-embedded` dependency
+    - as: dependencies-block
+      ignore: true
+      xml:
+        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.jboss.resteasy'
+          and ../m:artifactId='resteasy-spring-boot-starter' and not(contains(., 'redhat'))]
+        filepaths:
+        - pom.xml
+  - message: Migrate `org.infinispan:infinispan-spring-boot-starter-embedded` dependency
       to a version compatible with the supported versions of the RHOAR components
-      provided in the link.\n                        "
+      provided in the link.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-10
     when:
-    - xmlfile: null
-  - message: "Migrate `org.infinispan:infinispan-spring-boot-starter-remote` dependency
+    - as: dependencies-block
+      ignore: true
+      xml:
+        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.infinispan'
+          and ../m:artifactId='infinispan-spring-boot-starter-embedded' and not(contains(.,
+          'redhat'))]
+        filepaths:
+        - pom.xml
+  - message: Migrate `org.infinispan:infinispan-spring-boot-starter-remote` dependency
       to a version compatible with the supported versions of the RHOAR components
-      provided in the link.\n                        "
+      provided in the link.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-11
     when:
-    - xmlfile: null
-  - message: "Migrate `org.keycloak:keycloak-spring-boot-starter` dependency to a
-      version compatible with the supported versions of the RHOAR components provided
-      in the link.\n                        "
+    - as: dependencies-block
+      ignore: true
+      xml:
+        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.infinispan'
+          and ../m:artifactId='infinispan-spring-boot-starter-remote' and not(contains(.,
+          'redhat'))]
+        filepaths:
+        - pom.xml
+  - message: Migrate `org.keycloak:keycloak-spring-boot-starter` dependency to a version
+      compatible with the supported versions of the RHOAR components provided in the
+      link.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-12
     when:
-    - xmlfile: null
-  - message: "Migrate `me.snowdrop:narayana-spring-boot-starter` dependency to a version
+    - as: dependencies-block
+      ignore: true
+      xml:
+        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.keycloak'
+          and ../m:artifactId='keycloak-spring-boot-starter' and not(contains(., 'redhat'))]
+        filepaths:
+        - pom.xml
+  - message: Migrate `me.snowdrop:narayana-spring-boot-starter` dependency to a version
       compatible with the supported versions of the RHOAR components provided in the
-      link.\n                        "
+      link.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-13
     when:
-    - xmlfile: null
-  - message: "Migrate `io.opentracing.contrib:opentracing-spring-jaeger-web-starter`
+    - as: dependencies-block
+      ignore: true
+      xml:
+        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='me.snowdrop'
+          and ../m:artifactId='narayana-spring-boot-starter' and not(contains(., 'redhat'))]
+        filepaths:
+        - pom.xml
+  - message: Migrate `io.opentracing.contrib:opentracing-spring-jaeger-web-starter`
       dependency to a version compatible with the supported versions of the RHOAR
-      components provided in the link.\n                        "
+      components provided in the link.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-14
     when:
-    - xmlfile: null
+    - as: dependencies-block
+      ignore: true
+      xml:
+        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='io.opentracing.contrib'
+          and ../m:artifactId='opentracing-spring-jaeger-web-starter' and not(contains(.,
+          'redhat'))]
+        filepaths:
+        - pom.xml

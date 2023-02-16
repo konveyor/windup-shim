@@ -103,17 +103,15 @@
     - java.referenced:
         location: METHOD_CALL
         pattern: org.hibernate.cfg.Configuration.addProperties{*}
-  - message: "\n                        Historically Hibernate provided just a singular
-      contract for applying a \"naming strategy\".\n                        Starting
-      in 5.0 this has been split into 2 distinct contracts:\n\n                        *
-      ImplicitNamingStrategy - is used whenever a table or column is not explicitly
-      named to determine the name to use.\n                        * PhysicalNamingStrategy
-      - is used to convert a \"logical name\" (either implicit or explicit) name of
-      a table or column into a physical name (e.g. following corporate naming guidelines)\n\n
-      \                       Use methods `org.hibernate.boot.MetadataBuilder#setImplicitNamingStrategy(ImplicitNamingStrategy
-      implicitNamingStrategy)` or\n                        `org.hibernate.boot.MetadataBuilder#setPhysicalNamingStrategy(PhysicalNamingStrategy
-      physicalNamingStrategy)`\n                        instead of `public Configuration
-      setNamingStrategy(NamingStrategy namingStrategy)()`\n                    "
+  - message: Historically Hibernate provided just a singular contract for applying
+      a "naming strategy".. Starting in 5.0 this has been split into 2 distinct contracts:.
+      * ImplicitNamingStrategy - is used whenever a table or column is not explicitly
+      named to determine the name to use.. * PhysicalNamingStrategy - is used to convert
+      a "logical name" (either implicit or explicit) name of a table or column into
+      a physical name (e.g. following corporate naming guidelines). Use methods `org.hibernate.boot.MetadataBuilder#setImplicitNamingStrategy(ImplicitNamingStrategy
+      implicitNamingStrategy)` or. `org.hibernate.boot.MetadataBuilder#setPhysicalNamingStrategy(PhysicalNamingStrategy
+      physicalNamingStrategy)`. instead of `public Configuration setNamingStrategy(NamingStrategy
+      namingStrategy)()`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-17
     when:
     - java.referenced:
@@ -158,8 +156,8 @@
     when:
     - java.referenced:
         pattern: org.hibernate.metamodel.spi.(TypeContributor|TypeContributions)
-  - message: "\n                    All functionality from `org.hibernate.cfg.AnnotationConfiguration`
-      has been moved to `org.hibernate.cfg.Configuration`.\n                    "
+  - message: All functionality from `org.hibernate.cfg.AnnotationConfiguration` has
+      been moved to `org.hibernate.cfg.Configuration`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-24
     when:
     - java.referenced:
@@ -188,11 +186,10 @@
     when:
     - java.referenced:
         pattern: org.hibernate.hql.spi.TemporaryTableBulkIdStrategy
-  - message: "Hibernate 5 changed contract `org.hibernate.integrator.spi.Integrator`
-      to account for bootstrap redesign.\n                    Check if you implement
-      method `integrate(Configuration configuration, SessionFactoryImplementor sessionFactory,
-      SessionFactoryServiceRegistry serviceRegistry)` which is no longer there.\n
-      \                   "
+  - message: Hibernate 5 changed contract `org.hibernate.integrator.spi.Integrator`
+      to account for bootstrap redesign.. Check if you implement method `integrate(Configuration
+      configuration, SessionFactoryImplementor sessionFactory, SessionFactoryServiceRegistry
+      serviceRegistry)` which is no longer there.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-29
     when:
     - java.referenced:
@@ -211,9 +208,11 @@
     - java.referenced:
         location: IMPLEMENTS_TYPE
         pattern: org.hibernate.id.Configurable
-  - message: |-
-      Since Hibernate 5, The `org.hibernate.id.PersistentIdentifierGenerator` extends new `org.hibernate.boot.model.relational.ExportableProducer` interface which will affect all `org.hibernate.id.PersistentIdentifierGenerator` implementations.
-                          Therefore you need to implement additionally `ExportableProducer#registerExportables(org.hibernate.boot.model.relational.Database database)` method.
+  - message: Since Hibernate 5, The `org.hibernate.id.PersistentIdentifierGenerator`
+      extends new `org.hibernate.boot.model.relational.ExportableProducer` interface
+      which will affect all `org.hibernate.id.PersistentIdentifierGenerator` implementations..
+      Therefore you need to implement additionally `ExportableProducer#registerExportables(org.hibernate.boot.model.relational.Database
+      database)` method.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-32
     when:
     - java.referenced:
@@ -224,12 +223,14 @@
     when:
     - java.referenced:
         pattern: org.hibernate.envers.configuration.AuditConfiguration
-  - message: |-
-      Built-in implementations of `org.hibernate.type.descriptor.sql.SqlTypeDescriptor` and `org.hibernate.type.descriptor.java.JavaTypeDescriptor` no longer
-                              auto-register themselves with `org.hibernate.type.descriptor.sql.SqlTypeDescriptorRegistry` and `org.hibernate.type.descriptor.java.JavaTypeDescriptorRegistry`.
-                              Applications using custom `SqlTypeDescriptor`/`JavaTypeDescriptor` implementations which extends the built-in ones and
-                              rely on that behavior should be updated to call `SqlTypeDescriptorRegistry#addDescriptor` or `JavaTypeDescriptorRegistry#addDescriptor` themselves.
-                           This warning is important especially for users of Hibernate 4.3.
+  - message: Built-in implementations of `org.hibernate.type.descriptor.sql.SqlTypeDescriptor`
+      and `org.hibernate.type.descriptor.java.JavaTypeDescriptor` no longer. auto-register
+      themselves with `org.hibernate.type.descriptor.sql.SqlTypeDescriptorRegistry`
+      and `org.hibernate.type.descriptor.java.JavaTypeDescriptorRegistry`.. Applications
+      using custom `SqlTypeDescriptor`/`JavaTypeDescriptor` implementations which
+      extends the built-in ones and. rely on that behavior should be updated to call
+      `SqlTypeDescriptorRegistry#addDescriptor` or `JavaTypeDescriptorRegistry#addDescriptor`
+      themselves.. This warning is important especially for users of Hibernate 4.3.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-34
     when:
     - or:
@@ -256,20 +257,19 @@
       - java.referenced:
           location: INHERITANCE
           pattern: org.hibernate.type.PostgresUUIDType.PostgresUUIDSqlTypeDescriptor
-  - message: "\n                            Previous versions of Hibernate have mapped
-      `byte[]` and `Byte[]` to Oracle’s `LONG RAW` data type (via the JDBC `LONGVARBINARY`
-      type). Oracle have deprecated the `LONG RAW` data type for many releases - possibly
-      as far back as 8i.\n\n                            Therefore it was decided to
-      start having Hibernate map `byte[]` and `Byte[]` to `BLOB` for Oracle.\n\n                            However,
-      in the interest of backwards compatibility and not breaking existing applications
-      it was also decided to limit this change to just the `Oracle12cDialect`. So
-      starting in 5.1 applications using `Oracle12cDialect` and implicitly mapping
-      `byte[]` and `Byte[]` values will start seeing those handled as `BLOB` data
-      rather than `LONG RAW` data.\n                            For existing applications
+  - message: 'Previous versions of Hibernate have mapped `byte[]` and `Byte[]` to
+      Oracle’s `LONG RAW` data type (via the JDBC `LONGVARBINARY` type). Oracle have
+      deprecated the `LONG RAW` data type for many releases - possibly as far back
+      as 8i.. Therefore it was decided to start having Hibernate map `byte[]` and
+      `Byte[]` to `BLOB` for Oracle.. However, in the interest of backwards compatibility
+      and not breaking existing applications it was also decided to limit this change
+      to just the `Oracle12cDialect`. So starting in 5.1 applications using `Oracle12cDialect`
+      and implicitly mapping `byte[]` and `Byte[]` values will start seeing those
+      handled as `BLOB` data rather than `LONG RAW` data.. For existing applications
       that want to continue to use `Oracle12cDialect` and still continue to implicitly
       map `byte[]` and `Byte[]` attributes to `LONG RAW`, there is a new configuration
       setting you can use to enable that: `hibernate.dialect.oracle.prefer_longvarbinary`,
-      which is `false `by default (map to `BLOB`).\n                        "
+      which is `false `by default (map to `BLOB`).'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-35
     when:
       or:
@@ -304,4 +304,8 @@
       - java.referenced:
           location: METHOD_CALL
           pattern: javax.persistence.Query|org.hibernate.Query|org.hibernate.Criteria.setFirstResult(int)
-      - xmlfile: null
+      - as: dialects_used
+        ignore: true
+        xml:
+          XPath: //s:property[@name='hibernate.dialect' and windup:matches(@value,
+            'org.hibernate.dialect.{param_dialects}')]

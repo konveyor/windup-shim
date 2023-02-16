@@ -1,15 +1,13 @@
 - rules:
-  - message: "\n                    An application running inside a container could
-      lose access to a file in local storage.\n\n                    Recommendations\n\n
-      \                   The following recommendations depend on the function of
-      the file in local storage:\n\n                    * Logging: Log to standard
-      output and use a centralized log collector to analyze the logs.\n                    *
-      Caching: Use a cache backing service.\n                    * Configuration:
-      Store configuration settings in environment variables so that they can be updated
-      without code changes.\n                    * Data storage: Use a database backing
-      service for relational data or use a persistent data storage system.\n                    *
-      Temporary data storage: Use the file system of a running container as a brief,
-      single-transaction cache.\n                    "
+  - message: 'An application running inside a container could lose access to a file
+      in local storage.. Recommendations. The following recommendations depend on
+      the function of the file in local storage:. * Logging: Log to standard output
+      and use a centralized log collector to analyze the logs.. * Caching: Use a cache
+      backing service.. * Configuration: Store configuration settings in environment
+      variables so that they can be updated without code changes.. * Data storage:
+      Use a database backing service for relational data or use a persistent data
+      storage system.. * Temporary data storage: Use the file system of a running
+      container as a brief, single-transaction cache.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-0
     when:
     - or:
@@ -25,65 +23,57 @@
       - java.referenced:
           location: METHOD_CALL
           pattern: java.nio.file.Paths.get({*})
-  - message: "\n                    An application running inside a container could
-      lose access to a file in local storage.\n\n                    Recommendations\n\n
-      \                   The following recommendations depend on the function of
-      the file in local storage:\n\n                    * Logging: Log to standard
-      output and use a centralized log collector to analyze the logs.\n                    *
-      Caching: Use a cache backing service.\n                    * Configuration:
-      Store configuration settings in environment variables so that they can be updated
-      without code changes.\n                    * Data storage: Use a database backing
-      service for relational data or use a persistent data storage system.\n                    *
-      Temporary data storage: Use the file system of a running container as a brief,
-      single-transaction cache.\n                    "
+  - message: 'An application running inside a container could lose access to a file
+      in local storage.. Recommendations. The following recommendations depend on
+      the function of the file in local storage:. * Logging: Log to standard output
+      and use a centralized log collector to analyze the logs.. * Caching: Use a cache
+      backing service.. * Configuration: Store configuration settings in environment
+      variables so that they can be updated without code changes.. * Data storage:
+      Use a database backing service for relational data or use a persistent data
+      storage system.. * Temporary data storage: Use the file system of a running
+      container as a brief, single-transaction cache.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-1
     when:
     - java.referenced:
         location: CONSTRUCTOR_CALL
         pattern: java.net.(URL|URI)({*})
-  - message: "\n                    An application running inside a container could
-      lose access to a file in local storage.\n\n                    Recommendations\n\n
-      \                   The following recommendations depend on the function of
-      the file in local storage:\n\n                    * Logging: Log to standard
-      output and use a centralized log collector to analyze the logs.\n                    *
-      Caching: Use a cache backing service.\n                    * Configuration:
-      Store configuration settings in environment variables so that they can be updated
-      without code changes.\n                    * Data storage: Use a database backing
-      service for relational data or use a persistent data storage system.\n                    *
-      Temporary data storage: Use the file system of a running container as a brief,
-      single-transaction cache.\n                    "
+  - message: 'An application running inside a container could lose access to a file
+      in local storage.. Recommendations. The following recommendations depend on
+      the function of the file in local storage:. * Logging: Log to standard output
+      and use a centralized log collector to analyze the logs.. * Caching: Use a cache
+      backing service.. * Configuration: Store configuration settings in environment
+      variables so that they can be updated without code changes.. * Data storage:
+      Use a database backing service for relational data or use a persistent data
+      storage system.. * Temporary data storage: Use the file system of a running
+      container as a brief, single-transaction cache.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-2
     when:
     - filecontent:
         filename: '{*}{extensions}'
         pattern: '{path1}'
-  - message: "\n                    An application running inside a container could
-      lose access to a file in local storage.\n\n                    Recommendations\n\n
-      \                   The following recommendations depend on the function of
-      the file in local storage:\n\n                    * Logging: Log to standard
-      output and use a centralized log collector to analyze the logs.\n                    *
-      Caching: Use a cache backing service.\n                    * Configuration:
-      Store configuration settings in environment variables so that they can be updated
-      without code changes.\n                    * Data storage: Use a database backing
-      service for relational data or use a persistent data storage system.\n                    *
-      Temporary data storage: Use the file system of a running container as a brief,
-      single-transaction cache.\n                    "
+  - message: 'An application running inside a container could lose access to a file
+      in local storage.. Recommendations. The following recommendations depend on
+      the function of the file in local storage:. * Logging: Log to standard output
+      and use a centralized log collector to analyze the logs.. * Caching: Use a cache
+      backing service.. * Configuration: Store configuration settings in environment
+      variables so that they can be updated without code changes.. * Data storage:
+      Use a database backing service for relational data or use a persistent data
+      storage system.. * Temporary data storage: Use the file system of a running
+      container as a brief, single-transaction cache.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-3
     when:
     - filecontent:
         filename: '{*}.{extensions}'
         pattern: '{path2}'
-  - message: "\n                    An application running inside a container could
-      lose access to a file in local storage.\n\n                    Recommendations\n\n
-      \                   The following recommendations depend on the function of
-      the file in local storage:\n\n                    * Logging: Log to standard
-      output and use a centralized log collector to analyze the logs.\n                    *
-      Caching: Use a cache backing service.\n                    * Configuration:
-      Store configuration settings in environment variables so that they can be updated
-      without code changes.\n                    * Data storage: Use a database backing
-      service for relational data or use a persistent data storage system.\n                    *
-      Temporary data storage: Use the file system of a running container as a brief,
-      single-transaction cache.\n                    "
+  - message: 'An application running inside a container could lose access to a file
+      in local storage.. Recommendations. The following recommendations depend on
+      the function of the file in local storage:. * Logging: Log to standard output
+      and use a centralized log collector to analyze the logs.. * Caching: Use a cache
+      backing service.. * Configuration: Store configuration settings in environment
+      variables so that they can be updated without code changes.. * Data storage:
+      Use a database backing service for relational data or use a persistent data
+      storage system.. * Temporary data storage: Use the file system of a running
+      container as a brief, single-transaction cache.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-4
     when:
     - or:

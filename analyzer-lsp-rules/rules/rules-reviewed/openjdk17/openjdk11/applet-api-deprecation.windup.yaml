@@ -1,7 +1,7 @@
 - rules:
-  - message: "\n                        The Java Applet API has been deprecated and
-      will be removed in future releases, since modern web browsers no longer support
-      Java applets any references to it should be removed.\n                    "
+  - message: The Java Applet API has been deprecated and will be removed in future
+      releases, since modern web browsers no longer support Java applets any references
+      to it should be removed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/applet-api-deprecation.windup.xml-0
     when:
     - or:

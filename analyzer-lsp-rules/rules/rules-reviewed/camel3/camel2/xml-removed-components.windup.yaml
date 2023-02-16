@@ -59,7 +59,10 @@
       - filecontent:
           filename: '{*}.java'
           pattern: from("twitter-streaming:{*}
-      - xmlfile: null
+      - xml:
+          XPath: //*/c:from/@uri[windup:matches(self::node(), 'twitter-streaming:{*}')]
+      - xml:
+          XPath: //*/c:from/@uri[windup:matches(self::node(), 'twitter-streaming:{*}')]
   - message: '`org.apache.camel:camel-restlet` artifact has been deprecated in Apache
       Camel 2 and removed in Apache Camel 3. Use any of the other REST capable components,
       such as `camel-rest`, `camel-jetty`, `camel-netty-http` or `camel-undertow`'
@@ -84,4 +87,15 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-removed-components.windup.xml-11
     when:
     - or:
-      - xmlfile: null
+      - xml:
+          XPath: /m:project/m:build/m:plugins/m:plugin[m:groupId='org.apache.camel'
+            and m:artifactId='camel-maven-plugin']/m:executions/m:execution/m:goals[m:goal='validate'
+            or m:goal='route-coverage']
+          filepaths:
+          - pom.xml
+      - xml:
+          XPath: /m:project/m:profiles/m:profile/m:build/m:plugins/m:plugin[m:groupId='org.apache.camel'
+            and m:artifactId='camel-maven-plugin']/m:executions/m:execution/m:goals[m:goal='validate'
+            or m:goal='route-coverage']
+          filepaths:
+          - pom.xml

@@ -2,4 +2,4 @@
   - message: Replace the bootstrapping file name prefix `javax.` with `jakarta.`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-bootstrapping-files.windup.xml-0
     when:
-    - file: null
+    - file: javax.enterprise{*}

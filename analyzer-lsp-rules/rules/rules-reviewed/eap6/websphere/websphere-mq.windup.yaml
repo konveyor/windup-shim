@@ -1,23 +1,24 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-0
+    tag:
+    - jms
+    - websphere
     when:
     - java.referenced:
         pattern: com.ibm(\..*)?\.(mq|wmq).*.[^.]+
-  - message: "`WMQInitialContextFactory` is an implementation of `InitialContextFactory`\n
-      \                       used to get object instances from JNDI. The\n                        equivalent
-      functionality needs to be configured on JBoss EAP 6 using HornetQ.\n                        `InitialContextFactory`
-      is provided\n                        by EAP and you only need to instantiate
-      `InitialContext ctx = new InitialContext();`.\n                    "
+  - message: '`WMQInitialContextFactory` is an implementation of `InitialContextFactory`.
+      used to get object instances from JNDI. The. equivalent functionality needs
+      to be configured on JBoss EAP 6 using HornetQ.. `InitialContextFactory` is provided.
+      by EAP and you only need to instantiate `InitialContext ctx = new InitialContext();`.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-1
     when:
     - filecontent:
         filename: '{*}.{ext}'
         pattern: com.ibm.mq.jms.context.WMQInitialContextFactory
-  - message: "\n                        WebSphere `.scp` files contain scripts for
-      the `jmsadmin` program which is used\n                        to configure the
-      WebSphere MQ destinations\n                        and routing. To configure
+  - message: WebSphere `.scp` files contain scripts for the `jmsadmin` program which
+      is used. to configure the WebSphere MQ destinations. and routing. To configure
       messaging in JBoss EAP 6 with HornetQ, use either the Management Console or
-      Management CLI with it's\n                        scripting feature.\n                    "
+      Management CLI with it's. scripting feature.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-2
     when:
     - filecontent:

@@ -1,5 +1,6 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/embedded-cache-libraries.windup.xml-14
+    tag: []
     when:
     - or:
       - java.dependency:

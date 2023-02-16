@@ -1,37 +1,62 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-0
+    tag:
+    - ibm-wbi
+    - rules
+    - websphere
     when:
-    - xmlfile: null
-  - message: "\n                      \n                      This file contains a
-      specific IBM WebSphere Application binding configuration.\n\n                      To
-      migrate to EAP 7+, configure EAP 7+ accordingly using the CLI interface or web
-      console.\n                      \n                    "
+    - xml:
+        XPath: /rl:RuleSet
+  - message: This file contains a specific IBM WebSphere Application binding configuration..
+      To migrate to EAP 7+, configure EAP 7+ accordingly using the CLI interface or
+      web console.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-1
     when:
-    - xmlfile: null
-  - message: "\n                            \n                            This file
-      contains WebSphere proprietary JSP engine configuration.\n\n                            To
-      migrate to EAP 7, configure it accordingly using the CLI or the web console.\n
-      \                           \n                        "
+    - xml:
+        XPath: /applicationbnd:ApplicationBinding
+  - message: This file contains WebSphere proprietary JSP engine configuration.. To
+      migrate to EAP 7, configure it accordingly using the CLI or the web console.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-2
     when:
     - or:
-      - xmlfile: null
-      - file: null
-  - message: "\n                      \n                      This file contains WebSphere
-      proprietary binding configuration.\n\n                      To migrate to EAP
-      7+, configure EAP 7+ accordingly using the CLI interface or web console.\n                      \n
-      \                   "
+      - as: default
+        from: files
+        ignore: true
+        xml:
+          XPath: /webappext:WebAppExtension
+      - as: default
+        ignore: true
+        xml:
+          XPath: /ext:web-ext
+      - as: files
+        file: ibm-web-ext.{file_ext}
+        ignore: true
+  - message: This file contains WebSphere proprietary binding configuration.. To migrate
+      to EAP 7+, configure EAP 7+ accordingly using the CLI interface or web console.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-3
     when:
     - or:
-      - xmlfile: null
+      - xml:
+          XPath: /ext:web-bnd
+      - xml:
+          XPath: /webappbnd:WebAppBinding
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-4
+    tag:
+    - webservice
+    - websphere
     when:
-    - xmlfile: null
+    - xml:
+        XPath: /com.ibm.etools.webservice.wscext:WsClientExtension
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-5
+    tag:
+    - webservice
+    - websphere
     when:
-    - xmlfile: null
+    - xml:
+        XPath: /com.ibm.etools.webservice.wscbnd:ClientBinding
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-6
+    tag:
+    - websphere
     when:
-    - xmlfile: null
+    - xml:
+        XPath: /appdeployment:Deployment

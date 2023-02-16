@@ -1,10 +1,25 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-0
+    tag:
+    - configuration
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: ""
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-1
+    tag:
+    - configuration
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /glassfish-ejb-jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-2
+    tag:
+    - configuration
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /glassfish-application

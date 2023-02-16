@@ -1,4 +1,5 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/embedded-framework-libraries.windup.xml-3
+    tag: []
     when:
     - or: []

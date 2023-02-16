@@ -1,9 +1,7 @@
 - rules:
-  - message: "\n                            \n                            Mutiny has
-      deprecated a few APIs. The deprecated APIs are still available and would work,
-      but are planned for removal.  \n                            Changed API is :
-      `Multi.collectItems()` -> `Multi.collect()`\n                            \n
-      \                       "
+  - message: 'Mutiny has deprecated a few APIs. The deprecated APIs are still available
+      and would work, but are planned for removal.. Changed API is : `Multi.collectItems()`
+      -> `Multi.collect()`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-0
     when:
       or:
@@ -18,10 +16,9 @@
         java.referenced:
           location: IMPORT
           pattern: io.smallrye.mutiny.Multi
-  - message: "\n                            \n                            Mutiny has
-      deprecated a few APIs. The deprecated APIs are still available and would work,
-      but are planned for removal.  \n                            Changed API is :
-      `Multi.groupItems()` -> `Multi.group()`\n                            "
+  - message: 'Mutiny has deprecated a few APIs. The deprecated APIs are still available
+      and would work, but are planned for removal.. Changed API is : `Multi.groupItems()`
+      -> `Multi.group()`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-1
     when:
       or:
@@ -36,10 +33,9 @@
         java.referenced:
           location: IMPORT
           pattern: io.smallrye.mutiny.Multi
-  - message: "\n                            \n                            Mutiny has
-      deprecated a few APIs. The deprecated APIs are still available and would work,
-      but are planned for removal.  \n                            Changed API is :
-      `Multi.transform().toHotStream()` -> `Multi.toHotStream()`\n                            "
+  - message: 'Mutiny has deprecated a few APIs. The deprecated APIs are still available
+      and would work, but are planned for removal.. Changed API is : `Multi.transform().toHotStream()`
+      -> `Multi.toHotStream()`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-2
     when:
       or:
@@ -82,10 +78,9 @@
         java.referenced:
           location: IMPORT
           pattern: io.smallrye.mutiny.Uni
-  - message: "\n                        \n                        Mutiny has deprecated
-      a few APIs. The deprecated APIs are still available and would work, but are
-      planned for removal.  \n                        Changed API is : `Multi.transform().byTakingFirstItems(long)`
-      -> `Multi.select().first(long)`\n                        "
+  - message: 'Mutiny has deprecated a few APIs. The deprecated APIs are still available
+      and would work, but are planned for removal.. Changed API is : `Multi.transform().byTakingFirstItems(long)`
+      -> `Multi.select().first(long)`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-5
     when:
       or:
@@ -100,10 +95,9 @@
         java.referenced:
           location: IMPORT
           pattern: io.smallrye.mutiny.Multi
-  - message: "\n                        \n                        Mutiny has deprecated
-      a few APIs. The deprecated APIs are still available and would work, but are
-      planned for removal.  \n                        Changed API is : `Multi.transform().byTestingItemsWith(Function<T,
-      Uni<?>>)` -> `Multi.select().when(Function<T, Uni<?>>)`\n                        "
+  - message: 'Mutiny has deprecated a few APIs. The deprecated APIs are still available
+      and would work, but are planned for removal.. Changed API is : `Multi.transform().byTestingItemsWith(Function<T,
+      Uni<?>>)` -> `Multi.select().when(Function<T, Uni<?>>)`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-6
     when:
       or:
@@ -118,10 +112,9 @@
         java.referenced:
           location: IMPORT
           pattern: io.smallrye.mutiny.Multi
-  - message: "\n                        \n                        Mutiny has deprecated
-      a few APIs. The deprecated APIs are still available and would work, but are
-      planned for removal.  \n                        Changed API is : `Multi.transform().byFilteringItemsWith(Predicate<T>)`
-      -> `Multi.select().where(Predicate<T>)`\n                        "
+  - message: 'Mutiny has deprecated a few APIs. The deprecated APIs are still available
+      and would work, but are planned for removal.. Changed API is : `Multi.transform().byFilteringItemsWith(Predicate<T>)`
+      -> `Multi.select().where(Predicate<T>)`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-7
     when:
       or:
@@ -136,10 +129,9 @@
         java.referenced:
           location: IMPORT
           pattern: io.smallrye.mutiny.Multi
-  - message: "\n                        \n                        Mutiny has deprecated
-      a few APIs. The deprecated APIs are still available and would work, but are
-      planned for removal.  \n                        Changed API is : `Multi.transform().bySkippingFirstItems(long)`
-      -> `Multi.skip().first(long)`\n                        "
+  - message: 'Mutiny has deprecated a few APIs. The deprecated APIs are still available
+      and would work, but are planned for removal.. Changed API is : `Multi.transform().bySkippingFirstItems(long)`
+      -> `Multi.skip().first(long)`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-8
     when:
       or:
