@@ -59,8 +59,7 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (BaseSelectorProducer|AsyncCallbackToCompletableFutureAdapter|BridgeExceptionHandlerToErrorHandler|DefaultAsyncProducer|DefaultComponent|DefaultConsumer|DefaultEndpoint|DefaultExchange|DefaultExchangeHolder|DefaultHeaderFilterStrategy|DefaultMessage|DefaultMessageHistory|DefaultPollingConsumerPollStrategy|DefaultPollingEndpoint|DefaultProducer|DefaultScheduledPollConsumer|DefaultScheduledPollConsumerScheduler|DefaultThreadPoolFactory|EventDrivenPollingConsumer|ExpressionAdapter|ExpressionComparator|ExpressionListComparator|ExpressionSupport|HeaderFilterStrategyComponent|HeaderSelectorProducer|LoggingExceptionHandler|MessageSupport|PollingConsumerSupport|ProcessorEndpoint|ProcessorPollingConsumer|ScheduledBatchPollingConsumer|ScheduledPollConsumer|ScheduledPollEndpoint|SimpleRegistry|SimpleUuidGeneratorSynchronizationAdapter|SynchronousDelegateProducer)
+      - pattern: (BaseSelectorProducer|AsyncCallbackToCompletableFutureAdapter|BridgeExceptionHandlerToErrorHandler|DefaultAsyncProducer|DefaultComponent|DefaultConsumer|DefaultEndpoint|DefaultExchange|DefaultExchangeHolder|DefaultHeaderFilterStrategy|DefaultMessage|DefaultMessageHistory|DefaultPollingConsumerPollStrategy|DefaultPollingEndpoint|DefaultProducer|DefaultScheduledPollConsumer|DefaultScheduledPollConsumerScheduler|DefaultThreadPoolFactory|EventDrivenPollingConsumer|ExpressionAdapter|ExpressionComparator|ExpressionListComparator|ExpressionSupport|HeaderFilterStrategyComponent|HeaderSelectorProducer|LoggingExceptionHandler|MessageSupport|PollingConsumerSupport|ProcessorEndpoint|ProcessorPollingConsumer|ScheduledBatchPollingConsumer|ScheduledPollConsumer|ScheduledPollEndpoint|SimpleRegistry|SimpleUuidGeneratorSynchronizationAdapter|SynchronousDelegateProducer)
       param: SupportClass
   - when:
       javaclass:
@@ -118,8 +117,7 @@ rules:
       over: javaClass
     where:
     - matches:
-      - value: ""
-        pattern: (PropertyPlaceholderDelegateRegistry|CompositeRegistry)
+      - pattern: (PropertyPlaceholderDelegateRegistry|CompositeRegistry)
       param: registry
   - when:
       javaclass:
@@ -166,8 +164,7 @@ rules:
       over: javaClass
     where:
     - matches:
-      - value: ""
-        pattern: (impl.FileWatcherReloadStrategy|support.ReloadStrategySupport)
+      - pattern: (impl.FileWatcherReloadStrategy|support.ReloadStrategySupport)
       param: removed
   - when:
       javaclass:
@@ -312,8 +309,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (InvokeOnHeaders|InvokeOnHeader)
+      - pattern: (InvokeOnHeaders|InvokeOnHeader)
       param: annotation
   - when:
       javaclass:
@@ -490,8 +486,7 @@ rules:
         over: javaClass
     where:
     - matches:
-      - value: ""
-        pattern: (AsyncProcessorHelper|AsyncProcessorConverterHelper|EndpointHelper|EventHelper|ExchangeHelper|GZIPHelper|JsonSchemaHelper|MessageHelper|PlatformHelper|PredicateAssertHelper|ResolverHelper|ResourceHelper|UnitOfWorkHelper)
+      - pattern: (AsyncProcessorHelper|AsyncProcessorConverterHelper|EndpointHelper|EventHelper|ExchangeHelper|GZIPHelper|JsonSchemaHelper|MessageHelper|PlatformHelper|PredicateAssertHelper|ResolverHelper|ResourceHelper|UnitOfWorkHelper)
       param: moved
   - when:
       javaclass:
@@ -632,8 +627,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (FileIdempotentRepository|MemoryIdempotentRepository)
+      - pattern: (FileIdempotentRepository|MemoryIdempotentRepository)
       param: moved
   - when:
       javaclass:
@@ -757,8 +751,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (getManagedCamelContext|getManagedProcessor|getManagedRoute)
+      - pattern: (getManagedCamelContext|getManagedProcessor|getManagedRoute)
       param: method
   - when:
       or:
@@ -799,12 +792,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (changeFunctionStartToken|changeFunctionEndToken)
+      - pattern: (changeFunctionStartToken|changeFunctionEndToken)
       param: tokenizerMethods
     - matches:
-      - value: ""
-        pattern: (changeFunctionStartToken|changeFunctionEndToken|setFunctionStartToken|setFunctionEndToken)
+      - pattern: (changeFunctionStartToken|changeFunctionEndToken|setFunctionStartToken|setFunctionEndToken)
       param: languageMethods
   - when:
       javaclass:
@@ -827,8 +818,7 @@ rules:
         category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: (Consume|EndpointInject|Produce)
+      - pattern: (Consume|EndpointInject|Produce)
       param: class
   - when:
       javaclass:
@@ -851,8 +841,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Consume|EndpointInject|Produce)
+      - pattern: (Consume|EndpointInject|Produce)
       param: class
   - when:
       javaclass:
@@ -876,8 +865,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (getComponentParameterJsonSchema|getDataFormatParameterJsonSchema|getLanguageParameterJsonSchema|getEipParameterJsonSchema)
+      - pattern: (getComponentParameterJsonSchema|getDataFormatParameterJsonSchema|getLanguageParameterJsonSchema|getEipParameterJsonSchema)
       param: method
   - when:
       javaclass:
@@ -899,8 +887,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (loadRoutesDefinition|loadRestsDefinition)
+      - pattern: (loadRoutesDefinition|loadRestsDefinition)
       param: method
   - when:
       javaclass:
@@ -924,8 +911,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (getRouteDefinitions|getRouteDefinition|addRouteDefinitions|addRouteDefinition|removeRouteDefinitions|removeRouteDefinition|getRestDefinitions|addRestDefinitions|setDataFormats|getDataFormats|resolveDataFormatDefinition|getProcessorDefinition|setValidators|getHystrixConfiguration|setHystrixConfiguration|setHystrixConfigurations|addHystrixConfiguration|getValidators|setTransformers|getTransformers|addServiceCallConfiguration|setServiceCallConfigurations|setServiceCallConfiguration|getServiceCallConfiguration)
+      - pattern: (getRouteDefinitions|getRouteDefinition|addRouteDefinitions|addRouteDefinition|removeRouteDefinitions|removeRouteDefinition|getRestDefinitions|addRestDefinitions|setDataFormats|getDataFormats|resolveDataFormatDefinition|getProcessorDefinition|setValidators|getHystrixConfiguration|setHystrixConfiguration|setHystrixConfigurations|addHystrixConfiguration|getValidators|setTransformers|getTransformers|addServiceCallConfiguration|setServiceCallConfigurations|setServiceCallConfiguration|getServiceCallConfiguration)
       param: method
   - when:
       javaclass:
@@ -949,7 +935,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (setupRoutes|isSetupRoutes|getRouteStartupOrder|getManagementMBeanAssembler|addInterceptStrategy|getInterceptStrategies|getErrorHandlerExecutorService|getDataFormatResolver|setDataFormatResolver|getDefaultFactoryFinder|setFactoryFinderResolver|getFactoryFinder|getPackageScanClassResolver|setPackageScanClassResolver|setNodeIdFactory|getNodeIdFactory|getAsyncProcessorAwaitManager|setAsyncProcessorAwaitManager|getProcessorFactory|setProcessorFactory|getUnitOfWorkFactory|setUnitOfWorkFactory|getModelJAXBContextFactory|setModelJAXBContextFactory|getLogListeners|addLogListener)
+      - pattern: (setupRoutes|isSetupRoutes|getRouteStartupOrder|getManagementMBeanAssembler|addInterceptStrategy|getInterceptStrategies|getErrorHandlerExecutorService|getDataFormatResolver|setDataFormatResolver|getDefaultFactoryFinder|setFactoryFinderResolver|getFactoryFinder|getPackageScanClassResolver|setPackageScanClassResolver|setNodeIdFactory|getNodeIdFactory|getAsyncProcessorAwaitManager|setAsyncProcessorAwaitManager|getProcessorFactory|setProcessorFactory|getUnitOfWorkFactory|setUnitOfWorkFactory|getModelJAXBContextFactory|setModelJAXBContextFactory|getLogListeners|addLogListener)
       param: method
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml

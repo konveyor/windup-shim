@@ -39,8 +39,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (CacheEntry|CacheFactory|CacheInterceptor|LightweightBrowserCache|BrowserCache|MapCache)
+      - pattern: (CacheEntry|CacheFactory|CacheInterceptor|LightweightBrowserCache|BrowserCache|MapCache)
       param: cache_class
   - when:
       javaclass:
@@ -103,8 +102,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (ProxyBuilder|ProxyConfig|ProxyFactory)
+      - pattern: (ProxyBuilder|ProxyConfig|ProxyFactory)
       param: type
   - when:
       javaclass:

@@ -17,7 +17,14 @@
       - java.referenced:
           location: IMPORT
           pattern: org.pmw.tinylog.writers.FileWriter
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/logging.windup.xml-1
+  - message: "\n                        If an application writes logs with `SocketHandler`,
+      an alternative method is required. Socket communication is not suitable for
+      a cloud environment because it requires fixed communication with a target host.\n\n
+      \                       Recommendations\n\n                        * Use a centralized
+      log management system.\n                        * Log to standard output and
+      allow the cloud platform to manage the logging.\n                        * Use
+      shared storage for log files.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/logging.windup.xml-1
     when:
     - java.referenced:
         pattern: java.util.logging.SocketHandler{*}

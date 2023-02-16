@@ -79,7 +79,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (i18n.)?logging.[^N]
+      - pattern: (i18n.)?logging.[^N]
       param: logger
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-services.windup.xml

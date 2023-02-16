@@ -7,7 +7,10 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-1
     when:
     - file: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-2
+  - message: |-
+      Entity beans are no longer supported in JBoss EAP 7. User is requested to use JPA entities that fully replaced the functionality provided by Entity beans.
+                              This entity needs to be migrated using JPA persistence.xml or using JPA annotations.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-2
     when:
       or:
       - java.referenced:
@@ -25,13 +28,18 @@
       - java.referenced:
           location: INHERITANCE
           pattern: org.apache.catalina.valves.ValveBase
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-4
+  - message: This class is using JSR 88 specific classes. Rely instead on proprietary
+      functionality to automate deployments. Please consult EAP 7 admin documentation
+      to learn about such functionality
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-4
     when:
     - or:
       - java.referenced:
           location: IMPORT
           pattern: javax.enterprise.deploy{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-5
+  - message: EAP 7 includes a new API for building Singleton services, which significantly
+      simplifies the process, and solves the issues found in the legacy solution.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-5
     when:
     - java.referenced:
         location: IMPORT

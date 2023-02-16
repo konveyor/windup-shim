@@ -62,8 +62,7 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (javax.portlet\.[^.]+|javax.portlet.filter\.[^.]+)
+      - pattern: (javax.portlet\.[^.]+|javax.portlet.filter\.[^.]+)
       param: DetectJavaPortlet_0_packages
   - when:
       javaclass:
@@ -89,8 +88,7 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (javax.xml.registry\.[^.]+|javax.xml.registry.infomodel\.[^.]+)
+      - pattern: (javax.xml.registry\.[^.]+|javax.xml.registry.infomodel\.[^.]+)
       param: DetectJAXRJava_0_packages
   - when:
       javaclass:
@@ -109,8 +107,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: org.osgi.service.repository\.[^.]+
+      - pattern: org.osgi.service.repository\.[^.]+
       param: DetectRemoteBundleRepositoriesJava_0_packages
   - when:
       javaclass:
@@ -130,8 +127,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: org.osgi.service.remoteserviceadmin\.[^.]+
+      - pattern: org.osgi.service.remoteserviceadmin\.[^.]+
       param: DetectRemoteServicesJava_0_packages
   - when:
       javaclass:
@@ -181,8 +177,7 @@ rules:
         effort: 13
     where:
     - matches:
-      - value: ""
-        pattern: ejb-jar.xml
+      - pattern: ejb-jar.xml
       param: DetectEJBEntityBeansXML_0_filesFilter
   - when:
       or:
@@ -267,12 +262,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (javax.ejb.Remote|javax.ejb.RemoteHome)
+      - pattern: (javax.ejb.Remote|javax.ejb.RemoteHome)
       param: DetectTransactionPropagationEJBRemote_0_classes
     - matches:
-      - value: ""
-        pattern: ejb-jar.xml
+      - pattern: ejb-jar.xml
       param: DetectTransactionPropagationEJBRemote_1_filesFilter
   - when:
       or:
@@ -338,11 +331,9 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (ibm-webservices(client)?-(ext|bnd)\.xmi)|(ws-security.xml)
+      - pattern: (ibm-webservices(client)?-(ext|bnd)\.xmi)|(ws-security.xml)
       param: DetectJAXRPC_1_files
     - matches:
-      - value: ""
-        pattern: webservices.xml|web.xml|ejb-jar.xml|application.xml
+      - pattern: webservices.xml|web.xml|ejb-jar.xml|application.xml
       param: DetectJAXRPC_2_filesFilter
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml

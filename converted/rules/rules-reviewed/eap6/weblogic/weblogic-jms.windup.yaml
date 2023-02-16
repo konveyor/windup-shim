@@ -154,8 +154,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Text|Stream|Object|Map|Bytes)?
+      - pattern: (Text|Stream|Object|Map|Bytes)?
       param: type
   - when:
       javaclass:
@@ -199,7 +198,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Topic|Queue)?
+      - pattern: (Topic|Queue)?
       param: type
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-jms.windup.xml

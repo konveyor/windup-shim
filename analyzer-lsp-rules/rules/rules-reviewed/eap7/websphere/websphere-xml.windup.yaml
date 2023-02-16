@@ -9,7 +9,11 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-1
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-2
+  - message: "\n                            \n                            This file
+      contains WebSphere proprietary JSP engine configuration.\n\n                            To
+      migrate to EAP 7, configure it accordingly using the CLI or the web console.\n
+      \                           \n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-2
     when:
     - or:
       - xmlfile: null

@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-0
+  - message: "\n                            Replace the `biz.paluch.logging:logstash-gelf`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-logging-gelf`  \n
+      \                           Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-0
     when:
     - java.dependency:
         name: biz.paluch.logging.logstash-gelf
@@ -10,7 +13,10 @@
     when:
     - java.dependency:
         name: biz.paluch.logging.logstash-gelf
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-2
+  - message: "\n                            Replace the `io.sentry:sentry-jul` dependency
+      with the Quarkus dependency `io.quarkus:quarkus-logging-sentry`  \n                            Further
+      information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-2
     when:
     - java.dependency:
         name: io.sentry.sentry-jul

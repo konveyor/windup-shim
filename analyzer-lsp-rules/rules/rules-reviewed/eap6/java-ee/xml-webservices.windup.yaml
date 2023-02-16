@@ -14,10 +14,13 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-4
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-5
+  - message: JBoss EAP developer documentation describes JAX-WS Web Services Common
+      API.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-5
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-6
+  - message: JBoss EAP developer documentation about JAX-WS Web Services Endpoints
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-6
     when:
     - xmlfile: null
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-7

@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mailer.windup.xml-0
+  - message: "The `MailTemplateInstance` now returns a `Uni<Void>` instead of `CompletionStage<Void>`.
+      \ \n                                To convert a `Uni` to a `CompletionStage`,
+      call `.subscribeAsCompletionStage()`.\n                            "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mailer.windup.xml-0
     when:
       or:
       - as: sendmethod
@@ -7,7 +10,9 @@
           filename: ""
           pattern: .send(
         from: mailtemplateinstance
+        ignore: true
       - as: mailtemplateinstance
+        ignore: true
         java.referenced:
           location: IMPORT
           pattern: io.quarkus.mailer.MailTemplate.MailTemplateInstance

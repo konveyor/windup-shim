@@ -59,12 +59,10 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (java|properties|yaml|yml)
+      - pattern: (java|properties|yaml|yml)
       param: extensions
     - matches:
-      - value: ""
-        pattern: \.\/.
+      - pattern: \.\/.
       param: path
   - when:
       filecontent:
@@ -85,11 +83,9 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (java|properties|yaml|yml)
+      - pattern: (java|properties|yaml|yml)
       param: extensions
     - matches:
-      - value: ""
-        pattern: \/home
+      - pattern: \/home
       param: path
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml

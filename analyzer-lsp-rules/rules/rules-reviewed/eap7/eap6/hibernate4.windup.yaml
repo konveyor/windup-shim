@@ -254,28 +254,49 @@
       - java.referenced:
           location: INHERITANCE
           pattern: org.hibernate.type.PostgresUUIDType.PostgresUUIDSqlTypeDescriptor
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-35
+  - message: "\n                            Previous versions of Hibernate have mapped
+      `byte[]` and `Byte[]` to Oracle’s `LONG RAW` data type (via the JDBC `LONGVARBINARY`
+      type). Oracle have deprecated the `LONG RAW` data type for many releases - possibly
+      as far back as 8i.\n\n                            Therefore it was decided to
+      start having Hibernate map `byte[]` and `Byte[]` to `BLOB` for Oracle.\n\n                            However,
+      in the interest of backwards compatibility and not breaking existing applications
+      it was also decided to limit this change to just the `Oracle12cDialect`. So
+      starting in 5.1 applications using `Oracle12cDialect` and implicitly mapping
+      `byte[]` and `Byte[]` values will start seeing those handled as `BLOB` data
+      rather than `LONG RAW` data.\n                            For existing applications
+      that want to continue to use `Oracle12cDialect` and still continue to implicitly
+      map `byte[]` and `Byte[]` attributes to `LONG RAW`, there is a new configuration
+      setting you can use to enable that: `hibernate.dialect.oracle.prefer_longvarbinary`,
+      which is `false `by default (map to `BLOB`).\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-35
     when:
       or:
       - as: config_files
         filecontent:
           filename: '{*}.{extension}'
           pattern: org.hibernate.dialect.Oracle12cDialect
+        ignore: true
       - as: java_entities
+        ignore: true
         java.referenced:
           location: ANNOTATION
           pattern: javax.persistence.Entity
       - as: mappings
         from: java_entities
+        ignore: true
         java.referenced:
           location: RETURN_TYPE
           pattern: java.lang.Byte[]
       - as: mappings2
         from: java_entities
+        ignore: true
         java.referenced:
           location: RETURN_TYPE
           pattern: byte[]
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-36
+  - message: If the migration is from JBoss EAP 6 or Hibernate 4 then the dialect
+      {param_dialects} does not support limit offset therefore as `setFirstResult`
+      is used then `hibernate.legacy_limit_handler=true` is mandatory.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-36
     when:
       or:
       - java.referenced:

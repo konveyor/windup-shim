@@ -227,7 +227,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Cause|Field|FormatWith|LoggingClass|LogMessage|Message|MessageBundle|MessageLogger|Param|Property)
+      - pattern: (Cause|Field|FormatWith|LoggingClass|LogMessage|Message|MessageBundle|MessageLogger|Param|Property)
       param: annotation
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml

@@ -15,7 +15,9 @@
     - java.referenced:
         location: IMPORT
         pattern: org.apache.camel.impl.{SupportClass}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-2
+  - message: "`zip` and `gzip` dataformats were renamed to `zipdeflater and `gzipdeflater`\n
+      \                       "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-2
     when:
       or:
       - or:
@@ -28,12 +30,17 @@
             pattern: .gzip({*})
           from: routeBuilders
       - as: routeBuilders
+        ignore: true
         java.referenced:
           location: INHERITANCE
           pattern: org.apache.camel.builder.RouteBuilder
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-3
+  - message: "\n                            The class `org.apache.camel.impl.{registry}`
+      has been removed. Use `org.apache.camel.support.DefaultRegistry` instead.\n
+      \                       "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-3
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.impl.{registry}
@@ -43,6 +50,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-4
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.processor.loadbalancer.SimpleLoadBalancerSupport
@@ -51,6 +59,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-5
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.{removed}
@@ -79,6 +88,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-9
     when:
     - as: annotations
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.language.Bean
@@ -86,6 +96,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-10
     when:
     - as: annotations
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.language.Simple
@@ -93,6 +104,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-11
     when:
     - as: annotations
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.language.SpEL
@@ -100,6 +112,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-12
     when:
     - as: annotations
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.{annotation}
@@ -108,6 +121,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-13
     when:
     - as: annotation
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.Constant
@@ -115,6 +129,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-14
     when:
     - as: class
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.builder.xml.XPathBuilder
@@ -122,6 +137,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-15
     when:
     - as: annotations
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.language.XPath
@@ -130,6 +146,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-16
     when:
     - as: annotations
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.builder.xml.InvalidXPathExpression
@@ -138,6 +155,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-17
     when:
     - as: annotations
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.processor.validation.PredicateValidationException
@@ -156,39 +174,64 @@
     - java.referenced:
         location: IMPORT
         pattern: org.apache.camel.language.LanguageAnnotation
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-20
+  - message: The class `org.apache.camel.util.{moved}` has been moved to `org.apache.camel.support.{moved}`.
+      It has been moved out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-support`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-20
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.util.{moved}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-21
+  - message: The class `org.apache.camel.util.ServiceHelper` has been moved to `org.apache.camel.support.service.ServiceHelper`.
+      It has been moved out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-api`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-21
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.util.ServiceHelper
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-22
+  - message: The class `org.apache.camel.spi.RestProducerFactoryHelper` has been moved
+      to `org.apache.camel.support.RestProducerFactoryHelper`. It has been moved out
+      of `org.apache.camel:camel-core` and into `org.apache.camel:camel-support`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-22
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.spi.RestProducerFactoryHelper
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-23
+  - message: 'The class `org.apache.camel.util.ObjectHelper` has been moved out of
+      the `org.apache.camel:camel-core` and has been split into two classes: `org.apache.camel.support.ObjectHelper`
+      (`org.apache.camel:camel-support`) and `org.apache.camel.util.ObjectHelper`
+      (`org.apache.camel:camel-util`). This has been done to isolate the methods using
+      `org.apache.camel:camel-api`.'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-23
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.util.ObjectHelper
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-24
+  - message: The class `org.apache.camel.support.RoutePolicySupport` has been moved
+      out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-support`.
+      The return type from `startConsumer` and `stopConsumer` has been changed from
+      boolean to void as they always returned true before.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-24
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.support.RoutePolicySupport
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-25
+  - message: The class `org.apache.camel.impl.ThrottlingInflightRoutePolicy` has been
+      moved to `org.apache.camel.throttling.ThrottlingInflightRoutePolicy`. It has
+      been moved out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-base`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-25
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.impl.ThrottlingInflightRoutePolicy

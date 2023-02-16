@@ -64,8 +64,7 @@ rules:
         category-id: potential
     where:
     - matches:
-      - value: ""
-        pattern: (java\.awt|javafx\.scene\.text)
+      - pattern: (java\.awt|javafx\.scene\.text)
       param: package
   - when:
       javaclass:
@@ -122,8 +121,7 @@ rules:
         category-id: potential
     where:
     - matches:
-      - value: ""
-        pattern: (geom|color|font|image|image\.renderable|print)
+      - pattern: (geom|color|font|image|image\.renderable|print)
       param: package
   - when:
       or:

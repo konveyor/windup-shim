@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-0
+  - message: "\n                        The `clustered` element is ignored in EAP
+      7 and is not useful. In case the application is started using HA profile, the
+      replication will be done automatically.\n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-0
     when:
     - xmlfile: null
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-1
@@ -23,16 +26,26 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-7
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-8
+  - message: |-
+      CMP entity beans are no longer supported in JBoss EAP 7. User is requested to use JPA entities that fully replaced the functionality provided by CMP beans.
+                          CMP configuration provided in this ejb-jar.xml should be configured using JPA persistence.xml or using JPA annotations.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-8
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-9
+  - message: |-
+      BMP entity beans are no longer supported in JBoss EAP 7. User is requested to use JPA entities that fully replaced the functionality provided by BMP beans.
+                         BMP configuration provided in this ejb-jar.xml should be configured using JPA persistence.xml or using JPA annotations.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-9
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-10
+  - message: JBoss Web was replaced by Undertow, which does not contain support for
+      the Valve functionality. It may be needed to migrate to Undertow handlers.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-10
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-11
+  - message: JAX-RPC support was removed in JBoss EAP 7. All the RPC calls will need
+      to be migrated to JAX-WS.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-11
     when:
     - or:
       - xmlfile: null

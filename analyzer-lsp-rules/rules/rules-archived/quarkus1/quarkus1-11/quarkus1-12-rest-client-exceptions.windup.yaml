@@ -12,7 +12,15 @@
     - java.referenced:
         location: CONSTRUCTOR_CALL
         pattern: javax.ws.rs.client.Client{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-rest-client-exceptions.windup.xml-1
+  - message: "\n                            \n                        If you are using
+      quarkus-rest-client then please be aware that MP REST Client or JAX-RS Client\n
+      \                       invocation exceptions will no longer have JAX-RS `Response`
+      available by default\n                        to avoid leaking some potentially
+      sensitive downstream endpoint data such as cookies.\n\n                        You
+      can set `resteasy.original.webapplicationexception.behavior=true` in `application.properties`\n
+      \                       if you need to access the exception `Response`.\n                        \n
+      \                       "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-rest-client-exceptions.windup.xml-1
     when:
     - java.dependency:
         name: io.quarkus.quarkus-rest-client

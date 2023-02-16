@@ -35,8 +35,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (BeanInject|Consume|DynamicRouter|EndpointInject|Produce|PropertyInject|RecipientList|RoutingSlip)
+      - pattern: (BeanInject|Consume|DynamicRouter|EndpointInject|Produce|PropertyInject|RecipientList|RoutingSlip)
       param: class
   - when:
       javaclass:
@@ -59,7 +58,6 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (ContextName|ContextNames)
+      - pattern: (ContextName|ContextNames)
       param: CdiCamelContextName
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-multiple-camelcontexts-per-application-not-supported.windup.xml

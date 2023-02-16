@@ -47,16 +47,13 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: node
     - matches:
-      - value: ""
-        pattern: \d*
+      - pattern: \d*
       param: port
     - matches:
-      - value: ""
-        pattern: (java|properties|xml)
+      - pattern: (java|properties|xml)
       param: extension
   - when:
       filecontent:
@@ -88,8 +85,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (.*(?!8080)\d{4})
+      - pattern: (.*(?!8080)\d{4})
       param: portnumber
   - when:
       filecontent:
@@ -118,8 +114,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (.*(?!8080)\d{4})
+      - pattern: (.*(?!8080)\d{4})
       param: portnumber
   - when:
       or:
@@ -174,7 +169,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (java|properties|xml|cmd|sh|bat)
+      - pattern: (java|properties|xml|cmd|sh|bat)
       param: extension
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml

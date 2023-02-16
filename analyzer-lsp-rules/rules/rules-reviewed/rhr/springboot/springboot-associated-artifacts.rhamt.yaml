@@ -47,27 +47,51 @@
     - java.dependency:
         name: io.opentracing.contrib.opentracing-spring-jaeger-web-starter
         upperBound: 1.0.0
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-7
+  - message: "Migrate `org.amqphub.spring:amqp-10-jms-spring-boot-starter` dependency
+      to a version compatible with the supported versions of the RHOAR components
+      provided in the link.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-7
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-8
+  - message: "Migrate `org.apache.cxf:cxf-spring-boot-starter-jaxrs` dependency to
+      a version compatible with the supported versions of the RHOAR components provided
+      in the link.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-8
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-9
+  - message: "Migrate `org.jboss.resteasy:resteasy-spring-boot-starter` dependency
+      to a version compatible with the supported versions of the RHOAR components
+      provided in the link.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-9
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-10
+  - message: "Migrate `org.infinispan:infinispan-spring-boot-starter-embedded` dependency
+      to a version compatible with the supported versions of the RHOAR components
+      provided in the link.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-10
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-11
+  - message: "Migrate `org.infinispan:infinispan-spring-boot-starter-remote` dependency
+      to a version compatible with the supported versions of the RHOAR components
+      provided in the link.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-11
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-12
+  - message: "Migrate `org.keycloak:keycloak-spring-boot-starter` dependency to a
+      version compatible with the supported versions of the RHOAR components provided
+      in the link.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-12
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-13
+  - message: "Migrate `me.snowdrop:narayana-spring-boot-starter` dependency to a version
+      compatible with the supported versions of the RHOAR components provided in the
+      link.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-13
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-14
+  - message: "Migrate `io.opentracing.contrib:opentracing-spring-jaeger-web-starter`
+      dependency to a version compatible with the supported versions of the RHOAR
+      components provided in the link.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-14
     when:
     - xmlfile: null

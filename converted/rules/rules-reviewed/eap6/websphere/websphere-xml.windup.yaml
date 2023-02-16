@@ -108,8 +108,7 @@ rules:
         over: default
     where:
     - matches:
-      - value: ""
-        pattern: xml|xmi
+      - pattern: xml|xmi
       param: file_ext
   - when:
       or:

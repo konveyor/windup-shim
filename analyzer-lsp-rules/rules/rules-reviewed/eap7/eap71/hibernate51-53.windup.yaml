@@ -146,11 +146,16 @@
     - java.referenced:
         location: IMPORT
         pattern: org.hibernate.{packages}.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-17
+  - message: Define `hibernate.default_schema` or `hibernate.default_catalog` (whichever
+      is used by the selected dialect), or, alternatively, set `hibernate.hbm2ddl.jdbc_metadata_extraction_strategy=individually`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-17
     when:
     - and:
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-18
+  - message: If the application uses Hibernate, please define `hibernate.default_schema`
+      or `hibernate.default_catalog` (whichever is used by the selected dialect),
+      or, alternatively, set `hibernate.hbm2ddl.jdbc_metadata_extraction_strategy=individually`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-18
     when:
     - xmlfile: null
   - message: Applications using the `@TableGenerator` should set the `hibernate.id.generator.stored_last_used`

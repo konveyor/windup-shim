@@ -67,15 +67,12 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: profile
     - matches:
-      - value: ""
-        pattern: (properties|yml|yaml)
+      - pattern: (properties|yml|yaml)
       param: extension
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: wildcards
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml

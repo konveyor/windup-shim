@@ -9,36 +9,70 @@
     - java.referenced:
         location: METHOD_CALL
         pattern: java.lang.Class.forName({*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-1
+  - message: "\n                           \n                           This method
+      lookups an object using a JNDI String. During the migration process, some entity
+      JNDI bindings may change.\n                           Ensure that the JNDI Name
+      does not need to change for JBoss EAP.\n\n                           *For Example:*\n\n
+      \                          ```java\n                           (ConnectionFactory)initialContext.lookup(\"weblogic.jms.ConnectionFactory\");\n
+      \                          ```\n\n                           *should become:*\n\n
+      \                          ```java\n                           (ConnectionFactory)initialContext.lookup(\"/ConnectionFactory\");\n
+      \                          ```\n                           \n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-1
     when:
     - as: default
+      ignore: true
       java.referenced:
         location: METHOD_CALL
         pattern: javax.naming.Context.lookup{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-2
+  - message: "\n                      \n                      In JBoss EAP, the `InitialContext`
+      should be instantiated with no arguments. Once an instance is constructed, look
+      up the service using portable JNDI lookup syntax. Ensure also that in case system
+      properties for `InitialContext` are provided, they do not need to be changed
+      for the JBoss EAP.\n\n                      ```java\n                      InitialContext
+      context = new InitialContext();\n                      Service service = (Service)
+      context.lookup( \"java:app/service/\" + ServiceImpl.class.getSimpleName() );\n
+      \                     ```\n                      \n                    "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-2
     when:
     - as: default
+      ignore: true
       java.referenced:
         location: CONSTRUCTOR_CALL
         pattern: javax.naming.InitialContext(java.util.Hashtable{*}
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-3
     when:
     - file: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-4
+  - message: "\n                          \n                          After migration,
+      some of the JMX beans provided by the previous server may not be present anymore.\n
+      \                         Ensure that the `javax.management.{suffix}` does not
+      need to change for JBoss EAP.\n                          \n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-4
     when:
     - as: default
+      ignore: true
       java.referenced:
         location: CONSTRUCTOR_CALL
         pattern: javax.management.{suffix}{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-5
+  - message: "\n                            \n                          After migration,
+      some of the JMX beans provided by the previous server may not be present anymore.\n
+      \                         Ensure that the `javax.management.{suffix}` does not
+      need to change for JBoss EAP.\n                          \n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-5
     when:
     - as: default
+      ignore: true
       java.referenced:
         location: CONSTRUCTOR_CALL
         pattern: javax.management.{suffix}{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-6
+  - message: "\n                          \n                          After migration,
+      JMX connection String or parameters may be different than the one provided by
+      previous server.\n                          As an example, `javax.management.remote.JMXConnectorFactory.PROTOCOL_PROVIDER_PACKAGES`
+      will change.\n                          Ensure that any of the parameters does
+      not need to change for JBoss EAP.\n                          \n                       "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-6
     when:
     - as: default
+      ignore: true
       java.referenced:
         location: METHOD_CALL
         pattern: javax.management.remote.JMXConnectorFactory.connect({*})

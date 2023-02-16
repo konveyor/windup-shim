@@ -38,7 +38,10 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-7
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-8
+  - message: "WebLogic webservices can be migrated to `jboss-webservices.xml` descriptor
+      or to a Java EE standard Annotation based configuration. Reference the JBoss
+      EAP product documentation for more information.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-8
     when:
     - xmlfile: null
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-xml-descriptors.windup.xml-9

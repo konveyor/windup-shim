@@ -40,12 +40,10 @@ rules:
         level: INFORMATIONAL
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: profile
     - matches:
-      - value: ""
-        pattern: (properties|yml|yaml)
+      - pattern: (properties|yml|yaml)
       param: extension
   - when:
       filecontent:
@@ -62,12 +60,10 @@ rules:
         level: INFORMATIONAL
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: profile
     - matches:
-      - value: ""
-        pattern: (properties|yml|yaml)
+      - pattern: (properties|yml|yaml)
       param: extension
   - when:
       filecontent:
@@ -84,12 +80,10 @@ rules:
         level: INFORMATIONAL
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: profile
     - matches:
-      - value: ""
-        pattern: (properties|yml|yaml)
+      - pattern: (properties|yml|yaml)
       param: extension
   - when:
       javaclass:

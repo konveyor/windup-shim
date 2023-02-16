@@ -49,7 +49,13 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-4
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-5
+  - message: "\n                        \n                        JBoss EAP 6 supports
+      deploying SAR files, however JBoss EAP 5 and 6 do not share a lot of the internals.
+      \ \n                        The class your `jboss-{types}.xml` file is trying
+      to instantiate (`org.jboss.naming.NamingAlias`) was an implementation detail
+      of JBoss EAP 5's naming components that does not exist in JBoss EAP 6.\n                        \n
+      \                   "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-5
     when:
     - xmlfile: null
   - message: "\n                        \n                        In JBoss EAP 6 and

@@ -25,7 +25,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (""|'')
+      - pattern: (""|'')
       param: emptyString
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jsp/jsp.windup.xml

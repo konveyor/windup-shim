@@ -35,7 +35,6 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (axle|reactivex)
+      - pattern: (axle|reactivex)
       param: packages
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-vertx.windup.xml

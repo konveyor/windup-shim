@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kafka/kafka-to-quarkus.windup.xml-0
+  - message: "\n                            Replace the `org.apache.kafka:kafka-clients`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-kafka-client`  \n
+      \                           Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kafka/kafka-to-quarkus.windup.xml-0
     when:
     - java.dependency:
         name: org.apache.kafka.kafka-clients
@@ -10,7 +13,10 @@
     when:
     - java.dependency:
         name: org.apache.kafka.kafka-clients
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kafka/kafka-to-quarkus.windup.xml-2
+  - message: "\n                            Replace the `org.apache.kafka:kafka-streams`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-kafka-streams`  \n
+      \                           Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/kafka/kafka-to-quarkus.windup.xml-2
     when:
     - java.dependency:
         name: org.apache.kafka.kafka-streams

@@ -7,7 +7,9 @@
     when:
     - java.dependency:
         name: io.micrometer.micrometer-core
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-1
+  - message: "\n                            Replace the Micrometer code with Microprofile
+      Metrics code\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-1
     when:
     - java.dependency:
         name: io.micrometer.micrometer-core

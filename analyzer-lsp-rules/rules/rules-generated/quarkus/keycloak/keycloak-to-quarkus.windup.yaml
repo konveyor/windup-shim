@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/keycloak/keycloak-to-quarkus.windup.xml-0
+  - message: "\n                            Replace the `org.keycloak:keycloak-admin-client`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-keycloak-admin-client`
+      \ \n                            No specific guide is available.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/keycloak/keycloak-to-quarkus.windup.xml-0
     when:
     - java.dependency:
         name: org.keycloak.keycloak-admin-client

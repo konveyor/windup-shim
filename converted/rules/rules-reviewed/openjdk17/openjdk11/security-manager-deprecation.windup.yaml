@@ -29,8 +29,7 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (AccessController|AccessControlContext|AccessControlException|DomainCombiner|Policy|PolicySpi|Policy.Parameters)
+      - pattern: (AccessController|AccessControlContext|AccessControlException|DomainCombiner|Policy|PolicySpi|Policy.Parameters)
       param: class-name
   - when:
       javaclass:
@@ -49,8 +48,7 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (java.lang.SecurityManager|java.rmi.RMISecurityManager|javax.security.auth.SubjectDomainCombiner)
+      - pattern: (java.lang.SecurityManager|java.rmi.RMISecurityManager|javax.security.auth.SubjectDomainCombiner)
       param: fqcn
   - when:
       javaclass:
@@ -70,8 +68,7 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (getSecurityManager|setSecurityManager)
+      - pattern: (getSecurityManager|setSecurityManager)
       param: method-name
   - when:
       javaclass:
@@ -135,8 +132,7 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (privilegedCallable|privilegedCallableUsingCurrentClassLoader|privilegedThreadFactory)
+      - pattern: (privilegedCallable|privilegedCallableUsingCurrentClassLoader|privilegedThreadFactory)
       param: method-names
   - when:
       javaclass:
@@ -155,7 +151,6 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (doAsPrivileged|getSubject)
+      - pattern: (doAsPrivileged|getSubject)
       param: meth-name
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml

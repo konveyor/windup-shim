@@ -44,12 +44,10 @@ rules:
         issue-display-mode: all
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm(\..*)?\.(mqe).*
+      - pattern: com.ibm(\..*)?\.(mqe).*
       param: package
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:

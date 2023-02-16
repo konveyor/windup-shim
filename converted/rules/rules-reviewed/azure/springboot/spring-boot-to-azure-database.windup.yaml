@@ -46,8 +46,7 @@ rules:
         category-id: information
     where:
     - matches:
-      - value: ""
-        pattern: (properties|yaml|yml)
+      - pattern: (properties|yaml|yml)
       param: extensions
   - when:
       filecontent:
@@ -78,7 +77,6 @@ rules:
         category-id: information
     where:
     - matches:
-      - value: ""
-        pattern: (properties|yaml|yml)
+      - pattern: (properties|yaml|yml)
       param: extensions
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-database.windup.xml

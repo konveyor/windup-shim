@@ -1,8 +1,15 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-0
+  - message: "\n                            \n                                Custom
+      action classes should be migrated to CDI Beans in Fuse Service Works. These
+      beans can be defined as services or called directly from a Camel route.\n\n
+      \                               For more information, see the [Action Class
+      Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/action-class-migration.md).\n
+      \                           \n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-0
     when:
       or:
       - as: javaclasses
+        ignore: true
         java.referenced:
           pattern: org.jboss.soa.esb.message.Message
       - xmlfile: null
@@ -15,7 +22,13 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-3
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-4
+  - message: "\n                            \n                                This
+      listener requires a composite service binding in Fuse Service Works. The configuration
+      for a JCA or JMS binding can be found in the jms-bus definition\n                                associated
+      with this listener.\n\n                                For additional information,
+      see the\n                                [Gateway Listener Migration Guide](https://github.com/windup/soa-migration/blob/master/advice/gateway-listener-migration.md).\n
+      \                           \n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/soa-p-5.windup.xml-4
     when:
     - xmlfile: null
   - message: An ESB-aware listener is no longer required in Fuse Service Works.

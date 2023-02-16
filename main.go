@@ -46,7 +46,7 @@ func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[s
 	return dependency
 }
 
-func convertWindupWhenToAnalyzer(windupWhen windup.When) []map[string]interface{} {
+func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string) []map[string]interface{} {
 	// TODO Rule.When
 	// TODO - Graphquery
 	conditions := []map[string]interface{}{}
@@ -63,7 +63,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When) []map[string]interface{
 	if windupWhen.And != nil {
 		whens := []map[string]interface{}{}
 		for _, condition := range windupWhen.And {
-			converted := convertWindupWhenToAnalyzer(condition)
+			converted := convertWindupWhenToAnalyzer(condition, where)
 			for _, c := range converted {
 				whens = append(whens, c)
 			}
@@ -73,7 +73,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When) []map[string]interface{
 	if windupWhen.Or != nil {
 		whens := []map[string]interface{}{}
 		for _, condition := range windupWhen.Or {
-			converted := convertWindupWhenToAnalyzer(condition)
+			converted := convertWindupWhenToAnalyzer(condition, where)
 			for _, c := range converted {
 				whens = append(whens, c)
 			}
@@ -82,7 +82,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When) []map[string]interface{
 	}
 	if windupWhen.Not != nil {
 		for _, condition := range windupWhen.Not {
-			converted := convertWindupWhenToAnalyzer(condition)
+			converted := convertWindupWhenToAnalyzer(condition, where)
 			for _, c := range converted {
 				c["not"] = true
 				conditions = append(conditions, c)
@@ -100,6 +100,8 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When) []map[string]interface{
 			}
 			if fc.As != "" {
 				condition["as"] = fc.As
+				// TODO this is probably a dumb assumption
+				condition["ignore"] = true
 			}
 			if fc.From != "" {
 				condition["from"] = fc.From
@@ -109,14 +111,35 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When) []map[string]interface{
 	}
 	if windupWhen.Javaclass != nil {
 		for _, jc := range windupWhen.Javaclass {
-			if jc.Location != nil {
-				for _, location := range jc.Location {
+			patterns := substituteWhere(where, jc.References)
+			for _, pattern := range patterns {
+				if jc.Location != nil {
+					for _, location := range jc.Location {
+						condition := map[string]interface{}{
+							"java.referenced": map[string]interface{}{
+								"location": location,
+								"pattern":  pattern,
+								// TODO handle jc.Annotationtype
+								// TODO handle jc.Annotationlist
+								// TODO handle jc.Annotationliteral
+								// TODO handle jc.MatchesSource
+								// TODO handle jc.In
+							},
+						}
+						if jc.As != "" {
+							condition["as"] = jc.As
+							// TODO this is probably a dumb assumption
+							condition["ignore"] = true
+						}
+						if jc.From != "" {
+							condition["from"] = jc.From
+						}
+						conditions = append(conditions, condition)
+					}
+				} else {
 					condition := map[string]interface{}{
 						"java.referenced": map[string]interface{}{
-							// TODO handle list of locations
-							// TODO handle translation of windup locations to analyzer locations
-							"location": location,
-							"pattern":  jc.References,
+							"pattern": pattern,
 							// TODO handle jc.Annotationtype
 							// TODO handle jc.Annotationlist
 							// TODO handle jc.Annotationliteral
@@ -126,32 +149,14 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When) []map[string]interface{
 					}
 					if jc.As != "" {
 						condition["as"] = jc.As
+						// TODO this is probably a dumb assumption
+						condition["ignore"] = true
 					}
 					if jc.From != "" {
 						condition["from"] = jc.From
 					}
 					conditions = append(conditions, condition)
 				}
-			} else {
-				condition := map[string]interface{}{
-					"java.referenced": map[string]interface{}{
-						// TODO handle list of locations
-						// TODO handle translation of windup locations to analyzer locations
-						"pattern": jc.References,
-						// TODO handle jc.Annotationtype
-						// TODO handle jc.Annotationlist
-						// TODO handle jc.Annotationliteral
-						// TODO handle jc.MatchesSource
-						// TODO handle jc.In
-					},
-				}
-				if jc.As != "" {
-					condition["as"] = jc.As
-				}
-				if jc.From != "" {
-					condition["from"] = jc.From
-				}
-				conditions = append(conditions, condition)
 			}
 		}
 	}
@@ -165,42 +170,73 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When) []map[string]interface{
 	if windupWhen.Fileexists != nil {
 		conditions = append(conditions, map[string]interface{}{"file-exists": nil})
 	}
+	// What is this ???
 	if windupWhen.True != "" {
 		conditions = append(conditions, map[string]interface{}{"true": nil})
 	}
+	// What is this ???
 	if windupWhen.False != "" {
 		conditions = append(conditions, map[string]interface{}{"false": nil})
 	}
-	if windupWhen.Classificationexists != nil {
-		conditions = append(conditions, map[string]interface{}{"classification-exists": nil})
-	}
-	if windupWhen.Hintexists != nil {
-		conditions = append(conditions, map[string]interface{}{"hint-exists": nil})
-	}
-	if windupWhen.Lineitemexists != nil {
-		conditions = append(conditions, map[string]interface{}{"lineitem-exists": nil})
-	}
-	if windupWhen.Technologystatisticsexists != nil {
-		conditions = append(conditions, map[string]interface{}{"technology-statistics-exists": nil})
-	}
-	if windupWhen.Technologytagexists != nil {
-		conditions = append(conditions, map[string]interface{}{"technology-tag-exists": nil})
-	}
+	// What is this ???
 	if windupWhen.Iterablefilter != nil {
 		conditions = append(conditions, map[string]interface{}{"iterable-filter": nil})
 	}
+	// What is this ???
 	if windupWhen.Tofilemodel != nil {
 		conditions = append(conditions, map[string]interface{}{"tofilemodel": nil})
+	}
+	// Test related
+	if windupWhen.Classificationexists != nil {
+		conditions = append(conditions, map[string]interface{}{"classification-exists": nil})
+	}
+	// Test related
+	if windupWhen.Hintexists != nil {
+		conditions = append(conditions, map[string]interface{}{"hint-exists": nil})
+	}
+	// Test related
+	if windupWhen.Lineitemexists != nil {
+		conditions = append(conditions, map[string]interface{}{"lineitem-exists": nil})
+	}
+	// Test related
+	if windupWhen.Technologystatisticsexists != nil {
+		conditions = append(conditions, map[string]interface{}{"technology-statistics-exists": nil})
+	}
+	// Test related
+	if windupWhen.Technologytagexists != nil {
+		conditions = append(conditions, map[string]interface{}{"technology-tag-exists": nil})
 	}
 	return conditions
 }
 
+func substituteWhere(where map[string]string, pattern string) []string {
+	newPatterns := []string{}
+	newString := pattern
+	for k, v := range where {
+		// var substs []string
+		// if strings.HasPrefix(v, "(") && (strings.HasSuffix(v, ")") || strings.HasSuffix(v, ")?")) {
+		// 	substs = strings.Split(strings.Trim(v, "()?"), "|")
+		// } else {
+		// 	runtime.Breakpoint()
+		// }
+		// fmt.Println(k + ": " + v)
+		// if strings.Contains(pattern, "{"+k+"}") {
+		// for _, subst := range substs {
+		// 	newPatterns = append(newPatterns, strings.ReplaceAll(pattern, "{"+k+"}", subst))
+		// }
+		// } else {
+		// newPatterns = append(newPatterns, pattern)
+		// }
+	}
+	return newString
+}
+
 // TODO handle perform fully
-func convertWindupPerformToAnalyzer(perform windup.Iteration) map[string]interface{} {
+func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]string) map[string]interface{} {
 	if perform.Hint != nil {
 		if len(perform.Hint) != 1 {
 			// TODO
-			fmt.Println("More than one hint in a rule")
+			panic("More than one hint in a rule")
 			return nil
 		}
 		hint := perform.Hint[0]
@@ -210,12 +246,31 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration) map[string]interfa
 			}
 		}
 	} else if perform.Iteration != nil {
-		fmt.Println("Can't handle iteration yet")
+
+		ret := map[string]interface{}{}
+		for _, it := range perform.Iteration {
+			converted := convertWindupPerformToAnalyzer(it, where)
+			for k, v := range converted {
+				ret[k] = v
+			}
+		}
+		return ret
 	} else {
 		fmt.Println("Can only handle Hint")
 	}
 	return nil
 
+}
+
+func flattenWhere(wheres []windup.Where) map[string]string {
+	patterns := map[string]string{}
+	if wheres != nil && len(wheres) > 0 {
+		for _, where := range wheres {
+			// Where.Matches seems to always be length 1
+			patterns[where.Param] = where.Matches[0].Pattern
+		}
+	}
+	return patterns
 }
 
 func convertWindupToAnalyzer(windups []windup.Ruleset) error {
@@ -233,8 +288,9 @@ func convertWindupToAnalyzer(windups []windup.Ruleset) error {
 			rule := map[string]interface{}{
 				"ruleID": windupRuleset.SourceFile + "-" + strconv.Itoa(i),
 			}
+			where := flattenWhere(windupRule.Where)
 			if !reflect.DeepEqual(windupRule.When, windup.When{}) {
-				when := convertWindupWhenToAnalyzer(windupRule.When)
+				when := convertWindupWhenToAnalyzer(windupRule.When, where)
 				if len(when) == 0 {
 					continue
 				}
@@ -249,7 +305,7 @@ func convertWindupToAnalyzer(windups []windup.Ruleset) error {
 
 			// TODO Rule.Perform
 			if !reflect.DeepEqual(windupRule.Perform, windup.Iteration{}) {
-				perform := convertWindupPerformToAnalyzer(windupRule.Perform)
+				perform := convertWindupPerformToAnalyzer(windupRule.Perform, where)
 				for k, v := range perform {
 					rule[k] = v
 				}
@@ -257,7 +313,6 @@ func convertWindupToAnalyzer(windups []windup.Ruleset) error {
 
 			// TODO - Iteration
 			// TODO Rule.Otherwise
-			// TODO Rule.Where
 			rules = append(rules, rule)
 		}
 		ruleset["rules"] = rules

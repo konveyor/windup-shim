@@ -433,8 +433,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (configure\([^)]*\))
+      - pattern: (configure\([^)]*\))
       param: configure
   - when:
       javaclass:
@@ -543,8 +542,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (TypeContributor|TypeContributions)
+      - pattern: (TypeContributor|TypeContributions)
       param: type
   - when:
       javaclass:
@@ -585,8 +583,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (TableGenerator|TableHiLoGenerator|SequenceGenerator|SequenceIdentityGenerator|SequenceHiLoGenerator)
+      - pattern: (TableGenerator|TableHiLoGenerator|SequenceGenerator|SequenceIdentityGenerator|SequenceHiLoGenerator)
       param: idclass
   - when:
       javaclass:
@@ -606,8 +603,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (MultiTableBulkIdStrategy|MultiTableBulkIdStrategy.DeleteHandler|MultiTableBulkIdStrategy.UpdateHandler|AbstractTableBasedBulkIdHandler|AbstractTableBasedBulkIdHandler.ProcessedWhereClause|TableBasedDeleteHandlerImpl|TableBasedUpdateHandlerImpl)
+      - pattern: (MultiTableBulkIdStrategy|MultiTableBulkIdStrategy.DeleteHandler|MultiTableBulkIdStrategy.UpdateHandler|AbstractTableBasedBulkIdHandler|AbstractTableBasedBulkIdHandler.ProcessedWhereClause|TableBasedDeleteHandlerImpl|TableBasedUpdateHandlerImpl)
       param: type
   - when:
       javaclass:
@@ -802,18 +798,15 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (mysql.MySQLGeometryTypeDescriptor | h2geodb.GeoDBGeometryTypeDescriptor
+      - pattern: (mysql.MySQLGeometryTypeDescriptor | h2geodb.GeoDBGeometryTypeDescriptor
           | postgis.PGGeometryTypeDescriptor | oracle.SDOGeometryTypeDescriptor |
           sqlserver.SqlServer2008GeometryTypeDescriptor)
       param: spatial
     - matches:
-      - value: ""
-        pattern: (AbstractTypeDescriptor|BigDecimalTypeDescriptor|BigIntegerTypeDescriptor|BlobTypeDescriptor|BooleanTypeDescriptor|ByteArrayTypeDescriptor|ByteTypeDescriptor|CalendarDateTypeDescriptor|CalendarTimeTypeDescriptor|CalendarTypeDescriptor|CharacterArrayTypeDescriptor|CharacterTypeDescriptor|ClassTypeDescriptor|ClobTypeDescriptor|CurrencyTypeDescriptor|DateTypeDescriptor|DoubleTypeDescriptor|DurationJavaDescriptor|EnumJavaTypeDescriptor|FloatTypeDescriptor|InstantJavaDescriptor|IntegerTypeDescriptor|JavaTypeDescriptorRegistry.FallbackJavaTypeDescriptor|JdbcDateTypeDescriptor|JdbcTimestampTypeDescriptor|JdbcTimeTypeDescriptor|LocalDateTimeJavaDescriptor|LocalDateJavaDescriptor|LocaleTypeDescriptor|LocalTimeJavaDescriptor|LongTypeDescriptor|NClobTypeDescriptor|OffsetDateTimeJavaDescriptor|OffsetTimeJavaDescriptor|PrimitiveByteArrayTypeDescriptor|PrimitiveCharacterArrayTypeDescriptor|SerializableTypeDescriptor|ShortTypeDescriptor|StringTypeDescriptor|TimeZoneTypeDescriptor|UrlTypeDescriptor|UUIDTypeDescriptor|ZonedDateTimeJavaDescriptor)
+      - pattern: (AbstractTypeDescriptor|BigDecimalTypeDescriptor|BigIntegerTypeDescriptor|BlobTypeDescriptor|BooleanTypeDescriptor|ByteArrayTypeDescriptor|ByteTypeDescriptor|CalendarDateTypeDescriptor|CalendarTimeTypeDescriptor|CalendarTypeDescriptor|CharacterArrayTypeDescriptor|CharacterTypeDescriptor|ClassTypeDescriptor|ClobTypeDescriptor|CurrencyTypeDescriptor|DateTypeDescriptor|DoubleTypeDescriptor|DurationJavaDescriptor|EnumJavaTypeDescriptor|FloatTypeDescriptor|InstantJavaDescriptor|IntegerTypeDescriptor|JavaTypeDescriptorRegistry.FallbackJavaTypeDescriptor|JdbcDateTypeDescriptor|JdbcTimestampTypeDescriptor|JdbcTimeTypeDescriptor|LocalDateTimeJavaDescriptor|LocalDateJavaDescriptor|LocaleTypeDescriptor|LocalTimeJavaDescriptor|LongTypeDescriptor|NClobTypeDescriptor|OffsetDateTimeJavaDescriptor|OffsetTimeJavaDescriptor|PrimitiveByteArrayTypeDescriptor|PrimitiveCharacterArrayTypeDescriptor|SerializableTypeDescriptor|ShortTypeDescriptor|StringTypeDescriptor|TimeZoneTypeDescriptor|UrlTypeDescriptor|UUIDTypeDescriptor|ZonedDateTimeJavaDescriptor)
       param: javatype
     - matches:
-      - value: ""
-        pattern: (BigIntTypeDescriptor|BinaryTypeDescriptor|BitTypeDescriptor|BlobTypeDescriptor|BooleanTypeDescriptor|CharTypeDescriptor|ClobTypeDescriptor|DateTypeDescriptor|DecimalTypeDescriptor|DoubleTypeDescriptor|FloatTypeDescriptor|IntegerTypeDescriptor|LongNVarcharTypeDescriptor|LongVarbinaryTypeDescriptor|LongVarcharTypeDescriptor|NCharTypeDescriptor|NClobTypeDescriptor|NumericTypeDescriptor|NVarcharTypeDescriptor|RealTypeDescriptor|SmallIntTypeDescriptor|SqlTypeDescriptorRegistry.ObjectSqlTypeDescriptor|TimestampTypeDescriptor|TimeTypeDescriptor|TinyIntTypeDescriptor|VarbinaryTypeDescriptor|VarcharTypeDescriptor)
+      - pattern: (BigIntTypeDescriptor|BinaryTypeDescriptor|BitTypeDescriptor|BlobTypeDescriptor|BooleanTypeDescriptor|CharTypeDescriptor|ClobTypeDescriptor|DateTypeDescriptor|DecimalTypeDescriptor|DoubleTypeDescriptor|FloatTypeDescriptor|IntegerTypeDescriptor|LongNVarcharTypeDescriptor|LongVarbinaryTypeDescriptor|LongVarcharTypeDescriptor|NCharTypeDescriptor|NClobTypeDescriptor|NumericTypeDescriptor|NVarcharTypeDescriptor|RealTypeDescriptor|SmallIntTypeDescriptor|SqlTypeDescriptorRegistry.ObjectSqlTypeDescriptor|TimestampTypeDescriptor|TimeTypeDescriptor|TinyIntTypeDescriptor|VarbinaryTypeDescriptor|VarcharTypeDescriptor)
       param: sqltype
   - when:
       javaclass:
@@ -891,8 +884,7 @@ rules:
         over: mappings2
     where:
     - matches:
-      - value: ""
-        pattern: (java|properties|xml)
+      - pattern: (java|properties|xml)
       param: extension
   - when:
       javaclass:
@@ -926,11 +918,9 @@ rules:
         over: dialects_used
     where:
     - matches:
-      - value: ""
-        pattern: javax.persistence.Query|org.hibernate.Query|org.hibernate.Criteria
+      - pattern: javax.persistence.Query|org.hibernate.Query|org.hibernate.Criteria
       param: param_classes_setfirstresult
     - matches:
-      - value: ""
-        pattern: Cache71Dialect|DB2390Dialect|InformixDialect|IngresDialect|RDMSOS2200Dialect|SQLServerDialect|TimesTenDialect
+      - pattern: Cache71Dialect|DB2390Dialect|InformixDialect|IngresDialect|RDMSOS2200Dialect|SQLServerDialect|TimesTenDialect
       param: param_dialects
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml

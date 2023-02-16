@@ -12,7 +12,9 @@
     when:
     - java.referenced:
         pattern: commonj.timers.TimerManager
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-2
+  - message: "\n                            Commonj Timer Interface is similar to
+      the EJB 3.1 javax.ejb.Timer Interface.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-2
     when:
     - java.referenced:
         pattern: commonj.timers.Timer

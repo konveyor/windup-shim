@@ -73,7 +73,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (SchemaExport|SchemaUpdate|SchemaValidator)
+      - pattern: (SchemaExport|SchemaUpdate|SchemaValidator)
       param: hbm2ddl_classes
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap70/hibernate50-51.windup.xml

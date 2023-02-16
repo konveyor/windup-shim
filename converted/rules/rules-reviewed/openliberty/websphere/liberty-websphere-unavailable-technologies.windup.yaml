@@ -56,56 +56,43 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm.websphere.ActivitySession\.[^.]+
+      - pattern: com.ibm.websphere.ActivitySession\.[^.]+
       param: ActivitySessionRule_0_packages
     - matches:
-      - value: ""
-        pattern: \"[^\"]*java\:comp/websphere/UserActivitySession[^\"]*\"
+      - pattern: \"[^\"]*java\:comp/websphere/UserActivitySession[^\"]*\"
       param: ActivitySessionRule_1_stringLiterals
     - matches:
-      - value: ""
-        pattern: ibm-ejb-jar-ext.xml
+      - pattern: ibm-ejb-jar-ext.xml
       param: ActivitySessionRule_2_filesFilter
     - matches:
-      - value: ""
-        pattern: ACTIVITY_SESSION
+      - pattern: ACTIVITY_SESSION
       param: ActivitySessionRule_2_xpath_attributeValue
     - matches:
-      - value: ""
-        pattern: ibm-ejb-jar-ext.xml
+      - pattern: ibm-ejb-jar-ext.xml
       param: ActivitySessionRule_3_filesFilter
     - matches:
-      - value: ""
-        pattern: ACTIVITY_SESSION
+      - pattern: ACTIVITY_SESSION
       param: ActivitySessionRule_3_xpath_attributeValue
     - matches:
-      - value: ""
-        pattern: ibm-ejb-jar-ext.xmi
+      - pattern: ibm-ejb-jar-ext.xmi
       param: ActivitySessionRule_4_filesFilter
     - matches:
-      - value: ""
-        pattern: ACTIVITY_SESSION
+      - pattern: ACTIVITY_SESSION
       param: ActivitySessionRule_4_xpath_attributeValue
     - matches:
-      - value: ""
-        pattern: ibm-ejb-jar-ext.xmi
+      - pattern: ibm-ejb-jar-ext.xmi
       param: ActivitySessionRule_5_filesFilter
     - matches:
-      - value: ""
-        pattern: ActivitySession
+      - pattern: ActivitySession
       param: ActivitySessionRule_5_xpath_attributeValue
     - matches:
-      - value: ""
-        pattern: (ibm-ejb-jar-ext-pme.xml)|(ibm-web-ext-pme.xml)
+      - pattern: (ibm-ejb-jar-ext-pme.xml)|(ibm-web-ext-pme.xml)
       param: ActivitySessionRule_6_filesFilter
     - matches:
-      - value: ""
-        pattern: ibm-web-ext-pme.xmi
+      - pattern: ibm-web-ext-pme.xmi
       param: ActivitySessionRule_7_filesFilter
     - matches:
-      - value: ""
-        pattern: ibm-ejb-jar-ext-pme.xmi
+      - pattern: ibm-ejb-jar-ext-pme.xmi
       param: ActivitySessionRule_8_filesFilter
   - when:
       javaclass:
@@ -155,8 +142,7 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.asynchbeans\.[^.]+|com.ibm.websphere.asynchbeans.pool\.[^.]+)
+      - pattern: (com.ibm.websphere.asynchbeans\.[^.]+|com.ibm.websphere.asynchbeans.pool\.[^.]+)
       param: AsyncBeansSchedulerRule_0_packages
   - when:
       or:
@@ -188,16 +174,13 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.batch*\.[^.]+|com.ibm.wsspi.batch*\.[^.]+|com.ibm.websphere.ci\.[^.]+|com.ibm.websphere.grid.spi\.[^.]+|com.ibm.websphere.longrun\.[^.]+)
+      - pattern: (com.ibm.websphere.batch*\.[^.]+|com.ibm.wsspi.batch*\.[^.]+|com.ibm.websphere.ci\.[^.]+|com.ibm.websphere.grid.spi\.[^.]+|com.ibm.websphere.longrun\.[^.]+)
       param: BatchFeaturePackRule_0_packages
     - matches:
-      - value: ""
-        pattern: ejb-jar.xml
+      - pattern: ejb-jar.xml
       param: BatchFeaturePackRule_1_filesFilter
     - matches:
-      - value: ""
-        pattern: com\.ibm\.websphere\.batch\..*
+      - pattern: com\.ibm\.websphere\.batch\..*
       param: BatchFeaturePackRule_1_xpath_value
   - when:
       file:
@@ -236,8 +219,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: policySet\.xml|policyAttachments\.xml|clientPolicyAttachments\.xml|policy\.xml|bindings\.xml|bindingDefinition\.xml
+      - pattern: policySet\.xml|policyAttachments\.xml|clientPolicyAttachments\.xml|policy\.xml|bindings\.xml|bindingDefinition\.xml
       param: DetectPolicySetAndWsSecurity_0_filenames
   - when:
       or:
@@ -275,36 +257,28 @@ rules:
         category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: (ibm-web-ext.xmi)|(ibm-ejb-jar-ext.xmi)
+      - pattern: (ibm-web-ext.xmi)|(ibm-ejb-jar-ext.xmi)
       param: DetectWSATXML_0_filesFilter
     - matches:
-      - value: ""
-        pattern: (?i:true)
+      - pattern: (?i:true)
       param: DetectWSATXML_0_xpath_attributeValue
     - matches:
-      - value: ""
-        pattern: ibm-web-ext.xmi
+      - pattern: ibm-web-ext.xmi
       param: DetectWSATXML_1_filesFilter
     - matches:
-      - value: ""
-        pattern: (?i:true)
+      - pattern: (?i:true)
       param: DetectWSATXML_1_xpath_attributeValue
     - matches:
-      - value: ""
-        pattern: (ibm-web-ext.xml)|(ibm-eb-jar-ext.xml)
+      - pattern: (ibm-web-ext.xml)|(ibm-eb-jar-ext.xml)
       param: DetectWSATXML_2_filesFilter
     - matches:
-      - value: ""
-        pattern: (?i:true)
+      - pattern: (?i:true)
       param: DetectWSATXML_2_xpath_attributeValue
     - matches:
-      - value: ""
-        pattern: ibm-web-ext.xml
+      - pattern: ibm-web-ext.xml
       param: DetectWSATXML_3_filesFilter
     - matches:
-      - value: ""
-        pattern: (?i:true)
+      - pattern: (?i:true)
       param: DetectWSATXML_3_xpath_attributeValue
   - when:
       or:
@@ -328,8 +302,7 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: \"[^\"]*java\:comp/websphere/UserBusinessActivity[^\"]*\"
+      - pattern: \"[^\"]*java\:comp/websphere/UserBusinessActivity[^\"]*\"
       param: DetectWSBAJava_1_stringLiterals
   - when:
       javaclass:
@@ -380,8 +353,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.cache*\.[^.]+|com.ibm.websphere.servlet.cache*\.[^.]+|com.ibm.ws.cache*\.[^.]+|com.ibm.wsspi.cache*\.[^.]+)
+      - pattern: (com.ibm.websphere.cache*\.[^.]+|com.ibm.websphere.servlet.cache*\.[^.]+|com.ibm.ws.cache*\.[^.]+|com.ibm.wsspi.cache*\.[^.]+)
       param: DynamicCacheRule_0_packages
   - when:
       or:
@@ -407,16 +379,13 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm.websphere.ejbquery\.[^.]+
+      - pattern: com.ibm.websphere.ejbquery\.[^.]+
       param: DynamicQueryRule_0_packages
     - matches:
-      - value: ""
-        pattern: ejb-jar.xml
+      - pattern: ejb-jar.xml
       param: DynamicQueryRule_1_filesFilter
     - matches:
-      - value: ""
-        pattern: com\.ibm\.websphere\.ejbquery\..*
+      - pattern: com\.ibm\.websphere\.ejbquery\..*
       param: DynamicQueryRule_1_xpath_value
   - when:
       javaclass:
@@ -436,8 +405,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.i18n.context\.[^.]+|com.ibm.wsspi.i18n.context.util\.[^.]+)
+      - pattern: (com.ibm.websphere.i18n.context\.[^.]+|com.ibm.wsspi.i18n.context.util\.[^.]+)
       param: I18nRule_0_packages
   - when:
       javaclass:
@@ -511,8 +479,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (getDisplayName|getFullName)
+      - pattern: (getDisplayName|getFullName)
       param: ServerName_2_methodNames
   - when:
       or:
@@ -547,16 +514,13 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: .*/soapjms(/.*)?
+      - pattern: .*/soapjms(/.*)?
       param: SOAPOverJMSRule_annotation_fields
     - matches:
-      - value: ""
-        pattern: .*\.(?i:wsdl)
+      - pattern: .*\.(?i:wsdl)
       param: SOAPOverJMSRule_1_filesFilter
     - matches:
-      - value: ""
-        pattern: .*/soapjms(/.*)?
+      - pattern: .*/soapjms(/.*)?
       param: SOAPOverJMSRule_1_xpath_attributeValue
   - when:
       or:
@@ -593,16 +557,13 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm.websphere.startupservice\.[^.]+
+      - pattern: com.ibm.websphere.startupservice\.[^.]+
       param: StartupBeanRule_0_packages
     - matches:
-      - value: ""
-        pattern: ejb-jar.xml
+      - pattern: ejb-jar.xml
       param: StartupBeanRule_1_filesFilter
     - matches:
-      - value: ""
-        pattern: com\.ibm\.websphere\.startupservice\..*
+      - pattern: com\.ibm\.websphere\.startupservice\..*
       param: StartupBeanRule_1_xpath_value
   - when:
       javaclass:
@@ -622,8 +583,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.sdo*\.[^.]+|com.ibm.websphere.sdox*\.[^.]+)
+      - pattern: (com.ibm.websphere.sdo*\.[^.]+|com.ibm.websphere.sdox*\.[^.]+)
       param: WebSphereSdoRule_0_packages
   - when:
       or:
@@ -653,16 +613,13 @@ rules:
         effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm.websphere.scheduler\.[^.]+
+      - pattern: com.ibm.websphere.scheduler\.[^.]+
       param: WebSphereSchedulerRule_0_packages
     - matches:
-      - value: ""
-        pattern: ejb-jar.xml
+      - pattern: ejb-jar.xml
       param: WebSphereSchedulerRule_1_filesFilter
     - matches:
-      - value: ""
-        pattern: com\.ibm\.websphere\.scheduler\..*
+      - pattern: com\.ibm\.websphere\.scheduler\..*
       param: WebSphereSchedulerRule_1_xpath_value
   - when:
       or:
@@ -705,12 +662,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.servlet.request\.[^.]+|com.ibm.websphere.webcontainer.async\.[^.]+)
+      - pattern: (com.ibm.websphere.servlet.request\.[^.]+|com.ibm.websphere.webcontainer.async\.[^.]+)
       param: WebSphereServletRule_0_packages
     - matches:
-      - value: ""
-        pattern: (com.ibm.servlet.ClientList|com.ibm.servlet.ClientListElement|com.ibm.servlet.MLNotFoundException|com.ibm.servlet.PageListServlet|com.ibm.servlet.PageNotFoundException|com.ibm.websphere.servlet.filter.ChainedRequest|com.ibm.websphere.servlet.filter.ChainedResponse|com.ibm.websphere.servlet.filter.ChainerServlet|com.ibm.websphere.servlet.filter.ServletChain|com.ibm.websphere.servlet.response.IResponse|com.ibm.websphere.servlet.response.StoredResponseCompat|com.ibm.websphere.servlet.response.HttpServletResponseProxy|com.ibm.websphere.servlet.response.ResponseUtils|com.ibm.websphere.servlet.response.ServletOutputStreamAdapter|com.ibm.websphere.servlet.response.ResponseErrorReport)
+      - pattern: (com.ibm.servlet.ClientList|com.ibm.servlet.ClientListElement|com.ibm.servlet.MLNotFoundException|com.ibm.servlet.PageListServlet|com.ibm.servlet.PageNotFoundException|com.ibm.websphere.servlet.filter.ChainedRequest|com.ibm.websphere.servlet.filter.ChainedResponse|com.ibm.websphere.servlet.filter.ChainerServlet|com.ibm.websphere.servlet.filter.ServletChain|com.ibm.websphere.servlet.response.IResponse|com.ibm.websphere.servlet.response.StoredResponseCompat|com.ibm.websphere.servlet.response.HttpServletResponseProxy|com.ibm.websphere.servlet.response.ResponseUtils|com.ibm.websphere.servlet.response.ServletOutputStreamAdapter|com.ibm.websphere.servlet.response.ResponseErrorReport)
       param: WebSphereServletRule_1_classes
   - when:
       javaclass:
@@ -730,8 +685,7 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm.websphere.client.applicationclient\.[^.]+
+      - pattern: com.ibm.websphere.client.applicationclient\.[^.]+
       param: WebSphereUnavailableAPIsAppClient_0_packages
   - when:
       javaclass:
@@ -751,8 +705,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm.websphere.j2c\.[^.]+
+      - pattern: com.ibm.websphere.j2c\.[^.]+
       param: WebSphereUnavailableAPIsConnectorArchitecture_0_packages
   - when:
       javaclass:
@@ -773,8 +726,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.ejbcontainer*\.[^.]+|com.ibm.websphere.ejbpersistence*\.[^.]+|com.ibm.wsspi.ejbpersistence\.[^.]+|com.ibm.websphere.csi\.[^.]+)
+      - pattern: (com.ibm.websphere.ejbcontainer*\.[^.]+|com.ibm.websphere.ejbpersistence*\.[^.]+|com.ibm.wsspi.ejbpersistence\.[^.]+|com.ibm.websphere.csi\.[^.]+)
       param: WebSphereUnavailableAPIsEnterpriseJavaBeans_0_packages
   - when:
       or:
@@ -797,12 +749,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.exception.DistributedEJBCreateException|com.ibm.websphere.exception.DistributedEJBRemoveException)
+      - pattern: (com.ibm.websphere.exception.DistributedEJBCreateException|com.ibm.websphere.exception.DistributedEJBRemoveException)
       param: WebSphereUnavailableAPIsExceptions_0_classes
     - matches:
-      - value: ""
-        pattern: com.ibm.ws.exception\.[^.]+
+      - pattern: com.ibm.ws.exception\.[^.]+
       param: WebSphereUnavailableAPIsExceptions_1_packages
   - when:
       javaclass:
@@ -862,12 +812,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.ejs.ras*\.[^.]+|com.ibm.ffdc*\.[^.]+|com.ibm.ras*\.[^.]+|com.ibm.websphere.als*\.[^.]+|com.ibm.websphere.logging.cbe*\.[^.]+|com.ibm.websphere.ras*\.[^.]+|com.ibm.wsspi.rasdiag*\.[^.]+|com.ibm.wsspi.xct*\.[^.]+)
+      - pattern: (com.ibm.ejs.ras*\.[^.]+|com.ibm.ffdc*\.[^.]+|com.ibm.ras*\.[^.]+|com.ibm.websphere.als*\.[^.]+|com.ibm.websphere.logging.cbe*\.[^.]+|com.ibm.websphere.ras*\.[^.]+|com.ibm.wsspi.rasdiag*\.[^.]+|com.ibm.wsspi.xct*\.[^.]+)
       param: WebSphereUnavailableAPIsLoggingAndRAS_0_packages
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.logging.MessageConverter|com.ibm.websphere.logging.RawTraceList|com.ibm.websphere.logging.RawTraceList$PatternLevel|com.ibm.websphere.logging.WsLevel)
+      - pattern: (com.ibm.websphere.logging.MessageConverter|com.ibm.websphere.logging.RawTraceList|com.ibm.websphere.logging.RawTraceList$PatternLevel|com.ibm.websphere.logging.WsLevel)
       param: WebSphereUnavailableAPIsLoggingAndRAS_1_classes
   - when:
       javaclass:
@@ -890,8 +838,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.ant.tasks*\.[^.]+|com.ibm.websphere.hamanager.jmx*\.[^.]+|com.ibm.websphere.interrupt*\.[^.]+|com.ibm.websphere.management*\.[^.]+|com.ibm.websphere.naming*\.[^.]+|com.ibm.websphere.product*\.[^.]+|com.ibm.wsspi.management.metadata\.[^.]+)
+      - pattern: (com.ibm.websphere.ant.tasks*\.[^.]+|com.ibm.websphere.hamanager.jmx*\.[^.]+|com.ibm.websphere.interrupt*\.[^.]+|com.ibm.websphere.management*\.[^.]+|com.ibm.websphere.naming*\.[^.]+|com.ibm.websphere.product*\.[^.]+|com.ibm.wsspi.management.metadata\.[^.]+)
       param: WebSphereUnavailableAPIsManagement_0_packages
   - when:
       javaclass:
@@ -911,8 +858,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.orbext*\.[^.]+|com.ibm.ejs.oa.EJSORB*\.[^.]+)
+      - pattern: (com.ibm.websphere.orbext*\.[^.]+|com.ibm.ejs.oa.EJSORB*\.[^.]+)
       param: WebSphereUnavailableAPIsORB_0_packages
   - when:
       javaclass:
@@ -935,8 +881,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.pmi*\.[^.]+|com.ibm.wsspi.pmi*\.[^.]+|com.ibm.ws.pmi.server\.[^.]+|com.ibm.ws.performance.tuning.rule\.[^.]+)
+      - pattern: (com.ibm.websphere.pmi*\.[^.]+|com.ibm.wsspi.pmi*\.[^.]+|com.ibm.ws.pmi.server\.[^.]+|com.ibm.ws.performance.tuning.rule\.[^.]+)
       param: WebSphereUnavailableAPIsPMI_0_packages
   - when:
       javaclass:
@@ -973,8 +918,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.rsadapter*\.[^.]+|com.ibm.wsspi.rsadapter\.[^.]+|com.ibm.wsspi.rawrapper\.[^.]+)
+      - pattern: (com.ibm.websphere.rsadapter*\.[^.]+|com.ibm.wsspi.rsadapter\.[^.]+|com.ibm.wsspi.rawrapper\.[^.]+)
       param: WebSphereUnavailableAPIsResourceAdapter_0_packages
   - when:
       or:
@@ -1037,12 +981,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.ssl.protocol\.[^.]+|com.ibm.IExtendedSecurity*\.[^.]+|com.ibm.websphere.security.oidc.util\.[^.]+|com.ibm.wsspi.security.audit\.[^.]+|com.ibm.wsspi.security.authorization\.[^.]+|com.ibm.wsspi.security.context\.[^.]+|com.ibm.wsspi.security.crypto.aes\.[^.]+|com.ibm.wsspi.security.csiv2\.[^.]+|com.ibm.wsspi.security.ltpa\.[^.]+|com.ibm.wsspi.security.policy\.[^.]+|com.ibm.wsspi.security.securitydomain\.[^.]+|com.ibm.wsspi.security.spnego\.[^.]+|com.ibm.wsspi.security.web.saml\.[^.]+)
+      - pattern: (com.ibm.websphere.ssl.protocol\.[^.]+|com.ibm.IExtendedSecurity*\.[^.]+|com.ibm.websphere.security.oidc.util\.[^.]+|com.ibm.wsspi.security.audit\.[^.]+|com.ibm.wsspi.security.authorization\.[^.]+|com.ibm.wsspi.security.context\.[^.]+|com.ibm.wsspi.security.crypto.aes\.[^.]+|com.ibm.wsspi.security.csiv2\.[^.]+|com.ibm.wsspi.security.ltpa\.[^.]+|com.ibm.wsspi.security.policy\.[^.]+|com.ibm.wsspi.security.securitydomain\.[^.]+|com.ibm.wsspi.security.spnego\.[^.]+|com.ibm.wsspi.security.web.saml\.[^.]+)
       param: WebSphereUnavailableAPIsSecurity_0_packages
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.security.auth.WSPrincipal|com.ibm.websphere.security.auth.IdentityPrincipal|com.ibm.websphere.security.auth.MappingAuthData|com.ibm.websphere.security.auth.AuthenticationFailedException|com.ibm.websphere.security.auth.AuthenticationNotSupportedException|com.ibm.websphere.security.auth.MapCredentialFailedException|com.ibm.websphere.security.auth.MapCredentialNotSupportedException|com.ibm.websphere.security.auth.UnsupportedRealmException|com.ibm.websphere.security.auth.ValidationFailedException|com.ibm.websphere.security.auth.ValidationNotSupportedException|com.ibm.websphere.security.auth.callback.NonPromptCallbackHandler|com.ibm.websphere.security.auth.callback.WSCcacheCallBackHandlerImpl|com.ibm.websphere.security.auth.callback.WSGUICallbackHandlerImpl|com.ibm.websphere.security.auth.callback.WSStdinCallbackHandlerImpl|com.ibm.websphere.security.DistributedUserMappingFailedException|com.ibm.websphere.security.ProviderFailureException|com.ibm.websphere.security.SAFRoleMapper|com.ibm.websphere.security.TrustAssociationInterceptor|com.ibm.websphere.security.UserMapping|com.ibm.websphere.security.UserMappingException|com.ibm.websphere.security.WebSphereBaseTrustAssociationInterceptor|com.ibm.ws.security.core.SecurityContext|com.ibm.ws.security.util.LoginHelper|com.ibm.ws.security.util.ByteArray|com.ibm.websphere.crypto.KeyGenerator|com.ibm.websphere.crypto.KeyPair|com.ibm.websphere.crypto.KeyPairGenerator|com.ibm.websphere.crypto.KeySetHelper|com.ibm.wsspi.ssl.RetrieveSignersHelper|com.ibm.wsspi.ssl.WSPKIClient|com.ibm.wsspi.security.auth.callback.WSIdentityCallback|com.ibm.wsspi.security.auth.callback.WSMappingCallbackHandlerFactory|com.ibm.wsspi.security.auth.callback.WSProtocolPolicyCallback|com.ibm.wsspi.security.auth.callback.WSTokenHolderCallback|com.ibm.wsspi.security.auth.WSSubjectWrapper|com.ibm.wsspi.security.tai.NegotiateTrustAssociationInterceptor|com.ibm.wsspi.security.tai.NegotiateTrustAssociationInterceptorImpl|com.ibm.wsspi.security.tai.TrustAssociationInterceptorExt|com.ibm.wsspi.security.token.AuthenticationToken|com.ibm.wsspi.security.token.AuthorizationToken|com.ibm.wsspi.security.token.KerberosToken|com.ibm.wsspi.security.token.PropagationToken|com.ibm.wsspi.security.token.TokenHolder|com.ibm.wsspi.security.token.WSOpaqueTokenHelper)
+      - pattern: (com.ibm.websphere.security.auth.WSPrincipal|com.ibm.websphere.security.auth.IdentityPrincipal|com.ibm.websphere.security.auth.MappingAuthData|com.ibm.websphere.security.auth.AuthenticationFailedException|com.ibm.websphere.security.auth.AuthenticationNotSupportedException|com.ibm.websphere.security.auth.MapCredentialFailedException|com.ibm.websphere.security.auth.MapCredentialNotSupportedException|com.ibm.websphere.security.auth.UnsupportedRealmException|com.ibm.websphere.security.auth.ValidationFailedException|com.ibm.websphere.security.auth.ValidationNotSupportedException|com.ibm.websphere.security.auth.callback.NonPromptCallbackHandler|com.ibm.websphere.security.auth.callback.WSCcacheCallBackHandlerImpl|com.ibm.websphere.security.auth.callback.WSGUICallbackHandlerImpl|com.ibm.websphere.security.auth.callback.WSStdinCallbackHandlerImpl|com.ibm.websphere.security.DistributedUserMappingFailedException|com.ibm.websphere.security.ProviderFailureException|com.ibm.websphere.security.SAFRoleMapper|com.ibm.websphere.security.TrustAssociationInterceptor|com.ibm.websphere.security.UserMapping|com.ibm.websphere.security.UserMappingException|com.ibm.websphere.security.WebSphereBaseTrustAssociationInterceptor|com.ibm.ws.security.core.SecurityContext|com.ibm.ws.security.util.LoginHelper|com.ibm.ws.security.util.ByteArray|com.ibm.websphere.crypto.KeyGenerator|com.ibm.websphere.crypto.KeyPair|com.ibm.websphere.crypto.KeyPairGenerator|com.ibm.websphere.crypto.KeySetHelper|com.ibm.wsspi.ssl.RetrieveSignersHelper|com.ibm.wsspi.ssl.WSPKIClient|com.ibm.wsspi.security.auth.callback.WSIdentityCallback|com.ibm.wsspi.security.auth.callback.WSMappingCallbackHandlerFactory|com.ibm.wsspi.security.auth.callback.WSProtocolPolicyCallback|com.ibm.wsspi.security.auth.callback.WSTokenHolderCallback|com.ibm.wsspi.security.auth.WSSubjectWrapper|com.ibm.wsspi.security.tai.NegotiateTrustAssociationInterceptor|com.ibm.wsspi.security.tai.NegotiateTrustAssociationInterceptorImpl|com.ibm.wsspi.security.tai.TrustAssociationInterceptorExt|com.ibm.wsspi.security.token.AuthenticationToken|com.ibm.wsspi.security.token.AuthorizationToken|com.ibm.wsspi.security.token.KerberosToken|com.ibm.wsspi.security.token.PropagationToken|com.ibm.wsspi.security.token.TokenHolder|com.ibm.wsspi.security.token.WSOpaqueTokenHelper)
       param: WebSphereUnavailableAPIsSecurity_1_classes
   - when:
       javaclass:
@@ -1143,8 +1085,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.wlm*\.[^.]+|com.ibm.websphere.wlm.exception*\.[^.]+)
+      - pattern: (com.ibm.websphere.wlm*\.[^.]+|com.ibm.websphere.wlm.exception*\.[^.]+)
       param: WebSphereUnavailableAPIsWLM_0_packages
   - when:
       or:
@@ -1181,12 +1122,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.etools.ctc.plugin.binding.connector*\.[^.]+|com.ibm.etools.ctc.physicalrep*\.[^.]+|com.ibm.etools.ctc.wsdl.extensions.physicalrep*\.[^.]+|com.ibm.etools.logging*\.[^.]+|com.ibm.etools.xsltypeconverter*\.[^.]+|com.ibm.jca.importservice*\.[^.]+|com.ibm.wsdl.extensions.physicalrep*\.[^.]+|com.ibm.wsdl.extensions.transformer*\.[^.]+|com.ibm.wsif.format.jca*\.[^.]+|com.ibm.wsif.format.literal*\.[^.]+|com.ibm.wsif.format.transformer*\.[^.]+|com.ibm.wsif.jca*\.[^.]+|com.ibm.wsif.providers.ejb.proxy*\.[^.]+|com.ibm.wsif.providers.transformer*\.[^.]+|com.ibm.wsif.providers.transformerrt*\.[^.]+|org.xmlsoap.schemas.wsdl.wsadie.messages*\.[^.]+)
+      - pattern: (com.ibm.etools.ctc.plugin.binding.connector*\.[^.]+|com.ibm.etools.ctc.physicalrep*\.[^.]+|com.ibm.etools.ctc.wsdl.extensions.physicalrep*\.[^.]+|com.ibm.etools.logging*\.[^.]+|com.ibm.etools.xsltypeconverter*\.[^.]+|com.ibm.jca.importservice*\.[^.]+|com.ibm.wsdl.extensions.physicalrep*\.[^.]+|com.ibm.wsdl.extensions.transformer*\.[^.]+|com.ibm.wsif.format.jca*\.[^.]+|com.ibm.wsif.format.literal*\.[^.]+|com.ibm.wsif.format.transformer*\.[^.]+|com.ibm.wsif.jca*\.[^.]+|com.ibm.wsif.providers.ejb.proxy*\.[^.]+|com.ibm.wsif.providers.transformer*\.[^.]+|com.ibm.wsif.providers.transformerrt*\.[^.]+|org.xmlsoap.schemas.wsdl.wsadie.messages*\.[^.]+)
       param: WebSphereUnavailableAPIsWSADIE_0_packages
     - matches:
-      - value: ""
-        pattern: (com.ibm.webtools.runtime.AbstractStudioServlet|com.ibm.webtools.runtime.BuildNumber|com.ibm.webtools.runtime.NoDataException|com.ibm.webtools.runtime.StudioPervasiveServlet|com.ibm.webtools.runtime.TransactionFailureException|com.ibm.webtools.runtime.WSUtilities)
+      - pattern: (com.ibm.webtools.runtime.AbstractStudioServlet|com.ibm.webtools.runtime.BuildNumber|com.ibm.webtools.runtime.NoDataException|com.ibm.webtools.runtime.StudioPervasiveServlet|com.ibm.webtools.runtime.TransactionFailureException|com.ibm.webtools.runtime.WSUtilities)
       param: WebSphereUnavailableAPIsWSADIE_1_classes
   - when:
       javaclass:
@@ -1212,8 +1151,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (getFirstCaller|getFirstServer|getCallerList|getServerList|getPropagationAttributes|addPropagationAttribute|convertCookieStringToBytes|revokeSSOCookiesForPortlets)
+      - pattern: (getFirstCaller|getFirstServer|getCallerList|getServerList|getPropagationAttributes|addPropagationAttribute|convertCookieStringToBytes|revokeSSOCookiesForPortlets)
       param: WebSphereUnavailableAPIsWSSecurityHelper_0_methodNames
   - when:
       javaclass:
@@ -1410,20 +1348,16 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.ola.OLAConnectionHandle|com.ibm.websphere.ola.OLAHeader|com.ibm.websphere.ola.OLARGE|com.ibm.websphere.ola.OLARGEInformation|com.ibm.websphere.ola.OLARGEList|com.ibm.websphere.ola.OLASearchObject|com.ibm.websphere.ola.OLAStatusInformation)
+      - pattern: (com.ibm.websphere.ola.OLAConnectionHandle|com.ibm.websphere.ola.OLAHeader|com.ibm.websphere.ola.OLARGE|com.ibm.websphere.ola.OLARGEInformation|com.ibm.websphere.ola.OLARGEList|com.ibm.websphere.ola.OLASearchObject|com.ibm.websphere.ola.OLAStatusInformation)
       param: WOLAMissingClassesRule_0_classes
     - matches:
-      - value: ""
-        pattern: com\.ibm\.websphere\.ola\.ExecuteHome
+      - pattern: com\.ibm\.websphere\.ola\.ExecuteHome
       param: WOLAMissingClassesRule_annotation_fields
     - matches:
-      - value: ""
-        pattern: ejb-jar.xml
+      - pattern: ejb-jar.xml
       param: WOLAMissingClassesRule_2_filesFilter
     - matches:
-      - value: ""
-        pattern: com\.ibm\.websphere\.ola\..*
+      - pattern: com\.ibm\.websphere\.ola\..*
       param: WOLAMissingClassesRule_2_xpath_value
   - when:
       javaclass:
@@ -1450,8 +1384,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm.websphere.ola\.[^.]+
+      - pattern: com.ibm.websphere.ola\.[^.]+
       param: WOLARule_0_packages
   - when:
       javaclass:
@@ -1471,8 +1404,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.workarea\.[^.]+|com.ibm.wsspi.workarea\.[^.]+)
+      - pattern: (com.ibm.websphere.workarea\.[^.]+|com.ibm.wsspi.workarea\.[^.]+)
       param: WorkAreaRule_0_packages
   - when:
       javaclass:
@@ -1546,12 +1478,10 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.webservices\.[^.]+|com.ibm.websphere.websvcs.rm\.[^.]+|com.ibm.websphere.wsaddressing\.[^.]+|com.ibm.websphere.wsrf\.[^.]+|com.ibm.websphere.wssecurity\.[^.]+|com.ibm.websphere.cache.webservices\.[^.]+|com.ibm.ws.webservices\.[^.]+|com.ibm.ws.websvcs\.[^.]+|com.ibm.ws.wssecurity\.[^.]+|com.ibm.wsspi.soapcontainer\.[^.]+|com.ibm.wsspi.webservices\.[^.]+|com.ibm.wsspi.wssecurity\.[^.]+|com.ibm.wsspi.wsaddressing\.[^.]+|com.ibm.wsspi.wsrm\.[^.]+)
+      - pattern: (com.ibm.websphere.webservices\.[^.]+|com.ibm.websphere.websvcs.rm\.[^.]+|com.ibm.websphere.wsaddressing\.[^.]+|com.ibm.websphere.wsrf\.[^.]+|com.ibm.websphere.wssecurity\.[^.]+|com.ibm.websphere.cache.webservices\.[^.]+|com.ibm.ws.webservices\.[^.]+|com.ibm.ws.websvcs\.[^.]+|com.ibm.ws.wssecurity\.[^.]+|com.ibm.wsspi.soapcontainer\.[^.]+|com.ibm.wsspi.webservices\.[^.]+|com.ibm.wsspi.wssecurity\.[^.]+|com.ibm.wsspi.wsaddressing\.[^.]+|com.ibm.wsspi.wsrm\.[^.]+)
       param: WebSphereWebServicesRule_0_packages
     - matches:
-      - value: ""
-        pattern: ^(?>(?!(\_Deser|\_Helper|\_Ser|Stub|Locator|Information)).)*$
+      - pattern: ^(?>(?!(\_Deser|\_Helper|\_Ser|Stub|Locator|Information)).)*$
       param: WebSphereWebServicesRule_0_files
   - when:
       javaclass:
@@ -1602,11 +1532,9 @@ rules:
         category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: (com.ibm.websphere.webservices\.[^.]+|com.ibm.websphere.websvcs.rm\.[^.]+|com.ibm.websphere.wsaddressing\.[^.]+|com.ibm.websphere.wsrf\.[^.]+|com.ibm.websphere.wssecurity\.[^.]+|com.ibm.websphere.cache.webservices\.[^.]+|com.ibm.ws.webservices\.[^.]+|com.ibm.ws.websvcs\.[^.]+|com.ibm.ws.wssecurity\.[^.]+|com.ibm.wsspi.soapcontainer\.[^.]+|com.ibm.wsspi.webservices\.[^.]+|com.ibm.wsspi.wssecurity\.[^.]+|com.ibm.wsspi.wsaddressing\.[^.]+|com.ibm.wsspi.wsrm\.[^.]+)
+      - pattern: (com.ibm.websphere.webservices\.[^.]+|com.ibm.websphere.websvcs.rm\.[^.]+|com.ibm.websphere.wsaddressing\.[^.]+|com.ibm.websphere.wsrf\.[^.]+|com.ibm.websphere.wssecurity\.[^.]+|com.ibm.websphere.cache.webservices\.[^.]+|com.ibm.ws.webservices\.[^.]+|com.ibm.ws.websvcs\.[^.]+|com.ibm.ws.wssecurity\.[^.]+|com.ibm.wsspi.soapcontainer\.[^.]+|com.ibm.wsspi.webservices\.[^.]+|com.ibm.wsspi.wssecurity\.[^.]+|com.ibm.wsspi.wsaddressing\.[^.]+|com.ibm.wsspi.wsrm\.[^.]+)
       param: WebSphereWebServicesGeneratedClassesRule_0_packages
     - matches:
-      - value: ""
-        pattern: .*(\_Deser|\_Helper|\_Ser|Stub|Locator|Information)
+      - pattern: .*(\_Deser|\_Helper|\_Ser|Stub|Locator|Information)
       param: WebSphereWebServicesGeneratedClassesRule_0_files
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml

@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-0
+  - message: "\n                            Replace the `org.wildfly.security:wildfly-elytron-realm-jdbc`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-elytron-security-jdbc`
+      \ \n                            Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-0
     when:
     - java.dependency:
         name: org.wildfly.security.wildfly-elytron-realm-jdbc
@@ -10,7 +13,10 @@
     when:
     - java.dependency:
         name: org.wildfly.security.wildfly-elytron-realm-jdbc
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-2
+  - message: "\n                            Replace the `org.wildfly.security:wildfly-elytron-realm-ldap`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-elytron-security-ldap`
+      \ \n                            Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-2
     when:
     - java.dependency:
         name: org.wildfly.security.wildfly-elytron-realm-ldap
@@ -21,7 +27,10 @@
     when:
     - java.dependency:
         name: org.wildfly.security.wildfly-elytron-realm-ldap
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-4
+  - message: "\n                            Replace the `org.wildfly.security:wildfly-elytron-realm-token`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-elytron-security-oauth2`
+      \ \n                            Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/elytron/elytron-to-quarkus.windup.xml-4
     when:
     - java.dependency:
         name: org.wildfly.security.wildfly-elytron-realm-token

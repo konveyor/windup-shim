@@ -84,7 +84,9 @@
     when:
     - java.referenced:
         pattern: org.jboss.wsf.spi.tools.cmd.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-11
+  - message: "\n                            This package has been relocated to `org.jboss.ws.api.tools`
+      as specified in the\n                            migration guide.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-11
     when:
     - java.referenced:
         pattern: org.jboss.wsf.spi.tools.{*}
@@ -112,7 +114,9 @@
     when:
     - java.referenced:
         pattern: org.jboss.wsf.common.DOMUtils
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-16
+  - message: "\n                            This package has been relocated to `org.jboss.ws.common`
+      as specified in the\n                            migration guide.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-java.windup.xml-16
     when:
     - java.referenced:
         pattern: org.jboss.wsf.common.{*}
