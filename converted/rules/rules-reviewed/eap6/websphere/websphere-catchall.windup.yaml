@@ -39,8 +39,7 @@ rules:
             effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -62,12 +61,10 @@ rules:
             category-id: potential
     where:
     - matches:
-      - value: ""
-        pattern: (com\.)?(websphere|ibm)(\..*)?
+      - pattern: (com\.)?(websphere|ibm)(\..*)?
       param: package
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -89,11 +86,9 @@ rules:
             category-id: potential
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: subpackage
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-catchall.windup.xml

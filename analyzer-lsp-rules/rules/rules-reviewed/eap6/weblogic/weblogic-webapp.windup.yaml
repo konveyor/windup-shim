@@ -66,7 +66,9 @@
       - java.referenced:
           location: INHERITANCE
           pattern: weblogic.application.ApplicationLifecycleListener
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-6
+  - message: The usage of the WebLogic proprietary security API should be replaced
+      by standard Java EE mechanisms or the ones provided by JBoss EAP.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-6
     when:
     - java.referenced:
         pattern: weblogic.security.{*}

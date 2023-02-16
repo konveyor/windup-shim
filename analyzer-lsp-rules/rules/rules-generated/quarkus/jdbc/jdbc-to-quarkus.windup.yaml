@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-0
+  - message: "\n                            Replace the `com.ibm.db2:jcc` dependency
+      with the Quarkus dependency `io.quarkus:quarkus-jdbc-db2`  \n                            Further
+      information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-0
     when:
     - java.dependency:
         name: com.ibm.db2.jcc
@@ -10,7 +13,10 @@
     when:
     - java.dependency:
         name: com.ibm.db2.jcc
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-2
+  - message: "\n                            Replace the `org.apache.derby:derbyclient`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-jdbc-derby`  \n                            Further
+      information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-2
     when:
     - java.dependency:
         name: org.apache.derby.derbyclient
@@ -21,7 +27,10 @@
     when:
     - java.dependency:
         name: org.apache.derby.derbyclient
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-4
+  - message: "\n                            Replace the `org.mariadb.jdbc:mariadb-java-client`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-jdbc-mariadb`  \n
+      \                           Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-4
     when:
     - java.dependency:
         name: org.mariadb.jdbc.mariadb-java-client
@@ -32,7 +41,10 @@
     when:
     - java.dependency:
         name: org.mariadb.jdbc.mariadb-java-client
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-6
+  - message: "\n                            Replace the `mysql:mysql-connector-java`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-jdbc-mysql`  \n                            Further
+      information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-6
     when:
     - java.dependency:
         name: mysql.mysql-connector-java
@@ -43,7 +55,10 @@
     when:
     - java.dependency:
         name: mysql.mysql-connector-java
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-8
+  - message: "\n                            Replace the `com.oracle.database.jdbc:ojdbc11`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-jdbc-oracle`  \n
+      \                           Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-8
     when:
     - java.dependency:
         name: com.oracle.database.jdbc.ojdbc11
@@ -54,7 +69,10 @@
     when:
     - java.dependency:
         name: com.oracle.database.jdbc.ojdbc11
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-10
+  - message: "\n                            Replace the `org.postgresql:postgresql`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-jdbc-postgresql`
+      \ \n                            Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jdbc/jdbc-to-quarkus.windup.xml-10
     when:
     - java.dependency:
         name: org.postgresql.postgresql

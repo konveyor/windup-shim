@@ -164,8 +164,7 @@ rules:
         level: INFORMATIONAL
     where:
     - matches:
-      - value: ""
-        pattern: PreDestroy|PostConstruct|Resource|Resources
+      - pattern: PreDestroy|PostConstruct|Resource|Resources
       param: annotation
   - when:
       javaclass:
@@ -183,8 +182,7 @@ rules:
         level: INFORMATIONAL
     where:
     - matches:
-      - value: ""
-        pattern: java|javax
+      - pattern: java|javax
       param: package
   - when:
       javaclass:

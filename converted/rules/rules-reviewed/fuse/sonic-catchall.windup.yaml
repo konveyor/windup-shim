@@ -37,11 +37,9 @@ rules:
             category-id: potential
     where:
     - matches:
-      - value: ""
-        pattern: (sonic|sonicsw)(\..*)?
+      - pattern: (sonic|sonicsw)(\..*)?
       param: subpackage
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: classname
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonic-catchall.windup.xml

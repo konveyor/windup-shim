@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jsonb/jsonb-to-quarkus.windup.xml-0
+  - message: "\n                            Replace the `org.eclipse:yasson` dependency
+      with the Quarkus dependency `io.quarkus:quarkus-jsonb`  \n                            Further
+      information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/jsonb/jsonb-to-quarkus.windup.xml-0
     when:
     - java.dependency:
         name: org.eclipse.yasson

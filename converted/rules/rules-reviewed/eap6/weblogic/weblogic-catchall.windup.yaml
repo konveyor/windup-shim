@@ -41,12 +41,10 @@ rules:
             category-id: potential
     where:
     - matches:
-      - value: ""
-        pattern: (com\.weblogic[^.]*\.)|(com\.bea[^.]*\.)|(bea\.)|(weblogic\.)
+      - pattern: (com\.weblogic[^.]*\.)|(com\.bea[^.]*\.)|(bea\.)|(weblogic\.)
       param: prefix
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: remainder
   - when:
       javaclass:
@@ -69,8 +67,7 @@ rules:
             category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: remainder
   - when:
       javaclass:
@@ -92,12 +89,10 @@ rules:
             category-id: potential
     where:
     - matches:
-      - value: ""
-        pattern: (\..*)?
+      - pattern: (\..*)?
       param: subpackage
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -119,16 +114,13 @@ rules:
             category-id: potential
     where:
     - matches:
-      - value: ""
-        pattern: (com\.)?
+      - pattern: (com\.)?
       param: com
     - matches:
-      - value: ""
-        pattern: (\..*)?
+      - pattern: (\..*)?
       param: subpackage
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -150,7 +142,6 @@ rules:
             category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: remainder
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml

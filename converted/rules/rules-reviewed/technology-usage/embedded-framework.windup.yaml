@@ -697,12 +697,10 @@ rules:
         level: INFORMATIONAL
     where:
     - matches:
-      - value: ""
-        pattern: (<|')
+      - pattern: (<|')
       param: prefixes
     - matches:
-      - value: ""
-        pattern: (html|ts)
+      - pattern: (html|ts)
       param: extensions
   - when:
       javaclass:
@@ -814,7 +812,6 @@ rules:
           level: INFORMATIONAL
     where:
     - matches:
-      - value: ""
-        pattern: (Integration|Data|Security|MVC|Batch|Boot|Test|DI)
+      - pattern: (Integration|Data|Security|MVC|Batch|Boot|Test|DI)
       param: pattern
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml

@@ -68,8 +68,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (bean.|builder.|OpenSAMLBootstrap|OpenSAMLUtil|SAMLCallback)
+      - pattern: (bean.|builder.|OpenSAMLBootstrap|OpenSAMLUtil|SAMLCallback)
       param: SAMLClassAndPackages
   - when:
       javaclass:

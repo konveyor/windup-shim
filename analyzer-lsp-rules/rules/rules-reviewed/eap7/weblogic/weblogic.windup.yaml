@@ -63,7 +63,13 @@
     - java.referenced:
         location: IMPORT
         pattern: weblogic.transaction.TxHelper
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-7
+  - message: "\n                            \n                            Look up
+      the Java Enterprise Edition `javax.transaction.TransactionManager` in JBoss
+      EAP using the following code:\n\n                            ```java\n                            InitialContext
+      context = new InitialContext();\n                            TransactionManager
+      transactionManager =\n                            (TransactionManager)context.lookup(\"java:jboss/TransactionManager\");\n
+      \                           ```\n                            \n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic.windup.xml-7
     when:
     - java.referenced:
         location: METHOD_CALL

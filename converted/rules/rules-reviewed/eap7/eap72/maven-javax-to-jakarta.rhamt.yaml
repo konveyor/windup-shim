@@ -115,8 +115,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (enterprise|inject|json|json.bind|persistence|security.enterprise|validation)
+      - pattern: (enterprise|inject|json|json.bind|persistence|security.enterprise|validation)
       param: renamed-g
   - when:
       filecontent:
@@ -146,8 +145,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (json|json.bind|persistence|security.enterprise)
+      - pattern: (json|json.bind|persistence|security.enterprise)
       param: renamed-a
   - when:
       filecontent:

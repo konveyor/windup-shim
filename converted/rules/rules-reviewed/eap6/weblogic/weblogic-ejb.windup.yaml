@@ -42,8 +42,7 @@ rules:
           effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (ejb|ejb20|ejbgen)?
+      - pattern: (ejb|ejb20|ejbgen)?
       param: type
   - when:
       javaclass:
@@ -128,7 +127,6 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (GenericEntityBean|GenericMessageDrivenBean|GenericSessionBean)
+      - pattern: (GenericEntityBean|GenericMessageDrivenBean|GenericSessionBean)
       param: type
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-ejb.windup.xml

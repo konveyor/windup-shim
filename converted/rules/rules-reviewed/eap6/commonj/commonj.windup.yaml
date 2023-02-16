@@ -122,8 +122,7 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (Event|Item|Listener)?
+      - pattern: (Event|Item|Listener)?
       param: part
   - when:
       javaclass:
@@ -143,7 +142,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Completed|Rejected)?
+      - pattern: (Completed|Rejected)?
       param: subpart
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml

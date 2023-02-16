@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-0
+  - message: "\n                            Replace the `org.hibernate:hibernate-envers`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-envers`
+      \ \n                            Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-0
     when:
     - java.dependency:
         name: org.hibernate.hibernate-envers
@@ -10,7 +13,10 @@
     when:
     - java.dependency:
         name: org.hibernate.hibernate-envers
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-2
+  - message: "\n                            Replace the `org.hibernate.reactive:hibernate-reactive-core`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-reactive`
+      \ \n                            Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-2
     when:
     - java.dependency:
         name: org.hibernate.reactive.hibernate-reactive-core
@@ -21,7 +27,10 @@
     when:
     - java.dependency:
         name: org.hibernate.reactive.hibernate-reactive-core
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-4
+  - message: "\n                            Replace the `org.hibernate.search:hibernate-search-backend-elasticsearch-aws`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-search-orm-elasticsearch-aws`
+      \ \n                            Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-4
     when:
     - java.dependency:
         name: org.hibernate.search.hibernate-search-backend-elasticsearch-aws
@@ -32,7 +41,10 @@
     when:
     - java.dependency:
         name: org.hibernate.search.hibernate-search-backend-elasticsearch-aws
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-6
+  - message: "\n                            Replace the `org.hibernate.validator:hibernate-validator`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-validator`
+      \ \n                            Further information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-6
     when:
     - java.dependency:
         name: org.hibernate.validator.hibernate-validator

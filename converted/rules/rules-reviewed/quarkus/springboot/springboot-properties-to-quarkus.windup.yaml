@@ -54,12 +54,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: .+
+      - pattern: .+
       param: profile
     - matches:
-      - value: ""
-        pattern: (properties|yml|yaml)
+      - pattern: (properties|yml|yaml)
       param: extension
   - when:
       filecontent:
@@ -80,12 +78,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: profile
     - matches:
-      - value: ""
-        pattern: (properties|yml|yaml)
+      - pattern: (properties|yml|yaml)
       param: extension
   - when:
       filecontent:
@@ -106,12 +102,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: profile
     - matches:
-      - value: ""
-        pattern: (properties|yml|yaml)
+      - pattern: (properties|yml|yaml)
       param: extension
   - when:
       filecontent:
@@ -130,12 +124,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: profile
     - matches:
-      - value: ""
-        pattern: (properties|yml|yaml)
+      - pattern: (properties|yml|yaml)
       param: extension
   - when:
       filecontent:
@@ -162,12 +154,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: profile
     - matches:
-      - value: ""
-        pattern: (properties|yml|yaml)
+      - pattern: (properties|yml|yaml)
       param: extension
   - when:
       filecontent:
@@ -191,11 +181,9 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: profile
     - matches:
-      - value: ""
-        pattern: (properties|yml|yaml)
+      - pattern: (properties|yml|yaml)
       param: extension
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml

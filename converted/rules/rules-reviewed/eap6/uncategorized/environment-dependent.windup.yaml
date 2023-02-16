@@ -136,8 +136,7 @@ rules:
           effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (ObjectName)
+      - pattern: (ObjectName)
       param: suffix
   - when:
       javaclass:
@@ -159,8 +158,7 @@ rules:
           effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (remote.JMXServiceURL)
+      - pattern: (remote.JMXServiceURL)
       param: suffix
   - when:
       javaclass:

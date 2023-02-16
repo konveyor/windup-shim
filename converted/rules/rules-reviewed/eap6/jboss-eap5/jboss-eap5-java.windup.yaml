@@ -85,8 +85,7 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (\.ejb3)?\.annotation(\.ejb)?
+      - pattern: (\.ejb3)?\.annotation(\.ejb)?
       param: package
   - when:
       javaclass:
@@ -121,8 +120,7 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (\.ejb3)?\.annotation(\.ejb)?
+      - pattern: (\.ejb3)?\.annotation(\.ejb)?
       param: package
   - when:
       javaclass:

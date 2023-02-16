@@ -47,12 +47,10 @@ rules:
         issue-display-mode: all
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm(\..*)?\.jms
+      - pattern: com.ibm(\..*)?\.jms
       param: package
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -76,16 +74,13 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm(\.[^.]*)*\.jms
+      - pattern: com.ibm(\.[^.]*)*\.jms
       param: package
     - matches:
-      - value: ""
-        pattern: (Jms|MQeJNDI|MQe|MQ)?+
+      - pattern: (Jms|MQeJNDI|MQe|MQ)?+
       param: prefix
     - matches:
-      - value: ""
-        pattern: '[^.]*?'
+      - pattern: '[^.]*?'
       param: type
   - when:
       javaclass:
@@ -107,12 +102,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm(\..*)?\.jms
+      - pattern: com.ibm(\..*)?\.jms
       param: package
     - matches:
-      - value: ""
-        pattern: (Producer|Consumer)
+      - pattern: (Producer|Consumer)
       param: type
   - when:
       javaclass:
@@ -158,16 +151,13 @@ rules:
             effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Text|Stream|Object|Map|Bytes)?
+      - pattern: (Text|Stream|Object|Map|Bytes)?
       param: type
     - matches:
-      - value: ""
-        pattern: (JMS|MQe|MQ)
+      - pattern: (JMS|MQe|MQ)
       param: prefix
     - matches:
-      - value: ""
-        pattern: com.ibm(\..*)?\.jms
+      - pattern: com.ibm(\..*)?\.jms
       param: package
   - when:
       javaclass:
@@ -193,15 +183,12 @@ rules:
             effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: com.ibm(\..*)?\.jms
+      - pattern: com.ibm(\..*)?\.jms
       param: package
     - matches:
-      - value: ""
-        pattern: (Jms|MQe|MQ)
+      - pattern: (Jms|MQe|MQ)
       param: prefix
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml

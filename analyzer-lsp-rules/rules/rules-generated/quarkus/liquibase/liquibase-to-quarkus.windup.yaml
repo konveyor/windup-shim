@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/liquibase/liquibase-to-quarkus.windup.xml-0
+  - message: "\n                            Replace the `org.liquibase:liquibase-core`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-liquibase`  \n                            Further
+      information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/liquibase/liquibase-to-quarkus.windup.xml-0
     when:
     - java.dependency:
         name: org.liquibase.liquibase-core
@@ -10,7 +13,10 @@
     when:
     - java.dependency:
         name: org.liquibase.liquibase-core
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/liquibase/liquibase-to-quarkus.windup.xml-2
+  - message: "\n                            Replace the `org.liquibase.ext:liquibase-mongodb`
+      dependency with the Quarkus dependency `io.quarkus:quarkus-liquibase-mongodb`
+      \ \n                            No specific guide is available.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/liquibase/liquibase-to-quarkus.windup.xml-2
     when:
     - java.dependency:
         name: org.liquibase.ext.liquibase-mongodb

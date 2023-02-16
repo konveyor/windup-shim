@@ -40,8 +40,7 @@ rules:
             category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: (edu|EDU)
+      - pattern: (edu|EDU)
       param: domain
   - when:
       javaclass:
@@ -85,12 +84,10 @@ rules:
             category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: (.*)?
+      - pattern: (.*)?
       param: package-remainder
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -110,12 +107,10 @@ rules:
             category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: (.*)?
+      - pattern: (.*)?
       param: package-remainder
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -137,8 +132,7 @@ rules:
             category-id: potential
     where:
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -178,12 +172,10 @@ rules:
             category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: (.*)?
+      - pattern: (.*)?
       param: package-remainder
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -205,12 +197,10 @@ rules:
             category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: (.*)?
+      - pattern: (.*)?
       param: package-remainder
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -232,12 +222,10 @@ rules:
             category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: (.*)?
+      - pattern: (.*)?
       param: package-remainder
     - matches:
-      - value: ""
-        pattern: '[^.]+'
+      - pattern: '[^.]+'
       param: type
   - when:
       javaclass:
@@ -259,8 +247,7 @@ rules:
             category-id: optional
     where:
     - matches:
-      - value: ""
-        pattern: (activeio|activemq)
+      - pattern: (activeio|activemq)
       param: subpackage
   - when:
       javaclass:
@@ -281,16 +268,13 @@ rules:
             category-id: potential
     where:
     - matches:
-      - value: ""
-        pattern: (jboss|jbpm)
+      - pattern: (jboss|jbpm)
       param: subpackage
     - matches:
-      - value: ""
-        pattern: ([a-z]+\.)*
+      - pattern: ([a-z]+\.)*
       param: package-remainder
     - matches:
-      - value: ""
-        pattern: '[^.()]+'
+      - pattern: '[^.()]+'
       param: type
   - when:
       javaclass:

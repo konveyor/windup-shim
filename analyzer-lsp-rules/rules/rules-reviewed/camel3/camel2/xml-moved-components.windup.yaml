@@ -1,22 +1,36 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-0
+  - message: "All the classes from `org.apache.camel.util.component` have been moved
+      to `org.apache.camel.support.component`.\n                            `org.apache.camel:camel-support`
+      is a transitive dependency of `camel-core` but it could be used also separately
+      to trim the application size.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-0
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.util.component.{*}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-1
+  - message: "The class `org.apache.camel.impl.{moved}` has been moved to `org.apache.camel.impl.engine`
+      package in `camel-base` dependency.\n                            `org.apache.camel:camel-base`
+      is a transitive dependency of `camel-core` but it could be used also separately
+      to trim the application size.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-1
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.impl.{moved}
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-2
     when:
     - as: javaClass
+      ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.main.Main
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-3
+  - message: "If you run Camel standalone with just `camel-core` as a dependency,
+      and you want JMX enabled out of the box, then you need to add `org.apache.camel:camel-management`
+      as a dependency.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-3
     when:
     - xmlfile: null

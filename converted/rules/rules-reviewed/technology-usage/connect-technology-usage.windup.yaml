@@ -42,8 +42,7 @@ rules:
         name: JNI
     where:
     - matches:
-      - value: ""
-        pattern: (load|loadLibrary|mapLibraryName)
+      - pattern: (load|loadLibrary|mapLibraryName)
       param: systemNativeMethods
   - when:
       javaclass:

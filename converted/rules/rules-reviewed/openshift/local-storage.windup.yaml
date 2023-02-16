@@ -65,8 +65,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (FileWriter|FileReader|PrintStream|File|PrintWriter|RandomAccessFile)
+      - pattern: (FileWriter|FileReader|PrintStream|File|PrintWriter|RandomAccessFile)
       param: ioclass
   - when:
       javaclass:
@@ -113,8 +112,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (URL|URI)
+      - pattern: (URL|URI)
       param: class
   - when:
       filecontent:
@@ -159,12 +157,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (([:=(,\{])([ ])*(["'])?([a-zA-Z]):)(?<![\<\\\/\d\w])([\\\/]\w+)+(\.\w+)?
+      - pattern: (([:=(,\{])([ ])*(["'])?([a-zA-Z]):)(?<![\<\\\/\d\w])([\\\/]\w+)+(\.\w+)?
       param: path1
     - matches:
-      - value: ""
-        pattern: (\.java|\.properties|\.jsp|\.jspf|\.tag|[^pom]\.xml|\.txt)
+      - pattern: (\.java|\.properties|\.jsp|\.jspf|\.tag|[^pom]\.xml|\.txt)
       param: extensions
   - when:
       filecontent:
@@ -209,12 +205,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: file://
+      - pattern: file://
       param: path2
     - matches:
-      - value: ""
-        pattern: (\\.java|\\.properties|\\.jsp|\\.jspf|\\.tag|[^pom]\\.xml|\\.txt)
+      - pattern: (\\.java|\\.properties|\\.jsp|\\.jspf|\\.tag|[^pom]\\.xml|\\.txt)
       param: extensions
   - when:
       or:

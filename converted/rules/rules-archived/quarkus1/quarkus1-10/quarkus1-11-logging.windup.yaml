@@ -36,7 +36,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (.level\s*=\s*(DEBUG|TRACE))
+      - pattern: (.level\s*=\s*(DEBUG|TRACE))
       param: logLevel
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-logging.windup.xml

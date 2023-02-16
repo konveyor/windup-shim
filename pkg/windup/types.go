@@ -223,7 +223,6 @@ type Mapping struct {
 }
 
 type Matches struct {
-	Value   string `xml:",chardata" yaml:"value"`
 	Pattern string `xml:"pattern,attr,omitempty" yaml:"pattern,omitempty"`
 }
 

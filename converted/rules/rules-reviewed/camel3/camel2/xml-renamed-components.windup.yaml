@@ -108,8 +108,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (?!rxjava2|http4|mongodb3|hdfs2|hdfs|mina2|mina|netty4|netty|netty4-http|netty-http|quartz2|quartz|jetty9|aws)([a-zA-Z0-9]|-)*
+      - pattern: (?!rxjava2|http4|mongodb3|hdfs2|hdfs|mina2|mina|netty4|netty|netty4-http|netty-http|quartz2|quartz|jetty9|aws)([a-zA-Z0-9]|-)*
       param: substitution
   - when:
       project:

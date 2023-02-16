@@ -1,9 +1,25 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-mongodb-panache.windup.xml-0
+  - message: "\n                            A recent change was made to MongoDB panache
+      to bring it in to conformity with the Hibernate Panache behavior. \n                            Public
+      field accesses on `MongoEntity` and `ReactiveMongoEntity` types are now wrapped
+      with the appropriate `get` or `set` methods. \n                            In
+      general, you will like not see any difference in your application. \n                            However,
+      if you have written a custom `get` or `set` method you may notice a change in
+      behavior if those custom methods deviate from the standard `get`/`set` paradigm.
+      \n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-mongodb-panache.windup.xml-0
     when:
     - java.dependency:
         name: io.quarkus.quarkus-mongodb-panache
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-mongodb-panache.windup.xml-1
+  - message: "\n                            A recent change was applied to MongoDB
+      panache to bring it in to conformity with the Hibernate Panache behavior. \n
+      \                           Public field accesses on `MongoEntity` and `ReactiveMongoEntity`
+      types are now wrapped with the appropriate `get` or `set` methods. \n                            In
+      general, you will like not see any difference in your application. \n                            However,
+      if you have written a custom `get` or `set` method you may notice a change in
+      behavior if those custom methods deviate from the standard `get`/`set` paradigm.
+      \n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-mongodb-panache.windup.xml-1
     when:
     - or:
       - java.referenced:

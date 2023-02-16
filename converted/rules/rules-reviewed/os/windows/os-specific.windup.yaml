@@ -26,12 +26,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (java|properties|jsp|jspf|tag|xml|txt)
+      - pattern: (java|properties|jsp|jspf|tag|xml|txt)
       param: extensions
     - matches:
-      - value: ""
-        pattern: '[A-z]:([\\][^\n\t]+)+|(\\\\([^\\\,\n\t]+)\\\S+)+'
+      - pattern: '[A-z]:([\\][^\n\t]+)+|(\\\\([^\\\,\n\t]+)\\\S+)+'
       param: pattern
   - when:
       file:

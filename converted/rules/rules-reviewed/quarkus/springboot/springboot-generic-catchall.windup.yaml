@@ -51,11 +51,9 @@ rules:
             effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (org.spring)(.*)?
+      - pattern: (org.spring)(.*)?
       param: group
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: artifact
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-generic-catchall.windup.xml

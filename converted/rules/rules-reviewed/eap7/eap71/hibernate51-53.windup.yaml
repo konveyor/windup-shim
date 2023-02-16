@@ -39,8 +39,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (org.hibernate.usertype.UserVersionType.next|org.hibernate.type.VersionType.next|org.hibernate.type.SingleColumnType.set|org.hibernate.type.AbstractStandardBasicType.set|org.hibernate.type.Type.resolve|org.hibernate.usertype.UserVersionType.seed|org.hibernate.type.VersionType.seed|org.hibernate.collection.spi.PersistentCollection.setCurrentSession|org.hibernate.type.ProcedureParameterNamedBinder.nullSafeSet|org.hibernate.type.Type.nullSafeSet|org.hibernate.usertype.UserType.nullSafeSet|org.hibernate.usertype.CompositeUserType.nullSafeSet|org.hibernate.type.Type.beforeAssemble|org.hibernate.type.AbstractStandardBasicType.nullSafeGet|org.hibernate.type.Type.nullSafeGet|org.hibernate.type.SingleColumnType.nullSafeGet|org.hibernate.usertype.UserType.nullSafeGet|org.hibernate.usertype.CompositeUserType.nullSafeGet|org.hibernate.type.Type.replace|org.hibernate.usertype.CompositeUserType.replace|org.hibernate.usertype.UserCollectionType.replaceElements|org.hibernate.collection.spi.PersistentCollection.unsetSession|org.hibernate.type.Type.hydrate|org.hibernate.type.Type.semiResolve|org.hibernate.usertype.CompositeUserType.assemble|org.hibernate.type.Type.assemble|org.hibernate.usertype.UserCollectionType.instantiate|org.hibernate.usertype.CompositeUserType.disassemble|org.hibernate.type.Type.disassemble|org.hibernate.type.ProcedureParameterExtractionAware.extract|org.hibernate.type.Type.isDirty|org.hibernate.type.Type.isModified|org.hibernate.type.SingleColumnType.get|org.hibernate.type.AbstractStandardBasicType.get|org.hibernate.usertype.UserCollectionType.wrap)
+      - pattern: (org.hibernate.usertype.UserVersionType.next|org.hibernate.type.VersionType.next|org.hibernate.type.SingleColumnType.set|org.hibernate.type.AbstractStandardBasicType.set|org.hibernate.type.Type.resolve|org.hibernate.usertype.UserVersionType.seed|org.hibernate.type.VersionType.seed|org.hibernate.collection.spi.PersistentCollection.setCurrentSession|org.hibernate.type.ProcedureParameterNamedBinder.nullSafeSet|org.hibernate.type.Type.nullSafeSet|org.hibernate.usertype.UserType.nullSafeSet|org.hibernate.usertype.CompositeUserType.nullSafeSet|org.hibernate.type.Type.beforeAssemble|org.hibernate.type.AbstractStandardBasicType.nullSafeGet|org.hibernate.type.Type.nullSafeGet|org.hibernate.type.SingleColumnType.nullSafeGet|org.hibernate.usertype.UserType.nullSafeGet|org.hibernate.usertype.CompositeUserType.nullSafeGet|org.hibernate.type.Type.replace|org.hibernate.usertype.CompositeUserType.replace|org.hibernate.usertype.UserCollectionType.replaceElements|org.hibernate.collection.spi.PersistentCollection.unsetSession|org.hibernate.type.Type.hydrate|org.hibernate.type.Type.semiResolve|org.hibernate.usertype.CompositeUserType.assemble|org.hibernate.type.Type.assemble|org.hibernate.usertype.UserCollectionType.instantiate|org.hibernate.usertype.CompositeUserType.disassemble|org.hibernate.type.Type.disassemble|org.hibernate.type.ProcedureParameterExtractionAware.extract|org.hibernate.type.Type.isDirty|org.hibernate.type.Type.isModified|org.hibernate.type.SingleColumnType.get|org.hibernate.type.AbstractStandardBasicType.get|org.hibernate.usertype.UserCollectionType.wrap)
       param: methods_param
   - when:
       project:
@@ -69,8 +68,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (hibernate-java8|hibernate-entitymanager)
+      - pattern: (hibernate-java8|hibernate-entitymanager)
       param: substitution
   - when:
       javaclass:
@@ -94,8 +92,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: |-
+      - pattern: |-
           (boot.archive.spi.ArchiveException|envers.exception.AuditException|jdbc.BatchFailedException|cache.CacheException|CallbackException
           |boot.registry.classloading.spi.ClassLoadingException|tool.schema.spi.CommandAcceptanceException|bytecode.enhance.spi.EnhancementException
           |tuple.entity.EntityMetamodel.ValueGenerationStrategyException|event.service.spi.EventListenerRegistrationException|HibernateError
@@ -342,8 +339,7 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (cache.RegionFactory|cache.spi.RegionFactory|cache.spi.AbstractRegionFactory|testing.cache.CachingRegionFactory|cache.spi.support.RegionFactoryTemplate|cache.ehcache.EhCacheRegionFactory|cache.infinispan.InfinispanRegionFactory|cache.infinispan.JndiInfinispanRegionFactory|cache.internal.NoCachingRegionFactory|cache.ehcache.SingletonEhCacheRegionFactory)
+      - pattern: (cache.RegionFactory|cache.spi.RegionFactory|cache.spi.AbstractRegionFactory|testing.cache.CachingRegionFactory|cache.spi.support.RegionFactoryTemplate|cache.ehcache.EhCacheRegionFactory|cache.infinispan.InfinispanRegionFactory|cache.infinispan.JndiInfinispanRegionFactory|cache.internal.NoCachingRegionFactory|cache.ehcache.SingletonEhCacheRegionFactory)
       param: className
   - when:
       javaclass:
@@ -416,8 +412,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (SecondLevelCacheStatistics|NaturalIdCacheStatistics)
+      - pattern: (SecondLevelCacheStatistics|NaturalIdCacheStatistics)
       param: interfaces
   - when:
       javaclass:
@@ -531,8 +526,7 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (persister|tuple)
+      - pattern: (persister|tuple)
       param: packages
   - when:
       and:
@@ -645,7 +639,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (engine.query.spi.NamedParameterDescriptor|engine.query.spi.OrdinalParameterDescriptor|query.procedure.internal.ProcedureParameterImpl|query.internal.QueryParameterImpl|query.internal.QueryParameterNamedImpl)
+      - pattern: (engine.query.spi.NamedParameterDescriptor|engine.query.spi.OrdinalParameterDescriptor|query.procedure.internal.ProcedureParameterImpl|query.internal.QueryParameterImpl|query.internal.QueryParameterNamedImpl)
       param: className
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml

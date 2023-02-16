@@ -416,8 +416,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (MAX_THREAD_STATES|TERM_INDEX_INTERVAL)
+      - pattern: (MAX_THREAD_STATES|TERM_INDEX_INTERVAL)
       param: constant
   - when:
       javaclass:
@@ -620,12 +619,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Integer|Long|Float|Double)
+      - pattern: (Integer|Long|Float|Double)
       param: wrapper
     - matches:
-      - value: ""
-        pattern: (Calendar|Date)
+      - pattern: (Calendar|Date)
       param: date
   - when:
       javaclass:
@@ -688,8 +685,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Facet|FacetingRequest|FacetSelection|FacetSortOrder|RangeFacet)
+      - pattern: (Facet|FacetingRequest|FacetSelection|FacetSortOrder|RangeFacet)
       param: class
   - when:
       or:
@@ -721,12 +717,10 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Integer|Long|Float|Double)
+      - pattern: (Integer|Long|Float|Double)
       param: wrapper
     - matches:
-      - value: ""
-        pattern: (Calendar|Date)
+      - pattern: (Calendar|Date)
       param: date
   - when:
       project:
@@ -1033,8 +1027,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (CharStream|FastCharStream|MultiFieldQueryParser|ParseException|QueryParser|QueryParserBase|QueryParserConstants|QueryParserTokenManager)
+      - pattern: (CharStream|FastCharStream|MultiFieldQueryParser|ParseException|QueryParser|QueryParserBase|QueryParserConstants|QueryParserTokenManager)
       param: type
   - when:
       javaclass:
@@ -1110,8 +1103,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (KeywordAnalyzer|KeywordTokenizer|LetterTokenizer|LowerCaseFilter|LowerCaseTokenizer|SimpleAnalyzer|StopAnalyzer|StopFilter|WhitespaceAnalyzer|WhitespaceTokenizer)
+      - pattern: (KeywordAnalyzer|KeywordTokenizer|LetterTokenizer|LowerCaseFilter|LowerCaseTokenizer|SimpleAnalyzer|StopAnalyzer|StopFilter|WhitespaceAnalyzer|WhitespaceTokenizer)
       param: type
   - when:
       javaclass:
@@ -1163,8 +1155,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (ASCIIFoldingFilter|ISOLatin1AccentFilter|KeywordMarkerFilter|LengthFilter|PerFieldAnalyzerWrapper)
+      - pattern: (ASCIIFoldingFilter|ISOLatin1AccentFilter|KeywordMarkerFilter|LengthFilter|PerFieldAnalyzerWrapper)
       param: type
   - when:
       javaclass:
@@ -1216,8 +1207,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (CharFilter|BaseCharFilter|MappingCharFilter|NormalizeCharMap)
+      - pattern: (CharFilter|BaseCharFilter|MappingCharFilter|NormalizeCharMap)
       param: type
   - when:
       javaclass:
@@ -1245,8 +1235,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (CharArraySet|CharArrayMap|StopwordAnalyzerBase|WordlistLoader|CharTokenizer)
+      - pattern: (CharArraySet|CharArrayMap|StopwordAnalyzerBase|WordlistLoader|CharTokenizer)
       param: type
   - when:
       javaclass:
@@ -1322,8 +1311,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (CustomScoreQuery|CustomScoreProvider)
+      - pattern: (CustomScoreQuery|CustomScoreProvider)
       param: type
   - when:
       javaclass:
@@ -1375,8 +1363,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (DocValues|FieldScoreQuery|ValueSource|ValueSourceQuery)
+      - pattern: (DocValues|FieldScoreQuery|ValueSource|ValueSourceQuery)
       param: type
   - when:
       javaclass:
@@ -1404,8 +1391,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (ByteFieldSource|FieldCacheSource|FloatFieldSource|IntFieldSource|OrdFieldSource|ReverseOrdFieldSource|ShortFieldSource)
+      - pattern: (ByteFieldSource|FieldCacheSource|FloatFieldSource|IntFieldSource|OrdFieldSource|ReverseOrdFieldSource|ShortFieldSource)
       param: type
   - when:
       javaclass:
@@ -1432,8 +1418,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (TokenizerFactory|TokenFilterFactory)
+      - pattern: (TokenizerFactory|TokenFilterFactory)
       param: type
   - when:
       javaclass:

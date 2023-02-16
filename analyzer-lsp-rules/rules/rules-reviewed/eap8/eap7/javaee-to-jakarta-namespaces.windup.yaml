@@ -220,7 +220,8 @@
     - filecontent:
         filename: '{*}.xml'
         pattern: orm_2_2.xsd
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-32
+  - message: In the root tag, replace the `version` attribute value `2.1` with `3.0`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-32
     when:
       or:
       - as: result
@@ -228,8 +229,10 @@
           filename: ""
           pattern: version={quotes}2.1{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-33
+  - message: In the root tag, replace the `version` attribute value `7` with `9`
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-33
     when:
       or:
       - as: result
@@ -237,8 +240,11 @@
           filename: ""
           pattern: version={quotes}7{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-34
+  - message: '`beans_1_1.xsd`: In the root tag, replace the `version` attribute value
+      with `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-34
     when:
       or:
       - as: result
@@ -246,8 +252,11 @@
           filename: ""
           pattern: version={quotes}1.1{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-35
+  - message: '`beans_2_0.xsd`: In the root tag, replace the `version` attribute value
+      with `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-35
     when:
       or:
       - as: result
@@ -255,8 +264,11 @@
           filename: ""
           pattern: version={quotes}2.0{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-36
+  - message: '`application_7.xsd`: In the root tag, replace the `version` attribute
+      value with `9`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-36
     when:
       or:
       - as: result
@@ -264,8 +276,11 @@
           filename: ""
           pattern: version={quotes}7{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-37
+  - message: '`application_8.xsd`: In the root tag, replace the `version` attribute
+      value with `9`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-37
     when:
       or:
       - as: result
@@ -273,8 +288,11 @@
           filename: ""
           pattern: version={quotes}8{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-38
+  - message: '`application-client_7.xsd`: In the root tag, replace the `version` attribute
+      value with `9`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-38
     when:
       or:
       - as: result
@@ -282,8 +300,11 @@
           filename: ""
           pattern: version={quotes}7{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-39
+  - message: '`application-client_8.xsd`: In the root tag, replace the `version` attribute
+      value with `9`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-39
     when:
       or:
       - as: result
@@ -291,8 +312,11 @@
           filename: ""
           pattern: version={quotes}8{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-40
+  - message: '`connector_1_7.xsd`: In the root tag, replace the `version` attribute
+      value with `2.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-40
     when:
       or:
       - as: result
@@ -300,8 +324,11 @@
           filename: ""
           pattern: version={quotes}1.7{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-41
+  - message: '`ejb-jar_3_2.xsd`: In the root tag, replace the `version` attribute
+      value with `4.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-41
     when:
       or:
       - as: result
@@ -309,8 +336,11 @@
           filename: ""
           pattern: version={quotes}3.2{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-42
+  - message: '`javaee_web_services_1_4.xsd`: In the root tag, replace the `version`
+      attribute value with `2.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-42
     when:
       or:
       - as: result
@@ -318,8 +348,11 @@
           filename: ""
           pattern: version={quotes}1.4{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-43
+  - message: '`web-app_3_1`: In the root tag, replace the `version` attribute value
+      with `5.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-43
     when:
       or:
       - as: result
@@ -327,8 +360,11 @@
           filename: ""
           pattern: version={quotes}3.1{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-44
+  - message: '`web-app_4_0`: In the root tag, replace the `version` attribute value
+      with `5.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-44
     when:
       or:
       - as: result
@@ -336,8 +372,11 @@
           filename: ""
           pattern: version={quotes}4.0{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-45
+  - message: '`web-fragment_3_1`: In the root tag, replace the `version` attribute
+      value with `5.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-45
     when:
       or:
       - as: result
@@ -345,8 +384,11 @@
           filename: ""
           pattern: version={quotes}3.1{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-46
+  - message: '`web-fragment_4_0`: In the root tag, replace the `version` attribute
+      value with `5.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-46
     when:
       or:
       - as: result
@@ -354,8 +396,11 @@
           filename: ""
           pattern: version={quotes}4.0{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-47
+  - message: '`web-facesconfig_2_2`: In the root tag, replace the `version` attribute
+      value with `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-47
     when:
       or:
       - as: result
@@ -363,8 +408,11 @@
           filename: ""
           pattern: version={quotes}2.2{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-48
+  - message: '`web-facesconfig_2_3`: In the root tag, replace the `version` attribute
+      value with `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-48
     when:
       or:
       - as: result
@@ -372,8 +420,11 @@
           filename: ""
           pattern: version={quotes}2.3{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-49
+  - message: '`web-facelettaglibrary_2_2`: In the root tag, replace the `version`
+      attribute value with `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-49
     when:
       or:
       - as: result
@@ -381,8 +432,11 @@
           filename: ""
           pattern: version={quotes}2.2{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-50
+  - message: '`web-facelettaglibrary_2_3`: In the root tag, replace the `version`
+      attribute value with `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-50
     when:
       or:
       - as: result
@@ -390,8 +444,11 @@
           filename: ""
           pattern: version={quotes}2.3{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-51
+  - message: '`web-jsptaglibrary_2_1`: In the root tag, replace the `version` attribute
+      value with `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-51
     when:
       or:
       - as: result
@@ -399,8 +456,11 @@
           filename: ""
           pattern: version={quotes}2.1{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-52
+  - message: '`validation-mapping-2.0`: In the root tag, replace the `version` attribute
+      value with `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-52
     when:
       or:
       - as: result
@@ -408,8 +468,11 @@
           filename: ""
           pattern: version={quotes}2.0{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-53
+  - message: '`validation-configuration-2.0`: In the root tag, replace the `version`
+      attribute value with `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-53
     when:
       or:
       - as: result
@@ -417,8 +480,11 @@
           filename: ""
           pattern: version={quotes}2.0{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-54
+  - message: '`orm_2_1`: In the root tag, replace the `version` attribute value with
+      `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-54
     when:
       or:
       - as: result
@@ -426,8 +492,11 @@
           filename: ""
           pattern: version={quotes}2.1{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-55
+  - message: '`orm_2_2`: In the root tag, replace the `version` attribute value with
+      `3.0`'
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-55
     when:
       or:
       - as: result
@@ -435,4 +504,5 @@
           filename: ""
           pattern: version={quotes}2.2{quotes}
         from: xml-file
+        ignore: true
       - xmlfile: null

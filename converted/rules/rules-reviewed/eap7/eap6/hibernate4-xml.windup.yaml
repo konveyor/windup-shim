@@ -67,8 +67,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (cfg.xml|properties)
+      - pattern: (cfg.xml|properties)
       param: file-ext
   - when:
       filecontent:
@@ -89,8 +88,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (TableGenerator|TableHiLoGenerator|SequenceGenerator|SequenceIdentityGenerator|SequenceHiLoGenerator)
+      - pattern: (TableGenerator|TableHiLoGenerator|SequenceGenerator|SequenceIdentityGenerator|SequenceHiLoGenerator)
       param: idclass
   - when:
       xmlfile:
@@ -125,8 +123,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (seqhilo|sequence-identity|hilo)
+      - pattern: (seqhilo|sequence-identity|hilo)
       param: generator
   - when:
       or:

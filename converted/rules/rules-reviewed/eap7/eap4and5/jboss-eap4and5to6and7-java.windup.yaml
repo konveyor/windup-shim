@@ -84,7 +84,6 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (ServiceMBean|ServiceMBeanSupport)
+      - pattern: (ServiceMBean|ServiceMBeanSupport)
       param: classes
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-java.windup.xml

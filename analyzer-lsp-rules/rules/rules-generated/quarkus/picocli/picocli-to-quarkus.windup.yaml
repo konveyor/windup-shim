@@ -1,5 +1,8 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/picocli/picocli-to-quarkus.windup.xml-0
+  - message: "\n                            Replace the `info.picocli:picocli` dependency
+      with the Quarkus dependency `io.quarkus:quarkus-picocli`  \n                            Further
+      information in the link below.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/picocli/picocli-to-quarkus.windup.xml-0
     when:
     - java.dependency:
         name: info.picocli.picocli

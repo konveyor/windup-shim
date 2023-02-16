@@ -31,19 +31,26 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-2
     when:
     - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-3
+  - message: Since Hibernate 5, the `org.hibernate.hql.spi.TemporaryTableBulkIdStrategy`
+      class was replaced by `org.hibernate.hql.spi.id.global.GlobalTemporaryTableBulkIdStrategy`
+      and `org.hibernate.hql.spi.id.local.LocalTemporaryTableBulkIdStrategy`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-3
     when:
     - or:
       - as: properties
         filecontent:
           filename: hibernate.properties
           pattern: hibernate.hql.bulk_id_strategy=org.hibernate.hql.spi.TemporaryTableBulkIdStrategy
+        ignore: true
       - xmlfile: null
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-4
+  - message: Since Hibernate 5, the `org.hibernate.hql.spi.PersistentTableBulkIdStrategy`
+      class was moved to new package and you should use it as `org.hibernate.hql.spi.id.persistent.PersistentTableBulkIdStrategy`.
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-4
     when:
     - or:
       - as: properties
         filecontent:
           filename: hibernate.properties
           pattern: hibernate.hql.bulk_id_strategy=org.hibernate.hql.spi.PersistentTableBulkIdStrategy
+        ignore: true
       - xmlfile: null

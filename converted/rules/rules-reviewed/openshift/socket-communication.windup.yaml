@@ -43,8 +43,7 @@ rules:
           effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (Socket|MulticastSocket|DatagramSocket|InetSocketAddress)
+      - pattern: (Socket|MulticastSocket|DatagramSocket|InetSocketAddress)
       param: socketclass
   - when:
       javaclass:
@@ -70,7 +69,6 @@ rules:
           effort: 5
     where:
     - matches:
-      - value: ""
-        pattern: (NetworkChannel|MulticastChannel|DatagramChannel|AsynchronousSocketChannel|SocketChannel)
+      - pattern: (NetworkChannel|MulticastChannel|DatagramChannel|AsynchronousSocketChannel|SocketChannel)
       param: niochannelclass
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/socket-communication.windup.xml

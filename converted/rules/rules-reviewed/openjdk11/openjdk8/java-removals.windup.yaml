@@ -128,8 +128,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (checkAwtEventQueueAccess|checkSystemClipboardAccess|checkTopLevelWindow)
+      - pattern: (checkAwtEventQueueAccess|checkSystemClipboardAccess|checkTopLevelWindow)
       param: method-name
   - when:
       javaclass:
@@ -244,8 +243,7 @@ rules:
         effort: 2
     where:
     - matches:
-      - value: ""
-        pattern: (getInt|putInt|getFloat|putFloat|getDouble|putDouble|getBoolean|putBoolean|getObject|putObject|getByte|putByte|getChar|putChar|getShort|putShort|getLong|putLong|fieldOffset|staticFieldBase|tryMonitorEnter|monitorEnter|monitorExit)
+      - pattern: (getInt|putInt|getFloat|putFloat|getDouble|putDouble|getBoolean|putBoolean|getObject|putObject|getByte|putByte|getChar|putChar|getShort|putShort|getLong|putLong|fieldOffset|staticFieldBase|tryMonitorEnter|monitorEnter|monitorExit)
       param: method-name
   - when:
       javaclass:
@@ -273,8 +271,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Encoder|Decoder)
+      - pattern: (Encoder|Decoder)
       param: encoder-decoder
   - when:
       or:

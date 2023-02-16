@@ -1,5 +1,10 @@
 - rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-resteasy-jackson.windup.xml-0
+  - message: "\n                            The default `ObjectMapper` obtained via
+      CDI and consumed by the Quarkus extensions now ignores unknown properties \n
+      \                           (by disabling the `DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES`
+      feature).  \n                            Refer to the guide below for more details
+      about how to return to the previous behaviour.\n                        "
+    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-resteasy-jackson.windup.xml-0
     when:
     - java.dependency:
         name: io.quarkus.quarkus-resteasy-jackson

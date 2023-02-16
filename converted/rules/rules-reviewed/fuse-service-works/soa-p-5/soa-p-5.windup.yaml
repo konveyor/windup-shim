@@ -58,8 +58,7 @@ rules:
         over: javaclasses
     where:
     - matches:
-      - value: ""
-        pattern: .*
+      - pattern: .*
       param: javaclassname
   - when:
       xmlfile:
@@ -751,8 +750,7 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (StreamingAggregator)|(Aggregator)
+      - pattern: (StreamingAggregator)|(Aggregator)
       param: javaclassname
   - when:
       xmlfile:

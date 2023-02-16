@@ -62,12 +62,10 @@ rules:
             level: INFORMATIONAL
     where:
     - matches:
-      - value: ""
-        pattern: ((Daily)?Rolling)?FileAppender
+      - pattern: ((Daily)?Rolling)?FileAppender
       param: appenderpattern
     - matches:
-      - value: ""
-        pattern: (xml|properties)
+      - pattern: (xml|properties)
       param: extension
   - when:
       javaclass:

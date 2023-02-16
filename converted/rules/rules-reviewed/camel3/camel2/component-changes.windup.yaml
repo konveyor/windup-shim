@@ -50,11 +50,9 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (circularTopicDetection|bridgeEndpoint)
+      - pattern: (circularTopicDetection|bridgeEndpoint)
       param: options
     - matches:
-      - value: ""
-        pattern: (setBridgeEndpoint|setCircularTopicDetection)
+      - pattern: (setBridgeEndpoint|setCircularTopicDetection)
       param: method
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/component-changes.windup.xml

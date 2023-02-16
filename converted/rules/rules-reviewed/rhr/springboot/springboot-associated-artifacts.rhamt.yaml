@@ -89,8 +89,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (infinispan-spring-boot-starter-embedded|infinispan-spring-boot-starter-remote)
+      - pattern: (infinispan-spring-boot-starter-embedded|infinispan-spring-boot-starter-remote)
       param: infinispanArtifactName
   - when:
       dependency:

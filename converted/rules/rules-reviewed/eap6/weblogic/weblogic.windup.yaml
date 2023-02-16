@@ -98,8 +98,7 @@ rules:
         effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Client)*TransactionManager
+      - pattern: (Client)*TransactionManager
       param: classname
   - when:
       or:
@@ -190,8 +189,7 @@ rules:
           effort: 1
     where:
     - matches:
-      - value: ""
-        pattern: (Client)*TxHelper
+      - pattern: (Client)*TxHelper
       param: classname
   - when:
       javaclass:
@@ -359,8 +357,7 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (java|properties|xml)
+      - pattern: (java|properties|xml)
       param: ext
   - when:
       filecontent:
@@ -392,11 +389,9 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (java|properties|xml)
+      - pattern: (java|properties|xml)
       param: ext
     - matches:
-      - value: ""
-        pattern: t3s?://
+      - pattern: t3s?://
       param: t3url
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml

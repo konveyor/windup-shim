@@ -36,7 +36,6 @@ rules:
         effort: 3
     where:
     - matches:
-      - value: ""
-        pattern: (Pack200|Pack200.Packer|Pack200.Unpacker)
+      - pattern: (Pack200|Pack200.Packer|Pack200.Unpacker)
       param: class-name
 sourceFile: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/removed-classes.windup.xml
