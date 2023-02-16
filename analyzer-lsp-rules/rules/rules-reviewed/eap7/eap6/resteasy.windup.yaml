@@ -6,7 +6,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-0
     when:
     - java.referenced:
-        pattern: org.jboss.resteasy.client.cache.{cache_class}
+        pattern: org.jboss.resteasy.client.cache.(CacheEntry|CacheFactory|CacheInterceptor|LightweightBrowserCache|BrowserCache|MapCache)
   - message: "\n                    Replace class `org.jboss.resteasy.client.ClientRequest`
       with `org.jboss.resteasy.client.jaxrs.ResteasyClient`.\n\n                    The
       following is an example of how to send a link header with the RESTEasy client
@@ -35,7 +35,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-3
     when:
     - java.referenced:
-        pattern: org.jboss.resteasy.client.{type}
+        pattern: org.jboss.resteasy.client.(ProxyBuilder|ProxyConfig|ProxyFactory)
   - message: "\n                    There is no direct replacement for `org.jboss.resteasy.client.EntityTypeFactory`
       class.\n\n                    `org.jboss.resteasy.client.ClientResponse<T>`
       is a generic type in the RESTEasy client framework,\n                    but

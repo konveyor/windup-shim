@@ -13,20 +13,20 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-1
     when:
     - java.referenced:
-        pattern: '{prefix}{remainder}'
+        pattern: (com\.weblogic[^.]*\.)|(com\.bea[^.]*\.)|(bea\.)|(weblogic\.).*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-2
     when:
     - java.referenced:
-        pattern: oracle.sql.{remainder}
+        pattern: oracle.sql..*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-3
     when:
     - java.referenced:
-        pattern: com.tangosol{subpackage}.{type}
+        pattern: com.tangosol(\..*)?.[^.]+
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-4
     when:
     - java.referenced:
-        pattern: '{com}oracle{subpackage}.{type}'
+        pattern: (com\.)?oracle(\..*)?.[^.]+
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-5
     when:
     - java.referenced:
-        pattern: oracle.jdbc.{remainder}
+        pattern: oracle.jdbc..*

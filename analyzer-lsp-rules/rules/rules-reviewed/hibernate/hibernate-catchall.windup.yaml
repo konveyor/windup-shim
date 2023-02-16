@@ -2,4 +2,4 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-catchall.windup.xml-0
     when:
     - java.referenced:
-        pattern: org.hibernate.{package-remainder}.{type}
+        pattern: org.hibernate.(.*)?.[^.]+

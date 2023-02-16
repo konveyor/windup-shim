@@ -23,7 +23,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-3
     when:
     - java.referenced:
-        pattern: weblogic.transaction.{classname}
+        pattern: weblogic.transaction.(Client)*TransactionManager
   - message: Replace with the Java EE standard method `javax.transaction.TransactionManager.resume(Transaction
       tx)`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-4
@@ -73,7 +73,7 @@
     when:
     - java.referenced:
         location: METHOD_CALL
-        pattern: weblogic.transaction.{classname}.getTransactionManager()
+        pattern: weblogic.transaction.(Client)*TxHelper.getTransactionManager()
   - message: "\n                        This Oracle and WebLogic proprietary code
       (`OracleThinClob`) should be replaced with the use of the java.sql.Clob interface.\n
       \                   "

@@ -31,7 +31,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-5
     when:
     - java.referenced:
-        pattern: commonj.work.Work{part}
+        pattern: commonj.work.Work(Event|Item|Listener)?
   - message: Replace CommonJ Work related Exception with a javax.resource.spi.work.Work{subpart}Exception
       subclass.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-6
@@ -39,10 +39,10 @@
       or:
       - java.referenced:
           location: THROW_STATEMENT
-          pattern: commonj.work.Work{subpart}Exception
+          pattern: commonj.work.Work(Completed|Rejected)?Exception
       - java.referenced:
           location: THROWS_METHOD_DECLARATION
-          pattern: commonj.work.Work{subpart}Exception
+          pattern: commonj.work.Work(Completed|Rejected)?Exception
       - java.referenced:
           location: CATCH_EXCEPTION_STATEMENT
-          pattern: commonj.work.Work{subpart}Exception
+          pattern: commonj.work.Work(Completed|Rejected)?Exception

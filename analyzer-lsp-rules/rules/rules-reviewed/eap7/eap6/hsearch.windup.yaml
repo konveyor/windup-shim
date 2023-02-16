@@ -137,10 +137,10 @@
       or:
       - java.referenced:
           location: ENUM_CONSTANT
-          pattern: org.hibernate.search.backend.configuration.impl.IndexWriterSetting.{constant}
+          pattern: org.hibernate.search.backend.configuration.impl.IndexWriterSetting.(MAX_THREAD_STATES|TERM_INDEX_INTERVAL)
       - java.referenced:
           location: IMPORT
-          pattern: org.hibernate.search.backend.configuration.impl.IndexWriterSetting.{constant}
+          pattern: org.hibernate.search.backend.configuration.impl.IndexWriterSetting.(MAX_THREAD_STATES|TERM_INDEX_INTERVAL)
   - message: The enum value `SpatialMode.GRID` for `@Spatial` annotation was renamed
       to `SpatialMode.HASH`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-21
@@ -218,9 +218,9 @@
           location: ANNOTATION
           pattern: org.hibernate.search.annotations.Field
       - java.referenced:
-          pattern: java.util.{date}
+          pattern: java.util.(Calendar|Date)
       - java.referenced:
-          pattern: java.lang.{wrapper}
+          pattern: java.lang.(Integer|Long|Float|Double)
   - message: "When using `@Field(indexNullAs=)` to encode a null marker value in the
       index, the type of the marker must be compatible with all other values that
       are indexed in that same field.\n                    For example, it was previously
@@ -246,7 +246,7 @@
           location: METHOD_CALL
           pattern: org.hibernate.search.FullTextQuery.getFacetManager{*}
       - java.referenced:
-          pattern: org.hibernate.search.query.facet.{class}
+          pattern: org.hibernate.search.query.facet.(Facet|FacetingRequest|FacetSelection|FacetSortOrder|RangeFacet)
   - message: |-
       Numbers and dates now indexed as numeric fields by default.
       Properties of type `Date`, `Calendar` as well as `int`, `long`, `float`, `double` and their corresponding wrappers, are no longer indexed as strings. Instead, they are now indexed using Lucene’s appropriate numeric encoding.
@@ -256,9 +256,9 @@
     when:
     - or:
       - java.referenced:
-          pattern: java.util.{date}
+          pattern: java.util.(Calendar|Date)
       - java.referenced:
-          pattern: java.lang.{wrapper}
+          pattern: java.lang.(Integer|Long|Float|Double)
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-30
     when:
     - java.dependency:
@@ -360,7 +360,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-44
     when:
     - java.referenced:
-        pattern: org.apache.lucene.queryParser.{type}
+        pattern: org.apache.lucene.queryParser.(CharStream|FastCharStream|MultiFieldQueryParser|ParseException|QueryParser|QueryParserBase|QueryParserConstants|QueryParserTokenManager)
   - message: Lucene's core `org.apache.lucene.queryParser.QueryParserToken` have been
       consolidated into lucene/queryparser, that results in changing package name
       so it is now named as `org.apache.lucene.queryparser.classic.Token`.
@@ -381,7 +381,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-47
     when:
     - java.referenced:
-        pattern: org.apache.lucene.analysis.{type}
+        pattern: org.apache.lucene.analysis.(KeywordAnalyzer|KeywordTokenizer|LetterTokenizer|LowerCaseFilter|LowerCaseTokenizer|SimpleAnalyzer|StopAnalyzer|StopFilter|WhitespaceAnalyzer|WhitespaceTokenizer)
   - message: |-
       Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
                            During the refactoring package name have changed for `org.apache.lucene.analysis.PorterStemFilter` to `org.apache.lucene.analysis.en.PorterStemFilter`.
@@ -395,7 +395,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-49
     when:
     - java.referenced:
-        pattern: org.apache.lucene.analysis.{type}
+        pattern: org.apache.lucene.analysis.(ASCIIFoldingFilter|ISOLatin1AccentFilter|KeywordMarkerFilter|LengthFilter|PerFieldAnalyzerWrapper)
   - message: |-
       Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
                            During the refactoring package name have changed for `org.apache.lucene.analysis.TeeSinkTokenFilter` to `org.apache.lucene.analysis.sinks.TeeSinkTokenFilter`.
@@ -409,14 +409,14 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-51
     when:
     - java.referenced:
-        pattern: org.apache.lucene.analysis.{type}
+        pattern: org.apache.lucene.analysis.(CharFilter|BaseCharFilter|MappingCharFilter|NormalizeCharMap)
   - message: |-
       Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
                            During the refactoring package name have changed for `org.apache.lucene.analysis.{type}` to `org.apache.lucene.analysis.util.{type}`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-52
     when:
     - java.referenced:
-        pattern: org.apache.lucene.analysis.{type}
+        pattern: org.apache.lucene.analysis.(CharArraySet|CharArrayMap|StopwordAnalyzerBase|WordlistLoader|CharTokenizer)
   - message: |-
       Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
                            During the refactoring class name have changed for `org.apache.lucene.analysis.ReusableAnalyzerBase` to `org.apache.lucene.analysis.Analyzer`.
@@ -437,7 +437,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-55
     when:
     - java.referenced:
-        pattern: org.apache.lucene.search.function.{type}
+        pattern: org.apache.lucene.search.function.(CustomScoreQuery|CustomScoreProvider)
   - message: |-
       Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
                            During the refactoring package name have changed for `org.apache.lucene.search.function.NumericIndexDocValueSource` to `org.apache.lucene.queries.function.valuesource.NumericIndexDocValueSource`.
@@ -451,20 +451,20 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-57
     when:
     - java.referenced:
-        pattern: org.apache.lucene.search.function.{type}
+        pattern: org.apache.lucene.search.function.(DocValues|FieldScoreQuery|ValueSource|ValueSourceQuery)
   - message: |-
       Lucene's core and contrib analyzers, along with Solr's analyzers, were consolidated into lucene/analysis module.
                            During the refactoring package name have changed for `org.apache.lucene.search.function.{type}` to `org.apache.lucene.queries.function.valuesources.{type}`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-58
     when:
     - java.referenced:
-        pattern: org.apache.lucene.search.function.{type}
+        pattern: org.apache.lucene.search.function.(ByteFieldSource|FieldCacheSource|FloatFieldSource|IntFieldSource|OrdFieldSource|ReverseOrdFieldSource|ShortFieldSource)
   - message: Solr utilities class `org.apache.solr.analysis.{type}` was moved into
       Apache Lucene so you can use `org.apache.lucene.analysis.util.{type}`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-59
     when:
     - java.referenced:
-        pattern: org.apache.solr.analysis.{type}
+        pattern: org.apache.solr.analysis.(TokenizerFactory|TokenFilterFactory)
   - message: Method `org.hibernate.search.MassIndexer#threadsForIndexWriter(int)`
       was removed in Hibernate Search 5.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-60

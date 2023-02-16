@@ -15,10 +15,10 @@
     - or:
       - java.referenced:
           location: IMPORT
-          pattern: '{package}.Font'
+          pattern: (java\.awt|javafx\.scene\.text).Font
       - java.referenced:
           location: METHOD_CALL
-          pattern: '{package}.{*}Font{*}'
+          pattern: (java\.awt|javafx\.scene\.text).{*}Font{*}
       - java.referenced:
           location: METHOD_CALL
           pattern: javax.swing.{*}.{*}Font{*}
@@ -45,7 +45,7 @@
     when:
     - java.referenced:
         location: IMPORT
-        pattern: java.awt.{package}{*}
+        pattern: java.awt.(geom|color|font|image|image\.renderable|print){*}
   - message: "\n                    When on RHEL, OpenJDK uses the NSS crypto library
       from RHEL instead of the built-in one.\n\n                    This mostly affects
       elliptic curve cryptography, where OpenJDK supports all of the RHEL curves and

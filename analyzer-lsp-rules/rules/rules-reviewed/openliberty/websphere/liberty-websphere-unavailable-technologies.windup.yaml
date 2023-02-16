@@ -12,7 +12,7 @@
           filename: '{*}.java'
           pattern: '{ActivitySessionRule_1_stringLiterals}'
       - java.referenced:
-          pattern: '{ActivitySessionRule_0_packages}'
+          pattern: com.ibm.websphere.ActivitySession\.[^.]+
       - xmlfile: null
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Application Profiling
       APIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.appprofile</code></li>
@@ -39,7 +39,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-2
     when:
     - java.referenced:
-        pattern: '{AsyncBeansSchedulerRule_0_packages}'
+        pattern: (com.ibm.websphere.asynchbeans\.[^.]+|com.ibm.websphere.asynchbeans.pool\.[^.]+)
   - message: "<div class=\"Text\"> \n <p>WebSphere Batch API and SPI are unavailable
       on Liberty. This rule flags the following packages:</p> \n <ul> \n  <li><code>com.ibm.websphere.batch*</code></li>
       \n  <li><code>com.ibm.websphere.ci</code></li> \n  <li><code>com.ibm.websphere.grid.spi</code></li>
@@ -54,7 +54,7 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{BatchFeaturePackRule_0_packages}'
+          pattern: (com.ibm.websphere.batch*\.[^.]+|com.ibm.wsspi.batch*\.[^.]+|com.ibm.websphere.ci\.[^.]+|com.ibm.websphere.grid.spi\.[^.]+|com.ibm.websphere.longrun\.[^.]+)
       - xmlfile: null
   - message: "<div class=\"Text\"> <span class=\"SubHeader\">Web Services Policy Sets
       are unavailable in Liberty.</span> \n <p> This rule detects the following generated
@@ -137,7 +137,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-7
     when:
     - java.referenced:
-        pattern: '{DynamicCacheRule_0_packages}'
+        pattern: (com.ibm.websphere.cache*\.[^.]+|com.ibm.websphere.servlet.cache*\.[^.]+|com.ibm.ws.cache*\.[^.]+|com.ibm.wsspi.cache*\.[^.]+)
   - message: "<div class=\"Text\"> \n <p> The WebSphere Enterprise JavaBeans (EJB)
       query service is not available on Liberty. </p> \n <p> This rule flags Java
       code that has references to the <code>com.ibm.websphere.ejbquery</code> package.
@@ -147,7 +147,7 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{DynamicQueryRule_0_packages}'
+          pattern: com.ibm.websphere.ejbquery\.[^.]+
       - xmlfile: null
   - message: "<div class=\"Text\"> \n <p> The following WebSphere i18n APIs and SPIs
       are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.i18n.context</code></li>
@@ -156,7 +156,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-9
     when:
     - java.referenced:
-        pattern: '{I18nRule_0_packages}'
+        pattern: (com.ibm.websphere.i18n.context\.[^.]+|com.ibm.wsspi.i18n.context.util\.[^.]+)
   - message: "<div class=\"Text\"> \n <p> On Liberty, each DataHandler object can
       be written to an output stream only once. Writing a DataHandler object to an
       OutputStream object more than once results in an empty file. After you call
@@ -207,7 +207,7 @@
           pattern: com.ibm.ejs.ras.RasHelper.getServerName({*})
       - java.referenced:
           location: METHOD_CALL
-          pattern: com.ibm.websphere.runtime.ServerName.{ServerName_2_methodNames}({*})
+          pattern: com.ibm.websphere.runtime.ServerName.(getDisplayName|getFullName)({*})
   - message: "<div class=\"Text\"> \n <p> Liberty does not support Simple Object Access
       Protocol (SOAP) over Java Message Service (JMS). References to the following
       namespaces indicate usage of SOAP over JMS: </p> \n <ul> \n  <li>http://www.w3.org/2010/soapjms/</li>
@@ -243,7 +243,7 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{StartupBeanRule_0_packages}'
+          pattern: com.ibm.websphere.startupservice\.[^.]+
       - xmlfile: null
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Service Data Objects
       (SDO) APIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.sdo</code></li>
@@ -252,7 +252,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-14
     when:
     - java.referenced:
-        pattern: '{WebSphereSdoRule_0_packages}'
+        pattern: (com.ibm.websphere.sdo*\.[^.]+|com.ibm.websphere.sdox*\.[^.]+)
   - message: "<div class=\"Text\"> \n <p> The WebSphere Scheduler API was superseded
       by Enterprise JavaBeans Persistent Timers 3.2, which is enabled by the ejbPersistentTimer-3.2
       Liberty feature. </p> \n <p> This rule flags references to the <code>com.ibm.websphere.scheduler</code>
@@ -263,7 +263,7 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{WebSphereSchedulerRule_0_packages}'
+          pattern: com.ibm.websphere.scheduler\.[^.]+
       - xmlfile: null
   - message: "<div class=\"Text\"> \n <p> The WebSphere Servlet API was superseded
       by standard Servlet 3.0 functionality. </p> \n <p> This rule flags Java code
@@ -292,9 +292,9 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{WebSphereServletRule_0_packages}'
+          pattern: (com.ibm.websphere.servlet.request\.[^.]+|com.ibm.websphere.webcontainer.async\.[^.]+)
       - java.referenced:
-          pattern: '{WebSphereServletRule_1_classes}'
+          pattern: (com.ibm.servlet.ClientList|com.ibm.servlet.ClientListElement|com.ibm.servlet.MLNotFoundException|com.ibm.servlet.PageListServlet|com.ibm.servlet.PageNotFoundException|com.ibm.websphere.servlet.filter.ChainedRequest|com.ibm.websphere.servlet.filter.ChainedResponse|com.ibm.websphere.servlet.filter.ChainerServlet|com.ibm.websphere.servlet.filter.ServletChain|com.ibm.websphere.servlet.response.IResponse|com.ibm.websphere.servlet.response.StoredResponseCompat|com.ibm.websphere.servlet.response.HttpServletResponseProxy|com.ibm.websphere.servlet.response.ResponseUtils|com.ibm.websphere.servlet.response.ServletOutputStreamAdapter|com.ibm.websphere.servlet.response.ResponseErrorReport)
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Application Client
       APIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.client.applicationclient</code></li>
       \n </ul> \n <p>You must modify the application so that it can run on Liberty.</p>
@@ -302,7 +302,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-17
     when:
     - java.referenced:
-        pattern: '{WebSphereUnavailableAPIsAppClient_0_packages}'
+        pattern: com.ibm.websphere.client.applicationclient\.[^.]+
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Connector Architecture
       APIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.j2c</code></li>
       \n </ul> \n <p>You must modify the application so that it can run on Liberty.</p>
@@ -310,7 +310,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-18
     when:
     - java.referenced:
-        pattern: '{WebSphereUnavailableAPIsConnectorArchitecture_0_packages}'
+        pattern: com.ibm.websphere.j2c\.[^.]+
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Enterprise JavaBeans
       APIs and SPIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.ejbcontainer</code></li>
       \n  <li><code>com.ibm.websphere.ejbpersistence</code></li> \n  <li><code>com.ibm.websphere.csi</code></li>
@@ -319,7 +319,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-19
     when:
     - java.referenced:
-        pattern: '{WebSphereUnavailableAPIsEnterpriseJavaBeans_0_packages}'
+        pattern: (com.ibm.websphere.ejbcontainer*\.[^.]+|com.ibm.websphere.ejbpersistence*\.[^.]+|com.ibm.wsspi.ejbpersistence\.[^.]+|com.ibm.websphere.csi\.[^.]+)
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Exception APIs and
       SPIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.exception.DistributedEJBCreateException</code></li>
       \n  <li><code>com.ibm.websphere.exception.DistributedEJBRemoveException</code></li>
@@ -329,9 +329,9 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{WebSphereUnavailableAPIsExceptions_0_classes}'
+          pattern: (com.ibm.websphere.exception.DistributedEJBCreateException|com.ibm.websphere.exception.DistributedEJBRemoveException)
       - java.referenced:
-          pattern: '{WebSphereUnavailableAPIsExceptions_1_packages}'
+          pattern: com.ibm.ws.exception\.[^.]+
   - message: "<div class=\"Text\"> \n <p> The following Extension Registry APIs are
       not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.workplace.extension</code></li>
       \n </ul> \n <p>You must modify the application so that it can run on Liberty.</p>
@@ -362,9 +362,9 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{WebSphereUnavailableAPIsLoggingAndRAS_0_packages}'
+          pattern: (com.ibm.ejs.ras*\.[^.]+|com.ibm.ffdc*\.[^.]+|com.ibm.ras*\.[^.]+|com.ibm.websphere.als*\.[^.]+|com.ibm.websphere.logging.cbe*\.[^.]+|com.ibm.websphere.ras*\.[^.]+|com.ibm.wsspi.rasdiag*\.[^.]+|com.ibm.wsspi.xct*\.[^.]+)
       - java.referenced:
-          pattern: '{WebSphereUnavailableAPIsLoggingAndRAS_1_classes}'
+          pattern: (com.ibm.websphere.logging.MessageConverter|com.ibm.websphere.logging.RawTraceList|com.ibm.websphere.logging.RawTraceList$PatternLevel|com.ibm.websphere.logging.WsLevel)
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Management APIs
       and SPIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.ant.tasks</code></li>
       \n  <li><code>com.ibm.websphere.hamanager.jmx</code></li> \n  <li><code>com.ibm.websphere.interrupt</code></li>
@@ -375,7 +375,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-24
     when:
     - java.referenced:
-        pattern: '{WebSphereUnavailableAPIsManagement_0_packages}'
+        pattern: (com.ibm.websphere.ant.tasks*\.[^.]+|com.ibm.websphere.hamanager.jmx*\.[^.]+|com.ibm.websphere.interrupt*\.[^.]+|com.ibm.websphere.management*\.[^.]+|com.ibm.websphere.naming*\.[^.]+|com.ibm.websphere.product*\.[^.]+|com.ibm.wsspi.management.metadata\.[^.]+)
   - message: "<div class=\"Text\"> \n <p> The following WebSphere ORB Extensions APIs
       are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.orbext</code></li>
       \n  <li><code>com.ibm.ejs.oa.EJSORB</code></li> \n </ul> \n <p>You must modify
@@ -383,7 +383,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-25
     when:
     - java.referenced:
-        pattern: '{WebSphereUnavailableAPIsORB_0_packages}'
+        pattern: (com.ibm.websphere.orbext*\.[^.]+|com.ibm.ejs.oa.EJSORB*\.[^.]+)
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Performance Monitoring
       Infrastructure (PMI) APIs and SPIs are not available on Liberty: </p> \n <ul>
       \n  <li><code>com.ibm.websphere.pmi</code></li> \n  <li><code>com.ibm.wsspi.pmi</code></li>
@@ -393,7 +393,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-26
     when:
     - java.referenced:
-        pattern: '{WebSphereUnavailableAPIsPMI_0_packages}'
+        pattern: (com.ibm.websphere.pmi*\.[^.]+|com.ibm.wsspi.pmi*\.[^.]+|com.ibm.ws.pmi.server\.[^.]+|com.ibm.ws.performance.tuning.rule\.[^.]+)
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Portal APIs are
       not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.portal</code></li>
       \n </ul> \n <p>You must modify the application so that it can run on Liberty.</p>
@@ -410,7 +410,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-28
     when:
     - java.referenced:
-        pattern: '{WebSphereUnavailableAPIsResourceAdapter_0_packages}'
+        pattern: (com.ibm.websphere.rsadapter*\.[^.]+|com.ibm.wsspi.rsadapter\.[^.]+|com.ibm.wsspi.rawrapper\.[^.]+)
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Security APIs and
       SPIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.crypto.KeyGenerator</code></li>
       \n  <li><code>com.ibm.websphere.crypto.KeyPair</code></li> \n  <li><code>com.ibm.websphere.crypto.KeyPairGenerator</code></li>
@@ -458,9 +458,9 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{WebSphereUnavailableAPIsSecurity_0_packages}'
+          pattern: (com.ibm.websphere.ssl.protocol\.[^.]+|com.ibm.IExtendedSecurity*\.[^.]+|com.ibm.websphere.security.oidc.util\.[^.]+|com.ibm.wsspi.security.audit\.[^.]+|com.ibm.wsspi.security.authorization\.[^.]+|com.ibm.wsspi.security.context\.[^.]+|com.ibm.wsspi.security.crypto.aes\.[^.]+|com.ibm.wsspi.security.csiv2\.[^.]+|com.ibm.wsspi.security.ltpa\.[^.]+|com.ibm.wsspi.security.policy\.[^.]+|com.ibm.wsspi.security.securitydomain\.[^.]+|com.ibm.wsspi.security.spnego\.[^.]+|com.ibm.wsspi.security.web.saml\.[^.]+)
       - java.referenced:
-          pattern: '{WebSphereUnavailableAPIsSecurity_1_classes}'
+          pattern: (com.ibm.websphere.security.auth.WSPrincipal|com.ibm.websphere.security.auth.IdentityPrincipal|com.ibm.websphere.security.auth.MappingAuthData|com.ibm.websphere.security.auth.AuthenticationFailedException|com.ibm.websphere.security.auth.AuthenticationNotSupportedException|com.ibm.websphere.security.auth.MapCredentialFailedException|com.ibm.websphere.security.auth.MapCredentialNotSupportedException|com.ibm.websphere.security.auth.UnsupportedRealmException|com.ibm.websphere.security.auth.ValidationFailedException|com.ibm.websphere.security.auth.ValidationNotSupportedException|com.ibm.websphere.security.auth.callback.NonPromptCallbackHandler|com.ibm.websphere.security.auth.callback.WSCcacheCallBackHandlerImpl|com.ibm.websphere.security.auth.callback.WSGUICallbackHandlerImpl|com.ibm.websphere.security.auth.callback.WSStdinCallbackHandlerImpl|com.ibm.websphere.security.DistributedUserMappingFailedException|com.ibm.websphere.security.ProviderFailureException|com.ibm.websphere.security.SAFRoleMapper|com.ibm.websphere.security.TrustAssociationInterceptor|com.ibm.websphere.security.UserMapping|com.ibm.websphere.security.UserMappingException|com.ibm.websphere.security.WebSphereBaseTrustAssociationInterceptor|com.ibm.ws.security.core.SecurityContext|com.ibm.ws.security.util.LoginHelper|com.ibm.ws.security.util.ByteArray|com.ibm.websphere.crypto.KeyGenerator|com.ibm.websphere.crypto.KeyPair|com.ibm.websphere.crypto.KeyPairGenerator|com.ibm.websphere.crypto.KeySetHelper|com.ibm.wsspi.ssl.RetrieveSignersHelper|com.ibm.wsspi.ssl.WSPKIClient|com.ibm.wsspi.security.auth.callback.WSIdentityCallback|com.ibm.wsspi.security.auth.callback.WSMappingCallbackHandlerFactory|com.ibm.wsspi.security.auth.callback.WSProtocolPolicyCallback|com.ibm.wsspi.security.auth.callback.WSTokenHolderCallback|com.ibm.wsspi.security.auth.WSSubjectWrapper|com.ibm.wsspi.security.tai.NegotiateTrustAssociationInterceptor|com.ibm.wsspi.security.tai.NegotiateTrustAssociationInterceptorImpl|com.ibm.wsspi.security.tai.TrustAssociationInterceptorExt|com.ibm.wsspi.security.token.AuthenticationToken|com.ibm.wsspi.security.token.AuthorizationToken|com.ibm.wsspi.security.token.KerberosToken|com.ibm.wsspi.security.token.PropagationToken|com.ibm.wsspi.security.token.TokenHolder|com.ibm.wsspi.security.token.WSOpaqueTokenHelper)
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Service Integration
       Bus (SIB) APIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.sib</code></li>
       \n </ul> \n <p>You must modify the application so that it can run on Liberty.</p>
@@ -508,7 +508,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-35
     when:
     - java.referenced:
-        pattern: '{WebSphereUnavailableAPIsWLM_0_packages}'
+        pattern: (com.ibm.websphere.wlm*\.[^.]+|com.ibm.websphere.wlm.exception*\.[^.]+)
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Studio Application
       Developer Integration Edition APIs are not available on Liberty: </p> \n <ul>
       \n  <li><code>com.ibm.webtools.runtime.AbstractStudioServlet</code></li> \n
@@ -529,9 +529,9 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{WebSphereUnavailableAPIsWSADIE_0_packages}'
+          pattern: (com.ibm.etools.ctc.plugin.binding.connector*\.[^.]+|com.ibm.etools.ctc.physicalrep*\.[^.]+|com.ibm.etools.ctc.wsdl.extensions.physicalrep*\.[^.]+|com.ibm.etools.logging*\.[^.]+|com.ibm.etools.xsltypeconverter*\.[^.]+|com.ibm.jca.importservice*\.[^.]+|com.ibm.wsdl.extensions.physicalrep*\.[^.]+|com.ibm.wsdl.extensions.transformer*\.[^.]+|com.ibm.wsif.format.jca*\.[^.]+|com.ibm.wsif.format.literal*\.[^.]+|com.ibm.wsif.format.transformer*\.[^.]+|com.ibm.wsif.jca*\.[^.]+|com.ibm.wsif.providers.ejb.proxy*\.[^.]+|com.ibm.wsif.providers.transformer*\.[^.]+|com.ibm.wsif.providers.transformerrt*\.[^.]+|org.xmlsoap.schemas.wsdl.wsadie.messages*\.[^.]+)
       - java.referenced:
-          pattern: '{WebSphereUnavailableAPIsWSADIE_1_classes}'
+          pattern: (com.ibm.webtools.runtime.AbstractStudioServlet|com.ibm.webtools.runtime.BuildNumber|com.ibm.webtools.runtime.NoDataException|com.ibm.webtools.runtime.StudioPervasiveServlet|com.ibm.webtools.runtime.TransactionFailureException|com.ibm.webtools.runtime.WSUtilities)
   - message: "<div class=\"Text\"> \n <p> The following WSSecurityHelper methods are
       not available on Liberty: </p> \n <ul> \n  <li><code>getCallerList</code></li>
       \n  <li><code>getFirstCaller</code></li> \n  <li><code>getFirstServer</code></li>
@@ -544,7 +544,7 @@
     when:
     - java.referenced:
         location: METHOD_CALL
-        pattern: com.ibm.websphere.security.WSSecurityHelper.{WebSphereUnavailableAPIsWSSecurityHelper_0_methodNames}({*})
+        pattern: com.ibm.websphere.security.WSSecurityHelper.(getFirstCaller|getFirstServer|getCallerList|getServerList|getPropagationAttributes|addPropagationAttribute|convertCookieStringToBytes|revokeSSOCookiesForPortlets)({*})
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Remote Request Dispatcher
       (RRD) SPIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.wsspi.rrd</code></li>
       \n </ul> \n <p>You must modify the application so that it can run on Liberty.</p>
@@ -687,7 +687,7 @@
     when:
     - or:
       - java.referenced:
-          pattern: '{WOLAMissingClassesRule_0_classes}'
+          pattern: (com.ibm.websphere.ola.OLAConnectionHandle|com.ibm.websphere.ola.OLAHeader|com.ibm.websphere.ola.OLARGE|com.ibm.websphere.ola.OLARGEInformation|com.ibm.websphere.ola.OLARGEList|com.ibm.websphere.ola.OLASearchObject|com.ibm.websphere.ola.OLAStatusInformation)
       - java.referenced:
           location: ANNOTATION
           pattern: javax.ejb.RemoteHome
@@ -706,7 +706,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-42
     when:
     - java.referenced:
-        pattern: '{WOLARule_0_packages}'
+        pattern: com.ibm.websphere.ola\.[^.]+
   - message: "<div class=\"Text\"> \n <p> The following WebSphere Work Area APIs and
       SPIs are not available on Liberty: </p> \n <ul> \n  <li><code>com.ibm.websphere.workarea</code></li>
       \n  <li><code>com.ibm.wsspi.workarea</code></li> \n </ul> \n <p>You must modify
@@ -714,7 +714,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-43
     when:
     - java.referenced:
-        pattern: '{WorkAreaRule_0_packages}'
+        pattern: (com.ibm.websphere.workarea\.[^.]+|com.ibm.wsspi.workarea\.[^.]+)
   - message: "<span class=\"SubHeader\">The WebSphere Web Services Notification (WS-Notification)
       APIs are unavailable</span> \n<div class=\"Text\"> \n <p> The following WebSphere
       Web Services Notification (WS-Notification) APIs are not available on Liberty:
@@ -759,7 +759,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-46
     when:
     - java.referenced:
-        pattern: '{WebSphereWebServicesRule_0_packages}'
+        pattern: (com.ibm.websphere.webservices\.[^.]+|com.ibm.websphere.websvcs.rm\.[^.]+|com.ibm.websphere.wsaddressing\.[^.]+|com.ibm.websphere.wsrf\.[^.]+|com.ibm.websphere.wssecurity\.[^.]+|com.ibm.websphere.cache.webservices\.[^.]+|com.ibm.ws.webservices\.[^.]+|com.ibm.ws.websvcs\.[^.]+|com.ibm.ws.wssecurity\.[^.]+|com.ibm.wsspi.soapcontainer\.[^.]+|com.ibm.wsspi.webservices\.[^.]+|com.ibm.wsspi.wssecurity\.[^.]+|com.ibm.wsspi.wsaddressing\.[^.]+|com.ibm.wsspi.wsrm\.[^.]+)
   - message: |-
       <div class="Text">
                               <p>
@@ -798,4 +798,4 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-47
     when:
     - java.referenced:
-        pattern: '{WebSphereWebServicesGeneratedClassesRule_0_packages}'
+        pattern: (com.ibm.websphere.webservices\.[^.]+|com.ibm.websphere.websvcs.rm\.[^.]+|com.ibm.websphere.wsaddressing\.[^.]+|com.ibm.websphere.wsrf\.[^.]+|com.ibm.websphere.wssecurity\.[^.]+|com.ibm.websphere.cache.webservices\.[^.]+|com.ibm.ws.webservices\.[^.]+|com.ibm.ws.websvcs\.[^.]+|com.ibm.ws.wssecurity\.[^.]+|com.ibm.wsspi.soapcontainer\.[^.]+|com.ibm.wsspi.webservices\.[^.]+|com.ibm.wsspi.wssecurity\.[^.]+|com.ibm.wsspi.wsaddressing\.[^.]+|com.ibm.wsspi.wsrm\.[^.]+)

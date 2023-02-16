@@ -14,7 +14,7 @@
     when:
     - java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.criterion.Projections.{method}{*}
+        pattern: org.hibernate.criterion.Projections.(count|rowCount|sum){*}
   - message: "\n                         The initial/default naming strategy in Hibernate
       4 was changed from DefaultNamingStrategy to EJB3NamingStrategy. This can result
       in naming mismatches. If you rely on the naming strategy, call Configuration#setNamingStrategy.\n
@@ -75,7 +75,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-8
     when:
     - java.referenced:
-        pattern: org.hibernate.connection.{classname}
+        pattern: org.hibernate.connection.[^.]+
   - message: The class org.hibernate.collection.PersistentBag was moved to org.hibernate.collection.internal.PersistentBag
       in Hibernate 4
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-9
@@ -88,4 +88,4 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-10
     when:
     - java.referenced:
-        pattern: net.sf.hibernate.{classname}
+        pattern: net.sf.hibernate.[^.]+

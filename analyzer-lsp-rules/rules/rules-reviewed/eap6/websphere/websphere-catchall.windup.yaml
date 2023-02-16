@@ -2,12 +2,12 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-catchall.windup.xml-0
     when:
     - java.referenced:
-        pattern: com.ibm.db2.jcc.{type}
+        pattern: com.ibm.db2.jcc.[^.]+
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-catchall.windup.xml-1
     when:
     - java.referenced:
-        pattern: '{package}.{type}'
+        pattern: (com\.)?(websphere|ibm)(\..*)?.[^.]+
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-catchall.windup.xml-2
     when:
     - java.referenced:
-        pattern: ilog.{subpackage}.{type}
+        pattern: ilog..*.[^.]+

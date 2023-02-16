@@ -6,7 +6,7 @@
     when:
     - java.referenced:
         location: ANNOTATION
-        pattern: org.apache.camel.{class}
+        pattern: org.apache.camel.(BeanInject|Consume|DynamicRouter|EndpointInject|Produce|PropertyInject|RecipientList|RoutingSlip)
   - message: "\n                        Support for multiple CamelContexts has been
       removed, and therefore `{CdiCamelContextName}` has been removed. Instead use
       standard CDI annotations such as `javax.inject.Named` and `javax.enterprise.context.ApplicationScoped`.\n
@@ -15,4 +15,4 @@
     when:
     - java.referenced:
         location: IMPORT
-        pattern: org.apache.camel.cdi.{CdiCamelContextName}
+        pattern: org.apache.camel.cdi.(ContextName|ContextNames)

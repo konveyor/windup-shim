@@ -111,35 +111,13 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	}
 	if windupWhen.Javaclass != nil {
 		for _, jc := range windupWhen.Javaclass {
-			patterns := substituteWhere(where, jc.References)
-			for _, pattern := range patterns {
-				if jc.Location != nil {
-					for _, location := range jc.Location {
-						condition := map[string]interface{}{
-							"java.referenced": map[string]interface{}{
-								"location": location,
-								"pattern":  pattern,
-								// TODO handle jc.Annotationtype
-								// TODO handle jc.Annotationlist
-								// TODO handle jc.Annotationliteral
-								// TODO handle jc.MatchesSource
-								// TODO handle jc.In
-							},
-						}
-						if jc.As != "" {
-							condition["as"] = jc.As
-							// TODO this is probably a dumb assumption
-							condition["ignore"] = true
-						}
-						if jc.From != "" {
-							condition["from"] = jc.From
-						}
-						conditions = append(conditions, condition)
-					}
-				} else {
+			pattern := substituteWhere(where, jc.References)
+			if jc.Location != nil {
+				for _, location := range jc.Location {
 					condition := map[string]interface{}{
 						"java.referenced": map[string]interface{}{
-							"pattern": pattern,
+							"location": location,
+							"pattern":  pattern,
 							// TODO handle jc.Annotationtype
 							// TODO handle jc.Annotationlist
 							// TODO handle jc.Annotationliteral
@@ -157,6 +135,26 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 					}
 					conditions = append(conditions, condition)
 				}
+			} else {
+				condition := map[string]interface{}{
+					"java.referenced": map[string]interface{}{
+						"pattern": pattern,
+						// TODO handle jc.Annotationtype
+						// TODO handle jc.Annotationlist
+						// TODO handle jc.Annotationliteral
+						// TODO handle jc.MatchesSource
+						// TODO handle jc.In
+					},
+				}
+				if jc.As != "" {
+					condition["as"] = jc.As
+					// TODO this is probably a dumb assumption
+					condition["ignore"] = true
+				}
+				if jc.From != "" {
+					condition["from"] = jc.From
+				}
+				conditions = append(conditions, condition)
 			}
 		}
 	}
@@ -209,24 +207,10 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	return conditions
 }
 
-func substituteWhere(where map[string]string, pattern string) []string {
-	newPatterns := []string{}
+func substituteWhere(where map[string]string, pattern string) string {
 	newString := pattern
 	for k, v := range where {
-		// var substs []string
-		// if strings.HasPrefix(v, "(") && (strings.HasSuffix(v, ")") || strings.HasSuffix(v, ")?")) {
-		// 	substs = strings.Split(strings.Trim(v, "()?"), "|")
-		// } else {
-		// 	runtime.Breakpoint()
-		// }
-		// fmt.Println(k + ": " + v)
-		// if strings.Contains(pattern, "{"+k+"}") {
-		// for _, subst := range substs {
-		// 	newPatterns = append(newPatterns, strings.ReplaceAll(pattern, "{"+k+"}", subst))
-		// }
-		// } else {
-		// newPatterns = append(newPatterns, pattern)
-		// }
+		newString = strings.ReplaceAll(newString, "{"+k+"}", v)
 	}
 	return newString
 }

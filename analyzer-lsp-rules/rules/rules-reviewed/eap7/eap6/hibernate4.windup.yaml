@@ -125,7 +125,7 @@
     when:
     - java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.cfg.Configuration.{configure}
+        pattern: org.hibernate.cfg.Configuration.(configure\([^)]*\))
   - message: Use `org.hibernate.boot.SessionFactoryBuilder#applyInterceptor` instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-19
     when:
@@ -157,7 +157,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-23
     when:
     - java.referenced:
-        pattern: org.hibernate.metamodel.spi.{type}
+        pattern: org.hibernate.metamodel.spi.(TypeContributor|TypeContributions)
   - message: "\n                    All functionality from `org.hibernate.cfg.AnnotationConfiguration`
       has been moved to `org.hibernate.cfg.Configuration`.\n                    "
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-24
@@ -168,13 +168,13 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-25
     when:
     - java.referenced:
-        pattern: org.hibernate.id.{idclass}
+        pattern: org.hibernate.id.(TableGenerator|TableHiLoGenerator|SequenceGenerator|SequenceIdentityGenerator|SequenceHiLoGenerator)
   - message: Hibernate 5 moved `org.hibernate.hql.spi.{type}` class to new `org.hibernate.hql.spi.id`
       package.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-26
     when:
     - java.referenced:
-        pattern: org.hibernate.hql.spi.{type}
+        pattern: org.hibernate.hql.spi.(MultiTableBulkIdStrategy|MultiTableBulkIdStrategy.DeleteHandler|MultiTableBulkIdStrategy.UpdateHandler|AbstractTableBasedBulkIdHandler|AbstractTableBasedBulkIdHandler.ProcessedWhereClause|TableBasedDeleteHandlerImpl|TableBasedUpdateHandlerImpl)
   - message: Hibernate 5 moved `org.hibernate.hql.spi.PersistentTableBulkIdStrategy`
       class to new `org.hibernate.hql.spi.id.persistent` package.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4.windup.xml-27
@@ -235,7 +235,9 @@
     - or:
       - java.referenced:
           location: INHERITANCE
-          pattern: org.hibernate.spatial.dialect.{spatial}
+          pattern: org.hibernate.spatial.dialect.(mysql.MySQLGeometryTypeDescriptor
+            | h2geodb.GeoDBGeometryTypeDescriptor | postgis.PGGeometryTypeDescriptor
+            | oracle.SDOGeometryTypeDescriptor | sqlserver.SqlServer2008GeometryTypeDescriptor)
       - java.referenced:
           location: INHERITANCE
           pattern: org.hibernate.spatial.JTSGeometryJavaTypeDescriptor
@@ -244,10 +246,10 @@
           pattern: org.hibernate.spatial.GeolatteGeometryJavaTypeDescriptor
       - java.referenced:
           location: INHERITANCE
-          pattern: org.hibernate.type.descriptor.java.{javatype}
+          pattern: org.hibernate.type.descriptor.java.(AbstractTypeDescriptor|BigDecimalTypeDescriptor|BigIntegerTypeDescriptor|BlobTypeDescriptor|BooleanTypeDescriptor|ByteArrayTypeDescriptor|ByteTypeDescriptor|CalendarDateTypeDescriptor|CalendarTimeTypeDescriptor|CalendarTypeDescriptor|CharacterArrayTypeDescriptor|CharacterTypeDescriptor|ClassTypeDescriptor|ClobTypeDescriptor|CurrencyTypeDescriptor|DateTypeDescriptor|DoubleTypeDescriptor|DurationJavaDescriptor|EnumJavaTypeDescriptor|FloatTypeDescriptor|InstantJavaDescriptor|IntegerTypeDescriptor|JavaTypeDescriptorRegistry.FallbackJavaTypeDescriptor|JdbcDateTypeDescriptor|JdbcTimestampTypeDescriptor|JdbcTimeTypeDescriptor|LocalDateTimeJavaDescriptor|LocalDateJavaDescriptor|LocaleTypeDescriptor|LocalTimeJavaDescriptor|LongTypeDescriptor|NClobTypeDescriptor|OffsetDateTimeJavaDescriptor|OffsetTimeJavaDescriptor|PrimitiveByteArrayTypeDescriptor|PrimitiveCharacterArrayTypeDescriptor|SerializableTypeDescriptor|ShortTypeDescriptor|StringTypeDescriptor|TimeZoneTypeDescriptor|UrlTypeDescriptor|UUIDTypeDescriptor|ZonedDateTimeJavaDescriptor)
       - java.referenced:
           location: INHERITANCE
-          pattern: org.hibernate.type.descriptor.sql.{sqltype}
+          pattern: org.hibernate.type.descriptor.sql.(BigIntTypeDescriptor|BinaryTypeDescriptor|BitTypeDescriptor|BlobTypeDescriptor|BooleanTypeDescriptor|CharTypeDescriptor|ClobTypeDescriptor|DateTypeDescriptor|DecimalTypeDescriptor|DoubleTypeDescriptor|FloatTypeDescriptor|IntegerTypeDescriptor|LongNVarcharTypeDescriptor|LongVarbinaryTypeDescriptor|LongVarcharTypeDescriptor|NCharTypeDescriptor|NClobTypeDescriptor|NumericTypeDescriptor|NVarcharTypeDescriptor|RealTypeDescriptor|SmallIntTypeDescriptor|SqlTypeDescriptorRegistry.ObjectSqlTypeDescriptor|TimestampTypeDescriptor|TimeTypeDescriptor|TinyIntTypeDescriptor|VarbinaryTypeDescriptor|VarcharTypeDescriptor)
       - java.referenced:
           location: INHERITANCE
           pattern: org.hibernate.type.descriptor.converter.AttributeConverterSqlTypeDescriptorAdapter
@@ -301,5 +303,5 @@
       or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: '{param_classes_setfirstresult}.setFirstResult(int)'
+          pattern: javax.persistence.Query|org.hibernate.Query|org.hibernate.Criteria.setFirstResult(int)
       - xmlfile: null
