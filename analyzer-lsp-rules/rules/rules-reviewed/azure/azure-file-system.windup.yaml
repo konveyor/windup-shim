@@ -1,9 +1,7 @@
 - rules:
-  - message: "\n                        \n                        The application
-      uses Java APIs to read/write from the file system.\n                        \n
-      \                       Any usage of the file system on the application will
-      require reconfiguration or, in rare cases, architectural changes.\n                        \n
-      \                   "
+  - message: The application uses Java APIs to read/write from the file system.. Any
+      usage of the file system on the application will require reconfiguration or,
+      in rare cases, architectural changes.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-0
     when:
     - or:
@@ -13,19 +11,15 @@
           pattern: java.nio.{*}
       - java.referenced:
           pattern: org.apache.commons.io.{*}
-  - message: "\n                        \n                        Relative path found.\n
-      \                       \n                        Any usage of the file system
-      on the application will require reconfiguration or, in rare cases, architectural
-      changes.\n                        \n                    "
+  - message: Relative path found.. Any usage of the file system on the application
+      will require reconfiguration or, in rare cases, architectural changes.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-1
     when:
     - filecontent:
         filename: '{*}.{extensions}'
         pattern: '{path}'
-  - message: "\n                        \n                        Home path found.\n
-      \                       \n                        Any usage of the file system
-      on the application will require reconfiguration or, in rare cases, architectural
-      changes.\n                        \n                    "
+  - message: Home path found.. Any usage of the file system on the application will
+      require reconfiguration or, in rare cases, architectural changes.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-2
     when:
     - filecontent:

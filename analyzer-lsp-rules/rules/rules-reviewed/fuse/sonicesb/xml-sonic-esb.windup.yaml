@@ -1,4 +1,7 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/xml-sonic-esb.windup.xml-0
+    tag:
+    - sonic-esb
     when:
-    - xmlfile: null
+    - xml:
+        XPath: /*[local-name()='serviceType']

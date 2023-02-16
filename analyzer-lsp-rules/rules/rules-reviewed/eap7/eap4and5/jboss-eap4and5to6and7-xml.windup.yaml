@@ -1,67 +1,76 @@
 - rules:
-  - message: "\n                        \n                        MBeans were part
-      of the core architecture in previous versions of Red Hat JBoss Enterprise Application
-      Platform.  \n                        JBoss Service Archive (SAR) deployments
+  - message: MBeans were part of the core architecture in previous versions of Red
+      Hat JBoss Enterprise Application Platform.. JBoss Service Archive (SAR) deployments
       using the JBoss specific `jboss-service.xml` and `jboss-beans.xml` service-style
       descriptors were used by the application server to create MBeans based on JBoss
-      Beans.  \n                        The internal architecture has changed in JBoss
-      EAP 6+ and is no longer based on an MBean JMX architecture.\n                        \n
-      \                   "
+      Beans.. The internal architecture has changed in JBoss EAP 6+ and is no longer
+      based on an MBean JMX architecture.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-0
     when:
-    - file: null
-  - message: "\n                        \n                        `BarrierController`
-      service is no longer available in JBoss EAP 6+.  \n                         In
-      JBoss EAP 4.x the JBoss 'kernel' layer was an extension of JMX which is why
-      everything was an MBean, though most of the MBean functionality still worked
-      in JBoss EAP 5.  \n                         JBoss EAP 6 is no longer based on
-      Mbeans, and the Mbeans which are seen in jconsole are actually just facades
-      over the JBoss management API, so declaring Mbean dependencies on any other
-      Mbeans that appear to be JBoss Mbeans does not work since they are not real
-      Mbeans.  \n                        \n                    "
+    - file: jboss-{types}.xml
+  - message: '`BarrierController` service is no longer available in JBoss EAP 6+..
+      In JBoss EAP 4.x the JBoss ''kernel'' layer was an extension of JMX which is
+      why everything was an MBean, though most of the MBean functionality still worked
+      in JBoss EAP 5.. JBoss EAP 6 is no longer based on Mbeans, and the Mbeans which
+      are seen in jconsole are actually just facades over the JBoss management API,
+      so declaring Mbean dependencies on any other Mbeans that appear to be JBoss
+      Mbeans does not work since they are not real Mbeans.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-1
     when:
-    - xmlfile: null
-  - message: "\n                        \n                        `CompressingMarshaller`
-      marshaller is no longer available in JBoss EAP 6+.  \n                        In
-      JBoss EAP 6.3.0 and later, data compression hints can be specified via the JBoss
-      annotation `org.jboss.ejb.client.annotation.CompressionHint`\n                        \n
-      \                   "
+    - xml:
+        XPath: //mbean[@code='org.jboss.system.BarrierController']
+        filepaths:
+        - jboss-service.xml
+  - message: '`CompressingMarshaller` marshaller is no longer available in JBoss EAP
+      6+.. In JBoss EAP 6.3.0 and later, data compression hints can be specified via
+      the JBoss annotation `org.jboss.ejb.client.annotation.CompressionHint`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-2
     when:
     - or:
-      - xmlfile: null
-  - message: "\n                        \n                        In JBoss EAP 6+,
-      Security is configured in the `<security-domain>` element in the server configuration
-      file.\n                        \n                    "
+      - xml:
+          XPath: //mbean[@code='org.jboss.remoting.transport.Connector']//attribute[text()='org.jboss.remoting.marshal.compress.CompressingMarshaller'
+            and @name='marshaller']
+          filepaths:
+          - jboss-service.xml
+      - xml:
+          XPath: //value[text()='org.jboss.remoting.marshal.compress.CompressingMarshaller']
+          filepaths:
+          - jboss-beans.xml
+  - message: In JBoss EAP 6+, Security is configured in the `<security-domain>` element
+      in the server configuration file.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-3
     when:
-    - xmlfile: null
-  - message: "\n                        \n                        The `class-loading`
-      and `loader-repository` configuration in `jboss.xml`, `jboss-web.xml` and `jboss-service.xml`
-      were JBoss EAP 4.x & 5.x configuration options for specifying classloader isolation
-      on a deployment.  \n                        In JBoss EAP 6+, it uses JBoss Modules
-      for its classloader implementation so all deployments are isolated in their
-      own classloader / JBoss Module and the `loader-repository` is no longer valid.
-      \ \n                        The `jboss-deployment-structure.xml` can be used
-      to specify classloader / module dependencies if needed.\n                        \n
-      \                   "
+    - xml:
+        XPath: //authentication/login-module
+  - message: The `class-loading` and `loader-repository` configuration in `jboss.xml`,
+      `jboss-web.xml` and `jboss-service.xml` were JBoss EAP 4.x & 5.x configuration
+      options for specifying classloader isolation on a deployment.. In JBoss EAP
+      6+, it uses JBoss Modules for its classloader implementation so all deployments
+      are isolated in their own classloader / JBoss Module and the `loader-repository`
+      is no longer valid.. The `jboss-deployment-structure.xml` can be used to specify
+      classloader / module dependencies if needed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-4
     when:
-    - xmlfile: null
-  - message: "\n                        \n                        JBoss EAP 6 supports
-      deploying SAR files, however JBoss EAP 5 and 6 do not share a lot of the internals.
-      \ \n                        The class your `jboss-{types}.xml` file is trying
-      to instantiate (`org.jboss.naming.NamingAlias`) was an implementation detail
-      of JBoss EAP 5's naming components that does not exist in JBoss EAP 6.\n                        \n
-      \                   "
+    - xml:
+        XPath: //class-loading/loader-repository
+        filepaths:
+        - jboss{type}.xml
+  - message: JBoss EAP 6 supports deploying SAR files, however JBoss EAP 5 and 6 do
+      not share a lot of the internals.. The class your `jboss-{types}.xml` file is
+      trying to instantiate (`org.jboss.naming.NamingAlias`) was an implementation
+      detail of JBoss EAP 5's naming components that does not exist in JBoss EAP 6.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-5
     when:
-    - xmlfile: null
-  - message: "\n                        \n                        In JBoss EAP 6 and
-      7 you can set the JAAS cache timeout, changing the `cache-type` to `infinispan`
-      which uses Infinispan cache which has an expiration capability.\n                        \n
-      \                   "
+    - xml:
+        XPath: //mbean[@code='org.jboss.naming.NamingAlias']
+        filepaths:
+        - jboss-service.xml
+  - message: In JBoss EAP 6 and 7 you can set the JAAS cache timeout, changing the
+      `cache-type` to `infinispan` which uses Infinispan cache which has an expiration
+      capability.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-6
     when:
-    - xmlfile: null
+    - xml:
+        XPath: //mbean[@code='org.jboss.security.plugins.JaasSecurityManagerService']/attribute[@name='DefaultCacheTimeout']
+        filepaths:
+        - jboss-service.xml

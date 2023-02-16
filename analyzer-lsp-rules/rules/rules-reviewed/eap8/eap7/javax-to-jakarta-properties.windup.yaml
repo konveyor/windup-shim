@@ -1,5 +1,5 @@
 - rules:
-  - message: 'Rename properties prefixed by `javax` with `jakarta` '
+  - message: Rename properties prefixed by `javax` with `jakarta`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-properties.windup.xml-0
     when:
     - filecontent:

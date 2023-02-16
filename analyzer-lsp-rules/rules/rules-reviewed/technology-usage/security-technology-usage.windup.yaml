@@ -5,4 +5,11 @@
       - java.referenced:
           location: ANNOTATION
           pattern: javax.annotation.security.{*}
-      - xmlfile: null
+      - xml:
+          XPath: //*[local-name() = 'login-config']/*[local-name() = 'realm-name']
+          filepaths:
+          - web.xml
+      - xml:
+          XPath: //*[local-name() = 'login-config']/*[local-name() = 'realm']
+          filepaths:
+          - '{*}ejb-jar.xml'

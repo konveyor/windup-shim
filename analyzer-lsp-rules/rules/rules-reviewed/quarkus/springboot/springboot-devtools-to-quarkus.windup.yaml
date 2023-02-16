@@ -1,7 +1,9 @@
 - rules:
-  - message: "\n                        Remove the spring-boot-devtools dependency.\n
-      \                       Quarkus has its own set of development tools integrated
-      by default.\n                    "
+  - message: Remove the spring-boot-devtools dependency.. Quarkus has its own set
+      of development tools integrated by default.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-devtools-to-quarkus.windup.xml-0
     when:
-    - xmlfile: null
+    - xml:
+        XPath: /m:project/m:dependencies/m:dependency[m:artifactId = 'spring-boot-devtools']
+        filepaths:
+        - pom.xml

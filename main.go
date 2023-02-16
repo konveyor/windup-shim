@@ -158,16 +158,56 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			}
 		}
 	}
-	// TODO below here
 	if windupWhen.Xmlfile != nil {
-		conditions = append(conditions, map[string]interface{}{"xmlfile": nil})
+		for _, xf := range windupWhen.Xmlfile {
+			xmlCond := map[string]interface{}{
+				"XPath": xf.Matches,
+			}
+			// TODO We don't support regexes here, may need to break it out into a separate lookup that gets passed through
+			if xf.In != "" {
+				xmlCond["filepaths"] = []string{xf.In}
+			}
+			condition := map[string]interface{}{
+				"xml": xmlCond,
+			}
+			if xf.As != "" {
+				condition["as"] = xf.As
+				// TODO this is probably a dumb assumption
+				condition["ignore"] = true
+			}
+			if xf.From != "" {
+				condition["from"] = xf.From
+			}
+			conditions = append(conditions, condition)
+		}
 	}
+
 	if windupWhen.File != nil {
-		conditions = append(conditions, map[string]interface{}{"file": nil})
+		for _, f := range windupWhen.File {
+			condition := map[string]interface{}{
+				"file": f.Filename,
+			}
+			if f.As != "" {
+				condition["as"] = f.As
+				// TODO this is probably a dumb assumption
+				condition["ignore"] = true
+			}
+			if f.From != "" {
+				condition["from"] = f.From
+			}
+			conditions = append(conditions, condition)
+		}
 	}
 	if windupWhen.Fileexists != nil {
-		conditions = append(conditions, map[string]interface{}{"file-exists": nil})
+		for _, f := range windupWhen.Fileexists {
+			condition := map[string]interface{}{
+				"file": f.Filename,
+			}
+			conditions = append(conditions, condition)
+		}
 	}
+	// TODO below here
+
 	// What is this ???
 	if windupWhen.True != "" {
 		conditions = append(conditions, map[string]interface{}{"true": nil})
@@ -215,8 +255,30 @@ func substituteWhere(where map[string]string, pattern string) string {
 	return newString
 }
 
+func trimMessage(s string) string {
+	lines := strings.Split(s, "\n")
+	cleanLines := []string{}
+	for _, line := range lines {
+		cleaned := strings.Trim(line, "\n \t")
+		if cleaned != "" {
+			cleanLines = append(cleanLines, cleaned)
+		}
+	}
+	return strings.Join(cleanLines, ". ")
+}
+
 // TODO handle perform fully
 func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]string) map[string]interface{} {
+	if perform.Iteration != nil {
+		ret := map[string]interface{}{}
+		for _, it := range perform.Iteration {
+			converted := convertWindupPerformToAnalyzer(it, where)
+			for k, v := range converted {
+				ret[k] = v
+			}
+		}
+		return ret
+	}
 	if perform.Hint != nil {
 		if len(perform.Hint) != 1 {
 			// TODO
@@ -226,22 +288,21 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		hint := perform.Hint[0]
 		if hint.Message != "" {
 			return map[string]interface{}{
-				"message": hint.Message,
+				"message": trimMessage(hint.Message),
 			}
 		}
-	} else if perform.Iteration != nil {
-
-		ret := map[string]interface{}{}
-		for _, it := range perform.Iteration {
-			converted := convertWindupPerformToAnalyzer(it, where)
-			for k, v := range converted {
-				ret[k] = v
-			}
-		}
-		return ret
-	} else {
-		fmt.Println("Can only handle Hint")
 	}
+	if perform.Classification != nil {
+		tags := []string{}
+		for _, classification := range perform.Classification {
+			tags = append(tags, classification.Tag...)
+		}
+		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
+		return map[string]interface{}{
+			"tag": tags,
+		}
+	}
+
 	return nil
 
 }

@@ -1,112 +1,149 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-0
+    tag: []
     when:
-    - file: null
+    - file: '{*}easymock{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-1
+    tag: []
     when:
-    - file: null
+    - file: '{*}powermock{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-2
+    tag: []
     when:
-    - file: null
+    - file: '{*}mockito{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-3
+    tag: []
     when:
-    - file: null
+    - file: '{*}testng{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-4
+    tag: []
     when:
-    - file: null
+    - file: '{*}hamcrest{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-5
+    tag: []
     when:
-    - file: null
+    - file: spring{*}test{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-6
+    tag: []
     when:
-    - file: null
+    - file: spock{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-7
+    tag: []
     when:
-    - file: null
+    - file: xmlunit{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-8
+    tag: []
     when:
-    - file: null
+    - file: akka-testkit{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-9
+    tag: []
     when:
-    - file: null
+    - file: rest-assured{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-10
+    tag: []
     when:
-    - file: null
+    - file: dbunit{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-11
+    tag: []
     when:
-    - file: null
+    - file: mule-test{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-12
+    tag: []
     when:
-    - file: null
+    - file: guava-testlib{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-13
+    tag: []
     when:
-    - file: null
+    - file: randomizedtesting-runner{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-14
+    tag: []
     when:
-    - file: null
+    - file: httpunit{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-15
+    tag: []
     when:
-    - file: null
+    - file: jcunit{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-16
+    tag: []
     when:
-    - file: null
+    - file: jpa-matchers{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-17
+    tag: []
     when:
-    - file: null
+    - file: multithreadedtc{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-18
+    tag: []
     when:
-    - file: null
+    - file: specsy{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-19
+    tag: []
     when:
-    - file: null
+    - file: jfunk{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-20
+    tag: []
     when:
-    - file: null
+    - file: restito{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-21
+    tag: []
     when:
-    - file: null
+    - file: test-interface{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-22
+    tag: []
     when:
-    - file: null
+    - file: play-test{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-23
+    tag: []
     when:
-    - file: null
+    - file: '{*}arquillian{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-24
+    tag: []
     when:
-    - file: null
+    - file: '{*}cactus{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-25
+    tag: []
     when:
-    - file: null
+    - file: '{*}concordion{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-26
+    tag: []
     when:
-    - file: null
+    - file: '{*}cucumber{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-27
+    tag: []
     when:
-    - file: null
+    - file: '{*}etlunit{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-28
+    tag: []
     when:
-    - file: null
+    - file: '{*}havarunner{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-29
+    tag: []
     when:
-    - file: null
+    - file: '{*}jbehave{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-30
+    tag: []
     when:
-    - file: null
+    - file: '{*}jmock-{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-31
+    tag: []
     when:
-    - file: null
+    - file: '{*}jmockit{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-32
+    tag: []
     when:
-    - file: null
+    - file: '{*}jukito{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-33
+    tag: []
     when:
-    - file: null
+    - file: '{*}needle{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-34
+    tag: []
     when:
-    - file: null
+    - file: '{*}openpojo{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-35
+    tag: []
     when:
-    - file: null
+    - file: '{*}unitils{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/test-frameworks-usage.windup.xml-36
+    tag: []
     when:
-    - file: null
+    - file: '{*}junit{*}.jar'

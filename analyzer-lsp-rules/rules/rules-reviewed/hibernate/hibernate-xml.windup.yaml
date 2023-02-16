@@ -4,26 +4,51 @@
       `String` properties to JDBC CLOB
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-0
     when:
-    - xmlfile: null
-  - message: "\n                        If you are using Oracle and using the ```materialized_clob```
-      or ```materialized_blob``` properties, this global environment variable must
-      be set to true.\n\t\t\tIf you are using PostgreSQL and using the CLOB or BLOB
-      properties, this global environment variable  must be set to false.\n                    "
+      or:
+      - as: "1"
+        ignore: true
+        xml:
+          XPath: /hibernate-mapping
+      - as: "2"
+        from: "1"
+        ignore: true
+        xml:
+          XPath: //*[@type='string']
+  - message: If you are using Oracle and using the ```materialized_clob``` or ```materialized_blob```
+      properties, this global environment variable must be set to true.. If you are
+      using PostgreSQL and using the CLOB or BLOB properties, this global environment
+      variable  must be set to false.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-1
     when:
-    - xmlfile: null
-  - message: "From Hibernate 4.0 there were moved classes from package `org.hibernate.connection`
-      to package `org.hibernate.service.jdbc.connections.internal`.\n                     You
-      should change your Hibernate setup to replace references to the old package
-      names.\n                     "
+      or:
+      - as: "1"
+        ignore: true
+        xml:
+          XPath: /hibernate-configuration
+      - as: "2"
+        from: "1"
+        ignore: true
+        xml:
+          XPath: //property[@name='hibernate.jdbc.use_streams_for_binary']
+  - message: From Hibernate 4.0 there were moved classes from package `org.hibernate.connection`
+      to package `org.hibernate.service.jdbc.connections.internal`.. You should change
+      your Hibernate setup to replace references to the old package names.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-2
     when:
     - filecontent:
         filename: hibernate-configuration.xml
         pattern: org.hibernate.connection
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-3
+    tag:
+    - hibernate
+    - configuration
     when:
-    - xmlfile: null
+    - xml:
+        XPath: ""
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-4
+    tag:
+    - hibernate
+    - configuration
     when:
-    - xmlfile: null
+    - xml:
+        XPath: ""

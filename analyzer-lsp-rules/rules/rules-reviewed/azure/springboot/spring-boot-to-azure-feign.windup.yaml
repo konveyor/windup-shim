@@ -1,9 +1,8 @@
 - rules:
-  - message: "\n                        \n                        The application
-      uses Feign. Spring Cloud Service Registry uses OpenFeign instead. When migrating
-      to Spring Cloud Service Registry, the Feign invocations will no longer be possible.\n
-      \                       \n                        Update the clients to use
-      Spring Cloud OpenFeign instead.\n                        \n                    "
+  - message: The application uses Feign. Spring Cloud Service Registry uses OpenFeign
+      instead. When migrating to Spring Cloud Service Registry, the Feign invocations
+      will no longer be possible.. Update the clients to use Spring Cloud OpenFeign
+      instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-feign.windup.xml-0
     when:
     - or:

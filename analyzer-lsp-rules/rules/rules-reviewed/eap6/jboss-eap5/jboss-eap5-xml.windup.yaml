@@ -1,65 +1,145 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-0
+    tag:
+    - cache
+    - distributed
+    - cluster
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: //mbean[@code='org.jboss.cache.TreeCache']
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-1
+    tag:
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: /classloading
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-2
+    tag:
+    - seam
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: /sc:components
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-3
+    tag:
+    - seam
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: /sp:pages
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-4
+    tag:
+    - seam
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: /page
+        filepaths:
+        - '{*}.page.xml'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-5
+    tag:
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: ""
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-6
+    tag:
+    - configuration
+    - deployment
+    - descriptor
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: //*[local-name()='jboss-app']
+        filepaths:
+        - jboss-app.xml
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-7
+    tag:
+    - web
+    - configuration
+    - deployment
+    - descriptor
+    - jboss-eap5
     when:
-    - xmlfile: null
-  - message: "\n                        In JBoss EAP 6, the classloading configuration
-      is not done through `jboss-classloading.xml`.\n                        Since
-      EAP 6 it is of modular nature, based on JBoss Modules.\n                        Learn
-      how to divide your application's dependencies into modules\n                        and
-      what dependencies and APIs are available automatically.\n                    "
+    - xml:
+        XPath: //*[local-name()='jboss-web']
+        filepaths:
+        - jboss-web.xml
+  - message: In JBoss EAP 6, the classloading configuration is not done through `jboss-classloading.xml`..
+      Since EAP 6 it is of modular nature, based on JBoss Modules.. Learn how to divide
+      your application's dependencies into modules. and what dependencies and APIs
+      are available automatically.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-8
     when:
-    - xmlfile: null
+    - xml:
+        XPath: /jbc:classloading
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-9
+    tag:
+    - classloading
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: //*[local-name()='jboss-deployment-structure']
+        filepaths:
+        - jboss-deployment-structure.xml
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-10
+    tag:
+    - jdbc
+    - ejb2
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: //*[local-name()='jbosscmp-jdbc']
+        filepaths:
+        - jbosscmp-jdbc.xml
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-11
+    tag:
+    - descriptor
+    - jboss-eap5
     when:
-    - xmlfile: null
-  - message: "\n                        `java:/jaas/` is a JBoss EAP `security-domain`
-      URI.\n                        Remove the `java:/jaas/` prefix for `security-domain`
-      elements in AS 7 / EAP 6.\n                    "
+    - xml:
+        XPath: //*[local-name()='jboss']
+        filepaths:
+        - jboss.xml
+  - message: '`java:/jaas/` is a JBoss EAP `security-domain` URI.. Remove the `java:/jaas/`
+      prefix for `security-domain` elements in AS 7 / EAP 6.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-12
     when:
-    - xmlfile: null
-  - message: "Before JBoss EAP 6, authentication security domains and login modules
-      could be configured in a `login-config.xml` file.\n                    JBoss
-      EAP 6+ does not support the `login-config.xml` descriptor. Security is now configured
-      inside the server configuration. Please refer to the corresponding server security
-      guide.\n                    "
+    - xml:
+        XPath: //*[local-name()='security-domain' and starts-with(text(), 'java:/jaas/')]
+  - message: Before JBoss EAP 6, authentication security domains and login modules
+      could be configured in a `login-config.xml` file.. JBoss EAP 6+ does not support
+      the `login-config.xml` descriptor. Security is now configured inside the server
+      configuration. Please refer to the corresponding server security guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-13
     when:
-    - xmlfile: null
+    - xml:
+        XPath: //*[local-name()='policy']
+        filepaths:
+        - login-config.xml
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-14
+    tag:
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: //*[local-name()='ejb-jar']
+        filepaths:
+        - jboss-ejb3.xml
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-15
+    tag:
+    - jboss-ws
+    - descriptor
+    - webservice
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: //*[local-name()='webservices']
+        filepaths:
+        - jboss-webservices.xml
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-16
+    tag:
+    - jboss-eap5
     when:
-    - xmlfile: null
+    - xml:
+        XPath: //server/mbean[@code='org.jboss.mq.server.jmx.Queue']

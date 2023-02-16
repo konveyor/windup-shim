@@ -1,20 +1,18 @@
 - rules:
-  - message: "\n                        \n                        `SerializationFeature.WRITE_DATES_AS_TIMESTAMPS`
-      is now disabled by default \n                        which means your temporal
-      types will be serialized as strings (e.g. `1988-11-17T00:00:00Z`) \n                        starting
-      1.13, instead of numeric values.\n\n                        You can easily go
-      back to the previous behavior by adding \n                        `quarkus.jackson.write-dates-as-timestamps=true`
-      to your `application.properties`.\n                        \n                    "
+  - message: '`SerializationFeature.WRITE_DATES_AS_TIMESTAMPS` is now disabled by
+      default. which means your temporal types will be serialized as strings (e.g.
+      `1988-11-17T00:00:00Z`). starting 1.13, instead of numeric values.. You can
+      easily go back to the previous behavior by adding. `quarkus.jackson.write-dates-as-timestamps=true`
+      to your `application.properties`.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-jackson.windup.xml-0
     when:
     - java.dependency:
         name: io.quarkus.quarkus-resteasy-jackson
-  - message: "\n                        \n                        `SerializationFeature.WRITE_DATES_AS_TIMESTAMPS`
-      is now disabled by default \n                        which means your temporal
-      types will be serialized as strings (e.g. `1988-11-17T00:00:00Z`) \n                        starting
-      1.13, instead of numeric values.\n\n                        You can easily go
-      back to the previous behavior by adding \n                        `quarkus.jackson.write-dates-as-timestamps=true`
-      to your `application.properties`.\n                        \n                    "
+  - message: '`SerializationFeature.WRITE_DATES_AS_TIMESTAMPS` is now disabled by
+      default. which means your temporal types will be serialized as strings (e.g.
+      `1988-11-17T00:00:00Z`). starting 1.13, instead of numeric values.. You can
+      easily go back to the previous behavior by adding. `quarkus.jackson.write-dates-as-timestamps=true`
+      to your `application.properties`.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-jackson.windup.xml-1
     when:
     - java.dependency:

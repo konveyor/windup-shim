@@ -1,60 +1,91 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-0
+    tag: []
     when:
-    - file: null
+    - file: '{*}hsqldb{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-1
+    tag: []
     when:
-    - file: null
+    - file: '{*}mysql-connector{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-2
+    tag: []
     when:
-    - file: null
+    - file: '{*}derby{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-3
+    tag: []
     when:
-    - file: null
+    - file: '{*}postgresql{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-4
+    tag: []
     when:
-    - file: null
+    - file: '{*}h2{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-5
+    tag: []
     when:
     - or:
-      - file: null
+      - file: sqljdbc{*}.jar
+      - file: mssql-jdbc{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-6
+    tag: []
     when:
-    - file: null
+    - file: '{*}sqlite-jdbc{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-7
+    tag: []
     when:
     - or:
-      - file: null
+      - file: '{*}jodbc{*}.jar'
+      - file: '{*}ojdbc{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-8
+    tag: []
     when:
     - or:
-      - file: null
+      - file: '{*}cassandra{*}.jar'
+      - file: '{*}hector{*}.jar'
+      - file: '{*}astyanax{*}.jar'
+      - file: '{*}phantom-dsl{*}.jar'
+      - file: '{*}cql{*}.jar'
+      - file: '{*}hecuba-client{*}.jar'
+      - file: '{*}c-star-path{*}.jar'
+      - file: '{*}scale7-pelops{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-9
+    tag: []
     when:
-    - file: null
+    - file: '{*}axion{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-10
+    tag: []
     when:
-    - file: null
+    - file: '{*}mckoisqldb{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-11
+    tag: []
     when:
     - or:
-      - file: null
+      - file: '{*}mongodb{*}.jar'
+      - file: '{*}casbah{*}.jar'
+      - file: '{*}reactivemongo{*}.jar'
+      - file: '{*}jongo{*}.jar'
+      - file: '{*}gmongo{*}.jar'
+      - file: '{*}rogue{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-12
     when:
-    - file: null
+    - file: spring-data{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-13
+    tag: []
     when:
-    - file: null
+    - file: '{*}morphia{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-14
+    tag: []
     when:
-    - file: null
+    - file: '{*}leveldb{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-15
+    tag: []
     when:
-    - file: null
+    - file: '{*}hbase{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-16
+    tag: []
     when:
-    - file: null
+    - file: '{*}accumulo{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-17
+    tag: []
     when:
     - or:
       - java.dependency:

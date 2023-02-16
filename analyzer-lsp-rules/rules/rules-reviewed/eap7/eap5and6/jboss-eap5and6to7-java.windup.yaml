@@ -1,15 +1,23 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-0
+    tag:
+    - configuration
     when:
     - filecontent:
         filename: MANIFEST.MF
         pattern: 'Dependencies:'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-1
+    tag:
+    - webservices
+    - jbossws
+    - cxf
+    - configuration
     when:
-    - file: null
-  - message: |-
-      Entity beans are no longer supported in JBoss EAP 7. User is requested to use JPA entities that fully replaced the functionality provided by Entity beans.
-                              This entity needs to be migrated using JPA persistence.xml or using JPA annotations.
+    - file: jbossws-cxf.xml
+  - message: Entity beans are no longer supported in JBoss EAP 7. User is requested
+      to use JPA entities that fully replaced the functionality provided by Entity
+      beans.. This entity needs to be migrated using JPA persistence.xml or using
+      JPA annotations.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-2
     when:
       or:
@@ -20,6 +28,9 @@
           location: INHERITANCE
           pattern: javax.ejb.EntityBean
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-3
+    tag:
+    - web
+    - undertow
     when:
     - or:
       - java.referenced:
@@ -44,9 +55,9 @@
     - java.referenced:
         location: IMPORT
         pattern: org.jboss.as.clustering.singleton.SingletonService
-  - message: "\n                        The `@Clustered` annotation is ignored in
-      EAP 7 and is not useful. In case the application is started using HA profile,
-      the replication will be done automatically.\n                    "
+  - message: The `@Clustered` annotation is ignored in EAP 7 and is not useful. In
+      case the application is started using HA profile, the replication will be done
+      automatically.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-6
     when:
       or:
@@ -57,6 +68,9 @@
           location: IMPORT
           pattern: org.jboss.ejb3.annotation.Clustered
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-7
+    tag:
+    - hornetq
+    - jms
     when:
     - java.referenced:
         pattern: org.hornetq.{*}

@@ -1,6 +1,6 @@
 - rules:
-  - message: "\n                        Empty import definition in .jsp or .jspf files
-      would fail in compilation time and needs to be removed.\n                    "
+  - message: Empty import definition in .jsp or .jspf files would fail in compilation
+      time and needs to be removed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jsp/jsp.windup.xml-0
     when:
     - filecontent:

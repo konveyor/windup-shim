@@ -1,11 +1,10 @@
 - rules:
-  - message: "\n                    Java native libraries might not run in a cloud
-      or container environment.\n\n                    Recommendations\n\n                    *
-      Review the purpose of the native library in your application.\n                    *
-      Check whether the native library is compatible with a cloud environment.\n                    *
-      Reuse or embed the native library or application in a cloud environment, for
-      example, in a JBoss module.\n                    * Replace, remove, or rewrite
-      the native library or application using a cloud-compatible equivalent.\n                "
+  - message: Java native libraries might not run in a cloud or container environment..
+      Recommendations. * Review the purpose of the native library in your application..
+      * Check whether the native library is compatible with a cloud environment..
+      * Reuse or embed the native library or application in a cloud environment, for
+      example, in a JBoss module.. * Replace, remove, or rewrite the native library
+      or application using a cloud-compatible equivalent.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/jni-native-code.windup.xml-0
     when:
     - or:

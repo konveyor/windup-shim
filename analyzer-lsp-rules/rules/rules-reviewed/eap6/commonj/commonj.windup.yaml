@@ -1,24 +1,26 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-0
+    tag:
+    - commonj
     when:
     - java.referenced:
         location: IMPORT
         pattern: commonj.timers.{*}
-  - message: "Commonj Timer Manager API is similar to the EJB 3.1 java.ejb.Timer Service.\n
-      \                       In Java EE 6, the Timer Service was updated to allow
-      cron like configuration of scheduling which is similar to Quartz's timer configurations.\n
-      \                   "
+  - message: Commonj Timer Manager API is similar to the EJB 3.1 java.ejb.Timer Service..
+      In Java EE 6, the Timer Service was updated to allow cron like configuration
+      of scheduling which is similar to Quartz's timer configurations.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-1
     when:
     - java.referenced:
         pattern: commonj.timers.TimerManager
-  - message: "\n                            Commonj Timer Interface is similar to
-      the EJB 3.1 javax.ejb.Timer Interface.\n                        "
+  - message: Commonj Timer Interface is similar to the EJB 3.1 javax.ejb.Timer Interface.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-2
     when:
     - java.referenced:
         pattern: commonj.timers.Timer
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-3
+    tag:
+    - commonj
     when:
     - java.referenced:
         pattern: commonj.work.{*}

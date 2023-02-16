@@ -1,67 +1,102 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-0
+    tag: []
     when:
-    - file: null
+    - file: mycontainer-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-1
+    tag: []
     when:
-    - file: null
+    - file: geronimo-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-2
+    tag: []
     when:
-    - file: null
+    - file: ow2-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-3
+    tag: []
     when:
-    - file: null
+    - file: evo-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-4
+    tag: []
     when:
-    - file: null
+    - file: akka-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-5
+    tag: []
     when:
-    - file: null
+    - file: kumuluzee-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-6
+    tag: []
     when:
-    - file: null
+    - file: ignite-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-7
+    tag: []
     when:
-    - file: null
+    - file: nuxeo-runtime-jtajca{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-8
+    tag: []
     when:
-    - file: null
+    - file: org.everit.transaction.propagator.jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-9
+    tag: []
     when:
-    - file: null
+    - file: demoiselle-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-10
+    tag: []
     when:
-    - file: null
+    - file: meecrowave-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-11
+    tag: []
     when:
-    - file: null
+    - file: sirona-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-12
+    tag: []
     when:
-    - file: null
+    - file: lift-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-13
+    tag: []
     when:
-    - file: null
+    - file: wf-core-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-14
+    tag: []
     when:
     - or:
-      - file: null
+      - file: jta{*}.jar
+      - file: javax-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-15
+    tag: []
     when:
     - or:
-      - file: null
+      - file: jboss{*}jta{*}.jar
+      - file: jboss{*}jts{*}.jar
+      - file: jbossxts{*}.jar
+      - file: jbossts{*}.jar
+      - file: arquillian-transaction-jta{*}.jar
+      - file: weld-jta{*}.jar
+      - file: wildfly{*}jta{*}.jar
+      - file: transactions{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-16
+    tag: []
     when:
     - or:
-      - file: null
+      - file: glassfish-jta{*}.jar
+      - file: osgi-jta{*}.jar
+      - file: jta-l10n{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-17
+    tag: []
     when:
     - or:
-      - file: null
+      - file: transactions-jta{*}.jar
+      - file: ks-jta{*}.jar
+      - file: evo-jta-atomikos{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-18
+    tag: []
     when:
     - or:
-      - file: null
+      - file: '{*}narayana{*}.jar'
+      - file: '{*}arjuna{*}.jar'
+      - file: tomcat-jta{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-19
+    tag: []
     when:
     - or:
-      - file: null
+      - file: spring-{*}jta{*}.jar
+      - file: insight-plugin-jta{*}.jar

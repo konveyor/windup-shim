@@ -1,8 +1,6 @@
 - rules:
-  - message: "\n                        \n                        `quarkus.dev.instrumentation`
-      has been renamed to `quarkus.live-reload.instrumentation` \n                        to
-      be more consistent with other configuration properties related to live reload.
-      \n                        \n                    "
+  - message: '`quarkus.dev.instrumentation` has been renamed to `quarkus.live-reload.instrumentation`.
+      to be more consistent with other configuration properties related to live reload.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-live-reload.windup.xml-0
     when:
     - filecontent:

@@ -1,24 +1,23 @@
 - rules:
-  - message: "\n                        The `org.apache.ws.security.WSPasswordCallback`
-      class has moved to package `org.apache.wss4j.common.ext`.\n                        The
-      application must be changed to reference to the new package.\n                    "
+  - message: The `org.apache.ws.security.WSPasswordCallback` class has moved to package
+      `org.apache.wss4j.common.ext`.. The application must be changed to reference
+      to the new package.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-0
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.apache.ws.security.WSPasswordCallback
-  - message: "\n                        Most of the SAML bean objects from the `org.apache.ws.security.saml.ext`
-      package have been moved to the `org.apache.wss4j.common.saml` package.\n                        The
-      application must be changed to reference to the new package.\n                    "
+  - message: Most of the SAML bean objects from the `org.apache.ws.security.saml.ext`
+      package have been moved to the `org.apache.wss4j.common.saml` package.. The
+      application must be changed to reference to the new package.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-1
     when:
     - java.referenced:
         location: IMPORT
         pattern: org.apache.ws.security.saml.ext.(bean.|builder.|OpenSAMLBootstrap|OpenSAMLUtil|SAMLCallback){*}
-  - message: "\n                        The `org.apache.ws.security.saml.ext.AssertionWrapper`
-      class have been renamed and moved to the `org.apache.wss4j.common.saml.SamlAssertionWrapper`
-      class.\n                        The application must be changed to reference
-      and use the new class.\n                    "
+  - message: The `org.apache.ws.security.saml.ext.AssertionWrapper` class have been
+      renamed and moved to the `org.apache.wss4j.common.saml.SamlAssertionWrapper`
+      class.. The application must be changed to reference and use the new class.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/ws-security.windup.xml-2
     when:
     - java.referenced:

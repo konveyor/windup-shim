@@ -1,13 +1,11 @@
 - rules:
-  - message: "\n                        The modules required by JOTM's JTA implementation
-      are not loaded by default on EAP6+.\n                        This likely results
-      in a \"java.lang.NoClassDefFoundError: sun/rmi/server/UnicastServerRef\" exception
-      when it is deployed.\n\n                        To solve this issue it is highly
-      recommended to use JTA provided by JBoss EAP since JOTM is not maintained anymore.
-      \ \n                        \n                        If you want to stick with
-      JOTM, you can add \"sun/rmi/server\" as system export in your applications deployment-structure.xml
-      as described in [this knowledge base article](https://access.redhat.com/solutions/1217863).\n
-      \                   "
+  - message: 'The modules required by JOTM''s JTA implementation are not loaded by
+      default on EAP6+.. This likely results in a "java.lang.NoClassDefFoundError:
+      sun/rmi/server/UnicastServerRef" exception when it is deployed.. To solve this
+      issue it is highly recommended to use JTA provided by JBoss EAP since JOTM is
+      not maintained anymore.. If you want to stick with JOTM, you can add "sun/rmi/server"
+      as system export in your applications deployment-structure.xml as described
+      in [this knowledge base article](https://access.redhat.com/solutions/1217863).'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jotm/jotm.rhamt.xml-0
     when:
     - java.referenced:

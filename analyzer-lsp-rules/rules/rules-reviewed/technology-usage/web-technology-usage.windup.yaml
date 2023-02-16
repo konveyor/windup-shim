@@ -10,36 +10,40 @@
       - java.referenced:
           location: INHERITANCE
           pattern: java.applet.Applet
-      - file: null
+      - file: '{*}applet{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-5
     when:
-    - file: null
+    - file: '{*}.jnlp'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-6
     when:
     - or:
-      - file: null
+      - file: '{*}jnlp{*}.jar'
+      - file: '{*}webstart{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-7
     when:
-    - file: null
+    - file: '{*}swing{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-8
     when:
-    - file: null
+    - file: '{*}miglayout{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-9
     when:
-    - file: null
+    - file: '{*}jgoodies{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-10
     when:
-    - file: null
+    - file: '{*}formlayoutmakerx{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-11
     when:
-    - file: null
+    - file: '{*}magicgrouplayout{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-12
     when:
-    - file: null
+    - file: '{*}swt{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-13
     when:
-    - file: null
+    - file: '{*}javafx{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-14
     when:
     - or:
-      - file: null
+      - file: rcp{*}.jar
+      - file: '{*}eclipse.rcp{*}.jar'
+      - file: '{*}eclipse{*}runtime{*}.jar'
+      - file: '{*}eclipse.ui{*}.jar'

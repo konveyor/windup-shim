@@ -1,37 +1,112 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-0
+    tag:
+    - apache-axis
+    - webservice
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /serviceGroup/service/operation
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-1
+    tag:
+    - apache-axis
+    - webservice
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /module/InFlow
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-2
+    tag:
+    - apache-axis
+    - webservice
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /axisconfig
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-3
+    tag:
+    - xfire
+    - webservice
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /xfire:beans
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-4
+    tag:
+    - webservice
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /*[local-name()='handler-chains']
   - message: JBoss EAP developer documentation describes JAX-WS Web Services Common
       API.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-5
+    tag:
+    - webservice
     when:
-    - xmlfile: null
+      or:
+      - as: webservices
+        ignore: true
+        xml:
+          XPath: /*[local-name()='webservices']
+      - as: handler-classes
+        from: webservices
+        ignore: true
+        xml:
+          XPath: //*[local-name()='handler-class']
   - message: JBoss EAP developer documentation about JAX-WS Web Services Endpoints
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-6
+    tag:
+    - webservice
     when:
-    - xmlfile: null
+      or:
+      - as: webservices
+        ignore: true
+        xml:
+          XPath: /*[local-name()='webservices']
+      - as: endpoints
+        from: webservices
+        ignore: true
+        xml:
+          XPath: //*[local-name()='service-endpoint-interface']
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-7
+    tag:
+    - webservice
+    - apache-cxf
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /extensions
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-8
+    tag:
+    - webservice
+    - security
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: //*[local-name()='Policy']
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-9
+    tag:
+    - soap
+    - webservice
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /*[local-name()='Envelope']
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-10
+    tag:
+    - webservice
+    - wsdl
     when:
-    - xmlfile: null
+    - as: default
+      ignore: true
+      xml:
+        XPath: /*[local-name()='definitions']

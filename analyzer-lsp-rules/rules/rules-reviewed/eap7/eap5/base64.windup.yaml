@@ -1,9 +1,8 @@
 - rules:
-  - message: "\n                        This API is not considered a public API for
-      EAP. For JDK 8+, the recommended solution is to migrate to\n                        [java.util.Base64](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html).\n\n
-      \                       For JDK 7, it is recommended to migrate to another Base
-      64 library, for example\n                        [Apache Commons Codec](https://commons.apache.org/proper/commons-codec/).\n
-      \                   "
+  - message: This API is not considered a public API for EAP. For JDK 8+, the recommended
+      solution is to migrate to. [java.util.Base64](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html)..
+      For JDK 7, it is recommended to migrate to another Base 64 library, for example.
+      [Apache Commons Codec](https://commons.apache.org/proper/commons-codec/).
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/base64.windup.xml-0
     when:
     - java.referenced:

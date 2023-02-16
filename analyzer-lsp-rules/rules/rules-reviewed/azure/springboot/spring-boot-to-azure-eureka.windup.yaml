@@ -1,9 +1,7 @@
 - rules:
-  - message: "\n                        \n                        The application
-      uses Eureka.\n\n                        Make sure you configure Eureka with
-      the following properties:\n\n                        ```\n                        eureka.instance.prefer-ip-address=true\n
-      \                       eureka.instance.hostname=register-service    # no localhost\n
-      \                       ```\n                        \n                    "
+  - message: 'The application uses Eureka.. Make sure you configure Eureka with the
+      following properties:. ```. eureka.instance.prefer-ip-address=true. eureka.instance.hostname=register-service    #
+      no localhost. ```'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-eureka.windup.xml-0
     when:
     - or:

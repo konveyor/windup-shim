@@ -1,27 +1,22 @@
 - rules:
-  - message: "Caching in the RESTEasy client framework in resteasy-jaxrs is replaced
-      by caching in the JAX-RS 2.0 compliant resteasy-client module.\n                    Use
-      `org.jboss.resteasy.client.jaxrs.cache` package instead of `org.jboss.resteasy.client.cache`.\n
-      \                   "
+  - message: Caching in the RESTEasy client framework in resteasy-jaxrs is replaced
+      by caching in the JAX-RS 2.0 compliant resteasy-client module.. Use `org.jboss.resteasy.client.jaxrs.cache`
+      package instead of `org.jboss.resteasy.client.cache`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-0
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.cache.(CacheEntry|CacheFactory|CacheInterceptor|LightweightBrowserCache|BrowserCache|MapCache)
-  - message: "\n                    Replace class `org.jboss.resteasy.client.ClientRequest`
-      with `org.jboss.resteasy.client.jaxrs.ResteasyClient`.\n\n                    The
-      following is an example of how to send a link header with the RESTEasy client
-      in EAP 6 with RESTEasy 2.3.x.\n\n                    ```java\n                    ClientRequest
-      request = new ClientRequest(generateURL(\"/linkheader/str\"));\n                    request.addLink(\"previous
-      chapter\", \"previous\", \"http://example.com/TheBook/chapter2\", null);\n                    ClientResponse
-      response = request.post();\n                    LinkHeader header = response.getLinkHeader();\n
-      \                   ```\n\n                    The following is an example of
-      how to accomplish the same task with the RESTEasy client in RESTEasy 3.\n\n
-      \                   ```java\n                    ResteasyClient client = new
-      ResteasyClientBuilder().build();\n                    Response response = client.target(generateURL(\"/linkheader/str\")).request()\n
-      \                       .header(\"Link\", \"<http://example.com/TheBook/chapter2>;
-      rel=\"previous\";\n                    title=\"previous chapter\">\").post(Entity.text(new
-      String()));\n                    javax.ws.rs.core.Link link = response.getLink(\"previous\");\n
-      \                   ```\n\n                    "
+  - message: Replace class `org.jboss.resteasy.client.ClientRequest` with `org.jboss.resteasy.client.jaxrs.ResteasyClient`..
+      The following is an example of how to send a link header with the RESTEasy client
+      in EAP 6 with RESTEasy 2.3.x.. ```java. ClientRequest request = new ClientRequest(generateURL("/linkheader/str"));.
+      request.addLink("previous chapter", "previous", "http://example.com/TheBook/chapter2",
+      null);. ClientResponse response = request.post();. LinkHeader header = response.getLinkHeader();.
+      ```. The following is an example of how to accomplish the same task with the
+      RESTEasy client in RESTEasy 3.. ```java. ResteasyClient client = new ResteasyClientBuilder().build();.
+      Response response = client.target(generateURL("/linkheader/str")).request().
+      .header("Link", "<http://example.com/TheBook/chapter2>; rel="previous";. title="previous
+      chapter">").post(Entity.text(new String()));. javax.ws.rs.core.Link link = response.getLink("previous");.
+      ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-1
     when:
     - java.referenced:
@@ -36,12 +31,10 @@
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.(ProxyBuilder|ProxyConfig|ProxyFactory)
-  - message: "\n                    There is no direct replacement for `org.jboss.resteasy.client.EntityTypeFactory`
-      class.\n\n                    `org.jboss.resteasy.client.ClientResponse<T>`
-      is a generic type in the RESTEasy client framework,\n                    but
-      `org.jboss.resteasy.client.jaxrs.internal.ClientResponse` in the resteasy-client
-      module is not, so\n                    `EntityTypeFactory` is no longer useful.\n
-      \                   "
+  - message: There is no direct replacement for `org.jboss.resteasy.client.EntityTypeFactory`
+      class.. `org.jboss.resteasy.client.ClientResponse<T>` is a generic type in the
+      RESTEasy client framework,. but `org.jboss.resteasy.client.jaxrs.internal.ClientResponse`
+      in the resteasy-client module is not, so. `EntityTypeFactory` is no longer useful.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-4
     when:
     - java.referenced:
@@ -58,9 +51,9 @@
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.client.ClientRequestFactory
-  - message: |-
-      Replace the `org.jboss.resteasy.client.ClientResponseFailure` with `javax.ws.rs.client.ResponseProcessingException`
-                          or with `javax.ws.rs.client.ProcessingException` or with `javax.ws.rs.client.WebApplicationException` class.
+  - message: Replace the `org.jboss.resteasy.client.ClientResponseFailure` with `javax.ws.rs.client.ResponseProcessingException`.
+      or with `javax.ws.rs.client.ProcessingException` or with `javax.ws.rs.client.WebApplicationException`
+      class.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-7
     when:
     - java.referenced:
@@ -136,39 +129,40 @@
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.ClientExecutionContext
-  - message: |-
-      Use `javax.ws.rs.client.Invocation` instead of `org.jboss.resteasy.spi.interception.ClientExecutionInterceptor`.
-                          The RESTEasy interceptor facility introduced in release 2.x is replaced by the JAX-RS 2.0 compliant interceptor facility in release 3.0.x.
+  - message: Use `javax.ws.rs.client.Invocation` instead of `org.jboss.resteasy.spi.interception.ClientExecutionInterceptor`..
+      The RESTEasy interceptor facility introduced in release 2.x is replaced by the
+      JAX-RS 2.0 compliant interceptor facility in release 3.0.x.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-20
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.ClientExecutionInterceptor
-  - message: |-
-      Most of the `org.jboss.resteasy.spi.ResteasyProviderFactory#add*` methods have been removed or made protected in RESTEasy 3.0.
-                          For example, the `addBuiltInMessageBodyReader()` and `addBuiltInMessageBodyWriter()` methods have been removed and the `addMessageBodyReader()` and `addMessageBodyWriter()` methods have been made protected.
-                          You should now use the `registerProvider()` and `registerProviderInstance()` methods.
+  - message: Most of the `org.jboss.resteasy.spi.ResteasyProviderFactory#add*` methods
+      have been removed or made protected in RESTEasy 3.0.. For example, the `addBuiltInMessageBodyReader()`
+      and `addBuiltInMessageBodyWriter()` methods have been removed and the `addMessageBodyReader()`
+      and `addMessageBodyWriter()` methods have been made protected.. You should now
+      use the `registerProvider()` and `registerProviderInstance()` methods.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-21
     when:
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.spi.ResteasyProviderFactory.add{*}
-  - message: |-
-      Use `javax.ws.rs.ext.ReaderInterceptorContext` instead of `org.jboss.resteasy.spi.interception.MessageBodyReaderContext`.
-                          The RESTEasy interceptor facility introduced in release 2.x is replaced by the JAX-RS 2.0 compliant interceptor facility in release 3.0.x.
+  - message: Use `javax.ws.rs.ext.ReaderInterceptorContext` instead of `org.jboss.resteasy.spi.interception.MessageBodyReaderContext`..
+      The RESTEasy interceptor facility introduced in release 2.x is replaced by the
+      JAX-RS 2.0 compliant interceptor facility in release 3.0.x.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-22
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.MessageBodyReaderContext
-  - message: |-
-      Use `javax.ws.rs.container.ContainerResponseFilter` instead of `org.jboss.resteasy.spi.interception.PostProcessInterceptor`.
-                          The RESTEasy interceptor facility introduced in release 2.x is replaced by the JAX-RS 2.0 compliant filters and interceptor facility in release 3.0.x.
+  - message: Use `javax.ws.rs.container.ContainerResponseFilter` instead of `org.jboss.resteasy.spi.interception.PostProcessInterceptor`..
+      The RESTEasy interceptor facility introduced in release 2.x is replaced by the
+      JAX-RS 2.0 compliant filters and interceptor facility in release 3.0.x.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-23
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.interception.PostProcessInterceptor
-  - message: |-
-      Use `javax.ws.rs.container.ContainerRequestFilter` instead of `org.jboss.resteasy.spi.interception.PreProcessInterceptor`.
-                          The RESTEasy interceptor facility introduced in release 2.x is replaced by the JAX-RS 2.0 compliant filters and interceptor facility in release 3.0.x.
+  - message: Use `javax.ws.rs.container.ContainerRequestFilter` instead of `org.jboss.resteasy.spi.interception.PreProcessInterceptor`..
+      The RESTEasy interceptor facility introduced in release 2.x is replaced by the
+      JAX-RS 2.0 compliant filters and interceptor facility in release 3.0.x.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-24
     when:
     - java.referenced:
@@ -208,9 +202,9 @@
     when:
     - java.referenced:
         pattern: org.jboss.resteasy.spi.UnsupportedMediaTypeException
-  - message: |-
-      RESTEasy 3 deprecates method `org.jboss.resteasy.plugins.delegates.ServerCookie#checkName` without a replacement.
-                          It was deprecated in the original `org.apache.tomcat.util.http.ServerCookie` class which was a template for this method.
+  - message: RESTEasy 3 deprecates method `org.jboss.resteasy.plugins.delegates.ServerCookie#checkName`
+      without a replacement.. It was deprecated in the original `org.apache.tomcat.util.http.ServerCookie`
+      class which was a template for this method.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-32
     when:
     - java.referenced:
@@ -264,9 +258,9 @@
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.isValidating{*}
-  - message: |-
-      RESTEasy 3 deprecates method `org.jboss.resteasy.plugins.delegates.ServerCookie#maybeQuote` without a replacement.
-                          It was deprecated in the original `org.apache.tomcat.util.http.ServerCookie` class which was a template for this method.
+  - message: RESTEasy 3 deprecates method `org.jboss.resteasy.plugins.delegates.ServerCookie#maybeQuote`
+      without a replacement.. It was deprecated in the original `org.apache.tomcat.util.http.ServerCookie`
+      class which was a template for this method.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-40
     when:
     - java.referenced:
@@ -279,9 +273,10 @@
     - java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.resteasy.plugins.providers.jaxb.SecureUnmarshaller.setAdapter{*}
-  - message: |-
-      As of version 2.1, due to ambiguous meaning of the message parameter. To set a status code use `setStatus(int)` instead,
-                          to send an error with a description use `sendError(int, String)`. Sets the status code and message for this response.
+  - message: As of version 2.1, due to ambiguous meaning of the message parameter.
+      To set a status code use `setStatus(int)` instead,. to send an error with a
+      description use `sendError(int, String)`. Sets the status code and message for
+      this response.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-42
     when:
     - java.referenced:
@@ -315,16 +310,15 @@
       - java.referenced:
           location: ANNOTATION
           pattern: javax.ws.rs.Consumes
-  - message: "RESTEasy fixes the issue when it doesn't set/add correctly character
+  - message: RESTEasy fixes the issue when it doesn't set/add correctly character
       set meta data specified in JAX-RS specification. Therefore UTF-8 as the character
-      set for text media types is set by default.\n                    This behavior
-      results in adding `charset=UTF-8` string to the returned content-type header
-      when the resource method returns a `text/*` or `application/xml*` media type
-      without an explicit charset.\n                    The behavior is controlled
-      by `resteasy.add.charset` parameter which is set to `true` by default and you
-      can customize the `resteasy.add.charset` parameter to `false` in _web.xml_'s
-      `context-param` element \n                    in case of wanting to keep previous
-      behavior.\n                    "
+      set for text media types is set by default.. This behavior results in adding
+      `charset=UTF-8` string to the returned content-type header when the resource
+      method returns a `text/*` or `application/xml*` media type without an explicit
+      charset.. The behavior is controlled by `resteasy.add.charset` parameter which
+      is set to `true` by default and you can customize the `resteasy.add.charset`
+      parameter to `false` in _web.xml_'s `context-param` element. in case of wanting
+      to keep previous behavior.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/resteasy.windup.xml-47
     when:
     - or:

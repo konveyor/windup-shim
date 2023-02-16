@@ -1,29 +1,25 @@
 - rules:
-  - message: "\n                    Session replication ensures that client sessions
-      are not disrupted by node failure. Each node in the cluster shares information
-      about ongoing sessions and can take over sessions if another node disappears.
-      In a cloud environment, however, data in the memory of a running container can
-      be wiped out by a restart.\n\n                    Recommendations\n\n                    *
-      Review the session replication usage and ensure that it is configured properly.\n
-      \                   * Disable HTTP session clustering and accept its implications.\n
-      \                   * Re-architect the application so that sessions are stored
-      in a cache backing service or a remote data grid.\n\n                    A remote
-      data grid has the following benefits:\n\n                    * The application
-      is more scaleable and elastic.\n                    * The application can survive
-      EAP node failures because a JVM failure does not cause session data loss.\n
-      \                   * Session data can be shared by multiple applications.\n
-      \                   "
+  - message: Session replication ensures that client sessions are not disrupted by
+      node failure. Each node in the cluster shares information about ongoing sessions
+      and can take over sessions if another node disappears. In a cloud environment,
+      however, data in the memory of a running container can be wiped out by a restart..
+      Recommendations. * Review the session replication usage and ensure that it is
+      configured properly.. * Disable HTTP session clustering and accept its implications..
+      * Re-architect the application so that sessions are stored in a cache backing
+      service or a remote data grid.. A remote data grid has the following benefits:.
+      * The application is more scaleable and elastic.. * The application can survive
+      EAP node failures because a JVM failure does not cause session data loss.. *
+      Session data can be shared by multiple applications.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/session.windup.xml-0
     when:
-    - xmlfile: null
-  - message: "\n                    In a cloud environment, a restart can wipe out
-      HTTP session data in the memory of a running container.\n\n                    Recommendation:
-      Store HTTP session data in a cache backing service or a remote data grid.\n\n
-      \                   A remote data grid has the following benefits:\n\n                    *
-      The application is more scaleable and elastic.\n                    * The application
-      can survive EAP node failures because a JVM failure does not cause session data
-      loss.\n                    * Session data can be shared by multiple applications.\n
-      \                   "
+    - xml:
+        XPath: /w:web-app/w:distributable
+  - message: 'In a cloud environment, a restart can wipe out HTTP session data in
+      the memory of a running container.. Recommendation: Store HTTP session data
+      in a cache backing service or a remote data grid.. A remote data grid has the
+      following benefits:. * The application is more scaleable and elastic.. * The
+      application can survive EAP node failures because a JVM failure does not cause
+      session data loss.. * Session data can be shared by multiple applications.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/session.windup.xml-1
     when:
     - or:
