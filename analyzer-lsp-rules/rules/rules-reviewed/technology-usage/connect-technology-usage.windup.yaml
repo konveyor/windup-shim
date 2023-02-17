@@ -1,5 +1,10 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-1
+    tag:
+    - Connect
+    - Other
+    - Java EE
+    - JNI
     when:
     - or:
       - java.referenced:
@@ -12,7 +17,11 @@
           location: METHOD_CALL
           pattern: java.lang.Runtime.loadLibrary({*})
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-2
-    tag: []
+    tag:
+    - Connect
+    - Other
+    - Java EE
+    - JNA
     when:
       or:
       - java.referenced:
@@ -31,7 +40,11 @@
           location: VARIABLE_DECLARATION
           pattern: com.sun.jna.{*}
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-3
-    tag: []
+    tag:
+    - Connect
+    - Other
+    - Java EE
+    - Mail
     when:
     - or:
       - java.referenced:
@@ -43,7 +56,11 @@
       - java.referenced:
           pattern: org.apache.commons.mail.{*}
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-4
-    tag: []
+    tag:
+    - Connect
+    - Other
+    - Java EE
+    - JCA
     when:
     - or:
       - java.referenced:
