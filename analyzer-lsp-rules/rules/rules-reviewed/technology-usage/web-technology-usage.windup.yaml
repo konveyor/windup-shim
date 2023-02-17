@@ -1,10 +1,20 @@
 - rules:
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-3
+    tag:
+    - View
+    - Web
+    - Java EE
+    - WebSocket
     when:
     - java.referenced:
         location: ANNOTATION
         pattern: javax.websocket.server.ServerEndpoint
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-4
+    tag:
+    - View
+    - Rich
+    - Java EE
+    - Applet
     when:
     - or:
       - java.referenced:
@@ -12,35 +22,85 @@
           pattern: java.applet.Applet
       - file: '{*}applet{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-5
+    tag:
+    - View
+    - Rich
+    - Java EE
+    - JNLP
     when:
     - file: '{*}.jnlp'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-6
+    tag:
+    - View
+    - Rich
+    - Embedded
+    - JNLP
     when:
     - or:
       - file: '{*}jnlp{*}.jar'
       - file: '{*}webstart{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-7
+    tag:
+    - View
+    - Rich
+    - Embedded
+    - Swing
     when:
     - file: '{*}swing{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-8
+    tag:
+    - View
+    - Rich
+    - Embedded
+    - MiGLayout
     when:
     - file: '{*}miglayout{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-9
+    tag:
+    - View
+    - Rich
+    - Embedded
+    - JGoodies
     when:
     - file: '{*}jgoodies{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-10
+    tag:
+    - View
+    - Rich
+    - Embedded
+    - FormLayoutMaker
     when:
     - file: '{*}formlayoutmakerx{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-11
+    tag:
+    - View
+    - Rich
+    - Embedded
+    - Magicgrouplayout
     when:
     - file: '{*}magicgrouplayout{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-12
+    tag:
+    - View
+    - Rich
+    - Embedded
+    - Standard Widget Toolkit (SWT)
     when:
     - file: '{*}swt{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-13
+    tag:
+    - View
+    - Rich
+    - Embedded
+    - JavaFX
     when:
     - file: '{*}javafx{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-14
+    tag:
+    - View
+    - Rich
+    - Embedded
+    - Eclipse RCP
     when:
     - or:
       - file: rcp{*}.jar

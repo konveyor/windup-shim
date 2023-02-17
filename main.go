@@ -292,6 +292,22 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 			}
 		}
 	}
+	if perform.Technologyidentified != nil {
+		tags := []string{}
+		for _, ti := range perform.Technologyidentified {
+			for _, tag := range ti.Tag {
+				tags = append(tags, tag.Name)
+			}
+			if ti.Name != "" {
+				// TODO what do we want to do with this?
+				tags = append(tags, ti.Name)
+			}
+		}
+		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
+		return map[string]interface{}{
+			"tag": tags,
+		}
+	}
 	if perform.Classification != nil {
 		tags := []string{}
 		for _, classification := range perform.Classification {
