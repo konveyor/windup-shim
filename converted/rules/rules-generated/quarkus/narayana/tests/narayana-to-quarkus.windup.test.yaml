@@ -1,0 +1,42 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/narayana/tests/data
+rulePath:
+- ../narayana-to-quarkus.windup.xml
+- ../narayana-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.jboss.narayana.jta:narayana-jta` dependency
+                with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-narayana-jta] quarkus-narayana-jta Quarkus extension
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.jboss.narayana.rts:narayana-lra` dependency
+                with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-narayana-lra] quarkus-narayana-lra Quarkus extension
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.jboss.narayana.stm:stm` dependency with the
+                Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-narayana-stm] quarkus-narayana-stm Quarkus extension
+            hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/narayana/tests/narayana-to-quarkus.windup.test.xml

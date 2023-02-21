@@ -1,0 +1,28 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/websphere/tests/data
+rulePath:
+- ../
+ruleset:
+- rules:
+    rule:
+    - when:
+        or:
+        - file-exists:
+          - filename: IgnoreTest1.java
+          not:
+          - file-exists:
+            - filename: IgnoreTest1.class
+      perform:
+        fail:
+        - message: IgnoreTest1.class should have been ignored and not decompiled.
+    - when:
+        or:
+        - file-exists:
+          - filename: R4A0RUBean.java
+          not:
+          - file-exists:
+            - filename: R4A0RUBean.class
+      perform:
+        fail:
+        - message: IgnoreTestBean.class should have been ignored and not decompiled.
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/websphere/tests/websphere-ignore-references.binary.windup.test.xml

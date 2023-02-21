@@ -1,0 +1,21 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/tests/data/data-maven-jboss-rmi-api_1.0_spec
+rulePath:
+- ../maven-jboss-rmi-api_1.0_spec.rhamt.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP 7.3 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, remove any dependency on unsupported artifact with groupId
+                `org.jboss.spec.javax.rmi`, and artifactId `jboss-rmi-api_1.0_spec`.
+            size: 1
+      perform:
+        fail:
+        - message: No reference to `org.jboss.spec.javax.rmi:jboss-rmi-api_1.0_spec`
+            found in pom.xml
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap72/tests/maven-jboss-rmi-api_1.0_spec.rhamt.test.xml

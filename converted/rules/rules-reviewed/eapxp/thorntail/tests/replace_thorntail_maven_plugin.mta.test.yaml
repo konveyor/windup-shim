@@ -1,0 +1,20 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/tests/data/data-replace_thorntail_maven_plugin
+rulePath:
+- ../replace_thorntail_maven_plugin.mta.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Maven Plugin with JBoss EAP XP Bootable
+                JAR Maven Plugin.
+            size: 1
+      perform:
+        fail:
+        - message: No reference to Thorntail Maven Plugin found in pom.xml
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eapxp/thorntail/tests/replace_thorntail_maven_plugin.mta.test.xml

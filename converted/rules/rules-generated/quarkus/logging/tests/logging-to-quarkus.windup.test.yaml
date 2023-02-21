@@ -1,0 +1,31 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/logging/tests/data
+rulePath:
+- ../logging-to-quarkus.windup.xml
+- ../logging-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `biz.paluch.logging:logstash-gelf` dependency with
+                the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-logging-gelf] quarkus-logging-gelf Quarkus extension
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `io.sentry:sentry-jul` dependency with the Quarkus
+                dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-logging-sentry] quarkus-logging-sentry Quarkus extension
+            hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/logging/tests/logging-to-quarkus.windup.test.xml

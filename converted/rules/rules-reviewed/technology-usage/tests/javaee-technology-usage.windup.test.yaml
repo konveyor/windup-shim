@@ -1,0 +1,266 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/tests/data/javaee
+rulePath:
+- ../javaee-technology-usage.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Processing
+            - name: Java EE
+            name: Java EE Batch API
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Java EE Batch API'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Processing
+            - name: Java EE
+            name: Java EE Batch
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Java EE Batch'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Processing
+            - name: Java EE
+            name: CDI
+            number-found: 1
+      perform:
+        fail:
+        - message: '''CDI'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Processing
+            - name: Java EE
+            name: Java EE JSON-P
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Java EE JSON-P'' Technology Statistic Not Found'
+    - when:
+        not:
+        - iterable-filter:
+          - technology-tag-exists:
+            - technology-tag: JACC
+            size: 1
+      perform:
+        fail:
+        - message: '''JACC'' Technology Tag Not Found'
+    - when:
+        not:
+        - iterable-filter:
+          - technology-tag-exists:
+            - technology-tag: MEJB
+            size: 1
+      perform:
+        fail:
+        - message: '''MEJB'' Technology Tag Not Found'
+    - when:
+        not:
+        - iterable-filter:
+          - technology-tag-exists:
+            - technology-tag: EAR
+            size: 1
+      perform:
+        fail:
+        - message: '''EAR'' Technology Tag Not Found'
+    - when:
+        not:
+        - iterable-filter:
+          - technology-tag-exists:
+            - technology-tag: WS Metadata
+            size: 1
+      perform:
+        fail:
+        - message: '''WS Metadata'' Technology Tag Not Found'
+    - when:
+        not:
+        - iterable-filter:
+          - technology-tag-exists:
+            - technology-tag: Common Annotations
+            size: 1
+      perform:
+        fail:
+        - message: '''Common Annotations'' Technology Tag Not Found'
+    - when:
+        not:
+        - iterable-filter:
+          - technology-tag-exists:
+            - technology-tag: JAXB
+            size: 1
+      perform:
+        fail:
+        - message: '''JAXB'' Technology Tag Not Found'
+    - when:
+        not:
+        - iterable-filter:
+          - technology-tag-exists:
+            - technology-tag: JAXR
+            size: 1
+      perform:
+        fail:
+        - message: '''JAXR'' Technology Tag Not Found'
+    - when:
+        not:
+        - iterable-filter:
+          - technology-tag-exists:
+            - technology-tag: Bean Validation
+            size: 1
+      perform:
+        fail:
+        - message: '''Bean Validation'' Technology Tag Not Found'
+    - when:
+        not:
+        - iterable-filter:
+          - technology-tag-exists:
+            - technology-tag: Servlet
+            size: 1
+      perform:
+        fail:
+        - message: '''Servlet'' Technology Tag Not Found'
+    - when:
+        not:
+        - iterable-filter:
+          - technology-tag-exists:
+            - technology-tag: JSON-B
+            size: 1
+      perform:
+        fail:
+        - message: '''JSON-B'' Technology Tag Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Security
+            - name: Sustain
+            - name: Java EE
+            name: Java EE JACC
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Java EE JACC'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Bean
+            - name: Java EE
+            name: Management EJB
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Management EJB'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Other
+            - name: Connect
+            - name: Java EE
+            name: EAR Deployment
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Java EE Deployment'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Http
+            - name: Java EE
+            name: Web Services Metadata
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Java EE WebServices Metadata'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Other
+            - name: Java EE
+            name: Common Annotations
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Common Annotations'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Binding
+            - name: Java EE
+            name: Java EE JAXB
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Java EE JAXB'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Other
+            - name: Java EE
+            name: Java EE JAXR
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Java EE JAXR'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Validation
+            - name: Store
+            - name: Java EE
+            name: Bean Validation
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Bean Validation'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Binding
+            - name: Connect
+            - name: Java EE
+            name: JSON-B
+            number-found: 1
+      perform:
+        fail:
+        - message: '''JSON-B'' Technology Statistic Not Found'
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: HTTP
+            - name: Connect
+            - name: Java EE
+            name: Servlet
+            number-found: 1
+      perform:
+        fail:
+        - message: '''Servlet'' Technology Statistic Not Found'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/technology-usage/tests/javaee-technology-usage.windup.test.xml

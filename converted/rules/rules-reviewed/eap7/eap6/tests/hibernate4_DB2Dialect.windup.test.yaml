@@ -1,0 +1,14 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/tests/data/data-hibernate4_DB2Dialect
+rulePath:
+- ../hibernate4.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        hint-exists:
+        - message: Previous versions of Hibernate have mapped `byte\[\]` and `Byte\[\]`
+      perform:
+        fail:
+        - message: Hint for mapped byte[] and Byte[] has NOT to be found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap6/tests/hibernate4_DB2Dialect.windup.test.xml

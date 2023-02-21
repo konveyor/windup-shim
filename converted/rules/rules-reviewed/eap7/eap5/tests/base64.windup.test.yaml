@@ -1,0 +1,16 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/tests/data
+rulePath:
+- ../base64.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: This API is not considered a public API for EAP. For JDK 8.,
+              the recommended solution is to migrate to
+      perform:
+        fail:
+        - message: org.jboss.util.Base64 hint not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap5/tests/base64.windup.test.xml

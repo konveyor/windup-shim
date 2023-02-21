@@ -1,0 +1,20 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/tests/data/resteasy-reactive
+sourceMode: true
+rulePath:
+- ../quarkus1-12-resteasy-reactive.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: In `quarkus-resteasy-reactive` Quarkus extension, a couple
+                of the default file upload settings have changed*
+            size: 1
+      perform:
+        fail:
+        - message: '[quarkus1-12-resteasy-reactive-00000] The resteasy-reactive hint
+            was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-archived/quarkus1/quarkus1-11/tests/quarkus1-12-resteasy-reactive.windup.test.xml

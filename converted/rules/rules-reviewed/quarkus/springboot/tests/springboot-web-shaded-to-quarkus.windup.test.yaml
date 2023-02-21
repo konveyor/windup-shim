@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-web-shaded
+rulePath:
+- ../springboot-web-shaded-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: A folder path related to a package from the `org.springframework:spring-web`
+                dependency has been found.
+            size: 1
+      perform:
+        fail:
+        - message: '[springboot-web-to-quarkus-groovy] Spring-web component test was
+            not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-web-shaded-to-quarkus.windup.test.xml

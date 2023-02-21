@@ -1,0 +1,20 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/avro/tests/data/avro-uberJar-without-quarkus.jar
+rulePath:
+- ../avro-to-quarkus.windup.xml
+- ../avro-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: A folder path related to a package from the `org.apache.avro:avro`
+                dependency has been found.*
+            size: 1
+      perform:
+        fail:
+        - message: '[quarkus-avro-groovy-compiled] quarkus-avro Quarkus extension
+            hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/avro/tests/avro-to-quarkus-uberJar-without-quarkus.windup.test.xml

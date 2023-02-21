@@ -1,0 +1,22 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jrun/tests/data
+rulePath:
+- ../jrun-catchall.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: JRun
+      perform:
+        fail:
+        - message: jrun classification was not found!
+    - when:
+        not:
+        - classification-exists:
+          - classification: JRunX
+      perform:
+        fail:
+        - message: jrunx classification was not found
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/jrun/tests/jrun-catchall.windup.test.xml

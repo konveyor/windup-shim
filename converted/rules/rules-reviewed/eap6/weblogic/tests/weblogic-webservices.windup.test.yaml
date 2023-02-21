@@ -1,0 +1,53 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/weblogic/tests/data-webservicetests
+rulePath:
+- ../
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: This web service stub uses the WebLogic proprietary web service
+              implementation class.*
+      perform:
+        fail:
+        - message: WebLogic Web Service Implementation Not Found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*WebLogic proprietary Asynchronous Web Service Client API.*
+      perform:
+        fail:
+        - message: Asynchronous Web Service Client not detected!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Replace proprietary web-service authentication with JAX-WS
+              standard calls. To attach authentication with JBoss EAP,*
+      perform:
+        fail:
+        - message: HttpTransportInfo.setUsername hint not detected!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*This code uses the WebLogic specific class .*weblogic.wsee.context.WebServiceContext.*
+      perform:
+        fail:
+        - message: WebServiceContext hint not detected!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*This exception \(.*weblogic.wsee.context.ContextNotFoundException.*
+      perform:
+        fail:
+        - message: weblogic.wsee.context.ContextNotFoundException hint not detected!
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace WebLogic proprietary web-service annotation `@Transactional`
+              by the standard Java EE annotation `@TransactionAttribute`*
+      perform:
+        fail:
+        - message: Annotation @Transactional hint not detected!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/weblogic/tests/weblogic-webservices.windup.test.xml

@@ -1,0 +1,20 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/resteasy/tests/data
+rulePath:
+- ../resteasy-to-quarkus.windup.xml
+- ../resteasy-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.jboss.resteasy:resteasy-multipart-provider`
+                dependency with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-resteasy-multipart] quarkus-resteasy-multipart Quarkus
+            extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/resteasy/tests/resteasy-to-quarkus.windup.test.xml

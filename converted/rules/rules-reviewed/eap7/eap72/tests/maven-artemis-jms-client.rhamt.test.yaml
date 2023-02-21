@@ -1,0 +1,22 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/tests/data/data-maven-artemis-jms-client
+rulePath:
+- ../maven-artemis-jms-client.rhamt.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP 7.3 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, if the application depends on Artemis JMS Client artifact
+                then it should also depend on artifact with groupId `org.jboss.eap`,
+                and artifactId `wildfly-client-properties`.
+            size: 1
+      perform:
+        fail:
+        - message: No reference to `org.apache.activemq:artemis-jms-client`found in
+            pom.xml
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap72/tests/maven-artemis-jms-client.rhamt.test.xml

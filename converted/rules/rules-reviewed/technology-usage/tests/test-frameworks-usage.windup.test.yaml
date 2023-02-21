@@ -1,0 +1,341 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/tests/data/test-frameworks-usage
+rulePath:
+- ../test-frameworks-usage.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - EasyMock
+          technology-tag-exists:
+          - technology-tag: EasyMock
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00010
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - PowerMock
+          technology-tag-exists:
+          - technology-tag: PowerMock
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00020
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Mockito
+          technology-tag-exists:
+          - technology-tag: Mockito
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00030
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - TestNG
+          technology-tag-exists:
+          - technology-tag: TestNG
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00040
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Hamcrest
+          technology-tag-exists:
+          - technology-tag: Hamcrest
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00050
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Spring Test
+          technology-tag-exists:
+          - technology-tag: Spring Test
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00060
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Spock
+          technology-tag-exists:
+          - technology-tag: Spock
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00070
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - XMLUnit
+          technology-tag-exists:
+          - technology-tag: XMLUnit
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00080
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Akka Testkit
+          technology-tag-exists:
+          - technology-tag: Akka Testkit
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00090
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - REST Assured
+          technology-tag-exists:
+          - technology-tag: REST Assured
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00100
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - DbUnit
+          technology-tag-exists:
+          - technology-tag: DbUnit
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00110
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Mule Functional Test Framework \(TCK\)
+          technology-tag-exists:
+          - technology-tag: Mule Functional Test Framework
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00120
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Guava Testing Library
+          technology-tag-exists:
+          - technology-tag: Guava Testing
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00130
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - RandomizedTesting Randomized Runner
+          technology-tag-exists:
+          - technology-tag: RandomizedTesting Runner
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00140
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - HttpUnit
+          technology-tag-exists:
+          - technology-tag: HttpUnit
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00150
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - JCUnit
+          technology-tag-exists:
+          - technology-tag: JCunit
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00160
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - JPA Matchers
+          technology-tag-exists:
+          - technology-tag: JPA Matchers
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00170
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - MultithreadedTC
+          technology-tag-exists:
+          - technology-tag: MultithreadedTC
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00180
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Specsy
+          technology-tag-exists:
+          - technology-tag: Specsy
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00190
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - JFunk
+          technology-tag-exists:
+          - technology-tag: JFunk
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00200
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Restito
+          technology-tag-exists:
+          - technology-tag: Restito
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00210
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Test Interface
+          technology-tag-exists:
+          - technology-tag: Test Interface
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00220
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Play Test
+          technology-tag-exists:
+          - technology-tag: Play Test
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00230
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Arquillian
+          technology-tag-exists:
+          - technology-tag: Arquillian
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00240
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Cactus
+          technology-tag-exists:
+          - technology-tag: Cactus
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00560
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Concordion
+          technology-tag-exists:
+          - technology-tag: Concordion
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00260
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Cucumber
+          technology-tag-exists:
+          - technology-tag: Cucumber
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00270
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - EtlUnit
+          technology-tag-exists:
+          - technology-tag: EtlUnit
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00280
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - HavaRunner
+          technology-tag-exists:
+          - technology-tag: HavaRunner
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00290
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - JBehave
+          technology-tag-exists:
+          - technology-tag: JBehave
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00300
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - JMock
+          technology-tag-exists:
+          - technology-tag: JMock
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00310
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - JMockit
+          technology-tag-exists:
+          - technology-tag: JMockit
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00320
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Jukito
+          technology-tag-exists:
+          - technology-tag: Jukito
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00330
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Needle
+          technology-tag-exists:
+          - technology-tag: Needle
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00340
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - OpenPojo
+          technology-tag-exists:
+          - technology-tag: OpenPojo
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00350
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Unitils
+          technology-tag-exists:
+          - technology-tag: Unitils
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00360
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - JUnit
+          technology-tag-exists:
+          - technology-tag: JUnit
+      perform:
+        fail:
+        - message: Expected data not found for rule test-frameworks-sauge-00370
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/technology-usage/tests/test-frameworks-usage.windup.test.xml

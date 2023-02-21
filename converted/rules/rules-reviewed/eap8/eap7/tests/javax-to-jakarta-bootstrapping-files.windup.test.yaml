@@ -1,0 +1,18 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/tests/data/bootstrapping-files
+rulePath:
+- ../javax-to-jakarta-bootstrapping-files.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the bootstrapping file name prefix `javax.` with `jakarta.`
+            size: 1
+      perform:
+        fail:
+        - message: '[javax-to-jakarta-bootstrapping-files-00001] The hint was not
+            found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap8/eap7/tests/javax-to-jakarta-bootstrapping-files.windup.test.xml

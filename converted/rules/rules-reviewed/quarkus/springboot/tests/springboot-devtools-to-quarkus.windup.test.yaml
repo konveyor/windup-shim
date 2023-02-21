@@ -1,0 +1,18 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-devtools
+rulePath:
+- ../springboot-devtools-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Remove the spring-boot-devtools dependency
+            size: 1
+      perform:
+        fail:
+        - message: '[springboot-devtools-to-quarkus] Remove spring-boot-devtools not
+            found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-devtools-to-quarkus.windup.test.xml

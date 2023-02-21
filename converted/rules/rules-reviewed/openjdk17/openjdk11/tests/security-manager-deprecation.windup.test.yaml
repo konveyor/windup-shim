@@ -1,0 +1,81 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/openjdk17/openjdk11/tests/data/security-manager-deprecation
+rulePath:
+- ../security-manager-deprecation.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The Java Security Manager API is deprecated in Java 17*
+            size: 7
+      perform:
+        fail:
+        - message: security-manager-deprecation-test-00000 - has failed
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: References to Java Security Manager API classes deprecated
+                in Java 17*
+            size: 3
+      perform:
+        fail:
+        - message: security-manager-deprecation-test-00010 - has failed
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The java.lang.System::getSecurityManager*
+            size: 2
+      perform:
+        fail:
+        - message: security-manager-deprecation-test-00020 - has failed
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The java.lang.Thread::checkAccess method*
+            size: 1
+      perform:
+        fail:
+        - message: security-manager-deprecation-test-00030 - has failed
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The java.lang.ThreadGroup::checkAccess method*
+            size: 2
+      perform:
+        fail:
+        - message: security-manager-deprecation-test-00040 - has failed
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The java.util.logging.LogManager::checkAccess method*
+            size: 1
+      perform:
+        fail:
+        - message: security-manager-deprecation-test-00050 - has failed
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The java.util.concurrent.Executors*
+            size: 3
+      perform:
+        fail:
+        - message: security-manager-deprecation-test-00060 - has failed
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The javax.security.auth.Subject*
+            size: 2
+      perform:
+        fail:
+        - message: security-manager-deprecation-test-00070 - has failed
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/openjdk17/openjdk11/tests/security-manager-deprecation.windup.test.xml

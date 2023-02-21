@@ -1,0 +1,18 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/tests/data/maven-plugin
+rulePath:
+- ../quarkus1-12-maven-plugin.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Few things have been cleaned up in the Quarkus Maven Plugin*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus1-12-maven-plugin-00000] The maven plugin hint was not
+            found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-archived/quarkus1/quarkus1-11/tests/quarkus1-12-maven-plugin.windup.test.xml

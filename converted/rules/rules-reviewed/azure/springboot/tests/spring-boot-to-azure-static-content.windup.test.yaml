@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/tests/data/spring-boot-to-azure-static-content
+rulePath:
+- ../spring-boot-to-azure-static-content.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Your application currently serves static content
+            size: 6
+      perform:
+        fail:
+        - message: Static content hint was not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/azure/springboot/tests/spring-boot-to-azure-static-content.windup.test.xml

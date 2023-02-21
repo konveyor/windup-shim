@@ -1,0 +1,15 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/fuse/tests/data
+rulePath:
+- ../sonic-catchall.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: .*is a Sonic proprietary type and needs to be migrated.*
+      perform:
+        fail:
+        - message: Sonic type reference hint was not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/fuse/tests/sonic-catchall.windup.test.xml

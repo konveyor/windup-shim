@@ -1,0 +1,156 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/fuse/sonicesb/tests/data
+rulePath:
+- ../sonic-esb.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: Sonic ESB Service
+      perform:
+        fail:
+        - message: Sonic ESB Service classification was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*service(XQServiceContext context)*
+      perform:
+        fail:
+        - message: XQServiceContext hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*The XQInitContext is used*
+      perform:
+        fail:
+        - message: XQInitContext hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Migrate XQInitContext.getParameters to Spring property injection
+      perform:
+        fail:
+        - message: XQInitContext.getParameters hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Migrate XQParameters.getParameter to Spring property injection
+      perform:
+        fail:
+        - message: XQParameters.getParameter hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Migrate XQParameters to Spring property injection
+      perform:
+        fail:
+        - message: XQParameters hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Migrate XQParameterInfo to Spring property injection
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQParameterInfo hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Migrate to org.apache.camel.Message
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQMessage hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate to org.apache.camel.Message.getHeader*
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQMessage.getHeaderValue hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate to org.apache.camel.Message.setHeader
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQMessage.getHeaderValue hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate to org.apache.camel.Message.getHeaders
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQMessage.getHeaderNames hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Migrate XQPart to an attachment
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQPart hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Migrate to org.apache.camel.Message.getAttachments*
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQMessage.getPartCount hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Migrate to org.apache.camel.Message.getAttachment
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQMessage.getPart hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Apache SLF4J
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQLog hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Create a custom ServiceException class
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQServiceException hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Correlation is handled several ways in Camel
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQMessage.getCorrelationId hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Sonic ESB Service is routing
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQAddressFactory.createEndpointAddress hint was
+            not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Sonic ESB uses the addOutgoing*
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQServiceContext.addOutgoing hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Migrate to org.apache.camel.Exchange
+      perform:
+        fail:
+        - message: com.sonicsw.xq.XQEnvelope hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate to org.apache.camel.Message.getIn*
+      perform:
+        fail:
+        - message: Method call com.sonicsw.xq.XQEnvelope.getMessage hint was not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/fuse/sonicesb/tests/sonic-esb.windup.test.xml

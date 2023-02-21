@@ -1,0 +1,74 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/websphere/tests/data
+rulePath:
+- ../
+target: eap:7
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: IBM Process Server Rules 6.0
+      perform:
+        fail:
+        - message: WebSphere RuleSet was not detected
+    - when:
+        not:
+        - classification-exists:
+          - classification: WebSphere EAR Application Binding
+      perform:
+        fail:
+        - message: WebSphere ApplicationBinding was not detected
+    - when:
+        not:
+        - hint-exists:
+          - message: This file contains a specific IBM WebSphere Application binding
+              configuration.*
+      perform:
+        fail:
+        - message: Hint for WebSphere ApplicationBinding was not detected!
+    - when:
+        not:
+        - hint-exists:
+          - message: This file contains WebSphere proprietary JSP engine configuration.*
+      perform:
+        fail:
+        - message: Hint for IBM Websphere webappext:WebAppExtension was not detected
+    - when:
+        not:
+        - hint-exists:
+          - message: This file contains WebSphere proprietary JSP engine configuration.*
+            in: websphere-web-ext.xml
+      perform:
+        fail:
+        - message: Hint for IBM Websphere websphere-web-ext.xml was not detected
+    - when:
+        not:
+        - hint-exists:
+          - message: This file contains WebSphere proprietary binding configuration.*
+      perform:
+        fail:
+        - message: Hint for WebSphere WebAppBinding was not detected!
+    - when:
+        not:
+        - classification-exists:
+          - classification: WebSphere web service client extension descriptor
+      perform:
+        fail:
+        - message: WebSphere WsClientExtension was not detected
+    - when:
+        not:
+        - classification-exists:
+          - classification: WebSphere web service client binding descriptor \(ibm-webservicesclient-bnd\)
+      perform:
+        fail:
+        - message: WebSphere ClientBinding was not detected
+    - when:
+        not:
+        - classification-exists:
+          - classification: WebSphere deployment descriptor \(deployment.xml\)
+      perform:
+        fail:
+        - message: WebSphere Deployment was not detected
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/websphere/tests/websphere-xml.windup.test.xml

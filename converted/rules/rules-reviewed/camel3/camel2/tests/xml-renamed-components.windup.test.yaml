@@ -1,0 +1,339 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/tests/data/xml-renamed-components
+rulePath:
+- ../xml-renamed-components.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-http4` artifact has been renamed in
+                Apache Camel 3 to `org.apache.camel:camel-http` artifact'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-http4'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-http4-starter` artifact has been renamed
+                in Apache Camel 3 to `org.apache.camel.springboot:camel-http-starter`
+                artifact'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-http4-starter'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-rxjava2` artifact has been renamed
+                in Apache Camel 3 to `org.apache.camel:camel-rxjava` artifact'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-rxjava2'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-rxjava2-starter` artifact has been
+                renamed in Apache Camel 3 to `org.apache.camel.springboot:camel-rxjava-starter`
+                artifact'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-rxjava2-starter'' dependency
+            moved hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-zookeeper-starter` artifact has been
+                renamed in Apache Camel 3 to `org.apache.camel.springboot:camel-zookeeper-starter`
+                artifact'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-zookeeper-starter'' dependency
+            moved hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-mongodb3` artifact has been renamed
+                to `org.apache.camel:camel-mongodb`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-mongodb3'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-mongodb3-starter` artifact has been
+                renamed to `org.apache.camel.springboot:camel-mongodb-starter`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-mongodb3-starter'' dependency
+            moved hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-hdfs2` artifact has been renamed to
+                `org.apache.camel:camel-hdfs`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-hdfs2'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-hdfs2-starter` artifact has been renamed
+                to `org.apache.camel.springboot:camel-hdfs-starter`*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-hdfs2-starter'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: In Camel 3, the `org.apache.camel:camel-hdfs` artifact has
+                the same implementation as the Camel 2*
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-hdfs'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-hdfs-starter` artifact has been renamed
+                to `org.apache.camel.springboot:camel-hdfs-starter`*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-hdfs-starter'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-mina2` artifact has been renamed'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-mina2'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-mina2-starter` artifact has been renamed'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-mina2-starter'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: In Camel 3, the `org.apache.camel:camel-mina` artifact has
+                the same implementation *
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-mina'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-mina-starter` artifact has been renamed
+                to `org.apache.camel.springboot:camel-mina-starter`*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-mina-starter'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-netty4` artifact has been renamed
+                to `org.apache.camel:camel-netty`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-netty4'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-netty4-starter` artifact has been
+                renamed to `org.apache.camel.springboot:camel-netty-starter`*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-netty4-starter'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: In Camel 3, the `org.apache.camel:camel-netty` artifact has
+                the same implementation as the Camel 2*
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-netty'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-netty-starter` artifact has been renamed
+                to `org.apache.camel.springboot:camel-netty-starter`*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-netty-starter'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-netty4-http` artifact has been renamed
+                to `org.apache.camel:camel-netty-http`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-netty4-http'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-netty4-http` artifact has been renamed
+                to `org.apache.camel.springboot:camel-netty-http-starter`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-netty4-http-starter'' dependency
+            moved hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: In Camel 3, the `org.apache.camel:camel-netty-http` artifact
+                has the same implementation as the Camel 2
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-netty-http'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-netty-http-starter` artifact has been
+                renamed to `org.apache.camel.springboot:camel-netty-http-starter`*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-netty-http-starter'' dependency
+            moved hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-quartz2` artifact has been renamed
+                to `org.apache.camel:camel-quartz`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-quartz2'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-quartz2-starter` artifact has been
+                renamed to `org.apache.camel.springboot:camel-quartz-starter`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-quartz2-starter'' dependency
+            moved hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: In Camel 3, the `org.apache.camel:camel-quartz` artifact has
+                the same implementation as the Camel 2*
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-quartz'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-quartz-starter` artifact has been
+                renamed to `org.apache.camel.springboot:camel-quartz-starter`*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-quartz-starter'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-jetty9` artifact has been renamed
+                to `org.apache.camel:camel-jetty`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-jetty9'' dependency moved hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-jetty9-starter` artifact has been
+                renamed to `org.apache.camel.springboot:camel-jetty-starter`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-jetty9-starter'' dependency moved
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.activemq:activemq-camel` artifact has been moved
+                to `org.apache.camel:camel-activemq`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-renamed-components] ''camel-activemq'' dependency moved hint
+            was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/camel3/camel2/tests/xml-renamed-components.windup.test.xml

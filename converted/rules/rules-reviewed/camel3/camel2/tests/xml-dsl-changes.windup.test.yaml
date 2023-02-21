@@ -1,0 +1,92 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/tests/data/xml-dsl-changes
+rulePath:
+- ../xml-dsl-changes.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: zip` and `gzip` dataformats were renamed.*
+            size: 1
+      perform:
+        fail:
+        - message: '[generic-information] Camel dependency moved hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`custom` load balancer was renamed to `customLoadBalancer`'
+            size: 2
+      perform:
+        fail:
+        - message: '[Camel XML DSL changed] Hint for renamed custom loadbalancer not
+            found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`zipFile` data format was renamed to `zipfile'
+            size: 1
+      perform:
+        fail:
+        - message: '[Camel XML DSL changed] Hint for renamed zipFile dataformat not
+            found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`keyOrTrustStoreParametersId` attribute was renamed to `keyOrTrustStoreParametersRef`'
+            size: 1
+      perform:
+        fail:
+        - message: '[Camel XML DSL changed] Hint for renamed parameter not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Hystrix circuit breaker has been generalized as circuit breaker.
+                Use `circuitBreaker.*`
+            size: 1
+      perform:
+        fail:
+        - message: '[Camel XML DSL changed] not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Use `completionSizeExpression` instead of `completionSize*`
+            size: 1
+      perform:
+        fail:
+        - message: '[Camel XML DSL changed] Aggregate change not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Use `completionTimeoutExpression` instead of `completionTimeout*`
+            size: 1
+      perform:
+        fail:
+        - message: '[Camel XML DSL changed] Aggregate change not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The attribute `headerName` was renamed to `name`.
+            size: 1
+      perform:
+        fail:
+        - message: '[Camel XML DSL changed] Aggregate change not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The attribute `propertyName` was renamed to `name`.
+            size: 1
+      perform:
+        fail:
+        - message: '[Camel XML DSL changed] Aggregate change not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/camel3/camel2/tests/xml-dsl-changes.windup.test.xml

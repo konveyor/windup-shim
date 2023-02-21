@@ -1,0 +1,29 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-di
+rulePath:
+- ../springboot-di-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the SpringBoot Dependency Injection artifact with Quarkus
+                `spring-di` extension
+            size: 1
+      perform:
+        fail:
+        - message: '[springboot-di-to-quarkus-extension] SpringBoot Dependency artifact
+            replaced by Quarkus extension was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Quarkus only supports the java-based configuration of Spring
+                beans
+            size: 3
+      perform:
+        fail:
+        - message: '[springboot-di-to-quarkus-extension] Test failure - springboot-di-to-quarkus-00001-test'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-di-to-quarkus.windup.test.xml

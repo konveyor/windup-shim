@@ -1,0 +1,18 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/tests/data/java-dsl-changes
+rulePath:
+- ../java-dsl-changes.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Hystrix circuit breaker has been generalized as circuit breaker.
+                Use `circuitBreaker().*`
+            size: 1
+      perform:
+        fail:
+        - message: '[Camel Hystrix EIP] not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/camel3/camel2/tests/java-dsl-changes.windup.test.xml

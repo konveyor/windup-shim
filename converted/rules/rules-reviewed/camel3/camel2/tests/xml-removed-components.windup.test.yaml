@@ -1,0 +1,160 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/tests/data/xml-removed-components
+rulePath:
+- ../xml-removed-components.windup.xml
+- ../xml-removed-components.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-linkedin` artifact has been removed
+                in Apache Camel 3 so it won''t be available'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-linkedin'' dependency removed
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-linkedin-starter` artifact has been
+                removed in Apache Camel 3 so it won''t be available'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-linkedin-starter'' dependency
+            removed hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-script` artifact has been deprecated
+                in Apache Camel 2*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-script'' dependency removed hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-script-starter` artifact has been
+                deprecated in Apache Camel 2*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-script-starter'' dependency removed
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-jibx` artifact has been deprecated
+                in Apache Camel 2*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-jibx'' dependency removed hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-jibx-starter` artifact has been deprecated
+                in Apache Camel 2*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-jibx-starter'' dependency removed
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-boon` artifact has been deprecated
+                in Apache Camel 2*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-boon'' dependency removed hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-boon-starter` artifact has been deprecated
+                in Apache Camel 2*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-boon-starter'' dependency removed
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`twitter-streaming` component has been deprecated in Apache
+                Camel 2*'
+            size: 3
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-twitter-streaming'' dependency
+            removed hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-core-starter` artifact has been removed*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-core-starter'' dependency removed
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-aws` artifact has been removed and
+                split up into multiple components*'
+            size: 5
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-aws'' dependency removed hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-restlet` artifact has been deprecated
+                in Apache Camel 2*'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-restlet'' dependency removed
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`org.apache.camel:camel-aws-starter` artifact has been removed
+                and split up into multiple components*'
+            size: 5
+      perform:
+        fail:
+        - message: '[xml-removed-components] ''camel-aws-starter'' dependency removed
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `camel-maven-plugin` has been split up into two Maven plugins*
+            size: 2
+      perform:
+        fail:
+        - message: '[Camel plugin split] Hint for Camel Maven Plugin split not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/camel3/camel2/tests/xml-removed-components.windup.test.xml

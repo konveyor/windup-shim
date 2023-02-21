@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/tests/data/properties
+rulePath:
+- ../javax-to-jakarta-properties.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Rename properties prefixed by `javax` with `jakarta`
+            size: 3
+      perform:
+        fail:
+        - message: '[javax-to-jakarta-properties-00001] The hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap8/eap7/tests/javax-to-jakarta-properties.windup.test.xml

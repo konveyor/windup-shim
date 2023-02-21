@@ -1,0 +1,43 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/websphere/tests/samples/websphere-mqe
+rulePath:
+- ../websphere-jms.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: IBM MQeQueueConnectionFactory.*
+      perform:
+        fail:
+        - message: Hint not found for MQeQueueConnectionFactory.*
+    - when:
+        not:
+        - hint-exists:
+          - message: IBM MQeXAQueueConnectionFactory.*
+      perform:
+        fail:
+        - message: Hint not found for MQeXAQueueConnectionFactory.*
+    - when:
+        not:
+        - hint-exists:
+          - message: IBM MQeTopicConnectionFactory.*
+      perform:
+        fail:
+        - message: Hint not found for MQeTopicConnectionFactory.*
+    - when:
+        not:
+        - hint-exists:
+          - message: IBM MQeXATopicConnectionFactory.*
+      perform:
+        fail:
+        - message: Hint not found for MQeXATopicConnectionFactory.*
+    - when:
+        not:
+        - hint-exists:
+          - message: MQeDestination.* `javax.jms.Destination`.*
+      perform:
+        fail:
+        - message: Hint not found for MQeDestination.*.
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/websphere/tests/websphere-jms-mqe.windup.test.xml

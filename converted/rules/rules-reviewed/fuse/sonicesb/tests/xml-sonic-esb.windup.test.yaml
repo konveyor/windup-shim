@@ -1,0 +1,15 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/fuse/sonicesb/tests/data
+rulePath:
+- ../xml-sonic-esb.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: SonicESB Service Configuration
+      perform:
+        fail:
+        - message: SonicESB Service Configuration was not found
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/fuse/sonicesb/tests/xml-sonic-esb.windup.test.xml

@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/tests/data
+rulePath:
+- ../quarkus1-12-mailer.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `MailTemplateInstance` now returns*
+            size: 1
+      perform:
+        fail:
+        - message: '[quarkus1-12-mailer-00000] The mailer hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-archived/quarkus1/quarkus1-11/tests/quarkus1-12-mailer.windup.test.xml

@@ -1,0 +1,170 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/tests/data/database
+rulePath:
+- ../database.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded HSQLDB Driver
+          technology-tag-exists:
+          - technology-tag: HSQLDB Driver
+      perform:
+        fail:
+        - message: Expected data not found for rule database-01400
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded MySQL Driver
+          technology-tag-exists:
+          - technology-tag: MySQL Driver
+      perform:
+        fail:
+        - message: Expected data not found for rule database-01500
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded Derby Driver
+          technology-tag-exists:
+          - technology-tag: Derby Driver
+      perform:
+        fail:
+        - message: Expected data not found for rule database-01600
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded PostgreSQL Driver
+          technology-tag-exists:
+          - technology-tag: PostgreSQL Driver
+      perform:
+        fail:
+        - message: Expected data not found for rule database-01700
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded H2 Driver
+          technology-tag-exists:
+          - technology-tag: H2 Driver
+      perform:
+        fail:
+        - message: Expected data not found for rule database-01800
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded Microsoft SQL Driver
+          technology-tag-exists:
+          - technology-tag: Microsoft SQL Driver
+      perform:
+        fail:
+        - message: Expected data not found for rule database-01900
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded SQLite Driver
+          technology-tag-exists:
+          - technology-tag: SQLite Driver
+      perform:
+        fail:
+        - message: Expected data not found for rule database-02000
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded Oracle DB Driver
+          technology-tag-exists:
+          - technology-tag: Oracle DB Driver
+      perform:
+        fail:
+        - message: Expected data not found for rule database-02100
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded Cassandra Client
+          technology-tag-exists:
+          - technology-tag: Cassandra Client
+      perform:
+        fail:
+        - message: Expected data not found for rule database-02200
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded Axion Driver
+          technology-tag-exists:
+          - technology-tag: Axion Driver
+      perform:
+        fail:
+        - message: Expected data not found for rule database-02300
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded MckoiSQLDB Driver
+          technology-tag-exists:
+          - technology-tag: MckoiSQLDB Driver
+      perform:
+        fail:
+        - message: Expected data not found for rule database-02400
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded MongoDB Client
+          technology-tag-exists:
+          - technology-tag: MongoDB Client
+      perform:
+        fail:
+        - message: Expected data not found for rule database-02500
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Spring Data
+          technology-tag-exists:
+          - technology-tag: Spring Data
+      perform:
+        fail:
+        - message: Expected data not found for rule database-02600
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded framework - Morphia
+          technology-tag-exists:
+          - technology-tag: Morphia
+      perform:
+        fail:
+        - message: Expected data not found for rule database-02700
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded LevelDB Client
+          technology-tag-exists:
+          - technology-tag: LevelDB Client
+      perform:
+        fail:
+        - message: Expected data not found for rule database-02800
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded Apache HBase Client
+          technology-tag-exists:
+          - technology-tag: Apache HBase Client
+      perform:
+        fail:
+        - message: Expected data not found for rule database-02900
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded Apache Accumulo Client
+          technology-tag-exists:
+          - technology-tag: Apache Accumulo Client
+      perform:
+        fail:
+        - message: Expected data not found for rule database-03100
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded Spring Data JPA
+          technology-tag-exists:
+          - technology-tag: Spring Data JPA
+      perform:
+        fail:
+        - message: Expected data not found for rule database-03200
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/technology-usage/tests/database.windup.test.xml

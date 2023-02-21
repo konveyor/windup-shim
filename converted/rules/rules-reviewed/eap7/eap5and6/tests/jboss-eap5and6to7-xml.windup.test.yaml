@@ -1,0 +1,159 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/tests/data
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: The .*clustered.* element is ignored in EAP 7 and is not useful.
+      perform:
+        fail:
+        - message: Clustering element hint in jboss-ejb3.xml not found!
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss Seam Components
+      perform:
+        fail:
+        - message: 'Classification not found: JBoss Seam Components'
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss Seam Pages
+      perform:
+        fail:
+        - message: 'Classification not found: JBoss Seam Pages'
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss Seam Page
+      perform:
+        fail:
+        - message: 'Classification not found: JBoss Seam Page'
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss web application descriptor \(jboss-web\.xml\)
+      perform:
+        fail:
+        - message: 'Classification not found: JBoss web application descriptor (jboss-web.xml)'
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss EJB 2 CMP Deployment descriptor.*
+      perform:
+        fail:
+        - message: 'Classification not found: JBoss EJB 2 CMP Deployment Descriptor'
+    - when:
+        not:
+        - hint-exists:
+          - message: CMP configuration provided in this ejb-jar.xml should be configured
+              using JPA persistence.xml or using JPA annotations.
+      perform:
+        fail:
+        - message: There should be 2 hints for CMP Entity definitions in ejb-jar.xml
+    - when:
+        not:
+        - hint-exists:
+          - message: BMP configuration provided in this ejb-jar.xml should be configured
+              using JPA persistence.xml or using JPA annotations.
+      perform:
+        fail:
+        - message: There should be 2 hints for BMP Entity definitions in ejb-jar.xml
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss Web was replaced by Undertow, which does not contain support
+              for the Valve functionality.
+      perform:
+        fail:
+        - message: JBoss Web Valve hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JAX-RPC support was removed in JBoss EAP 7.
+      perform:
+        fail:
+        - message: JAX-RPC configuration (jaxrpc-mapping-file) hint not found!
+    - when:
+        not:
+        - classification-exists:
+          - classification: JSR-88 deployment plans are no more supported by JBoss
+              EAP7
+      perform:
+        fail:
+        - message: deployment-plan.xml classification not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The EAP 7 Web Session Clustering configuration deprecates .*replication-trigger.*
+      perform:
+        fail:
+        - message: replication-config/replication-trigger element hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The EAP 7 Web Session Clustering configuration deprecates element
+              .*replication-mode.*
+      perform:
+        fail:
+        - message: replication-config/replication-mode element hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The EAP 7 Web Session Clustering configuration deprecates .*backups.*
+      perform:
+        fail:
+        - message: replication-config/backups element hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The EAP 7 Web Session Clustering configuration deprecates .*use-jk.*
+      perform:
+        fail:
+        - message: replication-config/use-jk element hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The EAP 7 Web Session Clustering configuration deprecates .*max-unreplicated-interval.*
+      perform:
+        fail:
+        - message: replication-config/max-unreplicated-interval element hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: 'The EAP 7 Web Session Clustering configuration deprecates .*snapshot-mode.* '
+      perform:
+        fail:
+        - message: replication-config/snapshot-mode element hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*The EAP 7 Web Session Clustering configuration removed .*snapshot-interval.*
+      perform:
+        fail:
+        - message: replication-config/snapshot-interval element hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The EAP 7 Web Session Clustering configuration deprecates .*session-notification-policy.*
+      perform:
+        fail:
+        - message: replication-config/session-notification-policy element hint not
+            found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The EAP 7 Web Session Clustering configuration deprecates .*passivation-config.*
+      perform:
+        fail:
+        - message: passivation-config element hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The EAP 7 Web Session Clustering configuration changed .*max-active-sessions.*
+      perform:
+        fail:
+        - message: jboss-web/max-active-sessions hint not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap5and6/tests/jboss-eap5and6to7-xml.windup.test.xml

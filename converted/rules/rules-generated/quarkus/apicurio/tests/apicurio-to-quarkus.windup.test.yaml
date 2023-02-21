@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/apicurio/tests/data
+rulePath:
+- ../apicurio-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `io.apicurio:apicurio-registry-serdes-avro-serde`
+                dependency with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-apicurio-registry-avro] quarkus-apicurio-registry-avro
+            Quarkus extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/apicurio/tests/apicurio-to-quarkus.windup.test.xml

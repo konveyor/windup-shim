@@ -1,0 +1,28 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-web
+rulePath:
+- ../springboot-web-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the Spring Web artifact with Quarkus `spring-web` extension
+            size: 3
+      perform:
+        fail:
+        - message: '[springboot-web-to-quarkus-extension] Spring Web artifact replaced
+            by Quarkus extension was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Add the Quarkus `quarkus-resteasy-reactive-jackson` dependency
+            size: 2
+      perform:
+        fail:
+        - message: '[springboot-web-to-quarkus-extension-00000-test] Add the Quarkus
+            ''quarkus-resteasy-reactive-jackson'' dependency was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-web-to-quarkus.windup.test.xml

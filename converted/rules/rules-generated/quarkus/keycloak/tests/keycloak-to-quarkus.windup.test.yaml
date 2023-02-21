@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/keycloak/tests/data
+rulePath:
+- ../keycloak-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.keycloak:keycloak-admin-client` dependency
+                with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-keycloak-admin-client] quarkus-keycloak-admin-client
+            Quarkus extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/keycloak/tests/keycloak-to-quarkus.windup.test.xml

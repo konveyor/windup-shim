@@ -1,0 +1,15 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/tests/data
+rulePath:
+- ../jaxrpc.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: JAX-RPC is no longer supported on JBoss EAP 7.*
+      perform:
+        fail:
+        - message: JAX-RPC Generic Handler hint not found.
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap5/tests/jaxrpc.windup.test.xml

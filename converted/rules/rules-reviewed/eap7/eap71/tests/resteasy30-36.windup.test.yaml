@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap71/tests/data/data-resteasy30-36
+rulePath:
+- ../resteasy30-36.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application from JBoss EAP from 7.1.1 to
+                7.2.x and want to retain the stricter behavior as defined in the JAX-RS
+                2.0 specification
+            size: 1
+      perform:
+        fail:
+        - message: No reference to jboss-jaxrs-api_2.0_spec found in pom.xml
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap71/tests/resteasy30-36.windup.test.xml

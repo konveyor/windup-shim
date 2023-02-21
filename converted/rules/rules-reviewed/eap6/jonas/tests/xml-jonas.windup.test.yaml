@@ -1,0 +1,16 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jonas/tests/data
+rulePath:
+- ../xml-jonas.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: JOnAS Web Descriptor
+            in: jonasConfigExample.xml
+      perform:
+        fail:
+        - message: JOnAS Web Descriptor is missing
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/jonas/tests/xml-jonas.windup.test.xml

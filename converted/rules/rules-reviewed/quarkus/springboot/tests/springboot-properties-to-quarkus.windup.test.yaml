@@ -1,0 +1,79 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-properties
+rulePath:
+- ../springboot-properties-to-quarkus.windup.xml
+- ../springboot-properties-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace the SpringBoot artifact with Quarkus `spring-boot-properties`
+              extension
+      perform:
+        fail:
+        - message: '[springboot-properties-to-quarkus-extension] SpringBoot artifact
+            replaced by Quarkus extension was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Please add the Quarkus dependency `io.quarkus:quarkus-spring-boot-properties`
+                to successfully use the Spring Configuration Properties
+            size: 1
+      perform:
+        fail:
+        - message: '[springboot-properties-to-quarkus-extension] Add Quarkus extension
+            was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Spring property profile in separate file
+      perform:
+        fail:
+        - message: '[springboot-properties-profiles-to-quarkus-properties] SpringBoot
+            property profiles replaced by Quarkus property profiles was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Spring datasource property key/value pairs have been detected
+              in the application property file.
+      perform:
+        fail:
+        - message: '[springboot-properties-to-quarkus-properties] SpringBoot datasource
+            property replaced by Quarkus property was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Spring log level property configuration have been detected in
+              the application property file
+      perform:
+        fail:
+        - message: '[springboot-log-level-to-quarkus-properties] SpringBoot log level
+            property replaced by Quarkus property was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace `spring.jpa.hibernate.ddl-auto=create-drop` with `quarkus.hibernate-orm.database.generation=drop-and-create`
+      perform:
+        fail:
+        - message: '[springboot-properties-to-quarkus-00004-test] SpringBoot JPA Hibernate
+            property rule failed!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace `springdoc.swagger-ui.path` with `quarkus.swagger-ui.path`*
+      perform:
+        fail:
+        - message: '[springboot-properties-to-quarkus-00005-test] SpringBoot Swagger
+            endpoint property rule failed!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace `springdoc.api-docs.path` with `quarkus.smallrye-openapi.path`*
+      perform:
+        fail:
+        - message: '[springboot-properties-to-quarkus-00006-test] SpringBoot OpenAPI
+            endpoint property rule failed!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-properties-to-quarkus.windup.test.xml

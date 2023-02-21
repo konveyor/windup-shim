@@ -1,0 +1,413 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/fuse-service-works/soa-p-5/tests/data
+rulePath:
+- ../soa-p-5.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss ESB 5 Action Handler
+      perform:
+        fail:
+        - message: ESB 5 Action Handler classification not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Custom action classes should be migrated to CDI Beans in Fuse
+              Service Works
+      perform:
+        fail:
+        - message: ESB 5 Action Handler hint not found!
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss ESB Deployment Descriptor
+      perform:
+        fail:
+        - message: JBoss ESB Deployment Descriptor not found!
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss ESB Pipeline Configuration
+      perform:
+        fail:
+        - message: JBoss ESB Pipeline not found!
+    - when:
+        not:
+        - classification-exists:
+          - classification: Smooks Configuration
+      perform:
+        fail:
+        - message: Smooks configuration not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: This listener requires a composite service binding in Fuse Service
+              Works.
+      perform:
+        fail:
+        - message: JMS Gateway conversion instructions are missing!
+    - when:
+        not:
+        - hint-exists:
+          - message: An ESB-aware listener is no longer required in Fuse Service Works
+      perform:
+        fail:
+        - message: Instruction to remove esb-aware listener is missing!
+    - when:
+        not:
+        - hint-exists:
+          - message: Each .*? definition in SOA-P 5 represents a service which can
+              be
+      perform:
+        fail:
+        - message: Migrate action pipeline hint is missing!
+    - when:
+        not:
+        - hint-exists:
+          - message: The logic and execution flow of a service in SOA-P 5 is defined
+              in an
+      perform:
+        fail:
+        - message: Service pipeline hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Although Camel has both Hibernate and JPA components that are.*[\n]*.*useful
+              in consuming records, there isn't any support for Hibernate events.
+      perform:
+        fail:
+        - message: Hibernate bus hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: A jms-bus definition can be converted to a JMS or JCA gateway
+      perform:
+        fail:
+        - message: jms-bus migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: A ftp-bus definition can be converted to a FTP gateway
+      perform:
+        fail:
+        - message: ftp-bus migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: A camel-bus definition can be converted to a Camel gateway
+      perform:
+        fail:
+        - message: camel-bus migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: A UDP Listener definition can be converted to a TCP/UDP
+      perform:
+        fail:
+        - message: udp-listener migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: A jms-jca-provider definition can be converted to a JCA
+      perform:
+        fail:
+        - message: jms-jca-provider migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: A http-provider definition can be converted to a HTTP gateway
+      perform:
+        fail:
+        - message: http-listener migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: A cron-schedule definition can be converted to a Quartz
+      perform:
+        fail:
+        - message: cron-schedule migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: This listener requires a composite service binding in Fuse Service
+              Works. The configuration for a FTP binding
+      perform:
+        fail:
+        - message: ftp gateway listener migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The configuration for a Camel binding can be found in the camel-bus
+              definition associated
+      perform:
+        fail:
+        - message: Camel gateway listener migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: A .*?http-gateway.* can be replaced in Fuse Service Works by
+              a http binding added to your composite service.
+      perform:
+        fail:
+        - message: http-gateway listener migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: of as SmooksAction to transform message content. You most likely
+              will want to use a Smooks transform
+      perform:
+        fail:
+        - message: Smooks transform migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: In a Fuse Service Works Smooks transform, you can specify your
+              Smooks configuration with the .*?config.* attribute.
+      perform:
+        fail:
+        - message: Smooks config migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: to specify your Smooks configuration and from/to types.
+      perform:
+        fail:
+        - message: Smooks result type migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Instead of the JBoss ESB SOAPProxy action which transforms a
+              specified WSDL and rewrites the address to the JBoss ESB server,
+      perform:
+        fail:
+        - message: SOAPProxy migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: you may want to create a Bean service which logs the message
+              in the manner you wish
+      perform:
+        fail:
+        - message: SystemPrintln migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Fuse Service Works, you should use Camel's routing \(either through
+              Java DSL routes or route.xml\)\.
+      perform:
+        fail:
+        - message: StaticRouter migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: In order to replace the use of the JMSRouter in Fuse Service
+              Works, you should use a JMS binding. You may need to review the options
+              for JMS bindings in
+      perform:
+        fail:
+        - message: JMSRouter migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: TestMessageStore is an out-of-the-box ESB action that is used
+              in JBoss Application Server
+      perform:
+        fail:
+        - message: TestMessageStore migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The GroovyActionProcessor action executes a Groovy script. You
+              can duplicate this functionality in
+      perform:
+        fail:
+        - message: GroovyActionProcessor migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The BpmProcessor makes calls to jBPM 3 through the jBPM command
+              API. Fuse Service Works supports jBPM 5, so you will need
+      perform:
+        fail:
+        - message: ESB JBPM migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: A fs-bus definition can be converted to a Camel binding on a
+              composite service in Fuse Service Works.
+      perform:
+        fail:
+        - message: fs-bus migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses notifiers to transform ESB aware messages to a
+              format that ESB-unaware services can handle. Fuse Service Works uses
+              bi-directional gateways to transfer messages
+      perform:
+        fail:
+        - message: ESB Notifier migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses a ByteArrayToString action to do conversion on
+              a message body. In Fuse Service Works
+      perform:
+        fail:
+        - message: ByteArrayToString migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses the LongToDateConverter action to do conversion
+              on a message body.
+      perform:
+        fail:
+        - message: LongToDateConverter migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses the ObjectToCSVString action to do conversion
+              on a message body. Fuse Service Works
+      perform:
+        fail:
+        - message: ObjectToCSVString migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses a ObjectInvoke action to invoke a processor on
+              a message.
+      perform:
+        fail:
+        - message: ObjectInvoke migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses an ObjectToXStream action to do convert an Object
+              payload to XML using the XStream
+      perform:
+        fail:
+        - message: ObjectToXStream migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses an XStreamToObject action to convert XML in a
+              payload to an object using the XStream processor.
+      perform:
+        fail:
+        - message: XStreamToObject migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses the XsltAction action to transform documents in
+              a payload. Fuse Service Works would use Camel to do this type of
+      perform:
+        fail:
+        - message: XsltAction migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Fuse Service Works uses a .*?transform.*? to replace the invocation
+              of a SmooksTransformer to transform message content.
+      perform:
+        fail:
+        - message: SmooksTransformer migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses the MessagePersister action to persist a message.
+              Fuse Service Works would use
+      perform:
+        fail:
+        - message: MessagePersister migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses the EJBProcessor action to invoke a stateless
+              session bean with the contents of a message.
+      perform:
+        fail:
+        - message: EJBProcessor migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The ScriptingAction executes a script using the BeanScriptingFramework.
+              You can duplicate this functionality in Fuse Service Works
+      perform:
+        fail:
+        - message: ScriptingAction migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses the Aggregator action to aggregate a message sequence
+              into a single aggregated message.
+      perform:
+        fail:
+        - message: ESB Aggregator migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: JBoss ESB uses the StreamingAggregator action to aggregate a
+              message sequence into a single aggregated message.
+      perform:
+        fail:
+        - message: ESB Streaming Aggregator migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: In order to replace the use of the HttpRouter in JBoss ESB, you
+              should use a HTTP reference binding.
+      perform:
+        fail:
+        - message: ESB HTTP Router migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: In order to replace the use of the EmailRouter in Fuse Service
+              Works, you should use a mail reference binding.
+      perform:
+        fail:
+        - message: ESB Email Router migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: In order to replace the use of the ContentBasedRouter in Fuse
+              Service Works, you should use Camel to route messages.
+      perform:
+        fail:
+        - message: ContentBasedRouter migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: In order to replace the use of the StaticWiretap in Fuse Service
+              Works, you should use a
+      perform:
+        fail:
+        - message: StaticWiretap migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: In order to replace the use of the StaticRouter in Fuse Service
+              Works, you should use Camel to route messages.
+      perform:
+        fail:
+        - message: StaticRouter migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: In order to replace the use of the SOAPProcessor you should use
+              a SOAP reference binding in Fuse Service Works.
+      perform:
+        fail:
+        - message: SOAPProcessor migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: In order to replace the use of the SOAPClient in Fuse Service
+              Works, you should use a SOAP reference
+      perform:
+        fail:
+        - message: SOAPClient migration hint not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/fuse-service-works/soa-p-5/tests/soa-p-5.windup.test.xml

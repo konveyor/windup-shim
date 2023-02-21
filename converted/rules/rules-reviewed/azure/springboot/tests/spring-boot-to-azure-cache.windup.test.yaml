@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/tests/data/spring-boot-to-azure-cache
+rulePath:
+- ../spring-boot-to-azure-cache.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The application uses a Redis Cache.
+            size: 4
+      perform:
+        fail:
+        - message: Redis Cache hint was not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/azure/springboot/tests/spring-boot-to-azure-cache.windup.test.xml

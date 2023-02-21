@@ -1,0 +1,14 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap5/tests/samples/data-resteasy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: Use of .*org.jboss.resteasy.plugins.cache.server.SimpleServerCache.*
+              is not supported in JBoss EAP 6
+      perform:
+        fail:
+        - message: SimpleServerCache hint not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/jboss-eap5/tests/resteasy.windup.test.xml

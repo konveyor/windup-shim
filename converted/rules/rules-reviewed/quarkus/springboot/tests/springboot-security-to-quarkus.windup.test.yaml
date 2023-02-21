@@ -1,0 +1,20 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-security
+sourceMode: true
+rulePath:
+- ../springboot-security-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the SpringBoot Security artifact with Quarkus `spring-security`
+                extension
+            size: 3
+      perform:
+        fail:
+        - message: '[springboot-security-to-quarkus-extension] SpringBoot Security
+            artifact replaced by Quarkus extension was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-security-to-quarkus.windup.test.xml

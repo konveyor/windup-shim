@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/tests/data/data-jax-ws
+rulePath:
+- ../jax-ws.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: EAP 7 uses JAX-WS 2.2 style constructors
+            size: 1
+      perform:
+        fail:
+        - message: The hint about changed value of WebServiceRef not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap6/tests/jax-ws.windup.test.xml

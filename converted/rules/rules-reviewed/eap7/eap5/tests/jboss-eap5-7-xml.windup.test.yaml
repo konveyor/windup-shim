@@ -1,0 +1,60 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/tests/data/xml
+rulePath:
+- ../jboss-eap5-7-xml.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss Cache
+      perform:
+        fail:
+        - message: 'Classification not found: JBoss Cache'
+    - when:
+        not:
+        - iterable-filter:
+          - classification-exists:
+            - classification: JBoss 5.x EAR descriptor
+            size: 1
+      perform:
+        fail:
+        - message: 'Classification not found: JBoss 5.x EAR descriptor'
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss 5 Classloader Configuration
+      perform: {}
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss legacy EJB XML \(jboss\.xml\)
+      perform:
+        fail:
+        - message: 'Classification not found: JBoss EJB XML deployment descriptor
+            prior to EAP 6'
+    - when:
+        not:
+        - hint-exists:
+          - message: '`java:/jaas/` is a JBoss EAP `security-domain` URI.'
+      perform:
+        fail:
+        - message: 'Hint not found: `java:/jaas/` is a JBoss EAP `security-domain`
+            URI. Replace it with a standard Java EE security configuration.'
+    - when:
+        not:
+        - classification-exists:
+          - classification: JBoss security configuration descriptor.*
+      perform:
+        fail:
+        - message: 'Classification not found: JBoss security configuration descriptor
+            (prior to AS 7 / EAP 6)'
+    - when:
+        not:
+        - hint-exists:
+          - message: login-config.xml
+      perform:
+        fail:
+        - message: 'Hint not found: `login-config.xml` descriptor is no longer supported.'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap5/tests/jboss-eap5-7-xml.windup.test.xml

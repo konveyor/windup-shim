@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-cloud-config
+rulePath:
+- ../springboot-cloud-config-client-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the Spring Cloud Config Client artifact with Quarkus
+                `quarkus-spring-cloud-config-client` extension
+            size: 3
+      perform:
+        fail:
+        - message: '[springboot-cloud-config-client-to-quarkus-extension] SpringBoot
+            cloud config client artifact replaced by Quarkus extension was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-cloud-config-client-to-quarkus.windup.test.xml

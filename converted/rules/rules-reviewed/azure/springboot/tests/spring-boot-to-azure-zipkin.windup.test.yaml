@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/tests/data/spring-boot-to-azure-zipkin
+rulePath:
+- ../spring-boot-to-azure-zipkin.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The application uses Zipkin.
+            size: 4
+      perform:
+        fail:
+        - message: Zipkin hint was not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/azure/springboot/tests/spring-boot-to-azure-zipkin.windup.test.xml

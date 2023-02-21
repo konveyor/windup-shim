@@ -1,0 +1,33 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/tests/data/data-replace_thorntail_boms
+rulePath:
+- ../replace_thorntail_boms.mta.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail BOM `io.thorntail:bom` with JBoss EAP
+                XP MicroProfile BOM and/or JBoss EAP Jakarta EE BOM.
+            size: 1
+      perform:
+        fail:
+        - message: No reference to Thorntail BOM `io.thorntail:bom` found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail BOM `io.thorntail:bom-certified` with
+                JBoss EAP XP MicroProfile BOM and/or JBoss EAP Jakarta EE BOM.
+            size: 1
+      perform:
+        fail:
+        - message: No reference to Thorntail BOM `io.thorntail:bom-certified` found
+            in pom.xml
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eapxp/thorntail/tests/replace_thorntail_boms.mta.test.xml

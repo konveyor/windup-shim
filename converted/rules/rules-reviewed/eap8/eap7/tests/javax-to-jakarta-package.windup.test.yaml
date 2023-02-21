@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/tests/data
+rulePath:
+- ../javax-to-jakarta-package.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `javax.
+            size: 23
+      perform:
+        fail:
+        - message: '[javax-to-jakarta-import-00001] The hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap8/eap7/tests/javax-to-jakarta-package.windup.test.xml

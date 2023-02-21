@@ -1,0 +1,62 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/tests/data/xml-moved-components/application0
+rulePath:
+- ../xml-moved-components.windup.xml
+- ../xml-moved-components.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`*camel-bean`, `camel-browse`, `camel-controlbus`, `camel-dataformat`,
+                `camel-dataset`, `camel-direct-vm`, `camel-direct`, `camel-file`,
+                `camel-language`, `camel-log`, `camel-ref`, `camel-rest`, `camel-scheduler`,
+                `camel-stub`, `camel-timer`, `camel-validator`, `camel-vm`, `camel-xslt`,
+                `camel-zip-deflater.*`'
+            size: 1
+      perform:
+        fail:
+        - message: '[xml-moved-components] Camel dependency moved hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: All the classes from `org.apache.camel.util.component.*
+            size: 1
+      perform:
+        fail:
+        - message: 'All the classes from `org.apache.camel.util.component`have been
+            moved '
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The class `org.apache.camel.impl.*` has been moved to `org.apache.camel.impl.engine`.*
+            size: 3
+      perform:
+        fail:
+        - message: 'All the classes from `org.apache.camel.util.component`.* '
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The class `org.apache.camel.main.Main` has been moved out of
+                `org.apache.camel:camel-core` and into its own JAR named `org.apache.camel:camel-main`*
+            size: 1
+      perform:
+        fail:
+        - message: '`org.apache.camel.main.Main` dependency move hint not found! '
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you run Camel standalone with just `camel-core` as a dependency,
+                and you want JMX enabled out of the box, then you need to add `org.apache.camel:camel-management`
+                as a dependency.*
+            size: 1
+      perform:
+        fail:
+        - message: 'JMX dependency move hint not found! '
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/camel3/camel2/tests/xml-moved-components.windup.test.xml

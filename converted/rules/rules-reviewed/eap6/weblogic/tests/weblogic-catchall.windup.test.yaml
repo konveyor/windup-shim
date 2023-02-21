@@ -1,0 +1,64 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/weblogic/tests/data-catchall
+rulePath:
+- ../weblogic-catchall.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: This is a WebLogic proprietary type .*com\.bea\.BeaImport.*
+      perform:
+        fail:
+        - message: com.bea catchall hint not found
+    - when:
+        not:
+        - hint-exists:
+          - message: This is an Oracle proprietary type .*com\.oracle\.ProprietaryOracleClass.*
+      perform:
+        fail:
+        - message: com.oracle.* catchall hint not found
+    - when:
+        not:
+        - hint-exists:
+          - message: This is an Oracle proprietary type .*com\.tangosol\..*
+      perform:
+        fail:
+        - message: com.tangosol catchall hint not found
+    - when:
+        not:
+        - hint-exists:
+          - message: This is a WebLogic proprietary type \(.*com\.weblogic\..*
+      perform:
+        fail:
+        - message: com.weblogic catchall hint not found
+    - when:
+        not:
+        - hint-exists:
+          - message: This is a WebLogic proprietary type .*bea\..*
+      perform:
+        fail:
+        - message: bea.* catchall hint not found
+    - when:
+        not:
+        - hint-exists:
+          - message: This is an Oracle proprietary type \(`oracle\..*
+      perform:
+        fail:
+        - message: oracle.* catchall hint not found
+    - when:
+        not:
+        - hint-exists:
+          - message: .*oracle.sql\..*
+      perform:
+        fail:
+        - message: oracle.sql.* catchall hint not found
+    - when:
+        not:
+        - hint-exists:
+          - message: This is a WebLogic proprietary type \(`weblogic\..*
+      perform:
+        fail:
+        - message: weblogic.* catchall hint not found
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/weblogic/tests/weblogic-catchall.windup.test.xml

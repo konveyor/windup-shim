@@ -1,0 +1,153 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/tests/data/springboot-associated
+rulePath:
+- ../springboot-associated-artifacts.rhamt.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: Check the links below for the Red Hat Runtimes supported version
+              of AMQP SpringBoot starter
+      perform:
+        fail:
+        - message: '[springboot-associated] Spring Boot AMQP starter hint was not
+            found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Check the links below for the Red Hat Runtimes supported version
+              of CXF JAXRS SpringBoot starter
+      perform:
+        fail:
+        - message: '[springboot-associated] Spring Boot CXF JAXRS starter hint was
+            not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Check the links below for the Red Hat Runtimes supported version
+              of Resteasy SpringBoot starter
+      perform:
+        fail:
+        - message: '[springboot-associated] Spring Boot Resteasy starter hint was
+            not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Check the links below for the Red Hat Runtimes supported version
+              of Infinispan SpringBoot starter
+      perform:
+        fail:
+        - message: '[springboot-associated] SpringBoot infinispan starter hint was
+            not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Check the links below for the Red Hat Runtimes supported version
+              of Keycloak SpringBoot starter
+      perform:
+        fail:
+        - message: '[springboot-associated] Spring Boot Keycloak starter hint was
+            not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Check the links below for the Red Hat Runtimes supported version
+              of Narayana SpringBoot starter
+      perform:
+        fail:
+        - message: '[springboot-associated] Spring Boot Narayana starter hint was
+            not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Check the links below for the Red Hat Runtimes supported version
+              of OpenTracing Spring Jaeger SpringBoot web starter
+      perform:
+        fail:
+        - message: '[springboot-associated] OpenTracing Spring Jaeger SpringBoot web
+            starter hint was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate `org.amqphub.spring:amqp-10-jms-spring-boot-starter`
+              dependency to a version compatible with the supported versions of the
+              RHOAR components provided in the link.
+      perform:
+        fail:
+        - message: '[springboot-associated] Supported AMQP SpringBoot web starter
+            hint was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate `org.apache.cxf:cxf-spring-boot-starter-jaxrs` dependency
+              to a version compatible with the supported versions of the RHOAR components
+              provided in the link.
+      perform:
+        fail:
+        - message: '[springboot-associated] Supported CXF JAX-RS SpringBoot web starter
+            hint was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate `org.jboss.resteasy:resteasy-spring-boot-starter` dependency
+              to a version compatible with the supported versions of the RHOAR components
+              provided in the link.
+      perform:
+        fail:
+        - message: '[springboot-associated] Supported Resteasy SpringBoot web starter
+            hint was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate `org.infinispan:infinispan-spring-boot-starter-embedded`
+              dependency to a version compatible with the supported versions of the
+              RHOAR components provided in the link.
+      perform:
+        fail:
+        - message: '[springboot-associated] Supported Embedded Infinispan SpringBoot
+            web starter hint was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate `org.infinispan:infinispan-spring-boot-starter-remote`
+              dependency to a version compatible with the supported versions of the
+              RHOAR components provided in the link.
+      perform:
+        fail:
+        - message: '[springboot-associated] Supported Remote Infinispan SpringBoot
+            web starter hint was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate `org.keycloak:keycloak-spring-boot-starter` dependency
+              to a version compatible with the supported versions of the RHOAR components
+              provided in the link.
+      perform:
+        fail:
+        - message: '[springboot-associated] Supported Keycloak SpringBoot web starter
+            hint was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Migrate `me.snowdrop:narayana-spring-boot-starter` dependency
+              to a version compatible with the supported versions of the RHOAR components
+              provided in the link.
+      perform:
+        fail:
+        - message: '[springboot-associated] Supported Narayana SpringBoot web starter
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Migrate `io.opentracing.contrib:opentracing-spring-jaeger-web-starter`
+                dependency to a version compatible with the supported versions of
+                the RHOAR components provided in the link.
+            size: 2
+      perform:
+        fail:
+        - message: '[springboot-associated] Supported Spring Jaeger SpringBoot web
+            starter hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/rhr/springboot/tests/springboot-associated-artifacts.rhamt.test.xml

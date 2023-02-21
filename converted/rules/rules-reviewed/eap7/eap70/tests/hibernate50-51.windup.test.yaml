@@ -1,0 +1,27 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap70/tests/data/data-hibernate50-51
+rulePath:
+- ../hibernate50-51.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Previous releases of Hibernate interpreted all null column
+                values for an `@Embeddable`
+            size: 1
+      perform:
+        fail:
+        - message: Hint for @Embeddable was not found!
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The changes mainly focused on
+            size: 5
+      perform:
+        fail:
+        - message: Hint for changes to schema management tooling was not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap70/tests/hibernate50-51.windup.test.xml

@@ -1,0 +1,650 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/tests/data/data-replace_thorntail_fractions
+rulePath:
+- ../replace_thorntail_fractions.mta.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:bean-validation`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:bean-validation` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:cdi-config` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:cdi-config` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:cdi` with the related
+                Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:cdi` dependency found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:config-api-runtime`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:config-api-runtime` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:datasources` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:datasources` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:ee-security` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:ee-security` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:ejb-mdb` with the
+                related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:ejb-mdb` dependency found in
+            pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:ejb` with the related
+                Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:ejb` dependency found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:elytron` with the
+                related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:elytron` dependency found in
+            pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:fraction-metadata`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:fraction-metadata` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:hibernate-validator`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:hibernate-validator` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:hibernate` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:hibernate` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:hystrix` with the
+                related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:hystrix` dependency found in
+            pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:infinispan` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:infinispan` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jaeger` with the
+                related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jaeger` dependency found in
+            pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jaxrs-jaxb` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jaxrs-jaxb` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jaxrs-jsonb` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jaxrs-jsonb` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jaxrs-jsonp` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jaxrs-jsonp` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jaxrs-multipart`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jaxrs-multipart` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jaxrs-validator`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jaxrs-validator` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jaxrs` with the
+                related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jaxrs` dependency found in
+            pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jca` with the related
+                Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jca` dependency found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jmx` with the related
+                Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jmx` dependency found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jpa` with the related
+                Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jpa` dependency found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jsf` with the related
+                Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jsf` dependency found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jsonb` with the
+                related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jsonb` dependency found in
+            pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:jsonp` with the
+                related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:jsonp` dependency found in
+            pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:keycloak` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:keycloak` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:logging` with the
+                related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:logging` dependency found in
+            pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:management` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:management` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:microprofile-config`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:microprofile-config` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:microprofile-fault-tolerance`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:microprofile-fault-tolerance`
+            dependency found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:microprofile-health`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:microprofile-health` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:microprofile-jwt`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:microprofile-jwt` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:microprofile-metrics`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:microprofile-metrics` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:microprofile-openapi`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:microprofile-openapi` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:microprofile-opentracing`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:microprofile-opentracing` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:microprofile-restclient`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:microprofile-restclient` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:microprofile` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:microprofile` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:opentracing` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:opentracing` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:remoting` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:remoting` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:resource-adapters`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:resource-adapters` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:spi` with the related
+                Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:spi` dependency found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:topology-openshift`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:topology-openshift` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:topology-webapp`
+                with the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:topology-webapp` dependency
+            found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:transactions` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:transactions` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:undertow` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:undertow` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:web` with the related
+                Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:web` dependency found in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:archaius` with
+                the related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:archaius` dependency found
+            in pom.xml
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, replace Thorntail Fraction `io.thorntail:monitor` with the
+                related Eclipse MicroProfile and/or Jakarta EE artifacts.
+            size: 1
+      perform:
+        fail:
+        - message: No Thorntail Fraction `io.thorntail:monitor` dependency found in
+            pom.xml
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eapxp/thorntail/tests/replace_thorntail_fractions.mta.test.xml
