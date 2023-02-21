@@ -307,6 +307,7 @@ type Ruletest struct {
 	Source       string    `xml:"source,omitempty" yaml:"source,omitempty"`
 	Target       string    `xml:"target,omitempty" yaml:"target,omitempty"`
 	Ruleset      []Ruleset `xml:"ruleset,omitempty" yaml:"ruleset,omitempty"`
+	SourceFile   string    `yaml:"sourceFile"`
 }
 
 type Tag struct {
