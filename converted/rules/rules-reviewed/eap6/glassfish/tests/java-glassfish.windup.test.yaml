@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/glassfish/tests/data
+rulePath:
+- ../java-glassfish.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: With JBoss EAP 6\+ it is required to implement `javax.jms.MessageListener`
+                or to specify the `messageListenerInterface` attribute in the `@MessageDriven`
+                annotation in the case of a JMS MessageListener.*
+            size: 1
+      perform:
+        fail:
+        - message: GlassFish related MessageListener warning not detected!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/glassfish/tests/java-glassfish.windup.test.xml

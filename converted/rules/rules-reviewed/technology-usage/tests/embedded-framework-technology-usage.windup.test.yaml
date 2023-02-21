@@ -1,0 +1,947 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/tests/data/embedded-framework
+rulePath:
+- ../../openshift/embedded-cache-libraries.windup.xml
+- ../../eap7/embedded-framework-libraries.windup.xml
+- ../embedded-framework.windup.xml
+- ../embedded-framework-technology-usage.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Embedded
+            - name: Web Service
+            name: Axis
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-01000
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Embedded
+            - name: Web Service
+            name: Axis2
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-01010
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Embedded
+            - name: Web Service
+            name: CXF
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-01100
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Embedded
+            - name: Web Service
+            name: XFire
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-01200
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Embedded
+            - name: REST
+            name: Jersey
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-01300
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Embedded
+            - name: REST
+            name: Unirest
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-01400
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Object Mapping
+            name: Hibernate
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-01500
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Object Mapping
+            name: Hibernate OGM
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-01600
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Object Mapping
+            name: EclipseLink
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-01700
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Processing
+            name: Spring Batch
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-02000
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Spring
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-02100
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: AspectJ
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-02200
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Rules and Processes
+            name: JBPM
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-02300
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Rules and Processes
+            name: iLog
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-02400
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: ehcache
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-02700
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: infinispan
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-02800
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Rules and Processes
+            name: Drools
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-02900
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Rules and Processes
+            name: Camunda
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-03000
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Rules and Processes
+            name: Pega
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-03100
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Rules and Processes
+            name: Blaze
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-03200
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Rules and Processes
+            name: MRules
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-03300
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Rules and Processes
+            name: Easy Rules
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-03400
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: Coherence
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-03500
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: Apache Commons JCS
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-03600
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: Dynacache
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-03700
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: Cache API
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-03800
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: Hazelcast
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-03900
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: Apache Ignite
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-04000
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: JBoss Cache
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-04100
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: JCache
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-04200
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: Memcached
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-04300
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: Oscache
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-04400
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: ShiftOne
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-04500
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: SwarmCache
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule embedded-framework-embedded-framework-04600
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: AOP Alliance
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-04700
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Embedded
+            - name: Other
+            name: SNMP4J
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-05000
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Connect
+            - name: Embedded
+            - name: Other
+            name: HTTP Client
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-05100
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Javax Inject
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-05300
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Google Guice
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-05400
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: CDI
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-05500
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Plexus Container
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-05600
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Weld
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-05700
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Dagger
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-05800
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: GIN
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-05900
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: PicoContainer
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-06000
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Scaldi
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-06100
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Macros
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-06200
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Injekt for Kotlin
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-06300
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Kodein
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-06400
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Peaberry
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-06500
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Sticky Configured
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-06600
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Ka DI
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-06700
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Polyforms DI
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-06800
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: JayWire
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-06900
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Silk DI
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-07000
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Grapht DI
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-07100
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Syringe
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-07200
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Cfg Engine
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-07300
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: BeanInject
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-07400
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Tornado Inject
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-07500
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Airframe
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-07600
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Winter
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-07700
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: KouInject
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-07800
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Iroh
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-07900
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Micro DI
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-08000
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: SubCut
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-08100
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Inversion of Control
+            name: Spring DI
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-08200
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Embedded
+            - name: Integration
+            name: Micrometer
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-08300
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: View
+            - name: Web
+            - name: Embedded
+            name: Spring Web
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-08400
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Caching
+            - name: Embedded
+            name: Spring Boot Cache
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-08500
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Utilities
+            - name: Embedded
+            name: Spring Shell
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-08600
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Processing
+            - name: Embedded
+            name: Spring Scheduled
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-08700
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Serverless / FAAS
+            - name: Embedded
+            name: Spring Cloud Function
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-08800
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Processing
+            - name: Embedded
+            name: Quartz
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-08900
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Processing
+            - name: Embedded
+            name: Feign
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-09000
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Observability
+            - name: Embedded
+            name: Zipkin
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-09100
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Store
+            - name: Embedded
+            - name: Caching
+            name: Redis
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-09200
+    - when:
+        not:
+        - technology-statistics-exists:
+          - tag:
+            - name: Execute
+            - name: Processing
+            - name: Embedded
+            name: Eureka
+            number-found: 1
+      perform:
+        fail:
+        - message: Expected data not found for rule technology-usage-embedded-framework-09300
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/technology-usage/tests/embedded-framework-technology-usage.windup.test.xml

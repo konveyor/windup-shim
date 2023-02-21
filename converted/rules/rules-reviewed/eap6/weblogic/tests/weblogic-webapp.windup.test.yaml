@@ -1,0 +1,72 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/weblogic/tests/data-webapp
+rulePath:
+- ../weblogic-webapp.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: Virtual directories supported in WebLogic are not supported in
+              JBoss EAP.
+      perform:
+        fail:
+        - message: Virtual directories migration hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace the proprietary WebLogic .*@WLServlet.*
+      perform:
+        fail:
+        - message: '@WLServlet Annotation Hint not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace the proprietary WebLogic .*@WLInitParam.*
+      perform:
+        fail:
+        - message: '@WLInitParam Annotation Hint not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace the proprietary WebLogic .*@WLFilter.*
+      perform:
+        fail:
+        - message: '@WLFilter Annotation Hint not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: WebLogic .*ApplicationLifecycleEvent.*
+      perform:
+        fail:
+        - message: ApplicationLifecycleEvent Hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: WebLogic .*ApplicationLifecycleListener.*
+      perform:
+        fail:
+        - message: ApplicationLifecycleListener Hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The usage of the WebLogic proprietary security API.*
+      perform:
+        fail:
+        - message: WebLogic Security API classification not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: 'Migrate to JBoss EAP 6: .*org.jboss.security.SecurityContextAssociation.*'
+      perform:
+        fail:
+        - message: WebLogic Security API hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Oracle WebLogic Server provides a proprietary .*ServletAuthentication.*
+      perform:
+        fail:
+        - message: Migrate Oracle WebLogic Server Programmatic Login hint not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/weblogic/tests/weblogic-webapp.windup.test.xml

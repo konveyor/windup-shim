@@ -1,0 +1,74 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/jdbc/tests/data
+rulePath:
+- ../jdbc-to-quarkus.windup.xml
+- ../jdbc-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `com.ibm.db2:jcc` dependency with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-jdbc-db2] quarkus-jdbc-db2 Quarkus extension hint was
+            not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.apache.derby:derbyclient` dependency with
+                the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-jdbc-derby] quarkus-jdbc-derby Quarkus extension hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.mariadb.jdbc:mariadb-java-client` dependency
+                with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-jdbc-mariadb] quarkus-jdbc-mariadb Quarkus extension
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `mysql:mysql-connector-java` dependency with the
+                Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-jdbc-mysql] quarkus-jdbc-mysql Quarkus extension hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `com.oracle.database.jdbc:ojdbc11` dependency with
+                the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-jdbc-oracle] quarkus-jdbc-oracle Quarkus extension hint
+            was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.postgresql:postgresql` dependency with the
+                Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-jdbc-postgresql] quarkus-jdbc-postgresql Quarkus extension
+            hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/jdbc/tests/jdbc-to-quarkus.windup.test.xml

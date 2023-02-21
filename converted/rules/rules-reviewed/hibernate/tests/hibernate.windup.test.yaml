@@ -1,0 +1,103 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/hibernate/tests/data
+rulePath:
+- ../
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: In versions of Hibernate prior to 3.5, text type was mapped to
+              JDBC CLOB
+      perform:
+        fail:
+        - message: Hibernate hint for @Type(type='text') was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The return types of the numeric aggregate criteria projections
+              has changed to Long in hibernate 4. This change may introduce conflicts
+              in the code.
+      perform:
+        fail:
+        - message: Hibernate hint for projections return type change was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The return types of the numeric aggregate criteria projections
+              has changed to Long in hibernate 4. This change may introduce conflicts
+              in the code.
+      perform:
+        fail:
+        - message: Hibernate hint for naming convention hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The deprecated classes in org.hibernate.classic package.*
+      perform:
+        fail:
+        - message: Hibernate hint for org.hibernate.classic package hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace org.hibernate.dialect.resolver.DialectResolver.*
+      perform:
+        fail:
+        - message: Hibernate hint for org.hibernate.dialect.resolver.DialectResolver
+            was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace org.hibernate.jdbc.BatcherFactory.*
+      perform:
+        fail:
+        - message: Hibernate hint for replacement of org.hibernate.jdbc.BatcherFactory
+            was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace org.hibernate.jdbc.Batcher.*
+      perform:
+        fail:
+        - message: Hibernate hint for replacement of org.hibernate.jdbc.Batcher was
+            not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace org.hibernate.engine.SessionImplementor.*
+      perform:
+        fail:
+        - message: Hibernate hint for replacement of org.hibernate.engine.SessionImplementor
+            was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The classes in org.hibernate.connection.*
+      perform:
+        fail:
+        - message: Hibernate hint for replacement of org.hibernate.connection package
+            was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: The class org.hibernate.collection.PersistentBag was.*
+      perform:
+        fail:
+        - message: Hibernate hint for replacement of org.hibernate.collection.PersistentBag
+            package was not found!
+    - when:
+        not:
+        - classification-exists:
+          - classification: Hibernate 2.x
+      perform:
+        fail:
+        - message: Hibernate 2.x classification was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*This is an old Hibernate package name.*
+      perform:
+        fail:
+        - message: Hibernate package name hint was not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/hibernate/tests/hibernate.windup.test.xml

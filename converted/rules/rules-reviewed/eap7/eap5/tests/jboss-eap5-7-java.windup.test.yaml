@@ -1,0 +1,162 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/tests/data/java
+rulePath:
+- ../jboss-eap5-7-java.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: '`QueueConnectionFactory`'
+      perform:
+        fail:
+        - message: 'Hint not found: `QueueConnectionFactory` was used to obtain connection
+            to JMS queues. Replace the lookup string `QueueConnectionFactory` with
+            `ConnectionFactory`.'
+    - when:
+        not:
+        - hint-exists:
+          - message: The purpose of `@Service`
+      perform:
+        fail:
+        - message: 'Hint not found: The `@Service` annotation is one of JBoss EJB
+            3.0 extensions which creates a singleton EJB. Use the new `org.jboss.ejb3.annotation.Service`
+            instead.'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `@Management` annotation
+            size: 2
+      perform:
+        fail:
+        - message: 'Hint not found: The `@Management` annotation is one of JBoss EJB
+            3.0 extensions which wraps the the bean as an MBean and install it in
+            the JBoss MBean Server. Use the new `org.jboss.ejb3.annotation.Management`
+            instead.'
+    - when:
+        not:
+        - hint-exists:
+          - message: The `@LocalBinding` annotation
+      perform:
+        fail:
+        - message: 'Hint not found: The `@LocalBinding` annotation is one of JBoss
+            EJB 3.0 extensions which specifies the local jndi binding for an EJB local
+            interface. Migrate to `org.jboss.ejb3.annotation.LocalBinding`.'
+    - when:
+        not:
+        - hint-exists:
+          - message: The `@Depends` annotation
+      perform:
+        fail:
+        - message: 'Hint not found: The `@Depends` annotation is one of JBoss EJB
+            3.0 extensions which specifies a deployment dependency for a bean. Validate
+            that a JBoss EAP 6 Dependency exists.'
+    - when:
+        not:
+        - hint-exists:
+          - message: This package has been relocated to `org.jboss.ws.api.annotation`
+              as specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.spi.annotation has been moved to
+            org.jboss.ws.api.annotation'
+    - when:
+        not:
+        - hint-exists:
+          - message: This package has been relocated to `org.jboss.ws.api.binding`
+              as specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.spi.annotation has been moved to
+            org.jboss.ws.api.binding'
+    - when:
+        not:
+        - hint-exists:
+          - message: This package has been relocated to `org.jboss.ws.api.monitoring`
+              as specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.spi.management.recording has been
+            moved to org.jboss.ws.api.monitoring'
+    - when:
+        not:
+        - hint-exists:
+          - message: This package has been relocated to `org.jboss.ws.tools.ant` as
+              specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.spi.tools.ant has been moved to
+            org.jboss.ws.tools.ant'
+    - when:
+        not:
+        - hint-exists:
+          - message: This package has been relocated to `org.jboss.ws.tools.cmd` as
+              specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.spi.tools.cmd has been moved to
+            org.jboss.ws.tools.cmd'
+    - when:
+        not:
+        - hint-exists:
+          - message: This package has been relocated to `org.jboss.ws.api.tools` as
+              specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.spi.tools has been moved to org.jboss.ws.api.tools'
+    - when:
+        not:
+        - hint-exists:
+          - message: This class has been relocated to `org.jboss.ws.api.util.ServiceLoader`
+              as specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.spi.util.ServiceLoader has been
+            moved to org.jboss.ws.api.util.ServiceLoader'
+    - when:
+        not:
+        - hint-exists:
+          - message: This package has been relocated to `org.jboss.ws.api.handler`
+              as specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.common.handler has been moved to
+            org.jboss.ws.api.handler'
+    - when:
+        not:
+        - hint-exists:
+          - message: This package has been relocated to `org.jboss.ws.api.annotation`
+              as specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.common.addressing has been moved
+            to org.jboss.ws.api.annotation'
+    - when:
+        not:
+        - hint-exists:
+          - message: This class has been relocated to `org.jboss.ws.api.util.DOMUtils`
+              as specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.common.DOMUtils has been moved to
+            org.jboss.ws.api.util.DOMUtils'
+    - when:
+        not:
+        - hint-exists:
+          - message: This package has been relocated to `org.jboss.ws.common` as specified
+              in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.wsf.common has been moved to org.jboss.ws.common'
+    - when:
+        not:
+        - hint-exists:
+          - message: This class has been relocated to `org.jboss.ws.api.annotation.EndpointConfig`
+              as specified in the
+      perform:
+        fail:
+        - message: 'Hint not found: org.jboss.ws.annotation.EndpointConfig has been
+            moved to org.jboss.ws.api.annotation.EndpointConfig'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap5/tests/jboss-eap5-7-java.windup.test.xml

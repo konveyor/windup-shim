@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-parent-pom
+rulePath:
+- ../springboot-parent-pom-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the Spring Parent POM with Quarkus BOM in `<dependencyManagement>`
+                section of the application's `pom.xml` file
+            size: 2
+      perform:
+        fail:
+        - message: '[springboot-parent-pom-to-quarkus-extension] Replace the Spring
+            Parent POM with Quarkus BOM was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-parent-pom-to-quarkus.windup.test.xml

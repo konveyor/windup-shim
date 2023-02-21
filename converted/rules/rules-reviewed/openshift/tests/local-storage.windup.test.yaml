@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/tests/data
+rulePath:
+- ../local-storage.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: An application running inside a container could lose access
+                to a file in local storage
+            size: 48
+      perform:
+        fail:
+        - message: Hints about 'Accessing a file on a local storage in a cloud environment'
+            for local storage was not found
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/openshift/tests/local-storage.windup.test.xml

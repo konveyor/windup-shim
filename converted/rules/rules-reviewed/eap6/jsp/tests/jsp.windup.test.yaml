@@ -1,0 +1,15 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jsp/tests/data
+rulePath:
+- ../jsp.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Empty import definition.*
+      perform:
+        fail:
+        - message: JSP empty import hint not found.
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/jsp/tests/jsp.windup.test.xml

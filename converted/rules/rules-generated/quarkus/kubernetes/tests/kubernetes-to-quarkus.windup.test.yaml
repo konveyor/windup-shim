@@ -1,0 +1,20 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/kubernetes/tests/data
+rulePath:
+- ../kubernetes-to-quarkus.windup.xml
+- ../kubernetes-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `io.fabric8:kubernetes-client` dependency with
+                the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-kubernetes-client] quarkus-kubernetes-client Quarkus
+            extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/kubernetes/tests/kubernetes-to-quarkus.windup.test.xml

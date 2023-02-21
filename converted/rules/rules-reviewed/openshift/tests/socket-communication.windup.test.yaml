@@ -1,0 +1,18 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/tests/data
+rulePath:
+- ../socket-communication.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: 'Recommendation: Use Java EE standard or loosely coupled protocols
+                such as JMS, JAX-RS, or JAX-WS for backing service interactions'
+            size: 63
+      perform:
+        fail:
+        - message: Direct communication hint was not found
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/openshift/tests/socket-communication.windup.test.xml

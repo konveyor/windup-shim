@@ -1,0 +1,53 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/hibernate/tests/data
+rulePath:
+- ../hibernate-to-quarkus.windup.xml
+- ../hibernate-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.hibernate:hibernate-envers` dependency with
+                the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-hibernate-envers] quarkus-hibernate-envers Quarkus extension
+            hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.hibernate.reactive:hibernate-reactive-core`
+                dependency with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-hibernate-reactive] quarkus-hibernate-reactive Quarkus
+            extension hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.hibernate.search:hibernate-search-backend-elasticsearch-aws`
+                dependency with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-hibernate-search-orm-elasticsearch-aws] quarkus-hibernate-search-orm-elasticsearch-aws
+            Quarkus extension hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.hibernate.validator:hibernate-validator` dependency
+                with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-hibernate-validator] quarkus-hibernate-validator Quarkus
+            extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/hibernate/tests/hibernate-to-quarkus.windup.test.xml

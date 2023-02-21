@@ -1,0 +1,31 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/liquibase/tests/data
+rulePath:
+- ../liquibase-to-quarkus.windup.xml
+- ../liquibase-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.liquibase:liquibase-core` dependency with
+                the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-liquibase] quarkus-liquibase Quarkus extension hint was
+            not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.liquibase.ext:liquibase-mongodb` dependency
+                with the Quarkus dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-liquibase-mongodb] quarkus-liquibase-mongodb Quarkus
+            extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/liquibase/tests/liquibase-to-quarkus.windup.test.xml

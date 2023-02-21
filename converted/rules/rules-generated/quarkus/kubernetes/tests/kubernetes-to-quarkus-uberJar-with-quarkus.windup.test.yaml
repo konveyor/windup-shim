@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/kubernetes/tests/data/kubernetes-uberJar-with-quarkus.jar
+rulePath:
+- ../kubernetes-to-quarkus.windup.xml
+- ../kubernetes-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: A folder path related to a package from the `io.fabric8:kubernetes-client`
+                dependency has been found.*
+      perform:
+        fail:
+        - message: '[quarkus-kubernetes-client-groovy-compiled] quarkus-kubernetes-client
+            Quarkus extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/kubernetes/tests/kubernetes-to-quarkus-uberJar-with-quarkus.windup.test.xml

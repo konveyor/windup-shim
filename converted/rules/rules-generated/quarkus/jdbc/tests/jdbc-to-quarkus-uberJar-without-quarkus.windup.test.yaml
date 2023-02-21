@@ -1,0 +1,42 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/jdbc/tests/data/jdbc-uberJar-without-quarkus.jar
+rulePath:
+- ../jdbc-to-quarkus.windup.xml
+- ../jdbc-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: A folder path related to a package from the `org.mariadb.jdbc:mariadb-java-client`
+                dependency has been found.*
+            size: 1
+      perform:
+        fail:
+        - message: '[quarkus-jdbc-mariadb-groovy-compiled] quarkus-jdbc-mariadb Quarkus
+            extension hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: A folder path related to a package from the `com.oracle.database.jdbc:ojdbc11`
+                dependency has been found.*
+            size: 1
+      perform:
+        fail:
+        - message: '[quarkus-jdbc-oracle-groovy-compiled] quarkus-jdbc-oracle Quarkus
+            extension hint was not found!'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: A folder path related to a package from the `org.postgresql:postgresql`
+                dependency has been found.*
+            size: 1
+      perform:
+        fail:
+        - message: '[quarkus-jdbc-postgresql-groovy-compiled] quarkus-jdbc-postgresql
+            Quarkus extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/jdbc/tests/jdbc-to-quarkus-uberJar-without-quarkus.windup.test.xml

@@ -1,0 +1,18 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/tests/data/vertx
+rulePath:
+- ../quarkus1-12-vertx.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The Axle and RX Java API from Vert.x are no more exposed, use
+                the Mutiny API instead*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus1-12-vertx-00000] The fast-jar hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-archived/quarkus1/quarkus1-11/tests/quarkus1-12-vertx.windup.test.xml

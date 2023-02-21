@@ -1,0 +1,18 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/tests/data/rest-client-exceptions
+rulePath:
+- ../quarkus1-12-rest-client-exceptions.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you are using quarkus-rest-client
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus1-12-rest-client-exceptions-00000] The rest-client-exceptions
+            hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-archived/quarkus1/quarkus1-11/tests/quarkus1-12-rest-client-exceptions.windup.test.xml

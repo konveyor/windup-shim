@@ -1,0 +1,41 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/tests/data/data-ws-security
+rulePath:
+- ../ws-security.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `org.apache.ws.security.WSPasswordCallback` class has moved
+                to package `org.apache.wss4j.common.ext`
+            size: 1
+      perform:
+        fail:
+        - message: The hint about changed value of WSPasswordCallback's package changed
+            not found!
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Most of the SAML bean objects from the `org.apache.ws.security.saml.ext`
+                package have been moved to the `org.apache.wss4j.common.saml` package
+            size: 8
+      perform:
+        fail:
+        - message: The hint about changed value of SAML bean objects' package changed
+            not found!
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `org.apache.ws.security.saml.ext.AssertionWrapper` class
+                have been renamed and moved to the `org.apache.wss4j.common.saml.SamlAssertionWrapper`
+                class
+            size: 1
+      perform:
+        fail:
+        - message: The hint about renamed and moved AssertionWrapper class not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap6/tests/ws-security.windup.test.xml

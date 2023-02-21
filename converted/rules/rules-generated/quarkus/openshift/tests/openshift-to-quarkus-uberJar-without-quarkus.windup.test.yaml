@@ -1,0 +1,20 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/openshift/tests/data/openshift-uberJar-without-quarkus.jar
+rulePath:
+- ../openshift-to-quarkus.windup.xml
+- ../openshift-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: A folder path related to a package from the `io.fabric8:openshift-client`
+                dependency has been found.*
+            size: 1
+      perform:
+        fail:
+        - message: '[quarkus-openshift-client-groovy-compiled] quarkus-openshift-client
+            Quarkus extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/openshift/tests/openshift-to-quarkus-uberJar-without-quarkus.windup.test.xml

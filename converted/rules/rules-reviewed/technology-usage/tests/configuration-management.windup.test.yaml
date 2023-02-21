@@ -1,0 +1,53 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/tests/data/configuration-management
+rulePath:
+- ../configuration-management.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Spring Cloud Config
+          technology-tag-exists:
+          - technology-tag: Spring Cloud Config
+      perform:
+        fail:
+        - message: Expected data not found for rule configuration-management-0100
+    - when:
+        not:
+        - classification-exists:
+          - classification: Spring application properties detected
+          technology-tag-exists:
+          - technology-tag: Spring Properties
+      perform:
+        fail:
+        - message: Expected data not found for rule configuration-management-0200
+    - when:
+        not:
+        - classification-exists:
+          - classification: Spring datasource properties detected
+          technology-tag-exists:
+          - technology-tag: Spring Properties
+      perform:
+        fail:
+        - message: Expected data not found for rule configuration-management-0300
+    - when:
+        not:
+        - classification-exists:
+          - classification: Spring logging properties detected
+          technology-tag-exists:
+          - technology-tag: Spring Properties
+      perform:
+        fail:
+        - message: Expected data not found for rule configuration-management-0400
+    - when:
+        not:
+        - classification-exists:
+          - classification: Spring configuration properties annotation detected
+          technology-tag-exists:
+          - technology-tag: Spring Properties
+      perform:
+        fail:
+        - message: Expected data not found for rule configuration-management-0500
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/technology-usage/tests/configuration-management.windup.test.xml

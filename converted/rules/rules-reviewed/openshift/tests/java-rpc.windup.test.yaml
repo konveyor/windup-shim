@@ -1,0 +1,18 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/tests/data
+rulePath:
+- ../java-rpc.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: 'Recommendation: Use JAX-WS, which is the current Java EE standard
+                web services framework.'
+            size: 15
+      perform:
+        fail:
+        - message: JAX-RPC hint was not found
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/openshift/tests/java-rpc.windup.test.xml

@@ -1,0 +1,36 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/azure/tests/data/azure-file-system
+rulePath:
+- ../azure-file-system.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The application uses Java APIs to read/write from the file
+                system.
+            size: 3
+      perform:
+        fail:
+        - message: Java APIs to read/write hint was not found!
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Relative path found.
+            size: 2
+      perform:
+        fail:
+        - message: Relative path hint was not found!
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Home path found.
+            size: 1
+      perform:
+        fail:
+        - message: Home path hint was not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/azure/tests/azure-file-system.windup.test.xml

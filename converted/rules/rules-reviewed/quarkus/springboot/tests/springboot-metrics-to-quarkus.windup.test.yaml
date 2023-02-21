@@ -1,0 +1,34 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-metrics
+sourceMode: true
+rulePath:
+- ../springboot-metrics-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace the Micrometer dependency with Quarkus Microprofile 'metrics'
+              extension
+      perform:
+        fail:
+        - message: '[springboot-metrics-to-quarkus-0100] Micrometer Dependency artifact
+            replaced by Quarkus artifact was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace the Micrometer code with Microprofile Metrics code
+      perform:
+        fail:
+        - message: '[springboot-metrics-to-quarkus-0200] Micrometer code replaced
+            by Microprofile Metrics code was not found!'
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace `management.endpoints.web.exposure.include=prometheus`
+      perform:
+        fail:
+        - message: '[springboot-metrics-to-quarkus-0300] Replace `management.endpoints.web.exposure.include=prometheus`
+            not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-metrics-to-quarkus.windup.test.xml

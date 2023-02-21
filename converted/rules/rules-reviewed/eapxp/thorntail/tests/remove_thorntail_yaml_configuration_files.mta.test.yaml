@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/tests/data/data-remove_thorntail_yaml_configuration_files
+rulePath:
+- ../remove_thorntail_yaml_configuration_files.mta.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: If you migrate your application to JBoss EAP XP 2.0 \(or later\),
+                and want to ensure its Maven building, running or testing works as
+                expected, remove all Thorntail YAML Configuration Files.
+            size: 1
+      perform:
+        fail:
+        - message: No default Thorntail YAML Configuration File found.
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eapxp/thorntail/tests/remove_thorntail_yaml_configuration_files.mta.test.xml

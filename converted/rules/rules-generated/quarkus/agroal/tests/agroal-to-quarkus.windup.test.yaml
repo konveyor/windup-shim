@@ -1,0 +1,20 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/agroal/tests/data
+rulePath:
+- ../agroal-to-quarkus.windup.xml
+- ../agroal-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `io.agroal:agroal-api` dependency with the Quarkus
+                dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-agroal] quarkus-agroal Quarkus extension hint was not
+            found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/agroal/tests/agroal-to-quarkus.windup.test.xml

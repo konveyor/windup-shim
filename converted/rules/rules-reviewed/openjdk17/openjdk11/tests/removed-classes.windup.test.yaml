@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/openjdk17/openjdk11/tests/data/removed-classes
+rulePath:
+- ../removed-classes.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: After being deprecated in OpenJDK 11, the pack200*
+            size: 7
+      perform:
+        fail:
+        - message: removed-classes-test-00000 - has failed
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/openjdk17/openjdk11/tests/removed-classes.windup.test.xml

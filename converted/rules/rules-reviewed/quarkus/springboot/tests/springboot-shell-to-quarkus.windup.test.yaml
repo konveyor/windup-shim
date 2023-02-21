@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-shell
+rulePath:
+- ../springboot-shell-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace the SpringBoot Shell artifacts with Quarkus `picocli`
+              extension
+      perform:
+        fail:
+        - message: '[springboot-shell-to-quarkus-extension] SpringBoot Shell replaced
+            by Quarkus extension was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-shell-to-quarkus.windup.test.xml

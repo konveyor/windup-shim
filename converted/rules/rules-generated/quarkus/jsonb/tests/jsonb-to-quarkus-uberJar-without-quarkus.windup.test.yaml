@@ -1,0 +1,20 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/jsonb/tests/data/jsonb-uberJar-without-quarkus.jar
+rulePath:
+- ../jsonb-to-quarkus.windup.xml
+- ../jsonb-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: A folder path related to a package from the `org.eclipse:yasson`
+                dependency has been found.*
+            size: 1
+      perform:
+        fail:
+        - message: '[quarkus-jsonb-groovy-compiled] quarkus-jsonb Quarkus extension
+            hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/jsonb/tests/jsonb-to-quarkus-uberJar-without-quarkus.windup.test.xml

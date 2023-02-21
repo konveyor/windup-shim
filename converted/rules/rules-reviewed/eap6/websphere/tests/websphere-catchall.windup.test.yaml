@@ -1,0 +1,31 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/websphere/tests/data
+rulePath:
+- ../websphere-catchall.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: This is an IBM proprietary type \(.*?\) and needs to be migrated
+              to a compatible API.*
+      perform:
+        fail:
+        - message: WebSphere catchall hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: This is an IBM ILog proprietary type \(.*?\) and needs to be
+              migrated to a compatible API.*
+      perform:
+        fail:
+        - message: IBM ILog catchall hint was not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: This is a reference to the IBM DB2 driver type.*
+      perform:
+        fail:
+        - message: WebSphere catchall hint for DB2 was not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/websphere/tests/websphere-catchall.windup.test.xml

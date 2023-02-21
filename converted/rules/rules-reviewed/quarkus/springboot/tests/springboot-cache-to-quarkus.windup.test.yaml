@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-cache
+rulePath:
+- ../springboot-cache-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the SpringBoot Cache module artifact with Quarkus `spring-cache`
+                extension
+            size: 3
+      perform:
+        fail:
+        - message: '[springboot-cache-to-quarkus-extension] SpringBoot Cache artifact
+            replaced by Quarkus extension was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-cache-to-quarkus.windup.test.xml

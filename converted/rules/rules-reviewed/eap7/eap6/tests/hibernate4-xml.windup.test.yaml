@@ -1,0 +1,50 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/tests/data/data-hibernate4
+rulePath:
+- ../hibernate4-xml.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - to-file-model:
+            - hint-exists:
+              - message: .*Replace configuration transaction property .*hibernate.transaction.factory_class.*
+            size: 2
+      perform:
+        fail:
+        - message: There should be hint for property hibernate.transaction.factory_class
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Use .*org.hibernate.id.enhanced.SequenceStyleGenerator.*
+      perform:
+        fail:
+        - message: There should be hint for generator class!
+    - when:
+        not:
+        - hint-exists:
+          - message: Identifier generator.*
+      perform:
+        fail:
+        - message: There should be hint for generator shortcut class shortcut!
+    - when:
+        not:
+        - hint-exists:
+          - message: Since Hibernate 5, the .*org.hibernate.hql.spi.TemporaryTableBulkIdStrategy.*
+      perform:
+        fail:
+        - message: There should be hint for generator shortcut class shortcut!
+    - when:
+        not:
+        - iterable-filter:
+          - to-file-model:
+            - hint-exists:
+              - message: Since Hibernate 5, the .*org.hibernate.hql.spi.PersistentTableBulkIdStrategy.*
+            size: 2
+      perform:
+        fail:
+        - message: There should be 2 hints for moved PersistentTableBulkIdStrategy
+            class!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/eap6/tests/hibernate4-xml.windup.test.xml

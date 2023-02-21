@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/tests/data/connect/messaging
+rulePath:
+- ../connect.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Spring Messaging Client
+          technology-tag-exists:
+          - technology-tag: Spring Messaging Client \(embedded\)
+      perform:
+        fail:
+        - message: Expected data not found for rule connect-01900
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/technology-usage/tests/connect-spring-messaging.windup.test.xml

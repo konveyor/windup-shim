@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/avro/tests/data
+rulePath:
+- ../avro-to-quarkus.windup.xml
+- ../avro-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Replace the `org.apache.avro:avro` dependency with the Quarkus
+                dependency.*
+            size: 2
+      perform:
+        fail:
+        - message: '[quarkus-avro] quarkus-avro Quarkus extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/avro/tests/avro-to-quarkus.windup.test.xml

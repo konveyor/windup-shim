@@ -1,0 +1,131 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/openjdk11/openjdk8/tests/data/java-removals
+rulePath:
+- ../java-removals.windup.xml
+target: openjdk:11
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `java.lang.Thread.stop(Throwable)*
+            size: 2
+      perform:
+        fail:
+        - message: '[java-removals] `java.lang.Thread.stop(Throwable)` removal hint
+            was not found.'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Java 9 introduced the `StackWalker API`*
+            size: 2
+      perform:
+        fail:
+        - message: '[java-removals] `java-removals-00010-test failed'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`sun.reflect.CallerSensitive` annotation was deprecated in
+                Java 9*'
+            size: 2
+      perform:
+        fail:
+        - message: '[java-removals] `java-removals-00020-test failed'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `javax.security.auth.Policy` class has been removed*
+            size: 2
+      perform:
+        fail:
+        - message: '[java-removals] `java-removals-00030-test failed'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: Due to modularisation, the methods `java.lang.SecurityManager.checkAwtEventQueueAccess()`*
+            size: 3
+      perform:
+        fail:
+        - message: '[java-removals] `java-removals-00040-test failed'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The implementation of `java.lang.SecurityManager.checkMemberAccess*
+            size: 1
+      perform:
+        fail:
+        - message: '[java-removals-00041-test] Could not find hint'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: java.util.logging.LogManager.addPropertyChangeListener()*
+            size: 1
+      perform:
+        fail:
+        - message: '[java-removals-00040-test] Hint not found'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: java.util.logging.LogManager.removePropertyChangeListener()*
+            size: 1
+      perform:
+        fail:
+        - message: '[java-removals-00050-test] Hint not found'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `sun.misc.BASE64Encoder` class has been removed*
+            size: 3
+      perform:
+        fail:
+        - message: '[java-removals] sun.misc.BASE64Encoder hints not found'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `sun.misc.BASE64Decoder` class has been removed*
+            size: 3
+      perform:
+        fail:
+        - message: '[java-removals] sun.misc.BASE64Decoder hints not found'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `java.lang.System.runFinalizersOnExit
+            size: 2
+      perform:
+        fail:
+        - message: '[java-removals-00130-test] Could not find hint'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The `java.awt.Font.getPeer\(\)` and `java.awt.Component.getPeer\(\)`
+                methods*
+            size: 2
+      perform:
+        fail:
+        - message: '[java-removals-00140-test] The `java.awt.Font.getPeer()` method
+            has been removed hint was not found.'
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The changes that were implemented in JDK 9 may impact code
+                that creates class loaders with null
+            size: 2
+      perform:
+        fail:
+        - message: '[java-removals] java-removals-00150 failed'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/openjdk11/openjdk8/tests/java-removals.windup.test.xml

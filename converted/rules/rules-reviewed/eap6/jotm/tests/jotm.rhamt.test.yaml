@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jotm/tests/data
+rulePath:
+- ../jotm.rhamt.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: The modules required by JOTM's JTA implementation
+            size: 1
+      perform:
+        fail:
+        - message: '[jotm] JOTM hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/jotm/tests/jotm.rhamt.test.xml

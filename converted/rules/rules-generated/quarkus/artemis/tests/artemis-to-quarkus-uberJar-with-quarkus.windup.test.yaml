@@ -1,0 +1,19 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-generated/quarkus/artemis/tests/data/artemis-uberJar-with-quarkus.jar
+rulePath:
+- ../artemis-to-quarkus.windup.xml
+- ../artemis-to-quarkus.windup.groovy
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: A folder path related to a package from the `org.apache.activemq:artemis-jms-client`
+                dependency has been found.*
+      perform:
+        fail:
+        - message: '[quarkus-artemis-jms-groovy-compiled] quarkus-artemis-jms Quarkus
+            extension hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-generated/quarkus/artemis/tests/artemis-to-quarkus-uberJar-with-quarkus.windup.test.xml

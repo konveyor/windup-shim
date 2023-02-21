@@ -1,0 +1,17 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-12/tests/data
+rulePath:
+- ../quarkus1-13-live-reload.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - iterable-filter:
+          - hint-exists:
+            - message: '`quarkus.dev.instrumentation` has been renamed'
+            size: 1
+      perform:
+        fail:
+        - message: '[quarkus1-13-live-reload-00000] The live reload hint was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-archived/quarkus1/quarkus1-12/tests/quarkus1-13-live-reload.windup.test.xml

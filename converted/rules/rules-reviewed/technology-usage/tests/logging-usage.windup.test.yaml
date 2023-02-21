@@ -1,0 +1,252 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/tests/data/logging-usage
+rulePath:
+- ../logging.windup.xml
+- ../logging-usage.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Apache Log4J
+          technology-tag-exists:
+          - technology-tag: Apache Log4J
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00010
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Apache Commons Logging
+          technology-tag-exists:
+          - technology-tag: Apache Commons Logging
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00020
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - SLF4J
+          technology-tag-exists:
+          - technology-tag: SLF4J
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00030
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - tinylog
+          technology-tag-exists:
+          - technology-tag: tinylog
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00040
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Logback
+          technology-tag-exists:
+          - technology-tag: Logback
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00050
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - JBoss logging
+          technology-tag-exists:
+          - technology-tag: JBoss logging
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00080
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Monolog
+          technology-tag-exists:
+          - technology-tag: Monolog
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00090
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Jcabi Log
+          technology-tag-exists:
+          - technology-tag: Jcabi Log
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00100
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - NLOG4J
+          technology-tag-exists:
+          - technology-tag: NLOG4J
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00110
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Log4s
+          technology-tag-exists:
+          - technology-tag: Log4s
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00120
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Kotlin Logging
+          technology-tag-exists:
+          - technology-tag: Kotlin Logging
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00130
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Airlift Log Manager
+          technology-tag-exists:
+          - technology-tag: Airlift Log Manager
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00140
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - MinLog
+          technology-tag-exists:
+          - technology-tag: MinLog
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00150
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Logging Utils
+          technology-tag-exists:
+          - technology-tag: Logging Utils
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00160
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - OCPsoft Logging Utils
+          technology-tag-exists:
+          - technology-tag: OCPsoft Logging Utils
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00170
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Scribe
+          technology-tag-exists:
+          - technology-tag: Scribe
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00180
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - GFC Logging
+          technology-tag-exists:
+          - technology-tag: GFC Logging
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00190
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Blitz4j
+          technology-tag-exists:
+          - technology-tag: Blitz4j
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00200
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Avalon Logkit
+          technology-tag-exists:
+          - technology-tag: Avalon Logkit
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00210
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - KLogger
+          technology-tag-exists:
+          - technology-tag: KLogger
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00220
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Lumberjack
+          technology-tag-exists:
+          - technology-tag: Lumberjack
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00230
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Log\.io
+          technology-tag-exists:
+          - technology-tag: Log\.io
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00240
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - OPS4J Pax Logging Service
+          technology-tag-exists:
+          - technology-tag: OPS4J Pax Logging Service
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00250
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - OW2 Log Util
+          technology-tag-exists:
+          - technology-tag: OW2 Log Util
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00260
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Twitter Util Logging
+          technology-tag-exists:
+          - technology-tag: Twitter Util Logging
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00270
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Composite Logging JCL
+          technology-tag-exists:
+          - technology-tag: Composite Logging JCL
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00280
+    - when:
+        not:
+        - classification-exists:
+          - classification: Embedded library - Apache Flume
+          technology-tag-exists:
+          - technology-tag: Apache Flume
+      perform:
+        fail:
+        - message: Expected data not found for rule logging-usage-00290
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/technology-usage/tests/logging-usage.windup.test.xml

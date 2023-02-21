@@ -1,0 +1,16 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/tests/data/springboot-annotations
+rulePath:
+- ../springboot-annotations-to-quarkus.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - hint-exists:
+          - message: Remove the SpringBoot @SpringBootApplication annotation
+      perform:
+        fail:
+        - message: '[springboot-annotations-to-quarkus-00000-test] ''Remove the SpringBoot
+            @SpringBootApplication annotation'' was not found!'
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/quarkus/springboot/tests/springboot-annotations-to-quarkus.windup.test.xml

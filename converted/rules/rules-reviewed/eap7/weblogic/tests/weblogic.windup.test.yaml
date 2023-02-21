@@ -1,0 +1,126 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/tests/data
+rulePath:
+- ../weblogic.windup.xml
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: WebLogic scheduled job
+      perform:
+        fail:
+        - message: Triggerable not found
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace with the .*StringUtils.*
+      perform:
+        fail:
+        - message: Commons StringUtils hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Code using this package should be replaced with code using the
+              org.apache.xml package from.*
+      perform:
+        fail:
+        - message: Code using weblogic specific Apache XML Packages not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace with the Java EE standard .*javax.transaction.TransactionManager.*
+      perform:
+        fail:
+        - message: Code using weblogic specific TransactionManager not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace with the Java EE standard method .*javax\.transaction\.TransactionManager\.resume\(Transaction
+              tx\).*
+      perform:
+        fail:
+        - message: Note to replace with standard TransactionManager.resume is missing!
+    - when:
+        not:
+        - hint-exists:
+          - message: Replace with the Java EE standard .*javax.transaction.TransactionManager.suspend.*
+      perform:
+        fail:
+        - message: Note to replace with standard TransactionManager.suspend is missing!
+    - when:
+        not:
+        - hint-exists:
+          - message: Remove the .*weblogic.transaction.TxHelper.* import statement.
+      perform:
+        fail:
+        - message: Note to remove .*weblogic.transaction.TxHelper.* import is missing!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Look up the Java Enterprise Edition .*javax.transaction.TransactionManager.*
+              in JBoss EAP using the following code.*
+      perform:
+        fail:
+        - message: Note describing how to lookup a transaction manager is missing!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*This Oracle and WebLogic proprietary code \(.*OracleThinClob.*
+      perform:
+        fail:
+        - message: Note about proprietary OracleThinClob is missing!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*This code is specific to WebLogic and should be replaced with
+              .*java.sql.Clob.setCharacterStream\(1\).*
+      perform:
+        fail:
+        - message: Note about proprietary OracleThinClob.getCharacterOutputStream()!
+    - when:
+        not:
+        - hint-exists:
+          - message: The WebLogic .*NonCatalogLogger.* is not supported.*
+      perform:
+        fail:
+        - message: Hint for WebLogic NonCatalogLogger not found
+    - when:
+        not:
+        - hint-exists:
+          - message: Oracle Fast Connection Failover.*
+      perform:
+        fail:
+        - message: Hint for WebLogic JDBC Fast Connection Failover not found
+    - when:
+        not:
+        - hint-exists:
+          - message: Oracle WebLogic Server includes a proprietary side-by-side production
+              redeployment feature*
+      perform:
+        fail:
+        - message: WebLogic Side-By-Side Redeployment classification not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*Oracle Wallet Manager.*
+      perform:
+        fail:
+        - message: WebLogic Oracle Wallet Manager hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: .*weblogic\.jndi\.WLInitialContextFactory.*
+      perform:
+        fail:
+        - message: WebLogic Initial Context hint not found!
+    - when:
+        not:
+        - hint-exists:
+          - message: Weblogic’s implementation of the RMI specification uses a proprietary
+              protocol known as T3\. T3S.*
+      perform:
+        fail:
+        - message: WebLogic Context URL hint not found!
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap7/weblogic/tests/weblogic.windup.test.xml

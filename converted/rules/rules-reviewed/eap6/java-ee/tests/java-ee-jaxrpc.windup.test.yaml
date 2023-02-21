@@ -1,0 +1,15 @@
+testDataPath: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/tests/data
+rulePath:
+- ../
+ruleset:
+- rules:
+    rule:
+    - when:
+        not:
+        - classification-exists:
+          - classification: JAX-RPC Generic Handler
+      perform:
+        fail:
+        - message: JAX-RPC Generic Handler classification not found.
+  sourceFile: ""
+sourceFile: http://github.com/windup/windup-ruletests/tree/master/rules/rules-reviewed/eap6/java-ee/tests/java-ee-jaxrpc.windup.test.xml
