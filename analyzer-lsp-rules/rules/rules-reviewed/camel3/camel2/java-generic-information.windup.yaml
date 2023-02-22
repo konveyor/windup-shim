@@ -1,16 +1,15 @@
-- rules:
-  - message: The class `org.apache.camel.processor.aggregate.AggregationStrategy`
+- - message: The class `org.apache.camel.processor.aggregate.AggregationStrategy`
       has been moved to `org.apache.camel.AggregationStrategy`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: org.apache.camel.processor.aggregate.AggregationStrategy
   - message: The class `org.apache.camel.impl.{SupportClass}` has been moved to `org.apache.camel.support.{SupportClass}`.
       It has been moved out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-support`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: org.apache.camel.impl.(BaseSelectorProducer|AsyncCallbackToCompletableFutureAdapter|BridgeExceptionHandlerToErrorHandler|DefaultAsyncProducer|DefaultComponent|DefaultConsumer|DefaultEndpoint|DefaultExchange|DefaultExchangeHolder|DefaultHeaderFilterStrategy|DefaultMessage|DefaultMessageHistory|DefaultPollingConsumerPollStrategy|DefaultPollingEndpoint|DefaultProducer|DefaultScheduledPollConsumer|DefaultScheduledPollConsumerScheduler|DefaultThreadPoolFactory|EventDrivenPollingConsumer|ExpressionAdapter|ExpressionComparator|ExpressionListComparator|ExpressionSupport|HeaderFilterStrategyComponent|HeaderSelectorProducer|LoggingExceptionHandler|MessageSupport|PollingConsumerSupport|ProcessorEndpoint|ProcessorPollingConsumer|ScheduledBatchPollingConsumer|ScheduledPollConsumer|ScheduledPollEndpoint|SimpleRegistry|SimpleUuidGeneratorSynchronizationAdapter|SynchronousDelegateProducer)
   - message: '`zip` and `gzip` dataformats were renamed to `zipdeflater and `gzipdeflater`'
@@ -35,7 +34,7 @@
       instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-3
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -45,7 +44,7 @@
       instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-4
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -53,7 +52,7 @@
   - message: The class `org.apache.camel.{removed}` has been removed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-5
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -62,26 +61,26 @@
       moved to `org.apache.camel.builder.AggregationStrategies`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-6
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: org.apache.camel.util.toolbox.AggregationStrategies
   - message: The class `org.apache.camel.management.JmxSystemPropertyKeys` has been
       moved to ` org.apache.camel.api.management.JmxSystemPropertyKeys`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-7
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: org.apache.camel.management.JmxSystemPropertyKeys
   - message: '`includeRoutes` method has been removed'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-8
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.java'
         pattern: .includeRoutes({*})
   - message: Annotation `org.apache.camel.language.Bean` has been moved to `org.apache.camel.language.bean.Bean`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-9
     when:
-    - as: annotations
+      as: annotations
       ignore: true
       java.referenced:
         location: IMPORT
@@ -89,7 +88,7 @@
   - message: Annotation `org.apache.camel.language.Simple` has been moved to `org.apache.camel.language.simple.Simple`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-10
     when:
-    - as: annotations
+      as: annotations
       ignore: true
       java.referenced:
         location: IMPORT
@@ -97,7 +96,7 @@
   - message: Annotation `org.apache.camel.language.SpEL` has been moved to `org.apache.camel.language.spel.SpEL`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-11
     when:
-    - as: annotations
+      as: annotations
       ignore: true
       java.referenced:
         location: IMPORT
@@ -105,7 +104,7 @@
   - message: Annotation `org.apache.camel.{annotation}` has been moved to `org.apache.camel.spi.{annotation}`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-12
     when:
-    - as: annotations
+      as: annotations
       ignore: true
       java.referenced:
         location: IMPORT
@@ -114,7 +113,7 @@
       instead.`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-13
     when:
-    - as: annotation
+      as: annotation
       ignore: true
       java.referenced:
         location: IMPORT
@@ -122,7 +121,7 @@
   - message: Class `org.apache.camel.builder.xml.XPathBuilder` has been moved to `org.apache.camel.language.xpath.XPathBuilder`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-14
     when:
-    - as: class
+      as: class
       ignore: true
       java.referenced:
         location: IMPORT
@@ -130,7 +129,7 @@
   - message: Annotation `org.apache.camel.language.XPath` has been moved to `org.apache.camel.language.xpath.XPath`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-15
     when:
-    - as: annotations
+      as: annotations
       ignore: true
       java.referenced:
         location: IMPORT
@@ -139,7 +138,7 @@
       moved to `org.apache.camel.language.xpath.InvalidXPathException `
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-16
     when:
-    - as: annotations
+      as: annotations
       ignore: true
       java.referenced:
         location: IMPORT
@@ -148,7 +147,7 @@
       has been moved to `org.apache.camel.support.processor.validation.PredicateValidationException`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-17
     when:
-    - as: annotations
+      as: annotations
       ignore: true
       java.referenced:
         location: IMPORT
@@ -157,7 +156,7 @@
       Instead use the `XsltAggregationStrategy` from `camel-xslt` JAR directly
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-18
     when:
-    - java.referenced:
+      java.referenced:
         location: METHOD_CALL
         pattern: org.apache.camel.util.toolbox.AggregationStrategies.xslt({*})
   - message: The class `org.apache.camel.language.LanguageAnnotation` has been moved
@@ -165,14 +164,14 @@
       out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-support`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-19
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: org.apache.camel.language.LanguageAnnotation
   - message: The class `org.apache.camel.util.{moved}` has been moved to `org.apache.camel.support.{moved}`.
       It has been moved out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-support`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-20
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -181,7 +180,7 @@
       It has been moved out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-api`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-21
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -191,7 +190,7 @@
       of `org.apache.camel:camel-core` and into `org.apache.camel:camel-support`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-22
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -203,7 +202,7 @@
       `org.apache.camel:camel-api`.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-23
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -214,7 +213,7 @@
       boolean to void as they always returned true before.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-24
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -224,7 +223,7 @@
       been moved out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-base`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-25
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -234,7 +233,7 @@
       out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-support`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-26
     when:
-    - or:
+      or:
       - java.referenced:
           location: IMPORT
           pattern: org.apache.camel.processor.idempotent.(FileIdempotentRepository|MemoryIdempotentRepository)
@@ -245,7 +244,7 @@
       converters in a faster way.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-27
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: org.apache.camel.FallbackConverter
   - message: The class `org.apache.camel.util.toolbox.XsltAggregationStrategy` has
@@ -256,7 +255,7 @@
       This behaviour was already deprecated from Camel 2.13 onwards.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-28
     when:
-    - or:
+      or:
       - java.referenced:
           location: IMPORT
           pattern: org.apache.camel.util.toolbox.XsltAggregationStrategy
@@ -269,7 +268,7 @@
       instead
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-29
     when:
-    - or:
+      or:
       - java.referenced:
           location: METHOD_CALL
           pattern: org.apache.camel.CamelContext.{get|set}Propert{y|ies}({*})
@@ -282,7 +281,7 @@
       set.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-30
     when:
-    - java.dependency:
+      java.dependency:
         name: org.apache.camel.camel-fhir
         upperBound: "2"
   - message: The method `org.apache.camel.CamelContext.{method}` has been moved to
@@ -292,7 +291,7 @@
       needs to be on the classpath.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-31
     when:
-    - java.referenced:
+      java.referenced:
         location: METHOD_CALL
         pattern: org.apache.camel.CamelContext.(getManagedCamelContext|getManagedProcessor|getManagedRoute)({*})
   - message: The functionality to change the simple language tokens for start/end
@@ -301,7 +300,7 @@
       really in use and would only confuse Camel users if a new syntax was used.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-32
     when:
-    - or:
+      or:
       - java.referenced:
           location: METHOD_CALL
           pattern: org.apache.camel.language.simple.SimpleLanguage.(changeFunctionStartToken|changeFunctionEndToken|setFunctionStartToken|setFunctionEndToken)({*})
@@ -319,14 +318,14 @@
       to `@{class}("jms:cheese")`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-33
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: org.apache.camel.(Consume|EndpointInject|Produce)
   - message: The `ref` attribute in the @{class} annotation has been removed. Instead
       use the `ref` component in the `value` attribute, e.g @{class}("ref:myName").
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-34
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: org.apache.camel.(Consume|EndpointInject|Produce)
   - message: The method `org.apache.camel.CamelContext.{method}` has moved to `org.apache.camel.CatalogCamelContext.{method}`.
@@ -334,7 +333,7 @@
       ccc = context.adapt(CatalogCamelContext.class);`. `ccc.{method}(...);`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-35
     when:
-    - java.referenced:
+      java.referenced:
         location: METHOD_CALL
         pattern: org.apache.camel.CamelContext.(getComponentParameterJsonSchema|getDataFormatParameterJsonSchema|getLanguageParameterJsonSchema|getEipParameterJsonSchema)({*})
   - message: The duplicate method `org.apache.camel.CamelContext.{method}` has been
@@ -342,7 +341,7 @@
       instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-36
     when:
-    - java.referenced:
+      java.referenced:
         location: METHOD_CALL
         pattern: org.apache.camel.CamelContext.(loadRoutesDefinition|loadRestsDefinition)({*})
   - message: The method `org.apache.camel.CamelContext.{method}` has been moved to
@@ -351,7 +350,7 @@
       `mcc.{method}(...);`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-37
     when:
-    - java.referenced:
+      java.referenced:
         location: METHOD_CALL
         pattern: org.apache.camel.CamelContext.(getRouteDefinitions|getRouteDefinition|addRouteDefinitions|addRouteDefinition|removeRouteDefinitions|removeRouteDefinition|getRestDefinitions|addRestDefinitions|setDataFormats|getDataFormats|resolveDataFormatDefinition|getProcessorDefinition|setValidators|getHystrixConfiguration|setHystrixConfiguration|setHystrixConfigurations|addHystrixConfiguration|getValidators|setTransformers|getTransformers|addServiceCallConfiguration|setServiceCallConfigurations|setServiceCallConfiguration|getServiceCallConfiguration)({*})
   - message: The method `org.apache.camel.CamelContext.{method}` has been moved to
@@ -360,6 +359,6 @@
       `ecc.{method}(...);`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-38
     when:
-    - java.referenced:
+      java.referenced:
         location: METHOD_CALL
         pattern: org.apache.camel.CamelContext.(setupRoutes|isSetupRoutes|getRouteStartupOrder|getManagementMBeanAssembler|addInterceptStrategy|getInterceptStrategies|getErrorHandlerExecutorService|getDataFormatResolver|setDataFormatResolver|getDefaultFactoryFinder|setFactoryFinderResolver|getFactoryFinder|getPackageScanClassResolver|setPackageScanClassResolver|setNodeIdFactory|getNodeIdFactory|getAsyncProcessorAwaitManager|setAsyncProcessorAwaitManager|getProcessorFactory|setProcessorFactory|getUnitOfWorkFactory|setUnitOfWorkFactory|getModelJAXBContextFactory|setModelJAXBContextFactory|getLogListeners|addLogListener)({*})

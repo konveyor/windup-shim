@@ -1,5 +1,4 @@
-- rules:
-  - message: 'An application running inside a container could lose access to a file
+- - message: 'An application running inside a container could lose access to a file
       in local storage.. Recommendations. The following recommendations depend on
       the function of the file in local storage:. * Logging: Log to standard output
       and use a centralized log collector to analyze the logs.. * Caching: Use a cache
@@ -10,7 +9,7 @@
       container as a brief, single-transaction cache.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-0
     when:
-    - or:
+      or:
       - java.referenced:
           location: CONSTRUCTOR_CALL
           pattern: java.io.(FileWriter|FileReader|PrintStream|File|PrintWriter|RandomAccessFile){*}
@@ -34,7 +33,7 @@
       container as a brief, single-transaction cache.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         location: CONSTRUCTOR_CALL
         pattern: java.net.(URL|URI)({*})
   - message: 'An application running inside a container could lose access to a file
@@ -48,7 +47,7 @@
       container as a brief, single-transaction cache.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-2
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}{extensions}'
         pattern: '{path1}'
   - message: 'An application running inside a container could lose access to a file
@@ -62,7 +61,7 @@
       container as a brief, single-transaction cache.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-3
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.{extensions}'
         pattern: '{path2}'
   - message: 'An application running inside a container could lose access to a file
@@ -76,7 +75,7 @@
       container as a brief, single-transaction cache.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-4
     when:
-    - or:
+      or:
       - java.referenced:
           location: IMPORT
           pattern: java.nio.channels.AsynchronousFileChannel{*}

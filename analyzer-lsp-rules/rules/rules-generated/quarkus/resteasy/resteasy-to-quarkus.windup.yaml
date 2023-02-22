@@ -1,15 +1,14 @@
-- rules:
-  - message: Replace the `org.jboss.resteasy:resteasy-multipart-provider` dependency
+- - message: Replace the `org.jboss.resteasy:resteasy-multipart-provider` dependency
       with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart`. Further
       information in the link below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/resteasy/resteasy-to-quarkus.windup.xml-0
     when:
-    - java.dependency:
+      java.dependency:
         name: org.jboss.resteasy.resteasy-multipart-provider
   - message: Replace the `org.jboss.resteasy:resteasy-multipart-provider` dependency
       with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart`. Further
       information in the link below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/resteasy/resteasy-to-quarkus.windup.xml-1
     when:
-    - java.dependency:
+      java.dependency:
         name: org.jboss.resteasy.resteasy-multipart-provider

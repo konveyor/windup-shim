@@ -1,11 +1,10 @@
-- rules:
-  - message: Replace the SpringBoot Security artifact with Quarkus `spring-security`
+- - message: Replace the SpringBoot Security artifact with Quarkus `spring-security`
       extension. Spring Security is in spring-security-core artifact brought transitively
       by `org.springframework.boot:spring-boot-starter-security` dependency.. Add
       Quarkus dependency `io.quarkus:quarkus-spring-security`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-security-to-quarkus.windup.xml-0
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.security.spring-security-core
       - java.dependency:

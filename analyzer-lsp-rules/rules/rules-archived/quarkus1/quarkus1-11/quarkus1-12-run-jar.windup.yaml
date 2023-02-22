@@ -1,5 +1,4 @@
-- rules:
-  - message: The biggest change here is that to start your Quarkus application, you
+- - message: The biggest change here is that to start your Quarkus application, you
       should now use:. `java -jar target/quarkus-app/quarkus-run.jar` (instead of
       using the versioned `-runner` jar).. This change will concern all your applications
       as soon as you have upgraded them to 1.12.. For those who want to stick to the
@@ -7,4 +6,4 @@
       following property to the `application.properties`:. `quarkus.package.type=legacy-jar`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-run-jar.windup.xml-0
     when:
-    - file: application.properties
+      file: application.properties

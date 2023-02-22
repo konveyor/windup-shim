@@ -1,8 +1,7 @@
-- rules:
-  - message: Replace the `javax.{renamed}` import statement with `jakarta.{renamed}`
+- - message: Replace the `javax.{renamed}` import statement with `jakarta.{renamed}`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-package.windup.xml-0
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT

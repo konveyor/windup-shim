@@ -1,12 +1,11 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-1
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-1
     tag:
     - Connect
     - Other
     - Java EE
     - JNI
     when:
-    - or:
+      or:
       - java.referenced:
           location: METHOD_CALL
           pattern: java.lang.System.(load|loadLibrary|mapLibraryName)({*})
@@ -46,7 +45,7 @@
     - Java EE
     - Mail
     when:
-    - or:
+      or:
       - java.referenced:
           pattern: javax.mail.{*}
       - java.referenced:
@@ -62,7 +61,7 @@
     - Java EE
     - JCA
     when:
-    - or:
+      or:
       - java.referenced:
           location: CONSTRUCTOR_CALL
           pattern: javax.resource.{*}

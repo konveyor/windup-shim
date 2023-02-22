@@ -1,24 +1,23 @@
-- rules:
-  - message: Replace the SpringBoot artifact with Quarkus `spring-boot-properties`
+- - message: Replace the SpringBoot artifact with Quarkus `spring-boot-properties`
       extension. Spring Configuration Properties is in spring-boot artifact brought
       transitively by any `org.springframework.boot:spring-boot-*` dependency. Add
       Quarkus dependency `io.quarkus:quarkus-spring-boot-properties`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-0
     when:
-    - java.dependency:
+      java.dependency:
         name: org.springframework.boot.spring-boot
   - message: Spring property profile in separate file 'application-{profile}.{extension}'
       must have. their individual properties refactored to use Quarkus profile naming
       conventions within a single properties file,. ie in the format  %{profile}.config.key=value
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-1
     when:
-    - file: application-{profile}.{extension}
+      file: application-{profile}.{extension}
   - message: Spring datasource property key/value pairs have been detected in the
       application property file.. View advice in the Quarkus datasource guide to convert
       these to Quarkus datasource properties.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-2
     when:
-    - filecontent:
+      filecontent:
         filename: application{profile}.{extension}
         pattern: spring.datasource
   - message: Spring log level property configuration have been detected in the application
@@ -26,13 +25,13 @@
       to Quarkus log level properties.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-3
     when:
-    - filecontent:
+      filecontent:
         filename: application{profile}.{extension}
         pattern: logging.level.org.springframework
   - message: Replace `spring.jpa.hibernate.ddl-auto=create-drop` with `quarkus.hibernate-orm.database.generation=drop-and-create`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-4
     when:
-    - filecontent:
+      filecontent:
         filename: application{profile}.{extension}
         pattern: spring.jpa.hibernate.ddl-auto=create-drop
   - message: Replace `springdoc.swagger-ui.path` with `quarkus.swagger-ui.path`. By
@@ -40,12 +39,12 @@
       Swagger UI endpoint.. It is only exposed in Dev mode by default.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-5
     when:
-    - filecontent:
+      filecontent:
         filename: application{profile}.{extension}
         pattern: springdoc.swagger-ui.path
   - message: Replace `springdoc.api-docs.path` with `quarkus.smallrye-openapi.path`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-6
     when:
-    - filecontent:
+      filecontent:
         filename: application{profile}.{extension}
         pattern: springdoc.api-docs.path

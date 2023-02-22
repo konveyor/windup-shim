@@ -1,5 +1,4 @@
-- rules:
-  - message: 'Get started with JBoss EAP on App Service with the CLI commands below.
+- - message: 'Get started with JBoss EAP on App Service with the CLI commands below.
       Don''t have the Azure CLI installed? Go to [https://aka.ms/azure-cli](https://aka.ms/azure-cli).
       <pre>. # Customize these variables. $resourceGroup=jboss-rg. $location=eastus.
       $appName=jboss-app. $appServicePlan=jboss-asp. az group create --resource-group
@@ -14,6 +13,6 @@
       ear --src-path app.ear. </pre>'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-pom.windup.xml-0
     when:
-    - java.dependency:
+      java.dependency:
         lowerBound: 7.3.0.Final
         name: org.jboss.bom.eap-runtime-artifacts

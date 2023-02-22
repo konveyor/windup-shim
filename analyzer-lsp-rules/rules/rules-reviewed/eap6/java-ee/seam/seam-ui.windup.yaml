@@ -1,24 +1,23 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-0
     tag:
     - seam
     - jsf
     when:
-    - xml:
+      xml:
         XPath: //*[namespace-uri()='http://jboss.com/products/seam/taglib']
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-1
     tag:
     - seam
     - jsf
     when:
-    - xml:
+      xml:
         XPath: //*[namespace-uri()='http://jboss.org/schema/seam/taglib']
   - message: Seam UI's `<s:button>` JSF control should be replaced by `<h:button>`..
       There are differences in attributes, for example the _action_ attribute maps
       to _outcome_ and there is no _propagation_ attribute.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-2
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:button
       - xml:
@@ -28,7 +27,7 @@
       is no _propagation_ attribute.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-3
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:link
       - xml:
@@ -36,7 +35,7 @@
   - message: There is no direct mapping for `<s:conversationId>` in JSF UI controls.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-4
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:conversationId
       - xml:
@@ -45,7 +44,7 @@
       controls
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-5
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:conversationPropagation
       - xml:
@@ -53,7 +52,7 @@
   - message: There is no direct mapping for `<s:taskId>` in JSF UI controls
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-6
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:taskId
       - xml:
@@ -61,7 +60,7 @@
   - message: There is no direct mapping for `<s:defaultAction>` in JSF UI controls
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-7
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:defaultAction
       - xml:
@@ -72,7 +71,7 @@
       to `true`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-8
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:convertDateTime
       - xml:
@@ -80,7 +79,7 @@
   - message: Seam UI's `<s:convertEntity>` should be replaced by `<f:converter converterId="[yourConverterClass]">`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-9
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:convertEntity
       - xml:
@@ -88,7 +87,7 @@
   - message: There is no direct mapping for `<s:enumItem>` in JSF UI controls
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-10
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:enumItem
       - xml:
@@ -96,7 +95,7 @@
   - message: There is no direct mapping for `<s:token>` in JSF UI controls
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-11
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:token
       - xml:
@@ -104,7 +103,7 @@
   - message: There is no direct mapping for `<s:formattedText>` in JSF UI controls
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-12
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:formattedText
       - xml:
@@ -112,7 +111,7 @@
   - message: There is no direct mapping for `<s:cache>` in JSF UI controls
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-13
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:cache
       - xml:
@@ -120,7 +119,7 @@
   - message: There is no direct mapping for `<s:resource>` in JSF UI controls
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-14
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:resource
       - xml:
@@ -128,7 +127,7 @@
   - message: There is no direct mapping for `<s:download>` in JSF UI controls
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-15
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:download
       - xml:
@@ -136,7 +135,7 @@
   - message: There is no direct mapping for `<s:remote>` in JSF UI controls
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-16
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:remote
       - xml:
@@ -144,7 +143,7 @@
   - message: Seam UI's `<s:selectItems>` should be replaced by `<h:selectItems>`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-17
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:selectItems
       - xml:
@@ -152,7 +151,7 @@
   - message: Seam UI's `<s:validate>` should be replaced by `<f:validateBean>`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-18
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:validate
       - xml:
@@ -160,7 +159,7 @@
   - message: Seam UI's `<s:fragment>` should be replaced by `<ui:fragment>`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-19
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:fragment
       - xml:
@@ -169,7 +168,7 @@
       but JSF 2 has a built-in EnumConverter which can be extended if necessary.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-20
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:convertEnum
       - xml:
@@ -178,7 +177,7 @@
       Create a custom converter for a replacement.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-21
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:convertAtomicBoolean
       - xml:
@@ -187,7 +186,7 @@
       Create a custom converter for a replacement.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-22
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:convertAtomicInteger
       - xml:
@@ -196,7 +195,7 @@
       Create a custom converter for a replacement.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-23
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:convertAtomicLong
       - xml:
@@ -206,7 +205,7 @@
       * `<f:validateLength>`,. * `<f:validateLongRange>`,. * `<f:validateRequired>`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-24
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:validateEquality
       - xml:
@@ -216,7 +215,7 @@
       `<rich:validator>`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-25
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:validateAll
       - xml:
@@ -228,7 +227,7 @@
       file.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-26
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:decorate
       - xml:
@@ -238,7 +237,7 @@
       a div.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-27
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:div
       - xml:
@@ -248,7 +247,7 @@
       with a span element.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-28
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:span
       - xml:
@@ -257,7 +256,7 @@
       is similar.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-29
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:label
       - xml:
@@ -266,7 +265,7 @@
       `<rich:message>`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-30
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:message
       - xml:
@@ -276,7 +275,7 @@
       `<rich:fileUpload>`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-31
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:fileUpload
       - xml:
@@ -285,7 +284,7 @@
       but you can use `<h:graphicImage>` as Seam extends that JSF UI control.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-32
     when:
-    - or:
+      or:
       - xml:
           XPath: //s:graphicImage
       - xml:

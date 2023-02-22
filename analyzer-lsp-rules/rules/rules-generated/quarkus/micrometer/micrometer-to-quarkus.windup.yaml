@@ -1,15 +1,14 @@
-- rules:
-  - message: Replace the `io.micrometer:micrometer-registry-prometheus` dependency
+- - message: Replace the `io.micrometer:micrometer-registry-prometheus` dependency
       with the Quarkus dependency `io.quarkus:quarkus-micrometer-registry-prometheus`.
       Further information in the link below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/micrometer/micrometer-to-quarkus.windup.xml-0
     when:
-    - java.dependency:
+      java.dependency:
         name: io.micrometer.micrometer-registry-prometheus
   - message: Replace the `io.micrometer:micrometer-registry-prometheus` dependency
       with the Quarkus dependency `io.quarkus:quarkus-micrometer-registry-prometheus`.
       Further information in the link below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/micrometer/micrometer-to-quarkus.windup.xml-1
     when:
-    - java.dependency:
+      java.dependency:
         name: io.micrometer.micrometer-registry-prometheus

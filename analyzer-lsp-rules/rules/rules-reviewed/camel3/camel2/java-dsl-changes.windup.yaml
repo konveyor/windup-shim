@@ -1,8 +1,7 @@
-- rules:
-  - message: Hystrix circuit breaker has been generalized as circuit breaker. Use
+- - message: Hystrix circuit breaker has been generalized as circuit breaker. Use
       `circuitBreaker()`. instead of `hystrix()`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-dsl-changes.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: METHOD_CALL
         pattern: '{*}.hystrix()'

@@ -1,5 +1,4 @@
-- rules:
-  - message: Replace configuration transaction property `hibernate.transaction.factory_class`.
+- - message: Replace configuration transaction property `hibernate.transaction.factory_class`.
       with `hibernate.transaction.coordinator_class`.. Next the contract in `hibernate.transaction.coordinator_class`
       property should refer to `org.hibernate.resource.transaction.TransactionCoordinatorBuilder`.
       instead of to `org.hibernate.engine.transaction.spi.TransactionFactory`. If
@@ -15,20 +14,20 @@
       properly coordinates with JTA-based transactions.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-0
     when:
-    - filecontent:
+      filecontent:
         filename: hibernate.{file-ext}
         pattern: hibernate.transaction.factory_class
   - message: Use `org.hibernate.id.enhanced.SequenceStyleGenerator` instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-1
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.hbm.xml'
         pattern: org.hibernate.id.{idclass}
   - message: Identifier generator {generator} was removed/deprecated in Hibernate
       5. You can use `sequence` generator instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-2
     when:
-    - xml:
+      xml:
         XPath: //generator/@class[windup:matches(self::node(), '{generator}')]
         filepaths:
         - '{*}.hbm.xml'
@@ -37,7 +36,7 @@
       and `org.hibernate.hql.spi.id.local.LocalTemporaryTableBulkIdStrategy`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-3
     when:
-    - or:
+      or:
       - as: properties
         filecontent:
           filename: hibernate.properties
@@ -53,7 +52,7 @@
       class was moved to new package and you should use it as `org.hibernate.hql.spi.id.persistent.PersistentTableBulkIdStrategy`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hibernate4-xml.windup.xml-4
     when:
-    - or:
+      or:
       - as: properties
         filecontent:
           filename: hibernate.properties

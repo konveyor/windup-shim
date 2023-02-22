@@ -1,5 +1,4 @@
-- rules:
-  - message: '`jaxb-api` Maven dependency missing.. Apache Camel 3 supports Java 11
+- - message: '`jaxb-api` Maven dependency missing.. Apache Camel 3 supports Java 11
       and in this Java version JAXB modules have been removed from the JDK, therefore
       you will need to add them as Maven dependencies since there are couple of components
       rely on them:. ```Xml. <dependency>. <groupId>javax.xml.bind</groupId>. <artifactId>jaxb-api</artifactId>.

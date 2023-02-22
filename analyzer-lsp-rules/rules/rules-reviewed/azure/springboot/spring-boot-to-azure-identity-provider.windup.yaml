@@ -1,9 +1,8 @@
-- rules:
-  - message: The application uses Spring security.. Checkout Azure Active Directory
+- - message: The application uses Spring security.. Checkout Azure Active Directory
       as an identity provider.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-identity-provider.windup.xml-0
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.boot.spring-boot-starter-security
       - java.dependency:

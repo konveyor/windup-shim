@@ -1,10 +1,9 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/java-ee-jaxrpc.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/java-ee-jaxrpc.windup.xml-0
     tag:
     - jax-rpc
     - soap
     when:
-    - as: default
+      as: default
       ignore: true
       java.referenced:
         location: INHERITANCE

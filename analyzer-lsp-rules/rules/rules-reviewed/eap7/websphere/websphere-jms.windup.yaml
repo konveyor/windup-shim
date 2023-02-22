@@ -1,35 +1,34 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-0
     tag:
     - jms
     - websphere
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm(\..*)?\.jms.[^.]+
   - message: 'IBM {prefix}{type}ConnectionFactory is a proprietary encapsulation of
       JMS servers to which Connections can be created for. message distribution. This
       reference should be replaced with the Java EE standard API: `javax.jms.{type}ConnectionFactory`.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm(\.[^.]*)*\.jms.(Jms|MQeJNDI|MQe|MQ)?+[^.]*?ConnectionFactory
   - message: IBM JMS API {type}s are used for sending/reading messages to/from a topic
       or queue. This reference should be. replaced with the Java EE standard API `javax.jms.Message{type}`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-2
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm(\..*)?\.jms.JmsMsg(Producer|Consumer)
   - message: '`MQe{type}Queue` is a WebSphere implementation of a JMS `Queue` and
       should be migrated to. the Java EE 6 JMS standard interface `javax.jms.Queue`.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-3
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm.mqe.jms.{type}Queue
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-4
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm(\..*)?\.jms.(JMS|MQe|MQ)(Text|Stream|Object|Map|Bytes)?Message
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-jms.windup.xml-5
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm(\..*)?\.jms.(Jms|MQe|MQ)[^.]+

@@ -1,9 +1,8 @@
-- rules:
-  - message: Replace the Spring Boot Actuator dependency with Quarkus Smallrye Health
+- - message: Replace the Spring Boot Actuator dependency with Quarkus Smallrye Health
       extension.. It has to be replaced by `io.quarkus:quarkus-smallrye-health` artifact.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-actuator-to-quarkus.windup.xml-0
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.boot.spring-boot-starter-actuator
       - java.dependency:
@@ -15,6 +14,6 @@
   - message: Replace `management.endpoints.web.exposure.include=health` with `quarkus.smallrye-health.root-path=/actuator/health`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-actuator-to-quarkus.windup.xml-1
     when:
-    - filecontent:
+      filecontent:
         filename: application{profile}.{extension}
         pattern: management.endpoints.web.exposure.include{wildcard}health

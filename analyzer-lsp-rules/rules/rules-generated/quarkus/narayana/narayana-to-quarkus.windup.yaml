@@ -1,43 +1,42 @@
-- rules:
-  - message: Replace the `org.jboss.narayana.jta:narayana-jta` dependency with the
+- - message: Replace the `org.jboss.narayana.jta:narayana-jta` dependency with the
       Quarkus dependency `io.quarkus:quarkus-narayana-jta`. Further information in
       the link below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-0
     when:
-    - java.dependency:
+      java.dependency:
         name: org.jboss.narayana.jta.narayana-jta
   - message: Replace the `org.jboss.narayana.jta:narayana-jta` dependency with the
       Quarkus dependency `io.quarkus:quarkus-narayana-jta`. Further information in
       the link below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-1
     when:
-    - java.dependency:
+      java.dependency:
         name: org.jboss.narayana.jta.narayana-jta
   - message: Replace the `org.jboss.narayana.rts:narayana-lra` dependency with the
       Quarkus dependency `io.quarkus:quarkus-narayana-lra`. Further information in
       the link below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-2
     when:
-    - java.dependency:
+      java.dependency:
         name: org.jboss.narayana.rts.narayana-lra
   - message: Replace the `org.jboss.narayana.rts:narayana-lra` dependency with the
       Quarkus dependency `io.quarkus:quarkus-narayana-lra`. Further information in
       the link below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-3
     when:
-    - java.dependency:
+      java.dependency:
         name: org.jboss.narayana.rts.narayana-lra
   - message: Replace the `org.jboss.narayana.stm:stm` dependency with the Quarkus
       dependency `io.quarkus:quarkus-narayana-stm`. Further information in the link
       below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-4
     when:
-    - java.dependency:
+      java.dependency:
         name: org.jboss.narayana.stm.stm
   - message: Replace the `org.jboss.narayana.stm:stm` dependency with the Quarkus
       dependency `io.quarkus:quarkus-narayana-stm`. Further information in the link
       below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/narayana/narayana-to-quarkus.windup.xml-5
     when:
-    - java.dependency:
+      java.dependency:
         name: org.jboss.narayana.stm.stm

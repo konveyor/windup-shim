@@ -1,7 +1,6 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/logging.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/logging.windup.xml-0
     when:
-    - or:
+      or:
       - filecontent:
           filename: log4j.{extension}
           pattern: '{appenderpattern}'
@@ -24,5 +23,5 @@
       cloud platform to manage the logging.. * Use shared storage for log files.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/logging.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.util.logging.SocketHandler{*}

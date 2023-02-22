@@ -1,49 +1,48 @@
-- rules:
-  - message: The Java Security Manager API is deprecated in Java 17. Any references
+- - message: The Java Security Manager API is deprecated in Java 17. Any references
       to it should be removed.. See the link for further information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.security.(AccessController|AccessControlContext|AccessControlException|DomainCombiner|Policy|PolicySpi|Policy.Parameters)
   - message: References to Java Security Manager API classes deprecated in Java 17.
       Any references to it should be removed.. See the link for further information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         pattern: (java.lang.SecurityManager|java.rmi.RMISecurityManager|javax.security.auth.SubjectDomainCombiner)
   - message: The java.lang.System::getSecurityManager and java.lang.System::setSecurityManager
       methods have been deprecated in Java 17.. See the link for further information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-2
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.lang.System.(getSecurityManager|setSecurityManager)({*})
   - message: The java.lang.Thread::checkAccess method has been deprecated in Java
       17.. See the link for further information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-3
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.lang.Thread.checkAccess({*})
   - message: The java.lang.ThreadGroup::checkAccess method has been deprecated in
       Java 17.. See the link for further information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-4
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.lang.ThreadGroup.checkAccess({*})
   - message: The java.util.logging.LogManager::checkAccess method has been deprecated
       in Java 17.. See the link for further information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-5
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.util.logging.LogManager.checkAccess({*})
   - message: The java.util.concurrent.Executors::{method-names} method has been deprecated
       in Java 17.. See the link for further information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-6
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.util.concurrent.Executors.(privilegedCallable|privilegedCallableUsingCurrentClassLoader|privilegedThreadFactory)({*})
   - message: The javax.security.auth.Subject::{meth-name} method has been deprecated
       in Java 17.. See the link for further information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/security-manager-deprecation.windup.xml-7
     when:
-    - java.referenced:
+      java.referenced:
         pattern: javax.security.auth.Subject.(doAsPrivileged|getSubject)({*})

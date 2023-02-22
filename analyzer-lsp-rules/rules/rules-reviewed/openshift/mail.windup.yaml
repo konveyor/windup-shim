@@ -1,5 +1,4 @@
-- rules:
-  - message: The configuration parameters of SMTP services for outbound mail may contain
+- - message: The configuration parameters of SMTP services for outbound mail may contain
       environment-specific values such as static IP addresses, host names, properties,
       credentials, or certificates.. Recommendations. * In a cloud environment, mail
       systems should be considered backing services and treated like attached resources..
@@ -8,7 +7,7 @@
       parameters as environment variables or in a ConfigMap.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/mail.windup.xml-0
     when:
-    - or:
+      or:
       - java.referenced:
           pattern: javax.mail.{*}
       - java.referenced:

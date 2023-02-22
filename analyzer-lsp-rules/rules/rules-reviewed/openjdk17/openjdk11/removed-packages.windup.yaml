@@ -1,9 +1,8 @@
-- rules:
-  - message: RMI activation and its associated daemon, rmid, and code package, java.rmi.activation
+- - message: RMI activation and its associated daemon, rmid, and code package, java.rmi.activation
       were deprecated in OpenJDK 15 and removed in OpenJDK 17.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/removed-packages.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: java.rmi.activation.{*}
   - message: The Nashorn scripting implementation has been removed from OpenJDK 15
@@ -12,7 +11,7 @@
       to its packages should be removed or substituted with the third party implementations.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk17/openjdk11/removed-packages.windup.xml-1
     when:
-    - or:
+      or:
       - java.referenced:
           pattern: jdk.nashorn.api.scripting.{*}
       - java.referenced:

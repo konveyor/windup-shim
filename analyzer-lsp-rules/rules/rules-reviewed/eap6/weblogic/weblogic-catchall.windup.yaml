@@ -1,7 +1,6 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-0
     when:
-    - and:
+      and:
       - java.referenced:
           pattern: com.weblogic.{*}
       - java.referenced:
@@ -12,21 +11,21 @@
           pattern: weblogic.{*}
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         pattern: (com\.weblogic[^.]*\.)|(com\.bea[^.]*\.)|(bea\.)|(weblogic\.).*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-2
     when:
-    - java.referenced:
+      java.referenced:
         pattern: oracle.sql..*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-3
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.tangosol(\..*)?.[^.]+
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-4
     when:
-    - java.referenced:
+      java.referenced:
         pattern: (com\.)?oracle(\..*)?.[^.]+
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-catchall.windup.xml-5
     when:
-    - java.referenced:
+      java.referenced:
         pattern: oracle.jdbc..*

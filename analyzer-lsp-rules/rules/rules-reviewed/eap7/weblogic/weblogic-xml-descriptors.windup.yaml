@@ -1,10 +1,9 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-0
     tag:
     - webservice
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /*[local-name()='weblogic-application']
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-1
     tag:
@@ -13,7 +12,7 @@
     - configuration
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /*[local-name()='weblogic-rdbms-jar']
   - message: The WebLogic `<delay-updates-until-end-of-tx>` configuration element,
       which defaults to `true`, is used for performance reasons to delay updates to
@@ -25,13 +24,13 @@
       in the jbosscmp-jdbc.xml file.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-2
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='delay-updates-until-end-of-tx']/text()
   - message: The elements of proprietary `weblogic-ejb-jar.xml` descriptor need to
       be mapped to the `jboss-ejb3.xml` one according to the attached knowledge article.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-3
     when:
-    - or:
+      or:
       - xml:
           XPath: /weblogic-ejb-jar
       - xml:
@@ -44,7 +43,7 @@
       The equivalent usage is `@AccessTimeout(value= -1)`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-4
     when:
-    - xml:
+      xml:
         XPath: //*[local-name() = 'allow-concurrent-calls' and translate(text(),'TRUE','true')
           = 'true' ]
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-5
@@ -52,21 +51,21 @@
     - soap
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /weblogic-wsee-standaloneclient |/wl10:weblogic-wsee-standaloneclient
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-6
     tag:
     - wsdl
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /java-wsdl-mapping
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-7
     tag:
     - webservice
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /webservice-policy-ref | /wl:webservice-policy-ref | /wl9:webservice-policy-ref
   - message: WebLogic webservices can be migrated to `jboss-webservices.xml` descriptor
       or to a Java EE standard Annotation based configuration. Reference the JBoss
@@ -92,28 +91,28 @@
     - configuration
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /*[local-name()='weblogic-jms']
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-10
     tag:
     - web-app
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /bea:weblogic-web-app | /wlso:weblogic-web-app | /wls:weblogic-web-app
           | /weblogic-web-app
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-11
     tag:
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: ""
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-12
     tag:
     - webservice
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /wsdd:type-mapping
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-13
     tag:
@@ -121,14 +120,14 @@
     - configuration
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /wlw:wlw-config
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-14
     tag:
     - webservice
     - weblogic
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /project/taskdef[@classname='weblogic.ant.taskdefs.webservices.servicegen.ServiceGenTask']
@@ -140,14 +139,14 @@
     - configuration
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /wl:annotation-manifest | /annotation-manifest
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-16
     tag:
     - configuration
     - weblogic
     when:
-    - xml:
+      xml:
         XPath: /wls:deployment-plan
   - message: The WebLogic `<trans-timeout-seconds>` configuration element sets the
       maximum duration for an EJB's container-initiated transactions, in seconds,
@@ -155,5 +154,5 @@
       the same behavior by using the `TransactionTimeout` annotation.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-xml-descriptors.windup.xml-17
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='trans-timeout-seconds']/text()

@@ -1,24 +1,23 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-0
     tag:
     - ibm-wbi
     - rules
     - websphere
     when:
-    - xml:
+      xml:
         XPath: /rl:RuleSet
   - message: This file contains a specific IBM WebSphere Application binding configuration..
       To migrate to EAP 7+, configure EAP 7+ accordingly using the CLI interface or
       web console.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-1
     when:
-    - xml:
+      xml:
         XPath: /applicationbnd:ApplicationBinding
   - message: This file contains WebSphere proprietary JSP engine configuration.. To
       migrate to EAP 7, configure it accordingly using the CLI or the web console.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-2
     when:
-    - or:
+      or:
       - as: default
         from: files
         ignore: true
@@ -35,7 +34,7 @@
       to EAP 7+, configure EAP 7+ accordingly using the CLI interface or web console.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-3
     when:
-    - or:
+      or:
       - xml:
           XPath: /ext:web-bnd
       - xml:
@@ -45,18 +44,18 @@
     - webservice
     - websphere
     when:
-    - xml:
+      xml:
         XPath: /com.ibm.etools.webservice.wscext:WsClientExtension
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-5
     tag:
     - webservice
     - websphere
     when:
-    - xml:
+      xml:
         XPath: /com.ibm.etools.webservice.wscbnd:ClientBinding
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-xml.windup.xml-6
     tag:
     - websphere
     when:
-    - xml:
+      xml:
         XPath: /appdeployment:Deployment

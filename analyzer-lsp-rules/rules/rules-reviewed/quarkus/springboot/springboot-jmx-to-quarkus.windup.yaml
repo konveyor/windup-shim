@@ -1,16 +1,15 @@
-- rules:
-  - message: Spring JMX XML configuration detected:. Spring JMX is not supported by
+- - message: Spring JMX XML configuration detected:. Spring JMX is not supported by
       Quarkus with the GraalVM Native compilation.. Spring JMX can be used with the
       Quarkus Hotspot compilation however.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-jmx-to-quarkus.windup.xml-0
     when:
-    - xml:
+      xml:
         XPath: //*/c:bean/@class[windup:matches(self::node(), 'org.springframework.jmx.export.MBeanExporter')]
   - message: Spring JMX annotation configuration detected:. Spring JMX is not supported
       by Quarkus with the GraalVM Native compilation.. Spring JMX can be used with
       the Quarkus Hotspot compilation however.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-jmx-to-quarkus.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: org.springframework.jmx.{*}

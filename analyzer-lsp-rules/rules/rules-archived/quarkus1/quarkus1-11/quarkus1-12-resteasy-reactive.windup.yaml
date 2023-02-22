@@ -1,5 +1,4 @@
-- rules:
-  - message: In `quarkus-resteasy-reactive` Quarkus extension, a couple of the default
+- - message: In `quarkus-resteasy-reactive` Quarkus extension, a couple of the default
       file upload settings have changed:. - `quarkus.http.body.delete-uploaded-files-on-end`
       now defaults to `true`. The reason being that no uploaded files should be left
       over on the server by default.. - `quarkus.http.body.uploads-directory` now
@@ -7,6 +6,6 @@
       might not have the permissions to write to the current working directory.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-resteasy-reactive.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: org.jboss.resteasy.annotations.providers.multipart.MultipartForm

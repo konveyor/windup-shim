@@ -1,9 +1,8 @@
-- rules:
-  - message: The Maven `uberJar` parameter has been deprecated since `1.11.2.Final`
+- - message: The Maven `uberJar` parameter has been deprecated since `1.11.2.Final`
       / `1.12.0.CR1` and have now been removed in `1.13`.. As a replacement, add `quarkus.package.type=uber-jar`
       to your `application.properties` (or e.g. `pom.xml`).
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-uberjar-param.windup.xml-0
     when:
-    - filecontent:
+      filecontent:
         filename: pom.xml
         pattern: /uberJar
