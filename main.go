@@ -336,13 +336,13 @@ func flattenWhere(wheres []windup.Where) map[string]string {
 }
 
 func convertWindupToAnalyzer(windups []windup.Ruleset) error {
-	outputRulesets := map[string][]map[string]interface{}{}
+	outputRulesets := map[string][][]map[string]interface{}{}
 	for _, windupRuleset := range windups {
 		// TODO Ruleset.Metadata
 		// TODO Ruleset.PackageMapping
 		// TODO Ruleset.Filemapping
 		// TODO Ruleset.Javaclassignore
-		ruleset := map[string]interface{}{}
+		ruleset := []map[string]interface{}{}
 		rules := []map[string]interface{}{}
 		for i, windupRule := range windupRuleset.Rules.Rule {
 			formatted, _ := yaml.Marshal(windupRule)
@@ -353,13 +353,12 @@ func convertWindupToAnalyzer(windups []windup.Ruleset) error {
 			where := flattenWhere(windupRule.Where)
 			if !reflect.DeepEqual(windupRule.When, windup.When{}) {
 				when := convertWindupWhenToAnalyzer(windupRule.When, where)
-				if len(when) == 0 {
-					continue
-				}
-				if len(when) > 1 {
+				if len(when) == 1 {
+					rule["when"] = when[0]
+				} else if len(when) > 1 {
 					rule["when"] = map[string]interface{}{"or": when}
 				} else {
-					rule["when"] = when
+					continue
 				}
 			} else {
 				continue
@@ -377,7 +376,7 @@ func convertWindupToAnalyzer(windups []windup.Ruleset) error {
 			// TODO Rule.Otherwise
 			rules = append(rules, rule)
 		}
-		ruleset["rules"] = rules
+		ruleset = append(ruleset, rules...)
 		yamlPath := strings.Replace(strings.Replace(windupRuleset.SourceFile, "http://github.com/windup/windup-rulesets/tree/master/", "analyzer-lsp-rules/", 1), ".xml", ".yaml", 1)
 		if reflect.DeepEqual(ruleset, map[string]interface{}{}) {
 			continue

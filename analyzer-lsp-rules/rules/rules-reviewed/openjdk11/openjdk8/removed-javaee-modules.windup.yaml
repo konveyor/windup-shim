@@ -1,9 +1,8 @@
-- rules:
-  - message: Add the `jakarta.activation` dependency to your application's `pom.xml`..
+- - message: Add the `jakarta.activation` dependency to your application's `pom.xml`..
       `<groupId>jakarta.activation</groupId>`. `<artifactId>jakarta.activation</artifactId>`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/removed-javaee-modules.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: javax.activation{*}
   - message: The `java.corba` (CORBA) module has been removed from OpenJDK 11.. If
@@ -11,7 +10,7 @@
       GlassFish implementation of CORBA and RMI-IIOP.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/removed-javaee-modules.windup.xml-1
     when:
-    - or:
+      or:
       - java.referenced:
           location: IMPORT
           pattern: javax.activity.{*}
@@ -25,6 +24,6 @@
       `<groupId>jakarta.annotation</groupId>`. `<artifactId>jakarta.annotation-api</artifactId>`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/removed-javaee-modules.windup.xml-2
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: javax.annotation{*}

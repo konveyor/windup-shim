@@ -1,5 +1,4 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/jax-ws.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/jax-ws.windup.xml-0
     when:
       or:
       - as: step1

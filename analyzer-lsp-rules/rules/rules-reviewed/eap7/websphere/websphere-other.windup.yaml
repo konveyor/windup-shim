@@ -1,10 +1,9 @@
-- rules:
-  - message: WebSphere Asynchronous Work is a Work Manager, whose purpose is to allow
+- - message: WebSphere Asynchronous Work is a Work Manager, whose purpose is to allow
       the user utilizing threads while letting the container manage them.. For migration
       to JBoss EAP 7, [replace with JCA Work Manager](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/configuration_guide/#jca_management).
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-other.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: INHERITANCE
         pattern: com.ibm.websphere.asynchbeans.Work
   - message: WebSphere Startup Service serves as a callback to be invoked when the
@@ -13,5 +12,5 @@
       and `@PostConstruct` method.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-other.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm.websphere.startupservice.{*}StartUp{*}

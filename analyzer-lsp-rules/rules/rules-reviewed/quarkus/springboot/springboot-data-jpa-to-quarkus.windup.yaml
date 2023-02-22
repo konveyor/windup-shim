@@ -1,10 +1,9 @@
-- rules:
-  - message: Replace the SpringBoot JPA artifact with Quarkus `spring-data-jpa` extension.
+- - message: Replace the SpringBoot JPA artifact with Quarkus `spring-data-jpa` extension.
       Spring Data JPA is in spring-data-jpa artifact brought transitively by any `org.springframework.data:spring-data-*`
       dependency. Add Quarkus dependency `io.quarkus:quarkus-spring-data-jpa`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-data-jpa-to-quarkus.windup.xml-0
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.data.spring-data-jpa
       - java.dependency:

@@ -1,5 +1,4 @@
-- rules:
-  - message: MBeans were part of the core architecture in previous versions of Red
+- - message: MBeans were part of the core architecture in previous versions of Red
       Hat JBoss Enterprise Application Platform.. JBoss Service Archive (SAR) deployments
       using the JBoss specific `jboss-service.xml` and `jboss-beans.xml` service-style
       descriptors were used by the application server to create MBeans based on JBoss
@@ -7,7 +6,7 @@
       based on an MBean JMX architecture.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-0
     when:
-    - file: jboss-{types}.xml
+      file: jboss-{types}.xml
   - message: '`BarrierController` service is no longer available in JBoss EAP 6+..
       In JBoss EAP 4.x the JBoss ''kernel'' layer was an extension of JMX which is
       why everything was an MBean, though most of the MBean functionality still worked
@@ -17,7 +16,7 @@
       Mbeans does not work since they are not real Mbeans.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-1
     when:
-    - xml:
+      xml:
         XPath: //mbean[@code='org.jboss.system.BarrierController']
         filepaths:
         - jboss-service.xml
@@ -26,7 +25,7 @@
       the JBoss annotation `org.jboss.ejb.client.annotation.CompressionHint`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-2
     when:
-    - or:
+      or:
       - xml:
           XPath: //mbean[@code='org.jboss.remoting.transport.Connector']//attribute[text()='org.jboss.remoting.marshal.compress.CompressingMarshaller'
             and @name='marshaller']
@@ -40,7 +39,7 @@
       in the server configuration file.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-3
     when:
-    - xml:
+      xml:
         XPath: //authentication/login-module
   - message: The `class-loading` and `loader-repository` configuration in `jboss.xml`,
       `jboss-web.xml` and `jboss-service.xml` were JBoss EAP 4.x & 5.x configuration
@@ -51,7 +50,7 @@
       classloader / module dependencies if needed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-4
     when:
-    - xml:
+      xml:
         XPath: //class-loading/loader-repository
         filepaths:
         - jboss{type}.xml
@@ -61,7 +60,7 @@
       detail of JBoss EAP 5's naming components that does not exist in JBoss EAP 6.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-5
     when:
-    - xml:
+      xml:
         XPath: //mbean[@code='org.jboss.naming.NamingAlias']
         filepaths:
         - jboss-service.xml
@@ -70,7 +69,7 @@
       capability.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-6
     when:
-    - xml:
+      xml:
         XPath: //mbean[@code='org.jboss.security.plugins.JaasSecurityManagerService']/attribute[@name='DefaultCacheTimeout']
         filepaths:
         - jboss-service.xml

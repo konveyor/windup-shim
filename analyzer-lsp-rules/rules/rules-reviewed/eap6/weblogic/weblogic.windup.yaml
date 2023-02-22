@@ -1,31 +1,30 @@
-- rules:
-  - message: WebLogic scheduled jobs should be migrated to use the standard EJB `javax.ejb.TimerService`.
+- - message: WebLogic scheduled jobs should be migrated to use the standard EJB `javax.ejb.TimerService`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPLEMENTS_TYPE
         pattern: weblogic.time.common.Triggerable
   - message: Replace with the `StringUtils` class from Apache Commons.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         pattern: weblogic.utils.StringUtils.{*}
   - message: Code using this package should be replaced with code using the org.apache.xml
       package from [Apache Xerces](http://xerces.apache.org/).
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-2
     when:
-    - java.referenced:
+      java.referenced:
         pattern: weblogic.apache.xml.{*}
   - message: Replace with the Java EE standard [javax.transaction.TransactionManager](http://docs.oracle.com/javaee/7/api/javax/transaction/TransactionManager.html)
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-3
     when:
-    - java.referenced:
+      java.referenced:
         pattern: weblogic.transaction.(Client)*TransactionManager
   - message: Replace with the Java EE standard method `javax.transaction.TransactionManager.resume(Transaction
       tx)`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-4
     when:
-    - or:
+      or:
       - java.referenced:
           location: METHOD_CALL
           pattern: weblogic.transaction.TransactionManager.resume{*}
@@ -41,7 +40,7 @@
   - message: Replace with the Java EE standard `javax.transaction.TransactionManager.suspend()`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-5
     when:
-    - or:
+      or:
       - java.referenced:
           location: METHOD_CALL
           pattern: weblogic.transaction.TransactionManager.suspend{*}
@@ -57,7 +56,7 @@
   - message: Remove the `weblogic.transaction.TxHelper` import statement.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-6
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: weblogic.transaction.TxHelper
   - message: Look up the Java Enterprise Edition `javax.transaction.TransactionManager`
@@ -66,19 +65,19 @@
       ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-7
     when:
-    - java.referenced:
+      java.referenced:
         location: METHOD_CALL
         pattern: weblogic.transaction.(Client)*TxHelper.getTransactionManager()
   - message: This Oracle and WebLogic proprietary code (`OracleThinClob`) should be
       replaced with the use of the java.sql.Clob interface.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-8
     when:
-    - java.referenced:
+      java.referenced:
         pattern: weblogic.jdbc.vendor.oracle.OracleThinClob
   - message: This code is specific to WebLogic and should be replaced with `java.sql.Clob.setCharacterStream(1)`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-9
     when:
-    - java.referenced:
+      java.referenced:
         pattern: weblogic.jdbc.vendor.oracle.OracleThinClob.getCharacterOutputStream()
   - message: The WebLogic `NonCatalogLogger` is not supported on JBoss EAP, and should
       be migrated to a supported logging framework,. such as the JDK Logger or JBoss
@@ -102,7 +101,7 @@
       ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-11
     when:
-    - xml:
+      xml:
         XPath: /jdbc-data-source/jdbc-driver-params/property/name[text()='FastConnectionFailoverEnabled']
   - message: Oracle WebLogic Server includes a proprietary side-by-side production
       redeployment feature. For applications that meet certain requirements and restrictions,
@@ -116,7 +115,7 @@
       to the same clustered domain.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-12
     when:
-    - filecontent:
+      filecontent:
         filename: MANIFEST.MF
         pattern: 'Weblogic-Application-Version:'
   - message: WebLogic administrators use wallets created by Oracle Wallet Manager
@@ -125,7 +124,7 @@
       that can then be used to configure the credentials in JBoss EAP 6.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-13
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}'
         pattern: oracle.net.wallet_location
   - message: '`weblogic.jndi.WLInitialContextFactory` is an implementation of `InitialContextFactory`
@@ -135,7 +134,7 @@
       InitialContext();`.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-14
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.{ext}'
         pattern: weblogic.jndi.WLInitialContextFactory
   - message: Weblogic’s implementation of the RMI specification uses a proprietary
@@ -146,6 +145,6 @@
       library if the connectivity to WebLogic server is still required.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-15
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.{ext}'
         pattern: '{t3url}'

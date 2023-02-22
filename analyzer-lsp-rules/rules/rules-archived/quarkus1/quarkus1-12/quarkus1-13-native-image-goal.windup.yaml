@@ -1,5 +1,4 @@
-- rules:
-  - message: The goal `native-image` of `quarkus-maven-plugin` had long been deprecated
+- - message: The goal `native-image` of `quarkus-maven-plugin` had long been deprecated
       and the plugin had been logging a warning since 1.11.1.Final.. It has now finally
       been removed in 1.13. Please remove the plugin execution from your `pom.xml`
       and simply add the following property to your native profile:. ```Xml. <properties>.
@@ -9,6 +8,6 @@
       ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-native-image-goal.windup.xml-0
     when:
-    - filecontent:
+      filecontent:
         filename: pom.xml
         pattern: native-image

@@ -1,5 +1,4 @@
-- rules:
-  - message: Session replication ensures that client sessions are not disrupted by
+- - message: Session replication ensures that client sessions are not disrupted by
       node failure. Each node in the cluster shares information about ongoing sessions
       and can take over sessions if another node disappears. In a cloud environment,
       however, data in the memory of a running container can be wiped out by a restart..
@@ -12,7 +11,7 @@
       Session data can be shared by multiple applications.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/session.windup.xml-0
     when:
-    - xml:
+      xml:
         XPath: /w:web-app/w:distributable
   - message: 'In a cloud environment, a restart can wipe out HTTP session data in
       the memory of a running container.. Recommendation: Store HTTP session data
@@ -22,7 +21,7 @@
       session data loss.. * Session data can be shared by multiple applications.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/session.windup.xml-1
     when:
-    - or:
+      or:
       - java.referenced:
           pattern: javax.servlet.http.HttpSession.setAttribute({*})
       - java.referenced:

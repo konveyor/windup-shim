@@ -1,11 +1,10 @@
-- rules:
-  - message: All the classes from `org.apache.camel.util.component` have been moved
+- - message: All the classes from `org.apache.camel.util.component` have been moved
       to `org.apache.camel.support.component`.. `org.apache.camel:camel-support` is
       a transitive dependency of `camel-core` but it could be used also separately
       to trim the application size.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-0
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -16,14 +15,14 @@
       application size.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-1
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.impl.(CamelPostProcessorHelper|DefaultAsyncProcessorAwaitManager|DefaultCamelBeanPostProcessor|DefaultCamelContextNameStrategy|DefaultClaimCheckRepository|DefaultClassResolver|DefaultComponentResolver|DefaultConsumerTemplate|DefaultDataFormatResolver|DefaultEndpointRegistry|DefaultEndpointUtilizationStatistics|DefaultFactoryFinder|DefaultFactoryFinderResolver|DefaultHeadersMapFactory|DefaultInflightRepository|DefaultInjector|DefaultLanguageResolver|DefaultManagementNameStrategy|DefaultMessageHistoryFactory|DefaultNodeIdFactory|DefaultPackageScanClassResolver|DefaultProcessorFactory|DefaultProducerTemplate|DefaultRoute|DefaultRouteContext|DefaultRouteController|DefaultRouteError|DefaultRouteStartupOrder|DefaultRuntimeEndpointRegistry|DefaultShutdownStrategy|DefaultStreamCachingStrategy|DefaultTransformerRegistry|DefaultUnitOfWork|DefaultUnitOfWorkFactory|DefaultUuidGenerator|DefaultValidatorRegistry|DeferProducer|DeferServiceStartupListener|DurationRoutePolicy|DurationRoutePolicyFactory|EndpointKey|EventDrivenConsumerRoute|EventNotifierCallback|ExplicitCamelContextNameStrategy|FileStateRepository|HashMapHeadersMapFactory|HeadersMapFactoryResolver|InterceptSendToEndpointProcessor|InterceptSendToMockEndpointStrategy|JavaUuidGenerator|LimitedPollingConsumerPollStrategy|MDCUnitOfWork|MemoryStateRepository|SubscribeMethodProcessor|SupervisingRouteController|SupervisingRouteController.FilterResult|SupervisingRouteControllerFilters|SupervisingRouteControllerFilters.BlackList|TypedProcessorFactory|WebSpherePackageScanClassResolver)
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-2
     when:
-    - as: javaClass
+      as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
@@ -33,7 +32,7 @@
       as a dependency.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-3
     when:
-    - as: dependencies-block
+      as: dependencies-block
       ignore: true
       xml:
         XPath: /m:project/m:dependencies[count(m:dependency/m:artifactId[text()='camel-management'])=0

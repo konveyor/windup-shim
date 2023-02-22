@@ -1,10 +1,9 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-0
     tag:
     - jms
     - websphere
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm(\..*)?\.(mq|wmq).*.[^.]+
   - message: '`WMQInitialContextFactory` is an implementation of `InitialContextFactory`.
       used to get object instances from JNDI. The. equivalent functionality needs
@@ -12,7 +11,7 @@
       by EAP and you only need to instantiate `InitialContext ctx = new InitialContext();`.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-1
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.{ext}'
         pattern: com.ibm.mq.jms.context.WMQInitialContextFactory
   - message: WebSphere `.scp` files contain scripts for the `jmsadmin` program which
@@ -21,6 +20,6 @@
       Management CLI with it's. scripting feature.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-2
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.scp'
         pattern: '{*}'

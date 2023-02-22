@@ -1,5 +1,4 @@
-- rules:
-  - message: Default Remote JNDI Provider URL has changed in EAP 7. External applications
+- - message: Default Remote JNDI Provider URL has changed in EAP 7. External applications
       using JNDI to lookup remote resources, for instance an EJB or a JMS Queue,.
       may need to change the value for the JNDI InitialContext environment's property
       named `java.naming.provider.url`.. The default URL scheme is now **http-remoting**
@@ -11,7 +10,7 @@
       java.naming.provider.url=http-remoting://localhost:8080. ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-0
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.{extension}'
         pattern: remote://{node}:{port}
   - message: The default remote connection port has changed in **jboss-ejb-client.properties**
@@ -25,7 +24,7 @@
       ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-1
     when:
-    - filecontent:
+      filecontent:
         filename: jboss-ejb-client.properties
         pattern: remote.connection.{*}.port{portnumber}
   - message: The default remote connection port has changed from '4447' to '8080'..
@@ -36,7 +35,7 @@
       "8080");. ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-2
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.java'
         pattern: remote.connection.{*}.port{portnumber}
   - message: The value of JSF constant `FaceletContext.FACELET_CONTEXT_KEY` has changed
@@ -46,7 +45,7 @@
       so that the reference to `FACELET_CONTEXT_KEY` is replaced by its new value.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-3
     when:
-    - or:
+      or:
       - filecontent:
           filename: '{*}.java'
           pattern: com.sun.faces.facelets.FACELET_CONTEXT
@@ -59,6 +58,6 @@
       in EAP 7.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-4
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.{extension}'
         pattern: org.jboss.security.ignoreHttpsHost

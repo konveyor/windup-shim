@@ -1,12 +1,11 @@
-- rules:
-  - message: Previous releases of Hibernate interpreted all null column values for
+- - message: Previous releases of Hibernate interpreted all null column values for
       an `@Embeddable` to mean the `@Embeddable` itself should be null.. In this release,
       applications can dictate that Hibernate should instead use an empty `@Embeddable`
       instance by specifying the `hibernate.create_empty_composites.enabled` opt-in
       setting.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap70/hibernate50-51.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: javax.persistence.Embeddable
   - message: The changes mainly focused on:. *  Unifying handling of hbm2ddl.auto
@@ -15,7 +14,7 @@
       concern since the application is directly using some of the changed classes.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap70/hibernate50-51.windup.xml-1
     when:
-    - or:
+      or:
       - java.referenced:
           location: IMPORT
           pattern: org.hibernate.tool.hbm2ddl.(SchemaExport|SchemaUpdate|SchemaValidator)

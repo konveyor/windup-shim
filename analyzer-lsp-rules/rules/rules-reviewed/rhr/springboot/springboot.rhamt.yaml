@@ -1,15 +1,14 @@
-- rules:
-  - message: Spring Boot has to be updated to Spring Boot 2.2.6 before being able
+- - message: Spring Boot has to be updated to Spring Boot 2.2.6 before being able
       to be migrated to a version supported by Red Hat Runtimes
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot.rhamt.xml-0
     when:
-    - java.dependency:
+      java.dependency:
         name: org.springframework.boot.{*}
         upperBound: 2.2.5.RELEASE
   - message: Spring Boot has to be updated to a version supported by Red Hat Runtimes
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot.rhamt.xml-1
     when:
-    - or:
+      or:
       - java.dependency:
           lowerBound: 2.0.0
           name: org.springframework.boot.{*}

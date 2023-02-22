@@ -1,16 +1,15 @@
-- rules:
-  - message: Spring MVC is not supported by Quarkus. Use the following link to figure
+- - message: Spring MVC is not supported by Quarkus. Use the following link to figure
       out the supported Spring Web functionalities.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-webmvc-to-quarkus.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: org.springframework.web.servlet.mvc.Controller
   - message: Spring WebFlux is not supported by Quarkus. If the application needs
       a reactive stack, please refer to the following links to get more information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-webmvc-to-quarkus.windup.xml-1
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.spring-webflux
       - java.dependency:

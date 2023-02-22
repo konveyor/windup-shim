@@ -1,10 +1,9 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jrun/xml-jrun.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jrun/xml-jrun.windup.xml-0
     tag:
     - configuration
     - jrun
     when:
-    - or:
+      or:
       - xml:
           XPath: /jrun-web-app
       - xml:
@@ -16,7 +15,7 @@
     - configuration
     - jrun
     when:
-    - or:
+      or:
       - as: default
         ignore: true
         xml:

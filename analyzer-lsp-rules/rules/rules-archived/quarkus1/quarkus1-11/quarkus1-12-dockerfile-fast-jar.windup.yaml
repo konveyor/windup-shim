@@ -1,5 +1,4 @@
-- rules:
-  - message: 'For existing applications, you have two Dockerfiles:. 1. `Dockerfile.jvm`:
+- - message: 'For existing applications, you have two Dockerfiles:. 1. `Dockerfile.jvm`:
       this is the one for the `legacy-jar` packaging. 2. `Dockerfile.fast-jar`: this
       is the one for `fast-jar` packaging (so the new default). For newly generated
       applications, the situation is a bit different:. 1. `Dockerfile.jvm`: this is
@@ -9,4 +8,4 @@
       with the ones of a newly generated project.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-dockerfile-fast-jar.windup.xml-0
     when:
-    - file: Dockerfile.fast-jar
+      file: Dockerfile.fast-jar

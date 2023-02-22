@@ -1,11 +1,10 @@
-- rules:
-  - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
+- - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail BOM `io.thorntail:bom` with JBoss EAP XP MicroProfile BOM and/or JBoss
       EAP Jakarta EE BOM.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_boms.mta.xml-0
     when:
-    - xml:
+      xml:
         XPath: /m:project/m:dependencyManagement/m:dependencies/m:dependency[m:groupId/text()
           = 'io.thorntail' and m:artifactId/text() = 'bom']
         filepaths:
@@ -16,7 +15,7 @@
       and/or JBoss EAP Jakarta EE BOM.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_boms.mta.xml-1
     when:
-    - xml:
+      xml:
         XPath: /m:project/m:dependencyManagement/m:dependencies/m:dependency[m:groupId/text()
           = 'io.thorntail' and m:artifactId/text() = 'bom-certified']
         filepaths:

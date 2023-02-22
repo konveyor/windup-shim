@@ -1,13 +1,12 @@
-- rules:
-  - message: This file system path is Microsoft Windows platform dependent. It needs
+- - message: This file system path is Microsoft Windows platform dependent. It needs
       to be replaced with a Linux-style path.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/os/windows/os-specific.windup.xml-0
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.{extensions}'
         pattern: '{pattern}'
   - message: This Dynamic-Link Library is Microsoft Windows platform dependent. It
       needs to be replaced with a Linux-style shared library.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/os/windows/os-specific.windup.xml-1
     when:
-    - file: '{*}.dll'
+      file: '{*}.dll'

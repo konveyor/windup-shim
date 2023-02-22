@@ -1,11 +1,10 @@
-- rules:
-  - message: The class is dynamically loaded within application. During the migration,
+- - message: The class is dynamically loaded within application. During the migration,
       multiple classes that are provided on classpath by a different server may not
       be present anymore.. Please review the class-loading mechanisms and ensure that
       the dynamically loaded class is available in JBoss EAP.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: METHOD_CALL
         pattern: java.lang.Class.forName({*}
   - message: This method lookups an object using a JNDI String. During the migration
@@ -15,7 +14,7 @@
       ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-1
     when:
-    - as: default
+      as: default
       ignore: true
       java.referenced:
         location: METHOD_CALL
@@ -28,7 +27,7 @@
       "java:app/service/" + ServiceImpl.class.getSimpleName() );. ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-2
     when:
-    - as: default
+      as: default
       ignore: true
       java.referenced:
         location: CONSTRUCTOR_CALL
@@ -37,7 +36,7 @@
     tag:
     - webservice
     when:
-    - as: default
+      as: default
       file: jndi.properties
       ignore: true
   - message: After migration, some of the JMX beans provided by the previous server
@@ -45,7 +44,7 @@
       not need to change for JBoss EAP.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-4
     when:
-    - as: default
+      as: default
       ignore: true
       java.referenced:
         location: CONSTRUCTOR_CALL
@@ -55,7 +54,7 @@
       not need to change for JBoss EAP.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-5
     when:
-    - as: default
+      as: default
       ignore: true
       java.referenced:
         location: CONSTRUCTOR_CALL
@@ -66,7 +65,7 @@
       JBoss EAP.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-6
     when:
-    - as: default
+      as: default
       ignore: true
       java.referenced:
         location: METHOD_CALL

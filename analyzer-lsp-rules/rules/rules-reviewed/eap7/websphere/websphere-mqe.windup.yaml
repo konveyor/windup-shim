@@ -1,16 +1,15 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-0
     tag:
     - jms
     - websphere
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm(\..*)?\.(mqe).*.[^.]+
   - message: IBM MQe {type} adapter provides plug-in communications adapters or data
       storage adapters for queue managers. These can. be deployed to JBoss EAP.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         location: INHERITANCE
         pattern: com.ibm.mqe.adapters.MQe{type}Adapter
   - message: IBM MQe {type} administration API provides classes used to administer
@@ -18,14 +17,14 @@
       destinations can be configured with the JBoss Admin CLI.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-2
     when:
-    - java.referenced:
+      java.referenced:
         location: INHERITANCE
         pattern: com.ibm.mqe.administration.MQe{type}AdminMsg
   - message: '`MQeJMSAuthenticator` is a WebSphere proprietary JMS authentication
       API.. To migrate to JBoss EAP 7, replace with Java EE 6 JAAS for JMS authentication.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-3
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm.mqe.jms.MQeJMSAuthenticator
   - message: IBM MQe constants are used to name fields when a JMS message is mapped
       to an `MQeMsgObject`. These are provided to. enable WebSphere MQ Everyplace
@@ -34,5 +33,5 @@
       to JBoss EAP 7 with ActiveMQ Artemis.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mqe.windup.xml-4
     when:
-    - java.referenced:
+      java.referenced:
         pattern: com.ibm.mqe.jms.MQeJMSMsgFieldNames

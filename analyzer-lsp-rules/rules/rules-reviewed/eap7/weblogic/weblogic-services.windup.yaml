@@ -1,9 +1,8 @@
-- rules:
-  - message: Replace this class with a class using the EJB 3.2 `@Singleton` and `@Startup`
+- - message: Replace this class with a class using the EJB 3.2 `@Singleton` and `@Startup`
       annotations.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-services.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPLEMENTS_TYPE
         pattern: weblogic.common.T3StartupDef
   - message: '`T3ServicesDef` provides access to core services of the container, such
@@ -12,12 +11,12 @@
       the equivalent services from JBoss EAP.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-services.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         pattern: weblogic.common.T3ServicesDef
   - message: Oracle WebLogic logging classes should be replaced with SLF4J, Log4J,
       or Java Logging.. Please refer to the [JBoss EAP 7 Development guide](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html-single/development_guide/#logging)
       for more information on this.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-services.windup.xml-2
     when:
-    - java.referenced:
+      java.referenced:
         pattern: weblogic.(i18n.)?logging.[^N]{*}

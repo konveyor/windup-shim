@@ -1,9 +1,8 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-0
     tag:
     - commonj
     when:
-    - java.referenced:
+      java.referenced:
         location: IMPORT
         pattern: commonj.timers.{*}
   - message: Commonj Timer Manager API is similar to the EJB 3.1 java.ejb.Timer Service..
@@ -11,28 +10,28 @@
       of scheduling which is similar to Quartz's timer configurations.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         pattern: commonj.timers.TimerManager
   - message: Commonj Timer Interface is similar to the EJB 3.1 javax.ejb.Timer Interface.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-2
     when:
-    - java.referenced:
+      java.referenced:
         pattern: commonj.timers.Timer
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-3
     tag:
     - commonj
     when:
-    - java.referenced:
+      java.referenced:
         pattern: commonj.work.{*}
   - message: The CommonJ WorkManager can be replaced with a JCA Resource Adapter.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-4
     when:
-    - java.referenced:
+      java.referenced:
         pattern: commonj.work.WorkManager
   - message: Replace commonj.work.Work{part} with javax.resource.spi.work.Work{part}.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/commonj/commonj.windup.xml-5
     when:
-    - java.referenced:
+      java.referenced:
         pattern: commonj.work.Work(Event|Item|Listener)?
   - message: Replace CommonJ Work related Exception with a javax.resource.spi.work.Work{subpart}Exception
       subclass.

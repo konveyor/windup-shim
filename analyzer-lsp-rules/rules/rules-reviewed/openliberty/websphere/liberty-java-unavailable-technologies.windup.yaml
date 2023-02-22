@@ -1,5 +1,4 @@
-- rules:
-  - message: <div class="Text"> <span class="SubHeader">Java EE Application Deployment
+- - message: <div class="Text"> <span class="SubHeader">Java EE Application Deployment
       API</span>. <p> This rule flags Java code that references the <code>javax.enterprise.deploy</code>
       package. </p>. <p> The Java EE Application Deployment API is not supported on
       Liberty or Liberty Core. The technology is deprecated in WebSphere Application
@@ -16,7 +15,7 @@
       false"> Deploying applications in Liberty. </a> </p>. </div>
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         pattern: javax.enterprise.deploy.{*}
   - message: '<div class="Text">. <p> This rule flags Java code that has references
       to the following packages: </p>. <ul>. <li><code>javax.portlet</code></li>.
@@ -27,7 +26,7 @@
       traditional. </p>. </div>'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         pattern: (javax.portlet\.[^.]+|javax.portlet.filter\.[^.]+)
   - message: '<div class="Text"> <span class="SubHeader">Java API for XML Registries
       (JAXR)</span>. <p> This rule flags Java code that has references to the following
@@ -40,21 +39,21 @@
       3 to replace JAXR technologies. </p>. </div>'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-2
     when:
-    - java.referenced:
+      java.referenced:
         pattern: (javax.xml.registry\.[^.]+|javax.xml.registry.infomodel\.[^.]+)
   - message: <div class="Text">. <p>The OSGI repository service APIs is not supported
       in Liberty or Liberty Core.</p>. <p>This rule flags java references to APIs
       in the <code>org.osgi.service.repository</code> package.</p>. </div>
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-3
     when:
-    - java.referenced:
+      java.referenced:
         pattern: org.osgi.service.repository\.[^.]+
   - message: <div class="Text">. <p>The OSGI Remote Service Admin is not supported
       in Liberty or Liberty Core.</p>. <p>This rule flags java references to APIs
       in the <code>org.osgi.service.remoteserviceadmin</code> package.</p>. </div>
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-4
     when:
-    - java.referenced:
+      java.referenced:
         pattern: org.osgi.service.remoteserviceadmin\.[^.]+
   - message: '<div class="Text">. <p> This rule flags Java code that has references
       to the <code>org.oasis_open.docs.wsn</code> package. </p>. <p>This rule also
@@ -66,7 +65,7 @@
       </div>'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-5
     when:
-    - java.referenced:
+      java.referenced:
         pattern: org.oasis_open.docs.wsn.{*}
   - message: <div class="Text"> <span class="SubHeader">Entity Enterprise JavaBeans
       (EJB)</span>. <p> This rule flags <code>entity</code> elements in <span class="FilePath">ejb-jar.xml</span>
@@ -82,7 +81,7 @@
       such as DTO, Session Facade, and DAO. </p>. </div>
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-6
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='entity']
         filepaths:
         - '{DetectEJBEntityBeansXML_0_filesFilter}'
@@ -147,7 +146,7 @@
       components in another application</a></li>. </ul>. </div>
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-7
     when:
-    - or:
+      or:
       - java.referenced:
           pattern: (javax.ejb.Remote|javax.ejb.RemoteHome)
       - xml:
@@ -175,7 +174,7 @@
       Server traditional with its native JAX-RPC engine</li>. </ul>. </div>'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-8
     when:
-    - or:
+      or:
       - java.referenced:
           pattern: javax.xml.rpc{*}
       - xml:

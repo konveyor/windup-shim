@@ -1,12 +1,11 @@
-- rules:
-  - message: The `java.lang.Thread.stop(Throwable)` method has been removed, as it
+- - message: The `java.lang.Thread.stop(Throwable)` method has been removed, as it
       is dangerous for a thread to not only be able to directly stop another thread,
       but with an exception it may not expect. Instead, the thread should be notified
       to stop using a shared variable or `interrupt()`.. The `java.lang.Thread.destroy()`
       method was never even implemented and just throws `NoSuchMethodError`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-0
     when:
-    - or:
+      or:
       - java.referenced:
           location: METHOD_CALL
           pattern: java.lang.Thread.stop({.+})
@@ -43,7 +42,7 @@
       below for details)
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-3
     when:
-    - java.referenced:
+      java.referenced:
         pattern: javax.security.auth.Policy
   - message: Due to modularisation, the methods `java.lang.SecurityManager.checkAwtEventQueueAccess()`,.
       `java.lang.SecurityManager.checkSystemClipboardAccess()` and. `java.lang.SecurityManager.checkTopLevelWindow(java.lang.Object)`.
@@ -56,7 +55,7 @@
       AWTPermission("showWindowWithoutWarningBanner"))`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-4
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.lang.SecurityManager.(checkAwtEventQueueAccess|checkSystemClipboardAccess|checkTopLevelWindow)({*})
   - message: The implementation of `java.lang.SecurityManager.checkMemberAccess(java.lang.Class,
       int)` relies on an assumption. that the caller is at a stack depth of 4, which
@@ -64,7 +63,7 @@
       with a call to `java.lang.SecurityManager.checkPermission(new RuntimePermission("accessDeclaredMembers"))`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-5
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.lang.SecurityManager.checkMemberAccess({*})
   - message: '`java.util.logging.LogManager.addPropertyChangeListener()` method was
       removed in Java 9.. In order to listen to property change events, please consider
@@ -72,7 +71,7 @@
       previously triggered property change events for the registered listeners.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-6
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.util.logging.LogManager.addPropertyChangeListener({*})
   - message: '`java.util.logging.LogManager.removePropertyChangeListener()` method
       was removed in Java 9.. In order to listen to property change events, please
@@ -80,7 +79,7 @@
       which previously triggered property change events for the registered listeners.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-7
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.util.logging.LogManager.removePropertyChangeListener({*})
   - message: Property listener methods on `Pack200.Packer` and `Pack200.Unpacker`
       have been removed.. Instead, a strategy based on polling the `PROGRESS` value
@@ -88,7 +87,7 @@
       is recommended.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-8
     when:
-    - or:
+      or:
       - java.referenced:
           pattern: java.util.jar.Pack200.Packer.addPropertyChangeListener({*})
       - java.referenced:
@@ -112,7 +111,7 @@
       Variable Handles (see the link below)
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-9
     when:
-    - java.referenced:
+      java.referenced:
         pattern: sun.misc.Unsafe.(getInt|putInt|getFloat|putFloat|getDouble|putDouble|getBoolean|putBoolean|getObject|putObject|getByte|putByte|getChar|putChar|getShort|putShort|getLong|putLong|fieldOffset|staticFieldBase|tryMonitorEnter|monitorEnter|monitorExit)({*})
   - message: The `sun.misc.BASE64{encoder-decoder}` class has been removed.. It can
       be replaced with `Base64.{encoder-decoder}` class instantiated using `java.util.Base64.getMime{encoder-decoder}()`
@@ -121,7 +120,7 @@
       below.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-10
     when:
-    - java.referenced:
+      java.referenced:
         pattern: sun.misc.BASE64(Encoder|Decoder){*}
   - message: The `java.lang.System.runFinalizersOnExit(boolean value)` and `java.lang.Runtime.runFinalizersOnExit(boolean
       value)`. have been removed as they are regarded as inherently unsafe. Running
@@ -130,7 +129,7 @@
       other threads.. Remove these method calls.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-11
     when:
-    - or:
+      or:
       - java.referenced:
           pattern: java.lang.System.runFinalizersOnExit({*})
       - java.referenced:
@@ -144,7 +143,7 @@
       method.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-12
     when:
-    - or:
+      or:
       - java.referenced:
           location: METHOD_CALL
           pattern: java.awt.Font.getPeer({*})
@@ -158,5 +157,5 @@
       (see the links below)
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk11/openjdk8/java-removals.windup.xml-13
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.lang.ClassLoader

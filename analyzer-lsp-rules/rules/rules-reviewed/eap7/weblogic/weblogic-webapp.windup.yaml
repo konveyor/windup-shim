@@ -1,9 +1,8 @@
-- rules:
-  - message: Virtual directories supported in WebLogic are not supported in JBoss
+- - message: Virtual directories supported in WebLogic are not supported in JBoss
       EAP.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-0
     when:
-    - xml:
+      xml:
         XPath: //wl:virtual-directory-mapping
         filepaths:
         - weblogic.xml
@@ -12,7 +11,7 @@
       for more information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: weblogic.servlet.annotation.WLServlet
   - message: Replace the proprietary WebLogic `@WLInitParam` annotation with the Java
@@ -20,7 +19,7 @@
       for more information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-2
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: weblogic.servlet.annotation.WLInitParam
   - message: Replace the proprietary WebLogic `@WLFilter` annotation with the Java
@@ -28,7 +27,7 @@
       for more information.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-3
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: weblogic.servlet.annotation.WLFilter
   - message: WebLogic `ApplicationLifecycleEvent` must be replaced with standard Java
@@ -68,12 +67,12 @@
       by standard Java EE mechanisms or the ones provided by JBoss EAP.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-6
     when:
-    - java.referenced:
+      java.referenced:
         pattern: weblogic.security.{*}
   - message: 'Migrate to JBoss EAP 7: `org.jboss.security.SecurityContextAssociation`.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-7
     when:
-    - java.referenced:
+      java.referenced:
         pattern: weblogic.security.Security
   - message: Oracle WebLogic Server provides a proprietary `ServletAuthentication`
       class to perform programmatic login.. In Red Hat JBoss EAP 7, you can use the
@@ -83,5 +82,5 @@
       class.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-8
     when:
-    - java.referenced:
+      java.referenced:
         pattern: weblogic.servlet.security.ServletAuthentication

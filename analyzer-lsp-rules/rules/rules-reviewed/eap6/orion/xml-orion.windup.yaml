@@ -1,10 +1,9 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/orion/xml-orion.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/orion/xml-orion.windup.xml-0
     tag:
     - configuration
     - orion
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /orion-ejb-jar
@@ -13,7 +12,7 @@
     - configuration
     - orion
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /orion-web-app
@@ -22,7 +21,7 @@
     - configuration
     - orion
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /orion-application

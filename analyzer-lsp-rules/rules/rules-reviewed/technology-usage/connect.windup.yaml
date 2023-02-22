@@ -1,24 +1,23 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-0
     tag: []
     when:
-    - file: '{*}.rar'
+      file: '{*}.rar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-1
     tag: []
     when:
-    - file: '{*}activemq{*}'
+      file: '{*}activemq{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-2
     tag: []
     when:
-    - file: '{*}openws{*}'
+      file: '{*}openws{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-3
     tag: []
     when:
-    - file: '{*}wsdl{*}'
+      file: '{*}wsdl{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-4
     tag: []
     when:
-    - or:
+      or:
       - file: '{*}amqp-client{*}'
       - file: '{*}rabbitmq{*}'
       - file: '{*}spring-rabbit{*}'
@@ -27,44 +26,44 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-5
     tag: []
     when:
-    - or:
+      or:
       - file: '{*}spring-messaging{*}'
       - file: '{*}spring-jms{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-6
     tag: []
     when:
-    - file: '{*}camel-jms{*}'
+      file: '{*}camel-jms{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-7
     tag: []
     when:
-    - file: '{*}aws-java-sdk-sqs{*}'
+      file: '{*}aws-java-sdk-sqs{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-8
     tag: []
     when:
-    - file: '{*}hornetq{*}'
+      file: '{*}hornetq{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-9
     tag: []
     when:
-    - file: '{*}amqp{*}'
+      file: '{*}amqp{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-10
     tag: []
     when:
-    - file: '{*}rocketmq-client{*}'
+      file: '{*}rocketmq-client{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-11
     tag: []
     when:
-    - or:
+      or:
       - file: '{*}jzmq{*}'
       - file: '{*}jeromq{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-12
     tag: []
     when:
-    - file: '{*}jbossmq-client{*}'
+      file: '{*}jbossmq-client{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-13
     tag: []
     when:
-    - file: '{*}zbus-client{*}'
+      file: '{*}zbus-client{*}'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect.windup.xml-14
     tag: []
     when:
-    - file: '{*}qpid{*}'
+      file: '{*}qpid{*}'

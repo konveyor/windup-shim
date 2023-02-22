@@ -1,39 +1,38 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-0
     tag:
     - cache
     - distributed
     - cluster
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: //mbean[@code='org.jboss.cache.TreeCache']
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-1
     tag:
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: /classloading
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-2
     tag:
     - seam
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: /sc:components
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-3
     tag:
     - seam
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: /sp:pages
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-4
     tag:
     - seam
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: /page
         filepaths:
         - '{*}.page.xml'
@@ -41,7 +40,7 @@
     tag:
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: ""
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-6
     tag:
@@ -50,7 +49,7 @@
     - descriptor
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='jboss-app']
         filepaths:
         - jboss-app.xml
@@ -62,7 +61,7 @@
     - descriptor
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='jboss-web']
         filepaths:
         - jboss-web.xml
@@ -72,14 +71,14 @@
       are available automatically.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-8
     when:
-    - xml:
+      xml:
         XPath: /jbc:classloading
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-9
     tag:
     - classloading
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='jboss-deployment-structure']
         filepaths:
         - jboss-deployment-structure.xml
@@ -89,7 +88,7 @@
     - ejb2
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='jbosscmp-jdbc']
         filepaths:
         - jbosscmp-jdbc.xml
@@ -98,7 +97,7 @@
     - descriptor
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='jboss']
         filepaths:
         - jboss.xml
@@ -106,7 +105,7 @@
       prefix for `security-domain` elements in AS 7 / EAP 6.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-12
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='security-domain' and starts-with(text(), 'java:/jaas/')]
   - message: Before JBoss EAP 6, authentication security domains and login modules
       could be configured in a `login-config.xml` file.. JBoss EAP 6+ does not support
@@ -114,7 +113,7 @@
       configuration. Please refer to the corresponding server security guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-13
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='policy']
         filepaths:
         - login-config.xml
@@ -122,7 +121,7 @@
     tag:
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='ejb-jar']
         filepaths:
         - jboss-ejb3.xml
@@ -133,7 +132,7 @@
     - webservice
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: //*[local-name()='webservices']
         filepaths:
         - jboss-webservices.xml
@@ -141,5 +140,5 @@
     tag:
     - jboss-eap5
     when:
-    - xml:
+      xml:
         XPath: //server/mbean[@code='org.jboss.mq.server.jmx.Queue']

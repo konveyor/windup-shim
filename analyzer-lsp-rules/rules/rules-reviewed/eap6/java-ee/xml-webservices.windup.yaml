@@ -1,10 +1,9 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-0
     tag:
     - apache-axis
     - webservice
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /serviceGroup/service/operation
@@ -13,7 +12,7 @@
     - apache-axis
     - webservice
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /module/InFlow
@@ -22,7 +21,7 @@
     - apache-axis
     - webservice
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /axisconfig
@@ -31,7 +30,7 @@
     - xfire
     - webservice
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /xfire:beans
@@ -39,7 +38,7 @@
     tag:
     - webservice
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /*[local-name()='handler-chains']
@@ -79,7 +78,7 @@
     - webservice
     - apache-cxf
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /extensions
@@ -88,7 +87,7 @@
     - webservice
     - security
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: //*[local-name()='Policy']
@@ -97,7 +96,7 @@
     - soap
     - webservice
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /*[local-name()='Envelope']
@@ -106,7 +105,7 @@
     - webservice
     - wsdl
     when:
-    - as: default
+      as: default
       ignore: true
       xml:
         XPath: /*[local-name()='definitions']

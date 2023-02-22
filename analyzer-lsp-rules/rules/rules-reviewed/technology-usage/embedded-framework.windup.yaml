@@ -1,218 +1,217 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-0
     tag: []
     when:
-    - file: axis{*}.jar
+      file: axis{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-1
     tag: []
     when:
-    - file: axis2{*}.jar
+      file: axis2{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-2
     tag: []
     when:
-    - file: '{*}cxf{*}.jar'
+      file: '{*}cxf{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-3
     tag: []
     when:
-    - file: '{*}xfire{*}.jar'
+      file: '{*}xfire{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-4
     tag: []
     when:
-    - file: '{*}jersey{*}.jar'
+      file: '{*}jersey{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-5
     tag: []
     when:
-    - file: '{*}unirest{*}.jar'
+      file: '{*}unirest{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-6
     tag: []
     when:
-    - file: hibernate{*}.jar
+      file: hibernate{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-7
     tag: []
     when:
-    - file: hibernate-ogm{*}.jar
+      file: hibernate-ogm{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-8
     tag: []
     when:
-    - file: '{*}eclipselink{*}.jar'
+      file: '{*}eclipselink{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-9
     when:
-    - file: spring-batch{*}.jar
+      file: spring-batch{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-10
     tag: []
     when:
-    - file: '{*}aspectj{*}.jar'
+      file: '{*}aspectj{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-11
     tag: []
     when:
-    - file: '{*}jbpm{*}.jar'
+      file: '{*}jbpm{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-12
     tag: []
     when:
-    - file: '{*}jrules{*}.jar'
+      file: '{*}jrules{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-13
     tag: []
     when:
-    - file: '{*}camunda{*}.jar'
+      file: '{*}camunda{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-14
     tag: []
     when:
-    - file: '{*}pega{*}.jar'
+      file: '{*}pega{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-15
     when:
-    - file: blaze{*}.jar
+      file: blaze{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-16
     tag: []
     when:
-    - file: '{*}MRules{*}.jar'
+      file: '{*}MRules{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-17
     tag: []
     when:
-    - file: '{*}easy-rules{*}.jar'
+      file: '{*}easy-rules{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-18
     tag: []
     when:
-    - file: '{*}aopalliance{*}.jar'
+      file: '{*}aopalliance{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-19
     tag: []
     when:
-    - file: '{*}snmp4j{*}.jar'
+      file: '{*}snmp4j{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-20
     tag: []
     when:
-    - file: '{*}http-client{*}.jar'
+      file: '{*}http-client{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-21
     tag: []
     when:
-    - or:
+      or:
       - file: javax.inject{*}.jar
       - file: '{*}atinject{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-22
     tag: []
     when:
-    - file: '{*}guice{*}.jar'
+      file: '{*}guice{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-23
     tag: []
     when:
-    - file: '{*}cdi{*}.jar'
+      file: '{*}cdi{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-24
     tag: []
     when:
-    - file: '{*}plexus-container{*}.jar'
+      file: '{*}plexus-container{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-25
     tag: []
     when:
-    - file: '{*}weld{*}.jar'
+      file: '{*}weld{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-26
     tag: []
     when:
-    - file: dagger{*}.jar
+      file: dagger{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-27
     tag: []
     when:
-    - file: gin{*}.jar
+      file: gin{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-28
     tag: []
     when:
-    - file: '{*}picocontainer{*}.jar'
+      file: '{*}picocontainer{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-29
     tag: []
     when:
-    - file: '{*}scaldi{*}.jar'
+      file: '{*}scaldi{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-30
     tag: []
     when:
-    - file: macros{*}.jar
+      file: macros{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-31
     tag: []
     when:
-    - file: injekt-core{*}.jar
+      file: injekt-core{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-32
     tag: []
     when:
-    - file: kodein{*}.jar
+      file: kodein{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-33
     tag: []
     when:
-    - file: peaberry{*}.jar
+      file: peaberry{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-34
     tag: []
     when:
-    - file: sticky-configured{*}.jar
+      file: sticky-configured{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-35
     tag: []
     when:
-    - file: ka-di{*}.jar
+      file: ka-di{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-36
     tag: []
     when:
-    - file: polyforms-di{*}.jar
+      file: polyforms-di{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-37
     tag: []
     when:
-    - file: jaywire{*}.jar
+      file: jaywire{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-38
     tag: []
     when:
-    - file: silk-di{*}.jar
+      file: silk-di{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-39
     tag: []
     when:
-    - file: grapht{*}.jar
+      file: grapht{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-40
     tag: []
     when:
-    - file: syringe{*}.jar
+      file: syringe{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-41
     tag: []
     when:
-    - file: cfg-engine{*}.jar
+      file: cfg-engine{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-42
     tag: []
     when:
-    - file: beaninject{*}.jar
+      file: beaninject{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-43
     tag: []
     when:
-    - file: inject{*}.jar
+      file: inject{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-44
     tag: []
     when:
-    - file: airframe{*}.jar
+      file: airframe{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-45
     tag: []
     when:
-    - file: winter{*}.jar
+      file: winter{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-46
     tag: []
     when:
-    - file: kouinject{*}.jar
+      file: kouinject{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-47
     tag: []
     when:
-    - file: iroh{*}.jar
+      file: iroh{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-48
     tag: []
     when:
-    - file: micro-di{*}.jar
+      file: micro-di{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-49
     tag: []
     when:
-    - file: subcut{*}.jar
+      file: subcut{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-50
     tag: []
     when:
-    - java.dependency:
+      java.dependency:
         name: org.springframework.spring-beans
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-51
     tag: []
     when:
-    - java.dependency:
+      java.dependency:
         name: io.micrometer.micrometer-core
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-52
     tag: []
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.spring-web
       - java.dependency:
@@ -222,24 +221,24 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-53
     tag: []
     when:
-    - java.dependency:
+      java.dependency:
         name: org.springframework.shell.spring-shell-core
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-54
     tag: []
     when:
-    - filecontent:
+      filecontent:
         filename: '{*}.{extensions}'
         pattern: '{prefixes}flo-editor'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-55
     tag: []
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: org.springframework.scheduling.annotation.Scheduled
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-56
     tag: []
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.cloud.spring-cloud-function-context
       - java.dependency:
@@ -247,24 +246,24 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-57
     tag: []
     when:
-    - file: '{*}quartz{*}.jar'
+      file: '{*}quartz{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-58
     tag: []
     when:
-    - file: '{*}zipkin{*}.jar'
+      file: '{*}zipkin{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-59
     tag: []
     when:
-    - file: feign-{*}.jar
+      file: feign-{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-60
     tag: []
     when:
-    - file: '{*}redis{*}.jar'
+      file: '{*}redis{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-61
     tag: []
     when:
-    - file: '{*}eureka{*}.jar'
+      file: '{*}eureka{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-62
     tag: []
     when:
-    - file: spring{*}.jar
+      file: spring{*}.jar

@@ -1,5 +1,4 @@
-- rules:
-  - message: This is a JDBC URL, which describes the basic information about. where
+- - message: This is a JDBC URL, which describes the basic information about. where
       and how to connect to the database.. This particular URL points to a PostgreSQL
       database.. In EAP 6, the databases are configured in these steps:. 1. Add the
       JDBC driver as an EAP 6 module. Download it [here](https://jdbc.postgresql.org/download.html)..
@@ -9,7 +8,7 @@
       ```. 3. Use the datasource according to JPA 2.0 standards.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-0
     when:
-    - xml:
+      xml:
         XPath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:postgres')]
         filepaths:
         - '{*}-ds.xml'
@@ -24,7 +23,7 @@
       EntityManager em;. ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-1
     when:
-    - xml:
+      xml:
         XPath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:oracle')]
         filepaths:
         - '{*}-ds.xml'
@@ -39,7 +38,7 @@
       EntityManager em;. ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-2
     when:
-    - xml:
+      xml:
         XPath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:sqlserver')]
         filepaths:
         - '{*}-ds.xml'
@@ -51,7 +50,7 @@
       value=80). ```'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-3
     when:
-    - xml:
+      xml:
         XPath: /Server/Service/Connector/@port
         filepaths:
         - server.xml
@@ -63,7 +62,7 @@
       value=org.apache.coyote.http11.Http11NioProtocol). ```'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-4
     when:
-    - xml:
+      xml:
         XPath: /Server/Service/Connector/@protocol
         filepaths:
         - server.xml
@@ -82,7 +81,7 @@
       value="uq-thread-pool"). ```'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-5
     when:
-    - xml:
+      xml:
         XPath: /Server/Service/Connector/@maxThreads
         filepaths:
         - server.xml
@@ -93,7 +92,7 @@
       ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-6
     when:
-    - xml:
+      xml:
         XPath: /Server/Service/Connector/@connectionTimeout
         filepaths:
         - server.xml
@@ -105,7 +104,7 @@
       storage path.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-7
     when:
-    - xml:
+      xml:
         XPath: /Server/Service/Connector/@emptySessionPath
         filepaths:
         - server.xml
@@ -115,7 +114,7 @@
       value=true). ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-8
     when:
-    - xml:
+      xml:
         XPath: /Server/Service/Connector/@enableLookups
         filepaths:
         - server.xml
@@ -126,7 +125,7 @@
       ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-9
     when:
-    - xml:
+      xml:
         XPath: /Server/Service/Connector/@redirectPort
         filepaths:
         - server.xml
@@ -136,7 +135,7 @@
       ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-10
     when:
-    - xml:
+      xml:
         XPath: /Server/Service/Connector/@scheme
         filepaths:
         - server.xml
@@ -150,7 +149,7 @@
       value=true). ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-11
     when:
-    - xml:
+      xml:
         XPath: /Server/Service/Connector[@secure='true']
         filepaths:
         - server.xml
@@ -167,7 +166,7 @@
       ```. The default can be overriden by setting the `jvmRoute` system property.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-12
     when:
-    - xml:
+      xml:
         XPath: /Server/Service/Engine/@jvmRoute
         filepaths:
         - server.xml
@@ -177,7 +176,7 @@
       EAP 6 management CLI.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-13
     when:
-    - xml:
+      xml:
         XPath: /jboss/container-configurations/container-configuration[@extends='Standard
           Stateless SessionBean']
         filepaths:
@@ -188,7 +187,7 @@
       CLI.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-14
     when:
-    - xml:
+      xml:
         XPath: /jboss/container-configurations/container-configuration[@extends='Clustered
           Stateless SessionBean']
         filepaths:
@@ -200,7 +199,7 @@
       configuration part.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-15
     when:
-    - xml:
+      xml:
         XPath: /jboss/container-configurations/container-configuration[@extends='Standard
           Message Driven Bean']
         filepaths:
@@ -212,7 +211,7 @@
       CLI node of the respective configuration part.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-16
     when:
-    - xml:
+      xml:
         XPath: /jboss/container-configurations/container-configuration[@extends='Singleton
           Message Driven Bean']
         filepaths:
@@ -224,7 +223,7 @@
       `bean-instance-pool-ref` CLI node of the respective configuration part.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-17
     when:
-    - xml:
+      xml:
         XPath: /jboss/container-configurations/container-configuration[@extends='Standard
           Message Inflow Driven Bean']
         filepaths:

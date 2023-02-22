@@ -1,5 +1,4 @@
-- rules:
-  - message: 'Mutiny has deprecated a few APIs. The deprecated APIs are still available
+- - message: 'Mutiny has deprecated a few APIs. The deprecated APIs are still available
       and would work, but are planned for removal.. Changed API is : `Multi.collectItems()`
       -> `Multi.collect()`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-mutiny.windup.xml-0

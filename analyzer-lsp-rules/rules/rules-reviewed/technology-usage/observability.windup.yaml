@@ -1,8 +1,7 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/observability.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/observability.windup.xml-0
     tag: []
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.boot.spring-boot-starter-actuator
       - java.dependency:
@@ -14,7 +13,7 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/observability.windup.xml-1
     tag: []
     when:
-    - or:
+      or:
       - java.referenced:
           location: ANNOTATION
           pattern: org.springframework.jmx.{*}

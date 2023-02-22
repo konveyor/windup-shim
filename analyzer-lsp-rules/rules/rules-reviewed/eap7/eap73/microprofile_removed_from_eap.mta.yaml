@@ -1,36 +1,35 @@
-- rules:
-  - message: This application depends on Eclipse MicroProfile Config, which is no
+- - message: This application depends on Eclipse MicroProfile Config, which is no
       longer supported by JBoss EAP 7.4 (or later), unless the JBoss EAP expansion
       pack is installed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap73/microprofile_removed_from_eap.mta.xml-0
     when:
-    - java.dependency:
+      java.dependency:
         name: org.eclipse.microprofile.config.microprofile-config-api
   - message: This application depends on Eclipse MicroProfile Health, which is no
       longer supported by JBoss EAP 7.4 (or later), unless the JBoss EAP expansion
       pack is installed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap73/microprofile_removed_from_eap.mta.xml-1
     when:
-    - java.dependency:
+      java.dependency:
         name: org.eclipse.microprofile.health.microprofile-health-api
   - message: This application depends on Eclipse MicroProfile Metrics, which is no
       longer supported by JBoss EAP 7.4 (or later), unless the JBoss EAP expansion
       pack is installed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap73/microprofile_removed_from_eap.mta.xml-2
     when:
-    - java.dependency:
+      java.dependency:
         name: org.eclipse.microprofile.metrics.microprofile-metrics-api
   - message: This application depends on Eclipse MicroProfile REST Client, which is
       no longer supported by JBoss EAP 7.4 (or later), unless the JBoss EAP expansion
       pack is installed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap73/microprofile_removed_from_eap.mta.xml-3
     when:
-    - java.dependency:
+      java.dependency:
         name: org.eclipse.microprofile.rest.client.microprofile-rest-client-api
   - message: This application depends on Eclipse MicroProfile Opentracing, which is
       no longer supported by JBoss EAP 7.4 (or later), unless the JBoss EAP expansion
       pack is installed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap73/microprofile_removed_from_eap.mta.xml-4
     when:
-    - java.dependency:
+      java.dependency:
         name: org.eclipse.microprofile.opentracing.microprofile-opentracing-api

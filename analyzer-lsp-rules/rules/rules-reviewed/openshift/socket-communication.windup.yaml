@@ -1,12 +1,11 @@
-- rules:
-  - message: 'Java sockets are internal endpoints of two-way communications. They
+- - message: 'Java sockets are internal endpoints of two-way communications. They
       are defined by an IP address, port, and protocol (TCP/UDP).. Socket communication
       is not suitable for a cloud environment because it requires fixed communication
       with a target host.. Recommendation: Use Java EE standard or loosely coupled
       protocols such as JMS, JAX-RS, or JAX-WS for backing service interactions.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/socket-communication.windup.xml-0
     when:
-    - or:
+      or:
       - java.referenced:
           pattern: java.net.(Socket|MulticastSocket|DatagramSocket|InetSocketAddress){*}
       - java.referenced:
@@ -23,5 +22,5 @@
       interactions.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/socket-communication.windup.xml-1
     when:
-    - java.referenced:
+      java.referenced:
         pattern: java.nio.channels.(NetworkChannel|MulticastChannel|DatagramChannel|AsynchronousSocketChannel|SocketChannel){*}

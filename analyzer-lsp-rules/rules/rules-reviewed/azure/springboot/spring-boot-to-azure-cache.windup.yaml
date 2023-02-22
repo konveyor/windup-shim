@@ -1,9 +1,8 @@
-- rules:
-  - message: The application uses a Redis Cache.. Checkout Azure Cache for Redis for
+- - message: The application uses a Redis Cache.. Checkout Azure Cache for Redis for
       a fully managed cache on Azure.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-cache.windup.xml-0
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.boot.spring-boot-starter-data-redis
       - java.dependency:

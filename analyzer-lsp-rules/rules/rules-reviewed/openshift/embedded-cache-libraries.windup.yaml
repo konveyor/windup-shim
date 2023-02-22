@@ -1,8 +1,7 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/embedded-cache-libraries.windup.xml-14
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/embedded-cache-libraries.windup.xml-14
     tag: []
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.boot.spring-boot-starter-cache
       - java.dependency:

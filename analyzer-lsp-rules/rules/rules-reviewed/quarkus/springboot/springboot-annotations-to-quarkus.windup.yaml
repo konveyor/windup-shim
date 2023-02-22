@@ -1,5 +1,4 @@
-- rules:
-  - message: Remove the SpringBoot @SpringBootApplication annotation.. A Spring Boot
+- - message: Remove the SpringBoot @SpringBootApplication annotation.. A Spring Boot
       application contains a "main" class with the @SpringBootApplication annotation.
       A Quarkus application does not have such a class. Two different alternatives
       can be followed - either. to remove the "main" class associated with the annotation,
@@ -10,6 +9,6 @@
       also need to maintain a Spring version along with the Quarkus application.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-annotations-to-quarkus.windup.xml-0
     when:
-    - java.referenced:
+      java.referenced:
         location: ANNOTATION
         pattern: org.springframework.boot.autoconfigure.SpringBootApplication

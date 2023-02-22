@@ -1,44 +1,43 @@
-- rules:
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-0
+- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-0
     tag: []
     when:
-    - file: '{*}hsqldb{*}.jar'
+      file: '{*}hsqldb{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-1
     tag: []
     when:
-    - file: '{*}mysql-connector{*}.jar'
+      file: '{*}mysql-connector{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-2
     tag: []
     when:
-    - file: '{*}derby{*}.jar'
+      file: '{*}derby{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-3
     tag: []
     when:
-    - file: '{*}postgresql{*}.jar'
+      file: '{*}postgresql{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-4
     tag: []
     when:
-    - file: '{*}h2{*}.jar'
+      file: '{*}h2{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-5
     tag: []
     when:
-    - or:
+      or:
       - file: sqljdbc{*}.jar
       - file: mssql-jdbc{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-6
     tag: []
     when:
-    - file: '{*}sqlite-jdbc{*}.jar'
+      file: '{*}sqlite-jdbc{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-7
     tag: []
     when:
-    - or:
+      or:
       - file: '{*}jodbc{*}.jar'
       - file: '{*}ojdbc{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-8
     tag: []
     when:
-    - or:
+      or:
       - file: '{*}cassandra{*}.jar'
       - file: '{*}hector{*}.jar'
       - file: '{*}astyanax{*}.jar'
@@ -50,15 +49,15 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-9
     tag: []
     when:
-    - file: '{*}axion{*}.jar'
+      file: '{*}axion{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-10
     tag: []
     when:
-    - file: '{*}mckoisqldb{*}.jar'
+      file: '{*}mckoisqldb{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-11
     tag: []
     when:
-    - or:
+      or:
       - file: '{*}mongodb{*}.jar'
       - file: '{*}casbah{*}.jar'
       - file: '{*}reactivemongo{*}.jar'
@@ -67,27 +66,27 @@
       - file: '{*}rogue{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-12
     when:
-    - file: spring-data{*}.jar
+      file: spring-data{*}.jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-13
     tag: []
     when:
-    - file: '{*}morphia{*}.jar'
+      file: '{*}morphia{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-14
     tag: []
     when:
-    - file: '{*}leveldb{*}.jar'
+      file: '{*}leveldb{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-15
     tag: []
     when:
-    - file: '{*}hbase{*}.jar'
+      file: '{*}hbase{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-16
     tag: []
     when:
-    - file: '{*}accumulo{*}.jar'
+      file: '{*}accumulo{*}.jar'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/database.windup.xml-17
     tag: []
     when:
-    - or:
+      or:
       - java.dependency:
           name: org.springframework.data.spring-data-jpa
       - java.dependency:

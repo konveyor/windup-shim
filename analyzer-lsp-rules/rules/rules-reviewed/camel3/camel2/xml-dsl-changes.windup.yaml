@@ -1,8 +1,7 @@
-- rules:
-  - message: '`zip` and `gzip` dataformats were renamed to `zipdeflater` and `gzipdeflater`'
+- - message: '`zip` and `gzip` dataformats were renamed to `zipdeflater` and `gzipdeflater`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-0
     when:
-    - or:
+      or:
       - xml:
           XPath: //*[(count(b:zip)+count(b:gzip)) >0]
       - xml:
@@ -10,7 +9,7 @@
   - message: '`custom` load balancer was renamed to `customLoadBalancer`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-1
     when:
-    - or:
+      or:
       - xml:
           XPath: //*/b:route/b:loadBalance/b:custom
       - xml:
@@ -18,7 +17,7 @@
   - message: '`zipFile` data format was renamed to `zipfile`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-2
     when:
-    - or:
+      or:
       - xml:
           XPath: //*/b:marshal/b:zipFile
       - xml:
@@ -30,7 +29,7 @@
   - message: '`keyOrTrustStoreParametersId` attribute was renamed to `keyOrTrustStoreParametersRef`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-3
     when:
-    - or:
+      or:
       - xml:
           XPath: //*/b:secureXML/@keyOrTrustStoreParametersId
       - xml:
@@ -39,7 +38,7 @@
       `circuitBreaker`. instead of `hystrix'.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-4
     when:
-    - or:
+      or:
       - xml:
           XPath: //b:hystrix
       - xml:
@@ -48,7 +47,7 @@
       (not the attributes) for. setting correlation size/timeout were renamed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-5
     when:
-    - or:
+      or:
       - xml:
           XPath: //*/b:aggregate/b:completionSize
       - xml:
@@ -57,7 +56,7 @@
       (not the. attributes) for. setting correlation size/timeout were renamed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-6
     when:
-    - or:
+      or:
       - xml:
           XPath: //*/b:aggregate/b:completionTimeout
       - xml:
@@ -65,7 +64,7 @@
   - message: The attribute `headerName` was renamed to `name`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-7
     when:
-    - or:
+      or:
       - xml:
           XPath: //*/b:setHeader/@headerName
       - xml:
@@ -73,7 +72,7 @@
   - message: The attribute `propertyName` was renamed to `name`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-8
     when:
-    - or:
+      or:
       - xml:
           XPath: //*/b:setProperty/@propertyName
       - xml:
