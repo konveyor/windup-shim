@@ -54,11 +54,11 @@
       as: dependencies-block
       ignore: true
       xml:
-        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.amqphub.spring'
-          and ../m:artifactId='amqp-10-jms-spring-boot-starter' and not(contains(.,
-          'redhat'))]
         filepaths:
         - pom.xml
+        xpath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.amqphub.spring'
+          and ../m:artifactId='amqp-10-jms-spring-boot-starter' and not(contains(.,
+          'redhat'))]
   - message: Migrate `org.apache.cxf:cxf-spring-boot-starter-jaxrs` dependency to
       a version compatible with the supported versions of the RHOAR components provided
       in the link.
@@ -67,11 +67,11 @@
       as: dependencies-block
       ignore: true
       xml:
-        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.apache.cxf'
-          and ../m:artifactId='cxf-spring-boot-starter-jaxrs' and not(contains(.,
-          'redhat'))]
         filepaths:
         - pom.xml
+        xpath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.apache.cxf'
+          and ../m:artifactId='cxf-spring-boot-starter-jaxrs' and not(contains(.,
+          'redhat'))]
   - message: Migrate `org.jboss.resteasy:resteasy-spring-boot-starter` dependency
       to a version compatible with the supported versions of the RHOAR components
       provided in the link.
@@ -80,10 +80,10 @@
       as: dependencies-block
       ignore: true
       xml:
-        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.jboss.resteasy'
-          and ../m:artifactId='resteasy-spring-boot-starter' and not(contains(., 'redhat'))]
         filepaths:
         - pom.xml
+        xpath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.jboss.resteasy'
+          and ../m:artifactId='resteasy-spring-boot-starter' and not(contains(., 'redhat'))]
   - message: Migrate `org.infinispan:infinispan-spring-boot-starter-embedded` dependency
       to a version compatible with the supported versions of the RHOAR components
       provided in the link.
@@ -92,11 +92,11 @@
       as: dependencies-block
       ignore: true
       xml:
-        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.infinispan'
-          and ../m:artifactId='infinispan-spring-boot-starter-embedded' and not(contains(.,
-          'redhat'))]
         filepaths:
         - pom.xml
+        xpath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.infinispan'
+          and ../m:artifactId='infinispan-spring-boot-starter-embedded' and not(contains(.,
+          'redhat'))]
   - message: Migrate `org.infinispan:infinispan-spring-boot-starter-remote` dependency
       to a version compatible with the supported versions of the RHOAR components
       provided in the link.
@@ -105,11 +105,11 @@
       as: dependencies-block
       ignore: true
       xml:
-        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.infinispan'
-          and ../m:artifactId='infinispan-spring-boot-starter-remote' and not(contains(.,
-          'redhat'))]
         filepaths:
         - pom.xml
+        xpath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.infinispan'
+          and ../m:artifactId='infinispan-spring-boot-starter-remote' and not(contains(.,
+          'redhat'))]
   - message: Migrate `org.keycloak:keycloak-spring-boot-starter` dependency to a version
       compatible with the supported versions of the RHOAR components provided in the
       link.
@@ -118,10 +118,10 @@
       as: dependencies-block
       ignore: true
       xml:
-        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.keycloak'
-          and ../m:artifactId='keycloak-spring-boot-starter' and not(contains(., 'redhat'))]
         filepaths:
         - pom.xml
+        xpath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='org.keycloak'
+          and ../m:artifactId='keycloak-spring-boot-starter' and not(contains(., 'redhat'))]
   - message: Migrate `me.snowdrop:narayana-spring-boot-starter` dependency to a version
       compatible with the supported versions of the RHOAR components provided in the
       link.
@@ -130,10 +130,10 @@
       as: dependencies-block
       ignore: true
       xml:
-        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='me.snowdrop'
-          and ../m:artifactId='narayana-spring-boot-starter' and not(contains(., 'redhat'))]
         filepaths:
         - pom.xml
+        xpath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='me.snowdrop'
+          and ../m:artifactId='narayana-spring-boot-starter' and not(contains(., 'redhat'))]
   - message: Migrate `io.opentracing.contrib:opentracing-spring-jaeger-web-starter`
       dependency to a version compatible with the supported versions of the RHOAR
       components provided in the link.
@@ -142,8 +142,8 @@
       as: dependencies-block
       ignore: true
       xml:
-        XPath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='io.opentracing.contrib'
-          and ../m:artifactId='opentracing-spring-jaeger-web-starter' and not(contains(.,
-          'redhat'))]
         filepaths:
         - pom.xml
+        xpath: /m:project/m:dependencies/m:dependency/m:version[../m:groupId='io.opentracing.contrib'
+          and ../m:artifactId='opentracing-spring-jaeger-web-starter' and not(contains(.,
+          'redhat'))]

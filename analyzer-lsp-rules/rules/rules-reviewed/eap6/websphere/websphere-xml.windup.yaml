@@ -5,14 +5,14 @@
     - websphere
     when:
       xml:
-        XPath: /rl:RuleSet
+        xpath: /rl:RuleSet
   - message: This file contains a specific IBM WebSphere Application binding configuration..
       To migrate to EAP 6.x, configure EAP 6.x accordingly using the CLI interface
       or web console.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-1
     when:
       xml:
-        XPath: /applicationbnd:ApplicationBinding
+        xpath: /applicationbnd:ApplicationBinding
   - message: This file contains WebSphere proprietary JSP engine configuration.. To
       migrate to EAP 6, configure it accordingly using the CLI or the web console.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-2
@@ -22,11 +22,11 @@
         from: files
         ignore: true
         xml:
-          XPath: /webappext:WebAppExtension
+          xpath: /webappext:WebAppExtension
       - as: default
         ignore: true
         xml:
-          XPath: /ext:web-ext
+          xpath: /ext:web-ext
       - as: files
         file: ibm-web-ext.{file_ext}
         ignore: true
@@ -36,26 +36,26 @@
     when:
       or:
       - xml:
-          XPath: /ext:web-bnd
+          xpath: /ext:web-bnd
       - xml:
-          XPath: /webappbnd:WebAppBinding
+          xpath: /webappbnd:WebAppBinding
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-4
     tag:
     - webservice
     - websphere
     when:
       xml:
-        XPath: /com.ibm.etools.webservice.wscext:WsClientExtension
+        xpath: /com.ibm.etools.webservice.wscext:WsClientExtension
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-5
     tag:
     - webservice
     - websphere
     when:
       xml:
-        XPath: /com.ibm.etools.webservice.wscbnd:ClientBinding
+        xpath: /com.ibm.etools.webservice.wscbnd:ClientBinding
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-xml.windup.xml-6
     tag:
     - websphere
     when:
       xml:
-        XPath: /appdeployment:Deployment
+        xpath: /appdeployment:Deployment

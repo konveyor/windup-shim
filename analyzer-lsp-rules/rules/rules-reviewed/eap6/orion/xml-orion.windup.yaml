@@ -6,7 +6,7 @@
       as: default
       ignore: true
       xml:
-        XPath: /orion-ejb-jar
+        xpath: /orion-ejb-jar
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/orion/xml-orion.windup.xml-1
     tag:
     - configuration
@@ -15,7 +15,7 @@
       as: default
       ignore: true
       xml:
-        XPath: /orion-web-app
+        xpath: /orion-web-app
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/orion/xml-orion.windup.xml-2
     tag:
     - configuration
@@ -24,4 +24,4 @@
       as: default
       ignore: true
       xml:
-        XPath: /orion-application
+        xpath: /orion-application

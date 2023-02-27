@@ -3,9 +3,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-0
     when:
       xml:
-        XPath: //wl:virtual-directory-mapping
         filepaths:
         - weblogic.xml
+        xpath: //wl:virtual-directory-mapping
   - message: Replace the proprietary WebLogic `@WLServlet` annotation with the Java
       EE standard `@WebServlet` annotation.. See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/6/api/javax/servlet/annotation/package-summary.html)
       for more information.

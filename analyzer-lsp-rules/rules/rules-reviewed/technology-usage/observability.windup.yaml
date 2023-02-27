@@ -18,4 +18,4 @@
           location: ANNOTATION
           pattern: org.springframework.jmx.{*}
       - xml:
-          XPath: //*/c:bean/@class[windup:matches(self::node(), 'org.springframework.jmx.export.MBeanExporter')]
+          xpath: //*/c:bean/@class[windup:matches(self::node(), 'org.springframework.jmx.export.MBeanExporter')]

@@ -3,16 +3,16 @@
     - jms
     when:
       xml:
-        XPath: /msg:messaging-deployment
         filepaths:
         - '{*}-jms.xml'
+        xpath: /msg:messaging-deployment
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6-xml.windup.xml-1
     tag:
     - configuration
     when:
       or:
       - xml:
-          XPath: /*[local-name()='jboss-deployment-structure']/*[local-name()='deployment'
-            or local-name()='sub-deployment' or local-name()='module']/*[local-name()='dependencies']
           filepaths:
           - jboss-deployment-structure.xml
+          xpath: /*[local-name()='jboss-deployment-structure']/*[local-name()='deployment'
+            or local-name()='sub-deployment' or local-name()='module']/*[local-name()='dependencies']

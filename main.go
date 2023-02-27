@@ -27,7 +27,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	err = convertWindupToAnalyzer(rulesets)
+	err = convertWindupRulesetsToAnalyzer(rulesets)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -161,8 +161,12 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	}
 	if windupWhen.Xmlfile != nil {
 		for _, xf := range windupWhen.Xmlfile {
+			if xf.Matches == "" {
+				// TODO handle systemid and publicid
+				continue
+			}
 			xmlCond := map[string]interface{}{
-				"XPath": xf.Matches,
+				"xpath": xf.Matches,
 			}
 			// TODO We don't support regexes here, may need to break it out into a separate lookup that gets passed through
 			if xf.In != "" {
@@ -335,7 +339,7 @@ func flattenWhere(wheres []windup.Where) map[string]string {
 	return patterns
 }
 
-func convertWindupToAnalyzer(windups []windup.Ruleset) error {
+func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset) error {
 	outputRulesets := map[string][][]map[string]interface{}{}
 	for _, windupRuleset := range windups {
 		// TODO Ruleset.Metadata

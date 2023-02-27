@@ -1,7 +1,7 @@
 - - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/clustering.windup.xml-0
     when:
       xml:
-        XPath: /w:web-app/w:distributable
+        xpath: /w:web-app/w:distributable
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/clustering.windup.xml-1
     when:
       or:
@@ -12,6 +12,6 @@
           location: IMPORT
           pattern: org.jboss.ejb3.annotation.Clustered
       - xml:
-          XPath: /*[local-name()='ejb-jar']/*[local-name()='assembly-descriptor']/*[local-name()='clustering']/*[local-name()='clustered']
+          xpath: /*[local-name()='ejb-jar']/*[local-name()='assembly-descriptor']/*[local-name()='clustering']/*[local-name()='clustered']
       - xml:
-          XPath: /*[local-name()='jboss']/*[local-name()='enterprise-beans']/*[local-name()='session']/*[local-name()='clustered']
+          xpath: /*[local-name()='jboss']/*[local-name()='enterprise-beans']/*[local-name()='session']/*[local-name()='clustered']

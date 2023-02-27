@@ -3,4 +3,4 @@
     - sonic-esb
     when:
       xml:
-        XPath: /*[local-name()='serviceType']
+        xpath: /*[local-name()='serviceType']

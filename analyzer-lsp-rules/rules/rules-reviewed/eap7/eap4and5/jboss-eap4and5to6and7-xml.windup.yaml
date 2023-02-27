@@ -17,9 +17,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-1
     when:
       xml:
-        XPath: //mbean[@code='org.jboss.system.BarrierController']
         filepaths:
         - jboss-service.xml
+        xpath: //mbean[@code='org.jboss.system.BarrierController']
   - message: '`CompressingMarshaller` marshaller is no longer available in JBoss EAP
       6+.. In JBoss EAP 6.3.0 and later, data compression hints can be specified via
       the JBoss annotation `org.jboss.ejb.client.annotation.CompressionHint`'
@@ -27,20 +27,20 @@
     when:
       or:
       - xml:
-          XPath: //mbean[@code='org.jboss.remoting.transport.Connector']//attribute[text()='org.jboss.remoting.marshal.compress.CompressingMarshaller'
-            and @name='marshaller']
           filepaths:
           - jboss-service.xml
+          xpath: //mbean[@code='org.jboss.remoting.transport.Connector']//attribute[text()='org.jboss.remoting.marshal.compress.CompressingMarshaller'
+            and @name='marshaller']
       - xml:
-          XPath: //value[text()='org.jboss.remoting.marshal.compress.CompressingMarshaller']
           filepaths:
           - jboss-beans.xml
+          xpath: //value[text()='org.jboss.remoting.marshal.compress.CompressingMarshaller']
   - message: In JBoss EAP 6+, Security is configured in the `<security-domain>` element
       in the server configuration file.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-3
     when:
       xml:
-        XPath: //authentication/login-module
+        xpath: //authentication/login-module
   - message: The `class-loading` and `loader-repository` configuration in `jboss.xml`,
       `jboss-web.xml` and `jboss-service.xml` were JBoss EAP 4.x & 5.x configuration
       options for specifying classloader isolation on a deployment.. In JBoss EAP
@@ -51,9 +51,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-4
     when:
       xml:
-        XPath: //class-loading/loader-repository
         filepaths:
         - jboss{type}.xml
+        xpath: //class-loading/loader-repository
   - message: JBoss EAP 6 supports deploying SAR files, however JBoss EAP 5 and 6 do
       not share a lot of the internals.. The class your `jboss-{types}.xml` file is
       trying to instantiate (`org.jboss.naming.NamingAlias`) was an implementation
@@ -61,15 +61,15 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-5
     when:
       xml:
-        XPath: //mbean[@code='org.jboss.naming.NamingAlias']
         filepaths:
         - jboss-service.xml
+        xpath: //mbean[@code='org.jboss.naming.NamingAlias']
   - message: In JBoss EAP 6 and 7 you can set the JAAS cache timeout, changing the
       `cache-type` to `infinispan` which uses Infinispan cache which has an expiration
       capability.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap4and5/jboss-eap4and5to6and7-xml.windup.xml-6
     when:
       xml:
-        XPath: //mbean[@code='org.jboss.security.plugins.JaasSecurityManagerService']/attribute[@name='DefaultCacheTimeout']
         filepaths:
         - jboss-service.xml
+        xpath: //mbean[@code='org.jboss.security.plugins.JaasSecurityManagerService']/attribute[@name='DefaultCacheTimeout']

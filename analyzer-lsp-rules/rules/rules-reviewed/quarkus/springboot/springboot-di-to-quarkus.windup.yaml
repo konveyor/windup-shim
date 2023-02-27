@@ -11,6 +11,6 @@
     when:
       or:
       - xml:
-          XPath: //*/b:bean/@class
+          xpath: //*/b:bean/@class
       - xml:
-          XPath: //*/c:annotation-config
+          xpath: //*/c:annotation-config

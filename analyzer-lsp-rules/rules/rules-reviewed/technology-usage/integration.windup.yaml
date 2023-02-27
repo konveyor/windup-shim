@@ -53,7 +53,7 @@
     tag: []
     when:
       xml:
-        XPath: //*/int:channel
+        xpath: //*/int:channel
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/integration.windup.xml-16
     tag: []
     when:

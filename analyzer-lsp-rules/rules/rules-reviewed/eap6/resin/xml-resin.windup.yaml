@@ -6,4 +6,4 @@
       as: default
       ignore: true
       xml:
-        XPath: /resin:web-app
+        xpath: /resin:web-app

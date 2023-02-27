@@ -269,9 +269,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-31
     when:
       xml:
-        XPath: //*[local-name() = 'artifactId' and text() = 'hibernate-search-analyzers']
         filepaths:
         - pom.xml
+        xpath: //*[local-name() = 'artifactId' and text() = 'hibernate-search-analyzers']
   - message: The Lucene SortField API requires the following application code change.
       In the previous release of JBoss EAP, you set the type of the sort field in
       the query as follows.. ```java. fulltextQuery.setSort(new Sort(new SortField("title",

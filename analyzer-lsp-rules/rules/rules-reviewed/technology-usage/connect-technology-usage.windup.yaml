@@ -78,5 +78,5 @@
           location: VARIABLE_DECLARATION
           pattern: javax.resource.{*}
       - xml:
-          XPath: //*[local-name()='jms-jca-provider']
+          xpath: //*[local-name()='jms-jca-provider']
       - file: ra.xml

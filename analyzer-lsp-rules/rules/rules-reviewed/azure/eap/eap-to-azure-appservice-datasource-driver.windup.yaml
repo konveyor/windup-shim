@@ -9,50 +9,50 @@
     when:
       or:
       - xml:
-          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:db2')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:db2')]
       - xml:
-          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'db2')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'db2')]
       - xml:
-          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:mysql')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:mysql')]
       - xml:
-          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'mysql')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'mysql')]
       - xml:
-          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:oracle')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:oracle')]
       - xml:
-          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'oracle')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'oracle')]
       - xml:
-          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:postgres')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:postgres')]
       - xml:
-          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'postgres')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'postgres')]
       - xml:
-          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:microsoft:sqlserver')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:microsoft:sqlserver')]
       - xml:
-          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'sqlserver')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'sqlserver')]
       - xml:
-          XPath: /datasources/datasource/connection-url[contains(text(),'jdbc:sybase')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:sybase')]
       - xml:
-          XPath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'sybase')]
           filepaths:
           - '{*}-ds.xml'
+          xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'sybase')]

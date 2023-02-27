@@ -12,7 +12,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/session.windup.xml-0
     when:
       xml:
-        XPath: /w:web-app/w:distributable
+        xpath: /w:web-app/w:distributable
   - message: 'In a cloud environment, a restart can wipe out HTTP session data in
       the memory of a running container.. Recommendation: Store HTTP session data
       in a cache backing service or a remote data grid.. A remote data grid has the

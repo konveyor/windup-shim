@@ -3,6 +3,6 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-devtools-to-quarkus.windup.xml-0
     when:
       xml:
-        XPath: /m:project/m:dependencies/m:dependency[m:artifactId = 'spring-boot-devtools']
         filepaths:
         - pom.xml
+        xpath: /m:project/m:dependencies/m:dependency[m:artifactId = 'spring-boot-devtools']

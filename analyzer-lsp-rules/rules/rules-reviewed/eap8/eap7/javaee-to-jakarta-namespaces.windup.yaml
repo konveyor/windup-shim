@@ -232,7 +232,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:persistence[@version='2.1']
+          xpath: p:persistence[@version='2.1']
   - message: In the root tag, replace the `version` attribute value `7` with `9`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-33
     when:
@@ -246,7 +246,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:permissions[@version='7']
+          xpath: p:permissions[@version='7']
   - message: '`beans_1_1.xsd`: In the root tag, replace the `version` attribute value
       with `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-34
@@ -261,7 +261,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:beans[@version='1.1']
+          xpath: p:beans[@version='1.1']
   - message: '`beans_2_0.xsd`: In the root tag, replace the `version` attribute value
       with `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-35
@@ -276,7 +276,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:beans[@version='2.0']
+          xpath: p:beans[@version='2.0']
   - message: '`application_7.xsd`: In the root tag, replace the `version` attribute
       value with `9`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-36
@@ -291,7 +291,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:application[@version='7']
+          xpath: p:application[@version='7']
   - message: '`application_8.xsd`: In the root tag, replace the `version` attribute
       value with `9`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-37
@@ -306,7 +306,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:application[@version='8']
+          xpath: p:application[@version='8']
   - message: '`application-client_7.xsd`: In the root tag, replace the `version` attribute
       value with `9`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-38
@@ -321,7 +321,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:application-client[@version='7']
+          xpath: p:application-client[@version='7']
   - message: '`application-client_8.xsd`: In the root tag, replace the `version` attribute
       value with `9`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-39
@@ -336,7 +336,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:application-client[@version='8']
+          xpath: p:application-client[@version='8']
   - message: '`connector_1_7.xsd`: In the root tag, replace the `version` attribute
       value with `2.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-40
@@ -351,7 +351,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:connector[@version='1.7']
+          xpath: p:connector[@version='1.7']
   - message: '`ejb-jar_3_2.xsd`: In the root tag, replace the `version` attribute
       value with `4.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-41
@@ -366,7 +366,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:ejb-jar[@version='3.2']
+          xpath: p:ejb-jar[@version='3.2']
   - message: '`javaee_web_services_1_4.xsd`: In the root tag, replace the `version`
       attribute value with `2.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-42
@@ -381,7 +381,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:webservices[@version='1.4']
+          xpath: p:webservices[@version='1.4']
   - message: '`web-app_3_1`: In the root tag, replace the `version` attribute value
       with `5.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-43
@@ -396,7 +396,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:web-app[@version='3.1']
+          xpath: p:web-app[@version='3.1']
   - message: '`web-app_4_0`: In the root tag, replace the `version` attribute value
       with `5.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-44
@@ -411,7 +411,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:web-app[@version='4.0']
+          xpath: p:web-app[@version='4.0']
   - message: '`web-fragment_3_1`: In the root tag, replace the `version` attribute
       value with `5.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-45
@@ -426,7 +426,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:web-fragment[@version='3.1']
+          xpath: p:web-fragment[@version='3.1']
   - message: '`web-fragment_4_0`: In the root tag, replace the `version` attribute
       value with `5.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-46
@@ -441,7 +441,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:web-fragment[@version='4.0']
+          xpath: p:web-fragment[@version='4.0']
   - message: '`web-facesconfig_2_2`: In the root tag, replace the `version` attribute
       value with `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-47
@@ -456,7 +456,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:faces-config[@version='2.2']
+          xpath: p:faces-config[@version='2.2']
   - message: '`web-facesconfig_2_3`: In the root tag, replace the `version` attribute
       value with `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-48
@@ -471,7 +471,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:faces-config[@version='2.3']
+          xpath: p:faces-config[@version='2.3']
   - message: '`web-facelettaglibrary_2_2`: In the root tag, replace the `version`
       attribute value with `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-49
@@ -486,7 +486,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:facelet-taglib[@version='2.2']
+          xpath: p:facelet-taglib[@version='2.2']
   - message: '`web-facelettaglibrary_2_3`: In the root tag, replace the `version`
       attribute value with `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-50
@@ -501,7 +501,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:facelet-taglib[@version='2.3']
+          xpath: p:facelet-taglib[@version='2.3']
   - message: '`web-jsptaglibrary_2_1`: In the root tag, replace the `version` attribute
       value with `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-51
@@ -516,7 +516,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:taglib[@version='2.1']
+          xpath: p:taglib[@version='2.1']
   - message: '`validation-mapping-2.0`: In the root tag, replace the `version` attribute
       value with `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-52
@@ -531,7 +531,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:constraint-mappings[@version='2.0']
+          xpath: p:constraint-mappings[@version='2.0']
   - message: '`validation-configuration-2.0`: In the root tag, replace the `version`
       attribute value with `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-53
@@ -546,7 +546,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:validation-config[@version='2.0']
+          xpath: p:validation-config[@version='2.0']
   - message: '`orm_2_1`: In the root tag, replace the `version` attribute value with
       `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-54
@@ -561,7 +561,7 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:entity-mappings[@version='2.1']
+          xpath: p:entity-mappings[@version='2.1']
   - message: '`orm_2_2`: In the root tag, replace the `version` attribute value with
       `3.0`'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-55
@@ -576,4 +576,4 @@
       - as: xml-file
         ignore: true
         xml:
-          XPath: p:entity-mappings[@version='2.2']
+          xpath: p:entity-mappings[@version='2.2']

@@ -260,9 +260,9 @@
           location: IMPORT
           pattern: org.apache.camel.util.toolbox.XsltAggregationStrategy
       - xml:
-          XPath: //*/c:bean/@class[windup:matches(self::node(), 'org.apache.camel.util.toolbox.XsltAggregationStrategy')]
+          xpath: //*/c:bean/@class[windup:matches(self::node(), 'org.apache.camel.util.toolbox.XsltAggregationStrategy')]
       - xml:
-          XPath: //*/c:bean/@class[windup:matches(self::node(), 'org.apache.camel.util.toolbox.XsltAggregationStrategy')]
+          xpath: //*/c:bean/@class[windup:matches(self::node(), 'org.apache.camel.util.toolbox.XsltAggregationStrategy')]
   - message: The `getProperties` and `setProperty` methods have been removed from
       `org.apache.camel.CamelContext`. Please use `getGlobalOptions` and `setGlobalOptions`
       instead
@@ -273,9 +273,9 @@
           location: METHOD_CALL
           pattern: org.apache.camel.CamelContext.{get|set}Propert{y|ies}({*})
       - xml:
-          XPath: //c:camelContext/c:properties
+          xpath: //c:camelContext/c:properties
       - xml:
-          XPath: //c:camelContext/c:properties
+          xpath: //c:camelContext/c:properties
   - message: The default FHIR specification in the `org.apache.camel:camel-fhir` artifact
       has changed from DSTU3 to R4. Therefore if DSTU3 is desired it has to be explicitly
       set.
@@ -308,10 +308,10 @@
           location: METHOD_CALL
           pattern: org.apache.camel.language.simple.SimpleTokenizer.(changeFunctionStartToken|changeFunctionEndToken))({*})
       - xml:
-          XPath: //c:bean[@class='org.apache.camel.language.simple.SimpleLanguage']/c:property[@name='functionStartToken'
+          xpath: //c:bean[@class='org.apache.camel.language.simple.SimpleLanguage']/c:property[@name='functionStartToken'
             or @name='functionEndToken']
       - xml:
-          XPath: //c:bean[@class='org.apache.camel.language.simple.SimpleLanguage']/c:property[@name='functionStartToken'
+          xpath: //c:bean[@class='org.apache.camel.language.simple.SimpleLanguage']/c:property[@name='functionStartToken'
             or @name='functionEndToken']
   - message: The `uri` attribute in the @{class} annotation has been deprecated. Instead
       use `value`, which allows a shorthand style, from using `@{class}(uri = "jms:cheese")`
