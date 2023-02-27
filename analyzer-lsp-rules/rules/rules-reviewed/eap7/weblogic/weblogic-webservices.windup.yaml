@@ -28,7 +28,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: weblogic.wsee.connection.transport.http.HttpTransportInfo.setUsername({*})
+        pattern: weblogic.wsee.connection.transport.http.HttpTransportInfo.setUsername(*)
   - message: This code uses the WebLogic specific class `weblogic.wsee.context.WebServiceContext`.
       This usage will need to be replaced with the Java Enterprise Edition standard
       `javax.xml.WebServiceContext` interface.. Example code:. ```java. @Resource.
@@ -50,9 +50,9 @@
     when:
       or:
       - java.referenced:
-          pattern: weblogic.wsee.tools.clientgen.{*}
+          pattern: weblogic.wsee.tools.clientgen.*
       - java.referenced:
-          pattern: weblogic.webservice.{*}
+          pattern: weblogic.webservice.*
   - message: Replace WebLogic proprietary web-service annotation `@Transactional`
       by the standard Java EE annotation `@TransactionAttribute`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webservices.windup.xml-6

@@ -4,11 +4,11 @@
     - jrun
     when:
       java.referenced:
-        pattern: jrun.{*}
+        pattern: jrun.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jrun/jrun-catchall.windup.xml-1
     tag:
     - catchall
     - jrun
     when:
       java.referenced:
-        pattern: jrunx.{*}
+        pattern: jrunx.*

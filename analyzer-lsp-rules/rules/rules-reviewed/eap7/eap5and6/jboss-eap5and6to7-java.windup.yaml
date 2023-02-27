@@ -46,7 +46,7 @@
       or:
       - java.referenced:
           location: IMPORT
-          pattern: javax.enterprise.deploy{*}
+          pattern: javax.enterprise.deploy*
   - message: EAP 7 includes a new API for building Singleton services, which significantly
       simplifies the process, and solves the issues found in the legacy solution.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-5
@@ -72,7 +72,7 @@
     - jms
     when:
       java.referenced:
-        pattern: org.hornetq.{*}
+        pattern: org.hornetq.*
   - message: 'JBoss Logging annotations in package `org.jboss.logging` are deprecated.
       You should replace them by the corresponding annotations from package `org.jboss.logging.annotations`.
       Note that using the `org.jboss.logging.annotations` package requires adding

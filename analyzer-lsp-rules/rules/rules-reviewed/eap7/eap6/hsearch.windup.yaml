@@ -3,7 +3,7 @@
     - hibernate-search
     when:
       java.referenced:
-        pattern: org.hibernate.search.{*}
+        pattern: org.hibernate.search.*
   - message: The class `org.hibernate.search.impl.SearchMappingBuilder` was replaced
       by `org.hibernate.search.engine.spi.SearchMappingHelper` class.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-1
@@ -241,10 +241,10 @@
       or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: org.hibernate.search.query.dsl.QueryBuilder.facet{*}
+          pattern: org.hibernate.search.query.dsl.QueryBuilder.facet*
       - java.referenced:
           location: METHOD_CALL
-          pattern: org.hibernate.search.FullTextQuery.getFacetManager{*}
+          pattern: org.hibernate.search.FullTextQuery.getFacetManager*
       - java.referenced:
           pattern: org.hibernate.search.query.facet.(Facet|FacetingRequest|FacetSelection|FacetSortOrder|RangeFacet)
   - message: 'Numbers and dates now indexed as numeric fields by default.. Properties
@@ -282,53 +282,53 @@
     when:
       java.referenced:
         location: CONSTRUCTOR_CALL
-        pattern: org.apache.lucene.search.SortField({*})
+        pattern: org.apache.lucene.search.SortField(*)
   - message: Method `ContainedInMapping#numericField()` has been deprecated and is
       scheduled for removal. Invoke `ContainedInMapping#field().numericField()` instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-33
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.cfg.ContainedInMapping.numericField{*}
+        pattern: org.hibernate.search.cfg.ContainedInMapping.numericField*
   - message: Don't use `FullTextSharedSessionBuilder#autoclose()` and `FullTextSharedSessionBuilder#autoclose(boolean)`
       method. There is no replacement.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-34
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.FullTextSharedSessionBuilder.autoClose{*}
+        pattern: org.hibernate.search.FullTextSharedSessionBuilder.autoClose*
   - message: This will be removed with no replacement.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-35
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.cfg.IndexedMapping.cacheFromIndex{*}
+        pattern: org.hibernate.search.cfg.IndexedMapping.cacheFromIndex*
   - message: This will be removed with no replacement.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-36
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.cfg.EntityDescriptor.getCacheInMemory{*}
+        pattern: org.hibernate.search.cfg.EntityDescriptor.getCacheInMemory*
   - message: should be at most SearchIntegrator, preferably removed altogether
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-37
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.query.engine.spi.HSQuery.getExtendedSearchIntegrator{*}
+        pattern: org.hibernate.search.query.engine.spi.HSQuery.getExtendedSearchIntegrator*
   - message: The `DocumentBuilderIndexedEntity#getFieldCacheOption()` method has been
       deprecated. There is no replacement.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-38
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.engine.spi.DocumentBuilderIndexedEntity.getFieldCacheOption{*}
+        pattern: org.hibernate.search.engine.spi.DocumentBuilderIndexedEntity.getFieldCacheOption*
   - message: The `BuildContext#getIndexingStrategy()` method is deprecated. Use `BuildContext#getIndexingMode()`
       instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-39
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.spi.BuildContext.getIndexingStrategy{*}
+        pattern: org.hibernate.search.spi.BuildContext.getIndexingStrategy*
   - message: The `DirectoryHelper#getVerifiedIndexDir(String, Properties, boolean)`
       method is deprecated. Use `DirectoryHelper#getVerifiedIndexPath(java.lang.String,
       java.util.Properties, boolean)` instead.
@@ -336,27 +336,27 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.store.spi.DirectoryHelper.getVerifiedIndexDir{*}
+        pattern: org.hibernate.search.store.spi.DirectoryHelper.getVerifiedIndexDir*
   - message: Method `org.hibernate.search.cfg.EntityDescriptor.setCacheInMemory` is
       deprecated and there is no replacement.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-41
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.cfg.EntityDescriptor.setCacheInMemory{*}
+        pattern: org.hibernate.search.cfg.EntityDescriptor.setCacheInMemory*
   - message: Method `org.hibernate.search.MassIndexer.threadsForSubsequentFetching(int)`
       is deprecated and will be removed.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-42
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.MassIndexer.threadsForSubsequentFetching{*}
+        pattern: org.hibernate.search.MassIndexer.threadsForSubsequentFetching*
   - message: Use `FuzzyContext.withEditDistanceUpTo(int)` instead.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-43
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.query.dsl.FuzzyContext.withThreshold{*}
+        pattern: org.hibernate.search.query.dsl.FuzzyContext.withThreshold*
   - message: Lucene's core `org.apache.lucene.queryParser.{type}` have been consolidated
       into lucene/queryparser, that results in changing package name so it is now
       named as `org.apache.lucene.queryparser.classic.{type}`.
@@ -475,4 +475,4 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.search.MassIndexer.threadsForIndexWriter{*}
+        pattern: org.hibernate.search.MassIndexer.threadsForIndexWriter*

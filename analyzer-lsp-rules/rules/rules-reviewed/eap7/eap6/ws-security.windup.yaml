@@ -13,7 +13,7 @@
     when:
       java.referenced:
         location: IMPORT
-        pattern: org.apache.ws.security.saml.ext.(bean.|builder.|OpenSAMLBootstrap|OpenSAMLUtil|SAMLCallback){*}
+        pattern: org.apache.ws.security.saml.ext.(bean.|builder.|OpenSAMLBootstrap|OpenSAMLUtil|SAMLCallback)*
   - message: The `org.apache.ws.security.saml.ext.AssertionWrapper` class have been
       renamed and moved to the `org.apache.wss4j.common.saml.SamlAssertionWrapper`
       class.. The application must be changed to reference and use the new class.

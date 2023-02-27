@@ -8,13 +8,13 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-1
     when:
       java.referenced:
-        pattern: weblogic.utils.StringUtils.{*}
+        pattern: weblogic.utils.StringUtils.*
   - message: Code using this package should be replaced with code using the org.apache.xml
       package from [Apache Xerces](http://xerces.apache.org/).
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-2
     when:
       java.referenced:
-        pattern: weblogic.apache.xml.{*}
+        pattern: weblogic.apache.xml.*
   - message: Replace with the Java EE standard [javax.transaction.TransactionManager](http://docs.oracle.com/javaee/7/api/javax/transaction/TransactionManager.html)
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-3
     when:
@@ -27,32 +27,32 @@
       or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: weblogic.transaction.TransactionManager.resume{*}
+          pattern: weblogic.transaction.TransactionManager.resume*
       - java.referenced:
           location: METHOD_CALL
-          pattern: weblogic.transaction.TransactionManager.forceResume{*}
+          pattern: weblogic.transaction.TransactionManager.forceResume*
       - java.referenced:
           location: METHOD_CALL
-          pattern: weblogic.transaction.ClientTransactionManager.resume{*}
+          pattern: weblogic.transaction.ClientTransactionManager.resume*
       - java.referenced:
           location: METHOD_CALL
-          pattern: weblogic.transaction.ClientTransactionManager.forceResume{*}
+          pattern: weblogic.transaction.ClientTransactionManager.forceResume*
   - message: Replace with the Java EE standard `javax.transaction.TransactionManager.suspend()`
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-5
     when:
       or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: weblogic.transaction.TransactionManager.suspend{*}
+          pattern: weblogic.transaction.TransactionManager.suspend*
       - java.referenced:
           location: METHOD_CALL
-          pattern: weblogic.transaction.TransactionManager.forceSuspend{*}
+          pattern: weblogic.transaction.TransactionManager.forceSuspend*
       - java.referenced:
           location: METHOD_CALL
-          pattern: weblogic.transaction.ClientTransactionManager.suspend{*}
+          pattern: weblogic.transaction.ClientTransactionManager.suspend*
       - java.referenced:
           location: METHOD_CALL
-          pattern: weblogic.transaction.ClientTransactionManager.forceSuspend{*}
+          pattern: weblogic.transaction.ClientTransactionManager.forceSuspend*
   - message: Remove the `weblogic.transaction.TxHelper` import statement.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-6
     when:
@@ -88,10 +88,10 @@
       or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: weblogic.i18n.logging.NonCatalogLogger{*}
+          pattern: weblogic.i18n.logging.NonCatalogLogger*
       - java.referenced:
           location: CONSTRUCTOR_CALL
-          pattern: weblogic.i18n.logging.NonCatalogLogger{*}
+          pattern: weblogic.i18n.logging.NonCatalogLogger*
   - message: Oracle Fast Connection Failover is specific property supported only by
       Oracle JDBC driver which provides support for their vendor's special features
       transparently to the application server in which they are deployed.. For example,

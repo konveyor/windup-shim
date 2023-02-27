@@ -9,4 +9,4 @@
     when:
       java.referenced:
         location: IMPORT
-        pattern: org.objectweb.jotm.{*}
+        pattern: org.objectweb.jotm.*

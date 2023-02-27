@@ -47,13 +47,13 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQInitContext.getParameters{*}
+        pattern: com.sonicsw.xq.XQInitContext.getParameters*
   - message: Migrate XQParameters.getParameter to Spring property injection.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-4
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQParameters.getParameter{*}
+        pattern: com.sonicsw.xq.XQParameters.getParameter*
   - message: Migrate XQParameters to Spring property injection.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-5
     when:
@@ -89,19 +89,19 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQMessage.getHeaderValue{*}
+        pattern: com.sonicsw.xq.XQMessage.getHeaderValue*
   - message: Migrate to org.apache.camel.Message.setHeader(String name, Object value)
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-9
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQMessage.setHeaderValue{*}
+        pattern: com.sonicsw.xq.XQMessage.setHeaderValue*
   - message: Migrate to org.apache.camel.Message.getHeaders()
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-10
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQMessage.getHeaderNames{*}
+        pattern: com.sonicsw.xq.XQMessage.getHeaderNames*
   - message: Migrate XQPart to an attachment on the org.apache.camel.Message
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-11
     when:
@@ -117,13 +117,13 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQMessage.getPartCount{*}
+        pattern: com.sonicsw.xq.XQMessage.getPartCount*
   - message: Migrate to org.apache.camel.Message.getAttachment(String id)
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-13
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQMessage.getPart({*}
+        pattern: com.sonicsw.xq.XQMessage.getPart(*
   - message: Migrate to [Apache SLF4J](http://www.slf4j.org).
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-14
     when:
@@ -151,7 +151,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQMessage.getCorrelationId{*}
+        pattern: com.sonicsw.xq.XQMessage.getCorrelationId*
   - message: This indicates that the Sonic ESB Service is routing messages to a [1...N]
       endpoints.  To achieve this in Camel, take the business logic in the service,
       and populate a header property with an array of target enpoints.. Next, create
@@ -161,7 +161,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQAddressFactory.createEndpointAddress{*}
+        pattern: com.sonicsw.xq.XQAddressFactory.createEndpointAddress*
   - message: Sonic ESB uses the addOutgoing method to set the outgoing message.. This
       is achieved in Camel by either modifying the @Body parameter in the Java Bean
       Component method, or literally setting a new message to the Exchange.. * [Camel
@@ -170,7 +170,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQServiceContext.addOutgoing{*}
+        pattern: com.sonicsw.xq.XQServiceContext.addOutgoing*
   - message: Migrate to org.apache.camel.Exchange
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/fuse/sonicesb/sonic-esb.windup.xml-19
     when:
@@ -186,4 +186,4 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: com.sonicsw.xq.XQEnvelope.getMessage{*}
+        pattern: com.sonicsw.xq.XQEnvelope.getMessage*

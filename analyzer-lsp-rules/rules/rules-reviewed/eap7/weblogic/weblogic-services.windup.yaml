@@ -19,4 +19,4 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-services.windup.xml-2
     when:
       java.referenced:
-        pattern: weblogic.(i18n.)?logging.[^N]{*}
+        pattern: weblogic.(i18n.)?logging.[^N]*

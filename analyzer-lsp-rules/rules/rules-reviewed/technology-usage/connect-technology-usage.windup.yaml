@@ -8,13 +8,13 @@
       or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: java.lang.System.(load|loadLibrary|mapLibraryName)({*})
+          pattern: java.lang.System.(load|loadLibrary|mapLibraryName)(*)
       - java.referenced:
           location: METHOD_CALL
-          pattern: java.lang.Runtime.load({*})
+          pattern: java.lang.Runtime.load(*)
       - java.referenced:
           location: METHOD_CALL
-          pattern: java.lang.Runtime.loadLibrary({*})
+          pattern: java.lang.Runtime.loadLibrary(*)
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-2
     tag:
     - Connect
@@ -25,19 +25,19 @@
       or:
       - java.referenced:
           location: CONSTRUCTOR_CALL
-          pattern: com.sun.jna.{*}
+          pattern: com.sun.jna.*
       - java.referenced:
           location: IMPORT
-          pattern: com.sun.jna.{*}
+          pattern: com.sun.jna.*
       - java.referenced:
           location: INHERITANCE
-          pattern: com.sun.jna.{*}
+          pattern: com.sun.jna.*
       - java.referenced:
           location: METHOD_CALL
-          pattern: com.sun.jna.{*}
+          pattern: com.sun.jna.*
       - java.referenced:
           location: VARIABLE_DECLARATION
-          pattern: com.sun.jna.{*}
+          pattern: com.sun.jna.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-3
     tag:
     - Connect
@@ -47,13 +47,13 @@
     when:
       or:
       - java.referenced:
-          pattern: javax.mail.{*}
+          pattern: javax.mail.*
       - java.referenced:
-          pattern: com.sun.mail.{*}
+          pattern: com.sun.mail.*
       - java.referenced:
-          pattern: org.simplejavamail.{*}
+          pattern: org.simplejavamail.*
       - java.referenced:
-          pattern: org.apache.commons.mail.{*}
+          pattern: org.apache.commons.mail.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-4
     tag:
     - Connect
@@ -64,19 +64,19 @@
       or:
       - java.referenced:
           location: CONSTRUCTOR_CALL
-          pattern: javax.resource.{*}
+          pattern: javax.resource.*
       - java.referenced:
           location: IMPORT
-          pattern: javax.resource.{*}
+          pattern: javax.resource.*
       - java.referenced:
           location: INHERITANCE
-          pattern: javax.resource.{*}
+          pattern: javax.resource.*
       - java.referenced:
           location: METHOD_CALL
-          pattern: javax.resource.{*}
+          pattern: javax.resource.*
       - java.referenced:
           location: VARIABLE_DECLARATION
-          pattern: javax.resource.{*}
+          pattern: javax.resource.*
       - xml:
           xpath: //*[local-name()='jms-jca-provider']
       - file: ra.xml

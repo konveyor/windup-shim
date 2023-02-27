@@ -8,12 +8,12 @@
       - as: default
         ignore: true
         java.referenced:
-          pattern: javax.xml.rpc{*}
+          pattern: javax.xml.rpc*
       - as: default
         ignore: true
         java.referenced:
-          pattern: org.apache.xmlrpc{*}
+          pattern: org.apache.xmlrpc*
       - as: default
         ignore: true
         java.referenced:
-          pattern: redstone.xmlrpc{*}
+          pattern: redstone.xmlrpc*

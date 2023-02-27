@@ -68,7 +68,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-6
     when:
       java.referenced:
-        pattern: weblogic.security.{*}
+        pattern: weblogic.security.*
   - message: 'Migrate to JBoss EAP 6: `org.jboss.security.SecurityContextAssociation`.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic-webapp.windup.xml-7
     when:

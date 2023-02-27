@@ -4,7 +4,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: (org.hibernate.usertype.UserVersionType.next|org.hibernate.type.VersionType.next|org.hibernate.type.SingleColumnType.set|org.hibernate.type.AbstractStandardBasicType.set|org.hibernate.type.Type.resolve|org.hibernate.usertype.UserVersionType.seed|org.hibernate.type.VersionType.seed|org.hibernate.collection.spi.PersistentCollection.setCurrentSession|org.hibernate.type.ProcedureParameterNamedBinder.nullSafeSet|org.hibernate.type.Type.nullSafeSet|org.hibernate.usertype.UserType.nullSafeSet|org.hibernate.usertype.CompositeUserType.nullSafeSet|org.hibernate.type.Type.beforeAssemble|org.hibernate.type.AbstractStandardBasicType.nullSafeGet|org.hibernate.type.Type.nullSafeGet|org.hibernate.type.SingleColumnType.nullSafeGet|org.hibernate.usertype.UserType.nullSafeGet|org.hibernate.usertype.CompositeUserType.nullSafeGet|org.hibernate.type.Type.replace|org.hibernate.usertype.CompositeUserType.replace|org.hibernate.usertype.UserCollectionType.replaceElements|org.hibernate.collection.spi.PersistentCollection.unsetSession|org.hibernate.type.Type.hydrate|org.hibernate.type.Type.semiResolve|org.hibernate.usertype.CompositeUserType.assemble|org.hibernate.type.Type.assemble|org.hibernate.usertype.UserCollectionType.instantiate|org.hibernate.usertype.CompositeUserType.disassemble|org.hibernate.type.Type.disassemble|org.hibernate.type.ProcedureParameterExtractionAware.extract|org.hibernate.type.Type.isDirty|org.hibernate.type.Type.isModified|org.hibernate.type.SingleColumnType.get|org.hibernate.type.AbstractStandardBasicType.get|org.hibernate.usertype.UserCollectionType.wrap)({*}org.hibernate.engine.spi.SessionImplementor{*})
+        pattern: (org.hibernate.usertype.UserVersionType.next|org.hibernate.type.VersionType.next|org.hibernate.type.SingleColumnType.set|org.hibernate.type.AbstractStandardBasicType.set|org.hibernate.type.Type.resolve|org.hibernate.usertype.UserVersionType.seed|org.hibernate.type.VersionType.seed|org.hibernate.collection.spi.PersistentCollection.setCurrentSession|org.hibernate.type.ProcedureParameterNamedBinder.nullSafeSet|org.hibernate.type.Type.nullSafeSet|org.hibernate.usertype.UserType.nullSafeSet|org.hibernate.usertype.CompositeUserType.nullSafeSet|org.hibernate.type.Type.beforeAssemble|org.hibernate.type.AbstractStandardBasicType.nullSafeGet|org.hibernate.type.Type.nullSafeGet|org.hibernate.type.SingleColumnType.nullSafeGet|org.hibernate.usertype.UserType.nullSafeGet|org.hibernate.usertype.CompositeUserType.nullSafeGet|org.hibernate.type.Type.replace|org.hibernate.usertype.CompositeUserType.replace|org.hibernate.usertype.UserCollectionType.replaceElements|org.hibernate.collection.spi.PersistentCollection.unsetSession|org.hibernate.type.Type.hydrate|org.hibernate.type.Type.semiResolve|org.hibernate.usertype.CompositeUserType.assemble|org.hibernate.type.Type.assemble|org.hibernate.usertype.UserCollectionType.instantiate|org.hibernate.usertype.CompositeUserType.disassemble|org.hibernate.type.Type.disassemble|org.hibernate.type.ProcedureParameterExtractionAware.extract|org.hibernate.type.Type.isDirty|org.hibernate.type.Type.isModified|org.hibernate.type.SingleColumnType.get|org.hibernate.type.AbstractStandardBasicType.get|org.hibernate.usertype.UserCollectionType.wrap)(*org.hibernate.engine.spi.SessionImplementor*)
   - message: change reference to hibernate-java8 to hibernate-core (since hibernate-java8
       has been merged into hibernate-core module)
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-1
@@ -55,7 +55,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getQueryCache({*}String{*})
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getQueryCache(*String*)
   - message: '`org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getTimestampsCache()`
       should be used instead of `SessionFactoryImplementor.getUpdateTimestampsCache()`
       method.'
@@ -71,7 +71,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getSecondLevelCacheRegion({*}String{*})
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getSecondLevelCacheRegion(*String*)
   - message: Depending on the type of region, the appropriate method should be used
       instead:. * For an entity cache region, `org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().entityPersister(
       entityName ).getCacheAccessStrategy()` should be used instead. * For a collection
@@ -83,7 +83,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getSecondLevelCacheRegionAccessStrategy({*}String{*})
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getSecondLevelCacheRegionAccessStrategy(*String*)
   - message: '`org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getRegion(String
       regionName)` should be used instead of `SessionFactoryImplementor.getNaturalIdCacheRegion(String
       regionName)` method.'
@@ -91,7 +91,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getNaturalIdCacheRegion({*}String{*})
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getNaturalIdCacheRegion(*String*)
   - message: '`org.hibernate.engine.spi.SessionFactoryImplementor.getMetamodel().entityPersister(
       entityName ).getNaturalIdCacheAccessStrategy()` should be used instead of `SessionFactoryImplementor.getNaturalIdCacheRegionAccessStrategy(String
       regionName)` method.'
@@ -99,7 +99,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getNaturalIdCacheRegionAccessStrategy({*}String{*})
+        pattern: org.hibernate.engine.spi.SessionFactoryImplementor.getNaturalIdCacheRegionAccessStrategy(*String*)
   - message: '`org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getCacheRegionNames()`
       should be used to obtain all cache region names, then `org.hibernate.engine.spi.SessionFactoryImplementor.getCache().getRegion(String
       regionName)` should be used to look up each region.'
@@ -144,12 +144,12 @@
     when:
       java.referenced:
         location: METHOD
-        pattern: '{*}.getEntries()'
+        pattern: '*.getEntries()'
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-15
     when:
       java.referenced:
         location: METHOD
-        pattern: '{*}.getEntries()'
+        pattern: '*.getEntries()'
   - message: The SPIs in the `org.hibernate.{packages}` package have changed.. Any
       custom classes using those SPIs will need to be reviewed and updated.. See Javadoc
       for these packages for details.
@@ -157,7 +157,7 @@
     when:
       java.referenced:
         location: IMPORT
-        pattern: org.hibernate.(persister|tuple).{*}
+        pattern: org.hibernate.(persister|tuple).*
   - message: Define `hibernate.default_schema` or `hibernate.default_catalog` (whichever
       is used by the selected dialect), or, alternatively, set `hibernate.hbm2ddl.jdbc_metadata_extraction_strategy=individually`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-17
@@ -201,4 +201,4 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-20
     when:
       java.referenced:
-        pattern: org.hibernate.(engine.query.spi.NamedParameterDescriptor|engine.query.spi.OrdinalParameterDescriptor|query.procedure.internal.ProcedureParameterImpl|query.internal.QueryParameterImpl|query.internal.QueryParameterNamedImpl).getType({*})
+        pattern: org.hibernate.(engine.query.spi.NamedParameterDescriptor|engine.query.spi.OrdinalParameterDescriptor|query.procedure.internal.ProcedureParameterImpl|query.internal.QueryParameterImpl|query.internal.QueryParameterNamedImpl).getType(*)

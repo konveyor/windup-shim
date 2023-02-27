@@ -5,7 +5,7 @@
     when:
       or:
       - java.referenced:
-          pattern: java.applet.{*}
+          pattern: java.applet.*
       - java.referenced:
           pattern: java.beans.AppletInitializer
       - java.referenced:

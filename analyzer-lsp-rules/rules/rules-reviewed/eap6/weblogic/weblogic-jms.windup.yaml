@@ -4,7 +4,7 @@
     - weblogic
     when:
       java.referenced:
-        pattern: oracle.jms.{*}
+        pattern: oracle.jms.*
   - message: 'Oracle JMS sessions are used for producing and consuming messaging API
       objects such as message producers, message. consumers, messages, queue browsers,
       and temporary queues and topics.. This reference should be replaced with the

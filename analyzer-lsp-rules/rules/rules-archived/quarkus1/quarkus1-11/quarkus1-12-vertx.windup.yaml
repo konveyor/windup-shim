@@ -3,4 +3,4 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-vertx.windup.xml-0
     when:
       java.referenced:
-        pattern: io.vertx.(axle|reactivex).{*}
+        pattern: io.vertx.(axle|reactivex).*
