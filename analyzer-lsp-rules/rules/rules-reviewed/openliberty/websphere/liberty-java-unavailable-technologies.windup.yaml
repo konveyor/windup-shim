@@ -82,9 +82,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-6
     when:
       xml:
-        XPath: //*[local-name()='entity']
         filepaths:
         - '{DetectEJBEntityBeansXML_0_filesFilter}'
+        xpath: //*[local-name()='entity']
   - message: <div class="Text">. <p> Liberty does not support outbound or inbound
       transaction propagation for EJB remote interfaces. By default, EJB beans are
       container-managed and use the <code>Required</code> transaction attribute. As
@@ -150,9 +150,9 @@
       - java.referenced:
           pattern: (javax.ejb.Remote|javax.ejb.RemoteHome)
       - xml:
-          XPath: //*[local-name()='remote' or local-name()='business-remote']
           filepaths:
           - '{DetectTransactionPropagationEJBRemote_1_filesFilter}'
+          xpath: //*[local-name()='remote' or local-name()='business-remote']
   - message: '<div class="Text"><p>This rule flags the use of any JAX-RPC specific
       packages and configuration files. Also, this rule will flag any use of the.
       <code>jaxrpc-mapping-file</code> tag in XML Mapping files. The following table
@@ -178,7 +178,7 @@
       - java.referenced:
           pattern: javax.xml.rpc{*}
       - xml:
-          XPath: //*[local-name()='jaxrpc-mapping-file']
           filepaths:
           - '{DetectJAXRPC_2_filesFilter}'
+          xpath: //*[local-name()='jaxrpc-mapping-file']
       - file: '{DetectJAXRPC_1_files}'

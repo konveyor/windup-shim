@@ -1,9 +1,1 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jonas/xml-jonas.windup.xml-0
-    tag:
-    - configuration
-    - jonas
-    when:
-      as: default
-      ignore: true
-      xml:
-        XPath: ""
+- []

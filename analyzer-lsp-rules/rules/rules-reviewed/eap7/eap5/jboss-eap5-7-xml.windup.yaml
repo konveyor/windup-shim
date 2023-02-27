@@ -6,13 +6,7 @@
     - jboss-eap5
     when:
       xml:
-        XPath: //mbean[@code='org.jboss.cache.TreeCache']
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-1
-    tag:
-    - jboss-eap5
-    when:
-      xml:
-        XPath: ""
+        xpath: //mbean[@code='org.jboss.cache.TreeCache']
   - message: In JBoss EAP 6+, the classloading configuration is not done through `jboss-classloading.xml`..
       Since EAP 6 is of modular nature, based on JBoss Modules.. Learn how to divide
       your application's dependencies into modules. and what dependencies and APIs
@@ -20,22 +14,22 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-2
     when:
       xml:
-        XPath: /jbc:classloading
+        xpath: /jbc:classloading
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-3
     tag:
     - descriptor
     - jboss-eap5
     when:
       xml:
-        XPath: //*[local-name()='jboss']
         filepaths:
         - jboss.xml
+        xpath: //*[local-name()='jboss']
   - message: '`java:/jaas/` is a JBoss EAP `security-domain` URI.. Remove the `java:/jaas/`
       prefix for `security-domain` elements in EAP 7/6.'
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-4
     when:
       xml:
-        XPath: //*[local-name()='security-domain' and starts-with(text(), 'java:/jaas/')]
+        xpath: //*[local-name()='security-domain' and starts-with(text(), 'java:/jaas/')]
   - message: Before JBoss EAP 6, authentication security domains and login modules
       could be configured in a `login-config.xml` file.. JBoss EAP 6+ does not support
       the `login-config.xml` descriptor. Security is now configured inside the server
@@ -43,6 +37,6 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-5
     when:
       xml:
-        XPath: //*[local-name()='policy']
         filepaths:
         - login-config.xml
+        xpath: //*[local-name()='policy']

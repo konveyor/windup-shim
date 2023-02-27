@@ -13,37 +13,37 @@
       - java.referenced:
           pattern: com.ibm.websphere.ActivitySession\.[^.]+
       - xml:
-          XPath: //*[local-name()='bean-cache']/@activation-policy[windup:matches(self::node(),
-            '{ActivitySessionRule_2_xpath_attributeValue}')]
           filepaths:
           - '{ActivitySessionRule_2_filesFilter}'
+          xpath: //*[local-name()='bean-cache']/@activation-policy[windup:matches(self::node(),
+            '{ActivitySessionRule_2_xpath_attributeValue}')]
       - xml:
-          XPath: //*[local-name()='local-transaction']/@boundary[windup:matches(self::node(),
-            '{ActivitySessionRule_3_xpath_attributeValue}')]
           filepaths:
           - '{ActivitySessionRule_3_filesFilter}'
+          xpath: //*[local-name()='local-transaction']/@boundary[windup:matches(self::node(),
+            '{ActivitySessionRule_3_xpath_attributeValue}')]
       - xml:
-          XPath: //*[local-name()='beanCache']/@activateAt[windup:matches(self::node(),
-            '{ActivitySessionRule_4_xpath_attributeValue}')]
           filepaths:
           - '{ActivitySessionRule_4_filesFilter}'
+          xpath: //*[local-name()='beanCache']/@activateAt[windup:matches(self::node(),
+            '{ActivitySessionRule_4_xpath_attributeValue}')]
       - xml:
-          XPath: //*[local-name()='localTransaction']/@boundary[windup:matches(self::node(),
-            '{ActivitySessionRule_5_xpath_attributeValue}')]
           filepaths:
           - '{ActivitySessionRule_5_filesFilter}'
+          xpath: //*[local-name()='localTransaction']/@boundary[windup:matches(self::node(),
+            '{ActivitySessionRule_5_xpath_attributeValue}')]
       - xml:
-          XPath: //*[local-name()='activity-sessions']
           filepaths:
           - '{ActivitySessionRule_6_filesFilter}'
+          xpath: //*[local-name()='activity-sessions']
       - xml:
-          XPath: //*[local-name()='activitySessionWebAppExtension']
           filepaths:
           - '{ActivitySessionRule_7_filesFilter}'
+          xpath: //*[local-name()='activitySessionWebAppExtension']
       - xml:
-          XPath: //*[local-name()='activitySessionEJBJarExtension']
           filepaths:
           - '{ActivitySessionRule_8_filesFilter}'
+          xpath: //*[local-name()='activitySessionEJBJarExtension']
   - message: '<div class="Text">. <p> The following WebSphere Application Profiling
       APIs are not available on Liberty: </p>. <ul>. <li><code>com.ibm.websphere.appprofile</code></li>.
       <li><code>com.ibm.websphere.appprofile.accessintent</code></li>. </ul>. <p>You
@@ -86,10 +86,10 @@
       - java.referenced:
           pattern: (com.ibm.websphere.batch*\.[^.]+|com.ibm.wsspi.batch*\.[^.]+|com.ibm.websphere.ci\.[^.]+|com.ibm.websphere.grid.spi\.[^.]+|com.ibm.websphere.longrun\.[^.]+)
       - xml:
-          XPath: //*[local-name()='local' or local-name()='local-home']/text()[windup:matches(self::node(),
-            '{BatchFeaturePackRule_1_xpath_value}')]
           filepaths:
           - '{BatchFeaturePackRule_1_filesFilter}'
+          xpath: //*[local-name()='local' or local-name()='local-home']/text()[windup:matches(self::node(),
+            '{BatchFeaturePackRule_1_xpath_value}')]
   - message: '<div class="Text"> <span class="SubHeader">Web Services Policy Sets
       are unavailable in Liberty.</span>. <p> This rule detects the following generated
       files when using web services Policy Sets in WebSphere traditional: </p>. <ul>.
@@ -129,25 +129,25 @@
     when:
       or:
       - xml:
-          XPath: //*[local-name()='globalTransaction']/@sendWSAT[windup:matches(self::node(),
-            '{DetectWSATXML_0_xpath_attributeValue}')]
           filepaths:
           - '{DetectWSATXML_0_filesFilter}'
+          xpath: //*[local-name()='globalTransaction']/@sendWSAT[windup:matches(self::node(),
+            '{DetectWSATXML_0_xpath_attributeValue}')]
       - xml:
-          XPath: //*[local-name()='webGlobalTransaction']/@supportsWSAT[windup:matches(self::node(),
-            '{DetectWSATXML_1_xpath_attributeValue}')]
           filepaths:
           - '{DetectWSATXML_1_filesFilter}'
+          xpath: //*[local-name()='webGlobalTransaction']/@supportsWSAT[windup:matches(self::node(),
+            '{DetectWSATXML_1_xpath_attributeValue}')]
       - xml:
-          XPath: //*[local-name()='global-transaction']/@send-wsat-context[windup:matches(self::node(),
-            '{DetectWSATXML_2_xpath_attributeValue}')]
           filepaths:
           - '{DetectWSATXML_2_filesFilter}'
+          xpath: //*[local-name()='global-transaction']/@send-wsat-context[windup:matches(self::node(),
+            '{DetectWSATXML_2_xpath_attributeValue}')]
       - xml:
-          XPath: //*[local-name()='web-global-transaction']/@execute-using-wsat[windup:matches(self::node(),
-            '{DetectWSATXML_3_xpath_attributeValue}')]
           filepaths:
           - '{DetectWSATXML_3_filesFilter}'
+          xpath: //*[local-name()='web-global-transaction']/@execute-using-wsat[windup:matches(self::node(),
+            '{DetectWSATXML_3_xpath_attributeValue}')]
   - message: <div class="Text">. <p> Web Services Business Activity (WS-BA) is unavailable
       on Liberty. This rule flags references to APIs in the com.ibm.websphere.wsba
       package and the business activity JNDI name <code>java:comp/websphere/UserBusinessActivity</code>.
@@ -201,10 +201,10 @@
       - java.referenced:
           pattern: com.ibm.websphere.ejbquery\.[^.]+
       - xml:
-          XPath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
-            '{DynamicQueryRule_1_xpath_value}')]
           filepaths:
           - '{DynamicQueryRule_1_filesFilter}'
+          xpath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
+            '{DynamicQueryRule_1_xpath_value}')]
   - message: '<div class="Text">. <p> The following WebSphere i18n APIs and SPIs are
       not available on Liberty: </p>. <ul>. <li><code>com.ibm.websphere.i18n.context</code></li>.
       <li><code>com.ibm.wsspi.i18n.context.util</code></li>. </ul>. <p>You must modify
@@ -277,10 +277,10 @@
           location: ANNOTATION
           pattern: javax.xml.ws.BindingType
       - xml:
-          XPath: //*[local-name()='binding']/@transport[windup:matches(self::node(),
-            '{SOAPOverJMSRule_1_xpath_attributeValue}')]
           filepaths:
           - '{SOAPOverJMSRule_1_filesFilter}'
+          xpath: //*[local-name()='binding']/@transport[windup:matches(self::node(),
+            '{SOAPOverJMSRule_1_xpath_attributeValue}')]
   - message: '<div class="Text">. <p> The WebSphere startup bean service was superseded
       by the startup beans in Enterprise JavaBeans (EJB) 3.1. The service is deprecated
       in WebSphere Application Server traditional V8.0 and is not available on Liberty.
@@ -302,10 +302,10 @@
       - java.referenced:
           pattern: com.ibm.websphere.startupservice\.[^.]+
       - xml:
-          XPath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
-            '{StartupBeanRule_1_xpath_value}')]
           filepaths:
           - '{StartupBeanRule_1_filesFilter}'
+          xpath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
+            '{StartupBeanRule_1_xpath_value}')]
   - message: '<div class="Text">. <p> The following WebSphere Service Data Objects
       (SDO) APIs are not available on Liberty: </p>. <ul>. <li><code>com.ibm.websphere.sdo</code></li>.
       <li><code>com.ibm.websphere.sdox</code></li>. </ul>. <p>You must modify the
@@ -325,10 +325,10 @@
       - java.referenced:
           pattern: com.ibm.websphere.scheduler\.[^.]+
       - xml:
-          XPath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
-            '{WebSphereSchedulerRule_1_xpath_value}')]
           filepaths:
           - '{WebSphereSchedulerRule_1_filesFilter}'
+          xpath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
+            '{WebSphereSchedulerRule_1_xpath_value}')]
   - message: <div class="Text">. <p> The WebSphere Servlet API was superseded by standard
       Servlet 3.0 functionality. </p>. <p> This rule flags Java code that has references
       to the following classes and packages because they are not available on Liberty.
@@ -743,10 +743,10 @@
           location: ANNOTATION
           pattern: javax.ejb.RemoteHome
       - xml:
-          XPath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
-            '{WOLAMissingClassesRule_2_xpath_value}')]
           filepaths:
           - '{WOLAMissingClassesRule_2_filesFilter}'
+          xpath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
+            '{WOLAMissingClassesRule_2_xpath_value}')]
   - message: <div class="Text">. <p> Liberty supports some com.ibm.websphere.ola APIs,
       but there are differences from the support provided on WebSphere Application
       Server traditional. Review your use of the WOLA APIs to see if the differences

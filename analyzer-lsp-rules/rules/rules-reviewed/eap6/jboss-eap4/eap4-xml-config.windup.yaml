@@ -9,9 +9,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-0
     when:
       xml:
-        XPath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:postgres')]
         filepaths:
         - '{*}-ds.xml'
+        xpath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:postgres')]
   - message: This is a JDBC URL, which describes the basic information about. where
       and how to connect to the database.. This particular URL points to an Oracle
       Database.. In EAP 6, the databases are configured in these steps:. 1. Add the
@@ -24,9 +24,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-1
     when:
       xml:
-        XPath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:oracle')]
         filepaths:
         - '{*}-ds.xml'
+        xpath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:oracle')]
   - message: This is a JDBC URL, which describes the basic information about. where
       and how to connect to the database.. This particular URL points to an Microsoft
       SQL Server.. In EAP 6, the databases are configured in these steps:. 1. Add
@@ -39,9 +39,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-2
     when:
       xml:
-        XPath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:sqlserver')]
         filepaths:
         - '{*}-ds.xml'
+        xpath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:sqlserver')]
   - message: 'The `<Connector port="..."/>` attribute specifies the port. on which
       JBoss Web listens for requests.. In JBoss EAP 6, set the port number using JBoss
       CLI or a web console:. ```. :read-children-names(child-type=interface). /subsystem=web/connector=http/:read-resource.
@@ -51,9 +51,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-3
     when:
       xml:
-        XPath: /Server/Service/Connector/@port
         filepaths:
         - server.xml
+        xpath: /Server/Service/Connector/@port
   - message: 'The `<Connector protocol="..."/>` attribute specifies the protocol.
       of the particular JBoss Web connector.. In JBoss EAP 6, set the protocol using
       JBoss CLI or a web console:. ```. :read-children-names(child-type=interface).
@@ -63,9 +63,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-4
     when:
       xml:
-        XPath: /Server/Service/Connector/@protocol
         filepaths:
         - server.xml
+        xpath: /Server/Service/Connector/@protocol
   - message: 'The `<Connector maxThreads="..."/>` attribute specifies the. maximum
       number of JBoss Web Connector threads.. In JBoss EAP 6, the. [connections do
       not map 1:1 to threads](https://access.redhat.com/solutions/389513),. thanks
@@ -82,9 +82,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-5
     when:
       xml:
-        XPath: /Server/Service/Connector/@maxThreads
         filepaths:
         - server.xml
+        xpath: /Server/Service/Connector/@maxThreads
   - message: The `<Connector connectionTimeout="..."/>` attribute specifies the connection
       timeout. of the particular JBoss Web connector.. In JBoss EAP 6, set the connection
       timeout using a system property:. ```. /system-property=org.apache.coyote.ajp.DEFAULT_CONNECTION_TIMEOUT/:add(value=600000).
@@ -93,9 +93,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-6
     when:
       xml:
-        XPath: /Server/Service/Connector/@connectionTimeout
         filepaths:
         - server.xml
+        xpath: /Server/Service/Connector/@connectionTimeout
   - message: JBoss Web's `emptySessionPath` option sets the path of a session cookie
       to '/'.. In JBoss EAP 6, the path is set in a web framework, or in `web.xml`:.
       ```xml. <session-config>. <cookie-config>. <path>/</path>. <http-only>true</http-only>.
@@ -105,9 +105,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-7
     when:
       xml:
-        XPath: /Server/Service/Connector/@emptySessionPath
         filepaths:
         - server.xml
+        xpath: /Server/Service/Connector/@emptySessionPath
   - message: The `<Connector enableLookups="..."/>` attribute. enables DNS lookup
       through `request.getRemoteHost()`.. Define this setting using JBoss CLI or the
       web console.. ```. /subsystem=web/connector=http:write-attribute(name=enable-lookups,
@@ -115,9 +115,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-8
     when:
       xml:
-        XPath: /Server/Service/Connector/@enableLookups
         filepaths:
         - server.xml
+        xpath: /Server/Service/Connector/@enableLookups
   - message: The `<Connector redirectPort="..."/>` attribute. specifies  a port number
       to be used in cases of redirection; the common ones being redirection to secure
       (HTTPS) or AJP connector.. Define this setting using JBoss CLI or the web console..
@@ -126,9 +126,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-9
     when:
       xml:
-        XPath: /Server/Service/Connector/@redirectPort
         filepaths:
         - server.xml
+        xpath: /Server/Service/Connector/@redirectPort
   - message: The `<Connector scheme="..."/>` attribute. specifies the web connector
       scheme, such as HTTP or HTTPS.. Define this setting using JBoss CLI or the web
       console.. ```. /subsystem=web/connector=http:write-attribute(name=scheme, value=http).
@@ -136,9 +136,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-10
     when:
       xml:
-        XPath: /Server/Service/Connector/@scheme
         filepaths:
         - server.xml
+        xpath: /Server/Service/Connector/@scheme
   - message: The `secure` option tells the browser (or other HTTP clients) to only
       send the cookie over SSL connections.. This means the cookie will not be available
       to any part of the site that is not secure.. If you serve both protocols, the
@@ -150,9 +150,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-11
     when:
       xml:
-        XPath: /Server/Service/Connector[@secure='true']
         filepaths:
         - server.xml
+        xpath: /Server/Service/Connector[@secure='true']
   - message: In JBoss Web, the `jvmRoute` attribute of the Engine element allows the
       load balancer to match requests. to the JVM currently responsible for updating
       the relevant session.. It does this by appending the name of the JVM to the
@@ -167,9 +167,9 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-12
     when:
       xml:
-        XPath: /Server/Service/Engine/@jvmRoute
         filepaths:
         - server.xml
+        xpath: /Server/Service/Engine/@jvmRoute
   - message: JBoss EAP 4 and 5 allow overriding the container settings in `jboss.xml`
       files.. Extending `"Standard Stateless SessionBean"` allows configuring the
       instance pool.. Bean-specific instance pool can be set with one line in JBoss
@@ -177,10 +177,10 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-13
     when:
       xml:
-        XPath: /jboss/container-configurations/container-configuration[@extends='Standard
-          Stateless SessionBean']
         filepaths:
         - jboss.xml
+        xpath: /jboss/container-configurations/container-configuration[@extends='Standard
+          Stateless SessionBean']
   - message: JBoss EAP 4 allows overriding the container settings in `jboss.xml` files..
       Extending `"Clustered Stateless SessionBean"` allows configuring the instance
       pool.. Bean-specific instance pool can be set with one line in JBoss EAP 6 management
@@ -188,10 +188,10 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-14
     when:
       xml:
-        XPath: /jboss/container-configurations/container-configuration[@extends='Clustered
-          Stateless SessionBean']
         filepaths:
         - jboss.xml
+        xpath: /jboss/container-configurations/container-configuration[@extends='Clustered
+          Stateless SessionBean']
   - message: JBoss EAP 4 and 5 allow overriding the container settings in `jboss.xml`
       files.. Extending `"Standard Message Driven Bean"` allows configuring the instance
       pool.. MDB's bean-specific instance pool can be set with one line in JBoss EAP
@@ -200,10 +200,10 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-15
     when:
       xml:
-        XPath: /jboss/container-configurations/container-configuration[@extends='Standard
-          Message Driven Bean']
         filepaths:
         - jboss.xml
+        xpath: /jboss/container-configurations/container-configuration[@extends='Standard
+          Message Driven Bean']
   - message: JBoss EAP 4 and 5 allow overriding the container settings in `jboss.xml`
       files.. Extending `"Singleton Message Driven Bean"` allows configuring the instance
       pool.. Singleton Message Driven Bean's bean-specific bean-specific instance
@@ -212,10 +212,10 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-16
     when:
       xml:
-        XPath: /jboss/container-configurations/container-configuration[@extends='Singleton
-          Message Driven Bean']
         filepaths:
         - jboss.xml
+        xpath: /jboss/container-configurations/container-configuration[@extends='Singleton
+          Message Driven Bean']
   - message: JBoss EAP 4 and 5 allow overriding the container settings in `jboss.xml`
       files.. Extending `"Standard Message Inflow Driven Bean"` allows configuring
       the instance pool.. Standard Message Inflow Driven Bean's bean-specific bean-specific
@@ -224,7 +224,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-17
     when:
       xml:
-        XPath: /jboss/container-configurations/container-configuration[@extends='Standard
-          Message Inflow Driven Bean']
         filepaths:
         - jboss.xml
+        xpath: /jboss/container-configurations/container-configuration[@extends='Standard
+          Message Inflow Driven Bean']

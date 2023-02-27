@@ -35,7 +35,7 @@
       as: dependencies-block
       ignore: true
       xml:
-        XPath: /m:project/m:dependencies[count(m:dependency/m:artifactId[text()='camel-management'])=0
-          and count(m:dependency/m:artifactId[text()='camel-core'])>0]
         filepaths:
         - pom.xml
+        xpath: /m:project/m:dependencies[count(m:dependency/m:artifactId[text()='camel-management'])=0
+          and count(m:dependency/m:artifactId[text()='camel-core'])>0]

@@ -14,6 +14,6 @@
           location: METHOD_CALL
           pattern: org.apache.camel.component.kafka.KafkaConfiguration.(setBridgeEndpoint|setCircularTopicDetection)({*})
       - xml:
-          XPath: //*/c:to/@uri[windup:matches(self::node(), 'kafka:{*}{options}{*}')]
+          xpath: //*/c:to/@uri[windup:matches(self::node(), 'kafka:{*}{options}{*}')]
       - xml:
-          XPath: //*/c:to/@uri[windup:matches(self::node(), 'kafka:{*}{options}{*}')]
+          xpath: //*/c:to/@uri[windup:matches(self::node(), 'kafka:{*}{options}{*}')]

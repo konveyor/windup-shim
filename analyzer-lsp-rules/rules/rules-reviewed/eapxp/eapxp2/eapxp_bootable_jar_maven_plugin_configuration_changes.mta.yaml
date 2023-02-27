@@ -4,7 +4,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/eapxp2/eapxp_bootable_jar_maven_plugin_configuration_changes.mta.xml-0
     when:
       xml:
-        XPath: //m:plugin[m:groupId/text() = 'org.wildfly.plugins' and m:artifactId/text()
-          = 'wildfly-jar-maven-plugin']/m:configuration/m:extraServerContent
         filepaths:
         - pom.xml
+        xpath: //m:plugin[m:groupId/text() = 'org.wildfly.plugins' and m:artifactId/text()
+          = 'wildfly-jar-maven-plugin']/m:configuration/m:extraServerContent

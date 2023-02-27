@@ -5,11 +5,7 @@
     when:
       or:
       - xml:
-          XPath: /jrun-web-app
-      - xml:
-          XPath: ""
-      - xml:
-          XPath: ""
+          xpath: /jrun-web-app
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jrun/xml-jrun.windup.xml-1
     tag:
     - configuration
@@ -19,8 +15,4 @@
       - as: default
         ignore: true
         xml:
-          XPath: /*[local-name()='jrun-ejb-jar']
-      - as: default
-        ignore: true
-        xml:
-          XPath: ""
+          xpath: /*[local-name()='jrun-ejb-jar']

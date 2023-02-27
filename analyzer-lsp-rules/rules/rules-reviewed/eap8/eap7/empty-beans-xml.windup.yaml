@@ -6,11 +6,11 @@
       - not: true
         or:
         - xml:
-            XPath: /j:beans
             filepaths:
             - beans.xml
+            xpath: /j:beans
         - xml:
-            XPath: /beans
             filepaths:
             - beans.xml
+            xpath: /beans
       - file: beans.xml

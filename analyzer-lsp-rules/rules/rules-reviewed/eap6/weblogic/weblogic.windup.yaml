@@ -102,7 +102,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-11
     when:
       xml:
-        XPath: /jdbc-data-source/jdbc-driver-params/property/name[text()='FastConnectionFailoverEnabled']
+        xpath: /jdbc-data-source/jdbc-driver-params/property/name[text()='FastConnectionFailoverEnabled']
   - message: Oracle WebLogic Server includes a proprietary side-by-side production
       redeployment feature. For applications that meet certain requirements and restrictions,
       the new version of the application is deployed while the older version is still

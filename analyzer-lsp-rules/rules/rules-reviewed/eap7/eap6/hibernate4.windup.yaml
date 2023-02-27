@@ -306,5 +306,5 @@
       - as: dialects_used
         ignore: true
         xml:
-          XPath: //s:property[@name='hibernate.dialect' and windup:matches(@value,
+          xpath: //s:property[@name='hibernate.dialect' and windup:matches(@value,
             'org.hibernate.dialect.{param_dialects}')]

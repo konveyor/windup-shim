@@ -12,9 +12,9 @@
       - as: dependencies-block
         ignore: true
         xml:
-          XPath: /m:project/m:dependencies
           filepaths:
           - pom.xml
+          xpath: /m:project/m:dependencies
   - message: '`jaxb-core` Maven dependency missing.. Apache Camel 3 supports Java
       11 and in this Java version JAXB modules have been removed from the JDK, therefore
       you will need to add them as Maven dependencies since there are couple of components
@@ -29,9 +29,9 @@
       - as: dependencies-block
         ignore: true
         xml:
-          XPath: /m:project/m:dependencies
           filepaths:
           - pom.xml
+          xpath: /m:project/m:dependencies
   - message: '`jaxb-impl` Maven dependency missing.. Apache Camel 3 supports Java
       11 and in this Java version JAXB modules have been removed from the JDK, therefore
       you will need to add them as Maven dependencies since there are couple of components
@@ -46,6 +46,6 @@
       - as: dependencies-block
         ignore: true
         xml:
-          XPath: /m:project/m:dependencies
           filepaths:
           - pom.xml
+          xpath: /m:project/m:dependencies

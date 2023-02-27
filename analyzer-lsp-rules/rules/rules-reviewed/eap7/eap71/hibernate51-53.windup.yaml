@@ -166,12 +166,12 @@
       - as: persistence_files
         ignore: true
         xml:
-          XPath: //s:persistence-unit/s:provider[starts-with(text(), 'org.hibernate')]
+          xpath: //s:persistence-unit/s:provider[starts-with(text(), 'org.hibernate')]
       - as: wrong_files
         from: persistence_files
         ignore: true
         xml:
-          XPath: //s:properties[count(s:property[@name='hibernate.default_schema'])=0
+          xpath: //s:properties[count(s:property[@name='hibernate.default_schema'])=0
             and count(s:property[@name='hibernate.default_catalog'])=0]
   - message: If the application uses Hibernate, please define `hibernate.default_schema`
       or `hibernate.default_catalog` (whichever is used by the selected dialect),
@@ -182,12 +182,12 @@
       - as: persistence_files
         ignore: true
         xml:
-          XPath: //s:persistence-unit[not(s:provider) or s:provider[not(text())]]
+          xpath: //s:persistence-unit[not(s:provider) or s:provider[not(text())]]
       - as: wrong_files
         from: persistence_files
         ignore: true
         xml:
-          XPath: //s:properties[count(s:property[@name='hibernate.default_schema'])=0
+          xpath: //s:properties[count(s:property[@name='hibernate.default_schema'])=0
             and count(s:property[@name='hibernate.default_catalog'])=0]
   - message: Applications using the `@TableGenerator` should set the `hibernate.id.generator.stored_last_used`
       configuration property to `false`.

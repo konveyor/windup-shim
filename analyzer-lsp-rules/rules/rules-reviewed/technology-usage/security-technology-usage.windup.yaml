@@ -10,10 +10,10 @@
           location: ANNOTATION
           pattern: javax.annotation.security.{*}
       - xml:
-          XPath: //*[local-name() = 'login-config']/*[local-name() = 'realm-name']
           filepaths:
           - web.xml
+          xpath: //*[local-name() = 'login-config']/*[local-name() = 'realm-name']
       - xml:
-          XPath: //*[local-name() = 'login-config']/*[local-name() = 'realm']
           filepaths:
           - '{*}ejb-jar.xml'
+          xpath: //*[local-name() = 'login-config']/*[local-name() = 'realm']

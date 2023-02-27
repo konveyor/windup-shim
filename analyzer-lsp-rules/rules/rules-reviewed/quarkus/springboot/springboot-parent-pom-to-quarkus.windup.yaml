@@ -5,12 +5,12 @@
     when:
       or:
       - xml:
-          XPath: /m:project/m:parent[m:groupId/text() = 'org.springframework.boot'
+          filepaths:
+          - pom.xml
+          xpath: /m:project/m:parent[m:groupId/text() = 'org.springframework.boot'
             and m:artifactId/text() = 'spring-boot-starter-parent']
-          filepaths:
-          - pom.xml
       - xml:
-          XPath: /m:project/m:parent[m:groupId/text() = 'org.springframework.boot'
-            and m:artifactId/text() = 'spring-boot-parent']
           filepaths:
           - pom.xml
+          xpath: /m:project/m:parent[m:groupId/text() = 'org.springframework.boot'
+            and m:artifactId/text() = 'spring-boot-parent']
