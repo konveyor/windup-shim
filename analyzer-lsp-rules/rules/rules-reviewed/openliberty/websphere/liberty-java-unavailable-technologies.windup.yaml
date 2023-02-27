@@ -16,7 +16,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-0
     when:
       java.referenced:
-        pattern: javax.enterprise.deploy.{*}
+        pattern: javax.enterprise.deploy.*
   - message: '<div class="Text">. <p> This rule flags Java code that has references
       to the following packages: </p>. <ul>. <li><code>javax.portlet</code></li>.
       <li><code>javax.portlet.filter</code></li>. </ul>. <p>This rule also flags the
@@ -66,7 +66,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-5
     when:
       java.referenced:
-        pattern: org.oasis_open.docs.wsn.{*}
+        pattern: org.oasis_open.docs.wsn.*
   - message: <div class="Text"> <span class="SubHeader">Entity Enterprise JavaBeans
       (EJB)</span>. <p> This rule flags <code>entity</code> elements in <span class="FilePath">ejb-jar.xml</span>
       files. </p>. <p> Entity beans are optional in the EJB 3.2 specification and
@@ -176,7 +176,7 @@
     when:
       or:
       - java.referenced:
-          pattern: javax.xml.rpc{*}
+          pattern: javax.xml.rpc*
       - xml:
           filepaths:
           - '{DetectJAXRPC_2_filesFilter}'

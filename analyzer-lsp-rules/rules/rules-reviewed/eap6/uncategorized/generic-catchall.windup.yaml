@@ -1,11 +1,11 @@
 - - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-0
     when:
       java.referenced:
-        pattern: (edu|EDU).oswego.cs.dl.util.concurrent.{*}
+        pattern: (edu|EDU).oswego.cs.dl.util.concurrent.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-1
     when:
       java.referenced:
-        pattern: edu.emory.mathcs.backport.java.util.{*}
+        pattern: edu.emory.mathcs.backport.java.util.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-2
     when:
       java.referenced:
@@ -22,7 +22,7 @@
     when:
       java.referenced:
         location: IMPORT
-        pattern: amx_.{*}
+        pattern: amx_.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-6
     when:
       java.referenced:
@@ -38,7 +38,7 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-9
     when:
       java.referenced:
-        pattern: org.apache.(activeio|activemq).{*}
+        pattern: org.apache.(activeio|activemq).*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-10
     when:
       java.referenced:

@@ -23,7 +23,7 @@ func main() {
 	windupLocation := os.Args[1]
 	rulesets := []windup.Ruleset{}
 	ruletests := []windup.Ruletest{}
-	err := filepath.WalkDir(windupLocation+"/rules/", processXML(windupLocation, &rulesets, &ruletests))
+	err := filepath.WalkDir(windupLocation+"/rules/", processXML(windupLocation, &rulesets, &ruletests, false))
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -112,7 +112,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	}
 	if windupWhen.Javaclass != nil {
 		for _, jc := range windupWhen.Javaclass {
-			pattern := substituteWhere(where, jc.References)
+			pattern := strings.Replace(substituteWhere(where, jc.References), "{*}", "*", -1)
 			if jc.Location != nil {
 				for _, location := range jc.Location {
 					condition := map[string]interface{}{
@@ -414,7 +414,7 @@ func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset) error {
 	return nil
 }
 
-func processXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Ruletest) fs.WalkDirFunc {
+func processXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Ruletest, writeYAML bool) fs.WalkDirFunc {
 	return func(path string, d fs.DirEntry, err error) error {
 		if !strings.HasSuffix(path, ".xml") {
 			fmt.Printf("Skipping %s because it is not a ruleset\n", path)
@@ -449,29 +449,30 @@ func processXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Rul
 			ruletest.TestDataPath = filepath.Join(filepath.Dir(path), ruletest.TestDataPath)
 			*ruletests = append(*ruletests, ruletest)
 
-			yamlPath := strings.Replace(strings.Replace(path, root, "converted/", 1), ".xml", ".yaml", 1)
-			dirName := filepath.Dir(yamlPath)
-			err = os.MkdirAll(dirName, 0777)
-			if err != nil {
-				fmt.Printf("Skipping %s because of an error creating %s: %s\n", path, yamlPath, err.Error())
+			if writeYAML {
+				yamlPath := strings.Replace(strings.Replace(path, root, "converted/", 1), ".xml", ".yaml", 1)
+				dirName := filepath.Dir(yamlPath)
+				err = os.MkdirAll(dirName, 0777)
+				if err != nil {
+					fmt.Printf("Skipping %s because of an error creating %s: %s\n", path, yamlPath, err.Error())
+					return nil
+				}
+				file, err := os.OpenFile(yamlPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
+				if err != nil {
+					fmt.Printf("Skipping %s because of an error opening %s: %s\n", path, yamlPath, err.Error())
+					return nil
+				}
+				defer file.Close()
+
+				enc := yaml.NewEncoder(file)
+
+				err = enc.Encode(ruletest)
+				if err != nil {
+					fmt.Printf("Skipping %s because of an error writing the yaml: %s\n", path, err.Error())
+					return nil
+				}
 				return nil
 			}
-			file, err := os.OpenFile(yamlPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
-			if err != nil {
-				fmt.Printf("Skipping %s because of an error opening %s: %s\n", path, yamlPath, err.Error())
-				return nil
-			}
-			defer file.Close()
-
-			enc := yaml.NewEncoder(file)
-
-			err = enc.Encode(ruletest)
-			if err != nil {
-				fmt.Printf("Skipping %s because of an error writing the yaml: %s\n", path, err.Error())
-				return nil
-			}
-			return nil
-
 		} else {
 			var ruleset windup.Ruleset
 
@@ -489,29 +490,31 @@ func processXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Rul
 			ruleset.SourceFile = strings.Replace(path, root, "http://github.com/windup/windup-rulesets/tree/master/", 1)
 			*rulesets = append(*rulesets, ruleset)
 
-			yamlPath := strings.Replace(strings.Replace(path, root, "converted/", 1), ".xml", ".yaml", 1)
-			dirName := filepath.Dir(yamlPath)
-			err = os.MkdirAll(dirName, 0777)
-			if err != nil {
-				fmt.Printf("Skipping %s because of an error creating %s: %s\n", path, yamlPath, err.Error())
-				return nil
-			}
-			file, err := os.OpenFile(yamlPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
-			if err != nil {
-				fmt.Printf("Skipping %s because of an error opening %s: %s\n", path, yamlPath, err.Error())
-				return nil
-			}
-			defer file.Close()
+			if writeYAML {
+				yamlPath := strings.Replace(strings.Replace(path, root, "converted/", 1), ".xml", ".yaml", 1)
+				dirName := filepath.Dir(yamlPath)
+				err = os.MkdirAll(dirName, 0777)
+				if err != nil {
+					fmt.Printf("Skipping %s because of an error creating %s: %s\n", path, yamlPath, err.Error())
+					return nil
+				}
+				file, err := os.OpenFile(yamlPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
+				if err != nil {
+					fmt.Printf("Skipping %s because of an error opening %s: %s\n", path, yamlPath, err.Error())
+					return nil
+				}
+				defer file.Close()
 
-			enc := yaml.NewEncoder(file)
+				enc := yaml.NewEncoder(file)
 
-			err = enc.Encode(ruleset)
-			if err != nil {
-				fmt.Printf("Skipping %s because of an error writing the yaml: %s\n", path, err.Error())
+				err = enc.Encode(ruleset)
+				if err != nil {
+					fmt.Printf("Skipping %s because of an error writing the yaml: %s\n", path, err.Error())
+					return nil
+				}
 				return nil
 			}
-			return nil
 		}
+		return nil
 	}
-	return nil
 }

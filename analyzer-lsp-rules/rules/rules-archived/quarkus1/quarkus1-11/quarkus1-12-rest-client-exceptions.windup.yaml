@@ -7,7 +7,7 @@
     when:
       java.referenced:
         location: CONSTRUCTOR_CALL
-        pattern: javax.ws.rs.client.Client{*}
+        pattern: javax.ws.rs.client.Client*
   - message: If you are using quarkus-rest-client then please be aware that MP REST
       Client or JAX-RS Client. invocation exceptions will no longer have JAX-RS `Response`
       available by default. to avoid leaking some potentially sensitive downstream

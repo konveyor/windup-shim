@@ -5,7 +5,7 @@
     - jsf
     when:
       java.referenced:
-        pattern: org.jboss.seam.{*}
+        pattern: org.jboss.seam.*
   - message: You can use Java EE `javax.enterprise.context.Conversation` interface
       like:. ```java. @Inject Conversation conversation;. ```
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-1
@@ -19,7 +19,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.jboss.seam.Seam.{*}
+        pattern: org.jboss.seam.Seam.*
   - message: CDI supports static injection in comparison to Seam 2 dynamic injection.
       So you don't need to have `@Named` annotation on every Seam component you would
       like to migrate.. Remove that annotation or change to `@javax.inject.Named`
@@ -107,7 +107,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.jboss.seam.Component.{*}
+        pattern: org.jboss.seam.Component.*
   - message: Refactor to have annotated error handler which redirect to a viewID page
       for displaying error page.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-14
@@ -143,7 +143,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.jboss.seam.contexts.Contexts.{*}
+        pattern: org.jboss.seam.contexts.Contexts.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-19
     tag:
     - cdi
@@ -152,7 +152,7 @@
     when:
       java.referenced:
         location: ANNOTATION
-        pattern: org.jboss.seam.annotations.bpm.{*}
+        pattern: org.jboss.seam.annotations.bpm.*
   - message: Rework with CDI conversation context `javax.enterprise.context.Conversation`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-20
     when:
@@ -202,7 +202,7 @@
     when:
       java.referenced:
         location: ANNOTATION
-        pattern: org.jboss.seam.annotations.datamodel.DataModel{*}
+        pattern: org.jboss.seam.annotations.datamodel.DataModel*
   - message: Both Seam 2 and CDI beans may produce and consume events in order to
       communicate with other beans. Unlike method invocation, events allow for decoupled
       architecture with no compile-time dependency.. In Seam 2, the type of an event
@@ -219,7 +219,7 @@
           pattern: org.jboss.seam.annotations.Observer
       - java.referenced:
           location: METHOD_CALL
-          pattern: org.jboss.seam.core.Events.{*}
+          pattern: org.jboss.seam.core.Events.*
   - message: In the Java EE, the concept of interceptors was extracted into a separate
       specification. As a result, not only EJBs but any CDI managed beans can benefit
       from this facility.. If you used interceptors in Seam 2, migration is straightforward.
@@ -231,7 +231,7 @@
     when:
       java.referenced:
         location: ANNOTATION
-        pattern: org.jboss.seam.annotations.intercept.{*}
+        pattern: org.jboss.seam.annotations.intercept.*
   - message: Replace with Java EE annotation `@javax.ejb.Asynchronous`.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-28
     when:

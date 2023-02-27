@@ -12,7 +12,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.hibernate.criterion.Projections.(count|rowCount|sum){*}
+        pattern: org.hibernate.criterion.Projections.(count|rowCount|sum)*
   - message: The initial/default naming strategy in Hibernate 4 was changed from DefaultNamingStrategy
       to EJB3NamingStrategy. This can result in naming mismatches. If you rely on
       the naming strategy, call Configuration#setNamingStrategy.
@@ -20,13 +20,13 @@
     when:
       java.referenced:
         location: CONSTRUCTOR_CALL
-        pattern: org.hibernate.cfg.AnnotationConfiguration{*}
+        pattern: org.hibernate.cfg.AnnotationConfiguration*
   - message: The deprecated classes in org.hibernate.classic package was removed in
       Hibernate 4.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-3
     when:
       java.referenced:
-        pattern: org.hibernate.classic.{*}
+        pattern: org.hibernate.classic.*
   - message: Replace org.hibernate.dialect.resolver.DialectResolver with org.hibernate.service.jdbc.dialect.spi.DialectResolver.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate.windup.xml-4
     when:

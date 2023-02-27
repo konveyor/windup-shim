@@ -13,4 +13,4 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-other.windup.xml-1
     when:
       java.referenced:
-        pattern: com.ibm.websphere.startupservice.{*}StartUp{*}
+        pattern: com.ibm.websphere.startupservice.*StartUp*

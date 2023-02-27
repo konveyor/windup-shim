@@ -12,16 +12,16 @@
       or:
       - java.referenced:
           location: CONSTRUCTOR_CALL
-          pattern: java.io.(FileWriter|FileReader|PrintStream|File|PrintWriter|RandomAccessFile){*}
+          pattern: java.io.(FileWriter|FileReader|PrintStream|File|PrintWriter|RandomAccessFile)*
       - java.referenced:
           location: CONSTRUCTOR_CALL
-          pattern: java.util.zip.ZipFile{*}
+          pattern: java.util.zip.ZipFile*
       - java.referenced:
           location: METHOD_CALL
-          pattern: java.io.File.createTempFile({*})
+          pattern: java.io.File.createTempFile(*)
       - java.referenced:
           location: METHOD_CALL
-          pattern: java.nio.file.Paths.get({*})
+          pattern: java.nio.file.Paths.get(*)
   - message: 'An application running inside a container could lose access to a file
       in local storage.. Recommendations. The following recommendations depend on
       the function of the file in local storage:. * Logging: Log to standard output
@@ -35,7 +35,7 @@
     when:
       java.referenced:
         location: CONSTRUCTOR_CALL
-        pattern: java.net.(URL|URI)({*})
+        pattern: java.net.(URL|URI)(*)
   - message: 'An application running inside a container could lose access to a file
       in local storage.. Recommendations. The following recommendations depend on
       the function of the file in local storage:. * Logging: Log to standard output
@@ -78,13 +78,13 @@
       or:
       - java.referenced:
           location: IMPORT
-          pattern: java.nio.channels.AsynchronousFileChannel{*}
+          pattern: java.nio.channels.AsynchronousFileChannel*
       - java.referenced:
           location: IMPORT
-          pattern: java.nio.channels.FileChannel{*}
+          pattern: java.nio.channels.FileChannel*
       - java.referenced:
           location: IMPORT
-          pattern: java.nio.channels.FileLock{*}
+          pattern: java.nio.channels.FileLock*
       - java.referenced:
           location: IMPORT
-          pattern: java.nio.file.{*}
+          pattern: java.nio.file.*

@@ -11,4 +11,4 @@
         ignore: true
         java.referenced:
           location: METHOD
-          pattern: '{*}(java.net.URL, javax.xml.namespace.QName)'
+          pattern: '*(java.net.URL, javax.xml.namespace.QName)'

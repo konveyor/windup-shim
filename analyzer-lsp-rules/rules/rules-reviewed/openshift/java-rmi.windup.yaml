@@ -12,4 +12,4 @@
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/java-rmi.windup.xml-1
     when:
       java.referenced:
-        pattern: java.rmi.{*}
+        pattern: java.rmi.*

@@ -6,10 +6,10 @@
           pattern: '{appenderpattern}'
       - java.referenced:
           location: IMPORT
-          pattern: org.apache.{*}log4j.{*}FileAppender{*}
+          pattern: org.apache.*log4j.*FileAppender*
       - java.referenced:
           location: IMPORT
-          pattern: java.util.logging.FileHandler{*}
+          pattern: java.util.logging.FileHandler*
       - java.referenced:
           location: IMPORT
           pattern: ch.qos.logback.core.FileAppender
@@ -24,4 +24,4 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/logging.windup.xml-1
     when:
       java.referenced:
-        pattern: java.util.logging.SocketHandler{*}
+        pattern: java.util.logging.SocketHandler*

@@ -158,7 +158,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.util.toolbox.AggregationStrategies.xslt({*})
+        pattern: org.apache.camel.util.toolbox.AggregationStrategies.xslt(*)
   - message: The class `org.apache.camel.language.LanguageAnnotation` has been moved
       to `org.apache.camel.support.language.LanguageAnnotation`. It has been moved
       out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-support`.
@@ -271,7 +271,7 @@
       or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: org.apache.camel.CamelContext.{get|set}Propert{y|ies}({*})
+          pattern: org.apache.camel.CamelContext.{get|set}Propert{y|ies}(*)
       - xml:
           xpath: //c:camelContext/c:properties
       - xml:
@@ -293,7 +293,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.CamelContext.(getManagedCamelContext|getManagedProcessor|getManagedRoute)({*})
+        pattern: org.apache.camel.CamelContext.(getManagedCamelContext|getManagedProcessor|getManagedRoute)(*)
   - message: The functionality to change the simple language tokens for start/end
       functions has been removed. The default tokens with `${xxx}` and `$simple{xxx}`
       is now hardcoded (optimized). The functionality to change these tokens was never
@@ -303,10 +303,10 @@
       or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: org.apache.camel.language.simple.SimpleLanguage.(changeFunctionStartToken|changeFunctionEndToken|setFunctionStartToken|setFunctionEndToken)({*})
+          pattern: org.apache.camel.language.simple.SimpleLanguage.(changeFunctionStartToken|changeFunctionEndToken|setFunctionStartToken|setFunctionEndToken)(*)
       - java.referenced:
           location: METHOD_CALL
-          pattern: org.apache.camel.language.simple.SimpleTokenizer.(changeFunctionStartToken|changeFunctionEndToken))({*})
+          pattern: org.apache.camel.language.simple.SimpleTokenizer.(changeFunctionStartToken|changeFunctionEndToken))(*)
       - xml:
           xpath: //c:bean[@class='org.apache.camel.language.simple.SimpleLanguage']/c:property[@name='functionStartToken'
             or @name='functionEndToken']
@@ -335,7 +335,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.CamelContext.(getComponentParameterJsonSchema|getDataFormatParameterJsonSchema|getLanguageParameterJsonSchema|getEipParameterJsonSchema)({*})
+        pattern: org.apache.camel.CamelContext.(getComponentParameterJsonSchema|getDataFormatParameterJsonSchema|getLanguageParameterJsonSchema|getEipParameterJsonSchema)(*)
   - message: The duplicate method `org.apache.camel.CamelContext.{method}` has been
       removed. You should use the `static` method `org.apache.camel.model.ModelHelper{method}`
       instead.
@@ -343,7 +343,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.CamelContext.(loadRoutesDefinition|loadRestsDefinition)({*})
+        pattern: org.apache.camel.CamelContext.(loadRoutesDefinition|loadRestsDefinition)(*)
   - message: The method `org.apache.camel.CamelContext.{method}` has been moved to
       `org.apache.camel.model.Model.{method}`. You can access it by adapting your
       `CamelContext` like so:. `ModelCamelContext ccc = context.adapt(ModelCamelContext.class);`.
@@ -352,7 +352,7 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.CamelContext.(getRouteDefinitions|getRouteDefinition|addRouteDefinitions|addRouteDefinition|removeRouteDefinitions|removeRouteDefinition|getRestDefinitions|addRestDefinitions|setDataFormats|getDataFormats|resolveDataFormatDefinition|getProcessorDefinition|setValidators|getHystrixConfiguration|setHystrixConfiguration|setHystrixConfigurations|addHystrixConfiguration|getValidators|setTransformers|getTransformers|addServiceCallConfiguration|setServiceCallConfigurations|setServiceCallConfiguration|getServiceCallConfiguration)({*})
+        pattern: org.apache.camel.CamelContext.(getRouteDefinitions|getRouteDefinition|addRouteDefinitions|addRouteDefinition|removeRouteDefinitions|removeRouteDefinition|getRestDefinitions|addRestDefinitions|setDataFormats|getDataFormats|resolveDataFormatDefinition|getProcessorDefinition|setValidators|getHystrixConfiguration|setHystrixConfiguration|setHystrixConfigurations|addHystrixConfiguration|getValidators|setTransformers|getTransformers|addServiceCallConfiguration|setServiceCallConfigurations|setServiceCallConfiguration|getServiceCallConfiguration)(*)
   - message: The method `org.apache.camel.CamelContext.{method}` has been moved to
       `org.apache.camel.ExtendedCamelContext.{method}`. You can access it by adapting
       your `CamelContext` like so:. `ExtendedCamelContext ecc = context.adapt(ExtendedCamelContext.class);`.
@@ -361,4 +361,4 @@
     when:
       java.referenced:
         location: METHOD_CALL
-        pattern: org.apache.camel.CamelContext.(setupRoutes|isSetupRoutes|getRouteStartupOrder|getManagementMBeanAssembler|addInterceptStrategy|getInterceptStrategies|getErrorHandlerExecutorService|getDataFormatResolver|setDataFormatResolver|getDefaultFactoryFinder|setFactoryFinderResolver|getFactoryFinder|getPackageScanClassResolver|setPackageScanClassResolver|setNodeIdFactory|getNodeIdFactory|getAsyncProcessorAwaitManager|setAsyncProcessorAwaitManager|getProcessorFactory|setProcessorFactory|getUnitOfWorkFactory|setUnitOfWorkFactory|getModelJAXBContextFactory|setModelJAXBContextFactory|getLogListeners|addLogListener)({*})
+        pattern: org.apache.camel.CamelContext.(setupRoutes|isSetupRoutes|getRouteStartupOrder|getManagementMBeanAssembler|addInterceptStrategy|getInterceptStrategies|getErrorHandlerExecutorService|getDataFormatResolver|setDataFormatResolver|getDefaultFactoryFinder|setFactoryFinderResolver|getFactoryFinder|getPackageScanClassResolver|setPackageScanClassResolver|setNodeIdFactory|getNodeIdFactory|getAsyncProcessorAwaitManager|setAsyncProcessorAwaitManager|getProcessorFactory|setProcessorFactory|getUnitOfWorkFactory|setUnitOfWorkFactory|getModelJAXBContextFactory|setModelJAXBContextFactory|getLogListeners|addLogListener)(*)

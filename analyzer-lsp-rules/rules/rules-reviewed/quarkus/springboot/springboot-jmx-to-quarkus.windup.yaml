@@ -12,4 +12,4 @@
     when:
       java.referenced:
         location: ANNOTATION
-        pattern: org.springframework.jmx.{*}
+        pattern: org.springframework.jmx.*

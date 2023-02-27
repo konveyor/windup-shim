@@ -14,25 +14,25 @@
     when:
       or:
       - java.referenced:
-          pattern: javax.enterprise.inject.{*}
+          pattern: javax.enterprise.inject.*
       - java.referenced:
-          pattern: javax.inject.{*}
+          pattern: javax.inject.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-6
     when:
       java.referenced:
-        pattern: javax.json.{*}
+        pattern: javax.json.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-8
     tag: []
     when:
       java.referenced:
         location: IMPORT
-        pattern: javax.security.jacc.{*}
+        pattern: javax.security.jacc.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-9
     tag: []
     when:
       java.referenced:
         location: IMPORT
-        pattern: javax.management.j2ee.{*}
+        pattern: javax.management.j2ee.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-10
     tag: []
     when:
@@ -42,7 +42,7 @@
     when:
       java.referenced:
         location: IMPORT
-        pattern: javax.jws.{*}
+        pattern: javax.jws.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-12
     tag: []
     when:
@@ -54,28 +54,28 @@
     when:
       java.referenced:
         location: IMPORT
-        pattern: java|javax.xml.bind.{*}
+        pattern: java|javax.xml.bind.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-14
     tag: []
     when:
       java.referenced:
         location: IMPORT
-        pattern: javax.xml.registry.{*}
+        pattern: javax.xml.registry.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-15
     tag: []
     when:
       java.referenced:
         location: IMPORT
-        pattern: javax.validation.constraints.{*}
+        pattern: javax.validation.constraints.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-16
     tag: []
     when:
       java.referenced:
         location: IMPORT
-        pattern: javax.servlet.{*}
+        pattern: javax.servlet.*
   - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/javaee-technology-usage.windup.xml-17
     tag: []
     when:
       java.referenced:
         location: IMPORT
-        pattern: javax.json.bind.{*}
+        pattern: javax.json.bind.*

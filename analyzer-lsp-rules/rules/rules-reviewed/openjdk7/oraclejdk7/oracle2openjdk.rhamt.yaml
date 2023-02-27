@@ -4,7 +4,7 @@
     when:
       java.referenced:
         location: IMPORT
-        pattern: javafx.{*}
+        pattern: javafx.*
   - message: The font library is different in OpenJDK compared to OracleJDK.. This
       means slightly different text layout in some cases.. Ensure with tests that
       the output is still as expected.
@@ -16,15 +16,15 @@
           pattern: (java\.awt|javafx\.scene\.text).Font
       - java.referenced:
           location: METHOD_CALL
-          pattern: (java\.awt|javafx\.scene\.text).{*}Font{*}
+          pattern: (java\.awt|javafx\.scene\.text).*Font*
       - java.referenced:
           location: METHOD_CALL
-          pattern: javax.swing.{*}.{*}Font{*}
+          pattern: javax.swing.*.*Font*
   - message: OpenJDK does not support the resource management API for Java.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openjdk7/oraclejdk7/oracle2openjdk.rhamt.xml-2
     when:
       java.referenced:
-        pattern: jdk.management.resource.{*}
+        pattern: jdk.management.resource.*
   - message: OracleJDK used to use KCMS as color mangement system up until JDK7 by
       default. It switched to Little CMS (LCMS) with JDK8.. OpenJDK uses LCMS. If
       you continued to use KCMS by using the property ``sun.java2d.cmm=sun.java2d.cmm.kcms.KcmsServiceProvider``,
@@ -41,7 +41,7 @@
     when:
       java.referenced:
         location: IMPORT
-        pattern: java.awt.(geom|color|font|image|image\.renderable|print){*}
+        pattern: java.awt.(geom|color|font|image|image\.renderable|print)*
   - message: 'When on RHEL, OpenJDK uses the NSS crypto library from RHEL instead
       of the built-in one.. This mostly affects elliptic curve cryptography, where
       OpenJDK supports all of the RHEL curves and none of the others.. A list of all
@@ -52,37 +52,37 @@
       or:
       - java.referenced:
           location: METHOD_CALL
-          pattern: java.security.KeyPairGenerator.getInstance({*}
+          pattern: java.security.KeyPairGenerator.getInstance(*
       - java.referenced:
           location: METHOD_CALL
-          pattern: javax.crypto.KeyAgreement.getInstance({*}
+          pattern: javax.crypto.KeyAgreement.getInstance(*
       - java.referenced:
           location: CONSTRUCTOR_CALL
-          pattern: java.security.spec.EC{*}
+          pattern: java.security.spec.EC*
       - java.referenced:
           location: IMPORT
-          pattern: java.security.spec.EC{*}
+          pattern: java.security.spec.EC*
       - java.referenced:
           location: INHERITANCE
-          pattern: java.security.spec.EC{*}
+          pattern: java.security.spec.EC*
       - java.referenced:
           location: METHOD_CALL
-          pattern: java.security.spec.EC{*}
+          pattern: java.security.spec.EC*
       - java.referenced:
           location: VARIABLE_DECLARATION
-          pattern: java.security.spec.EC{*}
+          pattern: java.security.spec.EC*
       - java.referenced:
           location: CONSTRUCTOR_CALL
-          pattern: java.security.spec.EllipticCurve{*}
+          pattern: java.security.spec.EllipticCurve*
       - java.referenced:
           location: IMPORT
-          pattern: java.security.spec.EllipticCurve{*}
+          pattern: java.security.spec.EllipticCurve*
       - java.referenced:
           location: INHERITANCE
-          pattern: java.security.spec.EllipticCurve{*}
+          pattern: java.security.spec.EllipticCurve*
       - java.referenced:
           location: METHOD_CALL
-          pattern: java.security.spec.EllipticCurve{*}
+          pattern: java.security.spec.EllipticCurve*
       - java.referenced:
           location: VARIABLE_DECLARATION
-          pattern: java.security.spec.EllipticCurve{*}
+          pattern: java.security.spec.EllipticCurve*

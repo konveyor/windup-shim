@@ -59,37 +59,37 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-5
     when:
       java.referenced:
-        pattern: org.jboss.wsf.spi.annotation.{*}
+        pattern: org.jboss.wsf.spi.annotation.*
   - message: This package has been relocated to `org.jboss.ws.api.binding` as specified
       in the. migration guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-6
     when:
       java.referenced:
-        pattern: org.jboss.wsf.spi.binding.{*}
+        pattern: org.jboss.wsf.spi.binding.*
   - message: This package has been relocated to `org.jboss.ws.api.monitoring` as specified
       in the. migration guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-7
     when:
       java.referenced:
-        pattern: org.jboss.wsf.spi.management.recording.{*}
+        pattern: org.jboss.wsf.spi.management.recording.*
   - message: This package has been relocated to `org.jboss.ws.tools.ant` as specified
       in the. migration guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-8
     when:
       java.referenced:
-        pattern: org.jboss.wsf.spi.tools.ant.{*}
+        pattern: org.jboss.wsf.spi.tools.ant.*
   - message: This package has been relocated to `org.jboss.ws.tools.cmd` as specified
       in the. migration guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-9
     when:
       java.referenced:
-        pattern: org.jboss.wsf.spi.tools.cmd.{*}
+        pattern: org.jboss.wsf.spi.tools.cmd.*
   - message: This package has been relocated to `org.jboss.ws.api.tools` as specified
       in the. migration guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-10
     when:
       java.referenced:
-        pattern: org.jboss.wsf.spi.tools.{*}
+        pattern: org.jboss.wsf.spi.tools.*
   - message: This class has been relocated to `org.jboss.ws.api.util.ServiceLoader`
       as specified in the. migration guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-11
@@ -101,13 +101,13 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-12
     when:
       java.referenced:
-        pattern: org.jboss.wsf.common.handler.{*}
+        pattern: org.jboss.wsf.common.handler.*
   - message: This package has been relocated to `org.jboss.ws.api.addressing` as specified
       in the. migration guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-13
     when:
       java.referenced:
-        pattern: org.jboss.wsf.common.addressing.{*}
+        pattern: org.jboss.wsf.common.addressing.*
   - message: This class has been relocated to `org.jboss.ws.api.util.DOMUtils` as
       specified in the. migration guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-14
@@ -119,7 +119,7 @@
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-15
     when:
       java.referenced:
-        pattern: org.jboss.wsf.common.{*}
+        pattern: org.jboss.wsf.common.*
   - message: This class has been relocated to `org.jboss.ws.api.annotation.EndpointConfig`
       as specified in the. migration guide.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-16

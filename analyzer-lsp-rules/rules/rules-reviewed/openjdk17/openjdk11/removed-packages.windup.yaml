@@ -4,7 +4,7 @@
     when:
       java.referenced:
         location: IMPORT
-        pattern: java.rmi.activation.{*}
+        pattern: java.rmi.activation.*
   - message: The Nashorn scripting implementation has been removed from OpenJDK 15
       onwards.. The javax.script API is still present and third party implementations,
       such as Rhino or Nashorn itself, can be installed if needed. Any references
@@ -13,6 +13,6 @@
     when:
       or:
       - java.referenced:
-          pattern: jdk.nashorn.api.scripting.{*}
+          pattern: jdk.nashorn.api.scripting.*
       - java.referenced:
-          pattern: jdk.nashorn.api.tree.{*}
+          pattern: jdk.nashorn.api.tree.*

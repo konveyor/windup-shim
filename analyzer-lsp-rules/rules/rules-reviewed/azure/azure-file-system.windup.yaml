@@ -5,11 +5,11 @@
     when:
       or:
       - java.referenced:
-          pattern: java.io.{*}
+          pattern: java.io.*
       - java.referenced:
-          pattern: java.nio.{*}
+          pattern: java.nio.*
       - java.referenced:
-          pattern: org.apache.commons.io.{*}
+          pattern: org.apache.commons.io.*
   - message: Relative path found.. Any usage of the file system on the application
       will require reconfiguration or, in rare cases, architectural changes.
     ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-1

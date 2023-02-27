@@ -12,7 +12,7 @@
           pattern: .to("kafka:{[^"]+}{options}={*}
       - java.referenced:
           location: METHOD_CALL
-          pattern: org.apache.camel.component.kafka.KafkaConfiguration.(setBridgeEndpoint|setCircularTopicDetection)({*})
+          pattern: org.apache.camel.component.kafka.KafkaConfiguration.(setBridgeEndpoint|setCircularTopicDetection)(*)
       - xml:
           xpath: //*/c:to/@uri[windup:matches(self::node(), 'kafka:{*}{options}{*}')]
       - xml:
