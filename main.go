@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/xml"
+	"flag"
 	"fmt"
 	"io/fs"
 	"io/ioutil"
@@ -17,20 +18,64 @@ import (
 )
 
 func main() {
-	if len(os.Args) != 2 {
-		log.Fatal("The location of your windup directory must be passed")
+	var outputDir string
+	convertCmd := flag.NewFlagSet("convert", flag.ExitOnError)
+	convertCmd.StringVar(&outputDir, "outputdir", "analyzer-lsp-rules", "The output location for converted rules")
+	testCmd := flag.NewFlagSet("test", flag.ExitOnError)
+	runCmd := flag.NewFlagSet("run", flag.ExitOnError)
+
+	help := "Supported subcommands are convert, run, and test"
+	if len(os.Args) < 2 {
+		fmt.Println(help)
+		return
 	}
-	windupLocation := os.Args[1]
-	rulesets := []windup.Ruleset{}
-	ruletests := []windup.Ruletest{}
-	err := filepath.WalkDir(windupLocation+"/rules/", processXML(windupLocation, &rulesets, &ruletests, false))
-	if err != nil {
-		fmt.Println(err)
+
+	switch os.Args[1] {
+	case "convert":
+		if err := convertCmd.Parse(os.Args[2:]); err == nil {
+			if convertCmd.NArg() < 1 {
+				fmt.Println("The location of one or more windup XML files is required")
+			}
+			for _, location := range convertCmd.Args() {
+				rulesets := []windup.Ruleset{}
+				ruletests := []windup.Ruletest{}
+				err := filepath.WalkDir(location, processXML(location, &rulesets, &ruletests, false))
+				if err != nil {
+					fmt.Println(err)
+				}
+				err = convertWindupRulesetsToAnalyzer(rulesets, location, outputDir)
+				if err != nil {
+					log.Fatal(err)
+				}
+			}
+
+		}
+	case "test":
+		if err := testCmd.Parse(os.Args[2:]); err == nil {
+			fmt.Println("test")
+		}
+	case "run":
+		if err := runCmd.Parse(os.Args[2:]); err == nil {
+			fmt.Println("run")
+		}
+	default:
+		fmt.Println(help)
 	}
-	err = convertWindupRulesetsToAnalyzer(rulesets)
-	if err != nil {
-		log.Fatal(err)
-	}
+
+	// if len(os.Args) != 2 {
+	// 	log.Fatal("The location of your windup directory must be passed")
+	// }
+	// windupLocation := os.Args[1]
+	// rulesets := []windup.Ruleset{}
+	// ruletests := []windup.Ruletest{}
+	// err := filepath.WalkDir(windupLocation+"/rules/", processXML(windupLocation, &rulesets, &ruletests, false))
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
+	// err = convertWindupRulesetsToAnalyzer(rulesets)
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 }
 
 func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[string]interface{} {
@@ -339,7 +384,7 @@ func flattenWhere(wheres []windup.Where) map[string]string {
 	return patterns
 }
 
-func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset) error {
+func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string) error {
 	outputRulesets := map[string][][]map[string]interface{}{}
 	for _, windupRuleset := range windups {
 		// TODO Ruleset.Metadata
@@ -349,8 +394,8 @@ func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset) error {
 		ruleset := []map[string]interface{}{}
 		rules := []map[string]interface{}{}
 		for i, windupRule := range windupRuleset.Rules.Rule {
-			formatted, _ := yaml.Marshal(windupRule)
-			fmt.Println(string(formatted))
+			// formatted, _ := yaml.Marshal(windupRule)
+			// fmt.Println(string(formatted))
 			rule := map[string]interface{}{
 				"ruleID": windupRuleset.SourceFile + "-" + strconv.Itoa(i),
 			}
@@ -381,7 +426,7 @@ func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset) error {
 			rules = append(rules, rule)
 		}
 		ruleset = append(ruleset, rules...)
-		yamlPath := strings.Replace(strings.Replace(windupRuleset.SourceFile, "http://github.com/windup/windup-rulesets/tree/master/", "analyzer-lsp-rules/", 1), ".xml", ".yaml", 1)
+		yamlPath := strings.Replace(filepath.Join(outputDir, strings.Replace(windupRuleset.SourceFile, baseLocation, "", 1)), ".xml", ".yaml", 1)
 		if reflect.DeepEqual(ruleset, map[string]interface{}{}) {
 			continue
 		}
@@ -400,8 +445,8 @@ func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset) error {
 			continue
 		}
 		defer file.Close()
-		formatted, _ := yaml.Marshal(ruleset)
-		fmt.Println(string(formatted))
+		// formatted, _ := yaml.Marshal(ruleset)
+		// fmt.Println(string(formatted))
 
 		enc := yaml.NewEncoder(file)
 
@@ -444,7 +489,7 @@ func processXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Rul
 				fmt.Printf("Skipping %s because it is not a ruletest\n", path)
 				return nil
 			}
-			ruletest.SourceFile = strings.Replace(path, root, "http://github.com/windup/windup-ruletests/tree/master/", 1)
+			ruletest.SourceFile = path // strings.Replace(path, root, "http://github.com/windup/windup-ruletests/tree/master/", 1)
 			// TODO Do we want to make this not relative or something?
 			ruletest.TestDataPath = filepath.Join(filepath.Dir(path), ruletest.TestDataPath)
 			*ruletests = append(*ruletests, ruletest)
@@ -487,7 +532,7 @@ func processXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Rul
 				return nil
 			}
 
-			ruleset.SourceFile = strings.Replace(path, root, "http://github.com/windup/windup-rulesets/tree/master/", 1)
+			ruleset.SourceFile = path // strings.Replace(path, root, "http://github.com/windup/windup-rulesets/tree/master/", 1)
 			*rulesets = append(*rulesets, ruleset)
 
 			if writeYAML {

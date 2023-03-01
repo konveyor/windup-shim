@@ -3,7 +3,7 @@
       available by default. to avoid leaking some potentially sensitive downstream
       endpoint data such as cookies.. You can set `resteasy.original.webapplicationexception.behavior=true`
       in `application.properties`. if you need to access the exception `Response`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-rest-client-exceptions.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-rest-client-exceptions.windup.xml-0
     when:
       java.referenced:
         location: CONSTRUCTOR_CALL
@@ -13,7 +13,7 @@
       available by default. to avoid leaking some potentially sensitive downstream
       endpoint data such as cookies.. You can set `resteasy.original.webapplicationexception.behavior=true`
       in `application.properties`. if you need to access the exception `Response`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-rest-client-exceptions.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-rest-client-exceptions.windup.xml-1
     when:
       java.dependency:
         name: io.quarkus.quarkus-rest-client

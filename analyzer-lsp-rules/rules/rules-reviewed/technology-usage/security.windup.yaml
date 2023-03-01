@@ -1,40 +1,40 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-0
     tag: []
     when:
       file: '{*}spring-security{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-1
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-1
     tag: []
     when:
       file: '{*}shiro{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-2
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-2
     tag: []
     when:
       file: '{*}hdiv{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-3
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-3
     tag: []
     when:
       file: '{*}acciente-oacc{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-4
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-4
     tag: []
     when:
       file: '{*}picketlink{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-5
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-5
     tag: []
     when:
       file: '{*}picketbox{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-6
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-6
     tag: []
     when:
       file: '{*}keyczar{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-7
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-7
     tag: []
     when:
       file: '{*}xacml{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-8
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-8
     tag: []
     when:
       file: '{*}saml{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-9
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-9
     tag: []
     when:
       or:
@@ -44,67 +44,67 @@
       - file: '{*}bcmail{*}.jar'
       - file: '{*}bcpkix{*}.jar'
       - file: '{*}bctls{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-10
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-10
     tag: []
     when:
       file: '{*}jasypt{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-11
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-11
     tag: []
     when:
       file: '{*}xmlsec{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-12
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-12
     tag: []
     when:
       file: '{*}ssl{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-13
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-13
     tag: []
     when:
       file: vlad{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-14
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-14
     tag: []
     when:
       file: commons-validator{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-15
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-15
     tag: []
     when:
       file: '{*}esapi{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-16
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-16
     tag: []
     when:
       file: '{*}wss4j{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-17
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-17
     tag: []
     when:
       file: '{*}opensaml{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-18
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-18
     tag: []
     when:
       file: '{*}otr4j{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-19
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-19
     tag: []
     when:
       file: '{*}csrfguard{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-20
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-20
     tag: []
     when:
       file: '{*}oauth{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-21
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-21
     tag: []
     when:
       file: '{*}acegi-security{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-22
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-22
     tag: []
     when:
       file: '{*}jsecurity{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-23
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-23
     tag: []
     when:
       file: '{*}acris-security{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-24
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-24
     tag: []
     when:
       file: '{*}jguard{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/security.windup.xml-25
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/security.windup.xml-25
     tag: []
     when:
       or:

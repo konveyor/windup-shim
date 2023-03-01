@@ -1,4 +1,4 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-1
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-1
     tag:
     - configuration
     when:
@@ -6,7 +6,7 @@
       ignore: true
       xml:
         xpath: /glassfish-ejb-jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-2
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-2
     tag:
     - configuration
     when:

@@ -11,7 +11,7 @@
       $appName --type war --src-path app.war. # To deploy EAR files:. az webapp deploy
       --resource-group $resourceGroup --plan $appServicePlan --name $appName --type
       ear --src-path app.ear. </pre>'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-pom.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-pom.windup.xml-0
     when:
       java.dependency:
         lowerBound: 7.3.0.Final

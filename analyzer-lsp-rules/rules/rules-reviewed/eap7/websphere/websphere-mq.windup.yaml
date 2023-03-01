@@ -1,4 +1,4 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-0
     tag:
     - jms
     - websphere
@@ -10,7 +10,7 @@
       to be configured on JBoss EAP 7 using ActiveMQ Artemis.. `InitialContextFactory`
       is provided. by EAP and you only need to instantiate `InitialContext ctx = new
       InitialContext();`.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-1
     when:
       filecontent:
         filename: '{*}.{ext}'
@@ -19,7 +19,7 @@
       is used. to configure the WebSphere MQ destinations. and routing. To configure
       messaging in JBoss EAP 7 with ActiveMQ Artemis, use either the Management Console
       or Management CLI with it's. scripting feature.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-2
     when:
       filecontent:
         filename: '{*}.scp'

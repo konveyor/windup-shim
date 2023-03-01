@@ -1,4 +1,4 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-0
     tag:
     - cache
     - distributed
@@ -11,11 +11,11 @@
       Since EAP 6 is of modular nature, based on JBoss Modules.. Learn how to divide
       your application's dependencies into modules. and what dependencies and APIs
       are available automatically.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-2
     when:
       xml:
         xpath: /jbc:classloading
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-3
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-3
     tag:
     - descriptor
     - jboss-eap5
@@ -26,7 +26,7 @@
         xpath: //*[local-name()='jboss']
   - message: '`java:/jaas/` is a JBoss EAP `security-domain` URI.. Remove the `java:/jaas/`
       prefix for `security-domain` elements in EAP 7/6.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-4
     when:
       xml:
         xpath: //*[local-name()='security-domain' and starts-with(text(), 'java:/jaas/')]
@@ -34,7 +34,7 @@
       could be configured in a `login-config.xml` file.. JBoss EAP 6+ does not support
       the `login-config.xml` descriptor. Security is now configured inside the server
       configuration. Please refer to the corresponding server security guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-5
     when:
       xml:
         filepaths:

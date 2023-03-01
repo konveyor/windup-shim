@@ -1,7 +1,7 @@
 - - message: Replace the Spring Cloud Config Client artifact with Quarkus `quarkus-spring-cloud-config-client`
       extension. Add Quarkus dependency `io.quarkus:quarkus-spring-cloud-config-client`..
       A change may also be required to the code and configuration.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-cloud-config-client-to-quarkus.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-cloud-config-client-to-quarkus.windup.xml-0
     when:
       or:
       - java.dependency:

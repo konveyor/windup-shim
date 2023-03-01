@@ -1,75 +1,75 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-0
     tag: []
     when:
       file: '{*}liferay{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-1
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-1
     tag: []
     when:
       file: '{*}frm{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-2
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-2
     when:
       file: spring-boot{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-3
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-3
     tag: []
     when:
       file: '{*}elasticsearch{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-4
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-4
     tag: []
     when:
       file: '{*}logstash{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-5
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-5
     tag: []
     when:
       file: '{*}jetty{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-6
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-6
     tag: []
     when:
       file: '{*}tomcat{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-7
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-7
     tag: []
     when:
       file: '{*}kibana{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-8
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-8
     tag: []
     when:
       file: '{*}karaf{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-9
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-9
     tag: []
     when:
       file: '{*}neo4j{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-10
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-10
     tag: []
     when:
       file: '{*}spark-{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-11
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-11
     tag: []
     when:
       file: '{*}hadoop{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-12
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-12
     tag: []
     when:
       file: '{*}geronimo{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-13
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-13
     tag: []
     when:
       file: '{*}aries{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-14
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-14
     tag: []
     when:
       file: '{*}cloudera{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-15
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-15
     tag: []
     when:
       file: '{*}mapr{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-16
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-16
     tag: []
     when:
       file: '{*}tensorflow{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-17
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-17
     tag: []
     when:
       file: '{*}weka{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-18
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-18
     tag: []
     when:
       file: '{*}mahout{*}.jar'

@@ -1,47 +1,47 @@
 - - message: Check the links below for the Red Hat Runtimes supported version of AMQP
       SpringBoot starter
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-0
     when:
       java.dependency:
         name: org.amqphub.spring.amqp-10-jms-spring-boot-starter
         upperBound: 2.0.9
   - message: Check the links below for the Red Hat Runtimes supported version of CXF
       JAXRS SpringBoot starter
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-1
     when:
       java.dependency:
         name: org.apache.cxf.cxf-spring-boot-starter-jaxrs
   - message: Check the links below for the Red Hat Runtimes supported version of Resteasy
       SpringBoot starter
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-2
     when:
       java.dependency:
         name: org.jboss.resteasy.resteasy-spring-boot-starter
         upperBound: 2.9.9
   - message: Check the links below for the Red Hat Runtimes supported version of Infinispan
       SpringBoot starter
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-3
     when:
       java.dependency:
         name: org.infinispan.{infinispanArtifactName}
         upperBound: 2.1.2
   - message: Check the links below for the Red Hat Runtimes supported version of Keycloak
       SpringBoot starter
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-4
     when:
       java.dependency:
         name: org.keycloak.keycloak-spring-boot-starter
         upperBound: 4.8.2
   - message: Check the links below for the Red Hat Runtimes supported version of Narayana
       SpringBoot starter
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-5
     when:
       java.dependency:
         name: me.snowdrop.narayana-spring-boot-starter
         upperBound: 2.0.9
   - message: Check the links below for the Red Hat Runtimes supported version of OpenTracing
       Spring Jaeger SpringBoot web starter
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-6
     when:
       java.dependency:
         name: io.opentracing.contrib.opentracing-spring-jaeger-web-starter
@@ -49,7 +49,7 @@
   - message: Migrate `org.amqphub.spring:amqp-10-jms-spring-boot-starter` dependency
       to a version compatible with the supported versions of the RHOAR components
       provided in the link.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-7
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-7
     when:
       as: dependencies-block
       ignore: true
@@ -62,7 +62,7 @@
   - message: Migrate `org.apache.cxf:cxf-spring-boot-starter-jaxrs` dependency to
       a version compatible with the supported versions of the RHOAR components provided
       in the link.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-8
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-8
     when:
       as: dependencies-block
       ignore: true
@@ -75,7 +75,7 @@
   - message: Migrate `org.jboss.resteasy:resteasy-spring-boot-starter` dependency
       to a version compatible with the supported versions of the RHOAR components
       provided in the link.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-9
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-9
     when:
       as: dependencies-block
       ignore: true
@@ -87,7 +87,7 @@
   - message: Migrate `org.infinispan:infinispan-spring-boot-starter-embedded` dependency
       to a version compatible with the supported versions of the RHOAR components
       provided in the link.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-10
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-10
     when:
       as: dependencies-block
       ignore: true
@@ -100,7 +100,7 @@
   - message: Migrate `org.infinispan:infinispan-spring-boot-starter-remote` dependency
       to a version compatible with the supported versions of the RHOAR components
       provided in the link.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-11
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-11
     when:
       as: dependencies-block
       ignore: true
@@ -113,7 +113,7 @@
   - message: Migrate `org.keycloak:keycloak-spring-boot-starter` dependency to a version
       compatible with the supported versions of the RHOAR components provided in the
       link.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-12
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-12
     when:
       as: dependencies-block
       ignore: true
@@ -125,7 +125,7 @@
   - message: Migrate `me.snowdrop:narayana-spring-boot-starter` dependency to a version
       compatible with the supported versions of the RHOAR components provided in the
       link.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-13
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-13
     when:
       as: dependencies-block
       ignore: true
@@ -137,7 +137,7 @@
   - message: Migrate `io.opentracing.contrib:opentracing-spring-jaeger-web-starter`
       dependency to a version compatible with the supported versions of the RHOAR
       components provided in the link.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-14
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/rhr/springboot/springboot-associated-artifacts.rhamt.xml-14
     when:
       as: dependencies-block
       ignore: true

@@ -3,7 +3,7 @@
       dependency. Add Quarkus dependency `io.quarkus:quarkus-spring-web`. Starting
       with Quarkus version 2.5, the underlying JAX-RS engine must be chosen. For performance
       reasons,. the `quarkus-resteasy-reactive-jackson` dependency should be used.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-web-to-quarkus.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-web-to-quarkus.windup.xml-0
     when:
       or:
       - java.dependency:
@@ -15,7 +15,7 @@
   - message: Add the Quarkus `quarkus-resteasy-reactive-jackson` dependency.. Starting
       with Quarkus version 2.5, the underlying JAX-RS engine must be chosen. For performance
       reasons,. the `quarkus-resteasy-reactive-jackson` dependency should be used."
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-web-to-quarkus.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-web-to-quarkus.windup.xml-1
     when:
       or:
       - and:

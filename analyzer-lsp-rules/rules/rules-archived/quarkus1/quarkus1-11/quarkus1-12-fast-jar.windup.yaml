@@ -1,6 +1,6 @@
 - - message: Fast-jar is a new Quarkus application packaging format that is faster
       to boot, compared to our legacy jar packaging.. It was introduced several versions
       ago and it brings many improvements that made us make it the new default.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-fast-jar.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-fast-jar.windup.xml-0
     when:
       file: application.properties

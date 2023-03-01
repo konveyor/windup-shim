@@ -1,4 +1,4 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-3
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-3
     tag:
     - View
     - Web
@@ -8,7 +8,7 @@
       java.referenced:
         location: ANNOTATION
         pattern: javax.websocket.server.ServerEndpoint
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-4
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-4
     tag:
     - View
     - Rich
@@ -20,7 +20,7 @@
           location: INHERITANCE
           pattern: java.applet.Applet
       - file: '{*}applet{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-5
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-5
     tag:
     - View
     - Rich
@@ -28,7 +28,7 @@
     - JNLP
     when:
       file: '{*}.jnlp'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-6
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-6
     tag:
     - View
     - Rich
@@ -38,7 +38,7 @@
       or:
       - file: '{*}jnlp{*}.jar'
       - file: '{*}webstart{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-7
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-7
     tag:
     - View
     - Rich
@@ -46,7 +46,7 @@
     - Swing
     when:
       file: '{*}swing{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-8
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-8
     tag:
     - View
     - Rich
@@ -54,7 +54,7 @@
     - MiGLayout
     when:
       file: '{*}miglayout{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-9
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-9
     tag:
     - View
     - Rich
@@ -62,7 +62,7 @@
     - JGoodies
     when:
       file: '{*}jgoodies{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-10
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-10
     tag:
     - View
     - Rich
@@ -70,7 +70,7 @@
     - FormLayoutMaker
     when:
       file: '{*}formlayoutmakerx{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-11
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-11
     tag:
     - View
     - Rich
@@ -78,7 +78,7 @@
     - Magicgrouplayout
     when:
       file: '{*}magicgrouplayout{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-12
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-12
     tag:
     - View
     - Rich
@@ -86,7 +86,7 @@
     - Standard Widget Toolkit (SWT)
     when:
       file: '{*}swt{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-13
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-13
     tag:
     - View
     - Rich
@@ -94,7 +94,7 @@
     - JavaFX
     when:
       file: '{*}javafx{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-14
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-14
     tag:
     - View
     - Rich

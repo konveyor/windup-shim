@@ -9,7 +9,7 @@
       * The application is more scaleable and elastic.. * The application can survive
       EAP node failures because a JVM failure does not cause session data loss.. *
       Session data can be shared by multiple applications.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/session.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/session.windup.xml-0
     when:
       xml:
         xpath: /w:web-app/w:distributable
@@ -19,7 +19,7 @@
       following benefits:. * The application is more scaleable and elastic.. * The
       application can survive EAP node failures because a JVM failure does not cause
       session data loss.. * Session data can be shared by multiple applications.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/session.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/session.windup.xml-1
     when:
       or:
       - java.referenced:

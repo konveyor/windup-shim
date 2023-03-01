@@ -1,7 +1,7 @@
 - - message: The `context` attribute on `{class}` annotations has been removed since
       support for multiple CamelContexts has been removed and only one CamelContext
       per deployment is supported.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-multiple-camelcontexts-per-application-not-supported.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/java-multiple-camelcontexts-per-application-not-supported.windup.xml-0
     when:
       java.referenced:
         location: ANNOTATION
@@ -9,7 +9,7 @@
   - message: Support for multiple CamelContexts has been removed, and therefore `{CdiCamelContextName}`
       has been removed. Instead use standard CDI annotations such as `javax.inject.Named`
       and `javax.enterprise.context.ApplicationScoped`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/java-multiple-camelcontexts-per-application-not-supported.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/java-multiple-camelcontexts-per-application-not-supported.windup.xml-1
     when:
       java.referenced:
         location: IMPORT

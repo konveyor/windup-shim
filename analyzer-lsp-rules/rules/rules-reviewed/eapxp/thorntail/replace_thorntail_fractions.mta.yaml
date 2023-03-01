@@ -2,7 +2,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:bean-validation` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-0
     when:
       java.dependency:
         name: io.thorntail.bean-validation
@@ -10,7 +10,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:cdi-config` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-1
     when:
       java.dependency:
         name: io.thorntail.cdi-config
@@ -18,7 +18,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:cdi` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-2
     when:
       java.dependency:
         name: io.thorntail.cdi
@@ -26,7 +26,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:config-api-runtime` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-3
     when:
       java.dependency:
         name: io.thorntail.config-api-runtime
@@ -34,7 +34,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:datasources` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-4
     when:
       java.dependency:
         name: io.thorntail.datasources
@@ -42,7 +42,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:ee-security` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-5
     when:
       java.dependency:
         name: io.thorntail.ee-security
@@ -50,7 +50,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:ejb-mdb` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-6
     when:
       java.dependency:
         name: io.thorntail.ejb-mdb
@@ -58,7 +58,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:ejb` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-7
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-7
     when:
       java.dependency:
         name: io.thorntail.ejb
@@ -66,7 +66,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:elytron` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-8
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-8
     when:
       java.dependency:
         name: io.thorntail.elytron
@@ -74,7 +74,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:fraction-metadata` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-9
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-9
     when:
       java.dependency:
         name: io.thorntail.fraction-metadata
@@ -82,7 +82,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:hibernate-validator` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-10
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-10
     when:
       java.dependency:
         name: io.thorntail.hibernate-validator
@@ -90,7 +90,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:hibernate` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-11
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-11
     when:
       java.dependency:
         name: io.thorntail.hibernate
@@ -98,7 +98,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:hystrix` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-12
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-12
     when:
       java.dependency:
         name: io.thorntail.hystrix
@@ -106,7 +106,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:infinispan` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-13
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-13
     when:
       java.dependency:
         name: io.thorntail.infinispan
@@ -114,7 +114,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jaeger` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-14
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-14
     when:
       java.dependency:
         name: io.thorntail.jaeger
@@ -122,7 +122,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jaxrs-jaxb` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-15
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-15
     when:
       java.dependency:
         name: io.thorntail.jaxrs-jaxb
@@ -130,7 +130,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jaxrs-jsonb` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-16
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-16
     when:
       java.dependency:
         name: io.thorntail.jaxrs-jsonb
@@ -138,7 +138,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jaxrs-jsonp` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-17
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-17
     when:
       java.dependency:
         name: io.thorntail.jaxrs-jsonp
@@ -146,7 +146,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jaxrs-multipart` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-18
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-18
     when:
       java.dependency:
         name: io.thorntail.jaxrs-multipart
@@ -154,7 +154,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jaxrs-validator` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-19
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-19
     when:
       java.dependency:
         name: io.thorntail.jaxrs-validator
@@ -162,7 +162,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jaxrs` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-20
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-20
     when:
       java.dependency:
         name: io.thorntail.jaxrs
@@ -170,7 +170,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jca` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-21
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-21
     when:
       java.dependency:
         name: io.thorntail.jca
@@ -178,7 +178,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jmx` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-22
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-22
     when:
       java.dependency:
         name: io.thorntail.jmx
@@ -186,7 +186,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jpa` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-23
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-23
     when:
       java.dependency:
         name: io.thorntail.jpa
@@ -194,7 +194,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jsf` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-24
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-24
     when:
       java.dependency:
         name: io.thorntail.jsf
@@ -202,7 +202,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jsonb` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-25
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-25
     when:
       java.dependency:
         name: io.thorntail.jsonb
@@ -210,7 +210,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:jsonp` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-26
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-26
     when:
       java.dependency:
         name: io.thorntail.jsonp
@@ -218,7 +218,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:keycloak` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-27
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-27
     when:
       java.dependency:
         name: io.thorntail.keycloak
@@ -226,7 +226,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:logging` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-28
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-28
     when:
       java.dependency:
         name: io.thorntail.logging
@@ -234,7 +234,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:management` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-29
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-29
     when:
       java.dependency:
         name: io.thorntail.management
@@ -242,7 +242,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:microprofile-config` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-30
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-30
     when:
       java.dependency:
         name: io.thorntail.microprofile-config
@@ -250,7 +250,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:microprofile-fault-tolerance` with the related
       Eclipse MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-31
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-31
     when:
       java.dependency:
         name: io.thorntail.microprofile-fault-tolerance
@@ -258,7 +258,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:microprofile-health` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-32
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-32
     when:
       java.dependency:
         name: io.thorntail.microprofile-health
@@ -266,7 +266,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:microprofile-jwt` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-33
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-33
     when:
       java.dependency:
         name: io.thorntail.microprofile-jwt
@@ -274,7 +274,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:microprofile-metrics` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-34
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-34
     when:
       java.dependency:
         name: io.thorntail.microprofile-metrics
@@ -282,7 +282,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:microprofile-openapi` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-35
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-35
     when:
       java.dependency:
         name: io.thorntail.microprofile-openapi
@@ -290,7 +290,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:microprofile-opentracing` with the related
       Eclipse MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-36
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-36
     when:
       java.dependency:
         name: io.thorntail.microprofile-opentracing
@@ -298,7 +298,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:microprofile-restclient` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-37
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-37
     when:
       java.dependency:
         name: io.thorntail.microprofile-restclient
@@ -306,7 +306,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:microprofile` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-38
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-38
     when:
       java.dependency:
         name: io.thorntail.microprofile
@@ -314,7 +314,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:opentracing` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-39
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-39
     when:
       java.dependency:
         name: io.thorntail.opentracing
@@ -322,7 +322,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:remoting` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-40
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-40
     when:
       java.dependency:
         name: io.thorntail.remoting
@@ -330,7 +330,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:resource-adapters` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-41
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-41
     when:
       java.dependency:
         name: io.thorntail.resource-adapters
@@ -338,7 +338,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:spi` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-42
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-42
     when:
       java.dependency:
         name: io.thorntail.spi
@@ -346,7 +346,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:topology-openshift` with the related Eclipse
       MicroProfile and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-43
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-43
     when:
       java.dependency:
         name: io.thorntail.topology-openshift
@@ -354,7 +354,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:topology-webapp` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-44
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-44
     when:
       java.dependency:
         name: io.thorntail.topology-webapp
@@ -362,7 +362,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:transactions` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-45
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-45
     when:
       java.dependency:
         name: io.thorntail.transactions
@@ -370,7 +370,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:undertow` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-46
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-46
     when:
       java.dependency:
         name: io.thorntail.undertow
@@ -378,7 +378,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:web` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-47
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-47
     when:
       java.dependency:
         name: io.thorntail.web
@@ -386,7 +386,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:archaius` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-48
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-48
     when:
       java.dependency:
         name: io.thorntail.archaius
@@ -394,7 +394,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail Fraction `io.thorntail:monitor` with the related Eclipse MicroProfile
       and/or Jakarta EE artifacts.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-49
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_fractions.mta.xml-49
     when:
       java.dependency:
         name: io.thorntail.monitor

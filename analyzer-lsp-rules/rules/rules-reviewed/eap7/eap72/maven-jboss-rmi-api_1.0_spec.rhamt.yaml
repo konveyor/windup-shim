@@ -2,7 +2,7 @@
       to ensure its Maven building, running or testing works as expected, remove any
       dependency on unsupported artifact with groupId `org.jboss.spec.javax.rmi`,
       and artifactId `jboss-rmi-api_1.0_spec`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap72/maven-jboss-rmi-api_1.0_spec.rhamt.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-jboss-rmi-api_1.0_spec.rhamt.xml-0
     when:
       java.dependency:
         name: org.jboss.spec.javax.rmi.jboss-rmi-api_1.0_spec

@@ -4,7 +4,7 @@
       * Reuse or embed the native library or application in a cloud environment, for
       example, in a JBoss module.. * Replace, remove, or rewrite the native library
       or application using a cloud-compatible equivalent.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/jni-native-code.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/jni-native-code.windup.xml-0
     when:
       or:
       - java.referenced:

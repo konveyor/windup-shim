@@ -2,12 +2,12 @@
       extension. Spring DI is in spring-beans artifact brought transitively by any
       `org.springframework.boot:spring-boot-*` dependency. Add Quarkus dependency
       `io.quarkus:quarkus-spring-di`
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-di-to-quarkus.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-di-to-quarkus.windup.xml-0
     when:
       java.dependency:
         name: org.springframework.spring-beans
   - message: Quarkus only supports the java-based configuration of Spring beans.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-di-to-quarkus.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-di-to-quarkus.windup.xml-1
     when:
       or:
       - xml:

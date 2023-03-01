@@ -4,7 +4,7 @@
       words camel-kafka will send messages to the topic from the endpoint uri. To
       override this use the KafkaConstants.OVERRIDE_TOPIC header with the new topic.
       See more details in the camel-kafka component documentation.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/component-changes.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/component-changes.windup.xml-0
     when:
       or:
       - filecontent:

@@ -1,66 +1,66 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-0
     tag: []
     when:
       file: mycontainer-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-1
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-1
     tag: []
     when:
       file: geronimo-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-2
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-2
     tag: []
     when:
       file: ow2-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-3
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-3
     tag: []
     when:
       file: evo-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-4
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-4
     tag: []
     when:
       file: akka-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-5
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-5
     tag: []
     when:
       file: kumuluzee-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-6
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-6
     tag: []
     when:
       file: ignite-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-7
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-7
     tag: []
     when:
       file: nuxeo-runtime-jtajca{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-8
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-8
     tag: []
     when:
       file: org.everit.transaction.propagator.jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-9
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-9
     tag: []
     when:
       file: demoiselle-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-10
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-10
     tag: []
     when:
       file: meecrowave-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-11
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-11
     tag: []
     when:
       file: sirona-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-12
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-12
     tag: []
     when:
       file: lift-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-13
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-13
     tag: []
     when:
       file: wf-core-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-14
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-14
     tag: []
     when:
       or:
       - file: jta{*}.jar
       - file: javax-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-15
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-15
     tag: []
     when:
       or:
@@ -72,28 +72,28 @@
       - file: weld-jta{*}.jar
       - file: wildfly{*}jta{*}.jar
       - file: transactions{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-16
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-16
     tag: []
     when:
       or:
       - file: glassfish-jta{*}.jar
       - file: osgi-jta{*}.jar
       - file: jta-l10n{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-17
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-17
     tag: []
     when:
       or:
       - file: transactions-jta{*}.jar
       - file: ks-jta{*}.jar
       - file: evo-jta-atomikos{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-18
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-18
     tag: []
     when:
       or:
       - file: '{*}narayana{*}.jar'
       - file: '{*}arjuna{*}.jar'
       - file: tomcat-jta{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/jta.windup.xml-19
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/jta.windup.xml-19
     tag: []
     when:
       or:

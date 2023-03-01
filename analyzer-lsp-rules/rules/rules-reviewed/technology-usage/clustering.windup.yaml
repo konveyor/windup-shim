@@ -1,8 +1,8 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/clustering.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/clustering.windup.xml-0
     when:
       xml:
         xpath: /w:web-app/w:distributable
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/clustering.windup.xml-1
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/clustering.windup.xml-1
     when:
       or:
       - java.referenced:

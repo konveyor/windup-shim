@@ -8,7 +8,7 @@
       java.naming.provider.url=remote://localhost:4447. ```. while clients now accessing
       EAP 7 should use instead. ```. java.naming.factory.initial=org.jboss.naming.remote.client.InitialContextFactory.
       java.naming.provider.url=http-remoting://localhost:8080. ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-0
     when:
       filecontent:
         filename: '{*}.{extension}'
@@ -22,7 +22,7 @@
       remote.connections=default. remote.connection.default.host=localhost. remote.connection.default.port=8080.
       remote.connection.default.connect.options.org.xnio.Options.SASL_POLICY_NOANONYMOUS=false.
       ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-1
     when:
       filecontent:
         filename: jboss-ejb-client.properties
@@ -33,7 +33,7 @@
       "4447");. ```. In EAP 7, the Java client code looks like this:. ```java. Properties
       properties = new Properties();. properties.put("remote.connection.default.port",
       "8080");. ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-2
     when:
       filecontent:
         filename: '{*}.java'
@@ -43,7 +43,7 @@
       so when the program was originally compiled,. the reference to `FACELET_CONTEXT_KEY`
       was replaced by its value during compilation.. The application must be recompiled
       so that the reference to `FACELET_CONTEXT_KEY` is replaced by its new value.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-3
     when:
       or:
       - filecontent:
@@ -56,7 +56,7 @@
       Common Name (CN) given in its certificate by setting the system property `org.jboss.security.ignoreHttpsHost`
       to `true`. This system property name has been replaced with `cxf.tls-client.disableCNCheck`
       in EAP 7.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-4
     when:
       filecontent:
         filename: '{*}.{extension}'

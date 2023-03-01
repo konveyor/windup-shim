@@ -2,7 +2,7 @@
       multiple classes that are provided on classpath by a different server may not
       be present anymore.. Please review the class-loading mechanisms and ensure that
       the dynamically loaded class is available in JBoss EAP.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-0
     when:
       java.referenced:
         location: METHOD_CALL
@@ -12,7 +12,7 @@
       not need to change for JBoss EAP.. *For Example:*. ```java. (ConnectionFactory)initialContext.lookup("weblogic.jms.ConnectionFactory");.
       ```. *should become:*. ```java. (ConnectionFactory)initialContext.lookup("/ConnectionFactory");.
       ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-1
     when:
       as: default
       ignore: true
@@ -25,14 +25,14 @@
       provided, they do not need to be changed for the JBoss EAP.. ```java. InitialContext
       context = new InitialContext();. Service service = (Service) context.lookup(
       "java:app/service/" + ServiceImpl.class.getSimpleName() );. ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-2
     when:
       as: default
       ignore: true
       java.referenced:
         location: CONSTRUCTOR_CALL
         pattern: javax.naming.InitialContext(java.util.Hashtable*
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-3
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-3
     tag:
     - webservice
     when:
@@ -42,7 +42,7 @@
   - message: After migration, some of the JMX beans provided by the previous server
       may not be present anymore.. Ensure that the `javax.management.{suffix}` does
       not need to change for JBoss EAP.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-4
     when:
       as: default
       ignore: true
@@ -52,7 +52,7 @@
   - message: After migration, some of the JMX beans provided by the previous server
       may not be present anymore.. Ensure that the `javax.management.{suffix}` does
       not need to change for JBoss EAP.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-5
     when:
       as: default
       ignore: true
@@ -63,7 +63,7 @@
       than the one provided by previous server.. As an example, `javax.management.remote.JMXConnectorFactory.PROTOCOL_PROVIDER_PACKAGES`
       will change.. Ensure that any of the parameters does not need to change for
       JBoss EAP.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/environment-dependent.windup.xml-6
     when:
       as: default
       ignore: true

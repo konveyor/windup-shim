@@ -5,7 +5,7 @@
       not maintained anymore.. If you want to stick with JOTM, you can add "sun/rmi/server"
       as system export in your applications deployment-structure.xml as described
       in [this knowledge base article](https://access.redhat.com/solutions/1217863).'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jotm/jotm.rhamt.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jotm/jotm.rhamt.xml-0
     when:
       java.referenced:
         location: IMPORT

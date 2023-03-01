@@ -1,14 +1,14 @@
 - - message: Replace the `org.apache.activemq:artemis-jms-client` dependency with
       the Quarkus dependency `io.quarkus:quarkus-artemis-jms`. Further information
       in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/artemis/artemis-to-quarkus.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/artemis/artemis-to-quarkus.windup.xml-0
     when:
       java.dependency:
         name: org.apache.activemq.artemis-jms-client
   - message: Replace the `org.apache.activemq:artemis-jms-client` dependency with
       the Quarkus dependency `io.quarkus:quarkus-artemis-jms`. Further information
       in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/artemis/artemis-to-quarkus.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/artemis/artemis-to-quarkus.windup.xml-1
     when:
       java.dependency:
         name: org.apache.activemq.artemis-jms-client

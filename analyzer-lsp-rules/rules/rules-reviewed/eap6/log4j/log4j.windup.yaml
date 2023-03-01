@@ -1,8 +1,8 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/log4j/log4j.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/log4j/log4j.windup.xml-0
     when:
       java.dependency:
         name: log4j.log4j
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/log4j/log4j.windup.xml-1
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/log4j/log4j.windup.xml-1
     tag: []
     when:
       filecontent:
@@ -10,7 +10,7 @@
         pattern: '{*}'
   - message: Using ConsoleAppender configured in log4j.{suffix} can cause a deadlock
       on JBoss EAP 6.. It is recommended to Remove application level log4j ConsoleAppenders.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/log4j/log4j.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/log4j/log4j.windup.xml-2
     when:
       filecontent:
         filename: log4j.{suffix}

@@ -5,7 +5,7 @@
       commands for adding and registering the data source module must be scripted
       and applied as the container starts.. For more information, see Datasource Management
       in the JBoss EAP documentation.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-datasource-driver.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-datasource-driver.windup.xml-0
     when:
       or:
       - xml:

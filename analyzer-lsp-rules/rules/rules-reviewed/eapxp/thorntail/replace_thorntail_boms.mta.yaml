@@ -2,7 +2,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail BOM `io.thorntail:bom` with JBoss EAP XP MicroProfile BOM and/or JBoss
       EAP Jakarta EE BOM.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_boms.mta.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_boms.mta.xml-0
     when:
       xml:
         filepaths:
@@ -13,7 +13,7 @@
       to ensure its Maven building, running or testing works as expected, replace
       Thorntail BOM `io.thorntail:bom-certified` with JBoss EAP XP MicroProfile BOM
       and/or JBoss EAP Jakarta EE BOM.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_boms.mta.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_boms.mta.xml-1
     when:
       xml:
         filepaths:

@@ -1,49 +1,49 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-0
     when:
       java.referenced:
         pattern: (edu|EDU).oswego.cs.dl.util.concurrent.*
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-1
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-1
     when:
       java.referenced:
         pattern: edu.emory.mathcs.backport.java.util.*
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-2
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-2
     when:
       java.referenced:
         pattern: org.mule.(.*)?.[^.]+
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-3
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-3
     when:
       java.referenced:
         pattern: mx4j.(.*)?.[^.]+
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-4
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-4
     when:
       java.referenced:
         pattern: org.osoa.sca.annotations.[^.]+
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-5
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-5
     when:
       java.referenced:
         location: IMPORT
         pattern: amx_.*
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-6
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-6
     when:
       java.referenced:
         pattern: com.tibco.(.*)?.[^.]+
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-7
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-7
     when:
       java.referenced:
         pattern: com.crystaldecisions.(.*)?.[^.]+
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-8
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-8
     when:
       java.referenced:
         pattern: com.iona.(.*)?.[^.]+
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-9
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-9
     when:
       java.referenced:
         pattern: org.apache.(activeio|activemq).*
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-10
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-10
     when:
       java.referenced:
         pattern: org.(jboss|jbpm).([a-z]+\.)*[^.()]+
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-11
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/uncategorized/generic-catchall.windup.xml-11
     when:
       java.referenced:
         pattern: java.sql.DriverManager

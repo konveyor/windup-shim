@@ -1,6 +1,6 @@
 - - message: '`QueueConnectionFactory` was used to obtain connection to JMS queues..
       Replace the lookup string `QueueConnectionFactory` with `ConnectionFactory`.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-0
     when:
       or:
       - java.referenced:
@@ -12,7 +12,7 @@
   - message: The purpose of `@Service` annotation was to achieve @Singleton like behavior..
       It was deprecated with the release of JBoss AS 6 and removed from JBoss EAP
       6.. Use the Java EE 6 `javax.ejb.Singleton` annotation instead.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-1
     when:
       java.referenced:
         location: ANNOTATION
@@ -25,7 +25,7 @@
       which implements your service interface. Use `@PostConstruct` to have your Singleton
       register itself in the JMX MBean Server and then use `@PreDestroy` to unregister
       your MBean from the JMX Server.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-2
     when:
       or:
       - java.referenced:
@@ -37,7 +37,7 @@
   - message: The `@LocalBinding` annotation is one of JBoss EJB 3.0 extensions. which
       specifies the local jndi binding for an EJB local interface.. Use `@EJB(lookup="your_jndi")`
       instead.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-3
     when:
       or:
       - java.referenced:
@@ -49,80 +49,80 @@
   - message: The `@Depends` annotation is one of JBoss EJB 3.0 extensions. which specifies
       a deployment dependency for a bean.. Validate that a JBoss EAP 6 Dependency
       exists.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-4
     when:
       java.referenced:
         location: ANNOTATION
         pattern: org.jboss.annotation.ejb.Depends
   - message: This package has been relocated to `org.jboss.ws.api.annotation` as specified
       in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-5
     when:
       java.referenced:
         pattern: org.jboss.wsf.spi.annotation.*
   - message: This package has been relocated to `org.jboss.ws.api.binding` as specified
       in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-6
     when:
       java.referenced:
         pattern: org.jboss.wsf.spi.binding.*
   - message: This package has been relocated to `org.jboss.ws.api.monitoring` as specified
       in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-7
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-7
     when:
       java.referenced:
         pattern: org.jboss.wsf.spi.management.recording.*
   - message: This package has been relocated to `org.jboss.ws.tools.ant` as specified
       in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-8
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-8
     when:
       java.referenced:
         pattern: org.jboss.wsf.spi.tools.ant.*
   - message: This package has been relocated to `org.jboss.ws.tools.cmd` as specified
       in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-9
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-9
     when:
       java.referenced:
         pattern: org.jboss.wsf.spi.tools.cmd.*
   - message: This package has been relocated to `org.jboss.ws.api.tools` as specified
       in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-10
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-10
     when:
       java.referenced:
         pattern: org.jboss.wsf.spi.tools.*
   - message: This class has been relocated to `org.jboss.ws.api.util.ServiceLoader`
       as specified in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-11
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-11
     when:
       java.referenced:
         pattern: org.jboss.wsf.spi.util.ServiceLoader
   - message: This package has been relocated to `org.jboss.ws.api.handler` as specified
       in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-12
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-12
     when:
       java.referenced:
         pattern: org.jboss.wsf.common.handler.*
   - message: This package has been relocated to `org.jboss.ws.api.addressing` as specified
       in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-13
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-13
     when:
       java.referenced:
         pattern: org.jboss.wsf.common.addressing.*
   - message: This class has been relocated to `org.jboss.ws.api.util.DOMUtils` as
       specified in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-14
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-14
     when:
       java.referenced:
         pattern: org.jboss.wsf.common.DOMUtils
   - message: This package has been relocated to `org.jboss.ws.common` as specified
       in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-15
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-15
     when:
       java.referenced:
         pattern: org.jboss.wsf.common.*
   - message: This class has been relocated to `org.jboss.ws.api.annotation.EndpointConfig`
       as specified in the. migration guide.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-16
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-java.windup.xml-16
     when:
       java.referenced:
         pattern: org.jboss.ws.annotation.EndpointConfig

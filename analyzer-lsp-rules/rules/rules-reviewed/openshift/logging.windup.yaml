@@ -1,4 +1,4 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/logging.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/logging.windup.xml-0
     when:
       or:
       - filecontent:
@@ -21,7 +21,7 @@
       it requires fixed communication with a target host.. Recommendations. * Use
       a centralized log management system.. * Log to standard output and allow the
       cloud platform to manage the logging.. * Use shared storage for log files.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/logging.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/logging.windup.xml-1
     when:
       java.referenced:
         pattern: java.util.logging.SocketHandler*
