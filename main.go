@@ -10,6 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
+	"runtime"
 	"strconv"
 	"strings"
 
@@ -39,11 +40,11 @@ func main() {
 			for _, location := range convertCmd.Args() {
 				rulesets := []windup.Ruleset{}
 				ruletests := []windup.Ruletest{}
-				err := filepath.WalkDir(location, processXML(location, &rulesets, &ruletests, false))
+				err := filepath.WalkDir(location, walkXML(location, &rulesets, &ruletests, false))
 				if err != nil {
 					fmt.Println(err)
 				}
-				err = convertWindupRulesetsToAnalyzer(rulesets, location, outputDir)
+				_, err = convertWindupRulesetsToAnalyzer(rulesets, location, outputDir)
 				if err != nil {
 					log.Fatal(err)
 				}
@@ -52,7 +53,28 @@ func main() {
 		}
 	case "test":
 		if err := testCmd.Parse(os.Args[2:]); err == nil {
-			fmt.Println("test")
+			if testCmd.NArg() < 1 {
+				fmt.Println("The location of one or more windup XML files is required")
+			}
+			for _, location := range testCmd.Args() {
+				rulesets := []windup.Ruleset{}
+				ruletests := []windup.Ruletest{}
+				err := filepath.WalkDir(location, walkXML(location, &rulesets, &ruletests, false))
+				if err != nil {
+					fmt.Println(err)
+				}
+				for _, test := range ruletests {
+					err := executeTest(test, location)
+					if err != nil {
+						log.Fatal(err)
+					}
+				}
+			}
+
+			// _, err = convertWindupRulesetsToAnalyzer(rulesets, location, outputDir)
+			// if err != nil {
+			// 	log.Fatal(err)
+			// }
 		}
 	case "run":
 		if err := runCmd.Parse(os.Args[2:]); err == nil {
@@ -61,21 +83,100 @@ func main() {
 	default:
 		fmt.Println(help)
 	}
+}
 
-	// if len(os.Args) != 2 {
-	// 	log.Fatal("The location of your windup directory must be passed")
-	// }
-	// windupLocation := os.Args[1]
-	// rulesets := []windup.Ruleset{}
-	// ruletests := []windup.Ruletest{}
-	// err := filepath.WalkDir(windupLocation+"/rules/", processXML(windupLocation, &rulesets, &ruletests, false))
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
-	// err = convertWindupRulesetsToAnalyzer(rulesets)
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
+func executeTest(test windup.Ruletest, location string) error {
+	for _, path := range test.RulePath {
+		ruleset := processWindupRuleset(path)
+		fmt.Println(ruleset)
+
+	}
+	// converted := convertWindupRulesetsToAnalyzer()
+	runtime.Breakpoint()
+	return nil
+}
+
+func executeRuleset(ruleset windup.Ruleset) error {
+	return nil
+}
+
+func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interface{} {
+	rules := []map[string]interface{}{}
+	for i, windupRule := range ruleset.Rules.Rule {
+		// formatted, _ := yaml.Marshal(windupRule)
+		// fmt.Println(string(formatted))
+		rule := map[string]interface{}{
+			"ruleID": ruleset.SourceFile + "-" + strconv.Itoa(i),
+		}
+		where := flattenWhere(windupRule.Where)
+		if !reflect.DeepEqual(windupRule.When, windup.When{}) {
+			when := convertWindupWhenToAnalyzer(windupRule.When, where)
+			if len(when) == 1 {
+				rule["when"] = when[0]
+			} else if len(when) > 1 {
+				rule["when"] = map[string]interface{}{"or": when}
+			} else {
+				continue
+			}
+		} else {
+			continue
+		}
+
+		// TODO Rule.Perform
+		if !reflect.DeepEqual(windupRule.Perform, windup.Iteration{}) {
+			perform := convertWindupPerformToAnalyzer(windupRule.Perform, where)
+			for k, v := range perform {
+				rule[k] = v
+			}
+		}
+
+		// TODO - Iteration
+		// TODO Rule.Otherwise
+		rules = append(rules, rule)
+	}
+	return rules
+}
+
+func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string) (map[string][][]map[string]interface{}, error) {
+	outputRulesets := map[string][][]map[string]interface{}{}
+	for _, windupRuleset := range windups {
+		ruleset := convertWindupRulesetToAnalyzer(windupRuleset)
+		// TODO Ruleset.Metadata
+		// TODO Ruleset.PackageMapping
+		// TODO Ruleset.Filemapping
+		// TODO Ruleset.Javaclassignore
+		// ruleset = append(ruleset, rules...)
+		yamlPath := strings.Replace(filepath.Join(outputDir, strings.Replace(windupRuleset.SourceFile, baseLocation, "", 1)), ".xml", ".yaml", 1)
+		if reflect.DeepEqual(ruleset, map[string]interface{}{}) {
+			continue
+		}
+		outputRulesets[yamlPath] = append(outputRulesets[yamlPath], ruleset)
+	}
+	for path, ruleset := range outputRulesets {
+		dirName := filepath.Dir(path)
+		err := os.MkdirAll(dirName, 0777)
+		if err != nil {
+			fmt.Printf("Skipping because of an error creating %s: %s\n", path, err.Error())
+			continue
+		}
+		file, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
+		if err != nil {
+			fmt.Printf("Skipping because of an error opening %s: %s\n", path, err.Error())
+			continue
+		}
+		defer file.Close()
+		// formatted, _ := yaml.Marshal(ruleset)
+		// fmt.Println(string(formatted))
+
+		enc := yaml.NewEncoder(file)
+
+		err = enc.Encode(ruleset)
+		if err != nil {
+			fmt.Printf("Skipping %s because of an error writing the yaml: %s\n", path, err.Error())
+			continue
+		}
+	}
+	return outputRulesets, nil
 }
 
 func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[string]interface{} {
@@ -384,182 +485,86 @@ func flattenWhere(wheres []windup.Where) map[string]string {
 	return patterns
 }
 
-func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string) error {
-	outputRulesets := map[string][][]map[string]interface{}{}
-	for _, windupRuleset := range windups {
-		// TODO Ruleset.Metadata
-		// TODO Ruleset.PackageMapping
-		// TODO Ruleset.Filemapping
-		// TODO Ruleset.Javaclassignore
-		ruleset := []map[string]interface{}{}
-		rules := []map[string]interface{}{}
-		for i, windupRule := range windupRuleset.Rules.Rule {
-			// formatted, _ := yaml.Marshal(windupRule)
-			// fmt.Println(string(formatted))
-			rule := map[string]interface{}{
-				"ruleID": windupRuleset.SourceFile + "-" + strconv.Itoa(i),
-			}
-			where := flattenWhere(windupRule.Where)
-			if !reflect.DeepEqual(windupRule.When, windup.When{}) {
-				when := convertWindupWhenToAnalyzer(windupRule.When, where)
-				if len(when) == 1 {
-					rule["when"] = when[0]
-				} else if len(when) > 1 {
-					rule["when"] = map[string]interface{}{"or": when}
-				} else {
-					continue
-				}
-			} else {
-				continue
-			}
-
-			// TODO Rule.Perform
-			if !reflect.DeepEqual(windupRule.Perform, windup.Iteration{}) {
-				perform := convertWindupPerformToAnalyzer(windupRule.Perform, where)
-				for k, v := range perform {
-					rule[k] = v
-				}
-			}
-
-			// TODO - Iteration
-			// TODO Rule.Otherwise
-			rules = append(rules, rule)
-		}
-		ruleset = append(ruleset, rules...)
-		yamlPath := strings.Replace(filepath.Join(outputDir, strings.Replace(windupRuleset.SourceFile, baseLocation, "", 1)), ".xml", ".yaml", 1)
-		if reflect.DeepEqual(ruleset, map[string]interface{}{}) {
-			continue
-		}
-		outputRulesets[yamlPath] = append(outputRulesets[yamlPath], ruleset)
+func processWindupRuleset(path string) *windup.Ruleset {
+	xmlFile, err := os.Open(path)
+	if err != nil {
+		fmt.Printf("Skipping %s because of an error opening the file: %s\n", path, err.Error())
+		return nil
 	}
-	for path, ruleset := range outputRulesets {
-		dirName := filepath.Dir(path)
-		err := os.MkdirAll(dirName, 0777)
-		if err != nil {
-			fmt.Printf("Skipping because of an error creating %s: %s\n", path, err.Error())
-			continue
-		}
-		file, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
-		if err != nil {
-			fmt.Printf("Skipping because of an error opening %s: %s\n", path, err.Error())
-			continue
-		}
-		defer file.Close()
-		// formatted, _ := yaml.Marshal(ruleset)
-		// fmt.Println(string(formatted))
-
-		enc := yaml.NewEncoder(file)
-
-		err = enc.Encode(ruleset)
-		if err != nil {
-			fmt.Printf("Skipping %s because of an error writing the yaml: %s\n", path, err.Error())
-			continue
-		}
+	defer xmlFile.Close()
+	content, err := ioutil.ReadAll(xmlFile)
+	if err != nil {
+		fmt.Printf("Skipping %s because of an error reading the file: %s\n", path, err.Error())
+		return nil
 	}
-	return nil
+	var ruleset windup.Ruleset
+
+	err = xml.Unmarshal(content, &ruleset)
+	if err != nil {
+		fmt.Printf("Skipping %s because of an error unmarhsaling the file: %s\n", path, err.Error())
+		return nil
+	}
+	if reflect.ValueOf(ruleset).IsZero() {
+		// TODO parse tests as well
+		fmt.Printf("Skipping %s because it is not a ruleset\n", path)
+		return nil
+	}
+
+	ruleset.SourceFile = path
+	return &ruleset
 }
 
-func processXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Ruletest, writeYAML bool) fs.WalkDirFunc {
+func processWindupRuletest(path string) *windup.Ruletest {
+	xmlFile, err := os.Open(path)
+	if err != nil {
+		fmt.Printf("Skipping %s because of an error opening the file: %s\n", path, err.Error())
+		return nil
+	}
+	defer xmlFile.Close()
+	content, err := ioutil.ReadAll(xmlFile)
+	if err != nil {
+		fmt.Printf("Skipping %s because of an error reading the file: %s\n", path, err.Error())
+		return nil
+	}
+	var ruletest windup.Ruletest
+	err = xml.Unmarshal(content, &ruletest)
+	if err != nil {
+		fmt.Printf("Skipping %s because of an error unmarhsaling the file: %s\n", path, err.Error())
+		return nil
+	}
+	if reflect.ValueOf(ruletest).IsZero() {
+		// TODO parse tests as well
+		fmt.Printf("Skipping %s because it is not a ruletest\n", path)
+		return nil
+	}
+	ruletest.SourceFile = path
+	// TODO Do we want to make this not relative or something?
+	ruletest.TestDataPath = filepath.Join(filepath.Dir(path), ruletest.TestDataPath)
+	rulepaths := []string{}
+	for _, rulepath := range ruletest.RulePath {
+		rulepaths = append(rulepaths, filepath.Join(filepath.Dir(path), rulepath))
+	}
+	ruletest.RulePath = rulepaths
+	return &ruletest
+}
+
+func walkXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Ruletest, writeYAML bool) fs.WalkDirFunc {
 	return func(path string, d fs.DirEntry, err error) error {
 		if !strings.HasSuffix(path, ".xml") {
 			fmt.Printf("Skipping %s because it is not a ruleset\n", path)
 			return nil
 		}
-		xmlFile, err := os.Open(path)
-		if err != nil {
-			fmt.Printf("Skipping %s because of an error opening the file: %s\n", path, err.Error())
-			return nil
-		}
-		defer xmlFile.Close()
-		byteValue, err := ioutil.ReadAll(xmlFile)
-		if err != nil {
-			fmt.Printf("Skipping %s because of an error reading the file: %s\n", path, err.Error())
-			return nil
-		}
-
 		if strings.HasSuffix(path, ".test.xml") {
-			var ruletest windup.Ruletest
-			err = xml.Unmarshal(byteValue, &ruletest)
-			if err != nil {
-				fmt.Printf("Skipping %s because of an error unmarhsaling the file: %s\n", path, err.Error())
-				return nil
-			}
-			if reflect.ValueOf(ruletest).IsZero() {
-				// TODO parse tests as well
-				fmt.Printf("Skipping %s because it is not a ruletest\n", path)
-				return nil
-			}
-			ruletest.SourceFile = path // strings.Replace(path, root, "http://github.com/windup/windup-ruletests/tree/master/", 1)
-			// TODO Do we want to make this not relative or something?
-			ruletest.TestDataPath = filepath.Join(filepath.Dir(path), ruletest.TestDataPath)
-			*ruletests = append(*ruletests, ruletest)
-
-			if writeYAML {
-				yamlPath := strings.Replace(strings.Replace(path, root, "converted/", 1), ".xml", ".yaml", 1)
-				dirName := filepath.Dir(yamlPath)
-				err = os.MkdirAll(dirName, 0777)
-				if err != nil {
-					fmt.Printf("Skipping %s because of an error creating %s: %s\n", path, yamlPath, err.Error())
-					return nil
-				}
-				file, err := os.OpenFile(yamlPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
-				if err != nil {
-					fmt.Printf("Skipping %s because of an error opening %s: %s\n", path, yamlPath, err.Error())
-					return nil
-				}
-				defer file.Close()
-
-				enc := yaml.NewEncoder(file)
-
-				err = enc.Encode(ruletest)
-				if err != nil {
-					fmt.Printf("Skipping %s because of an error writing the yaml: %s\n", path, err.Error())
-					return nil
-				}
-				return nil
+			ruletest := processWindupRuletest(path)
+			if ruletest != nil {
+				*ruletests = append(*ruletests, *ruletest)
 			}
 		} else {
-			var ruleset windup.Ruleset
-
-			err = xml.Unmarshal(byteValue, &ruleset)
-			if err != nil {
-				fmt.Printf("Skipping %s because of an error unmarhsaling the file: %s\n", path, err.Error())
-				return nil
-			}
-			if reflect.ValueOf(ruleset).IsZero() {
-				// TODO parse tests as well
-				fmt.Printf("Skipping %s because it is not a ruleset\n", path)
-				return nil
-			}
-
-			ruleset.SourceFile = path // strings.Replace(path, root, "http://github.com/windup/windup-rulesets/tree/master/", 1)
-			*rulesets = append(*rulesets, ruleset)
-
-			if writeYAML {
-				yamlPath := strings.Replace(strings.Replace(path, root, "converted/", 1), ".xml", ".yaml", 1)
-				dirName := filepath.Dir(yamlPath)
-				err = os.MkdirAll(dirName, 0777)
-				if err != nil {
-					fmt.Printf("Skipping %s because of an error creating %s: %s\n", path, yamlPath, err.Error())
-					return nil
-				}
-				file, err := os.OpenFile(yamlPath, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
-				if err != nil {
-					fmt.Printf("Skipping %s because of an error opening %s: %s\n", path, yamlPath, err.Error())
-					return nil
-				}
-				defer file.Close()
-
-				enc := yaml.NewEncoder(file)
-
-				err = enc.Encode(ruleset)
-				if err != nil {
-					fmt.Printf("Skipping %s because of an error writing the yaml: %s\n", path, err.Error())
-					return nil
-				}
-				return nil
+			ruleset := processWindupRuleset(path)
+			if ruleset != nil {
+				*rulesets = append(*rulesets, *ruleset)
 			}
 		}
-		return nil
+		return err
 	}
 }
