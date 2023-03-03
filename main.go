@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"encoding/xml"
 	"flag"
 	"fmt"
@@ -99,26 +100,95 @@ func main() {
 }
 
 func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) {
+	datadir, err := filepath.Abs(datadir)
+	if err != nil {
+		return "", err
+	}
+	converted := [][]map[string]interface{}{}
+	for _, ruleset := range rulesets {
+		converted = append(converted, convertWindupRulesetToAnalyzer(ruleset))
+	}
+	dir, err := os.MkdirTemp("", "analyzer-lsp")
+	if err != nil {
+		return "", err
+	}
+	os.Mkdir(filepath.Join(dir, "rules"), os.ModePerm)
+	fmt.Println(dir)
+	// write ruleset to disk
+	for i, ruleset := range converted {
+		path := filepath.Join(dir, "rules", strconv.Itoa(i)+".yaml")
+		err = writeYAML(ruleset, path)
+		if err != nil {
+			return "", err
+		}
+	}
+	// Template config file for analyzer
+	providerConfig := map[string]interface{}{
+		"name":           "java",
+		"location":       datadir,
+		"binaryLocation": "/jdtls/bin/jdtls",
+		"providerSpecificConfig": map[string]string{
+			"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+		},
+	}
+	err = writeJSON(providerConfig, filepath.Join(dir, "provider_config.json"))
+	if err != nil {
+		return "", err
+	}
+	// TODO now that directory is setup, need to execute
+	//	analyzer-lsp -provider-settings $dir/provider_config.json -rules $dir/rules
+	// and capture the output
 	return "", nil
-
 }
 
-func executeTest(test windup.Ruletest, location string) error {
-	for _, path := range test.RulePath {
-		ruleset := processWindupRuleset(path)
-		if ruleset != nil {
-			converted := convertWindupRulesetToAnalyzer(*ruleset)
-			fmt.Println(converted)
-		}
+func writeYAML(content interface{}, dest string) error {
+	file, err := os.OpenFile(dest, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+	enc := yaml.NewEncoder(file)
+
+	err = enc.Encode(content)
+	if err != nil {
+		return err
 	}
 	return nil
 }
 
-func executeRuleset(ruleset windup.Ruleset) error {
+func writeJSON(content interface{}, dest string) error {
+	file, err := os.OpenFile(dest, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+	enc := json.NewEncoder(file)
+
+	err = enc.Encode(content)
+	if err != nil {
+		return err
+	}
 	return nil
 }
 
+func executeTest(test windup.Ruletest, location string) error {
+	rulesets := []windup.Ruleset{}
+	for _, path := range test.RulePath {
+		ruleset := processWindupRuleset(path)
+		if ruleset != nil {
+			rulesets = append(rulesets, *ruleset)
+		}
+	}
+	output, err := executeRulesets(rulesets, test.TestDataPath)
+	fmt.Println(output)
+	return err
+}
+
 func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interface{} {
+	// TODO Ruleset.Metadata
+	// TODO Ruleset.PackageMapping
+	// TODO Ruleset.Filemapping
+	// TODO Ruleset.Javaclassignore
 	rules := []map[string]interface{}{}
 	for i, windupRule := range ruleset.Rules.Rule {
 		// formatted, _ := yaml.Marshal(windupRule)
@@ -147,7 +217,6 @@ func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 				rule[k] = v
 			}
 		}
-
 		// TODO - Iteration
 		// TODO Rule.Otherwise
 		rules = append(rules, rule)
@@ -159,11 +228,6 @@ func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 	outputRulesets := map[string][][]map[string]interface{}{}
 	for _, windupRuleset := range windups {
 		ruleset := convertWindupRulesetToAnalyzer(windupRuleset)
-		// TODO Ruleset.Metadata
-		// TODO Ruleset.PackageMapping
-		// TODO Ruleset.Filemapping
-		// TODO Ruleset.Javaclassignore
-		// ruleset = append(ruleset, rules...)
 		yamlPath := strings.Replace(filepath.Join(outputDir, strings.Replace(windupRuleset.SourceFile, baseLocation, "", 1)), ".xml", ".yaml", 1)
 		if reflect.DeepEqual(ruleset, map[string]interface{}{}) {
 			continue
@@ -177,20 +241,9 @@ func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 			fmt.Printf("Skipping because of an error creating %s: %s\n", path, err.Error())
 			continue
 		}
-		file, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0666)
+		err = writeYAML(ruleset, path)
 		if err != nil {
-			fmt.Printf("Skipping because of an error opening %s: %s\n", path, err.Error())
-			continue
-		}
-		defer file.Close()
-		// formatted, _ := yaml.Marshal(ruleset)
-		// fmt.Println(string(formatted))
-
-		enc := yaml.NewEncoder(file)
-
-		err = enc.Encode(ruleset)
-		if err != nil {
-			fmt.Printf("Skipping %s because of an error writing the yaml: %s\n", path, err.Error())
+			fmt.Printf("Skipping because of an error writing to %s: %s\n", path, err.Error())
 			continue
 		}
 	}
