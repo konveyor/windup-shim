@@ -10,7 +10,6 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	"runtime"
 	"strconv"
 	"strings"
 
@@ -19,11 +18,12 @@ import (
 )
 
 func main() {
-	var outputDir string
+	var outputDir, data string
 	convertCmd := flag.NewFlagSet("convert", flag.ExitOnError)
 	convertCmd.StringVar(&outputDir, "outputdir", "analyzer-lsp-rules", "The output location for converted rules")
 	testCmd := flag.NewFlagSet("test", flag.ExitOnError)
 	runCmd := flag.NewFlagSet("run", flag.ExitOnError)
+	convertCmd.StringVar(&data, "data", "", "The location of the source code to run the rules against")
 
 	help := "Supported subcommands are convert, run, and test"
 	if len(os.Args) < 2 {
@@ -36,6 +36,7 @@ func main() {
 		if err := convertCmd.Parse(os.Args[2:]); err == nil {
 			if convertCmd.NArg() < 1 {
 				fmt.Println("The location of one or more windup XML files is required")
+				return
 			}
 			for _, location := range convertCmd.Args() {
 				rulesets := []windup.Ruleset{}
@@ -55,6 +56,7 @@ func main() {
 		if err := testCmd.Parse(os.Args[2:]); err == nil {
 			if testCmd.NArg() < 1 {
 				fmt.Println("The location of one or more windup XML files is required")
+				return
 			}
 			for _, location := range testCmd.Args() {
 				rulesets := []windup.Ruleset{}
@@ -70,29 +72,45 @@ func main() {
 					}
 				}
 			}
-
-			// _, err = convertWindupRulesetsToAnalyzer(rulesets, location, outputDir)
-			// if err != nil {
-			// 	log.Fatal(err)
-			// }
 		}
 	case "run":
 		if err := runCmd.Parse(os.Args[2:]); err == nil {
-			fmt.Println("run")
+			if runCmd.NArg() < 1 {
+				fmt.Println("The location of one or more windup XML files is required")
+				return
+			}
+			if data == "" {
+				fmt.Println("The location of a data directory is required (-data option)")
+				return
+			}
+			rulesets := []windup.Ruleset{}
+			for _, location := range runCmd.Args() {
+				err := filepath.WalkDir(location, walkXML(location, &rulesets, nil, false))
+				if err != nil {
+					fmt.Println(err)
+				}
+			}
+			output, err := executeRulesets(rulesets, data)
+			fmt.Println(output, err)
 		}
 	default:
 		fmt.Println(help)
 	}
 }
 
+func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) {
+	return "", nil
+
+}
+
 func executeTest(test windup.Ruletest, location string) error {
 	for _, path := range test.RulePath {
 		ruleset := processWindupRuleset(path)
-		fmt.Println(ruleset)
-
+		if ruleset != nil {
+			converted := convertWindupRulesetToAnalyzer(*ruleset)
+			fmt.Println(converted)
+		}
 	}
-	// converted := convertWindupRulesetsToAnalyzer()
-	runtime.Breakpoint()
 	return nil
 }
 
@@ -554,12 +572,12 @@ func walkXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Rulete
 			fmt.Printf("Skipping %s because it is not a ruleset\n", path)
 			return nil
 		}
-		if strings.HasSuffix(path, ".test.xml") {
+		if strings.HasSuffix(path, ".test.xml") && ruletests != nil {
 			ruletest := processWindupRuletest(path)
 			if ruletest != nil {
 				*ruletests = append(*ruletests, *ruletest)
 			}
-		} else {
+		} else if rulesets != nil {
 			ruleset := processWindupRuleset(path)
 			if ruleset != nil {
 				*rulesets = append(*rulesets, *ruleset)
