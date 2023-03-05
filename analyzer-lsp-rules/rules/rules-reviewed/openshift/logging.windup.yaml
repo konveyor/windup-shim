@@ -2,8 +2,7 @@
     when:
       or:
       - builtin.filecontent:
-          filename: log4j.{extension}
-          pattern: '{appenderpattern}'
+          pattern: ((Daily)?Rolling)?FileAppender
       - java.referenced:
           location: IMPORT
           pattern: org.apache.*log4j.*FileAppender*

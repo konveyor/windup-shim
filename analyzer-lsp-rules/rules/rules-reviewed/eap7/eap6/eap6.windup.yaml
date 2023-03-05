@@ -11,8 +11,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-0
     when:
       builtin.filecontent:
-        filename: '{*}.{extension}'
-        pattern: remote://{node}:{port}
+        pattern: remote://.*:\d*
   - message: The default remote connection port has changed in **jboss-ejb-client.properties**
       from '4447' to '8080'.. In EAP 6, the jboss-ejb-client.properties file looked
       similar to the following:. ```. remote.connectionprovider.create.options.org.xnio.Options.SSL_ENABLED=false.
@@ -25,8 +24,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-1
     when:
       builtin.filecontent:
-        filename: jboss-ejb-client.properties
-        pattern: remote.connection.{*}.port{portnumber}
+        pattern: remote.connection.*.port(.*(?!8080)\d{4})
   - message: The default remote connection port has changed from '4447' to '8080'..
       In EAP 6, Remote EJB client Java code looks like the following:. ```java. Properties
       properties = new Properties();. properties.put("remote.connection.default.port",
@@ -36,8 +34,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-2
     when:
       builtin.filecontent:
-        filename: '{*}.java'
-        pattern: remote.connection.{*}.port{portnumber}
+        pattern: remote.connection.*.port(.*(?!8080)\d{4})
   - message: The value of JSF constant `FaceletContext.FACELET_CONTEXT_KEY` has changed
       between JSF 2.1 and 2.2.. The variable is a compile-time constant expression,
       so when the program was originally compiled,. the reference to `FACELET_CONTEXT_KEY`
@@ -47,10 +44,8 @@
     when:
       or:
       - builtin.filecontent:
-          filename: '{*}.java'
           pattern: com.sun.faces.facelets.FACELET_CONTEXT
       - builtin.filecontent:
-          filename: '{*}.java'
           pattern: FaceletContext.FACELET_CONTEXT_KEY
   - message: In EAP 6, you could disable the HTTPS URL hostname check against a service’s
       Common Name (CN) given in its certificate by setting the system property `org.jboss.security.ignoreHttpsHost`
@@ -59,5 +54,4 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-4
     when:
       builtin.filecontent:
-        filename: '{*}.{extension}'
         pattern: org.jboss.security.ignoreHttpsHost

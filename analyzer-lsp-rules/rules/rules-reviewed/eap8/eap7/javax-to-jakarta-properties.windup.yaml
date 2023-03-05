@@ -2,5 +2,4 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-properties.windup.xml-0
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: <property name="javax.

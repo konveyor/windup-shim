@@ -6,8 +6,7 @@
       or:
       - as: methods1
         builtin.filecontent:
-          filename: ""
-          pattern: '{*}.collectItems(){*}'
+          pattern: '*.collectItems()*'
         from: files1
         ignore: true
       - as: files1
@@ -23,8 +22,7 @@
       or:
       - as: methods2
         builtin.filecontent:
-          filename: ""
-          pattern: '{*}.groupItems(){*}'
+          pattern: '*.groupItems()*'
         from: files2
         ignore: true
       - as: files2
@@ -40,8 +38,7 @@
       or:
       - as: methods3
         builtin.filecontent:
-          filename: ""
-          pattern: '{*}.toHotStream(){*}'
+          pattern: '*.toHotStream()*'
         from: files3
         ignore: true
       - as: files3
@@ -54,8 +51,7 @@
       or:
       - as: methods4
         builtin.filecontent:
-          filename: ""
-          pattern: '{*}.subscribeOn{*}'
+          pattern: '*.subscribeOn*'
         from: files4
         ignore: true
       - as: files4
@@ -68,8 +64,7 @@
       or:
       - as: methods5
         builtin.filecontent:
-          filename: ""
-          pattern: '{*}.subscribeOn{*}'
+          pattern: '*.subscribeOn*'
         from: files5
         ignore: true
       - as: files5
@@ -85,8 +80,7 @@
       or:
       - as: methods6
         builtin.filecontent:
-          filename: ""
-          pattern: '{*}.byTakingFirstItems{*}'
+          pattern: '*.byTakingFirstItems*'
         from: files6
         ignore: true
       - as: files6
@@ -102,8 +96,7 @@
       or:
       - as: methods6
         builtin.filecontent:
-          filename: ""
-          pattern: '{*}.byTestingItemsWith{*}'
+          pattern: '*.byTestingItemsWith*'
         from: files6
         ignore: true
       - as: files6
@@ -119,8 +112,7 @@
       or:
       - as: methods6
         builtin.filecontent:
-          filename: ""
-          pattern: '{*}.byFilteringItemsWith{*}'
+          pattern: '*.byFilteringItemsWith*'
         from: files6
         ignore: true
       - as: files6
@@ -136,8 +128,7 @@
       or:
       - as: methods6
         builtin.filecontent:
-          filename: ""
-          pattern: '{*}.bySkippingFirstItems{*}'
+          pattern: '*.bySkippingFirstItems*'
         from: files6
         ignore: true
       - as: files6

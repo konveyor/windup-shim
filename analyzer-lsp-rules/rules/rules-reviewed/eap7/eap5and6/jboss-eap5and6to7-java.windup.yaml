@@ -3,7 +3,6 @@
     - configuration
     when:
       builtin.filecontent:
-        filename: MANIFEST.MF
         pattern: 'Dependencies:'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-1
     tag:

@@ -8,8 +8,7 @@
     when:
       or:
       - builtin.filecontent:
-          filename: '{*}.java'
-          pattern: '{ActivitySessionRule_1_stringLiterals}'
+          pattern: \"[^\"]*java\:comp/websphere/UserActivitySession[^\"]*\"
       - java.referenced:
           pattern: com.ibm.websphere.ActivitySession\.[^.]+
       - builtin.xml:
@@ -156,8 +155,7 @@
     when:
       or:
       - builtin.filecontent:
-          filename: '{*}.java'
-          pattern: '{DetectWSBAJava_1_stringLiterals}'
+          pattern: \"[^\"]*java\:comp/websphere/UserBusinessActivity[^\"]*\"
       - java.referenced:
           pattern: com.ibm.websphere.wsba*
   - message: '<div class="Text">. <p> On Liberty, the dynamic cache service is provided

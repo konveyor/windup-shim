@@ -3,221 +3,189 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-0
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: http://xmlns.jcp.org/xml/ns/javaee
   - message: Replace `http://xmlns.jcp.org/xml/ns/persistence` with `https://jakarta.ee/xml/ns/persistence`
       and change the schema version number
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-1
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: http://xmlns.jcp.org/xml/ns/persistence
   - message: Replace `http://xmlns.jcp.org/xml/ns/validation` with `https://jakarta.ee/xml/ns/validation`
       and change the schema version number
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-2
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: http://xmlns.jcp.org/xml/ns/validation
   - message: Replace `javaee_web_services_metadata_handler_2_0.xsd` with `jakartaee_web_services_metadata_handler_3_0.xsd`
       and update the version attribute to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-3
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: javaee_web_services_metadata_handler_2_0.xsd
   - message: Replace `batchXML_1_0.xsd` with `batchXML_2_0.xsd`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-4
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: batchXML_1_0.xsd
   - message: Replace `beans_1_1.xsd` with `beans_3_0.xsd` and update the version attribute
       to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-5
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: beans_1_1.xsd
   - message: Replace `beans_2_0.xsd` with `beans_3_0.xsd` and update the version attribute
       to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-6
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: beans_2_0.xsd
   - message: Replace `jobXML_1_0.xsd` with `jobXML_2_0.xsd` and update the version
       attribute to `"2.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-7
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: jobXML_1_0.xsd
   - message: Replace `application_7.xsd` with `application_9.xsd` and update the version
       attribute to `"9"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-8
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: application_7.xsd
   - message: Replace `application_8.xsd` with `application_9.xsd` and update the version
       attribute to `"9"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-9
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: application_8.xsd
   - message: Replace `application-client_7.xsd` with `application-client_9.xsd` and
       update the version attribute to `"9"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-10
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: application-client_7.xsd
   - message: Replace `application-client_8.xsd` with `application-client_9.xsd` and
       update the version attribute to `"9"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-11
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: application-client_8.xsd
   - message: Replace `connector_1_7.xsd` with `connector_2_0.xsd` and update the version
       attribute to `"2.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-12
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: connector_1_7.xsd
   - message: Replace `ejb-jar_3_2.xsd` with `ejb-jar_4_0.xsd` and update the version
       attribute to `"4.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-13
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: ejb-jar_3_2.xsd
   - message: Replace `javaee_web_services_1_4.xsd` with `jakartaee_web_services_2_0.xsd`
       and update the version attribute to `"2.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-14
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: javaee_web_services_1_4.xsd
   - message: Replace `permissions_7.xsd` with `permissions_9.xsd` and update the version
       attribute to `"9"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-15
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: permissions_7.xsd
   - message: Replace `web-app_3_1.xsd` with `web-app_5_0.xsd` and update the version
       attribute to `"5.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-16
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-app_3_1.xsd
   - message: Replace `web-app_4_0.xsd` with `web-app_5_0.xsd` and update the version
       attribute to `"5.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-17
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-app_4_0.xsd
   - message: Replace `web-fragment_3_1.xsd` with `web-fragment_5_0.xsd` and update
       the version attribute to `"5.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-18
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-fragment_3_1.xsd
   - message: Replace `web-fragment_4_0.xsd` with `web-fragment_5_0.xsd` and update
       the version attribute to `"5.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-19
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-fragment_4_0.xsd
   - message: Replace `web-facesconfig_2_2.xsd` with `web-facesconfig_3_0.xsd` and
       update the version attribute to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-20
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-facesconfig_2_2.xsd
   - message: Replace `web-facesconfig_2_3.xsd` with `web-facesconfig_3_0.xsd` and
       update the version attribute to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-21
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-facesconfig_2_3.xsd
   - message: Replace `web-facelettaglibrary_2_2.xsd` with `web-facelettaglibrary_3_0.xsd`
       and update the version attribute to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-22
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-facelettaglibrary_2_2.xsd
   - message: Replace `web-facelettaglibrary_2_3.xsd` with `web-facelettaglibrary_3_0.xsd`
       and update the version attribute to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-23
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-facelettaglibrary_2_3.xsd
   - message: Replace `web-partialresponse_2_2.xsd` with `web-partialresponse_3_0.xsd`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-24
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-partialresponse_2_2.xsd
   - message: Replace `web-partialresponse_2_3.xsd` with `web-partialresponse_3_0.xsd`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-25
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-partialresponse_2_3.xsd
   - message: Replace `web-jsptaglibrary_2_1.xsd` with `web-jsptaglibrary_3_0.xsd`
       and update the version attribute to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-26
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: web-jsptaglibrary_2_1.xsd
   - message: Replace `validation-mapping-2.0.xsd` with `validation-mapping-3.0.xsd`
       and update the version attribute to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-27
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: validation-mapping-2.0.xsd
   - message: Replace `validation-configuration-2.0.xsd` with `validation-configuration-3.0.xsd`
       and update the version attribute to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-28
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: validation-configuration-2.0.xsd
   - message: Replace `persistence_2_1.xsd` with `persistence_3_0.xsd` and update the
       version attribute to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-29
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: persistence_2_1.xsd
   - message: Replace `orm_2_1.xsd` with `orm_3_0.xsd` and update the version attribute
       to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-30
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: orm_2_1.xsd
   - message: Replace `orm_2_2.xsd` with `orm_3_0.xsd` and update the version attribute
       to `"3.0"`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-31
     when:
       builtin.filecontent:
-        filename: '{*}.xml'
         pattern: orm_2_2.xsd
   - message: In the root tag, replace the `version` attribute value `2.1` with `3.0`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javaee-to-jakarta-namespaces.windup.xml-32
@@ -225,8 +193,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.1{quotes}
+          pattern: version=("|')2.1("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -239,8 +206,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}7{quotes}
+          pattern: version=("|')7("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -254,8 +220,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}1.1{quotes}
+          pattern: version=("|')1.1("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -269,8 +234,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.0{quotes}
+          pattern: version=("|')2.0("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -284,8 +248,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}7{quotes}
+          pattern: version=("|')7("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -299,8 +262,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}8{quotes}
+          pattern: version=("|')8("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -314,8 +276,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}7{quotes}
+          pattern: version=("|')7("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -329,8 +290,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}8{quotes}
+          pattern: version=("|')8("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -344,8 +304,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}1.7{quotes}
+          pattern: version=("|')1.7("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -359,8 +318,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}3.2{quotes}
+          pattern: version=("|')3.2("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -374,8 +332,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}1.4{quotes}
+          pattern: version=("|')1.4("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -389,8 +346,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}3.1{quotes}
+          pattern: version=("|')3.1("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -404,8 +360,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}4.0{quotes}
+          pattern: version=("|')4.0("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -419,8 +374,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}3.1{quotes}
+          pattern: version=("|')3.1("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -434,8 +388,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}4.0{quotes}
+          pattern: version=("|')4.0("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -449,8 +402,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.2{quotes}
+          pattern: version=("|')2.2("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -464,8 +416,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.3{quotes}
+          pattern: version=("|')2.3("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -479,8 +430,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.2{quotes}
+          pattern: version=("|')2.2("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -494,8 +444,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.3{quotes}
+          pattern: version=("|')2.3("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -509,8 +458,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.1{quotes}
+          pattern: version=("|')2.1("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -524,8 +472,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.0{quotes}
+          pattern: version=("|')2.0("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -539,8 +486,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.0{quotes}
+          pattern: version=("|')2.0("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -554,8 +500,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.1{quotes}
+          pattern: version=("|')2.1("|')
         from: xml-file
         ignore: true
       - as: xml-file
@@ -569,8 +514,7 @@
       or:
       - as: result
         builtin.filecontent:
-          filename: ""
-          pattern: version={quotes}2.2{quotes}
+          pattern: version=("|')2.2("|')
         from: xml-file
         ignore: true
       - as: xml-file

@@ -18,12 +18,10 @@
       or:
       - or:
         - builtin.filecontent:
-            filename: ""
-            pattern: .zip({*})
+            pattern: .zip(*)
           from: routeBuilders
         - builtin.filecontent:
-            filename: ""
-            pattern: .gzip({*})
+            pattern: .gzip(*)
           from: routeBuilders
       - as: routeBuilders
         ignore: true
@@ -75,8 +73,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-8
     when:
       builtin.filecontent:
-        filename: '{*}.java'
-        pattern: .includeRoutes({*})
+        pattern: .includeRoutes(*)
   - message: Annotation `org.apache.camel.language.Bean` has been moved to `org.apache.camel.language.bean.Bean`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-9
     when:

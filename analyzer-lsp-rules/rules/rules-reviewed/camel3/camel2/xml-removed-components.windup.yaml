@@ -64,8 +64,7 @@
     when:
       or:
       - builtin.filecontent:
-          filename: '{*}.java'
-          pattern: from("twitter-streaming:{*}
+          pattern: from("twitter-streaming:*
       - builtin.xml:
           xpath: //*/c:from/@uri[windup:matches(self::node(), 'twitter-streaming:{*}')]
       - builtin.xml:

@@ -15,12 +15,10 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/azure-file-system.windup.xml-1
     when:
       builtin.filecontent:
-        filename: '{*}.{extensions}'
-        pattern: '{path}'
+        pattern: \.\/.
   - message: Home path found.. Any usage of the file system on the application will
       require reconfiguration or, in rare cases, architectural changes.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/azure-file-system.windup.xml-2
     when:
       builtin.filecontent:
-        filename: '{*}.{extensions}'
-        pattern: '{path}'
+        pattern: \/home

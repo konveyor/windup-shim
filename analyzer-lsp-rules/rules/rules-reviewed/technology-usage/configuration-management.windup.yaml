@@ -16,13 +16,11 @@
     tag: []
     when:
       builtin.filecontent:
-        filename: application{profile}.{extension}
         pattern: spring.datasource
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-3
     tag: []
     when:
       builtin.filecontent:
-        filename: application{profile}.{extension}
         pattern: logging.level.org.springframework
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-4
     tag: []

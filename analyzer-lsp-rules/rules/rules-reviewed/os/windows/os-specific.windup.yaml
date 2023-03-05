@@ -3,8 +3,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/os/windows/os-specific.windup.xml-0
     when:
       builtin.filecontent:
-        filename: '{*}.{extensions}'
-        pattern: '{pattern}'
+        pattern: '[A-z]:([\\][^\n\t]+)+|(\\\\([^\\\,\n\t]+)\\\S+)+'
   - message: This Dynamic-Link Library is Microsoft Windows platform dependent. It
       needs to be replaced with a Linux-style shared library.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/os/windows/os-specific.windup.xml-1

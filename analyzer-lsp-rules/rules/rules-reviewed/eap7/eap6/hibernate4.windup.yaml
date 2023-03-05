@@ -274,7 +274,6 @@
       or:
       - as: config_files
         builtin.filecontent:
-          filename: '{*}.{extension}'
           pattern: org.hibernate.dialect.Oracle12cDialect
         ignore: true
       - as: java_entities

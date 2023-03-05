@@ -4,7 +4,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-0
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>javax.mail<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -20,7 +19,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-2
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>activation<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -28,8 +26,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-3
     when:
       builtin.filecontent:
-        filename: pom.xml
-        pattern: groupId>javax.{renamed-g}<
+        pattern: groupId>javax.(enterprise|inject|json|json.bind|persistence|security.enterprise|validation)<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
       to ensure its Maven building, running or testing works as expected, use instead
       the Jakarta EE dependency with groupId `jakarta.{renamed-a}`, and artifactId
@@ -37,15 +34,13 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-4
     when:
       builtin.filecontent:
-        filename: pom.xml
-        pattern: artifactId>javax.{renamed-a}-api<
+        pattern: artifactId>javax.(json|json.bind|persistence|security.enterprise)-api<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
       to ensure its Maven building, running or testing works as expected, use instead
       the Jakarta EE dependency with artifactId `jakarta.enterprise.cdi-api`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-5
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>cdi-api<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -53,7 +48,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-6
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>validation-api<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -61,7 +55,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-7
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>javax.inject<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -70,7 +63,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-8
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>jboss-saaj-api_1.3_spec<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -79,7 +71,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-9
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>jboss-transaction-api_1.2_spec<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -87,7 +78,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-10
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>jboss-eap-javaee8<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -95,7 +85,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-11
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>jboss-eap-javaee8-with-spring4<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -103,7 +92,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-12
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>jboss-eap-javaee8-with-tools<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -111,7 +99,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-13
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>jboss-javaee-8.0<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -119,7 +106,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-14
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>jboss-javaee-web-8.0<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
       to ensure its Maven building, running or testing works as expected, use instead
@@ -127,5 +113,4 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-15
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: artifactId>jboss-javaee-all-8.0<

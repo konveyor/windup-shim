@@ -233,8 +233,7 @@
     tag: []
     when:
       builtin.filecontent:
-        filename: '{*}.{extensions}'
-        pattern: '{prefixes}flo-editor'
+        pattern: (<|')flo-editor
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/embedded-framework.windup.xml-55
     tag: []
     when:

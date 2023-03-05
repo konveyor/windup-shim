@@ -5,7 +5,6 @@
       or:
       - as: sendmethod
         builtin.filecontent:
-          filename: ""
           pattern: .send(
         from: mailtemplateinstance
         ignore: true

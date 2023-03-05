@@ -19,7 +19,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-2
     when:
       builtin.filecontent:
-        filename: application{profile}.{extension}
         pattern: spring.datasource
   - message: Spring log level property configuration have been detected in the application
       property file.. View advice in the Quarkus datasource guide to convert these
@@ -27,13 +26,11 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-3
     when:
       builtin.filecontent:
-        filename: application{profile}.{extension}
         pattern: logging.level.org.springframework
   - message: Replace `spring.jpa.hibernate.ddl-auto=create-drop` with `quarkus.hibernate-orm.database.generation=drop-and-create`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-4
     when:
       builtin.filecontent:
-        filename: application{profile}.{extension}
         pattern: spring.jpa.hibernate.ddl-auto=create-drop
   - message: Replace `springdoc.swagger-ui.path` with `quarkus.swagger-ui.path`. By
       adding `quarkus.swagger-ui.always-include=true` Quarkus will always expose the
@@ -41,11 +38,9 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-5
     when:
       builtin.filecontent:
-        filename: application{profile}.{extension}
         pattern: springdoc.swagger-ui.path
   - message: Replace `springdoc.api-docs.path` with `quarkus.smallrye-openapi.path`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-properties-to-quarkus.windup.xml-6
     when:
       builtin.filecontent:
-        filename: application{profile}.{extension}
         pattern: springdoc.api-docs.path

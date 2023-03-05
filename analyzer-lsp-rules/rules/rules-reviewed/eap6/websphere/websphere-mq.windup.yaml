@@ -12,7 +12,6 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-1
     when:
       builtin.filecontent:
-        filename: '{*}.{ext}'
         pattern: com.ibm.mq.jms.context.WMQInitialContextFactory
   - message: WebSphere `.scp` files contain scripts for the `jmsadmin` program which
       is used. to configure the WebSphere MQ destinations. and routing. To configure
@@ -21,5 +20,4 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-2
     when:
       builtin.filecontent:
-        filename: '{*}.scp'
-        pattern: '{*}'
+        pattern: '*'

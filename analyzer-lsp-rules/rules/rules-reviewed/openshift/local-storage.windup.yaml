@@ -48,8 +48,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/local-storage.windup.xml-2
     when:
       builtin.filecontent:
-        filename: '{*}{extensions}'
-        pattern: '{path1}'
+        pattern: (([:=(,\{])([ ])*(["'])?([a-zA-Z]):)(?<![\<\\\/\d\w])([\\\/]\w+)+(\.\w+)?
   - message: 'An application running inside a container could lose access to a file
       in local storage.. Recommendations. The following recommendations depend on
       the function of the file in local storage:. * Logging: Log to standard output
@@ -62,8 +61,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/local-storage.windup.xml-3
     when:
       builtin.filecontent:
-        filename: '{*}.{extensions}'
-        pattern: '{path2}'
+        pattern: file://
   - message: 'An application running inside a container could lose access to a file
       in local storage.. Recommendations. The following recommendations depend on
       the function of the file in local storage:. * Logging: Log to standard output

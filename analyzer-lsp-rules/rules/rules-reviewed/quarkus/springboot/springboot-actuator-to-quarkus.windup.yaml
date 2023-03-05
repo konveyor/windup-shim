@@ -19,5 +19,4 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-actuator-to-quarkus.windup.xml-1
     when:
       builtin.filecontent:
-        filename: application{profile}.{extension}
-        pattern: management.endpoints.web.exposure.include{wildcard}health
+        pattern: management.endpoints.web.exposure.include.*health

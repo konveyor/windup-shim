@@ -35,5 +35,4 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-2
     when:
       builtin.filecontent:
-        filename: hibernate-configuration.xml
         pattern: org.hibernate.connection

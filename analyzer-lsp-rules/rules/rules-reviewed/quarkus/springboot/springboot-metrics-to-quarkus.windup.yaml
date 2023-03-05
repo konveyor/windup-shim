@@ -16,5 +16,4 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-2
     when:
       builtin.filecontent:
-        filename: application{profile}.{extension}
-        pattern: management.endpoints.web.exposure.include{wildcards}prometheus
+        pattern: management.endpoints.web.exposure.include.*prometheus

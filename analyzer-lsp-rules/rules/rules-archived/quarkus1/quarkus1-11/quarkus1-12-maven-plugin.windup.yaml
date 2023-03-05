@@ -8,5 +8,4 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-maven-plugin.windup.xml-0
     when:
       builtin.filecontent:
-        filename: pom.xml
         pattern: <artifactId>quarkus-maven-plugin</artifactId>
