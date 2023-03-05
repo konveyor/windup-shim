@@ -2,7 +2,7 @@
     tag:
     - jms
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}-jms.xml'
         xpath: /msg:messaging-deployment
@@ -11,7 +11,7 @@
     - configuration
     when:
       or:
-      - xml:
+      - builtin.xml:
           filepaths:
           - jboss-deployment-structure.xml
           xpath: /*[local-name()='jboss-deployment-structure']/*[local-name()='deployment'

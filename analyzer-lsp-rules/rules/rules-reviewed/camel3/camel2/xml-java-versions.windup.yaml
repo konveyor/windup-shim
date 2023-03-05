@@ -7,14 +7,15 @@
     when:
       or:
       - java.dependency:
+          lowerbound: 0.0.0
           name: javax.xml.bind.jaxb-api
         not: true
       - as: dependencies-block
-        ignore: true
-        xml:
+        builtin.xml:
           filepaths:
           - pom.xml
           xpath: /m:project/m:dependencies
+        ignore: true
   - message: '`jaxb-core` Maven dependency missing.. Apache Camel 3 supports Java
       11 and in this Java version JAXB modules have been removed from the JDK, therefore
       you will need to add them as Maven dependencies since there are couple of components
@@ -24,14 +25,15 @@
     when:
       or:
       - java.dependency:
+          lowerbound: 0.0.0
           name: com.sun.xml.bind.jaxb-core
         not: true
       - as: dependencies-block
-        ignore: true
-        xml:
+        builtin.xml:
           filepaths:
           - pom.xml
           xpath: /m:project/m:dependencies
+        ignore: true
   - message: '`jaxb-impl` Maven dependency missing.. Apache Camel 3 supports Java
       11 and in this Java version JAXB modules have been removed from the JDK, therefore
       you will need to add them as Maven dependencies since there are couple of components
@@ -41,11 +43,12 @@
     when:
       or:
       - java.dependency:
+          lowerbound: 0.0.0
           name: com.sun.xml.bind.jaxb-impl
         not: true
       - as: dependencies-block
-        ignore: true
-        xml:
+        builtin.xml:
           filepaths:
           - pom.xml
           xpath: /m:project/m:dependencies
+        ignore: true

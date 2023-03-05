@@ -7,7 +7,9 @@
       or:
       - and:
         - java.dependency:
+            lowerbound: 0.0.0
             name: org.apache.activemq.artemis-jms-client
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.jboss.eap.wildfly-client-properties
         not: true

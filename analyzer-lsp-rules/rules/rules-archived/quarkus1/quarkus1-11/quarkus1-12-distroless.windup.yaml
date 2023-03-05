@@ -3,6 +3,6 @@
       instead of. `quay.io/quarkus/quarkus-distroless-image:20.3-java11`.
     ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-distroless.windup.xml-0
     when:
-      filecontent:
+      builtin.filecontent:
         filename: Dockerfile
         pattern: quay.io/quarkus/quarkus-distroless-image:20.3-java11

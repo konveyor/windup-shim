@@ -4,7 +4,7 @@
     when:
       or:
       - as: sendmethod
-        filecontent:
+        builtin.filecontent:
           filename: ""
           pattern: .send(
         from: mailtemplateinstance

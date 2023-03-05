@@ -4,6 +4,6 @@
     - resin
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /resin:web-app
+      ignore: true

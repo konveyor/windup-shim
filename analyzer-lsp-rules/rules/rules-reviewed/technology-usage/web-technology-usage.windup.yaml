@@ -19,7 +19,7 @@
       - java.referenced:
           location: INHERITANCE
           pattern: java.applet.Applet
-      - file: '{*}applet{*}.jar'
+      - builtin.file: '*applet*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-5
     tag:
     - View
@@ -27,7 +27,7 @@
     - Java EE
     - JNLP
     when:
-      file: '{*}.jnlp'
+      builtin.file: '*.jnlp'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-6
     tag:
     - View
@@ -36,8 +36,8 @@
     - JNLP
     when:
       or:
-      - file: '{*}jnlp{*}.jar'
-      - file: '{*}webstart{*}.jar'
+      - builtin.file: '*jnlp*.jar'
+      - builtin.file: '*webstart*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-7
     tag:
     - View
@@ -45,7 +45,7 @@
     - Embedded
     - Swing
     when:
-      file: '{*}swing{*}.jar'
+      builtin.file: '*swing*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-8
     tag:
     - View
@@ -53,7 +53,7 @@
     - Embedded
     - MiGLayout
     when:
-      file: '{*}miglayout{*}.jar'
+      builtin.file: '*miglayout*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-9
     tag:
     - View
@@ -61,7 +61,7 @@
     - Embedded
     - JGoodies
     when:
-      file: '{*}jgoodies{*}.jar'
+      builtin.file: '*jgoodies*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-10
     tag:
     - View
@@ -69,7 +69,7 @@
     - Embedded
     - FormLayoutMaker
     when:
-      file: '{*}formlayoutmakerx{*}.jar'
+      builtin.file: '*formlayoutmakerx*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-11
     tag:
     - View
@@ -77,7 +77,7 @@
     - Embedded
     - Magicgrouplayout
     when:
-      file: '{*}magicgrouplayout{*}.jar'
+      builtin.file: '*magicgrouplayout*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-12
     tag:
     - View
@@ -85,7 +85,7 @@
     - Embedded
     - Standard Widget Toolkit (SWT)
     when:
-      file: '{*}swt{*}.jar'
+      builtin.file: '*swt*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-13
     tag:
     - View
@@ -93,7 +93,7 @@
     - Embedded
     - JavaFX
     when:
-      file: '{*}javafx{*}.jar'
+      builtin.file: '*javafx*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/web-technology-usage.windup.xml-14
     tag:
     - View
@@ -102,7 +102,7 @@
     - Eclipse RCP
     when:
       or:
-      - file: rcp{*}.jar
-      - file: '{*}eclipse.rcp{*}.jar'
-      - file: '{*}eclipse{*}runtime{*}.jar'
-      - file: '{*}eclipse.ui{*}.jar'
+      - builtin.file: rcp*.jar
+      - builtin.file: '*eclipse.rcp*.jar'
+      - builtin.file: '*eclipse*runtime*.jar'
+      - builtin.file: '*eclipse.ui*.jar'

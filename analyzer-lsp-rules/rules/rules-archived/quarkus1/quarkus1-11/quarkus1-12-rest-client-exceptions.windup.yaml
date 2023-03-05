@@ -16,4 +16,5 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-rest-client-exceptions.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.quarkus.quarkus-rest-client

@@ -47,7 +47,7 @@
       container as a brief, single-transaction cache.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/local-storage.windup.xml-2
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}{extensions}'
         pattern: '{path1}'
   - message: 'An application running inside a container could lose access to a file
@@ -61,7 +61,7 @@
       container as a brief, single-transaction cache.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/local-storage.windup.xml-3
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}.{extensions}'
         pattern: '{path2}'
   - message: 'An application running inside a container could lose access to a file

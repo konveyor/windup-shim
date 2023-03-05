@@ -263,12 +263,13 @@
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-30
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.hibernate.hibernate-search-analyzers
   - message: The hibernate-search-analyzers module was removed. The recommended approach
       is to directly use the appropriate Lucene artifact,. for example org.apache.lucene:lucene-analyzers-common.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/hsearch.windup.xml-31
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - pom.xml
         xpath: //*[local-name() = 'artifactId' and text() = 'hibernate-search-analyzers']

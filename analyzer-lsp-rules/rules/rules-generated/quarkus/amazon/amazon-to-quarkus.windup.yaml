@@ -4,6 +4,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.dynamodb
   - message: Replace the `software.amazon.awssdk:dynamodb` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-dynamodb`. Further information in the
@@ -11,6 +12,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.dynamodb
   - message: Replace the `software.amazon.awssdk:iam` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-iam`. Further information in the link
@@ -18,6 +20,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-2
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.iam
   - message: Replace the `software.amazon.awssdk:iam` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-iam`. Further information in the link
@@ -25,6 +28,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-3
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.iam
   - message: Replace the `software.amazon.awssdk:kms` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-kms`. Further information in the link
@@ -32,6 +36,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-4
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.kms
   - message: Replace the `software.amazon.awssdk:kms` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-kms`. Further information in the link
@@ -39,6 +44,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-5
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.kms
   - message: Replace the `com.amazonaws:aws-lambda-java-core` dependency with the
       Quarkus dependency `io.quarkus:quarkus-amazon-lambda-http`. Further information
@@ -46,6 +52,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-6
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: com.amazonaws.aws-lambda-java-core
   - message: Replace the `com.amazonaws:aws-lambda-java-core` dependency with the
       Quarkus dependency `io.quarkus:quarkus-amazon-lambda-http`. Further information
@@ -53,6 +60,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-7
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: com.amazonaws.aws-lambda-java-core
   - message: Replace the `com.amazonaws.serverless:aws-serverless-java-container-core`
       dependency with the Quarkus dependency `io.quarkus:quarkus-amazon-lambda-rest`.
@@ -60,6 +68,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-8
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: com.amazonaws.serverless.aws-serverless-java-container-core
   - message: Replace the `com.amazonaws.serverless:aws-serverless-java-container-core`
       dependency with the Quarkus dependency `io.quarkus:quarkus-amazon-lambda-rest`.
@@ -67,6 +76,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-9
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: com.amazonaws.serverless.aws-serverless-java-container-core
   - message: Replace the `com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2` dependency
       with the Quarkus dependency `io.quarkus:quarkus-amazon-lambda-xray`. Further
@@ -74,6 +84,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-10
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: com.amazonaws.aws-xray-recorder-sdk-aws-sdk-v2
   - message: Replace the `com.amazonaws:aws-xray-recorder-sdk-aws-sdk-v2` dependency
       with the Quarkus dependency `io.quarkus:quarkus-amazon-lambda-xray`. Further
@@ -81,18 +92,21 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-11
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: com.amazonaws.aws-xray-recorder-sdk-aws-sdk-v2
   - message: Replace the `software.amazon.awssdk:s3` dependency with the Quarkus dependency
       `io.quarkus:quarkus-amazon-s3`. Further information in the link below.
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-12
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.s3
   - message: Replace the `software.amazon.awssdk:s3` dependency with the Quarkus dependency
       `io.quarkus:quarkus-amazon-s3`. Further information in the link below.
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-13
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.s3
   - message: Replace the `software.amazon.awssdk:ses` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-ses`. Further information in the link
@@ -100,6 +114,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-14
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.ses
   - message: Replace the `software.amazon.awssdk:ses` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-ses`. Further information in the link
@@ -107,6 +122,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-15
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.ses
   - message: Replace the `software.amazon.awssdk:sns` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-sns`. Further information in the link
@@ -114,6 +130,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-16
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.sns
   - message: Replace the `software.amazon.awssdk:sns` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-sns`. Further information in the link
@@ -121,6 +138,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-17
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.sns
   - message: Replace the `software.amazon.awssdk:sqs` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-sqs`. Further information in the link
@@ -128,6 +146,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-18
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.sqs
   - message: Replace the `software.amazon.awssdk:sqs` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-sqs`. Further information in the link
@@ -135,6 +154,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-19
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.sqs
   - message: Replace the `software.amazon.awssdk:ssm` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-ssm`. Further information in the link
@@ -142,6 +162,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-20
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.ssm
   - message: Replace the `software.amazon.awssdk:ssm` dependency with the Quarkus
       dependency `io.quarkus:quarkus-amazon-ssm`. Further information in the link
@@ -149,4 +170,5 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/amazon/amazon-to-quarkus.windup.xml-21
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: software.amazon.awssdk.ssm

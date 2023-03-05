@@ -4,16 +4,20 @@
     when:
       or:
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.boot.spring-boot-starter-actuator
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.boot.spring-boot-actuator
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.boot.spring-boot-actuator-autoconfigure
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.boot.spring-boot-actuator
   - message: Replace `management.endpoints.web.exposure.include=health` with `quarkus.smallrye-health.root-path=/actuator/health`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-actuator-to-quarkus.windup.xml-1
     when:
-      filecontent:
+      builtin.filecontent:
         filename: application{profile}.{extension}
         pattern: management.endpoints.web.exposure.include{wildcard}health

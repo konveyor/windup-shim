@@ -5,12 +5,13 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-di-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.springframework.spring-beans
   - message: Quarkus only supports the java-based configuration of Spring beans.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-di-to-quarkus.windup.xml-1
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //*/b:bean/@class
-      - xml:
+      - builtin.xml:
           xpath: //*/c:annotation-config

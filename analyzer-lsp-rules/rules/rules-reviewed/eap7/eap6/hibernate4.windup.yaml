@@ -273,7 +273,7 @@
     when:
       or:
       - as: config_files
-        filecontent:
+        builtin.filecontent:
           filename: '{*}.{extension}'
           pattern: org.hibernate.dialect.Oracle12cDialect
         ignore: true
@@ -304,7 +304,7 @@
           location: METHOD_CALL
           pattern: javax.persistence.Query|org.hibernate.Query|org.hibernate.Criteria.setFirstResult(int)
       - as: dialects_used
-        ignore: true
-        xml:
+        builtin.xml:
           xpath: //s:property[@name='hibernate.dialect' and windup:matches(@value,
             'org.hibernate.dialect.{param_dialects}')]
+        ignore: true

@@ -3,10 +3,12 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/picocli/picocli-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: info.picocli.picocli
   - message: Replace the `info.picocli:picocli` dependency with the Quarkus dependency
       `io.quarkus:quarkus-picocli`. Further information in the link below.
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/picocli/picocli-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: info.picocli.picocli

@@ -5,4 +5,5 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-shell-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.springframework.shell.spring-shell-core

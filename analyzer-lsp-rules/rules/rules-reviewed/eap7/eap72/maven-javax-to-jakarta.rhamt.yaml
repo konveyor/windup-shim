@@ -3,7 +3,7 @@
       the Jakarta EE dependency with groupId `com.sun.mail`, and artifactId `jakarta.mail`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-0
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>javax.mail<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
@@ -12,13 +12,14 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: javax.activation.activation
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
       to ensure its Maven building, running or testing works as expected, use instead
       the Jakarta EE dependency with artifactId `jakarta.activation`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-2
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>activation<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
@@ -26,7 +27,7 @@
       the Jakarta EE dependency - groupId `jakarta.{renamed-g}`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-3
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: groupId>javax.{renamed-g}<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
@@ -35,7 +36,7 @@
       `jakarta.{renamed-a}-api`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-4
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>javax.{renamed-a}-api<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
@@ -43,7 +44,7 @@
       the Jakarta EE dependency with artifactId `jakarta.enterprise.cdi-api`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-5
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>cdi-api<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
@@ -51,7 +52,7 @@
       the Jakarta EE dependency with artifactId `jakarta.validation-api`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-6
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>validation-api<
   - message: If you migrate your application to JBoss EAP 7.3, or later, and want
@@ -59,7 +60,7 @@
       the Jakarta EE dependency with artifactId `jakarta.inject-api`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-7
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>javax.inject<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
@@ -68,7 +69,7 @@
       artifactId `jboss-saaj-api_1.4_spec`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-8
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>jboss-saaj-api_1.3_spec<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
@@ -77,7 +78,7 @@
       artifactId `jboss-transaction-api_1.3_spec`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-9
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>jboss-transaction-api_1.2_spec<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
@@ -85,7 +86,7 @@
       the JBoss EAP Jakarta EE BOM with groupId `org.jboss.bom`, and artifactId `jboss-eap-jakartaee8`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-10
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>jboss-eap-javaee8<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
@@ -93,7 +94,7 @@
       the JBoss EAP Jakarta EE BOM with groupId `org.jboss.bom`, and artifactId `jboss-eap-jakartaee8-with-spring4`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-11
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>jboss-eap-javaee8-with-spring4<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
@@ -101,7 +102,7 @@
       the JBoss EAP Jakarta EE BOM with groupId `org.jboss.bom`, and artifactId `jboss-eap-jakartaee8-with-tools`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-12
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>jboss-eap-javaee8-with-tools<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
@@ -109,7 +110,7 @@
       the JBoss Jakarta EE BOM with groupId `org.jboss.spec`, and artifactId `jboss-jakartaee-8.0`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-13
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>jboss-javaee-8.0<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
@@ -117,7 +118,7 @@
       the JBoss Jakarta EE BOM with groupId `org.jboss.spec`, and artifactId `jboss-jakartaee-web-8.0`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-14
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>jboss-javaee-web-8.0<
   - message: If you migrate your application to JBoss EAP 7.3 (or later), and want
@@ -125,6 +126,6 @@
       the JBoss Jakarta EE BOM with groupId `org.jboss.spec`, and artifactId `jboss-jakartaee-all-8.0`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap72/maven-javax-to-jakarta.rhamt.xml-15
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: artifactId>jboss-javaee-all-8.0<

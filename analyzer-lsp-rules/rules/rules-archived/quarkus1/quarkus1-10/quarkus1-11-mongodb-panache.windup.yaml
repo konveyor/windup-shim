@@ -8,6 +8,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-10/quarkus1-11-mongodb-panache.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.quarkus.quarkus-mongodb-panache
   - message: A recent change was applied to MongoDB panache to bring it in to conformity
       with the Hibernate Panache behavior.. Public field accesses on `MongoEntity`

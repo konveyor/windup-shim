@@ -4,6 +4,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/micrometer/micrometer-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.micrometer.micrometer-registry-prometheus
   - message: Replace the `io.micrometer:micrometer-registry-prometheus` dependency
       with the Quarkus dependency `io.quarkus:quarkus-micrometer-registry-prometheus`.
@@ -11,4 +12,5 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/micrometer/micrometer-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.micrometer.micrometer-registry-prometheus

@@ -33,9 +33,9 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-3
     when:
       as: dependencies-block
-      ignore: true
-      xml:
+      builtin.xml:
         filepaths:
         - pom.xml
         xpath: /m:project/m:dependencies[count(m:dependency/m:artifactId[text()='camel-management'])=0
           and count(m:dependency/m:artifactId[text()='camel-core'])>0]
+      ignore: true

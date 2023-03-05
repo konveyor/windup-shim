@@ -7,13 +7,13 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/component-changes.windup.xml-0
     when:
       or:
-      - filecontent:
+      - builtin.filecontent:
           filename: '{*}.java'
           pattern: .to("kafka:{[^"]+}{options}={*}
       - java.referenced:
           location: METHOD_CALL
           pattern: org.apache.camel.component.kafka.KafkaConfiguration.(setBridgeEndpoint|setCircularTopicDetection)(*)
-      - xml:
+      - builtin.xml:
           xpath: //*/c:to/@uri[windup:matches(self::node(), 'kafka:{*}{options}{*}')]
-      - xml:
+      - builtin.xml:
           xpath: //*/c:to/@uri[windup:matches(self::node(), 'kafka:{*}{options}{*}')]

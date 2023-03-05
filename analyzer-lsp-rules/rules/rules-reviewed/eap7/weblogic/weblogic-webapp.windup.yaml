@@ -2,7 +2,7 @@
       EAP.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-0
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - weblogic.xml
         xpath: //wl:virtual-directory-mapping

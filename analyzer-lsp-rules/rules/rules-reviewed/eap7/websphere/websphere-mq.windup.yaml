@@ -12,7 +12,7 @@
       InitialContext();`.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-1
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}.{ext}'
         pattern: com.ibm.mq.jms.context.WMQInitialContextFactory
   - message: WebSphere `.scp` files contain scripts for the `jmsadmin` program which
@@ -21,6 +21,6 @@
       or Management CLI with it's. scripting feature.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/websphere/websphere-mq.windup.xml-2
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}.scp'
         pattern: '{*}'

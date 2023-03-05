@@ -8,7 +8,7 @@
       ```. 3. Use the datasource according to JPA 2.0 standards.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-0
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}-ds.xml'
         xpath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:postgres')]
@@ -23,7 +23,7 @@
       EntityManager em;. ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-1
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}-ds.xml'
         xpath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:oracle')]
@@ -38,7 +38,7 @@
       EntityManager em;. ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-2
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}-ds.xml'
         xpath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:sqlserver')]
@@ -50,7 +50,7 @@
       value=80). ```'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-3
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@port
@@ -62,7 +62,7 @@
       value=org.apache.coyote.http11.Http11NioProtocol). ```'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-4
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@protocol
@@ -81,7 +81,7 @@
       value="uq-thread-pool"). ```'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@maxThreads
@@ -92,7 +92,7 @@
       ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-6
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@connectionTimeout
@@ -104,7 +104,7 @@
       storage path.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-7
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@emptySessionPath
@@ -114,7 +114,7 @@
       value=true). ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-8
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@enableLookups
@@ -125,7 +125,7 @@
       ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-9
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@redirectPort
@@ -135,7 +135,7 @@
       ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-10
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@scheme
@@ -149,7 +149,7 @@
       value=true). ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-11
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector[@secure='true']
@@ -166,7 +166,7 @@
       ```. The default can be overriden by setting the `jvmRoute` system property.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-12
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Engine/@jvmRoute
@@ -176,7 +176,7 @@
       EAP 6 management CLI.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-13
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: /jboss/container-configurations/container-configuration[@extends='Standard
@@ -187,7 +187,7 @@
       CLI.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-14
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: /jboss/container-configurations/container-configuration[@extends='Clustered
@@ -199,7 +199,7 @@
       configuration part.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-15
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: /jboss/container-configurations/container-configuration[@extends='Standard
@@ -211,7 +211,7 @@
       CLI node of the respective configuration part.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-16
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: /jboss/container-configurations/container-configuration[@extends='Singleton
@@ -223,7 +223,7 @@
       `bean-instance-pool-ref` CLI node of the respective configuration part.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-17
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: /jboss/container-configurations/container-configuration[@extends='Standard

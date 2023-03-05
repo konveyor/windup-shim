@@ -8,6 +8,6 @@
       ```
     ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-native-image-goal.windup.xml-0
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: native-image

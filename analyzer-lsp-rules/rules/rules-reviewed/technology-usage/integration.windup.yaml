@@ -1,58 +1,58 @@
 - - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-2
     when:
-      file: spring-integration{*}.jar
+      builtin.file: spring-integration*.jar
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-3
     tag: []
     when:
-      file: '{*}ikasan{*}.jar'
+      builtin.file: '*ikasan*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-4
     tag: []
     when:
-      file: '{*}swagger{*}.jar'
+      builtin.file: '*swagger*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-5
     tag: []
     when:
-      file: '{*}apiman{*}.jar'
+      builtin.file: '*apiman*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-6
     tag: []
     when:
-      file: '{*}3scale{*}.jar'
+      builtin.file: '*3scale*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-7
     tag: []
     when:
-      file: '{*}istio{*}.jar'
+      builtin.file: '*istio*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-8
     tag: []
     when:
-      file: '{*}servicemix{*}.jar'
+      builtin.file: '*servicemix*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-9
     tag: []
     when:
-      file: '{*}mule{*}.jar'
+      builtin.file: '*mule*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-10
     tag: []
     when:
-      file: '{*}petals{*}eip{*}.jar'
+      builtin.file: '*petals*eip*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-11
     tag: []
     when:
-      file: '{*}switchyard{*}.jar'
+      builtin.file: '*switchyard*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-12
     tag: []
     when:
-      file: '{*}synapse{*}.jar'
+      builtin.file: '*synapse*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-13
     tag: []
     when:
-      file: '{*}wso2{*}.jar'
+      builtin.file: '*wso2*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-14
     tag: []
     when:
-      file: '{*}talend{*}.jar'
+      builtin.file: '*talend*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-15
     tag: []
     when:
-      xml:
+      builtin.xml:
         xpath: //*/int:channel
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/integration.windup.xml-16
     tag: []

@@ -11,8 +11,10 @@
     when:
       or:
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.hibernate.{substitution}
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.hibernate.hibernate-core
         not: true
   - message: If the `SessionFactory` is built via Hibernate’s native bootstrapping
@@ -164,15 +166,15 @@
     when:
       and:
       - as: persistence_files
-        ignore: true
-        xml:
+        builtin.xml:
           xpath: //s:persistence-unit/s:provider[starts-with(text(), 'org.hibernate')]
-      - as: wrong_files
-        from: persistence_files
         ignore: true
-        xml:
+      - as: wrong_files
+        builtin.xml:
           xpath: //s:properties[count(s:property[@name='hibernate.default_schema'])=0
             and count(s:property[@name='hibernate.default_catalog'])=0]
+        from: persistence_files
+        ignore: true
   - message: If the application uses Hibernate, please define `hibernate.default_schema`
       or `hibernate.default_catalog` (whichever is used by the selected dialect),
       or, alternatively, set `hibernate.hbm2ddl.jdbc_metadata_extraction_strategy=individually`.
@@ -180,15 +182,15 @@
     when:
       or:
       - as: persistence_files
-        ignore: true
-        xml:
+        builtin.xml:
           xpath: //s:persistence-unit[not(s:provider) or s:provider[not(text())]]
-      - as: wrong_files
-        from: persistence_files
         ignore: true
-        xml:
+      - as: wrong_files
+        builtin.xml:
           xpath: //s:properties[count(s:property[@name='hibernate.default_schema'])=0
             and count(s:property[@name='hibernate.default_catalog'])=0]
+        from: persistence_files
+        ignore: true
   - message: Applications using the `@TableGenerator` should set the `hibernate.id.generator.stored_last_used`
       configuration property to `false`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap71/hibernate51-53.windup.xml-19

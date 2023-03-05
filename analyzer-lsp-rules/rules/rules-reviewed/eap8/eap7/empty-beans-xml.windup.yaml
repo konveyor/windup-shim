@@ -5,12 +5,12 @@
       and:
       - not: true
         or:
-        - xml:
+        - builtin.xml:
             filepaths:
             - beans.xml
             xpath: /j:beans
-        - xml:
+        - builtin.xml:
             filepaths:
             - beans.xml
             xpath: /beans
-      - file: beans.xml
+      - builtin.file: beans.xml

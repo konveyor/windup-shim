@@ -3,10 +3,12 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/flyway/flyway-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.flywaydb.flyway-core
   - message: Replace the `org.flywaydb:flyway-core` dependency with the Quarkus dependency
       `io.quarkus:quarkus-flyway`. Further information in the link below.
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/flyway/flyway-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.flywaydb.flyway-core

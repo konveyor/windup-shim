@@ -1,7 +1,7 @@
 - - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/logging.windup.xml-0
     when:
       or:
-      - filecontent:
+      - builtin.filecontent:
           filename: log4j.{extension}
           pattern: '{appenderpattern}'
       - java.referenced:

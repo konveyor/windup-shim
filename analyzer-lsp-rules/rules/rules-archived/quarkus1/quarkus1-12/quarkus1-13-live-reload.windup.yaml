@@ -2,6 +2,6 @@
       to be more consistent with other configuration properties related to live reload.'
     ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-live-reload.windup.xml-0
     when:
-      filecontent:
+      builtin.filecontent:
         filename: application.properties
         pattern: quarkus.dev.instrumentation

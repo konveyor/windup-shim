@@ -9,11 +9,11 @@
       - java.referenced:
           location: ANNOTATION
           pattern: javax.annotation.security.*
-      - xml:
+      - builtin.xml:
           filepaths:
           - web.xml
           xpath: //*[local-name() = 'login-config']/*[local-name() = 'realm-name']
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}ejb-jar.xml'
           xpath: //*[local-name() = 'login-config']/*[local-name() = 'realm']

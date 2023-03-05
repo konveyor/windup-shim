@@ -1,106 +1,106 @@
 - - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-0
     tag: []
     when:
-      file: '{*}log4j{*}.jar'
+      builtin.file: '*log4j*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-1
     tag: []
     when:
-      file: '{*}commons-logging{*}.jar'
+      builtin.file: '*commons-logging*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-2
     tag: []
     when:
-      file: '{*}slf4j{*}.jar'
+      builtin.file: '*slf4j*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-3
     tag: []
     when:
-      file: '{*}tinylog{*}.jar'
+      builtin.file: '*tinylog*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-4
     tag: []
     when:
-      file: '{*}logback{*}.jar'
+      builtin.file: '*logback*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-5
     tag: []
     when:
-      file: '{*}jboss-logging{*}.jar'
+      builtin.file: '*jboss-logging*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-6
     tag: []
     when:
-      file: '{*}monolog{*}.jar'
+      builtin.file: '*monolog*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-7
     tag: []
     when:
-      file: '{*}jcabi-log{*}.jar'
+      builtin.file: '*jcabi-log*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-8
     tag: []
     when:
-      file: '{*}nlog4j{*}.jar'
+      builtin.file: '*nlog4j*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-9
     tag: []
     when:
-      file: log4s{*}.jar
+      builtin.file: log4s*.jar
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-10
     tag: []
     when:
-      file: '{*}kotlin-logging{*}.jar'
+      builtin.file: '*kotlin-logging*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-11
     tag: []
     when:
-      file: log-manager{*}.jar
+      builtin.file: log-manager*.jar
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-12
     tag: []
     when:
-      file: '{*}minilog{*}.jar'
+      builtin.file: '*minilog*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-13
     when:
-      file: logging{*}.jar
+      builtin.file: logging*.jar
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-14
     tag: []
     when:
-      file: logging-api{*}.jar
+      builtin.file: logging-api*.jar
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-15
     tag: []
     when:
-      file: '{*}scribe{*}.jar'
+      builtin.file: '*scribe*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-16
     tag: []
     when:
-      file: '{*}gfc-logging{*}.jar'
+      builtin.file: '*gfc-logging*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-17
     tag: []
     when:
-      file: '{*}blitz4j{*}.jar'
+      builtin.file: '*blitz4j*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-18
     tag: []
     when:
-      file: '{*}avalon-logkit{*}.jar'
+      builtin.file: '*avalon-logkit*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-19
     tag: []
     when:
-      file: '{*}klogger{*}.jar'
+      builtin.file: '*klogger*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-20
     tag: []
     when:
-      file: '{*}lumberjack{*}.jar'
+      builtin.file: '*lumberjack*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-21
     tag: []
     when:
-      file: '{*}logio{*}.jar'
+      builtin.file: '*logio*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-22
     tag: []
     when:
-      file: '{*}pax-logging-service{*}.jar'
+      builtin.file: '*pax-logging-service*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-23
     when:
-      file: util-log{*}.jar
+      builtin.file: util-log*.jar
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-24
     tag: []
     when:
-      file: util-logging{*}.jar
+      builtin.file: util-logging*.jar
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-25
     tag: []
     when:
-      file: composite-logging-api{*}.jar
+      builtin.file: composite-logging-api*.jar
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/logging-usage.windup.xml-26
     tag: []
     when:
-      file: '{*}flume{*}.jar'
+      builtin.file: '*flume*.jar'

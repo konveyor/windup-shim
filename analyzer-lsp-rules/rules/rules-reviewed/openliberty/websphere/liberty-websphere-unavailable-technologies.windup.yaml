@@ -7,40 +7,40 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-0
     when:
       or:
-      - filecontent:
+      - builtin.filecontent:
           filename: '{*}.java'
           pattern: '{ActivitySessionRule_1_stringLiterals}'
       - java.referenced:
           pattern: com.ibm.websphere.ActivitySession\.[^.]+
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{ActivitySessionRule_2_filesFilter}'
           xpath: //*[local-name()='bean-cache']/@activation-policy[windup:matches(self::node(),
             '{ActivitySessionRule_2_xpath_attributeValue}')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{ActivitySessionRule_3_filesFilter}'
           xpath: //*[local-name()='local-transaction']/@boundary[windup:matches(self::node(),
             '{ActivitySessionRule_3_xpath_attributeValue}')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{ActivitySessionRule_4_filesFilter}'
           xpath: //*[local-name()='beanCache']/@activateAt[windup:matches(self::node(),
             '{ActivitySessionRule_4_xpath_attributeValue}')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{ActivitySessionRule_5_filesFilter}'
           xpath: //*[local-name()='localTransaction']/@boundary[windup:matches(self::node(),
             '{ActivitySessionRule_5_xpath_attributeValue}')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{ActivitySessionRule_6_filesFilter}'
           xpath: //*[local-name()='activity-sessions']
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{ActivitySessionRule_7_filesFilter}'
           xpath: //*[local-name()='activitySessionWebAppExtension']
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{ActivitySessionRule_8_filesFilter}'
           xpath: //*[local-name()='activitySessionEJBJarExtension']
@@ -85,7 +85,7 @@
       or:
       - java.referenced:
           pattern: (com.ibm.websphere.batch*\.[^.]+|com.ibm.wsspi.batch*\.[^.]+|com.ibm.websphere.ci\.[^.]+|com.ibm.websphere.grid.spi\.[^.]+|com.ibm.websphere.longrun\.[^.]+)
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{BatchFeaturePackRule_1_filesFilter}'
           xpath: //*[local-name()='local' or local-name()='local-home']/text()[windup:matches(self::node(),
@@ -114,7 +114,7 @@
       </div>'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-4
     when:
-      file: '{DetectPolicySetAndWsSecurity_0_filenames}'
+      builtin.file: '{DetectPolicySetAndWsSecurity_0_filenames}'
   - message: '<div class="Text">. <p> Web Services Atomic Transaction (WS-AT) Version
       1.2 is now available on Liberty. This rule flags the following unsupported WS-AT
       attributes in IBM deployment descriptor extensions: </p>. <ul>. <li><code>execute-using-wsat="true"</code></li>.
@@ -128,22 +128,22 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-5
     when:
       or:
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{DetectWSATXML_0_filesFilter}'
           xpath: //*[local-name()='globalTransaction']/@sendWSAT[windup:matches(self::node(),
             '{DetectWSATXML_0_xpath_attributeValue}')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{DetectWSATXML_1_filesFilter}'
           xpath: //*[local-name()='webGlobalTransaction']/@supportsWSAT[windup:matches(self::node(),
             '{DetectWSATXML_1_xpath_attributeValue}')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{DetectWSATXML_2_filesFilter}'
           xpath: //*[local-name()='global-transaction']/@send-wsat-context[windup:matches(self::node(),
             '{DetectWSATXML_2_xpath_attributeValue}')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{DetectWSATXML_3_filesFilter}'
           xpath: //*[local-name()='web-global-transaction']/@execute-using-wsat[windup:matches(self::node(),
@@ -155,7 +155,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openliberty/websphere/liberty-websphere-unavailable-technologies.windup.xml-6
     when:
       or:
-      - filecontent:
+      - builtin.filecontent:
           filename: '{*}.java'
           pattern: '{DetectWSBAJava_1_stringLiterals}'
       - java.referenced:
@@ -200,7 +200,7 @@
       or:
       - java.referenced:
           pattern: com.ibm.websphere.ejbquery\.[^.]+
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{DynamicQueryRule_1_filesFilter}'
           xpath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
@@ -276,7 +276,7 @@
       - java.referenced:
           location: ANNOTATION
           pattern: javax.xml.ws.BindingType
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{SOAPOverJMSRule_1_filesFilter}'
           xpath: //*[local-name()='binding']/@transport[windup:matches(self::node(),
@@ -301,7 +301,7 @@
       or:
       - java.referenced:
           pattern: com.ibm.websphere.startupservice\.[^.]+
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{StartupBeanRule_1_filesFilter}'
           xpath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
@@ -324,7 +324,7 @@
       or:
       - java.referenced:
           pattern: com.ibm.websphere.scheduler\.[^.]+
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{WebSphereSchedulerRule_1_filesFilter}'
           xpath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),
@@ -742,7 +742,7 @@
       - java.referenced:
           location: ANNOTATION
           pattern: javax.ejb.RemoteHome
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{WOLAMissingClassesRule_2_filesFilter}'
           xpath: //*[local-name()='home' or local-name()='remote']/text()[windup:matches(self::node(),

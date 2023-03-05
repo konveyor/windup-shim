@@ -10,7 +10,7 @@
       java.naming.provider.url=http-remoting://localhost:8080. ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-0
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}.{extension}'
         pattern: remote://{node}:{port}
   - message: The default remote connection port has changed in **jboss-ejb-client.properties**
@@ -24,7 +24,7 @@
       ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-1
     when:
-      filecontent:
+      builtin.filecontent:
         filename: jboss-ejb-client.properties
         pattern: remote.connection.{*}.port{portnumber}
   - message: The default remote connection port has changed from '4447' to '8080'..
@@ -35,7 +35,7 @@
       "8080");. ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-2
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}.java'
         pattern: remote.connection.{*}.port{portnumber}
   - message: The value of JSF constant `FaceletContext.FACELET_CONTEXT_KEY` has changed
@@ -46,10 +46,10 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-3
     when:
       or:
-      - filecontent:
+      - builtin.filecontent:
           filename: '{*}.java'
           pattern: com.sun.faces.facelets.FACELET_CONTEXT
-      - filecontent:
+      - builtin.filecontent:
           filename: '{*}.java'
           pattern: FaceletContext.FACELET_CONTEXT_KEY
   - message: In EAP 6, you could disable the HTTPS URL hostname check against a service’s
@@ -58,6 +58,6 @@
       in EAP 7.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6.windup.xml-4
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}.{extension}'
         pattern: org.jboss.security.ignoreHttpsHost

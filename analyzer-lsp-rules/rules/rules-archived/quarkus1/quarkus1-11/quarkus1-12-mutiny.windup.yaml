@@ -5,7 +5,7 @@
     when:
       or:
       - as: methods1
-        filecontent:
+        builtin.filecontent:
           filename: ""
           pattern: '{*}.collectItems(){*}'
         from: files1
@@ -22,7 +22,7 @@
     when:
       or:
       - as: methods2
-        filecontent:
+        builtin.filecontent:
           filename: ""
           pattern: '{*}.groupItems(){*}'
         from: files2
@@ -39,7 +39,7 @@
     when:
       or:
       - as: methods3
-        filecontent:
+        builtin.filecontent:
           filename: ""
           pattern: '{*}.toHotStream(){*}'
         from: files3
@@ -53,7 +53,7 @@
     when:
       or:
       - as: methods4
-        filecontent:
+        builtin.filecontent:
           filename: ""
           pattern: '{*}.subscribeOn{*}'
         from: files4
@@ -67,7 +67,7 @@
     when:
       or:
       - as: methods5
-        filecontent:
+        builtin.filecontent:
           filename: ""
           pattern: '{*}.subscribeOn{*}'
         from: files5
@@ -84,7 +84,7 @@
     when:
       or:
       - as: methods6
-        filecontent:
+        builtin.filecontent:
           filename: ""
           pattern: '{*}.byTakingFirstItems{*}'
         from: files6
@@ -101,7 +101,7 @@
     when:
       or:
       - as: methods6
-        filecontent:
+        builtin.filecontent:
           filename: ""
           pattern: '{*}.byTestingItemsWith{*}'
         from: files6
@@ -118,7 +118,7 @@
     when:
       or:
       - as: methods6
-        filecontent:
+        builtin.filecontent:
           filename: ""
           pattern: '{*}.byFilteringItemsWith{*}'
         from: files6
@@ -135,7 +135,7 @@
     when:
       or:
       - as: methods6
-        filecontent:
+        builtin.filecontent:
           filename: ""
           pattern: '{*}.bySkippingFirstItems{*}'
         from: files6

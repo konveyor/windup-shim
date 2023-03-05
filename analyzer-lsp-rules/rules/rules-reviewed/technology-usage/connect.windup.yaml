@@ -1,69 +1,69 @@
 - - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-0
     tag: []
     when:
-      file: '{*}.rar'
+      builtin.file: '*.rar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-1
     tag: []
     when:
-      file: '{*}activemq{*}'
+      builtin.file: '*activemq*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-2
     tag: []
     when:
-      file: '{*}openws{*}'
+      builtin.file: '*openws*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-3
     tag: []
     when:
-      file: '{*}wsdl{*}'
+      builtin.file: '*wsdl*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-4
     tag: []
     when:
       or:
-      - file: '{*}amqp-client{*}'
-      - file: '{*}rabbitmq{*}'
-      - file: '{*}spring-rabbit{*}'
-      - file: '{*}lyra{*}'
-      - file: '{*}conduit{*}'
+      - builtin.file: '*amqp-client*'
+      - builtin.file: '*rabbitmq*'
+      - builtin.file: '*spring-rabbit*'
+      - builtin.file: '*lyra*'
+      - builtin.file: '*conduit*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-5
     tag: []
     when:
       or:
-      - file: '{*}spring-messaging{*}'
-      - file: '{*}spring-jms{*}'
+      - builtin.file: '*spring-messaging*'
+      - builtin.file: '*spring-jms*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-6
     tag: []
     when:
-      file: '{*}camel-jms{*}'
+      builtin.file: '*camel-jms*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-7
     tag: []
     when:
-      file: '{*}aws-java-sdk-sqs{*}'
+      builtin.file: '*aws-java-sdk-sqs*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-8
     tag: []
     when:
-      file: '{*}hornetq{*}'
+      builtin.file: '*hornetq*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-9
     tag: []
     when:
-      file: '{*}amqp{*}'
+      builtin.file: '*amqp*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-10
     tag: []
     when:
-      file: '{*}rocketmq-client{*}'
+      builtin.file: '*rocketmq-client*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-11
     tag: []
     when:
       or:
-      - file: '{*}jzmq{*}'
-      - file: '{*}jeromq{*}'
+      - builtin.file: '*jzmq*'
+      - builtin.file: '*jeromq*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-12
     tag: []
     when:
-      file: '{*}jbossmq-client{*}'
+      builtin.file: '*jbossmq-client*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-13
     tag: []
     when:
-      file: '{*}zbus-client{*}'
+      builtin.file: '*zbus-client*'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect.windup.xml-14
     tag: []
     when:
-      file: '{*}qpid{*}'
+      builtin.file: '*qpid*'

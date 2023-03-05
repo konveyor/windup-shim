@@ -11,7 +11,7 @@
       Session data can be shared by multiple applications.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/session.windup.xml-0
     when:
-      xml:
+      builtin.xml:
         xpath: /w:web-app/w:distributable
   - message: 'In a cloud environment, a restart can wipe out HTTP session data in
       the memory of a running container.. Recommendation: Store HTTP session data

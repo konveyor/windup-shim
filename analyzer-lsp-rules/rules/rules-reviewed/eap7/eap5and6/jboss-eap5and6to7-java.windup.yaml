@@ -2,7 +2,7 @@
     tag:
     - configuration
     when:
-      filecontent:
+      builtin.filecontent:
         filename: MANIFEST.MF
         pattern: 'Dependencies:'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-java.windup.xml-1
@@ -12,7 +12,7 @@
     - cxf
     - configuration
     when:
-      file: jbossws-cxf.xml
+      builtin.file: jbossws-cxf.xml
   - message: Entity beans are no longer supported in JBoss EAP 7. User is requested
       to use JPA entities that fully replaced the functionality provided by Entity
       beans.. This entity needs to be migrated using JPA persistence.xml or using

@@ -5,7 +5,7 @@
     - cluster
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         xpath: //mbean[@code='org.jboss.cache.TreeCache']
   - message: In JBoss EAP 6+, the classloading configuration is not done through `jboss-classloading.xml`..
       Since EAP 6 is of modular nature, based on JBoss Modules.. Learn how to divide
@@ -13,14 +13,14 @@
       are available automatically.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-2
     when:
-      xml:
+      builtin.xml:
         xpath: /jbc:classloading
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-3
     tag:
     - descriptor
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: //*[local-name()='jboss']
@@ -28,7 +28,7 @@
       prefix for `security-domain` elements in EAP 7/6.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-4
     when:
-      xml:
+      builtin.xml:
         xpath: //*[local-name()='security-domain' and starts-with(text(), 'java:/jaas/')]
   - message: Before JBoss EAP 6, authentication security domains and login modules
       could be configured in a `login-config.xml` file.. JBoss EAP 6+ does not support
@@ -36,7 +36,7 @@
       configuration. Please refer to the corresponding server security guide.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5/jboss-eap5-7-xml.windup.xml-5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - login-config.xml
         xpath: //*[local-name()='policy']

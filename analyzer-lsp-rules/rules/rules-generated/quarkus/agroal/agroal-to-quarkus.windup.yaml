@@ -3,10 +3,12 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/agroal/agroal-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.agroal.agroal-api
   - message: Replace the `io.agroal:agroal-api` dependency with the Quarkus dependency
       `io.quarkus:quarkus-agroal`. Further information in the link below.
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/agroal/agroal-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.agroal.agroal-api

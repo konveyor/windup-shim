@@ -4,6 +4,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/resteasy/resteasy-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.jboss.resteasy.resteasy-multipart-provider
   - message: Replace the `org.jboss.resteasy:resteasy-multipart-provider` dependency
       with the Quarkus dependency `io.quarkus:quarkus-resteasy-multipart`. Further
@@ -11,4 +12,5 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/resteasy/resteasy-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.jboss.resteasy.resteasy-multipart-provider

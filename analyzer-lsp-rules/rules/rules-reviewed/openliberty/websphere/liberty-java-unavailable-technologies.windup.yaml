@@ -81,7 +81,7 @@
       such as DTO, Session Facade, and DAO. </p>. </div>
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openliberty/websphere/liberty-java-unavailable-technologies.windup.xml-6
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{DetectEJBEntityBeansXML_0_filesFilter}'
         xpath: //*[local-name()='entity']
@@ -149,7 +149,7 @@
       or:
       - java.referenced:
           pattern: (javax.ejb.Remote|javax.ejb.RemoteHome)
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{DetectTransactionPropagationEJBRemote_1_filesFilter}'
           xpath: //*[local-name()='remote' or local-name()='business-remote']
@@ -177,8 +177,8 @@
       or:
       - java.referenced:
           pattern: javax.xml.rpc*
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{DetectJAXRPC_2_filesFilter}'
           xpath: //*[local-name()='jaxrpc-mapping-file']
-      - file: '{DetectJAXRPC_1_files}'
+      - builtin.file: '{DetectJAXRPC_1_files}'

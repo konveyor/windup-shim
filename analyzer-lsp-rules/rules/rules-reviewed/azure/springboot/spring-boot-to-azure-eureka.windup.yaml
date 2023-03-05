@@ -5,8 +5,11 @@
     when:
       or:
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.cloud.spring-cloud-netflix-eureka{*}
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.cloud.spring-cloud-starter-netflix-eureka{*}
       - java.dependency:
+          lowerbound: 0.0.0
           name: com.netflix.eureka.{*}

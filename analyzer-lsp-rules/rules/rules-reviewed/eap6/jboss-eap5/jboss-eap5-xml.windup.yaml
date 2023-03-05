@@ -5,34 +5,34 @@
     - cluster
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         xpath: //mbean[@code='org.jboss.cache.TreeCache']
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-1
     tag:
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         xpath: /classloading
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-2
     tag:
     - seam
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         xpath: /sc:components
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-3
     tag:
     - seam
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         xpath: /sp:pages
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-4
     tag:
     - seam
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}.page.xml'
         xpath: /page
@@ -43,7 +43,7 @@
     - descriptor
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-app.xml
         xpath: //*[local-name()='jboss-app']
@@ -55,7 +55,7 @@
     - descriptor
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: //*[local-name()='jboss-web']
@@ -65,14 +65,14 @@
       are available automatically.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-8
     when:
-      xml:
+      builtin.xml:
         xpath: /jbc:classloading
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-9
     tag:
     - classloading
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-deployment-structure.xml
         xpath: //*[local-name()='jboss-deployment-structure']
@@ -82,7 +82,7 @@
     - ejb2
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jbosscmp-jdbc.xml
         xpath: //*[local-name()='jbosscmp-jdbc']
@@ -91,7 +91,7 @@
     - descriptor
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: //*[local-name()='jboss']
@@ -99,7 +99,7 @@
       prefix for `security-domain` elements in AS 7 / EAP 6.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-12
     when:
-      xml:
+      builtin.xml:
         xpath: //*[local-name()='security-domain' and starts-with(text(), 'java:/jaas/')]
   - message: Before JBoss EAP 6, authentication security domains and login modules
       could be configured in a `login-config.xml` file.. JBoss EAP 6+ does not support
@@ -107,7 +107,7 @@
       configuration. Please refer to the corresponding server security guide.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap5/jboss-eap5-xml.windup.xml-13
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - login-config.xml
         xpath: //*[local-name()='policy']
@@ -115,7 +115,7 @@
     tag:
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-ejb3.xml
         xpath: //*[local-name()='ejb-jar']
@@ -126,7 +126,7 @@
     - webservice
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-webservices.xml
         xpath: //*[local-name()='webservices']
@@ -134,5 +134,5 @@
     tag:
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         xpath: //server/mbean[@code='org.jboss.mq.server.jmx.Queue']

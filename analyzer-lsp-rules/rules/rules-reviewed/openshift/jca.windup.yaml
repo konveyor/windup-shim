@@ -6,4 +6,4 @@
       of the resource adapter to determine whether it is required in a cloud environment.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/jca.windup.xml-0
     when:
-      file: ra.xml
+      builtin.file: ra.xml

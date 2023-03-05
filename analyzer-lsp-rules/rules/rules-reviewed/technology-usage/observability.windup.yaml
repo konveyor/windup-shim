@@ -3,12 +3,16 @@
     when:
       or:
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.boot.spring-boot-starter-actuator
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.boot.spring-boot-actuator
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.boot.spring-boot-actuator-autoconfigure
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.boot.spring-boot-actuator
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/observability.windup.xml-1
     tag: []
@@ -17,5 +21,5 @@
       - java.referenced:
           location: ANNOTATION
           pattern: org.springframework.jmx.*
-      - xml:
+      - builtin.xml:
           xpath: //*/c:bean/@class[windup:matches(self::node(), 'org.springframework.jmx.export.MBeanExporter')]

@@ -4,6 +4,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: biz.paluch.logging.logstash-gelf
   - message: Replace the `biz.paluch.logging:logstash-gelf` dependency with the Quarkus
       dependency `io.quarkus:quarkus-logging-gelf`. Further information in the link
@@ -11,16 +12,19 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: biz.paluch.logging.logstash-gelf
   - message: Replace the `io.sentry:sentry-jul` dependency with the Quarkus dependency
       `io.quarkus:quarkus-logging-sentry`. Further information in the link below.
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-2
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.sentry.sentry-jul
   - message: Replace the `io.sentry:sentry-jul` dependency with the Quarkus dependency
       `io.quarkus:quarkus-logging-sentry`. Further information in the link below.
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/logging/logging-to-quarkus.windup.xml-3
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.sentry.sentry-jul

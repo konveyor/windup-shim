@@ -4,24 +4,24 @@
     - orion
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /orion-ejb-jar
+      ignore: true
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/orion/xml-orion.windup.xml-1
     tag:
     - configuration
     - orion
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /orion-web-app
+      ignore: true
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/orion/xml-orion.windup.xml-2
     tag:
     - configuration
     - orion
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /orion-application
+      ignore: true

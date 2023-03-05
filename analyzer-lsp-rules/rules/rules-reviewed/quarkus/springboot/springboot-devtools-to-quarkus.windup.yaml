@@ -2,7 +2,7 @@
       of development tools integrated by default.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-devtools-to-quarkus.windup.xml-0
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - pom.xml
         xpath: /m:project/m:dependencies/m:dependency[m:artifactId = 'spring-boot-devtools']

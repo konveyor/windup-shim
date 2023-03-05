@@ -3,6 +3,6 @@
       to your `application.properties` (or e.g. `pom.xml`).
     ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-uberjar-param.windup.xml-0
     when:
-      filecontent:
+      builtin.filecontent:
         filename: pom.xml
         pattern: /uberJar

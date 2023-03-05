@@ -2,7 +2,7 @@
       the application is started using HA profile, the replication will be done automatically.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-0
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-ejb3.xml
         xpath: /*[local-name()='ejb-jar']/*[local-name()='assembly-descriptor']/*[local-name()='clustering']/*[local-name()='clustered']
@@ -11,21 +11,21 @@
     - seam2
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         xpath: /sc:components
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-2
     tag:
     - seam
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         xpath: /sp:pages
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-3
     tag:
     - seam
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}.page.xml'
         xpath: /page
@@ -37,7 +37,7 @@
     - descriptor
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: //*[local-name()='jboss-web']
@@ -48,7 +48,7 @@
     - jboss-eap5
     - jpa
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jbosscmp-jdbc.xml
         xpath: //*[local-name()='jbosscmp-jdbc']
@@ -56,7 +56,7 @@
     tag:
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-ejb3.xml
         xpath: //*[local-name()='ejb-jar']
@@ -67,7 +67,7 @@
     - webservice
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-webservices.xml
         xpath: //*[local-name()='webservices']
@@ -77,7 +77,7 @@
       persistence.xml or using JPA annotations.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-8
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - ejb-jar.xml
         xpath: /ejb-jar/enterprise-beans/entity[persistence-type = 'Container'] |
@@ -90,7 +90,7 @@
       persistence.xml or using JPA annotations.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-9
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - ejb-jar.xml
         xpath: /ejb-jar/enterprise-beans/entity[persistence-type = 'Bean'] | /jee:ejb-jar/jee:enterprise-beans/jee:entity[jee:persistence-type
@@ -101,7 +101,7 @@
       the Valve functionality. It may be needed to migrate to Undertow handlers.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-10
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /jboss-web/valve | /jboss:jboss-web/jboss:valve
@@ -110,28 +110,28 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-11
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: /webservices/webservice-description/jaxrpc-mapping-file | /jee:webservices/jee:webservice-description/jee:jaxrpc-mapping-file
             | /jcp:webservices/jcp:webservice-description/jcp:jaxrpc-mapping-file
             | /j2ee:webservices/j2ee:webservice-description/j2ee:jaxrpc-mapping-file
-      - xml:
+      - builtin.xml:
           xpath: /ejb-jar/enterprise-beans/session/service-ref/jaxrpc-mapping-file
             | /jee:ejb-jar/jee:enterprise-beans/jee:session/jee:service-ref/jee:jaxrpc-mapping-file
             | /jcp:ejb-jar/jcp:enterprise-beans/jcp:session/jcp:service-ref/jcp:jaxrpc-mapping-file
             | /j2ee:ejb-jar/j2ee:enterprise-beans/j2ee:session/j2ee:service-ref/j2ee:jaxrpc-mapping-file
-      - xml:
+      - builtin.xml:
           xpath: /java-wsdl-mapping | /jee:java-wsdl-mapping | /jcp:java-wsdl-mapping
             | /j2ee:java-wsdl-mapping
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-12
     tag:
     - configuration
     when:
-      file: deployment-plan.xml
+      builtin.file: deployment-plan.xml
   - message: The EAP 7 Web Session Clustering configuration deprecates `replication-trigger`
       element in `jboss-web.xml` file descriptor.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-13
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='replication-trigger']
@@ -139,7 +139,7 @@
       element without replacement in `jboss-web.xml` file descriptor.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-14
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='replication-mode']
@@ -147,7 +147,7 @@
       without replacement in `jboss-web.xml` file descriptor.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-15
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='backups']
@@ -159,7 +159,7 @@
       implementation, the instance-id, if defined, is always appended to the jsessionid.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-16
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='use-jk']
@@ -173,7 +173,7 @@
       session metadata following failover.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-17
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='max-unreplicated-interval']
@@ -183,7 +183,7 @@
       this configuration option obsolete.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-18
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='snapshot-mode']
@@ -193,7 +193,7 @@
       used, this option is no longer used as well.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-19
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='snapshot-interval']
@@ -203,7 +203,7 @@
       this behaviour is specification driven and not configurable.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-20
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='session-notification-policy']
@@ -218,7 +218,7 @@
       are only passivated when necessary to comply with `max-active-sessions`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-21
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='passivation-config']
@@ -232,7 +232,7 @@
       room for the new session.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-22
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='max-active-sessions']

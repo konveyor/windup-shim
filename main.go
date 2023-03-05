@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"reflect"
 	"strconv"
@@ -24,7 +25,7 @@ func main() {
 	convertCmd.StringVar(&outputDir, "outputdir", "analyzer-lsp-rules", "The output location for converted rules")
 	testCmd := flag.NewFlagSet("test", flag.ExitOnError)
 	runCmd := flag.NewFlagSet("run", flag.ExitOnError)
-	convertCmd.StringVar(&data, "data", "", "The location of the source code to run the rules against")
+	runCmd.StringVar(&data, "data", "", "The location of the source code to run the rules against")
 
 	help := "Supported subcommands are convert, run, and test"
 	if len(os.Args) < 2 {
@@ -69,7 +70,7 @@ func main() {
 				for _, test := range ruletests {
 					err := executeTest(test, location)
 					if err != nil {
-						log.Fatal(err)
+						fmt.Println(err)
 					}
 				}
 			}
@@ -122,15 +123,19 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 			return "", err
 		}
 	}
+	err = writeYAML(map[string]interface{}{"name": "test-ruleset"}, filepath.Join(dir, "rules", "ruleset.yaml"))
+	if err != nil {
+		return "", err
+	}
 	// Template config file for analyzer
-	providerConfig := map[string]interface{}{
+	providerConfig := []map[string]interface{}{map[string]interface{}{
 		"name":           "java",
 		"location":       datadir,
 		"binaryLocation": "/jdtls/bin/jdtls",
 		"providerSpecificConfig": map[string]string{
 			"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
 		},
-	}
+	}}
 	err = writeJSON(providerConfig, filepath.Join(dir, "provider_config.json"))
 	if err != nil {
 		return "", err
@@ -138,7 +143,18 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 	// TODO now that directory is setup, need to execute
 	//	analyzer-lsp -provider-settings $dir/provider_config.json -rules $dir/rules
 	// and capture the output
-	return "", nil
+	args := []string{"-provider-settings", filepath.Join(dir, "/provider_config.json"), "-rules", filepath.Join(dir, "rules")}
+	debugCmd := strings.Join(append([]string{"dlv debug /analyzer-lsp/main.go --"}, args...), " ")
+	cmd := exec.Command("konveyor-analyzer", args...)
+	stdout, err := cmd.Output()
+	writeYAML(
+		map[string]interface{}{
+			"debugCmd": debugCmd,
+			"cmd":      strings.Join(append([]string{"konveyor-analyzer"}, args...), " "),
+			"output":   string(stdout),
+			"err":      err,
+		}, filepath.Join(dir, "debug.yaml"))
+	return string(stdout), err
 }
 
 func writeYAML(content interface{}, dest string) error {
@@ -180,7 +196,7 @@ func executeTest(test windup.Ruletest, location string) error {
 		}
 	}
 	output, err := executeRulesets(rulesets, test.TestDataPath)
-	fmt.Println(output)
+	fmt.Println(output, err)
 	return err
 }
 
@@ -256,10 +272,13 @@ func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[s
 	}
 
 	if windupDependency.FromVersion != "" {
-		dependency["lowerBound"] = windupDependency.FromVersion
+		dependency["lowerbound"] = windupDependency.FromVersion
 	}
 	if windupDependency.ToVersion != "" {
-		dependency["upperBound"] = windupDependency.ToVersion
+		dependency["upperbound"] = windupDependency.ToVersion
+	}
+	if windupDependency.FromVersion == "" && windupDependency.ToVersion == "" {
+		dependency["lowerbound"] = "0.0.0"
 	}
 	return dependency
 }
@@ -310,7 +329,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.Filecontent != nil {
 		for _, fc := range windupWhen.Filecontent {
 			condition := map[string]interface{}{
-				"filecontent": map[string]interface{}{
+				"builtin.filecontent": map[string]interface{}{
 					"pattern":  fc.Pattern,
 					"filename": fc.Filename,
 					// TODO Filecontent.Filename needs to be implemented in analyzer
@@ -390,7 +409,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				xmlCond["filepaths"] = []string{xf.In}
 			}
 			condition := map[string]interface{}{
-				"xml": xmlCond,
+				"builtin.xml": xmlCond,
 			}
 			if xf.As != "" {
 				condition["as"] = xf.As
@@ -407,7 +426,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.File != nil {
 		for _, f := range windupWhen.File {
 			condition := map[string]interface{}{
-				"file": f.Filename,
+				"builtin.file": strings.Replace(f.Filename, "{*}", "*", -1),
 			}
 			if f.As != "" {
 				condition["as"] = f.As
@@ -423,7 +442,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.Fileexists != nil {
 		for _, f := range windupWhen.Fileexists {
 			condition := map[string]interface{}{
-				"file": f.Filename,
+				"builtin.file": strings.Replace(f.Filename, "{*}", "*", -1),
 			}
 			conditions = append(conditions, condition)
 		}
@@ -432,39 +451,39 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 
 	// What is this ???
 	if windupWhen.True != "" {
-		conditions = append(conditions, map[string]interface{}{"true": nil})
+		// conditions = append(conditions, map[string]interface{}{"true": nil})
 	}
 	// What is this ???
 	if windupWhen.False != "" {
-		conditions = append(conditions, map[string]interface{}{"false": nil})
+		// conditions = append(conditions, map[string]interface{}{"false": nil})
 	}
 	// What is this ???
 	if windupWhen.Iterablefilter != nil {
-		conditions = append(conditions, map[string]interface{}{"iterable-filter": nil})
+		// conditions = append(conditions, map[string]interface{}{"iterable-filter": nil})
 	}
 	// What is this ???
 	if windupWhen.Tofilemodel != nil {
-		conditions = append(conditions, map[string]interface{}{"tofilemodel": nil})
+		// conditions = append(conditions, map[string]interface{}{"tofilemodel": nil})
 	}
 	// Test related
 	if windupWhen.Classificationexists != nil {
-		conditions = append(conditions, map[string]interface{}{"classification-exists": nil})
+		// conditions = append(conditions, map[string]interface{}{"classification-exists": nil})
 	}
 	// Test related
 	if windupWhen.Hintexists != nil {
-		conditions = append(conditions, map[string]interface{}{"hint-exists": nil})
+		// conditions = append(conditions, map[string]interface{}{"hint-exists": nil})
 	}
 	// Test related
 	if windupWhen.Lineitemexists != nil {
-		conditions = append(conditions, map[string]interface{}{"lineitem-exists": nil})
+		// conditions = append(conditions, map[string]interface{}{"lineitem-exists": nil})
 	}
 	// Test related
 	if windupWhen.Technologystatisticsexists != nil {
-		conditions = append(conditions, map[string]interface{}{"technology-statistics-exists": nil})
+		// conditions = append(conditions, map[string]interface{}{"technology-statistics-exists": nil})
 	}
 	// Test related
 	if windupWhen.Technologytagexists != nil {
-		conditions = append(conditions, map[string]interface{}{"technology-tag-exists": nil})
+		// conditions = append(conditions, map[string]interface{}{"technology-tag-exists": nil})
 	}
 	return conditions
 }
@@ -622,7 +641,7 @@ func processWindupRuletest(path string) *windup.Ruletest {
 func walkXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Ruletest, writeYAML bool) fs.WalkDirFunc {
 	return func(path string, d fs.DirEntry, err error) error {
 		if !strings.HasSuffix(path, ".xml") {
-			fmt.Printf("Skipping %s because it is not a ruleset\n", path)
+			// fmt.Printf("Skipping %s because it is not a ruleset\n", path)
 			return nil
 		}
 		if strings.HasSuffix(path, ".test.xml") && ruletests != nil {

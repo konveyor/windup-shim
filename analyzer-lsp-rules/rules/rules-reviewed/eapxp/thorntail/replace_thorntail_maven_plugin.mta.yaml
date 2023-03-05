@@ -3,7 +3,7 @@
       Thorntail Maven Plugin with JBoss EAP XP Bootable JAR Maven Plugin.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/replace_thorntail_maven_plugin.mta.xml-0
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - pom.xml
         xpath: //m:plugin[m:groupId/text() = 'io.thorntail' and m:artifactId/text()

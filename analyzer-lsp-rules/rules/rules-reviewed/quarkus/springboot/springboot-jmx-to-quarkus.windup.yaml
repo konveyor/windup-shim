@@ -3,7 +3,7 @@
       Quarkus Hotspot compilation however.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-jmx-to-quarkus.windup.xml-0
     when:
-      xml:
+      builtin.xml:
         xpath: //*/c:bean/@class[windup:matches(self::node(), 'org.springframework.jmx.export.MBeanExporter')]
   - message: Spring JMX annotation configuration detected:. Spring JMX is not supported
       by Quarkus with the GraalVM Native compilation.. Spring JMX can be used with

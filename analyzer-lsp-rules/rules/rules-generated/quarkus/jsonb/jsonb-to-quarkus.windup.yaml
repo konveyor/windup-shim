@@ -3,10 +3,12 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/jsonb/jsonb-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.eclipse.yasson
   - message: Replace the `org.eclipse:yasson` dependency with the Quarkus dependency
       `io.quarkus:quarkus-jsonb`. Further information in the link below.
     ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/jsonb/jsonb-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.eclipse.yasson

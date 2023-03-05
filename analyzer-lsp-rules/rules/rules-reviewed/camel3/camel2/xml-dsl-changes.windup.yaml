@@ -2,78 +2,78 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-0
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //*[(count(b:zip)+count(b:gzip)) >0]
-      - xml:
+      - builtin.xml:
           xpath: //*[(count(c:gzip)+count(c:zip)) > 0]
   - message: '`custom` load balancer was renamed to `customLoadBalancer`'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-1
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //*/b:route/b:loadBalance/b:custom
-      - xml:
+      - builtin.xml:
           xpath: //*/c:route/c:loadBalance/c:custom
   - message: '`zipFile` data format was renamed to `zipfile`'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-2
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //*/b:marshal/b:zipFile
-      - xml:
+      - builtin.xml:
           xpath: //*/b:unmarshal/b:zipFile
-      - xml:
+      - builtin.xml:
           xpath: //*/c:marshal/c:zipFile
-      - xml:
+      - builtin.xml:
           xpath: //*/c:unmarshal/c:zipFile
   - message: '`keyOrTrustStoreParametersId` attribute was renamed to `keyOrTrustStoreParametersRef`'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-3
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //*/b:secureXML/@keyOrTrustStoreParametersId
-      - xml:
+      - builtin.xml:
           xpath: //*/c:secureXML/@keyOrTrustStoreParametersId
   - message: Hystrix circuit breaker has been generalized as circuit breaker. Use
       `circuitBreaker`. instead of `hystrix'.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-4
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //b:hystrix
-      - xml:
+      - builtin.xml:
           xpath: //*/c:hystrix
   - message: Use `completionSizeExpression` instead of `completionSize`. Expressions
       (not the attributes) for. setting correlation size/timeout were renamed.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-5
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //*/b:aggregate/b:completionSize
-      - xml:
+      - builtin.xml:
           xpath: //*/c:aggregate/c:completionSize
   - message: Use `completionTimeoutExpression` instead of `completionTimeout`. Expressions
       (not the. attributes) for. setting correlation size/timeout were renamed.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-6
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //*/b:aggregate/b:completionTimeout
-      - xml:
+      - builtin.xml:
           xpath: //*/c:aggregate/c:completionTimeout
   - message: The attribute `headerName` was renamed to `name`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-7
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //*/b:setHeader/@headerName
-      - xml:
+      - builtin.xml:
           xpath: //*/c:setHeader/@headerName
   - message: The attribute `propertyName` was renamed to `name`.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-dsl-changes.windup.xml-8
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //*/b:setProperty/@propertyName
-      - xml:
+      - builtin.xml:
           xpath: //*/c:setProperty/@propertyName

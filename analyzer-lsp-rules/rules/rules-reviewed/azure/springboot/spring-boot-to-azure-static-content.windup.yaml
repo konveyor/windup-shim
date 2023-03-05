@@ -5,4 +5,4 @@
       an Azure storage account with Azure CDN.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-static-content.windup.xml-0
     when:
-      file: '{*}.{extensions}'
+      builtin.file: '*.{extensions}'

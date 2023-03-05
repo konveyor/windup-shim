@@ -4,15 +4,17 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.micrometer.micrometer-core
   - message: Replace the Micrometer code with Microprofile Metrics code
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.micrometer.micrometer-core
   - message: Replace `management.endpoints.web.exposure.include=prometheus` with `quarkus.micrometer.export.prometheus.path=/actuator/prometheus`
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-metrics-to-quarkus.windup.xml-2
     when:
-      filecontent:
+      builtin.filecontent:
         filename: application{profile}.{extension}
         pattern: management.endpoints.web.exposure.include{wildcards}prometheus

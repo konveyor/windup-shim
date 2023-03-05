@@ -1,15 +1,15 @@
 - - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-0
     tag: []
     when:
-      file: '{*}wicket{*}.jar'
+      builtin.file: '*wicket*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-1
     tag: []
     when:
-      file: '{*}struts{*}.jar'
+      builtin.file: '*struts*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-2
     tag: []
     when:
-      file: '{*}spring-webmvc{*}.jar'
+      builtin.file: '*spring-webmvc*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-3
     tag: []
     when:
@@ -21,204 +21,208 @@
     when:
       or:
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.spring-webmvc
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.spring-webflux
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.boot.spring-boot-starter-webflux
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.spring-webflux
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-5
     tag: []
     when:
-      file: '{*}gwt{*}.jar'
+      builtin.file: '*gwt*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-6
     tag: []
     when:
-      file: '{*}myfaces{*}.jar'
+      builtin.file: '*myfaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-7
     tag: []
     when:
-      file: '{*}richfaces{*}.jar'
+      builtin.file: '*richfaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-8
     tag: []
     when:
-      file: '{*}jsf{*}.jar'
+      builtin.file: '*jsf*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-9
     tag: []
     when:
-      file: '{*}tapestry{*}.jar'
+      builtin.file: '*tapestry*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-10
     tag: []
     when:
-      file: '{*}stripes{*}.jar'
+      builtin.file: '*stripes*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-11
     tag: []
     when:
-      file: '{*}spark{*}.jar'
+      builtin.file: '*spark*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-12
     tag: []
     when:
-      file: '{*}vaadin{*}.jar'
+      builtin.file: '*vaadin*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-13
     tag: []
     when:
-      file: '{*}grails{*}.jar'
+      builtin.file: '*grails*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-14
     tag: []
     when:
-      file: '{*}play{*}.jar'
+      builtin.file: '*play*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-15
     tag: []
     when:
       or:
-      - file: adf-settings.xml
-      - file: adfc-config.xml
+      - builtin.file: adf-settings.xml
+      - builtin.file: adfc-config.xml
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-16
     tag: []
     when:
-      file: '{*}primefaces{*}.jar'
+      builtin.file: '*primefaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-17
     tag: []
     when:
-      file: '{*}jslt{*}.jar'
+      builtin.file: '*jslt*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-18
     tag: []
     when:
-      file: '{*}openfaces{*}.jar'
+      builtin.file: '*openfaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-19
     tag: []
     when:
-      file: '{*}jfreechart{*}.jar'
+      builtin.file: '*jfreechart*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-20
     tag: []
     when:
-      file: '{*}bootsfaces{*}.jar'
+      builtin.file: '*bootsfaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-21
     tag: []
     when:
-      file: '{*}icefaces{*}.jar'
+      builtin.file: '*icefaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-22
     tag: []
     when:
-      file: '{*}babbageFaces{*}.jar'
+      builtin.file: '*babbageFaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-23
     tag: []
     when:
-      file: '{*}portlet{*}.jar'
+      builtin.file: '*portlet*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-24
     tag: []
     when:
-      file: '{*}angularFaces{*}.jar'
+      builtin.file: '*angularFaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-25
     tag: []
     when:
-      file: '{*}liferay-faces{*}.jar'
+      builtin.file: '*liferay-faces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-26
     tag: []
     when:
-      file: '{*}liferay{*}.jar'
+      builtin.file: '*liferay*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-27
     tag: []
     when:
-      file: '{*}butterfaces{*}.jar'
+      builtin.file: '*butterfaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-28
     tag: []
     when:
-      file: '{*}highfaces{*}.jar'
+      builtin.file: '*highfaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-29
     tag: []
     when:
-      file: '{*}tiefaces{*}.jar'
+      builtin.file: '*tiefaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-30
     tag: []
     when:
-      file: '{*}omnifaces{*}.jar'
+      builtin.file: '*omnifaces*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-31
     tag: []
     when:
-      file: '{*}uberfire{*}.jar'
+      builtin.file: '*uberfire*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-32
     tag: []
     when:
-      file: '{*}velocity{*}.jar'
+      builtin.file: '*velocity*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-33
     tag: []
     when:
-      file: '{*}thymeleaf{*}.jar'
+      builtin.file: '*thymeleaf*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-34
     tag: []
     when:
-      file: '{*}freemarker{*}.jar'
+      builtin.file: '*freemarker*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-35
     tag: []
     when:
-      file: '{*}stringtemplate{*}.jar'
+      builtin.file: '*stringtemplate*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-36
     tag: []
     when:
-      file: '{*}handlebars{*}.jar'
+      builtin.file: '*handlebars*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-37
     tag: []
     when:
-      file: '{*}jmustache{*}.jar'
+      builtin.file: '*jmustache*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-38
     tag: []
     when:
-      file: jamon-{*}.jar
+      builtin.file: jamon-*.jar
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-39
     tag: []
     when:
-      file: '{*}twirl{*}.jar'
+      builtin.file: '*twirl*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-40
     tag: []
     when:
-      file: '{*}scalate{*}.jar'
+      builtin.file: '*scalate*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-41
     tag: []
     when:
-      file: '{*}rythm-engine{*}.jar'
+      builtin.file: '*rythm-engine*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-42
     tag: []
     when:
-      file: '{*}trimou-core{*}.jar'
+      builtin.file: '*trimou-core*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-43
     tag: []
     when:
-      file: '{*}velocity{*}.jar'
+      builtin.file: '*velocity*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-44
     tag: []
     when:
-      file: '{*}chunk-templates{*}.jar'
+      builtin.file: '*chunk-templates*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-45
     tag: []
     when:
-      file: '{*}jsilver{*}.jar'
+      builtin.file: '*jsilver*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-46
     tag: []
     when:
-      file: '{*}watertemplate-engine{*}.jar'
+      builtin.file: '*watertemplate-engine*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-47
     tag: []
     when:
-      file: '{*}ickenham{*}.jar'
+      builtin.file: '*ickenham*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-48
     tag: []
     when:
-      file: '{*}mixer{*}.jar'
+      builtin.file: '*mixer*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-49
     tag: []
     when:
-      file: '{*}webmacro{*}.jar'
+      builtin.file: '*webmacro*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-50
     tag: []
     when:
-      file: '{*}dvsl{*}.jar'
+      builtin.file: '*dvsl*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-51
     tag: []
     when:
-      file: '{*}snippetory{*}.jar'
+      builtin.file: '*snippetory*.jar'
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/mvc.windup.xml-52
     tag: []
     when:
-      file: '{*}anakia{*}.jar'
+      builtin.file: '*anakia*.jar'

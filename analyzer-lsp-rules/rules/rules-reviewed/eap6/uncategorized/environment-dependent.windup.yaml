@@ -37,7 +37,7 @@
     - webservice
     when:
       as: default
-      file: jndi.properties
+      builtin.file: jndi.properties
       ignore: true
   - message: After migration, some of the JMX beans provided by the previous server
       may not be present anymore.. Ensure that the `javax.management.{suffix}` does

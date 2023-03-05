@@ -17,11 +17,11 @@
     when:
       or:
       - or:
-        - filecontent:
+        - builtin.filecontent:
             filename: ""
             pattern: .zip({*})
           from: routeBuilders
-        - filecontent:
+        - builtin.filecontent:
             filename: ""
             pattern: .gzip({*})
           from: routeBuilders
@@ -74,7 +74,7 @@
   - message: '`includeRoutes` method has been removed'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/java-generic-information.windup.xml-8
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}.java'
         pattern: .includeRoutes({*})
   - message: Annotation `org.apache.camel.language.Bean` has been moved to `org.apache.camel.language.bean.Bean`
@@ -259,9 +259,9 @@
       - java.referenced:
           location: IMPORT
           pattern: org.apache.camel.util.toolbox.XsltAggregationStrategy
-      - xml:
+      - builtin.xml:
           xpath: //*/c:bean/@class[windup:matches(self::node(), 'org.apache.camel.util.toolbox.XsltAggregationStrategy')]
-      - xml:
+      - builtin.xml:
           xpath: //*/c:bean/@class[windup:matches(self::node(), 'org.apache.camel.util.toolbox.XsltAggregationStrategy')]
   - message: The `getProperties` and `setProperty` methods have been removed from
       `org.apache.camel.CamelContext`. Please use `getGlobalOptions` and `setGlobalOptions`
@@ -272,9 +272,9 @@
       - java.referenced:
           location: METHOD_CALL
           pattern: org.apache.camel.CamelContext.{get|set}Propert{y|ies}(*)
-      - xml:
+      - builtin.xml:
           xpath: //c:camelContext/c:properties
-      - xml:
+      - builtin.xml:
           xpath: //c:camelContext/c:properties
   - message: The default FHIR specification in the `org.apache.camel:camel-fhir` artifact
       has changed from DSTU3 to R4. Therefore if DSTU3 is desired it has to be explicitly
@@ -283,7 +283,7 @@
     when:
       java.dependency:
         name: org.apache.camel.camel-fhir
-        upperBound: "2"
+        upperbound: "2"
   - message: The method `org.apache.camel.CamelContext.{method}` has been moved to
       `org.apache.camel.api.management.ManagedCamelContext.{method}`. You can access
       it by adapting your CamelContext like so:. `ManagedCamelContext managed = context.adapt(ManagedCamelContext.class);`.
@@ -307,10 +307,10 @@
       - java.referenced:
           location: METHOD_CALL
           pattern: org.apache.camel.language.simple.SimpleTokenizer.(changeFunctionStartToken|changeFunctionEndToken))(*)
-      - xml:
+      - builtin.xml:
           xpath: //c:bean[@class='org.apache.camel.language.simple.SimpleLanguage']/c:property[@name='functionStartToken'
             or @name='functionEndToken']
-      - xml:
+      - builtin.xml:
           xpath: //c:bean[@class='org.apache.camel.language.simple.SimpleLanguage']/c:property[@name='functionStartToken'
             or @name='functionEndToken']
   - message: The `uri` attribute in the @{class} annotation has been deprecated. Instead

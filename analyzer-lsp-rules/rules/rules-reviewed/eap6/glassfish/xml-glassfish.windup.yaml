@@ -3,14 +3,14 @@
     - configuration
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /glassfish-ejb-jar
+      ignore: true
   - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/glassfish/xml-glassfish.windup.xml-2
     tag:
     - configuration
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /glassfish-application
+      ignore: true

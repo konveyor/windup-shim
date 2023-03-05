@@ -3,24 +3,28 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-http4
   - message: '`org.apache.camel:camel-http4-starter` artifact has been renamed in
       Apache Camel 3 to `org.apache.camel.springboot:camel-http-starter` artifact'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-http4-starter
   - message: '`org.apache.camel:camel-rxjava2` artifact has been renamed in Apache
       Camel 3 to `org.apache.camel:camel-rxjava` artifact'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-2
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-rxjava2
   - message: '`org.apache.camel:camel-rxjava2-starter` artifact has been renamed in
       Apache Camel 3 to `org.apache.camel.springboot:camel-rxjava-starter` artifact'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-3
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-rxjava2-starter
   - message: '`org.apache.camel:camel-{substitution}-starter` artifact has been renamed
       in Apache Camel 3 to `org.apache.camel.springboot:camel-{substitution}-starter`
@@ -28,6 +32,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-4
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-{substitution}-starter
   - message: '`org.apache.camel:camel-mongodb3` artifact has been renamed to `org.apache.camel:camel-mongodb`.
       It’s corresponding component package was renamed from `org.apache.camel.component.mongodb3`
@@ -35,6 +40,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-5
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-mongodb3
   - message: '`org.apache.camel:camel-mongodb3-starter` artifact has been renamed
       to `org.apache.camel.springboot:camel-mongodb-starter`. It’s corresponding component
@@ -43,6 +49,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-6
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-mongodb3-starter
   - message: '`org.apache.camel:camel-hdfs2` artifact has been renamed to `org.apache.camel:camel-hdfs`.
       It’s corresponding component package was renamed from `org.apache.camel.component.hdfs2`
@@ -50,6 +57,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-7
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-hdfs2
   - message: '`org.apache.camel:camel-hdfs2-starter` artifact has been renamed to
       `org.apache.camel.springboot:camel-hdfs-starter`. It’s corresponding component
@@ -58,6 +66,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-8
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-hdfs2-starter
   - message: In Camel 3, the `org.apache.camel:camel-hdfs` artifact has the same implementation
       as the Camel 2 `org.apache.camel:camel-hdfs2` artifact. The component now depends
@@ -66,12 +75,13 @@
     when:
       java.dependency:
         name: org.apache.camel.camel-hdfs
-        upperBound: "2"
+        upperbound: "2"
   - message: '`org.apache.camel:camel-hdfs-starter` artifact has been renamed to `org.apache.camel.springboot:camel-hdfs-starter`.
       The component now depends on Hadoop 2.x, upgrade efforts may vary.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-10
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-hdfs-starter
   - message: '`org.apache.camel:camel-mina2` artifact has been renamed to `org.apache.camel:camel-mina`.
       It’s corresponding component package was renamed from `org.apache.camel.component.mina2`
@@ -79,6 +89,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-11
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-mina2
   - message: '`org.apache.camel:camel-mina2-starter` artifact has been renamed to
       `org.apache.camel.springboot:camel-mina-starter`. It’s corresponding component
@@ -87,6 +98,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-12
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-mina2-starter
   - message: In Camel 3, the `org.apache.camel:camel-mina` artifact has the same implementation
       as the Camel 2 `org.apache.camel:camel-mina2` artifact. The component now depends
@@ -95,12 +107,13 @@
     when:
       java.dependency:
         name: org.apache.camel.camel-mina
-        upperBound: "2"
+        upperbound: "2"
   - message: '`org.apache.camel:camel-mina-starter` artifact has been renamed to `org.apache.camel.springboot:camel-mina-starter`.
       The component now depends on Mina 2.x, upgrade efforts may vary.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-14
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-mina-starter
   - message: '`org.apache.camel:camel-netty4` artifact has been renamed to `org.apache.camel:camel-netty`.
       It’s corresponding component package was renamed from `org.apache.camel.component.netty4`
@@ -108,6 +121,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-15
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-netty4
   - message: '`org.apache.camel:camel-netty4-starter` artifact has been renamed to
       `org.apache.camel.springboot:camel-netty-starter`. It’s corresponding component
@@ -116,6 +130,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-16
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-netty4-starter
   - message: In Camel 3, the `org.apache.camel:camel-netty` artifact has the same
       implementation as the Camel 2 `org.apache.camel:camel-netty4` artifact. The
@@ -124,13 +139,14 @@
     when:
       java.dependency:
         name: org.apache.camel.camel-netty
-        upperBound: "2"
+        upperbound: "2"
   - message: '`org.apache.camel:camel-netty-starter` artifact has been renamed to
       `org.apache.camel.springboot:camel-netty-starter` artifact. The component now
       depends on Netty 4.x, upgrade efforts may vary.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-18
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-netty-starter
   - message: '`org.apache.camel:camel-netty4-http` artifact has been renamed to `org.apache.camel:camel-netty-http`.
       It’s corresponding component package was renamed from `org.apache.camel.component.netty4.http`
@@ -138,6 +154,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-19
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-netty4-http
   - message: '`org.apache.camel:camel-netty4-http` artifact has been renamed to `org.apache.camel.springboot:camel-netty-http-starter`.
       It’s corresponding component package was renamed from `org.apache.camel.component.netty4.http`
@@ -145,6 +162,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-20
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-netty4-http-starter
   - message: In Camel 3, the `org.apache.camel:camel-netty-http` artifact has the
       same implementation as the Camel 2 `org.apache.camel:camel-netty4-http` artifact.
@@ -153,13 +171,14 @@
     when:
       java.dependency:
         name: org.apache.camel.camel-netty-http
-        upperBound: "2"
+        upperbound: "2"
   - message: '`org.apache.camel:camel-netty-http-starter` artifact has been renamed
       to `org.apache.camel.springboot:camel-netty-http-starter`. The component now
       depends on Netty 4.x, upgrade efforts may vary.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-22
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-netty-http-starter
   - message: '`org.apache.camel:camel-quartz2` artifact has been renamed to `org.apache.camel:camel-quartz`.
       It’s corresponding component package was renamed from `org.apache.camel.component.quartz2`
@@ -167,6 +186,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-23
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-quartz2
   - message: '`org.apache.camel:camel-quartz2-starter` artifact has been renamed to
       `org.apache.camel.springboot:camel-quartz-starter`. It’s corresponding component
@@ -175,6 +195,7 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-24
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-quartz2-starter
   - message: In Camel 3, the `org.apache.camel:camel-quartz` artifact has the same
       implementation as the Camel 2 `org.apache.camel:camel-quartz2` artifact. The
@@ -183,24 +204,27 @@
     when:
       java.dependency:
         name: org.apache.camel.camel-quartz
-        upperBound: "2"
+        upperbound: "2"
   - message: '`org.apache.camel:camel-quartz-starter` artifact has been renamed to
       `org.apache.camel.springboot:camel-quartz-starter`. The component now depends
       on Quartz 2.x, upgrade efforts may vary.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-26
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-quartz-starter
   - message: '`org.apache.camel:camel-jetty9` artifact has been renamed to `org.apache.camel:camel-jetty`.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-27
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-jetty9
   - message: '`org.apache.camel:camel-jetty9-starter` artifact has been renamed to
       `org.apache.camel.springboot:camel-jetty-starter`.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-28
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.camel.camel-jetty9-starter
   - message: The `org.apache.activemq:activemq-camel` artifact has been moved to `org.apache.camel:camel-activemq`,
       where the component name has changed from `org.apache.activemq.camel.component.ActiveMQComponent`
@@ -208,4 +232,5 @@
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-renamed-components.windup.xml-29
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.apache.activemq.activemq-camel

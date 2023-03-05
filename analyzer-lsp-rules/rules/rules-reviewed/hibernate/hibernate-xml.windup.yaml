@@ -5,14 +5,14 @@
     when:
       or:
       - as: "1"
-        ignore: true
-        xml:
+        builtin.xml:
           xpath: /hibernate-mapping
+        ignore: true
       - as: "2"
+        builtin.xml:
+          xpath: //*[@type='string']
         from: "1"
         ignore: true
-        xml:
-          xpath: //*[@type='string']
   - message: If you are using Oracle and using the ```materialized_clob``` or ```materialized_blob```
       properties, this global environment variable must be set to true.. If you are
       using PostgreSQL and using the CLOB or BLOB properties, this global environment
@@ -21,19 +21,19 @@
     when:
       or:
       - as: "1"
-        ignore: true
-        xml:
+        builtin.xml:
           xpath: /hibernate-configuration
+        ignore: true
       - as: "2"
+        builtin.xml:
+          xpath: //property[@name='hibernate.jdbc.use_streams_for_binary']
         from: "1"
         ignore: true
-        xml:
-          xpath: //property[@name='hibernate.jdbc.use_streams_for_binary']
   - message: From Hibernate 4.0 there were moved classes from package `org.hibernate.connection`
       to package `org.hibernate.service.jdbc.connections.internal`.. You should change
       your Hibernate setup to replace references to the old package names.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-2
     when:
-      filecontent:
+      builtin.filecontent:
         filename: hibernate-configuration.xml
         pattern: org.hibernate.connection

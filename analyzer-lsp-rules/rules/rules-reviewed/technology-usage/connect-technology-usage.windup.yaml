@@ -77,6 +77,6 @@
       - java.referenced:
           location: VARIABLE_DECLARATION
           pattern: javax.resource.*
-      - xml:
+      - builtin.xml:
           xpath: //*[local-name()='jms-jca-provider']
-      - file: ra.xml
+      - builtin.file: ra.xml

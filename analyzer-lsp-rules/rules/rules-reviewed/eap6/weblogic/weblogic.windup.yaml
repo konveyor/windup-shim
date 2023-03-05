@@ -101,7 +101,7 @@
       ```
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-11
     when:
-      xml:
+      builtin.xml:
         xpath: /jdbc-data-source/jdbc-driver-params/property/name[text()='FastConnectionFailoverEnabled']
   - message: Oracle WebLogic Server includes a proprietary side-by-side production
       redeployment feature. For applications that meet certain requirements and restrictions,
@@ -115,7 +115,7 @@
       to the same clustered domain.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-12
     when:
-      filecontent:
+      builtin.filecontent:
         filename: MANIFEST.MF
         pattern: 'Weblogic-Application-Version:'
   - message: WebLogic administrators use wallets created by Oracle Wallet Manager
@@ -124,7 +124,7 @@
       that can then be used to configure the credentials in JBoss EAP 6.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-13
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}'
         pattern: oracle.net.wallet_location
   - message: '`weblogic.jndi.WLInitialContextFactory` is an implementation of `InitialContextFactory`
@@ -134,7 +134,7 @@
       InitialContext();`.'
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-14
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}.{ext}'
         pattern: weblogic.jndi.WLInitialContextFactory
   - message: Weblogic’s implementation of the RMI specification uses a proprietary
@@ -145,6 +145,6 @@
       library if the connectivity to WebLogic server is still required.
     ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/weblogic/weblogic.windup.xml-15
     when:
-      filecontent:
+      builtin.filecontent:
         filename: '{*}.{ext}'
         pattern: '{t3url}'
