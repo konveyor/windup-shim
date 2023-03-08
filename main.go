@@ -105,8 +105,10 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 	if err != nil {
 		return "", err
 	}
+	sourceFiles := []string{}
 	converted := [][]map[string]interface{}{}
 	for _, ruleset := range rulesets {
+		sourceFiles = append(sourceFiles, ruleset.SourceFile)
 		converted = append(converted, convertWindupRulesetToAnalyzer(ruleset))
 	}
 	dir, err := os.MkdirTemp("", "analyzer-lsp")
@@ -146,14 +148,17 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 	args := []string{"-provider-settings", filepath.Join(dir, "/provider_config.json"), "-rules", filepath.Join(dir, "rules")}
 	debugCmd := strings.Join(append([]string{"dlv debug /analyzer-lsp/main.go --"}, args...), " ")
 	cmd := exec.Command("konveyor-analyzer", args...)
+	debugInfo := map[string]interface{}{
+		"debugCmd":   debugCmd,
+		"cmd":        strings.Join(append([]string{"konveyor-analyzer"}, args...), " "),
+		"sourceFile": sourceFiles,
+	}
+	writeYAML(debugInfo, filepath.Join(dir, "debug.yaml"))
 	stdout, err := cmd.Output()
-	writeYAML(
-		map[string]interface{}{
-			"debugCmd": debugCmd,
-			"cmd":      strings.Join(append([]string{"konveyor-analyzer"}, args...), " "),
-			"output":   string(stdout),
-			"err":      err,
-		}, filepath.Join(dir, "debug.yaml"))
+	debugInfo["err"] = err
+	debugInfo["output"] = string(stdout)
+	writeYAML(debugInfo, filepath.Join(dir, "debug.yaml"))
+
 	return string(stdout), err
 }
 
