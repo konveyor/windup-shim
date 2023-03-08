@@ -1,15 +1,15 @@
 - - message: Virtual directories supported in WebLogic are not supported in JBoss
       EAP.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-0
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - weblogic.xml
         xpath: //wl:virtual-directory-mapping
   - message: Replace the proprietary WebLogic `@WLServlet` annotation with the Java
       EE standard `@WebServlet` annotation.. See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/7/api/javax/servlet/annotation/package-summary.html)
       for more information.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-1
     when:
       java.referenced:
         location: ANNOTATION
@@ -17,7 +17,7 @@
   - message: Replace the proprietary WebLogic `@WLInitParam` annotation with the Java
       EE standard `@WebInitParam` annotation.. See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/7/api/javax/servlet/annotation/package-summary.html)
       for more information.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-2
     when:
       java.referenced:
         location: ANNOTATION
@@ -25,7 +25,7 @@
   - message: Replace the proprietary WebLogic `@WLFilter` annotation with the Java
       EE standard `@WebFilter` annotation.. See the [javax.servlet.annotation JavaDoc](http://docs.oracle.com/javaee/7/api/javax/servlet/annotation/package-summary.html)
       for more information.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-3
     when:
       java.referenced:
         location: ANNOTATION
@@ -37,7 +37,7 @@
       Java EE programming model.. Use a `javax.servlet.ServletContextListener` with
       `@javax.annotation.servlet.WebListener`, or an EJB 3.1 `@javax.ejb.Startup`
       `@javax.ejb.Singleton` service bean.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-4
     when:
       or:
       - java.referenced:
@@ -54,7 +54,7 @@
       beans or EJB's `@Startup` beans is required.. Use a `javax.servlet.ServletContextListener`
       with `@javax.annotation.servlet.WebListener`, or an EJB 3.1 `@javax.ejb.Startup`
       `@javax.ejb.Singleton` service bean.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-5
     when:
       or:
       - java.referenced:
@@ -65,12 +65,12 @@
           pattern: weblogic.application.ApplicationLifecycleListener
   - message: The usage of the WebLogic proprietary security API should be replaced
       by standard Java EE mechanisms or the ones provided by JBoss EAP.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-6
     when:
       java.referenced:
         pattern: weblogic.security.*
   - message: 'Migrate to JBoss EAP 7: `org.jboss.security.SecurityContextAssociation`.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-7
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-7
     when:
       java.referenced:
         pattern: weblogic.security.Security
@@ -80,7 +80,7 @@
       you can define a `<security-constraint>` element in the web.xml file. You must
       also replace code that uses the Oracle WebLogic Server proprietary `ServletAuthentication`
       class.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-8
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/weblogic/weblogic-webapp.windup.xml-8
     when:
       java.referenced:
         pattern: weblogic.servlet.security.ServletAuthentication

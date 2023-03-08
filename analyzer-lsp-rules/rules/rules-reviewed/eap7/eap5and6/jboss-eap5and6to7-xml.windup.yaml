@@ -1,35 +1,35 @@
 - - message: The `clustered` element is ignored in EAP 7 and is not useful. In case
       the application is started using HA profile, the replication will be done automatically.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-0
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-ejb3.xml
         xpath: /*[local-name()='ejb-jar']/*[local-name()='assembly-descriptor']/*[local-name()='clustering']/*[local-name()='clustered']
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-1
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-1
     tag:
     - seam2
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         xpath: /sc:components
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-2
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-2
     tag:
     - seam
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         xpath: /sp:pages
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-3
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-3
     tag:
     - seam
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}.page.xml'
         xpath: /page
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-4
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-4
     tag:
     - web
     - configuration
@@ -37,37 +37,37 @@
     - descriptor
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: //*[local-name()='jboss-web']
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-5
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-5
     tag:
     - jdbc
     - ejb2
     - jboss-eap5
     - jpa
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jbosscmp-jdbc.xml
         xpath: //*[local-name()='jbosscmp-jdbc']
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-6
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-6
     tag:
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-ejb3.xml
         xpath: //*[local-name()='ejb-jar']
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-7
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-7
     tag:
     - jboss-ws
     - descriptor
     - webservice
     - jboss-eap5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-webservices.xml
         xpath: //*[local-name()='webservices']
@@ -75,9 +75,9 @@
       to use JPA entities that fully replaced the functionality provided by CMP beans..
       CMP configuration provided in this ejb-jar.xml should be configured using JPA
       persistence.xml or using JPA annotations.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-8
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-8
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - ejb-jar.xml
         xpath: /ejb-jar/enterprise-beans/entity[persistence-type = 'Container'] |
@@ -88,9 +88,9 @@
       to use JPA entities that fully replaced the functionality provided by BMP beans..
       BMP configuration provided in this ejb-jar.xml should be configured using JPA
       persistence.xml or using JPA annotations.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-9
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-9
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - ejb-jar.xml
         xpath: /ejb-jar/enterprise-beans/entity[persistence-type = 'Bean'] | /jee:ejb-jar/jee:enterprise-beans/jee:entity[jee:persistence-type
@@ -99,55 +99,55 @@
           = 'Bean']
   - message: JBoss Web was replaced by Undertow, which does not contain support for
       the Valve functionality. It may be needed to migrate to Undertow handlers.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-10
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-10
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /jboss-web/valve | /jboss:jboss-web/jboss:valve
   - message: JAX-RPC support was removed in JBoss EAP 7. All the RPC calls will need
       to be migrated to JAX-WS.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-11
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-11
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: /webservices/webservice-description/jaxrpc-mapping-file | /jee:webservices/jee:webservice-description/jee:jaxrpc-mapping-file
             | /jcp:webservices/jcp:webservice-description/jcp:jaxrpc-mapping-file
             | /j2ee:webservices/j2ee:webservice-description/j2ee:jaxrpc-mapping-file
-      - xml:
+      - builtin.xml:
           xpath: /ejb-jar/enterprise-beans/session/service-ref/jaxrpc-mapping-file
             | /jee:ejb-jar/jee:enterprise-beans/jee:session/jee:service-ref/jee:jaxrpc-mapping-file
             | /jcp:ejb-jar/jcp:enterprise-beans/jcp:session/jcp:service-ref/jcp:jaxrpc-mapping-file
             | /j2ee:ejb-jar/j2ee:enterprise-beans/j2ee:session/j2ee:service-ref/j2ee:jaxrpc-mapping-file
-      - xml:
+      - builtin.xml:
           xpath: /java-wsdl-mapping | /jee:java-wsdl-mapping | /jcp:java-wsdl-mapping
             | /j2ee:java-wsdl-mapping
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-12
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-12
     tag:
     - configuration
     when:
-      file: deployment-plan.xml
+      builtin.file: deployment-plan.xml
   - message: The EAP 7 Web Session Clustering configuration deprecates `replication-trigger`
       element in `jboss-web.xml` file descriptor.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-13
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-13
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='replication-trigger']
   - message: The EAP 7 Web Session Clustering configuration deprecates element `replication-mode`
       element without replacement in `jboss-web.xml` file descriptor.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-14
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-14
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='replication-mode']
   - message: The EAP 7 Web Session Clustering configuration deprecates `backups` element
       without replacement in `jboss-web.xml` file descriptor.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-15
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-15
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='backups']
@@ -157,9 +157,9 @@
       to the jsessionid (foruse by load balancers such as mod_jk, mod_proxy_balancer,
       mod_cluster, etc.) depending on the value specified for `use-jk`.. In the new
       implementation, the instance-id, if defined, is always appended to the jsessionid.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-16
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-16
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='use-jk']
@@ -171,9 +171,9 @@
       RPCs regardless of whether any session attributes changed.. In the new implementation,
       the timestamp of a session is replicated on every request.. This prevents stale
       session metadata following failover.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-17
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-17
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='max-unreplicated-interval']
@@ -181,9 +181,9 @@
       element in `jboss-web.xml` file descriptor.. Previously, one could configure
       `snapshot-mode` as INSTANT or INTERVAL. Infinispan’s replication queue renders
       this configuration option obsolete.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-18
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-18
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='snapshot-mode']
@@ -191,9 +191,9 @@
       element from `jboss-web.xml` file descriptor.. This option was only relevant
       for `<snapshot-mode>INTERVAL</snapshot-mode>`. Since `snapshot-mode` is no longer
       used, this option is no longer used as well.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-19
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-19
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='snapshot-interval']
@@ -201,9 +201,9 @@
       element in `jboss-web.xml` file descriptor.. Previously `session-notification-policy`
       element defined a policy for triggering session events.. In the new implementation,
       this behaviour is specification driven and not configurable.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-20
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-20
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='replication-config']/*[local-name()='session-notification-policy']
@@ -216,9 +216,9 @@
       waiting some time before the passivation.. * `passivation-max-idle-time` is
       not supported and the new implementation supports only lazy passivation. Sessions
       are only passivated when necessary to comply with `max-active-sessions`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-21
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-21
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='passivation-config']
@@ -230,9 +230,9 @@
       would cause the number of active sessions to exceed `<max-active-sessions/>`,.
       then the oldest session known to the session manager will passivate to make
       room for the new session.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-22
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap5and6/jboss-eap5and6to7-xml.windup.xml-22
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss-web.xml
         xpath: /*[local-name()='jboss-web']/*[local-name()='max-active-sessions']

@@ -1,291 +1,291 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-0
     tag:
     - seam
     - jsf
     when:
-      xml:
+      builtin.xml:
         xpath: //*[namespace-uri()='http://jboss.com/products/seam/taglib']
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-1
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-1
     tag:
     - seam
     - jsf
     when:
-      xml:
+      builtin.xml:
         xpath: //*[namespace-uri()='http://jboss.org/schema/seam/taglib']
   - message: Seam UI's `<s:button>` JSF control should be replaced by `<h:button>`..
       There are differences in attributes, for example the _action_ attribute maps
       to _outcome_ and there is no _propagation_ attribute.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-2
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:button
-      - xml:
+      - builtin.xml:
           xpath: //s:button
   - message: Seam UI's `<s:link>` should be replaced by `<h:link>`.. There are differences
       in attributes, for example the _action_ attribute maps to _outcome_ and there
       is no _propagation_ attribute.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-3
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:link
-      - xml:
+      - builtin.xml:
           xpath: //s:link
   - message: There is no direct mapping for `<s:conversationId>` in JSF UI controls.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-4
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:conversationId
-      - xml:
+      - builtin.xml:
           xpath: //s:conversationId
   - message: There is no direct mapping for `<s:conversationPropagation>` in JSF UI
       controls
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-5
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:conversationPropagation
-      - xml:
+      - builtin.xml:
           xpath: //s:conversationPropagation
   - message: There is no direct mapping for `<s:taskId>` in JSF UI controls
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-6
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:taskId
-      - xml:
+      - builtin.xml:
           xpath: //s:taskId
   - message: There is no direct mapping for `<s:defaultAction>` in JSF UI controls
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-7
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-7
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:defaultAction
-      - xml:
+      - builtin.xml:
           xpath: //s:defaultAction
   - message: Seam UI's `<f:convertDateTime type="time" pattern="kk:mm:ss">` should
       be replaced by `<f:convertDateTime>`.. The format can be configured by setting  the
       locale,. or by setting the context-param `javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE`
       to `true`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-8
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-8
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:convertDateTime
-      - xml:
+      - builtin.xml:
           xpath: //s:convertDateTime
   - message: Seam UI's `<s:convertEntity>` should be replaced by `<f:converter converterId="[yourConverterClass]">`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-9
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-9
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:convertEntity
-      - xml:
+      - builtin.xml:
           xpath: //s:convertEntity
   - message: There is no direct mapping for `<s:enumItem>` in JSF UI controls
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-10
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-10
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:enumItem
-      - xml:
+      - builtin.xml:
           xpath: //s:enumItem
   - message: There is no direct mapping for `<s:token>` in JSF UI controls
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-11
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-11
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:token
-      - xml:
+      - builtin.xml:
           xpath: //s:token
   - message: There is no direct mapping for `<s:formattedText>` in JSF UI controls
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-12
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-12
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:formattedText
-      - xml:
+      - builtin.xml:
           xpath: //s:formattedText
   - message: There is no direct mapping for `<s:cache>` in JSF UI controls
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-13
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-13
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:cache
-      - xml:
+      - builtin.xml:
           xpath: //s:cache
   - message: There is no direct mapping for `<s:resource>` in JSF UI controls
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-14
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-14
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:resource
-      - xml:
+      - builtin.xml:
           xpath: //s:resource
   - message: There is no direct mapping for `<s:download>` in JSF UI controls
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-15
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-15
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:download
-      - xml:
+      - builtin.xml:
           xpath: //s:download
   - message: There is no direct mapping for `<s:remote>` in JSF UI controls
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-16
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-16
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:remote
-      - xml:
+      - builtin.xml:
           xpath: //s:remote
   - message: Seam UI's `<s:selectItems>` should be replaced by `<h:selectItems>`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-17
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-17
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:selectItems
-      - xml:
+      - builtin.xml:
           xpath: //s:selectItems
   - message: Seam UI's `<s:validate>` should be replaced by `<f:validateBean>`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-18
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-18
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:validate
-      - xml:
+      - builtin.xml:
           xpath: //s:validate
   - message: Seam UI's `<s:fragment>` should be replaced by `<ui:fragment>`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-19
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-19
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:fragment
-      - xml:
+      - builtin.xml:
           xpath: //s:fragment
   - message: There is no direct mapping for `<s:convertEnum>` in JSF UI controls,
       but JSF 2 has a built-in EnumConverter which can be extended if necessary.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-20
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-20
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:convertEnum
-      - xml:
+      - builtin.xml:
           xpath: //s:convertEnum
   - message: There is no direct mapping for `<s:convertAtomicBoolean>` in JSF UI controls.
       Create a custom converter for a replacement.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-21
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-21
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:convertAtomicBoolean
-      - xml:
+      - builtin.xml:
           xpath: //s:convertAtomicBoolean
   - message: There is no direct mapping for `<s:convertAtomicInteger>` in JSF UI controls.
       Create a custom converter for a replacement.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-22
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-22
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:convertAtomicInteger
-      - xml:
+      - builtin.xml:
           xpath: //s:convertAtomicInteger
   - message: There is no direct mapping for `<s:convertAtomicLong>` in JSF UI controls.
       Create a custom converter for a replacement.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-23
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-23
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:convertAtomicLong
-      - xml:
+      - builtin.xml:
           xpath: //s:convertAtomicLong
   - message: There is no direct mapping for `<s:validateEquality>` in JSF UI controls..
       Use respective `<f:validate[constraint]>` like:. * `<f:validateDoubleRange>`,.
       * `<f:validateLength>`,. * `<f:validateLongRange>`,. * `<f:validateRequired>`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-24
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-24
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:validateEquality
-      - xml:
+      - builtin.xml:
           xpath: //s:validateEquality
   - message: There is no direct mapping for `<s:validateAll>` in JSF UI controls,
       but you can achieve a similar effect by using `<f:validateBean>` or [Richfaces](http://richfaces.jboss.org/)
       `<rich:validator>`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-25
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-25
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:validateAll
-      - xml:
+      - builtin.xml:
           xpath: //s:validateAll
   - message: There is no direct mapping for `<s:decorate>` in JSF UI controls, but
       you can achieve the same functionality by using the UIInputContainer and a composite
       container, both of which are demonstrated in the [Open18 migration example](https://github.com/seam/migration/blob/develop/open18_java_ee_6).
       [input.xhtml](https://raw.githubusercontent.com/seam/migration/develop/open18_java_ee_6/src/main/webapp/resources/components/input.xhtml)
       file.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-26
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-26
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:decorate
-      - xml:
+      - builtin.xml:
           xpath: //s:decorate
   - message: There is no direct mapping for `<s:div>` in JSF UI controls, but it could
       be done with an `<h:panelGroup layout="block">` or a `<ui:fragment>` containing
       a div.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-27
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-27
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:div
-      - xml:
+      - builtin.xml:
           xpath: //s:div
   - message: There is no direct mapping for `<s:span>` in JSF UI controls, but you
       can achieve a similar effect by using `<h:panelGroup>` or a `<ui:fragment>`
       with a span element.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-28
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-28
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:span
-      - xml:
+      - builtin.xml:
           xpath: //s:span
   - message: There is no direct mapping for `<s:label>` in JSF UI controls, but `<h:outputLabel>`
       is similar.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-29
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-29
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:label
-      - xml:
+      - builtin.xml:
           xpath: //s:label
   - message: Use `<h:message for="name" errorClass="invalid">` or [Richfaces](http://richfaces.jboss.org/)
       `<rich:message>`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-30
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-30
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:message
-      - xml:
+      - builtin.xml:
           xpath: //s:message
   - message: There is no direct mapping for `<s:fileUpload>` in JSF UI controls. You
       can achieve similar functionality by using [Richfaces](http://richfaces.jboss.org/)
       `<rich:fileUpload>`
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-31
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-31
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:fileUpload
-      - xml:
+      - builtin.xml:
           xpath: //s:fileUpload
   - message: There is no direct mapping for `<s:graphicImage>` in JSF UI controls,
       but you can use `<h:graphicImage>` as Seam extends that JSF UI control.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-32
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-ui.windup.xml-32
     when:
       or:
-      - xml:
+      - builtin.xml:
           xpath: //s:graphicImage
-      - xml:
+      - builtin.xml:
           xpath: //s:graphicImage

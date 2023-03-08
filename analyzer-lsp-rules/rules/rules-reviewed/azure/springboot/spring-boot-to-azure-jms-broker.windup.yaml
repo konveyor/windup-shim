@@ -1,9 +1,11 @@
 - - message: The application uses an ActiveMQ message broker.. Checkout Azure Service
       Bus for a fully managed message broker.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-jms-broker.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-jms-broker.windup.xml-0
     when:
       or:
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.boot.spring-boot-starter-activemq
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.apache.activemq.{*}

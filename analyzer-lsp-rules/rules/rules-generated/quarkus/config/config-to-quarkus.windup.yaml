@@ -1,14 +1,16 @@
 - - message: Replace the `io.smallrye.config:smallrye-config-source-yaml` dependency
       with the Quarkus dependency `io.quarkus:quarkus-config-yaml`. Further information
       in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/config/config-to-quarkus.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/config/config-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.smallrye.config.smallrye-config-source-yaml
   - message: Replace the `io.smallrye.config:smallrye-config-source-yaml` dependency
       with the Quarkus dependency `io.quarkus:quarkus-config-yaml`. Further information
       in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/config/config-to-quarkus.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/config/config-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.smallrye.config.smallrye-config-source-yaml

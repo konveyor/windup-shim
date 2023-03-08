@@ -1,4 +1,4 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-0
     tag:
     - cdi
     - seam
@@ -8,14 +8,14 @@
         pattern: org.jboss.seam.*
   - message: You can use Java EE `javax.enterprise.context.Conversation` interface
       like:. ```java. @Inject Conversation conversation;. ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-1
     when:
       java.referenced:
         pattern: org.jboss.seam.core.Conversation
   - message: There is no direct replacement for this Seam API. The `org.jboss.seam.Seam`
       contains methods for accessing annotated information. about Seam component classes.
       For majority cases you can replace this Seam API with standard CDI's `javax.enterprise.inject.spi.BeanManager`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-2
     when:
       java.referenced:
         location: METHOD_CALL
@@ -24,7 +24,7 @@
       So you don't need to have `@Named` annotation on every Seam component you would
       like to migrate.. Remove that annotation or change to `@javax.inject.Named`
       only if you need to access managed bean in Expression Language (EL).
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-3
     when:
       java.referenced:
         location: ANNOTATION
@@ -32,20 +32,20 @@
   - message: Convert to a valid CDI scope. CDI scopes has its own annotation.. See
       linked documentation link for CDI alternatives. For example, `@Scope(ScopeType.SESSION)`
       should be `@javax.enterprise.context.SessionScoped`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-4
     when:
       java.referenced:
         location: ANNOTATION
         pattern: org.jboss.seam.annotations.Scope
   - message: Convert Seam annotation `@In` to CDI `@javax.inject.Inject`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-5
     when:
       java.referenced:
         location: ANNOTATION
         pattern: org.jboss.seam.annotations.In
   - message: Remove this Seam annotation `@AutoCreate` as in CDI it is no longer needed
       since a bean will always be created when needed.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-6
     when:
       java.referenced:
         location: ANNOTATION
@@ -54,7 +54,7 @@
       to Seam 2, where it is performed dynamically. via interceptor every time a component
       is invoked.. CDI performs the static injection only once per component life
       cycle.. Refactor such Seam API usage with `@javax.enterprise.inject.Produces`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-7
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-7
     when:
       java.referenced:
         location: ANNOTATION
@@ -64,14 +64,14 @@
       and add additional annotation for context scope if you used `scope = ScopeType.*`
       enum like for instance. `@Factory(scope = ScopeType.APPLICATION)` use:. ```java.
       @Produces @ApplicationScoped .... ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-8
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-8
     when:
       java.referenced:
         location: ANNOTATION
         pattern: org.jboss.seam.annotations.Factory
   - message: Java EE uses for such use case `@javax.ejb.Singleton` and `@javax.ejb.Startup`
       annotations.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-9
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-9
     when:
       java.referenced:
         location: ANNOTATION
@@ -79,7 +79,7 @@
   - message: Seam 2 provided along to standard Java EE `javax.annotation.PostConstruct`
       also Seam specific annotation `@Create`.. You can use `@javax.annotation.PostConstruct`
       as one to one replacement.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-10
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-10
     when:
       java.referenced:
         location: ANNOTATION
@@ -87,14 +87,14 @@
   - message: Seam 2 provided along to standard Java EE `javax.annotation.PreDestroy`
       also Seam specific annotation `@Destroy`.. You can use `@javax.annotation.PreDestroy`
       as one to one replacement.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-11
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-11
     when:
       java.referenced:
         location: ANNOTATION
         pattern: org.jboss.seam.annotations.Destroy
   - message: There is no direct replacement, but it can be implemented with CDI Conversation
       support.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-12
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-12
     when:
       java.referenced:
         pattern: org.jboss.seam.faces.Switcher
@@ -103,14 +103,14 @@
       Instance<PaymentProcessor> paymentProcessor;. ```. The second approach is to
       use `javax.enterprise.inject.spi.BeanManager` like. ```java. @Inject BeanManager
       manager;. ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-13
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-13
     when:
       java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.seam.Component.*
   - message: Refactor to have annotated error handler which redirect to a viewID page
       for displaying error page.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-14
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-14
     when:
       java.referenced:
         location: ANNOTATION
@@ -120,31 +120,31 @@
       prevention from installation is in CDI done by `@Vetoed` annotation.. If you
       need to use Bean specialization there are `@javax.enterprise.inject.Alternative`
       or `@javax.enterprise.inject.Specializes` instead of precedence.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-15
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-15
     when:
       java.referenced:
         location: ANNOTATION
         pattern: org.jboss.seam.annotations.Install
   - message: Rework code with a default Java Servlet `javax.servlet.Filter` or different
       filter interface.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-16
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-16
     when:
       java.referenced:
         pattern: org.jboss.seam.web.AbstractFilter
   - message: Replace this Seam annotation with default Java Servlet `javax.servlet.Filter`
       or different filter interface.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-17
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-17
     when:
       java.referenced:
         location: ANNOTATION
         pattern: org.jboss.seam.annotations.web.Filter
   - message: Rework using CDI's injected concrete context.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-18
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-18
     when:
       java.referenced:
         location: METHOD_CALL
         pattern: org.jboss.seam.contexts.Contexts.*
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-19
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-19
     tag:
     - cdi
     - seam
@@ -154,18 +154,18 @@
         location: ANNOTATION
         pattern: org.jboss.seam.annotations.bpm.*
   - message: Rework with CDI conversation context `javax.enterprise.context.Conversation`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-20
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-20
     when:
       java.referenced:
         pattern: org.jboss.seam.core.ConversationEntry
   - message: Rework with `javax.enterprise.context.Conversation.begin()`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-21
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-21
     when:
       java.referenced:
         location: ANNOTATION
         pattern: org.jboss.seam.annotations.Begin
   - message: Rework with `javax.enterprise.context.Conversation.end()`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-22
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-22
     when:
       java.referenced:
         location: ANNOTATION
@@ -175,7 +175,7 @@
       or can be implied from the name of an injection point.. Java EE 6 does not have
       an annotation for this, however, the JSF 2 spec now has `<f:viewParam />` which
       can be used instead.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-23
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-23
     when:
       java.referenced:
         location: ANNOTATION
@@ -190,7 +190,7 @@
       LoggerFactory.getLogger(ip.getMember().getDeclaringClass());. }. }. ```. and
       use it in your code like:. ```java. @Inject private transient Logger logger;.
       ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-24
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-24
     when:
       java.referenced:
         location: ANNOTATION
@@ -198,7 +198,7 @@
   - message: In Java EE, the Expression Language Specification has evolved and allows
       parameters to be passed to EL method expressions.. This approach should be used
       as a replacement for the `@DataModel*` functionality.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-25
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-25
     when:
       java.referenced:
         location: ANNOTATION
@@ -211,7 +211,7 @@
       in CDI. A CDI event is represented by a payload (any Java object) and a set
       of qualifiers. The Java types of the event payload together with qualifiers
       determine which observer methods are notified of the event
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-26
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-26
     when:
       or:
       - java.referenced:
@@ -227,20 +227,20 @@
       used meta-annotations to bind interceptors to your beans in Seam 2, this idea
       (slightly modified) made it into the specification and is now know as an Interceptor
       binding.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-27
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-27
     when:
       java.referenced:
         location: ANNOTATION
         pattern: org.jboss.seam.annotations.intercept.*
   - message: Replace with Java EE annotation `@javax.ejb.Asynchronous`.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-28
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-28
     when:
       java.referenced:
         location: ANNOTATION
         pattern: org.jboss.seam.annotations.async.Asynchronous
   - message: Replace with Java EE annotation `@javax.transaction.Transactional`. The
       usage and transaction types are the same like in Seam API.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-29
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/seam/seam-java.windup.xml-29
     when:
       java.referenced:
         location: ANNOTATION

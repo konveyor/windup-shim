@@ -1,4 +1,4 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-0
     tag:
     - jms
     - websphere
@@ -9,17 +9,15 @@
       used to get object instances from JNDI. The. equivalent functionality needs
       to be configured on JBoss EAP 6 using HornetQ.. `InitialContextFactory` is provided.
       by EAP and you only need to instantiate `InitialContext ctx = new InitialContext();`.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-1
     when:
-      filecontent:
-        filename: '{*}.{ext}'
+      builtin.filecontent:
         pattern: com.ibm.mq.jms.context.WMQInitialContextFactory
   - message: WebSphere `.scp` files contain scripts for the `jmsadmin` program which
       is used. to configure the WebSphere MQ destinations. and routing. To configure
       messaging in JBoss EAP 6 with HornetQ, use either the Management Console or
       Management CLI with it's. scripting feature.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/websphere/websphere-mq.windup.xml-2
     when:
-      filecontent:
-        filename: '{*}.scp'
-        pattern: '{*}'
+      builtin.filecontent:
+        pattern: '*'

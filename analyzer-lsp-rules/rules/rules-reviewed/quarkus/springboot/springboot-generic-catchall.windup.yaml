@@ -1,4 +1,5 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-generic-catchall.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-generic-catchall.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: '{group}.{artifact}'

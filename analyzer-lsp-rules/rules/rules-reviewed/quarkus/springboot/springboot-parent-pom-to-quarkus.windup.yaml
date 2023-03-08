@@ -1,15 +1,15 @@
 - - message: Replace the Spring Parent POM with Quarkus BOM in `<dependencyManagement>`
       section of the application's `pom.xml` file.. Leverage the link below to fulfill
       this change.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-parent-pom-to-quarkus.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-parent-pom-to-quarkus.windup.xml-0
     when:
       or:
-      - xml:
+      - builtin.xml:
           filepaths:
           - pom.xml
           xpath: /m:project/m:parent[m:groupId/text() = 'org.springframework.boot'
             and m:artifactId/text() = 'spring-boot-starter-parent']
-      - xml:
+      - builtin.xml:
           filepaths:
           - pom.xml
           xpath: /m:project/m:parent[m:groupId/text() = 'org.springframework.boot'

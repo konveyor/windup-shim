@@ -4,16 +4,15 @@
       words camel-kafka will send messages to the topic from the endpoint uri. To
       override this use the KafkaConstants.OVERRIDE_TOPIC header with the new topic.
       See more details in the camel-kafka component documentation.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/component-changes.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/component-changes.windup.xml-0
     when:
       or:
-      - filecontent:
-          filename: '{*}.java'
-          pattern: .to("kafka:{[^"]+}{options}={*}
+      - builtin.filecontent:
+          pattern: .to("kafka:{[^"]+}(circularTopicDetection|bridgeEndpoint)=*
       - java.referenced:
           location: METHOD_CALL
           pattern: org.apache.camel.component.kafka.KafkaConfiguration.(setBridgeEndpoint|setCircularTopicDetection)(*)
-      - xml:
+      - builtin.xml:
           xpath: //*/c:to/@uri[windup:matches(self::node(), 'kafka:{*}{options}{*}')]
-      - xml:
+      - builtin.xml:
           xpath: //*/c:to/@uri[windup:matches(self::node(), 'kafka:{*}{options}{*}')]

@@ -1,9 +1,9 @@
 - - message: Replace the `spring-boot-maven-plugin` dependency.. The `spring-boot-maven-plugin`
       dependency needs to be replaced with `quarkus-maven-plugin`, so that the application
       is built with Quarkus, both for running on the JVM and in native mode.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/quarkus/springboot/springboot-plugins-to-quarkus.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/quarkus/springboot/springboot-plugins-to-quarkus.windup.xml-0
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - pom.xml
         xpath: /m:project/m:build/m:plugins/m:plugin[m:artifactId = 'spring-boot-maven-plugin']

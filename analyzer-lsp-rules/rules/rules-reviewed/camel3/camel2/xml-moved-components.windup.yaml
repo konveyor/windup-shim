@@ -2,7 +2,7 @@
       to `org.apache.camel.support.component`.. `org.apache.camel:camel-support` is
       a transitive dependency of `camel-core` but it could be used also separately
       to trim the application size.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-0
     when:
       as: javaClass
       ignore: true
@@ -13,14 +13,14 @@
       package in `camel-base` dependency.. `org.apache.camel:camel-base` is a transitive
       dependency of `camel-core` but it could be used also separately to trim the
       application size.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-1
     when:
       as: javaClass
       ignore: true
       java.referenced:
         location: IMPORT
         pattern: org.apache.camel.impl.(CamelPostProcessorHelper|DefaultAsyncProcessorAwaitManager|DefaultCamelBeanPostProcessor|DefaultCamelContextNameStrategy|DefaultClaimCheckRepository|DefaultClassResolver|DefaultComponentResolver|DefaultConsumerTemplate|DefaultDataFormatResolver|DefaultEndpointRegistry|DefaultEndpointUtilizationStatistics|DefaultFactoryFinder|DefaultFactoryFinderResolver|DefaultHeadersMapFactory|DefaultInflightRepository|DefaultInjector|DefaultLanguageResolver|DefaultManagementNameStrategy|DefaultMessageHistoryFactory|DefaultNodeIdFactory|DefaultPackageScanClassResolver|DefaultProcessorFactory|DefaultProducerTemplate|DefaultRoute|DefaultRouteContext|DefaultRouteController|DefaultRouteError|DefaultRouteStartupOrder|DefaultRuntimeEndpointRegistry|DefaultShutdownStrategy|DefaultStreamCachingStrategy|DefaultTransformerRegistry|DefaultUnitOfWork|DefaultUnitOfWorkFactory|DefaultUuidGenerator|DefaultValidatorRegistry|DeferProducer|DeferServiceStartupListener|DurationRoutePolicy|DurationRoutePolicyFactory|EndpointKey|EventDrivenConsumerRoute|EventNotifierCallback|ExplicitCamelContextNameStrategy|FileStateRepository|HashMapHeadersMapFactory|HeadersMapFactoryResolver|InterceptSendToEndpointProcessor|InterceptSendToMockEndpointStrategy|JavaUuidGenerator|LimitedPollingConsumerPollStrategy|MDCUnitOfWork|MemoryStateRepository|SubscribeMethodProcessor|SupervisingRouteController|SupervisingRouteController.FilterResult|SupervisingRouteControllerFilters|SupervisingRouteControllerFilters.BlackList|TypedProcessorFactory|WebSpherePackageScanClassResolver)
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-2
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-2
     when:
       as: javaClass
       ignore: true
@@ -30,12 +30,12 @@
   - message: If you run Camel standalone with just `camel-core` as a dependency, and
       you want JMX enabled out of the box, then you need to add `org.apache.camel:camel-management`
       as a dependency.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/camel3/camel2/xml-moved-components.windup.xml-3
     when:
       as: dependencies-block
-      ignore: true
-      xml:
+      builtin.xml:
         filepaths:
         - pom.xml
         xpath: /m:project/m:dependencies[count(m:dependency/m:artifactId[text()='camel-management'])=0
           and count(m:dependency/m:artifactId[text()='camel-core'])>0]
+      ignore: true

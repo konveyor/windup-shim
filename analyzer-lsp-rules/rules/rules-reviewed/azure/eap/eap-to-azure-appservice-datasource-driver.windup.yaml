@@ -5,54 +5,54 @@
       commands for adding and registering the data source module must be scripted
       and applied as the container starts.. For more information, see Datasource Management
       in the JBoss EAP documentation.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-datasource-driver.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-datasource-driver.windup.xml-0
     when:
       or:
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:db2')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'db2')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:mysql')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'mysql')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:oracle')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'oracle')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:postgres')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'postgres')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:microsoft:sqlserver')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'sqlserver')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/datasource/connection-url[contains(text(),'jdbc:sybase')]
-      - xml:
+      - builtin.xml:
           filepaths:
           - '{*}-ds.xml'
           xpath: /datasources/drivers/driver/xa-datasource-class[contains(text(),'sybase')]

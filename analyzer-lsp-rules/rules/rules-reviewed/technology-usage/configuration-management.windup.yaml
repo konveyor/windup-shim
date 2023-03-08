@@ -1,28 +1,28 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-0
     tag: []
     when:
       or:
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.cloud.spring-cloud-config-client
       - java.dependency:
+          lowerbound: 0.0.0
           name: org.springframework.cloud.spring-cloud-config-client
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-1
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-1
     tag: []
     when:
-      file: application{profile}.{extension}
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-2
+      builtin.file: application{profile}.{extension}
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-2
     tag: []
     when:
-      filecontent:
-        filename: application{profile}.{extension}
+      builtin.filecontent:
         pattern: spring.datasource
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-3
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-3
     tag: []
     when:
-      filecontent:
-        filename: application{profile}.{extension}
+      builtin.filecontent:
         pattern: logging.level.org.springframework
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-4
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/configuration-management.windup.xml-4
     tag: []
     when:
       java.referenced:

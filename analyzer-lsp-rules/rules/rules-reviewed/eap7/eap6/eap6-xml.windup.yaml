@@ -1,17 +1,17 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6-xml.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6-xml.windup.xml-0
     tag:
     - jms
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}-jms.xml'
         xpath: /msg:messaging-deployment
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap7/eap6/eap6-xml.windup.xml-1
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap6/eap6-xml.windup.xml-1
     tag:
     - configuration
     when:
       or:
-      - xml:
+      - builtin.xml:
           filepaths:
           - jboss-deployment-structure.xml
           xpath: /*[local-name()='jboss-deployment-structure']/*[local-name()='deployment'

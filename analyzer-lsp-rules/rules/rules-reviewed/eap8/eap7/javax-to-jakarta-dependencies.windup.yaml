@@ -1,51 +1,45 @@
 - - message: Update the group dependency by replacing the `javax.{renamed-g}` groupId
       with `jakarta.{renamed-g}`
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-0
     when:
-      filecontent:
-        filename: pom.xml
-        pattern: groupId>javax.{renamed-g}<
+      builtin.filecontent:
+        pattern: groupId>javax.(annotation|batch|ejb|el|enterprise.concurrent|enterprise.deploy|faces|interceptor|jms|jws|mail|management.j2ee|resource|security.auth.message|security.jacc|servlet|servlet.jsp|servlet.jsp.jstl|transaction|websocket|ws.rs|xml.bind|xml.registry|xml.rpc|xml.soap|xml.ws)<
   - message: Update artifact dependency by replacing the `javax.{renamed-a}-api` artifactId
       with `jakarta.{renamed-a}-api`
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-1
     when:
-      filecontent:
-        filename: pom.xml
-        pattern: artifactId>javax.{renamed-a}-api<
+      builtin.filecontent:
+        pattern: artifactId>javax.(activation|annotation|batch|ejb|el|enterprise.concurrent|enterprise.deploy|faces|interceptor|jms|jws|mail|management.j2ee|resource|security.auth.message|security.jacc|servlet|servlet.jsp|servlet.jsp.jstl|transaction|websocket|ws.rs|xml.registry|xml.rpc|xml.soap|xml.ws)-api<
   - message: Replace the `jaxb-api` artifact dependency with `jakarta.xml.bind-api`
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-2
     when:
-      filecontent:
-        filename: pom.xml
+      builtin.filecontent:
         pattern: artifactId>jaxb-api<
   - message: Replace dependency groupId `javax.activation` with `jakarta.activation`
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-3
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: javax.activation.javax.activation-api
   - message: Replace the `javax.faces` artifactId with `jakarta.faces`
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-4
     when:
-      filecontent:
-        filename: pom.xml
+      builtin.filecontent:
         pattern: artifactId>javax.faces<
   - message: Update group dependency by replacing the `javax` groupId with `jakarta.platform`
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-5
     when:
-      filecontent:
-        filename: pom.xml
+      builtin.filecontent:
         pattern: groupId>javax<
   - message: Update artifact dependency by replacing the `javaee-api` artifactId with
       `jakarta.jakartaee-api`
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-6
     when:
-      filecontent:
-        filename: pom.xml
+      builtin.filecontent:
         pattern: artifactId>javaee-api<
   - message: Update artifact dependency by replacing the `javaee-web-api` artifactId
       with `jakarta.jakartaee-web-api`
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-7
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-dependencies.windup.xml-7
     when:
-      filecontent:
-        filename: pom.xml
+      builtin.filecontent:
         pattern: artifactId>javaee-web-api<

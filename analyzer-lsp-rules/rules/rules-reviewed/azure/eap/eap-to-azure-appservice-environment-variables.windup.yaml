@@ -4,7 +4,7 @@
       the code depends on will need to be provided either in a custom Startup Script.
       or by defining an App Setting with the name JAVA_OPTS and include any system
       properties in it.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-environment-variables.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/eap/eap-to-azure-appservice-environment-variables.windup.xml-0
     when:
       or:
       - java.referenced:

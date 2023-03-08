@@ -1,75 +1,75 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-0
     tag: []
     when:
-      file: '{*}liferay{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-1
+      builtin.file: '*liferay*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-1
     tag: []
     when:
-      file: '{*}frm{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-2
+      builtin.file: '*frm*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-2
     when:
-      file: spring-boot{*}.jar
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-3
+      builtin.file: spring-boot*.jar
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-3
     tag: []
     when:
-      file: '{*}elasticsearch{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-4
+      builtin.file: '*elasticsearch*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-4
     tag: []
     when:
-      file: '{*}logstash{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-5
+      builtin.file: '*logstash*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-5
     tag: []
     when:
-      file: '{*}jetty{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-6
+      builtin.file: '*jetty*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-6
     tag: []
     when:
-      file: '{*}tomcat{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-7
+      builtin.file: '*tomcat*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-7
     tag: []
     when:
-      file: '{*}kibana{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-8
+      builtin.file: '*kibana*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-8
     tag: []
     when:
-      file: '{*}karaf{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-9
+      builtin.file: '*karaf*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-9
     tag: []
     when:
-      file: '{*}neo4j{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-10
+      builtin.file: '*neo4j*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-10
     tag: []
     when:
-      file: '{*}spark-{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-11
+      builtin.file: '*spark-*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-11
     tag: []
     when:
-      file: '{*}hadoop{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-12
+      builtin.file: '*hadoop*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-12
     tag: []
     when:
-      file: '{*}geronimo{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-13
+      builtin.file: '*geronimo*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-13
     tag: []
     when:
-      file: '{*}aries{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-14
+      builtin.file: '*aries*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-14
     tag: []
     when:
-      file: '{*}cloudera{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-15
+      builtin.file: '*cloudera*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-15
     tag: []
     when:
-      file: '{*}mapr{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-16
+      builtin.file: '*mapr*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-16
     tag: []
     when:
-      file: '{*}tensorflow{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-17
+      builtin.file: '*tensorflow*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-17
     tag: []
     when:
-      file: '{*}weka{*}.jar'
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-18
+      builtin.file: '*weka*.jar'
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/3rd-party.windup.xml-18
     tag: []
     when:
-      file: '{*}mahout{*}.jar'
+      builtin.file: '*mahout*.jar'

@@ -7,7 +7,7 @@
       Use a database backing service for relational data or use a persistent data
       storage system.. * Temporary data storage: Use the file system of a running
       container as a brief, single-transaction cache.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/local-storage.windup.xml-0
     when:
       or:
       - java.referenced:
@@ -31,7 +31,7 @@
       Use a database backing service for relational data or use a persistent data
       storage system.. * Temporary data storage: Use the file system of a running
       container as a brief, single-transaction cache.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/local-storage.windup.xml-1
     when:
       java.referenced:
         location: CONSTRUCTOR_CALL
@@ -45,11 +45,10 @@
       Use a database backing service for relational data or use a persistent data
       storage system.. * Temporary data storage: Use the file system of a running
       container as a brief, single-transaction cache.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/local-storage.windup.xml-2
     when:
-      filecontent:
-        filename: '{*}{extensions}'
-        pattern: '{path1}'
+      builtin.filecontent:
+        pattern: (([:=(,\{])([ ])*(["'])?([a-zA-Z]):)(?<![\<\\\/\d\w])([\\\/]\w+)+(\.\w+)?
   - message: 'An application running inside a container could lose access to a file
       in local storage.. Recommendations. The following recommendations depend on
       the function of the file in local storage:. * Logging: Log to standard output
@@ -59,11 +58,10 @@
       Use a database backing service for relational data or use a persistent data
       storage system.. * Temporary data storage: Use the file system of a running
       container as a brief, single-transaction cache.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/local-storage.windup.xml-3
     when:
-      filecontent:
-        filename: '{*}.{extensions}'
-        pattern: '{path2}'
+      builtin.filecontent:
+        pattern: file://
   - message: 'An application running inside a container could lose access to a file
       in local storage.. Recommendations. The following recommendations depend on
       the function of the file in local storage:. * Logging: Log to standard output
@@ -73,7 +71,7 @@
       Use a database backing service for relational data or use a persistent data
       storage system.. * Temporary data storage: Use the file system of a running
       container as a brief, single-transaction cache.'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/openshift/local-storage.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/openshift/local-storage.windup.xml-4
     when:
       or:
       - java.referenced:

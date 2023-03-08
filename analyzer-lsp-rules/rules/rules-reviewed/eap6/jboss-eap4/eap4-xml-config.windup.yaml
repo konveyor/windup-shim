@@ -6,9 +6,9 @@
       --connect. [standalone@localhost:9999 /] data-source add --name=ExampleDS --jndi-name=java:/ExampleDS
       \\. --connection-url=... --driver-name=postgresql \\. --user-name=... --password=....
       ```. 3. Use the datasource according to JPA 2.0 standards.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-0
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}-ds.xml'
         xpath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:postgres')]
@@ -21,9 +21,9 @@
       \\. --connection-url=... --driver-name=oracle \\. --user-name=... --password=....
       ```. 3. Use the datasource according to JPA 2.0 standards.. ```. @PersistenceContext
       EntityManager em;. ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-1
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}-ds.xml'
         xpath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:oracle')]
@@ -36,9 +36,9 @@
       \\. --connection-url=... --driver-name=mssql \\. --user-name=... --password=....
       ```. 3. Use the datasource according to JPA 2.0 standards.. ```. @PersistenceContext
       EntityManager em;. ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-2
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - '{*}-ds.xml'
         xpath: /datasources/local-tx-datasource/connection-url[contains(text(),'jdbc:sqlserver')]
@@ -48,9 +48,9 @@
       ## Notice the "socket-binding" => "http". /socket-binding-group=standard-sockets/socket-binding=http/:read-resource.
       ## Now set the HTTP port to what you need.. /socket-binding-group=standard-sockets/socket-binding=http/:write-attribute(name=port,
       value=80). ```'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-3
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@port
@@ -60,9 +60,9 @@
       /subsystem=web/connector=http/:read-resource. /subsystem=web/connector=http/:write-attribute(name=protocol,
       value=HTTP/1.1). ##  To enable NIO protocol:. /subsystem=web/connector=http/:write-attribute(name=protocol,
       value=org.apache.coyote.http11.Http11NioProtocol). ```'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-4
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@protocol
@@ -79,9 +79,9 @@
       keepalive-time=\{time=30, unit="seconds"}, max-threads=30). ##  Make the HTTP
       web connector use this thread pool. /subsystem=web/connector=http:write-attribute(name=executor,
       value="uq-thread-pool"). ```'
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-5
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@maxThreads
@@ -90,9 +90,9 @@
       timeout using a system property:. ```. /system-property=org.apache.coyote.ajp.DEFAULT_CONNECTION_TIMEOUT/:add(value=600000).
       /system-property=org.apache.coyote.http11.DEFAULT_CONNECTION_TIMEOUT/:add(value=120000).
       ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-6
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@connectionTimeout
@@ -102,9 +102,9 @@
       <secure/>. </cookie-config>. <tracking-mode>COOKIE</tracking-mode>. </session-config>.
       ```. Not to be confused with Undertow's `path` which sets the session files
       storage path.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-7
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-7
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@emptySessionPath
@@ -112,9 +112,9 @@
       through `request.getRemoteHost()`.. Define this setting using JBoss CLI or the
       web console.. ```. /subsystem=web/connector=http:write-attribute(name=enable-lookups,
       value=true). ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-8
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-8
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@enableLookups
@@ -123,9 +123,9 @@
       (HTTPS) or AJP connector.. Define this setting using JBoss CLI or the web console..
       ```. /subsystem=web/connector=http:write-attribute(name=redirect-port, value=8433).
       ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-9
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-9
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@redirectPort
@@ -133,9 +133,9 @@
       scheme, such as HTTP or HTTPS.. Define this setting using JBoss CLI or the web
       console.. ```. /subsystem=web/connector=http:write-attribute(name=scheme, value=http).
       ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-10
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-10
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector/@scheme
@@ -147,9 +147,9 @@
       https content, for mixed content this setting in NOT recomended.. Define this
       setting using JBoss CLI or the web console.. ```. /subsystem=web/connector=http:write-attribute(name=secure,
       value=true). ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-11
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-11
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Connector[@secure='true']
@@ -164,9 +164,9 @@
       Replace the string `CUSTOM_ROUTE_NAME` with your custom jvmRoute name.. ```.
       /profile=ha/subsystem=web:write-attribute(name="instance-id", value="CUSTOM_ROUTE_NAME").
       ```. The default can be overriden by setting the `jvmRoute` system property.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-12
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-12
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - server.xml
         xpath: /Server/Service/Engine/@jvmRoute
@@ -174,9 +174,9 @@
       files.. Extending `"Standard Stateless SessionBean"` allows configuring the
       instance pool.. Bean-specific instance pool can be set with one line in JBoss
       EAP 6 management CLI.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-13
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-13
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: /jboss/container-configurations/container-configuration[@extends='Standard
@@ -185,9 +185,9 @@
       Extending `"Clustered Stateless SessionBean"` allows configuring the instance
       pool.. Bean-specific instance pool can be set with one line in JBoss EAP 6 management
       CLI.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-14
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-14
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: /jboss/container-configurations/container-configuration[@extends='Clustered
@@ -197,9 +197,9 @@
       pool.. MDB's bean-specific instance pool can be set with one line in JBoss EAP
       6 management CLI.. Use the `bean-instance-pool-ref` CLI node of the respective
       configuration part.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-15
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-15
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: /jboss/container-configurations/container-configuration[@extends='Standard
@@ -209,9 +209,9 @@
       pool.. Singleton Message Driven Bean's bean-specific bean-specific instance
       pool can be set with one line in JBoss EAP 6 management CLI.. Use the `bean-instance-pool-ref`
       CLI node of the respective configuration part.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-16
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-16
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: /jboss/container-configurations/container-configuration[@extends='Singleton
@@ -221,9 +221,9 @@
       the instance pool.. Standard Message Inflow Driven Bean's bean-specific bean-specific
       instance pool can be set with one line in JBoss EAP 6 management CLI.. Use the
       `bean-instance-pool-ref` CLI node of the respective configuration part.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-17
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jboss-eap4/eap4-xml-config.windup.xml-17
     when:
-      xml:
+      builtin.xml:
         filepaths:
         - jboss.xml
         xpath: /jboss/container-configurations/container-configuration[@extends='Standard

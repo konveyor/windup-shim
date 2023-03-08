@@ -1,39 +1,38 @@
 - - message: In versions of Hibernate prior to 3.5, text type was mapped to JDBC CLOB.
       A new Hibernate type, `materialized_clob`, was added in Hibernate 4 to map Java
       `String` properties to JDBC CLOB
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-0
     when:
       or:
       - as: "1"
-        ignore: true
-        xml:
+        builtin.xml:
           xpath: /hibernate-mapping
+        ignore: true
       - as: "2"
+        builtin.xml:
+          xpath: //*[@type='string']
         from: "1"
         ignore: true
-        xml:
-          xpath: //*[@type='string']
   - message: If you are using Oracle and using the ```materialized_clob``` or ```materialized_blob```
       properties, this global environment variable must be set to true.. If you are
       using PostgreSQL and using the CLOB or BLOB properties, this global environment
       variable  must be set to false.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-1
     when:
       or:
       - as: "1"
-        ignore: true
-        xml:
+        builtin.xml:
           xpath: /hibernate-configuration
+        ignore: true
       - as: "2"
+        builtin.xml:
+          xpath: //property[@name='hibernate.jdbc.use_streams_for_binary']
         from: "1"
         ignore: true
-        xml:
-          xpath: //property[@name='hibernate.jdbc.use_streams_for_binary']
   - message: From Hibernate 4.0 there were moved classes from package `org.hibernate.connection`
       to package `org.hibernate.service.jdbc.connections.internal`.. You should change
       your Hibernate setup to replace references to the old package names.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/hibernate/hibernate-xml.windup.xml-2
     when:
-      filecontent:
-        filename: hibernate-configuration.xml
+      builtin.filecontent:
         pattern: org.hibernate.connection

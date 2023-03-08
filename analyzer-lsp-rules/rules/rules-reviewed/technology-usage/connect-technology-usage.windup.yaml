@@ -1,4 +1,4 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-1
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-1
     tag:
     - Connect
     - Other
@@ -15,7 +15,7 @@
       - java.referenced:
           location: METHOD_CALL
           pattern: java.lang.Runtime.loadLibrary(*)
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-2
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-2
     tag:
     - Connect
     - Other
@@ -38,7 +38,7 @@
       - java.referenced:
           location: VARIABLE_DECLARATION
           pattern: com.sun.jna.*
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-3
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-3
     tag:
     - Connect
     - Other
@@ -54,7 +54,7 @@
           pattern: org.simplejavamail.*
       - java.referenced:
           pattern: org.apache.commons.mail.*
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-4
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/technology-usage/connect-technology-usage.windup.xml-4
     tag:
     - Connect
     - Other
@@ -77,6 +77,6 @@
       - java.referenced:
           location: VARIABLE_DECLARATION
           pattern: javax.resource.*
-      - xml:
+      - builtin.xml:
           xpath: //*[local-name()='jms-jca-provider']
-      - file: ra.xml
+      - builtin.file: ra.xml

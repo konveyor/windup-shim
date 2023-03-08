@@ -1,7 +1,7 @@
 - - message: The application uses Java APIs to read/write from the file system.. Any
       usage of the file system on the application will require reconfiguration or,
       in rare cases, architectural changes.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/azure-file-system.windup.xml-0
     when:
       or:
       - java.referenced:
@@ -12,15 +12,13 @@
           pattern: org.apache.commons.io.*
   - message: Relative path found.. Any usage of the file system on the application
       will require reconfiguration or, in rare cases, architectural changes.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/azure-file-system.windup.xml-1
     when:
-      filecontent:
-        filename: '{*}.{extensions}'
-        pattern: '{path}'
+      builtin.filecontent:
+        pattern: \.\/.
   - message: Home path found.. Any usage of the file system on the application will
       require reconfiguration or, in rare cases, architectural changes.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/azure/azure-file-system.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/azure-file-system.windup.xml-2
     when:
-      filecontent:
-        filename: '{*}.{extensions}'
-        pattern: '{path}'
+      builtin.filecontent:
+        pattern: \/home

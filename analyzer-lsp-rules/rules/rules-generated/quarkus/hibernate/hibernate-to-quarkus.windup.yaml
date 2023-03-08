@@ -1,56 +1,64 @@
 - - message: Replace the `org.hibernate:hibernate-envers` dependency with the Quarkus
       dependency `io.quarkus:quarkus-hibernate-envers`. Further information in the
       link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.hibernate.hibernate-envers
   - message: Replace the `org.hibernate:hibernate-envers` dependency with the Quarkus
       dependency `io.quarkus:quarkus-hibernate-envers`. Further information in the
       link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.hibernate.hibernate-envers
   - message: Replace the `org.hibernate.reactive:hibernate-reactive-core` dependency
       with the Quarkus dependency `io.quarkus:quarkus-hibernate-reactive`. Further
       information in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-2
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.hibernate.reactive.hibernate-reactive-core
   - message: Replace the `org.hibernate.reactive:hibernate-reactive-core` dependency
       with the Quarkus dependency `io.quarkus:quarkus-hibernate-reactive`. Further
       information in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-3
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.hibernate.reactive.hibernate-reactive-core
   - message: Replace the `org.hibernate.search:hibernate-search-backend-elasticsearch-aws`
       dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-search-orm-elasticsearch-aws`.
       Further information in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-4
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-4
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.hibernate.search.hibernate-search-backend-elasticsearch-aws
   - message: Replace the `org.hibernate.search:hibernate-search-backend-elasticsearch-aws`
       dependency with the Quarkus dependency `io.quarkus:quarkus-hibernate-search-orm-elasticsearch-aws`.
       Further information in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-5
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.hibernate.search.hibernate-search-backend-elasticsearch-aws
   - message: Replace the `org.hibernate.validator:hibernate-validator` dependency
       with the Quarkus dependency `io.quarkus:quarkus-hibernate-validator`. Further
       information in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-6
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.hibernate.validator.hibernate-validator
   - message: Replace the `org.hibernate.validator:hibernate-validator` dependency
       with the Quarkus dependency `io.quarkus:quarkus-hibernate-validator`. Further
       information in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-7
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/hibernate/hibernate-to-quarkus.windup.xml-7
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: org.hibernate.validator.hibernate-validator

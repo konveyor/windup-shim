@@ -1,28 +1,32 @@
 - - message: Replace the `io.opentelemetry:opentelemetry-exporter-jaeger` dependency
       with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-jaeger`.
       Further information in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-0
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.opentelemetry.opentelemetry-exporter-jaeger
   - message: Replace the `io.opentelemetry:opentelemetry-exporter-jaeger` dependency
       with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-jaeger`.
       Further information in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-1
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-1
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.opentelemetry.opentelemetry-exporter-jaeger
   - message: Replace the `io.opentelemetry:opentelemetry-exporter-otlp-trace` dependency
       with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-otlp`.
       Further information in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-2
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-2
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.opentelemetry.opentelemetry-exporter-otlp-trace
   - message: Replace the `io.opentelemetry:opentelemetry-exporter-otlp-trace` dependency
       with the Quarkus dependency `io.quarkus:quarkus-opentelemetry-exporter-otlp`.
       Further information in the link below.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-3
+    ruleID: ../../windup/windup-rulesets/rules/rules-generated/quarkus/opentelemetry/opentelemetry-to-quarkus.windup.xml-3
     when:
       java.dependency:
+        lowerbound: 0.0.0
         name: io.opentelemetry.opentelemetry-exporter-otlp-trace

@@ -5,8 +5,7 @@
       <executions>. <execution>. <goals>. <goal>build</goal>. <goal>generate-code</goal>.
       <goal>generate-code-tests</goal>. </goals>. </execution>. </executions>. </plugin>.
       ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-maven-plugin.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-maven-plugin.windup.xml-0
     when:
-      filecontent:
-        filename: pom.xml
+      builtin.filecontent:
         pattern: <artifactId>quarkus-maven-plugin</artifactId>

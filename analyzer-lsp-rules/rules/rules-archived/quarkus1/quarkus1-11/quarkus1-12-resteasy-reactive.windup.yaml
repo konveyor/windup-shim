@@ -4,7 +4,7 @@
       over on the server by default.. - `quarkus.http.body.uploads-directory` now
       defaults to `${java.io.tmpdir}/uploads`. The reason being that some application
       might not have the permissions to write to the current working directory.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-resteasy-reactive.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-resteasy-reactive.windup.xml-0
     when:
       java.referenced:
         location: ANNOTATION

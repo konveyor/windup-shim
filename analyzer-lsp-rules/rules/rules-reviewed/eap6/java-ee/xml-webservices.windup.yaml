@@ -1,111 +1,111 @@
-- - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-0
+- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-0
     tag:
     - apache-axis
     - webservice
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /serviceGroup/service/operation
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-1
+      ignore: true
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-1
     tag:
     - apache-axis
     - webservice
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /module/InFlow
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-2
+      ignore: true
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-2
     tag:
     - apache-axis
     - webservice
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /axisconfig
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-3
+      ignore: true
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-3
     tag:
     - xfire
     - webservice
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /xfire:beans
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-4
+      ignore: true
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-4
     tag:
     - webservice
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /*[local-name()='handler-chains']
+      ignore: true
   - message: JBoss EAP developer documentation describes JAX-WS Web Services Common
       API.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-5
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-5
     tag:
     - webservice
     when:
       or:
       - as: webservices
-        ignore: true
-        xml:
+        builtin.xml:
           xpath: /*[local-name()='webservices']
+        ignore: true
       - as: handler-classes
+        builtin.xml:
+          xpath: //*[local-name()='handler-class']
         from: webservices
         ignore: true
-        xml:
-          xpath: //*[local-name()='handler-class']
   - message: JBoss EAP developer documentation about JAX-WS Web Services Endpoints
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-6
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-6
     tag:
     - webservice
     when:
       or:
       - as: webservices
-        ignore: true
-        xml:
+        builtin.xml:
           xpath: /*[local-name()='webservices']
+        ignore: true
       - as: endpoints
+        builtin.xml:
+          xpath: //*[local-name()='service-endpoint-interface']
         from: webservices
         ignore: true
-        xml:
-          xpath: //*[local-name()='service-endpoint-interface']
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-7
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-7
     tag:
     - webservice
     - apache-cxf
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /extensions
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-8
+      ignore: true
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-8
     tag:
     - webservice
     - security
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: //*[local-name()='Policy']
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-9
+      ignore: true
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-9
     tag:
     - soap
     - webservice
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /*[local-name()='Envelope']
-  - ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-10
+      ignore: true
+  - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/java-ee/xml-webservices.windup.xml-10
     tag:
     - webservice
     - wsdl
     when:
       as: default
-      ignore: true
-      xml:
+      builtin.xml:
         xpath: /*[local-name()='definitions']
+      ignore: true

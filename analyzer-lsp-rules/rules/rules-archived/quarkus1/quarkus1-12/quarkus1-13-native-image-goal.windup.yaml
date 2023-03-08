@@ -6,8 +6,7 @@
       case you have been setting non-default configuration parameters like. ```. <enableHttpsUrlHandler>true</enableHttpsUrlHandler>.
       ```. ,replace those with the respective documented properties, e.g.. ```. <quarkus.native.enable-https-url-handler>true</quarkus.native.enable-https-url-handler>.
       ```
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-native-image-goal.windup.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-12/quarkus1-13-native-image-goal.windup.xml-0
     when:
-      filecontent:
-        filename: pom.xml
+      builtin.filecontent:
         pattern: native-image

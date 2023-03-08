@@ -1,6 +1,6 @@
 - - message: If you migrate your application to JBoss EAP XP 2.0 (or later), and want
       to ensure its Maven building, running or testing works as expected, remove all
       Thorntail YAML Configuration Files.
-    ruleID: http://github.com/windup/windup-rulesets/tree/master/rules/rules-reviewed/eapxp/thorntail/remove_thorntail_yaml_configuration_files.mta.xml-0
+    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eapxp/thorntail/remove_thorntail_yaml_configuration_files.mta.xml-0
     when:
-      file: project-defaults.yml
+      builtin.file: project-defaults.yml
