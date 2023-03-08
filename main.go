@@ -531,14 +531,12 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 	ret := map[string]interface{}{}
 	tags := []string{}
 	if perform.Iteration != nil {
-		// ret := map[string]interface{}{}
 		for _, it := range perform.Iteration {
 			converted := convertWindupPerformToAnalyzer(it, where)
 			for k, v := range converted {
 				ret[k] = v
 			}
 		}
-		// return ret
 	}
 	if perform.Perform != nil {
 		ret := map[string]interface{}{}
@@ -546,7 +544,6 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		for k, v := range converted {
 			ret[k] = v
 		}
-		return ret
 	}
 
 	if perform.Hint != nil {
@@ -570,28 +567,22 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 				tags = append(tags, ti.Name)
 			}
 		}
-		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
-		// return map[string]interface{}{
-		// 	"tag": tags,
-		// }
 	}
 	if perform.Technologytag != nil {
 		for _, tag := range perform.Technologytag {
 			tags = append(tags, tag.Value)
 		}
-		// // TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
-		// return map[string]interface{}{
-		// 	"tag": tags,
-		// }
 	}
 	if perform.Classification != nil {
 		for _, classification := range perform.Classification {
-			tags = append(tags, classification.Title)
+			if classification.Tag != nil {
+				tags = append(tags, classification.Tag...)
+			}
+			if classification.Title != "" {
+				tags = append(tags, classification.Title)
+			}
 		}
 		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
-		// return map[string]interface{}{
-		// 	"tag": tags,
-		// }
 	}
 
 	ret["tags"] = tags
