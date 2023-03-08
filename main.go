@@ -71,6 +71,7 @@ func main() {
 					err := executeTest(test, location)
 					if err != nil {
 						fmt.Println(err)
+						log.Fatalf(err.Error())
 					}
 				}
 			}
@@ -273,7 +274,7 @@ func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 
 func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[string]interface{} {
 	dependency := map[string]interface{}{
-		"name": strings.Join([]string{windupDependency.GroupId, windupDependency.ArtifactId}, "."),
+		"name": strings.Replace(strings.Join([]string{windupDependency.GroupId, windupDependency.ArtifactId}, "."), "{*}", "*", -1),
 	}
 
 	if windupDependency.FromVersion != "" {
@@ -515,15 +516,17 @@ func trimMessage(s string) string {
 
 // TODO handle perform fully
 func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]string) map[string]interface{} {
+	ret := map[string]interface{}{}
+	tags := []string{}
 	if perform.Iteration != nil {
-		ret := map[string]interface{}{}
+		// ret := map[string]interface{}{}
 		for _, it := range perform.Iteration {
 			converted := convertWindupPerformToAnalyzer(it, where)
 			for k, v := range converted {
 				ret[k] = v
 			}
 		}
-		return ret
+		// return ret
 	}
 	if perform.Perform != nil {
 		ret := map[string]interface{}{}
@@ -542,13 +545,10 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		}
 		hint := perform.Hint[0]
 		if hint.Message != "" {
-			return map[string]interface{}{
-				"message": trimMessage(hint.Message),
-			}
+			ret["message"] = trimMessage(hint.Message)
 		}
 	}
 	if perform.Technologyidentified != nil {
-		tags := []string{}
 		for _, ti := range perform.Technologyidentified {
 			for _, tag := range ti.Tag {
 				tags = append(tags, tag.Name)
@@ -559,23 +559,31 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 			}
 		}
 		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
-		return map[string]interface{}{
-			"tag": tags,
+		// return map[string]interface{}{
+		// 	"tag": tags,
+		// }
+	}
+	if perform.Technologytag != nil {
+		for _, tag := range perform.Technologytag {
+			tags = append(tags, tag.Value)
 		}
+		// // TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
+		// return map[string]interface{}{
+		// 	"tag": tags,
+		// }
 	}
 	if perform.Classification != nil {
-		tags := []string{}
 		for _, classification := range perform.Classification {
 			tags = append(tags, classification.Title)
 		}
 		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
-		return map[string]interface{}{
-			"tag": tags,
-		}
+		// return map[string]interface{}{
+		// 	"tag": tags,
+		// }
 	}
 
-	return nil
-
+	ret["tags"] = tags
+	return ret
 }
 
 func flattenWhere(wheres []windup.Where) map[string]string {
