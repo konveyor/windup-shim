@@ -525,6 +525,15 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		}
 		return ret
 	}
+	if perform.Perform != nil {
+		ret := map[string]interface{}{}
+		converted := convertWindupPerformToAnalyzer(*perform.Perform, where)
+		for k, v := range converted {
+			ret[k] = v
+		}
+		return ret
+	}
+
 	if perform.Hint != nil {
 		if len(perform.Hint) != 1 {
 			// TODO
@@ -557,7 +566,7 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 	if perform.Classification != nil {
 		tags := []string{}
 		for _, classification := range perform.Classification {
-			tags = append(tags, classification.Tag...)
+			tags = append(tags, classification.Title)
 		}
 		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
 		return map[string]interface{}{
