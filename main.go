@@ -71,7 +71,6 @@ func main() {
 					err := executeTest(test, location)
 					if err != nil {
 						fmt.Println(err)
-						log.Fatalf(err.Error())
 					}
 				}
 			}
@@ -131,14 +130,20 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 		return "", err
 	}
 	// Template config file for analyzer
-	providerConfig := []map[string]interface{}{map[string]interface{}{
-		"name":           "java",
-		"location":       datadir,
-		"binaryLocation": "/jdtls/bin/jdtls",
-		"providerSpecificConfig": map[string]string{
-			"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+	providerConfig := []map[string]interface{}{
+		map[string]interface{}{
+			"name":           "java",
+			"location":       datadir,
+			"binaryLocation": "/jdtls/bin/jdtls",
+			"providerSpecificConfig": map[string]string{
+				"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+			},
 		},
-	}}
+		{
+			"name":     "builtin",
+			"location": datadir,
+		},
+	}
 	err = writeJSON(providerConfig, filepath.Join(dir, "provider_config.json"))
 	if err != nil {
 		return "", err
@@ -407,8 +412,15 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				// TODO handle systemid and publicid
 				continue
 			}
+			// TODO find an actual way to deal with namespaces
+			matches := xf.Matches
+			if xf.Namespace != nil {
+				for _, ns := range xf.Namespace {
+					matches = strings.Replace(matches, "/"+ns.Prefix+":", "/", -1)
+				}
+			}
 			xmlCond := map[string]interface{}{
-				"xpath": xf.Matches,
+				"xpath": matches,
 			}
 			// TODO We don't support regexes here, may need to break it out into a separate lookup that gets passed through
 			if xf.In != "" {

@@ -12,10 +12,10 @@ RUN go build -o windup-shim main.go
 FROM analyzer-lsp
 
 RUN microdnf install git -y && git clone https://github.com/windup/windup-rulesets.git /windup-rulesets
-COPY --from=builder /windup-shim/windup-shim /usr/bin/windup-shim
 
 # TODO debug only
 RUN microdnf install -y procps vim
 
-# CMD ["windup-shim", "test", "/windup-rulesets/rules/"]
+COPY --from=builder /windup-shim/windup-shim /usr/bin/windup-shim
+
 ENTRYPOINT ["windup-shim"]
