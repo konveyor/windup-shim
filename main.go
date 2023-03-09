@@ -151,7 +151,7 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 	// TODO now that directory is setup, need to execute
 	//	analyzer-lsp -provider-settings $dir/provider_config.json -rules $dir/rules
 	// and capture the output
-	args := []string{"-provider-settings", filepath.Join(dir, "/provider_config.json"), "-rules", filepath.Join(dir, "rules")}
+	args := []string{"-provider-settings", filepath.Join(dir, "/provider_config.json"), "-rules", filepath.Join(dir, "rules"), "-output-file", filepath.Join(dir, "violations.yaml")}
 	debugCmd := strings.Join(append([]string{"dlv debug /analyzer-lsp/main.go --"}, args...), " ")
 	cmd := exec.Command("konveyor-analyzer", args...)
 	debugInfo := map[string]interface{}{
@@ -240,9 +240,18 @@ func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		// TODO Rule.Perform
 		if !reflect.DeepEqual(windupRule.Perform, windup.Iteration{}) {
 			perform := convertWindupPerformToAnalyzer(windupRule.Perform, where)
-			for k, v := range perform {
-				rule[k] = v
+			// TODO only support a single action in perform right now, default to hint
+			if perform["message"] != nil {
+				rule["message"] = perform["message"]
+			} else if perform["tag"] != nil {
+				rule["tag"] = perform["tag"]
+			} else {
+				fmt.Println("No action parsed")
+				continue
 			}
+			// for k, v := range perform {
+			// 	rule[k] = v
+			// }
 		}
 		// TODO - Iteration
 		// TODO Rule.Otherwise
@@ -535,7 +544,6 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		}
 	}
 	if perform.Perform != nil {
-		ret := map[string]interface{}{}
 		converted := convertWindupPerformToAnalyzer(*perform.Perform, where)
 		for k, v := range converted {
 			ret[k] = v
@@ -581,7 +589,11 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
 	}
 
-	ret["tags"] = tags
+	if ret["tag"] != nil {
+		ret["tag"] = append(ret["tag"].([]string), tags...)
+	} else {
+		ret["tag"] = tags
+	}
 	return ret
 }
 
