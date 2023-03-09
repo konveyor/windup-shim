@@ -16,6 +16,7 @@ import (
 	"strings"
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
+	"github.com/konveyor/analyzer-lsp/hubapi"
 	"gopkg.in/yaml.v2"
 )
 
@@ -92,18 +93,18 @@ func main() {
 					fmt.Println(err)
 				}
 			}
-			output, err := executeRulesets(rulesets, data)
-			fmt.Println(output, err)
+			output, dir, err := executeRulesets(rulesets, data)
+			fmt.Println(output, dir, err)
 		}
 	default:
 		fmt.Println(help)
 	}
 }
 
-func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) {
+func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string, error) {
 	datadir, err := filepath.Abs(datadir)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	sourceFiles := []string{}
 	converted := [][]map[string]interface{}{}
@@ -113,7 +114,7 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 	}
 	dir, err := os.MkdirTemp("", "analyzer-lsp")
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	os.Mkdir(filepath.Join(dir, "rules"), os.ModePerm)
 	fmt.Println(dir)
@@ -122,12 +123,12 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 		path := filepath.Join(dir, "rules", strconv.Itoa(i)+".yaml")
 		err = writeYAML(ruleset, path)
 		if err != nil {
-			return "", err
+			return "", dir, err
 		}
 	}
 	err = writeYAML(map[string]interface{}{"name": "test-ruleset"}, filepath.Join(dir, "rules", "ruleset.yaml"))
 	if err != nil {
-		return "", err
+		return "", dir, err
 	}
 	// Template config file for analyzer
 	providerConfig := []map[string]interface{}{
@@ -146,7 +147,7 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 	}
 	err = writeJSON(providerConfig, filepath.Join(dir, "provider_config.json"))
 	if err != nil {
-		return "", err
+		return "", dir, err
 	}
 	// TODO now that directory is setup, need to execute
 	//	analyzer-lsp -provider-settings $dir/provider_config.json -rules $dir/rules
@@ -165,7 +166,7 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 	debugInfo["output"] = string(stdout)
 	writeYAML(debugInfo, filepath.Join(dir, "debug.yaml"))
 
-	return string(stdout), err
+	return string(stdout), dir, err
 }
 
 func writeYAML(content interface{}, dest string) error {
@@ -206,9 +207,25 @@ func executeTest(test windup.Ruletest, location string) error {
 			rulesets = append(rulesets, *ruleset)
 		}
 	}
-	output, err := executeRulesets(rulesets, test.TestDataPath)
-	fmt.Println(output, err)
-	return err
+	_, dir, err := executeRulesets(rulesets, test.TestDataPath)
+	if err != nil {
+		return err
+	}
+	violationsFile, err := os.Open(filepath.Join(dir, "violations.yaml"))
+	if err != nil {
+		return err
+	}
+	content, err := ioutil.ReadAll(violationsFile)
+	if err != nil {
+		return err
+	}
+	var violations []hubapi.RuleSet
+	err = yaml.Unmarshal(content, &violations)
+	if err != nil {
+		return err
+	}
+	fmt.Println(violations)
+	return nil
 }
 
 func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interface{} {

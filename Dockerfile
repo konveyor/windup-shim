@@ -1,6 +1,6 @@
 FROM golang:1.18 as builder
 WORKDIR /windup-shim
-# TODO limit to prevent unnecessary rebuilds
+
 COPY go.mod /windup-shim
 COPY go.sum /windup-shim
 COPY  pkg /windup-shim/pkg
@@ -17,5 +17,13 @@ RUN microdnf install git -y && git clone https://github.com/windup/windup-rulese
 RUN microdnf install -y procps vim
 
 COPY --from=builder /windup-shim/windup-shim /usr/bin/windup-shim
+
+WORKDIR /windup-shim
+
+# For debugging
+COPY go.mod /windup-shim
+COPY go.sum /windup-shim
+COPY  pkg /windup-shim/pkg
+COPY  main.go /windup-shim
 
 ENTRYPOINT ["windup-shim"]
