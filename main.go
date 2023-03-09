@@ -20,6 +20,21 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+const (
+	JAVA_PROJECT_DIR = "java-project"
+
+	POM_XML = `
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+	<groupId>org.sample</groupId>
+	<artifactId>sample-project</artifactId>
+    <version>0.0.1</version>
+	<name>Sample Project</name>
+</project>
+`
+)
+
 func main() {
 	var outputDir, data string
 	convertCmd := flag.NewFlagSet("convert", flag.ExitOnError)
@@ -112,6 +127,42 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 	if err != nil {
 		return "", "", err
 	}
+
+	// For DataDir with *.java we will create a java-project
+	// this will contain an empty pom.xml
+	// As well as a src/main/java/com/example/apps/*.java
+	files, err := os.ReadDir(datadir)
+	if err != nil {
+		return "", err
+	}
+	javaFiles := []string{}
+	for _, f := range files {
+		fmt.Printf("datadir - file: %v", f)
+		if strings.Contains(f.Name(), ".java") {
+			javaFiles = append(javaFiles, f.Name())
+		}
+	}
+	javaDataDir := datadir
+	if len(javaFiles) > 0 {
+		javaDataDir = filepath.Join(datadir, JAVA_PROJECT_DIR)
+		appDir := filepath.Join(javaDataDir, "src", "main", "java", "com", "example", "apps")
+		err := os.MkdirAll(appDir, os.ModeDir)
+		if err != nil {
+			return "", err
+		}
+		for _, f := range javaFiles {
+			err = os.Rename(filepath.Join(datadir, f), filepath.Join(appDir, f))
+			if err != nil {
+				return "", err
+			}
+		}
+
+		err = os.WriteFile(filepath.Join(datadir, JAVA_PROJECT_DIR, "pom.xml"), []byte(POM_XML), 0644)
+		if err != nil {
+			return "", err
+		}
+	}
+
 	sourceFiles := []string{}
 	converted := [][]map[string]interface{}{}
 	for _, ruleset := range rulesets {
@@ -137,20 +188,18 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 		return "", dir, err
 	}
 	// Template config file for analyzer
-	providerConfig := []map[string]interface{}{
-		map[string]interface{}{
-			"name":           "java",
-			"location":       datadir,
-			"binaryLocation": "/jdtls/bin/jdtls",
-			"providerSpecificConfig": map[string]string{
-				"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
-			},
+	providerConfig := []map[string]interface{}{map[string]interface{}{
+		"name":           "java",
+		"location":       javaDataDir,
+		"binaryLocation": "/jdtls/bin/jdtls",
+		"providerSpecificConfig": map[string]string{
+			"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
 		},
+	},
 		{
 			"name":     "builtin",
 			"location": datadir,
-		},
-	}
+		}}
 	err = writeJSON(providerConfig, filepath.Join(dir, "provider_config.json"))
 	if err != nil {
 		return "", dir, err
