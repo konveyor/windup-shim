@@ -224,8 +224,51 @@ func executeTest(test windup.Ruletest, location string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println(violations)
+	total := 0
+	successes := 0
+	for _, ruleset := range test.Ruleset {
+		for _, rule := range ruleset.Rules.Rule {
+			total += 1
+			if rule.When.Not != nil {
+				if len(rule.When.Not) > 1 {
+					panic("Hopefully nots can only be length 1")
+				}
+				if !runTestRule(rule.When.Not[0], violations) {
+					successes += 1
+				}
+			} else {
+				if runTestRule(rule.When, violations) {
+					successes += 1
+				}
+			}
+		}
+	}
+	fmt.Printf("% success: %f\n", float32(successes)/float32(total))
 	return nil
+}
+
+func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
+	matchesRequired := 1
+	hintExists := rule.Hintexists
+	classificationExists := rule.Classificationexists
+	lineitemExists := rule.Lineitemexists
+	technologyStatisticExists := rule.Technologystatisticsexists
+	technologyTagExists := rule.Technologytagexists
+
+	if rule.Iterablefilter != nil {
+		if len(rule.Iterablefilter) > 1 {
+			panic("Hopefully iterablefilters can only be length 1")
+		}
+		matchesRequired = rule.Iterablefilter[0].Size
+		hintExists = rule.Iterablefilter[0].Hintexists
+		classificationExists = rule.Iterablefilter[0].Classificationexists
+		lineitemExists = rule.Iterablefilter[0].Lineitemexists
+		technologyStatisticExists = rule.Iterablefilter[0].Technologystatisticsexists
+		technologyTagExists = rule.Iterablefilter[0].Technologytagexists
+	}
+	// TODO implement matching
+	fmt.Println(matchesRequired, hintExists, classificationExists, lineitemExists, technologyStatisticExists, technologyTagExists)
+	return false
 }
 
 func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interface{} {
