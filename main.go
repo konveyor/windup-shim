@@ -68,12 +68,18 @@ func main() {
 				if err != nil {
 					fmt.Println(err)
 				}
+				totalSuccesses := 0
+				totalTests := 0
 				for _, test := range ruletests {
-					err := executeTest(test, location)
+					fmt.Println("Executing " + test.SourceFile)
+					successes, total, err := executeTest(test, location)
 					if err != nil {
 						fmt.Println(err)
 					}
+					totalSuccesses += successes
+					totalTests += total
 				}
+				fmt.Printf("Overall success rate: %.2f%% (%d/%d)\n", float32(totalSuccesses)/float32(totalTests)*100, totalSuccesses, totalTests)
 			}
 		}
 	case "run":
@@ -199,7 +205,7 @@ func writeJSON(content interface{}, dest string) error {
 	return nil
 }
 
-func executeTest(test windup.Ruletest, location string) error {
+func executeTest(test windup.Ruletest, location string) (int, int, error) {
 	rulesets := []windup.Ruleset{}
 	for _, path := range test.RulePath {
 		ruleset := processWindupRuleset(path)
@@ -209,20 +215,20 @@ func executeTest(test windup.Ruletest, location string) error {
 	}
 	_, dir, err := executeRulesets(rulesets, test.TestDataPath)
 	if err != nil {
-		return err
+		return 0, 0, err
 	}
 	violationsFile, err := os.Open(filepath.Join(dir, "violations.yaml"))
 	if err != nil {
-		return err
+		return 0, 0, err
 	}
 	content, err := ioutil.ReadAll(violationsFile)
 	if err != nil {
-		return err
+		return 0, 0, err
 	}
 	var violations []hubapi.RuleSet
 	err = yaml.Unmarshal(content, &violations)
 	if err != nil {
-		return err
+		return 0, 0, err
 	}
 	total := 0
 	successes := 0
@@ -233,18 +239,18 @@ func executeTest(test windup.Ruletest, location string) error {
 				if len(rule.When.Not) > 1 {
 					panic("Hopefully nots can only be length 1")
 				}
-				if !runTestRule(rule.When.Not[0], violations) {
+				if runTestRule(rule.When.Not[0], violations) {
 					successes += 1
 				}
 			} else {
-				if runTestRule(rule.When, violations) {
+				if !runTestRule(rule.When, violations) {
 					successes += 1
 				}
 			}
 		}
 	}
-	fmt.Printf("% success: %f\n", float32(successes)/float32(total))
-	return nil
+	fmt.Printf("success rate: %.2f%% (%d/%d)\n", float32(successes)/float32(total)*100, successes, total)
+	return successes, total, nil
 }
 
 func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
@@ -266,9 +272,52 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 		technologyStatisticExists = rule.Iterablefilter[0].Technologystatisticsexists
 		technologyTagExists = rule.Iterablefilter[0].Technologytagexists
 	}
-	// TODO implement matching
-	fmt.Println(matchesRequired, hintExists, classificationExists, lineitemExists, technologyStatisticExists, technologyTagExists)
-	return false
+	numFound := 0
+	var tags []string
+	for _, ruleset := range violations {
+		for _, violation := range ruleset.Violations {
+			if classificationExists != nil {
+				for _, c := range classificationExists {
+					tags = append(tags, c.Classification)
+				}
+			} else if technologyStatisticExists != nil {
+				for _, t := range technologyStatisticExists {
+					for _, tag := range t.Tag {
+						tags = append(tags, tag.Name)
+					}
+				}
+			} else if technologyTagExists != nil {
+				for _, t := range technologyTagExists {
+					tags = append(tags, t.Technologytag)
+				}
+			}
+
+			if len(tags) != 0 {
+				for _, tag := range tags {
+					for _, foundTag := range violation.Tags {
+						if tag == foundTag {
+							numFound += 1
+						}
+					}
+				}
+				return numFound == len(tags)
+			} else {
+				for _, incident := range violation.Incidents {
+					if hintExists != nil {
+						if strings.Contains(incident.Message, hintExists[0].Message) {
+							numFound += 1
+						}
+					} else if lineitemExists != nil {
+						fmt.Println("lineitemExists not implemented")
+						return false
+					} else {
+						panic("no test task found")
+					}
+				}
+			}
+		}
+	}
+	return numFound >= matchesRequired
 }
 
 func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interface{} {
