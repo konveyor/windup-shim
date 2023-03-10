@@ -155,9 +155,6 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 	if err != nil {
 		return "", dir, err
 	}
-	// TODO now that directory is setup, need to execute
-	//	analyzer-lsp -provider-settings $dir/provider_config.json -rules $dir/rules
-	// and capture the output
 	args := []string{"-provider-settings", filepath.Join(dir, "/provider_config.json"), "-rules", filepath.Join(dir, "rules"), "-output-file", filepath.Join(dir, "violations.yaml")}
 	debugCmd := strings.Join(append([]string{"dlv debug /analyzer-lsp/main.go --"}, args...), " ")
 	cmd := exec.Command("konveyor-analyzer", args...)
@@ -737,7 +734,6 @@ func processWindupRuleset(path string) *windup.Ruleset {
 		return nil
 	}
 	if reflect.ValueOf(ruleset).IsZero() {
-		// TODO parse tests as well
 		fmt.Printf("Skipping %s because it is not a ruleset\n", path)
 		return nil
 	}
@@ -765,7 +761,6 @@ func processWindupRuletest(path string) *windup.Ruletest {
 		return nil
 	}
 	if reflect.ValueOf(ruletest).IsZero() {
-		// TODO parse tests as well
 		fmt.Printf("Skipping %s because it is not a ruletest\n", path)
 		return nil
 	}
