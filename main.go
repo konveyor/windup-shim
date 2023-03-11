@@ -78,8 +78,8 @@ func main() {
 					}
 					totalSuccesses += successes
 					totalTests += total
+					fmt.Printf("Overall success rate: %.2f%% (%d/%d)\n", float32(totalSuccesses)/float32(totalTests)*100, totalSuccesses, totalTests)
 				}
-				fmt.Printf("Overall success rate: %.2f%% (%d/%d)\n", float32(totalSuccesses)/float32(totalTests)*100, totalSuccesses, totalTests)
 			}
 		}
 	case "run":
