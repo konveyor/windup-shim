@@ -12,6 +12,7 @@ RUN go build -o windup-shim main.go
 FROM analyzer-lsp
 
 RUN microdnf install git -y && git clone https://github.com/windup/windup-rulesets.git /windup-rulesets
+run cp /analyzer-lsp/konveyor-analyzer /usr/local/bin/
 
 # TODO debug only
 RUN microdnf install -y procps vim
