@@ -16,6 +16,7 @@ import (
 	"strings"
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
+	"github.com/konveyor/analyzer-lsp/hubapi"
 	"gopkg.in/yaml.v2"
 )
 
@@ -67,11 +68,17 @@ func main() {
 				if err != nil {
 					fmt.Println(err)
 				}
+				totalSuccesses := 0
+				totalTests := 0
 				for _, test := range ruletests {
-					err := executeTest(test, location)
+					fmt.Println("Executing " + test.SourceFile)
+					successes, total, err := executeTest(test, location)
 					if err != nil {
 						fmt.Println(err)
 					}
+					totalSuccesses += successes
+					totalTests += total
+					fmt.Printf("Overall success rate: %.2f%% (%d/%d)\n", float32(totalSuccesses)/float32(totalTests)*100, totalSuccesses, totalTests)
 				}
 			}
 		}
@@ -92,18 +99,18 @@ func main() {
 					fmt.Println(err)
 				}
 			}
-			output, err := executeRulesets(rulesets, data)
-			fmt.Println(output, err)
+			output, dir, err := executeRulesets(rulesets, data)
+			fmt.Println(output, dir, err)
 		}
 	default:
 		fmt.Println(help)
 	}
 }
 
-func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) {
+func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string, error) {
 	datadir, err := filepath.Abs(datadir)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	sourceFiles := []string{}
 	converted := [][]map[string]interface{}{}
@@ -113,7 +120,7 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 	}
 	dir, err := os.MkdirTemp("", "analyzer-lsp")
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	os.Mkdir(filepath.Join(dir, "rules"), os.ModePerm)
 	fmt.Println(dir)
@@ -122,30 +129,33 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 		path := filepath.Join(dir, "rules", strconv.Itoa(i)+".yaml")
 		err = writeYAML(ruleset, path)
 		if err != nil {
-			return "", err
+			return "", dir, err
 		}
 	}
 	err = writeYAML(map[string]interface{}{"name": "test-ruleset"}, filepath.Join(dir, "rules", "ruleset.yaml"))
 	if err != nil {
-		return "", err
+		return "", dir, err
 	}
 	// Template config file for analyzer
-	providerConfig := []map[string]interface{}{map[string]interface{}{
-		"name":           "java",
-		"location":       datadir,
-		"binaryLocation": "/jdtls/bin/jdtls",
-		"providerSpecificConfig": map[string]string{
-			"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+	providerConfig := []map[string]interface{}{
+		map[string]interface{}{
+			"name":           "java",
+			"location":       datadir,
+			"binaryLocation": "/jdtls/bin/jdtls",
+			"providerSpecificConfig": map[string]string{
+				"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+			},
 		},
-	}}
+		{
+			"name":     "builtin",
+			"location": datadir,
+		},
+	}
 	err = writeJSON(providerConfig, filepath.Join(dir, "provider_config.json"))
 	if err != nil {
-		return "", err
+		return "", dir, err
 	}
-	// TODO now that directory is setup, need to execute
-	//	analyzer-lsp -provider-settings $dir/provider_config.json -rules $dir/rules
-	// and capture the output
-	args := []string{"-provider-settings", filepath.Join(dir, "/provider_config.json"), "-rules", filepath.Join(dir, "rules")}
+	args := []string{"-provider-settings", filepath.Join(dir, "/provider_config.json"), "-rules", filepath.Join(dir, "rules"), "-output-file", filepath.Join(dir, "violations.yaml")}
 	debugCmd := strings.Join(append([]string{"dlv debug /analyzer-lsp/main.go --"}, args...), " ")
 	cmd := exec.Command("konveyor-analyzer", args...)
 	debugInfo := map[string]interface{}{
@@ -159,7 +169,7 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, error) 
 	debugInfo["output"] = string(stdout)
 	writeYAML(debugInfo, filepath.Join(dir, "debug.yaml"))
 
-	return string(stdout), err
+	return string(stdout), dir, err
 }
 
 func writeYAML(content interface{}, dest string) error {
@@ -192,7 +202,7 @@ func writeJSON(content interface{}, dest string) error {
 	return nil
 }
 
-func executeTest(test windup.Ruletest, location string) error {
+func executeTest(test windup.Ruletest, location string) (int, int, error) {
 	rulesets := []windup.Ruleset{}
 	for _, path := range test.RulePath {
 		ruleset := processWindupRuleset(path)
@@ -200,9 +210,111 @@ func executeTest(test windup.Ruletest, location string) error {
 			rulesets = append(rulesets, *ruleset)
 		}
 	}
-	output, err := executeRulesets(rulesets, test.TestDataPath)
-	fmt.Println(output, err)
-	return err
+	_, dir, err := executeRulesets(rulesets, test.TestDataPath)
+	if err != nil {
+		return 0, 0, err
+	}
+	violationsFile, err := os.Open(filepath.Join(dir, "violations.yaml"))
+	if err != nil {
+		return 0, 0, err
+	}
+	content, err := ioutil.ReadAll(violationsFile)
+	if err != nil {
+		return 0, 0, err
+	}
+	var violations []hubapi.RuleSet
+	err = yaml.Unmarshal(content, &violations)
+	if err != nil {
+		return 0, 0, err
+	}
+	total := 0
+	successes := 0
+	for _, ruleset := range test.Ruleset {
+		for _, rule := range ruleset.Rules.Rule {
+			total += 1
+			if rule.When.Not != nil {
+				if len(rule.When.Not) > 1 {
+					panic("Hopefully nots can only be length 1")
+				}
+				if runTestRule(rule.When.Not[0], violations) {
+					successes += 1
+				}
+			} else {
+				if !runTestRule(rule.When, violations) {
+					successes += 1
+				}
+			}
+		}
+	}
+	fmt.Printf("success rate: %.2f%% (%d/%d)\n", float32(successes)/float32(total)*100, successes, total)
+	return successes, total, nil
+}
+
+func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
+	matchesRequired := 1
+	hintExists := rule.Hintexists
+	classificationExists := rule.Classificationexists
+	lineitemExists := rule.Lineitemexists
+	technologyStatisticExists := rule.Technologystatisticsexists
+	technologyTagExists := rule.Technologytagexists
+
+	if rule.Iterablefilter != nil {
+		if len(rule.Iterablefilter) > 1 {
+			panic("Hopefully iterablefilters can only be length 1")
+		}
+		matchesRequired = rule.Iterablefilter[0].Size
+		hintExists = rule.Iterablefilter[0].Hintexists
+		classificationExists = rule.Iterablefilter[0].Classificationexists
+		lineitemExists = rule.Iterablefilter[0].Lineitemexists
+		technologyStatisticExists = rule.Iterablefilter[0].Technologystatisticsexists
+		technologyTagExists = rule.Iterablefilter[0].Technologytagexists
+	}
+	numFound := 0
+	var tags []string
+	for _, ruleset := range violations {
+		for _, violation := range ruleset.Violations {
+			if classificationExists != nil {
+				for _, c := range classificationExists {
+					tags = append(tags, c.Classification)
+				}
+			} else if technologyStatisticExists != nil {
+				for _, t := range technologyStatisticExists {
+					for _, tag := range t.Tag {
+						tags = append(tags, tag.Name)
+					}
+				}
+			} else if technologyTagExists != nil {
+				for _, t := range technologyTagExists {
+					tags = append(tags, t.Technologytag)
+				}
+			}
+
+			if len(tags) != 0 {
+				for _, tag := range tags {
+					for _, foundTag := range violation.Tags {
+						if tag == foundTag {
+							numFound += 1
+						}
+					}
+				}
+				return numFound == len(tags)
+			} else {
+				for _, incident := range violation.Incidents {
+					if hintExists != nil {
+						if strings.Contains(incident.Message, hintExists[0].Message) {
+							numFound += 1
+						}
+					} else if lineitemExists != nil {
+						fmt.Println("lineitemExists not implemented")
+						return false
+					} else {
+						panic("no test task found")
+					}
+				}
+			}
+		}
+	}
+	return numFound >= matchesRequired
 }
 
 func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interface{} {
@@ -234,9 +346,18 @@ func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		// TODO Rule.Perform
 		if !reflect.DeepEqual(windupRule.Perform, windup.Iteration{}) {
 			perform := convertWindupPerformToAnalyzer(windupRule.Perform, where)
-			for k, v := range perform {
-				rule[k] = v
+			// TODO only support a single action in perform right now, default to hint
+			if perform["message"] != nil {
+				rule["message"] = perform["message"]
+			} else if perform["tag"] != nil {
+				rule["tag"] = perform["tag"]
+			} else {
+				fmt.Println("No action parsed")
+				continue
 			}
+			// for k, v := range perform {
+			// 	rule[k] = v
+			// }
 		}
 		// TODO - Iteration
 		// TODO Rule.Otherwise
@@ -273,7 +394,7 @@ func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 
 func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[string]interface{} {
 	dependency := map[string]interface{}{
-		"name": strings.Join([]string{windupDependency.GroupId, windupDependency.ArtifactId}, "."),
+		"name": strings.Replace(strings.Join([]string{windupDependency.GroupId, windupDependency.ArtifactId}, "."), "{*}", "*", -1),
 	}
 
 	if windupDependency.FromVersion != "" {
@@ -334,11 +455,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.Filecontent != nil {
 		for _, fc := range windupWhen.Filecontent {
 			condition := map[string]interface{}{
-				"builtin.filecontent": map[string]interface{}{
-					"pattern": strings.Replace(substituteWhere(where, fc.Pattern), "{*}", "*", -1),
-					// "filename": strings.Replace(substituteWhere(where, fc.Filename), "{*}", "*", -1),
-					// TODO Filecontent.Filename needs to be implemented in analyzer
-				},
+				"builtin.filecontent": strings.Replace(substituteWhere(where, fc.Pattern), "{*}", "*", -1),
 			}
 			if fc.As != "" {
 				condition["as"] = fc.As
@@ -406,8 +523,15 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				// TODO handle systemid and publicid
 				continue
 			}
+			// TODO find an actual way to deal with namespaces
+			matches := xf.Matches
+			if xf.Namespace != nil {
+				for _, ns := range xf.Namespace {
+					matches = strings.Replace(matches, "/"+ns.Prefix+":", "/", -1)
+				}
+			}
 			xmlCond := map[string]interface{}{
-				"xpath": xf.Matches,
+				"xpath": matches,
 			}
 			// TODO We don't support regexes here, may need to break it out into a separate lookup that gets passed through
 			if xf.In != "" {
@@ -515,23 +639,21 @@ func trimMessage(s string) string {
 
 // TODO handle perform fully
 func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]string) map[string]interface{} {
+	ret := map[string]interface{}{}
+	tags := []string{}
 	if perform.Iteration != nil {
-		ret := map[string]interface{}{}
 		for _, it := range perform.Iteration {
 			converted := convertWindupPerformToAnalyzer(it, where)
 			for k, v := range converted {
 				ret[k] = v
 			}
 		}
-		return ret
 	}
 	if perform.Perform != nil {
-		ret := map[string]interface{}{}
 		converted := convertWindupPerformToAnalyzer(*perform.Perform, where)
 		for k, v := range converted {
 			ret[k] = v
 		}
-		return ret
 	}
 
 	if perform.Hint != nil {
@@ -542,13 +664,10 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		}
 		hint := perform.Hint[0]
 		if hint.Message != "" {
-			return map[string]interface{}{
-				"message": trimMessage(hint.Message),
-			}
+			ret["message"] = trimMessage(hint.Message)
 		}
 	}
 	if perform.Technologyidentified != nil {
-		tags := []string{}
 		for _, ti := range perform.Technologyidentified {
 			for _, tag := range ti.Tag {
 				tags = append(tags, tag.Name)
@@ -558,24 +677,30 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 				tags = append(tags, ti.Name)
 			}
 		}
-		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
-		return map[string]interface{}{
-			"tag": tags,
+	}
+	if perform.Technologytag != nil {
+		for _, tag := range perform.Technologytag {
+			tags = append(tags, tag.Value)
 		}
 	}
 	if perform.Classification != nil {
-		tags := []string{}
 		for _, classification := range perform.Classification {
-			tags = append(tags, classification.Title)
+			if classification.Tag != nil {
+				tags = append(tags, classification.Tag...)
+			}
+			if classification.Title != "" {
+				tags = append(tags, classification.Title)
+			}
 		}
 		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
-		return map[string]interface{}{
-			"tag": tags,
-		}
 	}
 
-	return nil
-
+	if ret["tag"] != nil {
+		ret["tag"] = append(ret["tag"].([]string), tags...)
+	} else {
+		ret["tag"] = tags
+	}
+	return ret
 }
 
 func flattenWhere(wheres []windup.Where) map[string]string {
@@ -609,7 +734,6 @@ func processWindupRuleset(path string) *windup.Ruleset {
 		return nil
 	}
 	if reflect.ValueOf(ruleset).IsZero() {
-		// TODO parse tests as well
 		fmt.Printf("Skipping %s because it is not a ruleset\n", path)
 		return nil
 	}
@@ -637,7 +761,6 @@ func processWindupRuletest(path string) *windup.Ruletest {
 		return nil
 	}
 	if reflect.ValueOf(ruletest).IsZero() {
-		// TODO parse tests as well
 		fmt.Printf("Skipping %s because it is not a ruletest\n", path)
 		return nil
 	}
