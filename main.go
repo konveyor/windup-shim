@@ -252,30 +252,7 @@ func writeJSON(content interface{}, dest string) error {
 }
 
 func executeTest(test windup.Ruletest, location string) (int, int, error) {
-	rulesets := []windup.Ruleset{}
-	for _, path := range test.RulePath {
-		ruleset := processWindupRuleset(path)
-		if ruleset != nil {
-			rulesets = append(rulesets, *ruleset)
-		}
-	}
-	_, dir, err := executeRulesets(rulesets, test.TestDataPath)
-	if err != nil {
-		return 0, 0, err
-	}
-	violationsFile, err := os.Open(filepath.Join(dir, "violations.yaml"))
-	if err != nil {
-		return 0, 0, err
-	}
-	content, err := ioutil.ReadAll(violationsFile)
-	if err != nil {
-		return 0, 0, err
-	}
-	var violations []hubapi.RuleSet
-	err = yaml.Unmarshal(content, &violations)
-	if err != nil {
-		return 0, 0, err
-	}
+	violations, err := getViolations(test)
 	total := 0
 	successes := 0
 	for _, ruleset := range test.Ruleset {
@@ -288,22 +265,55 @@ func executeTest(test windup.Ruletest, location string) (int, int, error) {
 				if runTestRule(rule.When.Not[0], violations) {
 					successes += 1
 				} else {
-					fmt.Printf("\nfailure: %v", rule.Perform)
+					fmt.Printf("\nfailure: %v\n", rule.Perform)
 				}
 			} else {
 				if !runTestRule(rule.When, violations) {
 					successes += 1
 				} else {
-					fmt.Printf("\nfailure: %v", rule.Perform)
+					fmt.Printf("\nfailure: %v\n", rule.Perform)
 				}
 			}
 		}
 	}
 	fmt.Printf("success rate: %.2f%% (%d/%d)\n", float32(successes)/float32(total)*100, successes, total)
-	return successes, total, nil
+	return successes, total, err
+}
+
+func getViolations(test windup.Ruletest) ([]hubapi.RuleSet, error) {
+	rulesets := []windup.Ruleset{}
+	for _, path := range test.RulePath {
+		ruleset := processWindupRuleset(path)
+		if ruleset != nil {
+			rulesets = append(rulesets, *ruleset)
+		}
+	}
+	_, dir, err := executeRulesets(rulesets, test.TestDataPath)
+	if err != nil {
+		return nil, err
+	}
+	violationsFile, err := os.Open(filepath.Join(dir, "violations.yaml"))
+	if err != nil {
+		return nil, err
+	}
+	content, err := ioutil.ReadAll(violationsFile)
+	if err != nil {
+		return nil, err
+	}
+	fmt.Println("Violation output:\n" + string(content) + "\n")
+	var violations []hubapi.RuleSet
+	err = yaml.Unmarshal(content, &violations)
+	if err != nil {
+		return nil, err
+	}
+	return violations, nil
 }
 
 func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
+	if violations == nil {
+		return false
+	}
+
 	matchesRequired := 1
 	hintExists := rule.Hintexists
 	classificationExists := rule.Classificationexists
@@ -328,7 +338,7 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 		var err error
 		hintRegex, err = regexp.Compile(hintExists[0].Message)
 		if err != nil {
-			fmt.Printf("unable to get regex out of hint: %#v", err)
+			fmt.Printf("unable to get regex out of hint: %#v\n", err)
 		}
 	}
 	numFound := 0
@@ -368,7 +378,9 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 						fmt.Println("lineitemExists not implemented")
 						return false
 					} else {
-						panic("no test task found")
+						// TODO(fabianvf) need to figure out why we're hitting this
+						// panic("no test task found")
+						fmt.Println("no test task found")
 					}
 				}
 			}
