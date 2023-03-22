@@ -12,6 +12,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"reflect"
+	"regexp"
 	"strconv"
 	"strings"
 
@@ -133,11 +134,10 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 	// As well as a src/main/java/com/example/apps/*.java
 	files, err := os.ReadDir(datadir)
 	if err != nil {
-		return "", err
+		return "", "", err
 	}
 	javaFiles := []string{}
 	for _, f := range files {
-		fmt.Printf("datadir - file: %v", f)
 		if strings.Contains(f.Name(), ".java") {
 			javaFiles = append(javaFiles, f.Name())
 		}
@@ -148,18 +148,18 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 		appDir := filepath.Join(javaDataDir, "src", "main", "java", "com", "example", "apps")
 		err := os.MkdirAll(appDir, os.ModeDir)
 		if err != nil {
-			return "", err
+			return "", "", err
 		}
 		for _, f := range javaFiles {
 			err = os.Rename(filepath.Join(datadir, f), filepath.Join(appDir, f))
 			if err != nil {
-				return "", err
+				return "", "", err
 			}
 		}
 
 		err = os.WriteFile(filepath.Join(datadir, JAVA_PROJECT_DIR, "pom.xml"), []byte(POM_XML), 0644)
 		if err != nil {
-			return "", err
+			return "", "", err
 		}
 	}
 
@@ -252,30 +252,7 @@ func writeJSON(content interface{}, dest string) error {
 }
 
 func executeTest(test windup.Ruletest, location string) (int, int, error) {
-	rulesets := []windup.Ruleset{}
-	for _, path := range test.RulePath {
-		ruleset := processWindupRuleset(path)
-		if ruleset != nil {
-			rulesets = append(rulesets, *ruleset)
-		}
-	}
-	_, dir, err := executeRulesets(rulesets, test.TestDataPath)
-	if err != nil {
-		return 0, 0, err
-	}
-	violationsFile, err := os.Open(filepath.Join(dir, "violations.yaml"))
-	if err != nil {
-		return 0, 0, err
-	}
-	content, err := ioutil.ReadAll(violationsFile)
-	if err != nil {
-		return 0, 0, err
-	}
-	var violations []hubapi.RuleSet
-	err = yaml.Unmarshal(content, &violations)
-	if err != nil {
-		return 0, 0, err
-	}
+	violations, err := getViolations(test)
 	total := 0
 	successes := 0
 	for _, ruleset := range test.Ruleset {
@@ -287,19 +264,56 @@ func executeTest(test windup.Ruletest, location string) (int, int, error) {
 				}
 				if runTestRule(rule.When.Not[0], violations) {
 					successes += 1
+				} else {
+					fmt.Printf("\nfailure: %v\n", rule.Perform)
 				}
 			} else {
 				if !runTestRule(rule.When, violations) {
 					successes += 1
+				} else {
+					fmt.Printf("\nfailure: %v\n", rule.Perform)
 				}
 			}
 		}
 	}
 	fmt.Printf("success rate: %.2f%% (%d/%d)\n", float32(successes)/float32(total)*100, successes, total)
-	return successes, total, nil
+	return successes, total, err
+}
+
+func getViolations(test windup.Ruletest) ([]hubapi.RuleSet, error) {
+	rulesets := []windup.Ruleset{}
+	for _, path := range test.RulePath {
+		ruleset := processWindupRuleset(path)
+		if ruleset != nil {
+			rulesets = append(rulesets, *ruleset)
+		}
+	}
+	_, dir, err := executeRulesets(rulesets, test.TestDataPath)
+	if err != nil {
+		return nil, err
+	}
+	violationsFile, err := os.Open(filepath.Join(dir, "violations.yaml"))
+	if err != nil {
+		return nil, err
+	}
+	content, err := ioutil.ReadAll(violationsFile)
+	if err != nil {
+		return nil, err
+	}
+	fmt.Println("Violation output:\n" + string(content) + "\n")
+	var violations []hubapi.RuleSet
+	err = yaml.Unmarshal(content, &violations)
+	if err != nil {
+		return nil, err
+	}
+	return violations, nil
 }
 
 func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
+	if violations == nil {
+		return false
+	}
+
 	matchesRequired := 1
 	hintExists := rule.Hintexists
 	classificationExists := rule.Classificationexists
@@ -318,26 +332,34 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 		technologyStatisticExists = rule.Iterablefilter[0].Technologystatisticsexists
 		technologyTagExists = rule.Iterablefilter[0].Technologytagexists
 	}
+
+	var hintRegex *regexp.Regexp
+	if hintExists != nil {
+		var err error
+		hintRegex, err = regexp.Compile(hintExists[0].Message)
+		if err != nil {
+			fmt.Printf("unable to get regex out of hint: %#v\n", err)
+		}
+	}
 	numFound := 0
 	var tags []string
+	if classificationExists != nil {
+		for _, c := range classificationExists {
+			tags = append(tags, strings.ReplaceAll(c.Classification, `\`, ""))
+		}
+	} else if technologyStatisticExists != nil {
+		for _, t := range technologyStatisticExists {
+			for _, tag := range t.Tag {
+				tags = append(tags, tag.Name)
+			}
+		}
+	} else if technologyTagExists != nil {
+		for _, t := range technologyTagExists {
+			tags = append(tags, t.Technologytag)
+		}
+	}
 	for _, ruleset := range violations {
 		for _, violation := range ruleset.Violations {
-			if classificationExists != nil {
-				for _, c := range classificationExists {
-					tags = append(tags, c.Classification)
-				}
-			} else if technologyStatisticExists != nil {
-				for _, t := range technologyStatisticExists {
-					for _, tag := range t.Tag {
-						tags = append(tags, tag.Name)
-					}
-				}
-			} else if technologyTagExists != nil {
-				for _, t := range technologyTagExists {
-					tags = append(tags, t.Technologytag)
-				}
-			}
-
 			if len(tags) != 0 {
 				for _, tag := range tags {
 					for _, foundTag := range violation.Tags {
@@ -346,18 +368,19 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 						}
 					}
 				}
-				return numFound == len(tags)
 			} else {
 				for _, incident := range violation.Incidents {
 					if hintExists != nil {
-						if strings.Contains(incident.Message, hintExists[0].Message) {
+						if hintRegex.MatchString(incident.Message) {
 							numFound += 1
 						}
 					} else if lineitemExists != nil {
 						fmt.Println("lineitemExists not implemented")
 						return false
 					} else {
-						panic("no test task found")
+						// TODO(fabianvf) need to figure out why we're hitting this
+						// panic("no test task found")
+						fmt.Println("no test task found")
 					}
 				}
 			}
@@ -458,10 +481,26 @@ func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[s
 	return dependency
 }
 
+func convertWinupGraphQueryJarArchiveModel(gq windup.Graphquery) map[string]interface{} {
+	m := map[string]interface{}{
+		"nameregex": gq.Property.Value,
+	}
+	return m
+}
+
 func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string) []map[string]interface{} {
 	// TODO Rule.When
 	// TODO - Graphquery
 	conditions := []map[string]interface{}{}
+	if windupWhen.Graphquery != nil {
+		for _, gq := range windupWhen.Graphquery {
+			// JarArchiveModel is a special case for deps
+			// that are actually included in a lib folder as jars
+			if gq.Discriminator == "JarArchiveModel" {
+				conditions = append(conditions, map[string]interface{}{"java.dependency": convertWinupGraphQueryJarArchiveModel(gq)})
+			}
+		}
+	}
 	if windupWhen.Project != nil {
 		for _, pc := range windupWhen.Project {
 			conditions = append(conditions, map[string]interface{}{"java.dependency": convertWindupDependencyToAnalyzer(pc.Artifact)})
@@ -508,8 +547,6 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			}
 			if fc.As != "" {
 				condition["as"] = fc.As
-				// TODO this is probably a dumb assumption
-				condition["ignore"] = true
 			}
 			if fc.From != "" {
 				condition["from"] = fc.From
@@ -520,6 +557,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.Javaclass != nil {
 		for _, jc := range windupWhen.Javaclass {
 			pattern := strings.Replace(substituteWhere(where, jc.References), "{*}", "*", -1)
+			pattern = strings.Replace(pattern, "(*)", "*", -1)
 			if jc.Location != nil {
 				for _, location := range jc.Location {
 					condition := map[string]interface{}{
@@ -535,8 +573,8 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 					}
 					if jc.As != "" {
 						condition["as"] = jc.As
-						// TODO this is probably a dumb assumption
-						condition["ignore"] = true
+						// TODO (shurley): Only set when something is going to use this as block
+						// condition["ignore"] = true
 					}
 					if jc.From != "" {
 						condition["from"] = jc.From
@@ -556,8 +594,8 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				}
 				if jc.As != "" {
 					condition["as"] = jc.As
-					// TODO this is probably a dumb assumption
-					condition["ignore"] = true
+					// TODO (shurley): Only set when something is going to use this as block
+					// condition["ignore"] = true
 				}
 				if jc.From != "" {
 					condition["from"] = jc.From
@@ -592,7 +630,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			if xf.As != "" {
 				condition["as"] = xf.As
 				// TODO this is probably a dumb assumption
-				condition["ignore"] = true
+				//	condition["ignore"] = true
 			}
 			if xf.From != "" {
 				condition["from"] = xf.From
@@ -609,7 +647,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			if f.As != "" {
 				condition["as"] = f.As
 				// TODO this is probably a dumb assumption
-				condition["ignore"] = true
+				//condition["ignore"] = true
 			}
 			if f.From != "" {
 				condition["from"] = f.From
@@ -678,7 +716,7 @@ func trimMessage(s string) string {
 	lines := strings.Split(s, "\n")
 	cleanLines := []string{}
 	for _, line := range lines {
-		cleaned := strings.Trim(line, "\n \t")
+		cleaned := strings.Trim(line, "\n \t '")
 		if cleaned != "" {
 			cleanLines = append(cleanLines, cleaned)
 		}

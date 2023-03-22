@@ -255,6 +255,7 @@ type Project struct {
 }
 
 type Property struct {
+	Value      string             `xml:",chardata" yaml:"value"`
 	Name       string             `xml:"name,attr" yaml:"name"`
 	Type       Propertytype       `xml:"type,attr,omitempty" yaml:"type,omitempty"`
 	SearchType Propertysearchtype `xml:"searchType,attr,omitempty" yaml:"searchType,omitempty"`
