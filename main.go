@@ -465,8 +465,12 @@ func convertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 }
 
 func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[string]interface{} {
-	dependency := map[string]interface{}{
-		"name": strings.Replace(strings.Join([]string{windupDependency.GroupId, windupDependency.ArtifactId}, "."), "{*}", "*", -1),
+	name := strings.Replace(strings.Join([]string{windupDependency.GroupId, windupDependency.ArtifactId}, "."), "{*}", "*", -1)
+	dependency := map[string]interface{}{}
+	if strings.Contains(name, "*") {
+		dependency["nameregex"] = name
+	} else {
+		dependency["name"] = name
 	}
 
 	if windupDependency.FromVersion != "" {
