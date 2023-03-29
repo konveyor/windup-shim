@@ -268,13 +268,21 @@ func executeTest(test windup.Ruletest, location string) (int, int, error) {
 				if runTestRule(rule.When.Not[0], violations) {
 					successes += 1
 				} else {
-					fmt.Printf("\nfailure: %v\n", rule.Perform)
+					if len(rule.Perform.Fail) == 1 {
+						fmt.Printf("Failure: %s\n", rule.Perform.Fail[0])
+					} else {
+						fmt.Printf("Failure: %v\n", rule.Perform)
+					}
 				}
 			} else {
 				if !runTestRule(rule.When, violations) {
 					successes += 1
 				} else {
-					fmt.Printf("\nfailure: %v\n", rule.Perform)
+					if len(rule.Perform.Fail) == 1 {
+						fmt.Printf("Failure: %s\n", rule.Perform.Fail[0])
+					} else {
+						fmt.Printf("Failure: %v\n", rule.Perform)
+					}
 				}
 			}
 		}
