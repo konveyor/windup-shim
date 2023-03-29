@@ -303,7 +303,6 @@ func getViolations(test windup.Ruletest) ([]hubapi.RuleSet, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("Violation output:\n" + string(content) + "\n")
 	var violations []hubapi.RuleSet
 	err = yaml.Unmarshal(content, &violations)
 	if err != nil {
