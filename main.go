@@ -74,8 +74,7 @@ func main() {
 	case "test":
 		if err := testCmd.Parse(os.Args[2:]); err == nil {
 			if testCmd.NArg() < 1 {
-				fmt.Println("The location of one or more windup XML files is required")
-				return
+				log.Fatal("The location of one or more windup XML files is required")
 			}
 			for _, location := range testCmd.Args() {
 				rulesets := []windup.Ruleset{}
@@ -90,11 +89,15 @@ func main() {
 					fmt.Println("Executing " + test.SourceFile)
 					successes, total, err := executeTest(test, location)
 					if err != nil {
+						// TODO should we exit here?
 						fmt.Println(err)
 					}
 					totalSuccesses += successes
 					totalTests += total
 					fmt.Printf("Overall success rate: %.2f%% (%d/%d)\n", float32(totalSuccesses)/float32(totalTests)*100, totalSuccesses, totalTests)
+				}
+				if totalSuccesses != totalTests {
+					os.Exit(1)
 				}
 			}
 		}
