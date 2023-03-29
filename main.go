@@ -38,9 +38,11 @@ const (
 
 func main() {
 	var outputDir, data string
+	var failFast bool
 	convertCmd := flag.NewFlagSet("convert", flag.ExitOnError)
 	convertCmd.StringVar(&outputDir, "outputdir", "analyzer-lsp-rules", "The output location for converted rules")
 	testCmd := flag.NewFlagSet("test", flag.ExitOnError)
+	testCmd.BoolVar(&failFast, "fail-fast", false, "If true, fail on first test failure")
 	runCmd := flag.NewFlagSet("run", flag.ExitOnError)
 	runCmd.StringVar(&data, "data", "", "The location of the source code to run the rules against")
 
@@ -95,6 +97,9 @@ func main() {
 					totalSuccesses += successes
 					totalTests += total
 					fmt.Printf("Overall success rate: %.2f%% (%d/%d)\n", float32(totalSuccesses)/float32(totalTests)*100, totalSuccesses, totalTests)
+					if successes != total && failFast {
+						break
+					}
 				}
 				if totalSuccesses != totalTests {
 					os.Exit(1)
@@ -268,13 +273,21 @@ func executeTest(test windup.Ruletest, location string) (int, int, error) {
 				if runTestRule(rule.When.Not[0], violations) {
 					successes += 1
 				} else {
-					fmt.Printf("\nfailure: %v\n", rule.Perform)
+					if len(rule.Perform.Fail) == 1 {
+						fmt.Printf("Failure: %s\n", rule.Perform.Fail[0])
+					} else {
+						fmt.Printf("Failure: %v\n", rule.Perform)
+					}
 				}
 			} else {
 				if !runTestRule(rule.When, violations) {
 					successes += 1
 				} else {
-					fmt.Printf("\nfailure: %v\n", rule.Perform)
+					if len(rule.Perform.Fail) == 1 {
+						fmt.Printf("Failure: %s\n", rule.Perform.Fail[0])
+					} else {
+						fmt.Printf("Failure: %v\n", rule.Perform)
+					}
 				}
 			}
 		}
