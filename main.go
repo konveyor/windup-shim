@@ -342,6 +342,9 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 		}
 		matchesRequired = rule.Iterablefilter[0].Size
 		hintExists = rule.Iterablefilter[0].Hintexists
+		if hintExists == nil && rule.Iterablefilter[0].Tofilemodel != nil {
+			hintExists = rule.Iterablefilter[0].Tofilemodel[0].Hintexists
+		}
 		classificationExists = rule.Iterablefilter[0].Classificationexists
 		lineitemExists = rule.Iterablefilter[0].Lineitemexists
 		technologyStatisticExists = rule.Iterablefilter[0].Technologystatisticsexists
@@ -356,6 +359,15 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 			fmt.Printf("unable to get regex out of hint: %#v\n", err)
 		}
 	}
+	foundTags := map[string]bool{}
+	for _, ruleset := range violations {
+		for _, violation := range ruleset.Violations {
+			for _, tag := range violation.Tags {
+				foundTags[tag] = true
+			}
+		}
+	}
+
 	numFound := 0
 	var tags []string
 	if classificationExists != nil {
@@ -366,37 +378,44 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 		for _, t := range technologyStatisticExists {
 			for _, tag := range t.Tag {
 				tags = append(tags, tag.Name)
+				for foundTag, _ := range foundTags {
+					// The test checks for a prefix that's an attr on the techonology-statistic-exist and that it has a suffix which is the name of a technology
+					if strings.HasPrefix(foundTag, tag.Name) && strings.HasSuffix(foundTag, t.Name) {
+						numFound += 1
+					}
+				}
 			}
 		}
+		return numFound >= matchesRequired
 	} else if technologyTagExists != nil {
 		for _, t := range technologyTagExists {
 			tags = append(tags, t.Technologytag)
 		}
 	}
+
+	if len(tags) != 0 {
+		for _, tag := range tags {
+			if _, ok := foundTags[tag]; ok {
+				numFound += 1
+			}
+		}
+		return numFound >= matchesRequired
+	}
+
 	for _, ruleset := range violations {
 		for _, violation := range ruleset.Violations {
-			if len(tags) != 0 {
-				for _, tag := range tags {
-					for _, foundTag := range violation.Tags {
-						if tag == foundTag {
-							numFound += 1
-						}
+			for _, incident := range violation.Incidents {
+				if hintExists != nil {
+					if hintRegex.MatchString(incident.Message) {
+						numFound += 1
 					}
-				}
-			} else {
-				for _, incident := range violation.Incidents {
-					if hintExists != nil {
-						if hintRegex.MatchString(incident.Message) {
-							numFound += 1
-						}
-					} else if lineitemExists != nil {
-						fmt.Println("lineitemExists not implemented")
-						return false
-					} else {
-						// TODO(fabianvf) need to figure out why we're hitting this
-						// panic("no test task found")
-						fmt.Println("no test task found")
-					}
+				} else if lineitemExists != nil {
+					fmt.Println("lineitemExists not implemented")
+					return false
+				} else {
+					// TODO(fabianvf) need to figure out why we're hitting this
+					fmt.Println("no test task found")
+					break
 				}
 			}
 		}
