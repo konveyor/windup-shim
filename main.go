@@ -351,7 +351,8 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 	var hintRegex *regexp.Regexp
 	if hintExists != nil {
 		var err error
-		hintRegex, err = regexp.Compile(hintExists[0].Message)
+		hintRegexString := hintExists[0].Message
+		hintRegex, err = regexp.Compile(hintRegexString)
 		if err != nil {
 			fmt.Printf("unable to get regex out of hint: %#v\n", err)
 		}
@@ -508,6 +509,7 @@ func convertWinupGraphQueryJarArchiveModel(gq windup.Graphquery) map[string]inte
 }
 
 func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string) []map[string]interface{} {
+	//
 	// TODO Rule.When
 	// TODO - Graphquery
 	conditions := []map[string]interface{}{}
@@ -577,6 +579,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 		for _, jc := range windupWhen.Javaclass {
 			pattern := strings.Replace(substituteWhere(where, jc.References), "{*}", "*", -1)
 			pattern = strings.Replace(pattern, "(*)", "*", -1)
+			pattern = strings.Replace(pattern, ".*", "*", -1)
 			if jc.Location != nil {
 				for _, location := range jc.Location {
 					condition := map[string]interface{}{
