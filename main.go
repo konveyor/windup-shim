@@ -165,9 +165,19 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 			}
 		}
 
-		err = os.WriteFile(filepath.Join(datadir, JAVA_PROJECT_DIR, "pom.xml"), []byte(POM_XML), 0644)
-		if err != nil {
-			return "", "", err
+		// If there is a pom file, in the data dir we will move this into the java directory.
+		_, err = os.Stat(filepath.Join(datadir, "pom.xml"))
+		if err == nil {
+			err = os.Rename(filepath.Join(datadir, "pom.xml"), filepath.Join(javaDataDir, "pom.xml"))
+			if err != nil {
+				return "", "", err
+			}
+		} else {
+
+			err = os.WriteFile(filepath.Join(datadir, JAVA_PROJECT_DIR, "pom.xml"), []byte(POM_XML), 0644)
+			if err != nil {
+				return "", "", err
+			}
 		}
 	}
 
@@ -299,9 +309,31 @@ func executeTest(test windup.Ruletest, location string) (int, int, error) {
 func getViolations(test windup.Ruletest) ([]hubapi.RuleSet, error) {
 	rulesets := []windup.Ruleset{}
 	for _, path := range test.RulePath {
-		ruleset := processWindupRuleset(path)
-		if ruleset != nil {
-			rulesets = append(rulesets, *ruleset)
+		f, err := os.Stat(path)
+		if err != nil {
+			return nil, err
+		}
+		// If the rule path is a dir, then we need to convert all the rulesets in the dir.
+		if f.IsDir() {
+			files, err := os.ReadDir(path)
+			if err != nil {
+				return nil, err
+			}
+			for _, rulesetFile := range files {
+				if rulesetFile.IsDir() {
+					// If it is a dir, then we just ignore it.
+					continue
+				}
+				ruleset := processWindupRuleset(filepath.Join(path, rulesetFile.Name()))
+				if ruleset != nil {
+					rulesets = append(rulesets, *ruleset)
+				}
+			}
+		} else {
+			ruleset := processWindupRuleset(path)
+			if ruleset != nil {
+				rulesets = append(rulesets, *ruleset)
+			}
 		}
 	}
 	_, dir, err := executeRulesets(rulesets, test.TestDataPath)
@@ -601,6 +633,14 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			pattern := strings.Replace(substituteWhere(where, jc.References), "{*}", "*", -1)
 			pattern = strings.Replace(pattern, "(*)", "*", -1)
 			pattern = strings.Replace(pattern, ".*", "*", -1)
+			// Make some .* regesx's more generic.
+			// TODO: we may need to come back and figure out if we have to deal with
+			// capture groups and stuff.
+			pattern = strings.Replace(pattern, `(\.*)?\.`, ".*", -1)
+			pattern = strings.Replace(pattern, `.[^.]+`, "*", -1)
+			pattern = strings.Replace(pattern, `[^.]+`, "*", -1)
+			pattern = strings.Replace(pattern, `(\.[^.]*)*`, ".*", -1)
+			pattern = strings.Replace(pattern, `(?+[^.]*`, "", -1)
 			if jc.Location != nil {
 				for _, location := range jc.Location {
 					condition := map[string]interface{}{
@@ -794,7 +834,11 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		}
 		hint := perform.Hint[0]
 		if hint.Message != "" {
-			ret["message"] = trimMessage(hint.Message)
+			message := trimMessage(hint.Message)
+			// Handle some message replacement
+			message = strings.Replace(message, "{package}.{prefix}{type}", "{{name}}", -1)
+			message = strings.Replace(message, "{prefix}{type}", "{{type}}", -1)
+			ret["message"] = message
 		}
 	}
 	if perform.Technologyidentified != nil {
