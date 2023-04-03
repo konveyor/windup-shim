@@ -538,6 +538,8 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			// that are actually included in a lib folder as jars
 			if gq.Discriminator == "JarArchiveModel" {
 				conditions = append(conditions, map[string]interface{}{"java.dependency": convertWinupGraphQueryJarArchiveModel(gq)})
+			} else if gq.Discriminator == "TechnologyTagModel" {
+				conditions = append(conditions, map[string]interface{}{"builtin.hasTags": []string{gq.Property.Value}})
 			}
 		}
 	}
@@ -798,11 +800,7 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 	if perform.Technologyidentified != nil {
 		for _, ti := range perform.Technologyidentified {
 			for _, tag := range ti.Tag {
-				tags = append(tags, tag.Name)
-			}
-			if ti.Name != "" {
-				// TODO what do we want to do with this?
-				tags = append(tags, ti.Name)
+				tags = append(tags, ti.Name+" - "+tag.Name)
 			}
 		}
 	}
