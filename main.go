@@ -165,9 +165,18 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 			}
 		}
 
-		err = os.WriteFile(filepath.Join(datadir, JAVA_PROJECT_DIR, "pom.xml"), []byte(POM_XML), 0644)
-		if err != nil {
-			return "", "", err
+		_, err = os.Stat(filepath.Join(datadir, "pom.xml"))
+		if err == nil {
+			err = os.Rename(filepath.Join(datadir, "pom.xml"), filepath.Join(javaDataDir, "pom.xml"))
+			if err != nil {
+				return "", "", err
+			}
+		} else {
+
+			err = os.WriteFile(filepath.Join(datadir, JAVA_PROJECT_DIR, "pom.xml"), []byte(POM_XML), 0644)
+			if err != nil {
+				return "", "", err
+			}
 		}
 	}
 
@@ -915,6 +924,7 @@ func walkXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Rulete
 				*ruletests = append(*ruletests, *ruletest)
 			}
 		} else if rulesets != nil {
+			fmt.Printf("\npath: %#v", path)
 			ruleset := processWindupRuleset(path)
 			if ruleset != nil {
 				*rulesets = append(*rulesets, *ruleset)
