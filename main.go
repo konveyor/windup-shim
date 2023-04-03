@@ -308,6 +308,17 @@ func executeTest(test windup.Ruletest, location string) (int, int, error) {
 
 func getViolations(test windup.Ruletest) ([]hubapi.RuleSet, error) {
 	rulesets := []windup.Ruleset{}
+	if len(test.RulePath) == 0 {
+		// use the test name, to move up a folder and get the rule
+		dir, name := filepath.Split(test.SourceFile)
+		name = strings.Replace(name, ".test", "", -1)
+		rulePath, err := filepath.Abs(filepath.Join(dir, "..", name))
+		if err != nil {
+			return nil, err
+		}
+
+		test.RulePath = append(test.RulePath, rulePath)
+	}
 	for _, path := range test.RulePath {
 		f, err := os.Stat(path)
 		if err != nil {
