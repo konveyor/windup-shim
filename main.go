@@ -232,6 +232,10 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 	}
 	writeYAML(debugInfo, filepath.Join(dir, "debug.yaml"))
 	stdout, err := cmd.Output()
+	if exitError, ok := err.(*exec.ExitError); ok {
+		fmt.Printf("\n\n UNABLE TO RUN: %v\n\n\n", exitError)
+	}
+
 	debugInfo["err"] = err
 	debugInfo["output"] = string(stdout)
 	writeYAML(debugInfo, filepath.Join(dir, "debug.yaml"))
@@ -403,6 +407,16 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 			fmt.Printf("unable to get regex out of hint: %#v\n", err)
 		}
 	}
+	var lineItemExistsRegex *regexp.Regexp
+	if lineitemExists != nil {
+		var err error
+		lineItemExistsRegexString := lineitemExists[0].Message
+		lineItemExistsRegex, err = regexp.Compile(lineItemExistsRegexString)
+		if err != nil {
+			fmt.Printf("unable to get regex out of hint: %#v\n", err)
+		}
+	}
+
 	foundTags := map[string]bool{}
 	for _, ruleset := range violations {
 		for _, violation := range ruleset.Violations {
@@ -454,8 +468,9 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 						numFound += 1
 					}
 				} else if lineitemExists != nil {
-					fmt.Println("lineitemExists not implemented")
-					return false
+					if lineItemExistsRegex.MatchString(incident.Message) {
+						numFound += 1
+					}
 				} else {
 					// TODO(fabianvf) need to figure out why we're hitting this
 					fmt.Println("no test task found")
@@ -497,18 +512,25 @@ func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		if !reflect.DeepEqual(windupRule.Perform, windup.Iteration{}) {
 			perform := convertWindupPerformToAnalyzer(windupRule.Perform, where)
 			// TODO only support a single action in perform right now, default to hint
+			tags, ok := perform["tag"].([]string)
+			if !ok {
+				tags = nil
+			}
 			if perform["message"] != nil {
 				rule["message"] = perform["message"]
-			} else if perform["tag"] != nil {
-				rule["tag"] = perform["tag"]
+			} else if len(tags) != 0 {
+				rule["tag"] = tags
 			} else {
-				fmt.Println("No action parsed")
+				fmt.Println("\n\nNo action parsed\n\n")
 				continue
 			}
 			// for k, v := range perform {
 			// 	rule[k] = v
 			// }
+		} else {
+			continue
 		}
+
 		// TODO - Iteration
 		// TODO Rule.Otherwise
 		rules = append(rules, rule)
@@ -875,7 +897,21 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		}
 		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
 	}
-
+	if perform.Lineitem != nil {
+		if len(perform.Lineitem) != 1 {
+			// TODO
+			panic("More than one hint in a rule")
+			return nil
+		}
+		li := perform.Lineitem[0]
+		if li.Message != "" {
+			message := trimMessage(li.Message)
+			// Handle some message replacement
+			message = strings.Replace(message, "{package}.{prefix}{type}", "{{name}}", -1)
+			message = strings.Replace(message, "{prefix}{type}", "{{type}}", -1)
+			ret["message"] = message
+		}
+	}
 	if ret["tag"] != nil {
 		ret["tag"] = append(ret["tag"].([]string), tags...)
 	} else {
