@@ -708,11 +708,11 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			matches := xf.Matches
 			if xf.Namespace != nil {
 				for _, ns := range xf.Namespace {
-					matches = strings.Replace(matches, "/"+ns.Prefix+":", "/", -1)
+					matches = strings.Replace(strings.Replace(matches, "windup:", "", -1), ns.Prefix+":", "", -1)
 				}
 			}
 			xmlCond := map[string]interface{}{
-				"xpath": matches,
+				"xpath": substituteWhere(where, matches),
 			}
 			// TODO We don't support regexes here, may need to break it out into a separate lookup that gets passed through
 			if xf.In != "" {

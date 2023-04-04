@@ -279,6 +279,7 @@ type Quickfix struct {
 type Quickfixtype string
 
 type Rule struct {
+	Id        string    `xml:"id,attr" yaml:"id"`
 	When      When      `xml:"when" yaml:"when"`
 	Perform   Iteration `xml:"perform" yaml:"perform"`
 	Otherwise Iteration `xml:"otherwise,omitempty" yaml:"otherwise,omitempty"`
