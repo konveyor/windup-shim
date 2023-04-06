@@ -5,6 +5,7 @@ import (
 	"encoding/xml"
 	"flag"
 	"fmt"
+	"io"
 	"io/fs"
 	"io/ioutil"
 	"log"
@@ -137,50 +138,60 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 		return "", "", err
 	}
 
-	// For DataDir with *.java we will create a java-project
-	// this will contain an empty pom.xml
-	// As well as a src/main/java/com/example/apps/*.java
-	files, err := os.ReadDir(datadir)
-	if err != nil {
-		return "", "", err
-	}
-	javaFiles := []string{}
-	for _, f := range files {
-		if strings.Contains(f.Name(), ".java") {
-			javaFiles = append(javaFiles, f.Name())
-		}
-	}
 	javaDataDir := datadir
-	if len(javaFiles) > 0 {
-		javaDataDir = filepath.Join(datadir, JAVA_PROJECT_DIR)
-		appDir := filepath.Join(javaDataDir, "src", "main", "java", "com", "example", "apps")
-		err := os.MkdirAll(appDir, os.ModeDir)
+	if !strings.HasSuffix(datadir, ".jar") {
+		// For DataDir with *.java we will create a java-project
+		// this will contain an empty pom.xml
+		// As well as a src/main/java/com/example/apps/*.java
+		files, err := os.ReadDir(datadir)
 		if err != nil {
 			return "", "", err
 		}
-		for _, f := range javaFiles {
-			err = os.Rename(filepath.Join(datadir, f), filepath.Join(appDir, f))
-			if err != nil {
-				return "", "", err
+		javaFiles := []string{}
+		for _, f := range files {
+			if strings.Contains(f.Name(), ".java") {
+				javaFiles = append(javaFiles, f.Name())
 			}
 		}
-
-		// If there is a pom file, in the data dir we will move this into the java directory.
-		_, err = os.Stat(filepath.Join(datadir, "pom.xml"))
-		if err == nil {
-			err = os.Rename(filepath.Join(datadir, "pom.xml"), filepath.Join(javaDataDir, "pom.xml"))
+		if len(javaFiles) > 0 {
+			javaDataDir = filepath.Join(datadir, JAVA_PROJECT_DIR)
+			appDir := filepath.Join(javaDataDir, "src", "main", "java", "com", "example", "apps")
+			err := os.MkdirAll(appDir, os.ModeDir)
 			if err != nil {
 				return "", "", err
 			}
-		} else {
+			for _, f := range javaFiles {
+				err = os.Rename(filepath.Join(datadir, f), filepath.Join(appDir, f))
+				if err != nil {
+					return "", "", err
+				}
+			}
 
-			err = os.WriteFile(filepath.Join(datadir, JAVA_PROJECT_DIR, "pom.xml"), []byte(POM_XML), 0644)
-			if err != nil {
-				return "", "", err
+			// If there is a pom file, in the data dir we will copy this into the java directory.
+			_, err = os.Stat(filepath.Join(datadir, "pom.xml"))
+			if err == nil {
+				original, err := os.Open(filepath.Join(datadir, "pom.xml"))
+				if err != nil {
+					return "", "", err
+				}
+				defer original.Close()
+				target, err := os.Create(filepath.Join(javaDataDir, "pom.xml"))
+				if err != nil {
+					return "", "", err
+				}
+				defer target.Close()
+				_, err = io.Copy(target, original)
+				if err != nil {
+					return "", "", err
+				}
+			} else {
+				err = os.WriteFile(filepath.Join(datadir, JAVA_PROJECT_DIR, "pom.xml"), []byte(POM_XML), 0644)
+				if err != nil {
+					return "", "", err
+				}
 			}
 		}
 	}
-
 	sourceFiles := []string{}
 	converted := [][]map[string]interface{}{}
 	for _, ruleset := range rulesets {
