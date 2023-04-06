@@ -738,7 +738,18 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			}
 			// TODO We don't support regexes here, may need to break it out into a separate lookup that gets passed through
 			if xf.In != "" {
-				xmlCond["filepaths"] = []string{xf.In}
+				in := substituteWhere(where, xf.In)
+				if strings.Contains(in, "{*}") {
+					conditions = append(conditions, map[string]interface{}{
+						"builtin.file": strings.Replace(xf.In, "{*}", "*", -1),
+						"as":           "xmlfiles",
+						"ignore":       true,
+					})
+					xmlCond["from"] = "xmlfiles"
+					xmlCond["filepaths"] = "{{xmlfiles.filepaths}}"
+				} else {
+					xmlCond["filepaths"] = []string{in}
+				}
 			}
 			condition := map[string]interface{}{
 				"builtin.xml": xmlCond,
@@ -748,6 +759,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				// TODO this is probably a dumb assumption
 				//	condition["ignore"] = true
 			}
+			// TODO What should we do if there's already a from because we had to split the task?
 			if xf.From != "" {
 				condition["from"] = xf.From
 			}
