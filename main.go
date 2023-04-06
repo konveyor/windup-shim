@@ -297,11 +297,12 @@ func executeTest(test windup.Ruletest, location string) (int, int, error) {
 				}
 				if runTestRule(rule.When.Not[0], violations) {
 					successes += 1
+					fmt.Printf("├ PASS: %s\n", rule.Id)
 				} else {
 					if len(rule.Perform.Fail) == 1 {
-						fmt.Printf("Failure: %s\n", rule.Perform.Fail[0])
+						fmt.Printf("├ FAIL: %s (%s)\n", rule.Id, rule.Perform.Fail[0])
 					} else {
-						fmt.Printf("Failure: %v\n", rule.Perform)
+						fmt.Printf("├ FAIL: %s (%v)\n", rule.Id, rule.Perform)
 					}
 				}
 			} else {
@@ -309,9 +310,9 @@ func executeTest(test windup.Ruletest, location string) (int, int, error) {
 					successes += 1
 				} else {
 					if len(rule.Perform.Fail) == 1 {
-						fmt.Printf("Failure: %s\n", rule.Perform.Fail[0])
+						fmt.Printf("├ FAIL: %s (%s)\n", rule.Id, rule.Perform.Fail[0])
 					} else {
-						fmt.Printf("Failure: %v\n", rule.Perform)
+						fmt.Printf("├ FAIL: %s (%v)\n", rule.Id, rule.Perform)
 					}
 				}
 			}
