@@ -35,6 +35,34 @@ const (
 	<name>Sample Project</name>
 </project>
 `
+	BASE_DISCOVERY_RULES = `---
+- ruleID: windup-discover-ejb-configuration
+  tag: ["EJB XML"]
+  when:
+    builtin.xml:
+      xpath: "/(jboss:ejb-jar or ejb-jar)"
+- ruleID: windup-discover-spring-configuration
+  tag: ["Spring XML"]
+  when:
+    builtin.xml:
+      xpath: "/beans"
+- ruleID: windup-discover-jpa-configuration
+  tag: ["JPA XML"]
+  when:
+    or:
+      - builtin.xml:
+          xpath: '/persistence[boolean(namespace-uri(/persistence)="http://java.sun.com/xml/ns/persistence")]'
+      - builtin.xml:
+          xpath: '/persistence[boolean(namespace-uri(/persistence)="http://xmlns.jcp.org/xml/ns/persistence")]'
+      - builtin.xml:
+          xpath: '/persistance[boolean(namespace-uri(/persistence)="https://jakarta.ee/xml/ns/persistence"])'
+- ruleID: windup-discover-web-configuration
+  tag: ["Web XML"]
+  when:
+    # TODO extract version as in rules-java-ee/addon/src/main/java/org/jboss/windup/rules/apps/javaee/rules/DiscoverWebXmlRuleProvider.java
+    builtin.xml:
+      xpath: /web-app
+`
 )
 
 func main() {
@@ -204,9 +232,14 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 	}
 	os.Mkdir(filepath.Join(dir, "rules"), os.ModePerm)
 	fmt.Println(dir)
+	// Write base discovery rule to disk
+	err = os.WriteFile(filepath.Join(dir, "rules", "0.yaml"), []byte(BASE_DISCOVERY_RULES), 0666)
+	if err != nil {
+		return "", dir, err
+	}
 	// write ruleset to disk
 	for i, ruleset := range converted {
-		path := filepath.Join(dir, "rules", strconv.Itoa(i)+".yaml")
+		path := filepath.Join(dir, "rules", strconv.Itoa(i+1)+".yaml")
 		err = writeYAML(ruleset, path)
 		if err != nil {
 			return "", dir, err
