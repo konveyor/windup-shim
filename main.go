@@ -35,6 +35,34 @@ const (
 	<name>Sample Project</name>
 </project>
 `
+	BASE_DISCOVERY_RULES = `---
+- ruleID: windup-discover-ejb-configuration
+  tag: ["EJB XML"]
+  when:
+    builtin.xml:
+      xpath: "/(jboss:ejb-jar or ejb-jar)"
+- ruleID: windup-discover-spring-configuration
+  tag: ["Spring XML"]
+  when:
+    builtin.xml:
+      xpath: "/beans"
+- ruleID: windup-discover-jpa-configuration
+  tag: ["JPA XML"]
+  when:
+    or:
+      - builtin.xml:
+          xpath: '/persistence[boolean(namespace-uri(/persistence)="http://java.sun.com/xml/ns/persistence")]'
+      - builtin.xml:
+          xpath: '/persistence[boolean(namespace-uri(/persistence)="http://xmlns.jcp.org/xml/ns/persistence")]'
+      - builtin.xml:
+          xpath: '/persistance[boolean(namespace-uri(/persistence)="https://jakarta.ee/xml/ns/persistence"])'
+- ruleID: windup-discover-web-configuration
+  tag: ["Web XML"]
+  when:
+    # TODO extract version as in rules-java-ee/addon/src/main/java/org/jboss/windup/rules/apps/javaee/rules/DiscoverWebXmlRuleProvider.java
+    builtin.xml:
+      xpath: /web-app
+`
 )
 
 func main() {
@@ -204,9 +232,14 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 	}
 	os.Mkdir(filepath.Join(dir, "rules"), os.ModePerm)
 	fmt.Println(dir)
+	// Write base discovery rule to disk
+	err = os.WriteFile(filepath.Join(dir, "rules", "0.yaml"), []byte(BASE_DISCOVERY_RULES), 0666)
+	if err != nil {
+		return "", dir, err
+	}
 	// write ruleset to disk
 	for i, ruleset := range converted {
-		path := filepath.Join(dir, "rules", strconv.Itoa(i)+".yaml")
+		path := filepath.Join(dir, "rules", strconv.Itoa(i+1)+".yaml")
 		err = writeYAML(ruleset, path)
 		if err != nil {
 			return "", dir, err
@@ -295,24 +328,25 @@ func executeTest(test windup.Ruletest, location string) (int, int, error) {
 				if len(rule.When.Not) > 1 {
 					panic("Hopefully nots can only be length 1")
 				}
-				if runTestRule(rule.When.Not[0], violations) {
+				if success, numFound, numRequired := runTestRule(rule.When.Not[0], violations); success {
 					successes += 1
-					fmt.Printf("├ PASS: %s\n", rule.Id)
+					fmt.Printf("├ PASS (needed %d, got %d): %s\n", numRequired, numFound, rule.Id)
 				} else {
 					if len(rule.Perform.Fail) == 1 {
-						fmt.Printf("├ FAIL: %s (%s)\n", rule.Id, rule.Perform.Fail[0])
+						fmt.Printf("├ FAIL (needed %d, got %d): %s (%s)\n", numRequired, numFound, rule.Id, rule.Perform.Fail[0])
 					} else {
-						fmt.Printf("├ FAIL: %s (%v)\n", rule.Id, rule.Perform)
+						fmt.Printf("├ FAIL (needed %d, got %d): %s (%v)\n", numRequired, numFound, rule.Id, rule.Perform)
 					}
 				}
 			} else {
-				if !runTestRule(rule.When, violations) {
+				if success, numFound, numRequired := runTestRule(rule.When, violations); !success {
 					successes += 1
+					fmt.Printf("├ PASS (needed %d, got %d): %s\n", numRequired, numFound, rule.Id)
 				} else {
 					if len(rule.Perform.Fail) == 1 {
-						fmt.Printf("├ FAIL: %s (%s)\n", rule.Id, rule.Perform.Fail[0])
+						fmt.Printf("├ FAIL (needed %d, got %d): %s (%s)\n", numRequired, numFound, rule.Id, rule.Perform.Fail[0])
 					} else {
-						fmt.Printf("├ FAIL: %s (%v)\n", rule.Id, rule.Perform)
+						fmt.Printf("├ FAIL (needed %d, got %d): %s (%v)\n", numRequired, numFound, rule.Id, rule.Perform)
 					}
 				}
 			}
@@ -383,9 +417,9 @@ func getViolations(test windup.Ruletest) ([]hubapi.RuleSet, error) {
 	return violations, nil
 }
 
-func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
+func runTestRule(rule windup.When, violations []hubapi.RuleSet) (bool, int, int) {
 	if violations == nil {
-		return false
+		return false, 0, 0
 	}
 
 	matchesRequired := 1
@@ -450,13 +484,13 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 				tags = append(tags, tag.Name)
 				for foundTag, _ := range foundTags {
 					// The test checks for a prefix that's an attr on the techonology-statistic-exist and that it has a suffix which is the name of a technology
-					if strings.HasPrefix(foundTag, tag.Name) && strings.HasSuffix(foundTag, t.Name) {
+					if strings.HasPrefix(foundTag, t.Name) && strings.HasSuffix(foundTag, tag.Name) {
 						numFound += 1
 					}
 				}
 			}
 		}
-		return numFound >= matchesRequired
+		return numFound >= matchesRequired, numFound, matchesRequired
 	} else if technologyTagExists != nil {
 		for _, t := range technologyTagExists {
 			tags = append(tags, t.Technologytag)
@@ -469,7 +503,7 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 				numFound += 1
 			}
 		}
-		return numFound >= matchesRequired
+		return numFound >= matchesRequired, numFound, matchesRequired
 	}
 
 	for _, ruleset := range violations {
@@ -491,7 +525,7 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) bool {
 			}
 		}
 	}
-	return numFound >= matchesRequired
+	return numFound >= matchesRequired, numFound, matchesRequired
 }
 
 func convertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interface{} {
