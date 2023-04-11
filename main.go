@@ -759,6 +759,13 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 					})
 					xmlCond["from"] = "xmlfiles"
 					xmlCond["filepaths"] = "{{xmlfiles.filepaths}}"
+				} else if strings.Contains(in, "|") {
+					filepaths := []string{}
+					pieces := strings.Split(in, "|")
+					for _, piece := range pieces {
+						filepaths = append(filepaths, strings.Trim(piece, "()"))
+					}
+					xmlCond["filepaths"] = pieces
 				} else {
 					xmlCond["filepaths"] = []string{in}
 				}
@@ -782,7 +789,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.File != nil {
 		for _, f := range windupWhen.File {
 			condition := map[string]interface{}{
-				"builtin.file": strings.Replace(f.Filename, "{*}", "*", -1),
+				"builtin.file": strings.Replace(substituteWhere(where, f.Filename), "{*}", "*", -1),
 			}
 			if f.As != "" {
 				condition["as"] = f.As
@@ -798,7 +805,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.Fileexists != nil {
 		for _, f := range windupWhen.Fileexists {
 			condition := map[string]interface{}{
-				"builtin.file": strings.Replace(f.Filename, "{*}", "*", -1),
+				"builtin.file": strings.Replace(substituteWhere(where, f.Filename), "{*}", "*", -1),
 			}
 			conditions = append(conditions, condition)
 		}
