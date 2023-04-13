@@ -160,6 +160,38 @@ func main() {
 	}
 }
 
+type javaDirFiles struct {
+	fileBytes []byte
+	path      string
+}
+
+func getJavaFilesFromDirs(dir string) []javaDirFiles {
+	files, err := os.ReadDir(dir)
+	if err != nil {
+		return []javaDirFiles{}
+	}
+	javaFiles := []javaDirFiles{}
+	for _, f := range files {
+		if f.IsDir() {
+			s := getJavaFilesFromDirs(filepath.Join(dir, f.Name()))
+			javaFiles = append(javaFiles, s...)
+		}
+		if strings.Contains(f.Name(), ".java") {
+			b, err := os.ReadFile(filepath.Join(dir, f.Name()))
+			if err != nil {
+				// If we can't read regular files, we need to fix something else
+				panic(err)
+			}
+
+			javaFiles = append(javaFiles, javaDirFiles{
+				fileBytes: b,
+				path:      filepath.Join(dir, f.Name()),
+			})
+		}
+	}
+	return javaFiles
+}
+
 func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string, error) {
 	datadir, err := filepath.Abs(datadir)
 	if err != nil {
@@ -171,16 +203,7 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 		// For DataDir with *.java we will create a java-project
 		// this will contain an empty pom.xml
 		// As well as a src/main/java/com/example/apps/*.java
-		files, err := os.ReadDir(datadir)
-		if err != nil {
-			return "", "", err
-		}
-		javaFiles := []string{}
-		for _, f := range files {
-			if strings.Contains(f.Name(), ".java") {
-				javaFiles = append(javaFiles, f.Name())
-			}
-		}
+		javaFiles := getJavaFilesFromDirs(datadir)
 		if len(javaFiles) > 0 {
 			javaDataDir = filepath.Join(datadir, JAVA_PROJECT_DIR)
 			appDir := filepath.Join(javaDataDir, "src", "main", "java", "com", "example", "apps")
@@ -189,7 +212,20 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 				return "", "", err
 			}
 			for _, f := range javaFiles {
-				err = os.Rename(filepath.Join(datadir, f), filepath.Join(appDir, f))
+				if strings.Contains(f.path, appDir) {
+					// If we re-run, you can find these files now, lets skip them.
+					continue
+				}
+				rel, err := filepath.Rel(datadir, f.path)
+				if err != nil {
+					return "", "", err
+				}
+				newFilePath := filepath.Join(appDir, rel)
+				err = os.MkdirAll(filepath.Dir(newFilePath), os.ModeDir)
+				if err != nil {
+					return "", "", err
+				}
+				err = os.WriteFile(newFilePath, f.fileBytes, 0666)
 				if err != nil {
 					return "", "", err
 				}
@@ -931,11 +967,14 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 			return nil
 		}
 		hint := perform.Hint[0]
+		if hint.Title != "" {
+			hint.Message = fmt.Sprintf("%v\n%v", hint.Title, hint.Message)
+		}
 		if hint.Message != "" {
 			message := trimMessage(hint.Message)
-			// Handle some message replacement
 			message = strings.Replace(message, "{package}.{prefix}{type}", "{{name}}", -1)
 			message = strings.Replace(message, "{prefix}{type}", "{{type}}", -1)
+			// Handle some message replacement
 			ret["message"] = message
 		}
 	}
