@@ -377,10 +377,8 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) (bool, int, int)
 
 	foundTags := map[string]bool{}
 	for _, ruleset := range violations {
-		for _, violation := range ruleset.Violations {
-			for _, tag := range violation.Tags {
-				foundTags[tag] = true
-			}
+		for _, tag := range ruleset.Tags {
+			foundTags[tag] = true
 		}
 	}
 
@@ -396,7 +394,7 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) (bool, int, int)
 				tags = append(tags, tag.Name)
 				for foundTag, _ := range foundTags {
 					// The test checks for a prefix that's an attr on the techonology-statistic-exist and that it has a suffix which is the name of a technology
-					if strings.HasPrefix(foundTag, t.Name) && strings.HasSuffix(foundTag, tag.Name) {
+					if strings.HasPrefix(foundTag, tag.Name) && strings.HasSuffix(foundTag, t.Name) {
 						numFound += 1
 					}
 				}
