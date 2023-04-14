@@ -167,7 +167,9 @@ func executeRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 	}
 
 	javaDataDir := datadir
-	if !strings.HasSuffix(datadir, ".jar") {
+	if strings.HasSuffix(datadir, "pom.xml") {
+		javaDataDir = filepath.Dir(javaDataDir)
+	} else if !strings.HasSuffix(datadir, ".jar") {
 		// For DataDir with *.java we will create a java-project
 		// this will contain an empty pom.xml
 		// As well as a src/main/java/com/example/apps/*.java
