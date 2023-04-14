@@ -8,6 +8,8 @@ jobs:
   run-windup-test:
     name: Run windup tests
     runs-on: ubuntu-20.04
+    permissions:
+      pull-requests: write
     strategy:
       fail-fast: false
     steps:
