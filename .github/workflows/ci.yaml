@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-20.04
     permissions:
       pull-requests: write
+      issues: write
     strategy:
       fail-fast: false
     steps:
@@ -25,7 +26,7 @@ jobs:
     - name: build shim Dockerfile
       run: docker build -f Dockerfile -t testing .
     - name: Run windup tests
-      run: (docker run testing test /windup-rulesets/rules/rules-reviewed/ | tee output.log) && tail -n1 output.log > pass_rate
+      run: (docker run testing test -fail-fast /windup-rulesets/rules/rules-reviewed/ | tee output.log) && tail -n1 output.log > pass_rate
     - name: Create comment
       uses: thollander/actions-comment-pull-request@v2
       with:
