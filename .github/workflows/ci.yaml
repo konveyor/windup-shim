@@ -2,7 +2,7 @@ name: 'Run windup integration tests'
 
 on:
   workflow_dispatch:
-  pull_request:
+  pull_request_target:
 
 jobs:
   run-windup-test:
