@@ -15,7 +15,9 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
-    - name: Checkout tools repo
+      with:
+        ref: refs/pull/${{ github.event.number }}/merge
+    - name: Checkout analyzer-lsp repo
       uses: actions/checkout@v3
       with:
         repository: konveyor/analyzer-lsp
