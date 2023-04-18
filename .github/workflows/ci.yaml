@@ -25,8 +25,12 @@ jobs:
     - name: build shim Dockerfile
       run: docker build -f Dockerfile -t testing .
     - name: Run windup tests
-      run: (docker run testing test /windup-rulesets/rules/rules-reviewed/ | tee output.log) && tail -n1 output.log > pass_rate
-    - name: Create comment
-      uses: thollander/actions-comment-pull-request@v2
+      run: >
+        mkdir -p artifacts &&
+        (docker run testing test /windup-rulesets/rules/rules-reviewed/ | tee output.log) && 
+        tail -n1 output.log > artifacts/message.md
+    - name: Save PR message as artifact
+      uses: actions/upload-artifact@v1
       with:
-        filePath: pass_rate
+        name: pr_message
+        path: artifacts
