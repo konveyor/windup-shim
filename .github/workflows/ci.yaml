@@ -36,11 +36,3 @@ jobs:
             repo: context.repo.repo,
             body: "$(cat pass_rate)"
           })
-
-    
-    
-    
-      uses: thollander/actions-comment-pull-request@v2
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        filePath: pass_rate
