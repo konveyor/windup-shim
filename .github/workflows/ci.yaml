@@ -25,12 +25,10 @@ jobs:
     - name: build shim Dockerfile
       run: docker build -f Dockerfile -t testing .
     - name: Run windup tests
-      run: (docker run testing test /windup-rulesets/rules/rules-reviewed/ | tee output.log) && tail -n1 output.log > pass_rate && echo "MESSAGE=$(cat pass_rate)" >> $GITHUB_ENV
+      run: (docker run testing test /windup-rulesets/rules/rules-reviewed/ | tee output.log) && tail -n1 output.log > pass_rate
     - name: Post result to PR
       uses: mshick/add-pr-comment@v2
       with:
-        message: ${{ env.MESSAGE }}
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
-        allow-repeats: true
+        message-path: pass_rate
+        refresh-message-position: true
         proxy-url: https://add-pr-comment-proxy-94idvmwyie-uc.a.run.app
