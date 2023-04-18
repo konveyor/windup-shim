@@ -1,8 +1,8 @@
 name: 'Run windup integration tests'
 # Why are you doing this to me
 on:
-  pull_request:
-permissions: write-all
+  workflow_dispatch:
+  pull_request_target:
 jobs:
   run-windup-test:
     name: Run windup tests
