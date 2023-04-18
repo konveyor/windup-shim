@@ -30,5 +30,4 @@ jobs:
       uses: mshick/add-pr-comment@v2
       with:
         message-path: pass_rate
-        refresh-message-position: true
         proxy-url: https://add-pr-comment-proxy-94idvmwyie-uc.a.run.app
