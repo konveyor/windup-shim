@@ -2,13 +2,12 @@ name: 'Run windup integration tests'
 # Why are you doing this to me
 on:
   pull_request:
-
+permissions: write-all
 jobs:
   run-windup-test:
     name: Run windup tests
     runs-on: ubuntu-20.04
-    permissions:
-      pull-requests: write
+    permissions: write-all
     strategy:
       fail-fast: false
     steps:
@@ -26,6 +25,7 @@ jobs:
     - name: Run windup tests
       run: (docker run testing test -fail-fast /windup-rulesets/rules/rules-reviewed/ | tee output.log) && tail -n1 output.log > pass_rate
     - name: Create comment
+      permissions: write-all
       uses: actions/github-script@v5
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
