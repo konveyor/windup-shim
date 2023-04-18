@@ -2,7 +2,7 @@ name: 'Run windup integration tests'
 
 on:
   workflow_dispatch:
-  pull_request_target:
+  pull_request:
 
 jobs:
   run-windup-test:
@@ -15,9 +15,7 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
-      with:
-        ref: refs/pull/${{ github.event.number }}/merge
-    - name: Checkout analyzer-lsp repo
+    - name: Checkout tools repo
       uses: actions/checkout@v3
       with:
         repository: konveyor/analyzer-lsp
@@ -27,8 +25,11 @@ jobs:
     - name: build shim Dockerfile
       run: docker build -f Dockerfile -t testing .
     - name: Run windup tests
-      run: (docker run testing test -fail-fast /windup-rulesets/rules/rules-reviewed/ | tee output.log) && tail -n1 output.log > pass_rate
-    - name: Create comment
-      uses: thollander/actions-comment-pull-request@v2
+      run: (docker run testing test /windup-rulesets/rules/rules-reviewed/ | tee output.log) && tail -n1 output.log > pass_rate && echo "MESSAGE=$(cat pass_rate)" >> $GITHUB_ENV
+    - name: Post result to PR
+      uses: mshick/add-pr-comment@v1
       with:
-        filePath: pass_rate
+        message: ${{ env.MESSAGE }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+        allow-repeats: true
