@@ -25,7 +25,6 @@ jobs:
     - name: Run windup tests
       run: (docker run testing test -fail-fast /windup-rulesets/rules/rules-reviewed/ | tee output.log) && tail -n1 output.log > pass_rate
     - name: Create comment
-      permissions: write-all
       uses: actions/github-script@v5
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
