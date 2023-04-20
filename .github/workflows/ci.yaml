@@ -19,6 +19,7 @@ jobs:
         mkdir -p artifacts &&
         echo "Overall success rate: 74.20% (1651/2225)" > artifacts/message.md &&
         echo "##[set-output name=pass_rate;]$(cat /artifacts/message.md)"
+    - run: echo "${{ steps.run-windup-test.outputs.pass_rate }}" && echo "${{ steps.run-windup-test.outputs }}" && echo "${{ steps.run-windup-test }}"
     - name: Update pass rate badge
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/workflow-testing' }}
       uses: RubbaBoy/BYOB@v1.3.0
