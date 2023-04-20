@@ -25,6 +25,6 @@ jobs:
       with:
         NAME: windup-pass-rate
         LABEL: 'Windup Pass Rate'
-        STATUS: ${{ steps.run-windup-test.outputs.pass_rate }}
+        STATUS: "${{ steps.run-windup-test.outputs.pass_rate }}"
         COLOR: blue
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
