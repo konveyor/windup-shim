@@ -28,6 +28,6 @@ jobs:
       with:
         NAME: windup-pass-rate
         LABEL: 'Windup Pass Rate'
-        STATUS: "${{ env.pass_rate }}"
+        STATUS: ${{ env.pass_rate }}
         COLOR: blue
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
