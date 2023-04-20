@@ -277,9 +277,14 @@ func getViolations(test windup.Ruletest) ([]hubapi.RuleSet, error) {
 		test.RulePath = append(test.RulePath, rulePath)
 	}
 	for _, path := range test.RulePath {
+		if strings.HasSuffix(path, ".groovy") {
+			fmt.Printf("Skipping %s because groovy rulesets are not supported.\n", path)
+			continue
+		}
 		f, err := os.Stat(path)
 		if err != nil {
-			return nil, err
+			fmt.Printf("Skipping %s because it did not exist: %v\n", path, err)
+			continue
 		}
 		// If the rule path is a dir, then we need to convert all the rulesets in the dir.
 		if f.IsDir() {
