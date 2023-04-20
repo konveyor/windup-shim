@@ -3,6 +3,7 @@ name: 'Run windup integration tests'
 on:
   workflow_dispatch:
   pull_request:
+  push:
 
 jobs:
   run-windup-test:
@@ -25,12 +26,23 @@ jobs:
     - name: build shim Dockerfile
       run: docker build -f Dockerfile -t testing .
     - name: Run windup tests
+      id: run-windup-test
       run: >
         mkdir -p artifacts &&
         (docker run testing test /windup-rulesets/rules/rules-reviewed/ | tee output.log) && 
-        tail -n1 output.log > artifacts/message.md
+        tail -n1 output.log > artifacts/message.md &&
+        echo "##[set-output name=pass_rate;]$(cat /artifacts/message.md)"
     - name: Save PR message as artifact
       uses: actions/upload-artifact@v1
       with:
         name: pr_message
         path: artifacts
+    - name: Update pass rate badge
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+      uses: RubbaBoy/BYOB@v1.3.0
+      with:
+        NAME: windup-pass-rate
+        LABEL: 'Windup Pass Rate'
+        STATUS: ${{ steps.run-windup-test.outputs.pass_rate }}
+        COLOR: blue
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
