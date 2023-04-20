@@ -19,9 +19,9 @@ jobs:
         echo "action_state=yellow" >> $GITHUB_ENV &&
         mkdir -p artifacts &&
         echo "74.20" > artifacts/message.md &&
-        echo "PASS_RATE=74.20\%" >> GITHUB_ENV &&
-        echo "PASS_RATE2=74.20\%\ \(1651/2225\)" >> GITHUB_ENV &&
-        echo "pass_rate=$(cat artifacts/message.md)" >> $GITHUB_ENV
+        echo 'PASS_RATE=74.20%' >> GITHUB_ENV &&
+        echo 'PASS_RATE2=74.20% (1651/2225)' >> GITHUB_ENV &&
+        echo 'pass_rate=$(cat artifacts/message.md)' >> $GITHUB_ENV
     - run: >
         echo "${{ env.pass_rate }}" &&
         echo "${{ env.PASS_RATE }}" &&
