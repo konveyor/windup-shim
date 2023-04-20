@@ -27,7 +27,7 @@ jobs:
       uses: RubbaBoy/BYOB@v1.3.0
       with:
         NAME: windup-pass-rate
-        LABEL: 'Windup Pass Rate'
+        LABEL: 'Current status'
         STATUS: ${{ env.pass_rate }}
         COLOR: blue
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
