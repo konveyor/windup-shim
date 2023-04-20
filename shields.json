@@ -1,1 +1,1 @@
-{"windup-pass-rate":{"label":"Windup Pass Rate","status":"$(cat artifacts/message.md)","color":"blue"}}
+{"windup-pass-rate":{"label":"Windup Pass Rate","status":"","color":"blue"}}
