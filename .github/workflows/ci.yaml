@@ -16,10 +16,11 @@ jobs:
     - name: Run windup tests
       id: run-windup-test
       run: >
+        echo "action_state=yellow" >> $GITHUB_ENV &&
         mkdir -p artifacts &&
         echo "Overall success rate: 74.20% (1651/2225)" > artifacts/message.md &&
         echo "pass_rate='$(cat artifacts/message.md)' >> $GITHUB_ENV"
-    - run: echo "${{ env }}" && echo "${{ env.pass_rate }}"
+    - run: echo "${{ env }}" && echo "${{ env.pass_rate }}" && echo "${{ env.action_state }}"
     - name: Update pass rate badge
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/workflow-testing' }}
       uses: RubbaBoy/BYOB@v1.3.0
