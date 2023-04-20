@@ -20,7 +20,7 @@ jobs:
         echo "Overall success rate: 74.20% (1651/2225)" > artifacts/message.md &&
         echo "pass_rate=\"$(cat artifacts/message.md)\"" >> $GITHUB_ENV
     - run: >
-        echo "${{ env.pass_rate }}" &&
+        echo ${{ env.pass_rate }} &&
         cat artifacts/message.md
     - name: Update pass rate badge
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/workflow-testing' }}
