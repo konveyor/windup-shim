@@ -406,7 +406,7 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 	if perform.Technologyidentified != nil {
 		for _, ti := range perform.Technologyidentified {
 			for _, tag := range ti.Tag {
-				tags = append(tags, ti.Name+" - "+tag.Name)
+				tags = append(tags, tag.Name+"="+ti.Name)
 			}
 		}
 	}

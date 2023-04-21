@@ -13,6 +13,15 @@ jobs:
     strategy:
       fail-fast: false
     steps:
+    - name: Extract pull request number from PR description
+      id: extract_analyzer_pull_request_number
+      run: |
+        PULL_REQUEST_NUMBER=$(echo "${{ github.event.pull_request.body }}" | grep -oP '[A|a]nalyzer.?[P|p][R|r]: \K\d+' || true)
+        if [ -z "$PULL_REQUEST_NUMBER" ]; then
+          echo "::set-output name=ref::main"
+        else
+          echo "::set-output name=ref::refs/pull/$PULL_REQUEST_NUMBER/head"
+        fi
     - name: checkout
       uses: actions/checkout@v3
     - name: Checkout tools repo
@@ -20,6 +29,7 @@ jobs:
       with:
         repository: konveyor/analyzer-lsp
         path: analyzer-lsp
+        ref: "${{ steps.extract_analyzer_pull_request_number.outputs.ref }}"
     - name: build analyzer-lsp Dockerfile
       run: docker build -f analyzer-lsp/Dockerfile -t analyzer-lsp analyzer-lsp
     - name: build shim Dockerfile
