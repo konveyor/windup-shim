@@ -228,7 +228,6 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				// TODO handle systemid and publicid
 				continue
 			}
-			// TODO find an actual way to deal with namespaces
 			matches := strings.Replace(xf.Matches, "windup:", "", -1)
 			namespaces := map[string]string{}
 			if xf.Namespace != nil {
