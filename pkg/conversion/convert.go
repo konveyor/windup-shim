@@ -229,14 +229,16 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				continue
 			}
 			// TODO find an actual way to deal with namespaces
-			matches := xf.Matches
+			matches := strings.Replace(xf.Matches, "windup:", "", -1)
+			namespaces := map[string]string{}
 			if xf.Namespace != nil {
 				for _, ns := range xf.Namespace {
-					matches = strings.Replace(strings.Replace(matches, "windup:", "", -1), ns.Prefix+":", "", -1)
+					namespaces[ns.Prefix] = ns.Uri
 				}
 			}
 			xmlCond := map[string]interface{}{
-				"xpath": substituteWhere(where, matches),
+				"xpath":      substituteWhere(where, matches),
+				"namespaces": namespaces,
 			}
 			// TODO We don't support regexes here, may need to break it out into a separate lookup that gets passed through
 			if xf.In != "" {
