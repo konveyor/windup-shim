@@ -20,7 +20,7 @@ jobs:
         if [ -z "$PULL_REQUEST_NUMBER" ]; then
           echo "::set-output name=ref::main"
         else
-          echo "::set-output name=ref::refs/pull/$PULL_REQUEST_NUMBER/head"
+          echo "::set-output name=ref::refs/pull/$PULL_REQUEST_NUMBER/merge"
         fi
     - name: checkout
       uses: actions/checkout@v3
