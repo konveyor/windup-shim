@@ -51,7 +51,7 @@ const (
       - builtin.xml:
           xpath: '/persistence[boolean(namespace-uri(/persistence)="http://xmlns.jcp.org/xml/ns/persistence")]'
       - builtin.xml:
-          xpath: '/persistance[boolean(namespace-uri(/persistence)="https://jakarta.ee/xml/ns/persistence"])'
+          xpath: '/persistence[boolean(namespace-uri(/persistence)="https://jakarta.ee/xml/ns/persistence")]'
 - ruleID: windup-discover-web-configuration
   tag: ["Web XML"]
   when:
