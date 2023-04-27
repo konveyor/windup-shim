@@ -104,7 +104,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			// JarArchiveModel is a special case for deps
 			// that are actually included in a lib folder as jars
 			if gq.Discriminator == "JarArchiveModel" {
-				conditions = append(conditions, map[string]interface{}{"java.dependency": convertWindupGraphQueryJarArchiveModel(gq)})
+				conditions = append(conditions, convertWindupGraphQueryJarArchiveModel(gq))
 			} else if gq.Discriminator == "TechnologyTagModel" {
 				conditions = append(conditions, map[string]interface{}{"builtin.hasTags": []string{gq.Property.Value}})
 			}
@@ -364,10 +364,18 @@ func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[s
 }
 
 func convertWindupGraphQueryJarArchiveModel(gq windup.Graphquery) map[string]interface{} {
-	m := map[string]interface{}{
-		"nameregex": gq.Property.Value,
+
+	if gq.Property.Name == "fileName" {
+		return map[string]interface{}{
+			"builtin.file": gq.Property.Value,
+		}
 	}
-	return m
+
+	return map[string]interface{}{
+		"java.dependency": map[string]string{
+			"nameregex": gq.Property.Value,
+		},
+	}
 }
 
 // TODO handle perform fully

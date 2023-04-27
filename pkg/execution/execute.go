@@ -182,7 +182,7 @@ func ExecuteRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 		"sourceFile": sourceFiles,
 	}
 	writeYAML(debugInfo, filepath.Join(dir, "debug.yaml"))
-	stdout, err := cmd.Output()
+	stdout, err := cmd.CombinedOutput()
 	if exitError, ok := err.(*exec.ExitError); ok {
 		fmt.Printf("\n\n UNABLE TO RUN: %v\n\n\n", exitError)
 	}
