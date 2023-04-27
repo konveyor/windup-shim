@@ -5,22 +5,36 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
-	"strconv"
 	"strings"
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
+	"github.com/konveyor/analyzer-lsp/hubapi"
 	"gopkg.in/yaml.v2"
 )
 
-func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string) (map[string][][]map[string]interface{}, error) {
-	outputRulesets := map[string][][]map[string]interface{}{}
+type analyzerRules struct {
+	rules    []map[string]interface{}
+	metadata windup.Metadata
+}
+
+func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string) (map[string]*analyzerRules, error) {
+	outputRulesets := map[string]*analyzerRules{}
 	for _, windupRuleset := range windups {
 		ruleset := ConvertWindupRulesetToAnalyzer(windupRuleset)
-		yamlPath := strings.Replace(filepath.Join(outputDir, strings.Replace(windupRuleset.SourceFile, baseLocation, "", 1)), ".xml", ".yaml", 1)
+		rulesetRelativePath := strings.Trim(strings.Replace(strings.Replace(windupRuleset.SourceFile, baseLocation, "", 1), filepath.Base(windupRuleset.SourceFile), "", 1), "/")
+		rulesetFileName := strings.Replace(filepath.Base(windupRuleset.SourceFile), ".xml", ".yaml", 1)
+		yamlPath := filepath.Join(outputDir, rulesetRelativePath, strings.Replace(rulesetFileName, ".windup.yaml", "", 1), rulesetFileName)
 		if reflect.DeepEqual(ruleset, map[string]interface{}{}) {
 			continue
 		}
-		outputRulesets[yamlPath] = append(outputRulesets[yamlPath], ruleset)
+		if _, ok := outputRulesets[yamlPath]; !ok {
+			outputRulesets[yamlPath] = &analyzerRules{
+				rules:    []map[string]interface{}{},
+				metadata: windupRuleset.Metadata,
+			}
+		}
+		outputRulesets[yamlPath].rules = append(outputRulesets[yamlPath].rules, ruleset...)
+		outputRulesets[yamlPath].metadata = windupRuleset.Metadata
 	}
 	for path, ruleset := range outputRulesets {
 		dirName := filepath.Dir(path)
@@ -29,7 +43,18 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 			fmt.Printf("Skipping because of an error creating %s: %s\n", path, err.Error())
 			continue
 		}
-		err = writeYAML(ruleset, path)
+		analyzerRuleset := hubapi.RuleSet{
+			Name:        strings.Replace(filepath.Base(path), ".windup.yaml", "", 1),
+			Description: string(ruleset.metadata.Description),
+			Labels:      ruleset.metadata.Tag,
+		}
+		rulesetGoldenFilePath := filepath.Join(dirName, "ruleset.yaml")
+		err = writeYAML(analyzerRuleset, rulesetGoldenFilePath)
+		if err != nil {
+			fmt.Printf("Skipping because of an error writing ruleset golden file to %s: %s\n", rulesetGoldenFilePath, err.Error())
+			continue
+		}
+		err = writeYAML(ruleset.rules, path)
 		if err != nil {
 			fmt.Printf("Skipping because of an error writing to %s: %s\n", path, err.Error())
 			continue
@@ -44,12 +69,22 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 	// TODO Ruleset.Filemapping
 	// TODO Ruleset.Javaclassignore
 	rules := []map[string]interface{}{}
-	for i, windupRule := range ruleset.Rules.Rule {
+	// we need unique rule id's within a ruleset
+	uniqueIds := map[string]int{}
+	for _, windupRule := range ruleset.Rules.Rule {
+		ruleId := windupRule.Id
+		if val, found := uniqueIds[ruleId]; found {
+			ruleId = fmt.Sprintf("%s-%.02d", ruleId, val)
+			uniqueIds[ruleId] += 1
+		} else {
+			uniqueIds[ruleId] = 1
+		}
 		// formatted, _ := yaml.Marshal(windupRule)
 		// fmt.Println(string(formatted))
 		rule := map[string]interface{}{
-			"ruleID": ruleset.SourceFile + "-" + strconv.Itoa(i),
+			"ruleID": ruleId,
 		}
+
 		where := flattenWhere(windupRule.Where)
 		if !reflect.DeepEqual(windupRule.When, windup.When{}) {
 			when, customVars := convertWindupWhenToAnalyzer(windupRule.When, where)
@@ -422,7 +457,7 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 
 	if perform.Hint != nil {
 		if len(perform.Hint) != 1 {
-			// TODO
+			// TODO"github.com/russross/blackfriday/v2"
 			panic("More than one hint in a rule")
 			return nil
 		}

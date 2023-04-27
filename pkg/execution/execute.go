@@ -9,7 +9,6 @@ import (
 	"os/exec"
 	"path/filepath"
 	"regexp"
-	"strconv"
 	"strings"
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/conversion"
@@ -61,7 +60,7 @@ const (
 `
 )
 
-func ExecuteRulesets(rulesets []windup.Ruleset, datadir string) (string, string, error) {
+func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string) (string, string, error) {
 	datadir, err := filepath.Abs(datadir)
 	if err != nil {
 		return "", "", err
@@ -127,12 +126,6 @@ func ExecuteRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 			}
 		}
 	}
-	sourceFiles := []string{}
-	converted := [][]map[string]interface{}{}
-	for _, ruleset := range rulesets {
-		sourceFiles = append(sourceFiles, ruleset.SourceFile)
-		converted = append(converted, conversion.ConvertWindupRulesetToAnalyzer(ruleset))
-	}
 	dir, err := os.MkdirTemp("", "analyzer-lsp")
 	if err != nil {
 		return "", "", err
@@ -144,27 +137,25 @@ func ExecuteRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 	if err != nil {
 		return "", dir, err
 	}
-	// write ruleset to disk
-	for i, ruleset := range converted {
-		path := filepath.Join(dir, "rules", strconv.Itoa(i+1)+".yaml")
-		err = writeYAML(ruleset, path)
-		if err != nil {
-			return "", dir, err
-		}
-	}
 	err = writeYAML(map[string]interface{}{"name": "test-ruleset"}, filepath.Join(dir, "rules", "ruleset.yaml"))
 	if err != nil {
 		return "", dir, err
 	}
+	sourceFiles := []string{}
+	for _, ruleset := range rulesets {
+		sourceFiles = append(sourceFiles, ruleset.SourceFile)
+	}
+	conversion.ConvertWindupRulesetsToAnalyzer(rulesets, baseLocation, filepath.Join(dir, "rules"))
 	// Template config file for analyzer
-	providerConfig := []map[string]interface{}{map[string]interface{}{
-		"name":           "java",
-		"location":       javaDataDir,
-		"binaryLocation": "/jdtls/bin/jdtls",
-		"providerSpecificConfig": map[string]string{
-			"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+	providerConfig := []map[string]interface{}{
+		{
+			"name":           "java",
+			"location":       javaDataDir,
+			"binaryLocation": "/jdtls/bin/jdtls",
+			"providerSpecificConfig": map[string]string{
+				"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+			},
 		},
-	},
 		{
 			"name":     "builtin",
 			"location": datadir,
@@ -225,7 +216,7 @@ func writeJSON(content interface{}, dest string) error {
 }
 
 func ExecuteTest(test windup.Ruletest, location string) (int, int, error) {
-	violations, err := getViolations(test)
+	violations, err := getViolations(test, location)
 	total := 0
 	successes := 0
 	for _, ruleset := range test.Ruleset {
@@ -263,7 +254,7 @@ func ExecuteTest(test windup.Ruletest, location string) (int, int, error) {
 	return successes, total, err
 }
 
-func getViolations(test windup.Ruletest) ([]hubapi.RuleSet, error) {
+func getViolations(test windup.Ruletest, baseLocation string) ([]hubapi.RuleSet, error) {
 	rulesets := []windup.Ruleset{}
 	if len(test.RulePath) == 0 {
 		// use the test name, to move up a folder and get the rule
@@ -309,7 +300,7 @@ func getViolations(test windup.Ruletest) ([]hubapi.RuleSet, error) {
 			}
 		}
 	}
-	_, dir, err := ExecuteRulesets(rulesets, test.TestDataPath)
+	_, dir, err := ExecuteRulesets(rulesets, baseLocation, test.TestDataPath)
 	if err != nil {
 		return nil, err
 	}
