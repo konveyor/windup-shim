@@ -52,7 +52,7 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		}
 		where := flattenWhere(windupRule.Where)
 		if !reflect.DeepEqual(windupRule.When, windup.When{}) {
-			when := convertWindupWhenToAnalyzer(windupRule.When, where)
+			when, customVars := convertWindupWhenToAnalyzer(windupRule.When, where)
 			if len(when) == 1 {
 				rule["when"] = when[0]
 			} else if len(when) > 1 {
@@ -60,6 +60,7 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 			} else {
 				continue
 			}
+			rule["customVariables"] = customVars
 		} else {
 			continue
 		}
@@ -94,11 +95,12 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 	return rules
 }
 
-func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string) []map[string]interface{} {
+func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string) ([]map[string]interface{}, []map[string]interface{}) {
 	//
 	// TODO Rule.When
 	// TODO - Graphquery
 	conditions := []map[string]interface{}{}
+	var customVars []map[string]interface{}
 	if windupWhen.Graphquery != nil {
 		for _, gq := range windupWhen.Graphquery {
 			// JarArchiveModel is a special case for deps
@@ -123,7 +125,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.And != nil {
 		whens := []map[string]interface{}{}
 		for _, condition := range windupWhen.And {
-			converted := convertWindupWhenToAnalyzer(condition, where)
+			converted, _ := convertWindupWhenToAnalyzer(condition, where)
 			for _, c := range converted {
 				whens = append(whens, c)
 			}
@@ -133,7 +135,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.Or != nil {
 		whens := []map[string]interface{}{}
 		for _, condition := range windupWhen.Or {
-			converted := convertWindupWhenToAnalyzer(condition, where)
+			converted, _ := convertWindupWhenToAnalyzer(condition, where)
 			for _, c := range converted {
 				whens = append(whens, c)
 			}
@@ -142,7 +144,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	}
 	if windupWhen.Not != nil {
 		for _, condition := range windupWhen.Not {
-			converted := convertWindupWhenToAnalyzer(condition, where)
+			converted, _ := convertWindupWhenToAnalyzer(condition, where)
 			for _, c := range converted {
 				c["not"] = true
 				conditions = append(conditions, c)
@@ -165,17 +167,17 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	}
 	if windupWhen.Javaclass != nil {
 		for _, jc := range windupWhen.Javaclass {
+			customVars = convertWhereToCustomVars(where, jc.References)
 			pattern := strings.Replace(substituteWhere(where, jc.References), "{*}", "*", -1)
 			pattern = strings.Replace(pattern, "(*)", "*", -1)
 			pattern = strings.Replace(pattern, ".*", "*", -1)
+			pattern = strings.Replace(pattern, `\`, "", -1)
 			// Make some .* regesx's more generic.
-			// TODO: we may need to come back and figure out if we have to deal with
-			// capture groups and stuff.
-			pattern = strings.Replace(pattern, `(\.*)?\.`, ".*", -1)
+			pattern = strings.Replace(pattern, `(.*)?.`, ".*", -1)
 			pattern = strings.Replace(pattern, `.[^.]+`, "*", -1)
 			pattern = strings.Replace(pattern, `[^.]+`, "*", -1)
-			pattern = strings.Replace(pattern, `(\.[^.]*)*`, ".*", -1)
-			pattern = strings.Replace(pattern, `(?+[^.]*`, "", -1)
+			pattern = strings.Replace(pattern, `(.[^.]*)*`, "*", -1)
+			pattern = strings.Replace(pattern, `+[^.]*?`, "*", -1)
 			if jc.Location != nil {
 				for _, location := range jc.Location {
 					condition := map[string]interface{}{
@@ -197,6 +199,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 					if jc.From != "" {
 						condition["from"] = jc.From
 					}
+
 					conditions = append(conditions, condition)
 				}
 			} else {
@@ -339,7 +342,27 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.Technologytagexists != nil {
 		// conditions = append(conditions, map[string]interface{}{"technology-tag-exists": nil})
 	}
-	return conditions
+	return conditions, customVars
+}
+
+func convertWhereToCustomVars(whereMap map[string]string, fullPattern string) []map[string]interface{} {
+	l := []map[string]interface{}{}
+	newString := fullPattern
+	for k, v := range whereMap {
+		newString = strings.ReplaceAll(newString, "{"+k+"}.", fmt.Sprintf("(?P<%s>%s.)?", k, v))
+		newString = strings.ReplaceAll(newString, "{"+k+"}", fmt.Sprintf("(?P<%s>%s)?", k, v))
+		newString = strings.ReplaceAll(newString, "?+", "?")
+		m := map[string]interface{}{
+			"name":               k,
+			"nameOfCaptureGroup": k,
+		}
+		l = append(l, m)
+	}
+
+	for _, m := range l {
+		m["pattern"] = newString
+	}
+	return l
 }
 
 func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[string]interface{} {
@@ -407,8 +430,8 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		if hint.Message != "" {
 			message := trimMessage(hint.Message)
 			// Handle some message replacement
-			message = strings.Replace(message, "{package}.{prefix}{type}", "{{name}}", -1)
-			message = strings.Replace(message, "{prefix}{type}", "{{type}}", -1)
+			message = strings.Replace(message, "{", "{{", -1)
+			message = strings.Replace(message, "}", "}}", -1)
 			ret["message"] = message
 		}
 	}
