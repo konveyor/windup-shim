@@ -201,7 +201,7 @@ func writeYAML(content interface{}, dest string) error {
 	}
 	defer file.Close()
 	enc := yaml.NewEncoder(file)
-
+	yaml.FutureLineWrap()
 	err = enc.Encode(content)
 	if err != nil {
 		return err
