@@ -1,1 +1,1 @@
-![](https://byob.yarr.is/fabianvf/windup-rulesets-yaml/windup-pass-rate)
+![](https://byob.yarr.is/konveyor/windup-shim/windup-pass-rate)
