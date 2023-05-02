@@ -47,7 +47,7 @@ jobs:
         name: pr_message
         path: artifacts
     - name: Update pass rate badge
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
       uses: RubbaBoy/BYOB@v1.3.0
       with:
         NAME: windup-pass-rate
