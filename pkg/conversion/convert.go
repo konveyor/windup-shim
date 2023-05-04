@@ -19,11 +19,11 @@ type analyzerRules struct {
 
 func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string) (map[string]*analyzerRules, error) {
 	outputRulesets := map[string]*analyzerRules{}
-	for _, windupRuleset := range windups {
+	for idx, windupRuleset := range windups {
 		ruleset := ConvertWindupRulesetToAnalyzer(windupRuleset)
 		rulesetRelativePath := strings.Trim(strings.Replace(strings.Replace(windupRuleset.SourceFile, baseLocation, "", 1), filepath.Base(windupRuleset.SourceFile), "", 1), "/")
 		rulesetFileName := strings.Replace(filepath.Base(windupRuleset.SourceFile), ".xml", ".yaml", 1)
-		yamlPath := filepath.Join(outputDir, rulesetRelativePath, strings.Replace(rulesetFileName, ".windup.yaml", "", 1), rulesetFileName)
+		yamlPath := filepath.Join(outputDir, rulesetRelativePath, fmt.Sprintf("%.02d-%s", idx, strings.Replace(rulesetFileName, ".windup.yaml", "", 1)), rulesetFileName)
 		if reflect.DeepEqual(ruleset, map[string]interface{}{}) {
 			continue
 		}
