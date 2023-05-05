@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
+	"regexp"
 	"strings"
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
@@ -140,10 +141,19 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 		for _, gq := range windupWhen.Graphquery {
 			// JarArchiveModel is a special case for deps
 			// that are actually included in a lib folder as jars
-			if gq.Discriminator == "JarArchiveModel" {
-				conditions = append(conditions, convertWindupGraphQueryJarArchiveModel(gq))
-			} else if gq.Discriminator == "TechnologyTagModel" {
-				conditions = append(conditions, map[string]interface{}{"builtin.hasTags": []string{gq.Property.Value}})
+			switch gq.Discriminator {
+			case "JarArchiveModel":
+				conditions = append(conditions,
+					convertWindupGraphQueryJarArchiveModel(gq))
+			case "JsfSourceFile":
+				conditions = append(conditions,
+					convertWindupGraphQueryJsfSourceFile(gq))
+			case "JspSourceFileModel":
+				conditions = append(conditions,
+					convertWindupGraphQueryJspSourceFileModel(gq))
+			case "TechnologyTagModel":
+				conditions = append(conditions,
+					map[string]interface{}{"builtin.hasTags": []string{gq.Property.Value}})
 			}
 		}
 	}
@@ -282,7 +292,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				in := substituteWhere(where, xf.In)
 				if strings.Contains(in, "{*}") {
 					conditions = append(conditions, map[string]interface{}{
-						"builtin.file": strings.Replace(xf.In, "{*}", "*", -1),
+						"builtin.file": strings.Replace(escapeDots(xf.In), "{*}", ".*", -1),
 						"as":           "xmlfiles",
 						"ignore":       true,
 					})
@@ -318,7 +328,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.File != nil {
 		for _, f := range windupWhen.File {
 			condition := map[string]interface{}{
-				"builtin.file": strings.Replace(substituteWhere(where, f.Filename), "{*}", "*", -1),
+				"builtin.file": strings.Replace(escapeDots(substituteWhere(where, f.Filename)), "{*}", ".*", -1),
 			}
 			if f.As != "" {
 				condition["as"] = f.As
@@ -334,7 +344,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.Fileexists != nil {
 		for _, f := range windupWhen.Fileexists {
 			condition := map[string]interface{}{
-				"builtin.file": strings.Replace(substituteWhere(where, f.Filename), "{*}", "*", -1),
+				"builtin.file": strings.Replace(escapeDots(substituteWhere(where, f.Filename)), "{*}", ".*", -1),
 			}
 			conditions = append(conditions, condition)
 		}
@@ -401,9 +411,19 @@ func convertWhereToCustomVars(whereMap map[string]string, fullPattern string) []
 }
 
 func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[string]interface{} {
-	name := strings.Replace(strings.Join([]string{windupDependency.GroupId, windupDependency.ArtifactId}, "."), "{*}", "*", -1)
+	isRegex := strings.Contains(fmt.Sprintf("%s.%s", windupDependency.GroupId, windupDependency.ArtifactId), "*")
+	name := fmt.Sprintf("%s.%s", windupDependency.GroupId, windupDependency.ArtifactId)
 	dependency := map[string]interface{}{}
-	if strings.Contains(name, "*") {
+	if isRegex {
+		groupId := escapeDots(windupDependency.GroupId)
+		groupId = strings.ReplaceAll(groupId, "{*}", ".*")
+		artifactId := strings.ReplaceAll(windupDependency.ArtifactId, "{*}", ".*")
+		groupEndsWildcard := regexp.MustCompile(`\.\*$`).MatchString(groupId)
+		artifactStartsWildcard := regexp.MustCompile(`^\.\*`).MatchString(artifactId)
+		name = fmt.Sprintf("%s\\.%s", groupId, artifactId)
+		if groupEndsWildcard && artifactStartsWildcard {
+			name = fmt.Sprintf("%s%s", groupId, strings.TrimLeft(artifactId, ".*"))
+		}
 		dependency["nameregex"] = name
 	} else {
 		dependency["name"] = name
@@ -422,7 +442,6 @@ func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[s
 }
 
 func convertWindupGraphQueryJarArchiveModel(gq windup.Graphquery) map[string]interface{} {
-
 	if gq.Property.Name == "fileName" {
 		return map[string]interface{}{
 			"builtin.file": gq.Property.Value,
@@ -433,6 +452,31 @@ func convertWindupGraphQueryJarArchiveModel(gq windup.Graphquery) map[string]int
 		"java.dependency": map[string]string{
 			"nameregex": gq.Property.Value,
 		},
+	}
+}
+
+// Converts graph queries for JspSourceFileModel
+func convertWindupGraphQueryJspSourceFileModel(gq windup.Graphquery) map[string]interface{} {
+	// FIXME: this is a rudimentary way of finding the jsp info,
+	// when we have filepaths support in filecontent, scope search
+	// on files matching '*.jsp, *.jspx, *.tag, *.tagx' for accuracy
+	return map[string]interface{}{
+		"or": []map[string]interface{}{
+			{
+				"builtin.filecontent": "<%@\\s*page\\s+[^>]*\\s*import\\s*=\\s*['\"]([^'\"]+)['\"].*?%>",
+			},
+			{
+				"builtin.filecontent": "<%@\\s*taglib\\s+[^>]*\\s*uri\\s*=\\s*['\"]([^'\"]+)['\"].*?%>",
+			},
+		},
+	}
+}
+
+// Converts graph queries for JsfSourceFile
+func convertWindupGraphQueryJsfSourceFile(gq windup.Graphquery) map[string]interface{} {
+	// FIXME: scope the search in files matching '*.jsp, *.xhtml, *.jspx'
+	return map[string]interface{}{
+		"builtin.filecontent": "(java\\.sun\\.com/jsf/)|(xmlns\\.jcp\\.org/jsf)",
 	}
 }
 
@@ -560,4 +604,9 @@ func writeYAML(content interface{}, dest string) error {
 		return err
 	}
 	return nil
+}
+
+// some dots require escaping where they will be treated as a wildcard otherwise
+func escapeDots(inp string) string {
+	return regexp.MustCompile(`\.([^*])`).ReplaceAllString(inp, `\.$1`)
 }
