@@ -457,7 +457,7 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 
 	if perform.Hint != nil {
 		if len(perform.Hint) != 1 {
-			// TODO"github.com/russross/blackfriday/v2"
+			// TODO
 			panic("More than one hint in a rule")
 			return nil
 		}
