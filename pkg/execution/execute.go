@@ -130,14 +130,8 @@ func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string) (s
 	if err != nil {
 		return "", "", err
 	}
-	os.Mkdir(filepath.Join(dir, "rules"), os.ModePerm)
 	fmt.Println(dir)
-	// Write base discovery rule to disk
-	err = os.WriteFile(filepath.Join(dir, "rules", "0.yaml"), []byte(BASE_DISCOVERY_RULES), 0666)
-	if err != nil {
-		return "", dir, err
-	}
-	err = writeYAML(map[string]interface{}{"name": "test-ruleset"}, filepath.Join(dir, "rules", "ruleset.yaml"))
+	err = createDefaultRuleset(dir)
 	if err != nil {
 		return "", dir, err
 	}
@@ -183,6 +177,24 @@ func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string) (s
 	writeYAML(debugInfo, filepath.Join(dir, "debug.yaml"))
 
 	return string(stdout), dir, err
+}
+
+func createDefaultRuleset(dir string) error {
+	defaultRulesetPath := filepath.Join(dir, "rules", "00-default")
+	err := os.MkdirAll(defaultRulesetPath, os.ModePerm)
+	if err != nil {
+		return err
+	}
+	// Write base discovery rule to disk
+	err = os.WriteFile(filepath.Join(defaultRulesetPath, "0.yaml"), []byte(BASE_DISCOVERY_RULES), 0666)
+	if err != nil {
+		return err
+	}
+	err = writeYAML(map[string]interface{}{"name": "test-ruleset"}, filepath.Join(defaultRulesetPath, "ruleset.yaml"))
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func writeYAML(content interface{}, dest string) error {
