@@ -100,9 +100,9 @@ func main() {
 				if err != nil {
 					fmt.Println(err)
 				}
+				output, dir, err := execution.ExecuteRulesets(rulesets, location, data)
+				fmt.Println(output, dir, err)
 			}
-			output, dir, err := execution.ExecuteRulesets(rulesets, data)
-			fmt.Println(output, dir, err)
 		}
 	default:
 		fmt.Println(help)

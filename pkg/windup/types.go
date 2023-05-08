@@ -1,5 +1,11 @@
 package windup
 
+import (
+	"encoding/xml"
+	"regexp"
+	"strings"
+)
+
 type Addon struct {
 	Id string `xml:"id,attr,omitempty" yaml:"id,omitempty"`
 }
@@ -227,7 +233,7 @@ type Matches struct {
 }
 
 type Metadata struct {
-	Description      string       `xml:"description,omitempty" yaml:"description,omitempty"`
+	Description      Description  `xml:"description,omitempty" yaml:"description,omitempty"`
 	Dependencies     Dependencies `xml:"dependencies" yaml:"dependencies"`
 	SourceTechnology []Technology `xml:"sourceTechnology,omitempty" yaml:"sourceTechnology,omitempty"`
 	TargetTechnology []Technology `xml:"targetTechnology,omitempty" yaml:"targetTechnology,omitempty"`
@@ -236,6 +242,21 @@ type Metadata struct {
 	ExecuteBefore    []string     `xml:"executeBefore,omitempty" yaml:"executeBefore,omitempty"`
 	Tag              []string     `xml:"tag,omitempty" yaml:"tag,omitempty"`
 	OverrideRules    bool         `xml:"overrideRules,omitempty" yaml:"overrideRules,omitempty"`
+}
+
+type Description string
+
+func (d *Description) UnmarshalXML(decoder *xml.Decoder, start xml.StartElement) error {
+	var val string
+	err := decoder.DecodeElement(&val, &start)
+	if err != nil {
+		return err
+	}
+	val = strings.Replace(val, "\n", "", 1)
+	val = regexp.MustCompile(`\s+`).ReplaceAllString(val, " ")
+	val = strings.Trim(val, " ")
+	*d = Description(val)
+	return nil
 }
 
 type Namespace struct {
@@ -294,7 +315,7 @@ type Rules struct {
 }
 
 type Ruleset struct {
-	Metadata        []Metadata        `xml:"metadata,omitempty" yaml:"metadata,omitempty"`
+	Metadata        Metadata          `xml:"metadata,omitempty" yaml:"metadata,omitempty"`
 	Rules           Rules             `xml:"rules" yaml:"rules"`
 	Packagemapping  []Mapping         `xml:"package-mapping,omitempty" yaml:"package-mapping,omitempty"`
 	Filemapping     []Mapping         `xml:"file-mapping,omitempty" yaml:"file-mapping,omitempty"`
