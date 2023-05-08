@@ -173,7 +173,7 @@ func ExecuteRulesets(rulesets []windup.Ruleset, datadir string) (string, string,
 	if err != nil {
 		return "", dir, err
 	}
-	args := []string{"-provider-settings", filepath.Join(dir, "/provider_config.json"), "-rules", filepath.Join(dir, "rules"), "-output-file", filepath.Join(dir, "violations.yaml")}
+	args := []string{"--provider-settings", filepath.Join(dir, "/provider_config.json"), "--rules", filepath.Join(dir, "rules"), "--output-file", filepath.Join(dir, "violations.yaml")}
 	debugCmd := strings.Join(append([]string{"dlv debug /analyzer-lsp/main.go --"}, args...), " ")
 	cmd := exec.Command("konveyor-analyzer", args...)
 	debugInfo := map[string]interface{}{
