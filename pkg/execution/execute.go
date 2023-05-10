@@ -386,15 +386,15 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) (bool, int, int)
 	}
 
 	numFound := 0
-	var tags []string
+	var tags []*regexp.Regexp
 	if classificationExists != nil {
 		for _, c := range classificationExists {
-			tags = append(tags, strings.ReplaceAll(c.Classification, `\`, ""))
+			tags = append(tags, regexp.MustCompile(strings.ReplaceAll(c.Classification, `\`, "")))
 		}
 	} else if technologyStatisticExists != nil {
 		for _, t := range technologyStatisticExists {
 			for _, tag := range t.Tag {
-				tags = append(tags, tag.Name)
+				tags = append(tags, regexp.MustCompile(tag.Name))
 				for foundTag, _ := range foundTags {
 					// The test checks for a prefix that's an attr on the techonology-statistic-exist and that it has a suffix which is the name of a technology
 					if strings.HasPrefix(foundTag, tag.Name) && strings.HasSuffix(foundTag, t.Name) {
@@ -406,14 +406,16 @@ func runTestRule(rule windup.When, violations []hubapi.RuleSet) (bool, int, int)
 		return numFound >= matchesRequired, numFound, matchesRequired
 	} else if technologyTagExists != nil {
 		for _, t := range technologyTagExists {
-			tags = append(tags, t.Technologytag)
+			tags = append(tags, regexp.MustCompile(t.Technologytag))
 		}
 	}
 
 	if len(tags) != 0 {
 		for _, tag := range tags {
-			if _, ok := foundTags[tag]; ok {
-				numFound += 1
+			for foundTag, _ := range foundTags {
+				if tag.MatchString(foundTag) {
+					numFound += 1
+				}
 			}
 		}
 		return numFound >= matchesRequired, numFound, matchesRequired
