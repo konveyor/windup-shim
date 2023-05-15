@@ -14,6 +14,11 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+const (
+	sourceTechnologyTag = "konveyor.io/sourceTech"
+	targetTechnologyTag = "konveyor.io/targetTech"
+)
+
 type analyzerRules struct {
 	rules    []map[string]interface{}
 	metadata windup.Metadata
@@ -135,6 +140,52 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		rules = append(rules, rule)
 	}
 	return rules
+}
+
+func convertWindupMetaToAnalyzer(m windup.Metadata) map[string]interface{} {
+	rule := map[string]interface{}{}
+	labels := []string{}
+	// convert source / target technologies to labels
+	for _, sourceTech := range m.SourceTechnology {
+		for _, version := range parseMavenVersionRange(sourceTech.VersionRange) {
+			labels = append(labels, fmt.Sprintf("%s=%s%s", sourceTechnologyTag, sourceTech, version))
+		}
+	}
+	for _, targetTech := range m.TargetTechnology {
+		for _, version := range parseMavenVersionRange(targetTech.VersionRange) {
+			labels = append(labels, fmt.Sprintf("%s=%s%s", targetTechnologyTag, targetTech, version))
+		}
+	}
+	// get tag elements
+	for _, tag := range m.Tag {
+		labels = append(labels, tag)
+	}
+	rule["labels"] = labels
+	return rule
+}
+
+func parseMavenVersionRange(versionRange string) []string {
+	versionRegex := regexp.MustCompile(`^[\(|\[]([\d\.]+), *([\d\.]+)[\]\)]$`)
+	match := versionRegex.FindStringSubmatch(versionRange)
+	if len(match) != 3 {
+		fmt.Printf("error matching version range '%s'", versionRange)
+		return []string{}
+	}
+	minVersion, err := strconv.Atoi(match[1])
+	if err != nil {
+		fmt.Printf("error matching min version '%s'", match[1])
+		return []string{}
+	}
+	maxVersion, err := strconv.Atoi(match[2])
+	if err != nil {
+		fmt.Printf("error matching max version '%s'", match[2])
+	}
+
+	versions := []string{}
+	for i := minVersion; i <= maxVersion; i++ {
+		versions = append(versions, strconv.Itoa(i))
+	}
+	return versions
 }
 
 func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string) ([]map[string]interface{}, []map[string]interface{}) {
