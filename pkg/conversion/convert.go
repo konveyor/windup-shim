@@ -14,11 +14,6 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-const (
-	sourceTechnologyTag = "konveyor.io/sourceTech"
-	targetTechnologyTag = "konveyor.io/targetTech"
-)
-
 type analyzerRules struct {
 	rules    []map[string]interface{}
 	metadata windup.Metadata
@@ -53,7 +48,7 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 		analyzerRuleset := hubapi.RuleSet{
 			Name:        strings.Replace(filepath.Base(path), ".windup.yaml", "", 1),
 			Description: string(ruleset.metadata.Description),
-			Labels:      ruleset.metadata.Tag,
+			Labels:      getRulesetLabels(ruleset.metadata),
 		}
 		rulesetGoldenFilePath := filepath.Join(dirName, "ruleset.yaml")
 		err = writeYAML(analyzerRuleset, rulesetGoldenFilePath)
@@ -142,47 +137,64 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 	return rules
 }
 
-func convertWindupMetaToAnalyzer(m windup.Metadata) map[string]interface{} {
-	rule := map[string]interface{}{}
+func getRulesetLabels(m windup.Metadata) []string {
 	labels := []string{}
 	// convert source / target technologies to labels
 	for _, sourceTech := range m.SourceTechnology {
-		for _, version := range parseMavenVersionRange(sourceTech.VersionRange) {
-			labels = append(labels, fmt.Sprintf("%s=%s%s", sourceTechnologyTag, sourceTech, version))
+		for _, version := range getVersionsFromMavenVersionRange(sourceTech.VersionRange) {
+			labels = append(labels,
+				fmt.Sprintf("%s=%s%s", hubapi.SourceTechnologyLabel, sourceTech.Id, version))
 		}
 	}
 	for _, targetTech := range m.TargetTechnology {
-		for _, version := range parseMavenVersionRange(targetTech.VersionRange) {
-			labels = append(labels, fmt.Sprintf("%s=%s%s", targetTechnologyTag, targetTech, version))
+		for _, version := range getVersionsFromMavenVersionRange(targetTech.VersionRange) {
+			labels = append(labels,
+				fmt.Sprintf("%s=%s%s", hubapi.TargetTechnologyLabel, targetTech.Id, version))
 		}
 	}
-	// get tag elements
-	for _, tag := range m.Tag {
-		labels = append(labels, tag)
-	}
-	rule["labels"] = labels
-	return rule
+	// rulesets have <tags> too
+	labels = append(labels, m.Tag...)
+	return labels
 }
 
-func parseMavenVersionRange(versionRange string) []string {
-	versionRegex := regexp.MustCompile(`^[\(|\[]([\d\.]+), *([\d\.]+)[\]\)]$`)
+func getVersionsFromMavenVersionRange(versionRange string) []string {
+	versionRange = strings.Trim(versionRange, " ")
+	if versionRange == "" {
+		return []string{}
+	}
+	versionRegex := regexp.MustCompile(`^[\(|\[]([\d\.]+)?, *([\d\.]+)?[\]\)]$`)
 	match := versionRegex.FindStringSubmatch(versionRange)
 	if len(match) != 3 {
-		fmt.Printf("error matching version range '%s'", versionRange)
+		fmt.Printf("error matching version range '%s'\n", versionRange)
 		return []string{}
 	}
-	minVersion, err := strconv.Atoi(match[1])
-	if err != nil {
-		fmt.Printf("error matching min version '%s'", match[1])
+	minVersion := match[1]
+	maxVersion := match[2]
+	if minVersion == "" && maxVersion == "" {
 		return []string{}
 	}
-	maxVersion, err := strconv.Atoi(match[2])
-	if err != nil {
-		fmt.Printf("error matching max version '%s'", match[2])
+	if minVersion == "" {
+		return []string{fmt.Sprintf("%s-", maxVersion)}
 	}
-
+	if maxVersion == "" {
+		return []string{fmt.Sprintf("%s+", minVersion)}
+	}
+	minVerInt, err := strconv.Atoi(minVersion)
+	if err != nil {
+		return []string{}
+	}
+	maxVerInt, err := strconv.Atoi(maxVersion)
+	if err != nil {
+		return []string{}
+	}
+	if strings.HasSuffix(versionRange, ")") {
+		maxVerInt -= 1
+	}
+	if strings.HasPrefix(versionRange, "(") {
+		minVerInt += 1
+	}
 	versions := []string{}
-	for i := minVersion; i <= maxVersion; i++ {
+	for i := minVerInt; i <= maxVerInt; i++ {
 		versions = append(versions, strconv.Itoa(i))
 	}
 	return versions
