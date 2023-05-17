@@ -6,6 +6,7 @@ import (
 	"path/filepath"
 	"reflect"
 	"regexp"
+	"strconv"
 	"strings"
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
@@ -118,6 +119,9 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 			if rule["message"] == nil && rule["tag"] == nil {
 				fmt.Println("\n\nNo action parsed\n\n")
 				continue
+			}
+			if perform["effort"] != nil {
+				rule["effort"] = perform["effort"]
 			}
 			// for k, v := range perform {
 			// 	rule[k] = v
@@ -515,6 +519,11 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 			message = strings.Replace(message, "}", "}}", -1)
 			ret["message"] = message
 		}
+		i, err := strconv.Atoi(fmt.Sprintf("%v", hint.Effort))
+		if err == nil {
+			ret["effort"] = i
+		}
+
 	}
 	if perform.Technologyidentified != nil {
 		for _, ti := range perform.Technologyidentified {
