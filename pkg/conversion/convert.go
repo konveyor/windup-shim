@@ -111,9 +111,11 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 			}
 			if perform["message"] != nil {
 				rule["message"] = perform["message"]
-			} else if len(tags) != 0 {
+			}
+			if len(tags) != 0 {
 				rule["tag"] = tags
-			} else {
+			}
+			if rule["message"] == nil && rule["tag"] == nil {
 				fmt.Println("\n\nNo action parsed\n\n")
 				continue
 			}
