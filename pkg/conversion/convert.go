@@ -48,7 +48,7 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 		analyzerRuleset := hubapi.RuleSet{
 			Name:        strings.Replace(filepath.Base(path), ".windup.yaml", "", 1),
 			Description: string(ruleset.metadata.Description),
-			Labels:      ruleset.metadata.Tag,
+			Labels:      getRulesetLabels(ruleset.metadata),
 		}
 		rulesetGoldenFilePath := filepath.Join(dirName, "ruleset.yaml")
 		err = writeYAML(analyzerRuleset, rulesetGoldenFilePath)
@@ -135,6 +135,69 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		rules = append(rules, rule)
 	}
 	return rules
+}
+
+func getRulesetLabels(m windup.Metadata) []string {
+	labels := []string{}
+	// convert source / target technologies to labels
+	for _, sourceTech := range m.SourceTechnology {
+		for _, version := range getVersionsFromMavenVersionRange(sourceTech.VersionRange) {
+			labels = append(labels,
+				fmt.Sprintf("%s=%s%s", hubapi.SourceTechnologyLabel, sourceTech.Id, version))
+		}
+	}
+	for _, targetTech := range m.TargetTechnology {
+		for _, version := range getVersionsFromMavenVersionRange(targetTech.VersionRange) {
+			labels = append(labels,
+				fmt.Sprintf("%s=%s%s", hubapi.TargetTechnologyLabel, targetTech.Id, version))
+		}
+	}
+	// rulesets have <tags> too
+	labels = append(labels, m.Tag...)
+	return labels
+}
+
+func getVersionsFromMavenVersionRange(versionRange string) []string {
+	versionRange = strings.Trim(versionRange, " ")
+	if versionRange == "" {
+		return []string{}
+	}
+	versionRegex := regexp.MustCompile(`^[\(|\[]([\d\.]+)?, *([\d\.]+)?[\]\)]$`)
+	match := versionRegex.FindStringSubmatch(versionRange)
+	if len(match) != 3 {
+		fmt.Printf("error matching version range '%s'\n", versionRange)
+		return []string{}
+	}
+	minVersion := match[1]
+	maxVersion := match[2]
+	if minVersion == "" && maxVersion == "" {
+		return []string{}
+	}
+	if minVersion == "" {
+		return []string{fmt.Sprintf("%s-", maxVersion)}
+	}
+	if maxVersion == "" {
+		return []string{fmt.Sprintf("%s+", minVersion)}
+	}
+	minVerInt, err := strconv.Atoi(minVersion)
+	if err != nil {
+		return []string{}
+	}
+	maxVerInt, err := strconv.Atoi(maxVersion)
+	if err != nil {
+		return []string{}
+	}
+	if strings.HasSuffix(versionRange, ")") {
+		maxVerInt -= 1
+	}
+	if strings.HasPrefix(versionRange, "(") {
+		minVerInt += 1
+	}
+	versions := []string{}
+	for i := minVerInt; i <= maxVerInt; i++ {
+		versions = append(versions, strconv.Itoa(i))
+	}
+	return versions
 }
 
 func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string) ([]map[string]interface{}, []map[string]interface{}) {
