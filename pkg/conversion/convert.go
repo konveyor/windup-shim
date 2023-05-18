@@ -113,9 +113,21 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 			if perform["message"] != nil {
 				rule["message"] = perform["message"]
 			}
-			if len(tags) != 0 {
-				rule["tag"] = tags
+			if perform["labels"] != nil {
+				rule["labels"] = perform["labels"]
 			}
+			// Dedup tags
+			m := map[string]interface{}{}
+			ts := []string{}
+			if len(tags) != 0 {
+				for _, t := range tags {
+					if _, ok := m[t]; !ok {
+						ts = append(ts, t)
+						m[t] = nil
+					}
+				}
+			}
+			rule["tag"] = ts
 			if rule["message"] == nil && rule["tag"] == nil {
 				fmt.Println("\n\nNo action parsed\n\n")
 				continue
@@ -587,6 +599,9 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 			ret["effort"] = i
 		}
 
+		if len(hint.Tag) != 0 {
+			ret["labels"] = hint.Tag
+		}
 	}
 	if perform.Technologyidentified != nil {
 		for _, ti := range perform.Technologyidentified {
