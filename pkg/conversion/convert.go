@@ -117,17 +117,9 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 				rule["labels"] = perform["labels"]
 			}
 			// Dedup tags
-			m := map[string]interface{}{}
-			ts := []string{}
 			if len(tags) != 0 {
-				for _, t := range tags {
-					if _, ok := m[t]; !ok {
-						ts = append(ts, t)
-						m[t] = nil
-					}
-				}
+				rule["tag"] = tags
 			}
-			rule["tag"] = ts
 			if rule["message"] == nil && rule["tag"] == nil {
 				fmt.Println("\n\nNo action parsed\n\n")
 				continue
