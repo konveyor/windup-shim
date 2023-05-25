@@ -14,6 +14,7 @@ import (
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/conversion"
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
 	"github.com/konveyor/analyzer-lsp/hubapi"
+	"github.com/konveyor/analyzer-lsp/provider"
 	"gopkg.in/yaml.v2"
 )
 
@@ -141,18 +142,22 @@ func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string) (s
 	}
 	conversion.ConvertWindupRulesetsToAnalyzer(rulesets, baseLocation, filepath.Join(dir, "rules"))
 	// Template config file for analyzer
-	providerConfig := []map[string]interface{}{
+	providerConfig := []provider.Config{
 		{
-			"name":           "java",
-			"location":       javaDataDir,
-			"binaryLocation": "/jdtls/bin/jdtls",
-			"providerSpecificConfig": map[string]string{
-				"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+			Name: "java",
+			InitConfig: provider.InitConfig{
+				Location:      javaDataDir,
+				LSPServerPath: "/jdtls/bin/jdtls",
+				ProviderSpecificConfig: map[string]interface{}{
+					"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+				},
 			},
 		},
 		{
-			"name":     "builtin",
-			"location": datadir,
+			Name: "builtin",
+			InitConfig: provider.InitConfig{
+				Location: datadir,
+			},
 		}}
 	err = writeJSON(providerConfig, filepath.Join(dir, "provider_config.json"))
 	if err != nil {
