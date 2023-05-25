@@ -1,0 +1,5 @@
+.vscode/
+org.eclipse.*
+jdt.*
+.log
+.metadata/

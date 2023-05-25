@@ -11,11 +11,12 @@ import (
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/conversion"
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/execution"
+	"github.com/fabianvf/windup-rulesets-yaml/pkg/report"
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
 )
 
 func main() {
-	var outputDir, data string
+	var outputDir, data, appPath, targets string
 	var failFast bool
 	convertCmd := flag.NewFlagSet("convert", flag.ExitOnError)
 	convertCmd.StringVar(&outputDir, "outputdir", "analyzer-lsp-rules", "The output location for converted rules")
@@ -23,8 +24,10 @@ func main() {
 	testCmd.BoolVar(&failFast, "fail-fast", false, "If true, fail on first test failure")
 	runCmd := flag.NewFlagSet("run", flag.ExitOnError)
 	runCmd.StringVar(&data, "data", "", "The location of the source code to run the rules against")
-
-	help := "Supported subcommands are convert, run, and test"
+	reportTestCmd := flag.NewFlagSet("report-test", flag.ExitOnError)
+	reportTestCmd.StringVar(&appPath, "app", "/example-applications/example-1/", "Example application to run the test on")
+	reportTestCmd.StringVar(&targets, "targets", "cloud-readiness", "Comma separated list of targets")
+	help := "Supported subcommands are convert, run, test and report-test"
 	if len(os.Args) < 2 {
 		fmt.Println(help)
 		return
@@ -103,6 +106,65 @@ func main() {
 				output, dir, err := execution.ExecuteRulesets(rulesets, location, data)
 				fmt.Println(output, dir, err)
 			}
+		}
+	case "report-test":
+		if err := reportTestCmd.Parse(os.Args[2:]); err == nil {
+			if appPath == "" {
+				log.Fatal("Path to an application to analyze must be specified '-app option'")
+			}
+			if targets == "" {
+				log.Fatal("At least one target is required '--targets'")
+			}
+			tmpDir, err := os.MkdirTemp("", "shim-workdir")
+			if err != nil {
+				log.Fatalf("failed creating temp dir - %v", err)
+			}
+			windupOutputPath := filepath.Join(tmpDir, "windup-report")
+			analyzerOutputPath := filepath.Join(tmpDir, "analyzer-output.yaml")
+			windupCmd := execution.WindupCmd{
+				Command: execution.Command{
+					BinPath: "/usr/bin/windup-cli",
+					Env: []string{
+						"JAVA_HOME=/java-11-openjdk",
+						"JAVA_VERSION=11",
+					},
+					OutputPath:     windupOutputPath,
+					SourceCodePath: appPath,
+					WorkDirPath:    tmpDir,
+					Targets:        strings.Split(targets, ","),
+				},
+				SourceMode: true,
+				WithDeps:   true,
+			}
+			err = windupCmd.Run()
+			if err != nil {
+				log.Fatalf("failed running windup - %v", err)
+			}
+			analyzerCmd := execution.AnalyzerCmd{
+				Command: execution.Command{
+					BinPath:        "/usr/bin/konveyor-analyzer",
+					OutputPath:     analyzerOutputPath,
+					SourceCodePath: appPath,
+					WorkDirPath:    tmpDir,
+					Targets:        strings.Split(targets, ","),
+				},
+				RulesPath:     "/rules/",
+				LabelSelector: "technology-usage || discovery",
+			}
+			err = analyzerCmd.Run()
+			if err != nil {
+				log.Fatalf("failed running analyzer - %v", err)
+			}
+			ruleset, err := report.ParseViolations(analyzerOutputPath)
+			if err != nil {
+				log.Fatalf("failed to parse analyzer report at %s", analyzerOutputPath)
+			}
+			windupIssues, err := report.ParseIssuesJson(windupOutputPath)
+			if err != nil {
+				log.Fatalf("failed to parse windup report at %s", windupOutputPath)
+			}
+			result := report.CompareRuleset(windupIssues.AsRuleset(), ruleset)
+			log.Println(result.String())
 		}
 	default:
 		fmt.Println(help)
