@@ -15,8 +15,9 @@ import (
 )
 
 type analyzerRules struct {
-	rules    []map[string]interface{}
-	metadata windup.Metadata
+	rules        []map[string]interface{}
+	metadata     windup.Metadata
+	relativePath string
 }
 
 func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string) (map[string]*analyzerRules, error) {
@@ -37,6 +38,7 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 		}
 		outputRulesets[yamlPath].rules = append(outputRulesets[yamlPath].rules, ruleset...)
 		outputRulesets[yamlPath].metadata = windupRuleset.Metadata
+		outputRulesets[yamlPath].relativePath = rulesetRelativePath
 	}
 	for path, ruleset := range outputRulesets {
 		dirName := filepath.Dir(path)
@@ -45,10 +47,12 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 			fmt.Printf("Skipping because of an error creating %s: %s\n", path, err.Error())
 			continue
 		}
+		rsLabels := getRulesetLabels(ruleset.metadata)
+		rsLabels = append(rsLabels, ruleset.relativePath)
 		analyzerRuleset := hubapi.RuleSet{
 			Name:        strings.Replace(filepath.Base(path), ".windup.yaml", "", 1),
 			Description: string(ruleset.metadata.Description),
-			Labels:      getRulesetLabels(ruleset.metadata),
+			Labels:      rsLabels,
 		}
 		rulesetGoldenFilePath := filepath.Join(dirName, "ruleset.yaml")
 		err = writeYAML(analyzerRuleset, rulesetGoldenFilePath)
@@ -145,15 +149,25 @@ func getRulesetLabels(m windup.Metadata) []string {
 	labels := []string{}
 	// convert source / target technologies to labels
 	for _, sourceTech := range m.SourceTechnology {
-		for _, version := range getVersionsFromMavenVersionRange(sourceTech.VersionRange) {
+		versions := getVersionsFromMavenVersionRange(sourceTech.VersionRange)
+		for _, version := range versions {
 			labels = append(labels,
 				fmt.Sprintf("%s=%s%s", hubapi.SourceTechnologyLabel, sourceTech.Id, version))
 		}
+		if len(versions) == 0 {
+			labels = append(labels,
+				fmt.Sprintf("%s=%s", hubapi.SourceTechnologyLabel, sourceTech.Id))
+		}
 	}
 	for _, targetTech := range m.TargetTechnology {
-		for _, version := range getVersionsFromMavenVersionRange(targetTech.VersionRange) {
+		versions := getVersionsFromMavenVersionRange(targetTech.VersionRange)
+		for _, version := range versions {
 			labels = append(labels,
 				fmt.Sprintf("%s=%s%s", hubapi.TargetTechnologyLabel, targetTech.Id, version))
+		}
+		if len(versions) == 0 {
+			labels = append(labels,
+				fmt.Sprintf("%s=%s", hubapi.TargetTechnologyLabel, targetTech.Id))
 		}
 	}
 	// rulesets have <tags> too
