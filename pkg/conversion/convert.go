@@ -290,14 +290,14 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	}
 	if windupWhen.Filecontent != nil {
 		for _, fc := range windupWhen.Filecontent {
-			var files string
-			if fc.Filename != "" {
-				files = fc.Filename
-			}
+			//var files string
+			//if fc.Filename != "" {
+			//files = fc.Filename
+			//}
 			condition := map[string]interface{}{
 				"builtin.filecontent": map[string]interface{}{
-					"pattern":     strings.Replace(substituteWhere(where, fc.Pattern), "{*}", "*", -1),
-					"filePattern": files,
+					"pattern": strings.Replace(substituteWhere(where, fc.Pattern), "{*}", "*", -1),
+					//"filePattern": files,
 				},
 			}
 			if fc.As != "" {
