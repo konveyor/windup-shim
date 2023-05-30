@@ -131,6 +131,9 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 			if perform["effort"] != nil {
 				rule["effort"] = perform["effort"]
 			}
+			if perform["description"] != nil {
+				rule["description"] = perform["description"]
+			}
 			// for k, v := range perform {
 			// 	rule[k] = v
 			// }
@@ -169,6 +172,9 @@ func getRulesetLabels(m windup.Metadata) []string {
 			labels = append(labels,
 				fmt.Sprintf("%s=%s", hubapi.TargetTechnologyLabel, targetTech.Id))
 		}
+	}
+	if m.Phase != "" {
+		labels = append(labels, fmt.Sprintf("phase=%v", m.Phase))
 	}
 	// rulesets have <tags> too
 	labels = append(labels, m.Tag...)
@@ -628,6 +634,9 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 			}
 			if classification.Title != "" {
 				tags = append(tags, classification.Title)
+			}
+			if len(classification.Description) == 1 {
+				ret["description"] = classification.Description[0]
 			}
 		}
 		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
