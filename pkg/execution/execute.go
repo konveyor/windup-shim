@@ -145,18 +145,22 @@ func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string) (s
 	providerConfig := []provider.Config{
 		{
 			Name: "java",
-			InitConfig: provider.InitConfig{
-				Location:      javaDataDir,
-				LSPServerPath: "/jdtls/bin/jdtls",
-				ProviderSpecificConfig: map[string]interface{}{
-					"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+			InitConfig: []provider.InitConfig{
+				{
+					Location:      javaDataDir,
+					LSPServerPath: "/jdtls/bin/jdtls",
+					ProviderSpecificConfig: map[string]interface{}{
+						"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+					},
 				},
 			},
 		},
 		{
 			Name: "builtin",
-			InitConfig: provider.InitConfig{
-				Location: datadir,
+			InitConfig: []provider.InitConfig{
+				{
+					Location: datadir,
+				},
 			},
 		}}
 	err = writeJSON(providerConfig, filepath.Join(dir, "provider_config.json"))

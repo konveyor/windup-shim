@@ -52,7 +52,6 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 		analyzerRuleset := hubapi.RuleSet{
 			Name:        strings.Replace(filepath.Base(path), ".windup.yaml", "", 1),
 			Description: string(ruleset.metadata.Description),
-			Labels:      rsLabels,
 		}
 		rulesetGoldenFilePath := filepath.Join(dirName, "ruleset.yaml")
 		err = writeYAML(analyzerRuleset, rulesetGoldenFilePath)
@@ -291,8 +290,15 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	}
 	if windupWhen.Filecontent != nil {
 		for _, fc := range windupWhen.Filecontent {
+			//var files string
+			//if fc.Filename != "" {
+			//files = fc.Filename
+			//}
 			condition := map[string]interface{}{
-				"builtin.filecontent": strings.Replace(substituteWhere(where, fc.Pattern), "{*}", "*", -1),
+				"builtin.filecontent": map[string]interface{}{
+					"pattern": strings.Replace(substituteWhere(where, fc.Pattern), "{*}", "*", -1),
+					//"filePattern": files,
+				},
 			}
 			if fc.As != "" {
 				condition["as"] = fc.As
@@ -385,9 +391,11 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				in := substituteWhere(where, xf.In)
 				if strings.Contains(in, "{*}") {
 					conditions = append(conditions, map[string]interface{}{
-						"builtin.file": strings.Replace(escapeDots(xf.In), "{*}", ".*", -1),
-						"as":           "xmlfiles",
-						"ignore":       true,
+						"builtin.file": map[string]interface{}{
+							"pattern": strings.Replace(escapeDots(xf.In), "{*}", ".*", -1),
+						},
+						"as":     "xmlfiles",
+						"ignore": true,
 					})
 					xmlCond["from"] = "xmlfiles"
 					xmlCond["filepaths"] = "{{xmlfiles.filepaths}}"
@@ -421,7 +429,9 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.File != nil {
 		for _, f := range windupWhen.File {
 			condition := map[string]interface{}{
-				"builtin.file": strings.Replace(escapeDots(substituteWhere(where, f.Filename)), "{*}", ".*", -1),
+				"builtin.file": map[string]interface{}{
+					"pattern": strings.Replace(escapeDots(substituteWhere(where, f.Filename)), "{*}", ".*", -1),
+				},
 			}
 			if f.As != "" {
 				condition["as"] = f.As
@@ -437,7 +447,9 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.Fileexists != nil {
 		for _, f := range windupWhen.Fileexists {
 			condition := map[string]interface{}{
-				"builtin.file": strings.Replace(escapeDots(substituteWhere(where, f.Filename)), "{*}", ".*", -1),
+				"builtin.file": map[string]interface{}{
+					"pattern": strings.Replace(escapeDots(substituteWhere(where, f.Filename)), "{*}", ".*", -1),
+				},
 			}
 			conditions = append(conditions, condition)
 		}
@@ -537,7 +549,9 @@ func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[s
 func convertWindupGraphQueryJarArchiveModel(gq windup.Graphquery) map[string]interface{} {
 	if gq.Property.Name == "fileName" {
 		return map[string]interface{}{
-			"builtin.file": gq.Property.Value,
+			"builtin.file": map[string]interface{}{
+				"pattern": gq.Property.Value,
+			},
 		}
 	}
 
@@ -556,10 +570,14 @@ func convertWindupGraphQueryJspSourceFileModel(gq windup.Graphquery) map[string]
 	return map[string]interface{}{
 		"or": []map[string]interface{}{
 			{
-				"builtin.filecontent": "<%@\\s*page\\s+[^>]*\\s*import\\s*=\\s*['\"]([^'\"]+)['\"].*?%>",
+				"builtin.filecontent": map[string]interface{}{
+					"pattern": "<%@\\s*page\\s+[^>]*\\s*import\\s*=\\s*['\"]([^'\"]+)['\"].*?%>",
+				},
 			},
 			{
-				"builtin.filecontent": "<%@\\s*taglib\\s+[^>]*\\s*uri\\s*=\\s*['\"]([^'\"]+)['\"].*?%>",
+				"builtin.filecontent": map[string]interface{}{
+					"pattern": "<%@\\s*taglib\\s+[^>]*\\s*uri\\s*=\\s*['\"]([^'\"]+)['\"].*?%>",
+				},
 			},
 		},
 	}
@@ -569,7 +587,9 @@ func convertWindupGraphQueryJspSourceFileModel(gq windup.Graphquery) map[string]
 func convertWindupGraphQueryJsfSourceFile(gq windup.Graphquery) map[string]interface{} {
 	// FIXME: scope the search in files matching '*.jsp, *.xhtml, *.jspx'
 	return map[string]interface{}{
-		"builtin.filecontent": "(java\\.sun\\.com/jsf/)|(xmlns\\.jcp\\.org/jsf)",
+		"builtin.filecontent": map[string]interface{}{
+			"pattern": "(java\\.sun\\.com/jsf/)|(xmlns\\.jcp\\.org/jsf)",
+		},
 	}
 }
 

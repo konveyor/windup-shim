@@ -3,7 +3,7 @@ module github.com/fabianvf/windup-rulesets-yaml
 go 1.18
 
 require (
-	github.com/konveyor/analyzer-lsp v0.0.0-20230519142700-b773a844278a
+	github.com/konveyor/analyzer-lsp v0.0.0-20230530191123-7b2eb2ad3c66
 	gopkg.in/yaml.v2 v2.4.0
 )
 
