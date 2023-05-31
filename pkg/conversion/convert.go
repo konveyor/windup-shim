@@ -21,6 +21,12 @@ type analyzerRules struct {
 }
 
 func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string) (map[string]*analyzerRules, error) {
+	// Write discovery rules
+	err := writeDiscoveryRules(outputDir)
+	if err != nil {
+		return nil, err
+	}
+
 	outputRulesets := map[string]*analyzerRules{}
 	for idx, windupRuleset := range windups {
 		ruleset := ConvertWindupRulesetToAnalyzer(windupRuleset)
@@ -733,4 +739,23 @@ func writeYAML(content interface{}, dest string) error {
 // some dots require escaping where they will be treated as a wildcard otherwise
 func escapeDots(inp string) string {
 	return regexp.MustCompile(`\.([^*])`).ReplaceAllString(inp, `\.$1`)
+}
+
+func writeDiscoveryRules(dir string) error {
+	defaultRulesetPath := filepath.Join(dir, "00-discovery")
+	err := os.MkdirAll(defaultRulesetPath, os.ModePerm)
+	if err != nil {
+		return err
+	}
+	// Write base discovery rule to disk
+	err = os.WriteFile(filepath.Join(defaultRulesetPath, "0.yaml"), []byte(GetDiscoveryRules()), 0666)
+	if err != nil {
+		return err
+	}
+	// Write base discovery ruleset to disk
+	err = os.WriteFile(filepath.Join(defaultRulesetPath, "ruleset.yaml"), []byte(GetDiscoveryRuleset()), 0666)
+	if err != nil {
+		return err
+	}
+	return nil
 }
