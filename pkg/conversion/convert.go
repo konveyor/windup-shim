@@ -21,7 +21,7 @@ type analyzerRules struct {
 	relativePath string
 }
 
-func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string) (map[string]*analyzerRules, error) {
+func ConvertWindupRulesetsToAnalyzer(flattenRulesets bool, windups []windup.Ruleset, baseLocation, outputDir string) (map[string]*analyzerRules, error) {
 	// Write discovery rules
 	err := writeDiscoveryRules(outputDir)
 	if err != nil {
@@ -34,13 +34,18 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 		rulesetRelativePath := strings.Trim(strings.Replace(strings.Replace(windupRuleset.SourceFile, baseLocation, "", 1), filepath.Base(windupRuleset.SourceFile), "", 1), "/")
 		rulesetFileName := strings.Replace(filepath.Base(windupRuleset.SourceFile), ".xml", ".yaml", 1)
 		yamlPath := filepath.Join(outputDir, rulesetRelativePath, fmt.Sprintf("%.02d-%s", idx+1, strings.Replace(rulesetFileName, ".windup.yaml", "", 1)), rulesetFileName)
+		if flattenRulesets {
+			flattenedRelativePath := strings.Split(rulesetRelativePath, string(os.PathSeparator))[0]
+			yamlPath = filepath.Join(outputDir, flattenedRelativePath, rulesetFileName)
+		}
 		if reflect.DeepEqual(ruleset, map[string]interface{}{}) {
 			continue
 		}
 		if _, ok := outputRulesets[yamlPath]; !ok {
 			outputRulesets[yamlPath] = &analyzerRules{
-				rules:    []map[string]interface{}{},
-				metadata: windupRuleset.Metadata,
+				rules:        []map[string]interface{}{},
+				metadata:     windupRuleset.Metadata,
+				relativePath: rulesetRelativePath,
 			}
 		}
 		outputRulesets[yamlPath].rules = append(outputRulesets[yamlPath].rules, ruleset...)
@@ -54,17 +59,9 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 			fmt.Printf("Skipping because of an error creating %s: %s\n", path, err.Error())
 			continue
 		}
-		rsLabels := getRulesetLabels(ruleset.metadata)
-		rsLabels = append(rsLabels, ruleset.relativePath)
-		analyzerRuleset := engine.RuleSet{
-			Name:        strings.Replace(filepath.Base(path), ".windup.yaml", "", 1),
-			Description: string(ruleset.metadata.Description),
-			Labels:      rsLabels,
-		}
-		rulesetGoldenFilePath := filepath.Join(dirName, "ruleset.yaml")
-		err = writeYAML(analyzerRuleset, rulesetGoldenFilePath)
+		err = writeRuleset(path, ruleset)
 		if err != nil {
-			fmt.Printf("Skipping because of an error writing ruleset golden file to %s: %s\n", rulesetGoldenFilePath, err.Error())
+			fmt.Printf("Skipping because of an error creating ruleset.yaml for %s: %s\n", path, err.Error())
 			continue
 		}
 		err = writeYAML(ruleset.rules, path)
@@ -74,6 +71,48 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 		}
 	}
 	return outputRulesets, nil
+}
+
+func writeRuleset(path string, r *analyzerRules) error {
+	rsLabels := getRulesetLabels(r.metadata)
+	rsLabels = append(rsLabels, r.relativePath)
+	var ruleset engine.RuleSet
+	if _, err := os.Stat(path); err == nil {
+		content, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		err = yaml.Unmarshal(content, &ruleset)
+		if err != nil {
+			return err
+		}
+	}
+	if ruleset.Name == "" {
+		ruleset = engine.RuleSet{
+			Name:        r.relativePath,
+			Description: string(r.metadata.Description),
+			Labels:      rsLabels,
+		}
+	}
+	if ruleset.Labels == nil {
+		ruleset.Labels = []string{}
+	}
+	dedupLabels := map[string]bool{}
+	for _, label := range ruleset.Labels {
+		dedupLabels[label] = true
+	}
+	for _, ruleLabel := range rsLabels {
+		if _, ok := dedupLabels[ruleLabel]; !ok {
+			dedupLabels[ruleLabel] = true
+		}
+	}
+	rulesetGoldenFilePath := filepath.Join(filepath.Dir(path), "ruleset.yaml")
+	err := writeYAML(ruleset, rulesetGoldenFilePath)
+	if err != nil {
+		fmt.Printf("Skipping because of an error writing ruleset golden file to %s: %s\n", rulesetGoldenFilePath, err.Error())
+		return err
+	}
+	return nil
 }
 
 func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interface{} {
@@ -96,6 +135,7 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		// fmt.Println(string(formatted))
 		rule := map[string]interface{}{
 			"ruleID": ruleId,
+			"labels": getRulesetLabels(ruleset.Metadata),
 		}
 
 		where := flattenWhere(windupRule.Where)
@@ -125,7 +165,13 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 				rule["message"] = perform["message"]
 			}
 			if perform["labels"] != nil {
-				rule["labels"] = perform["labels"]
+				labelsSlice, ok := rule["labels"].([]string)
+				if ok {
+					performLabels, ok := perform["labels"].([]string)
+					if ok {
+						rule["labels"] = append(labelsSlice, performLabels...)
+					}
+				}
 			}
 			// Dedup tags
 			if len(tags) != 0 {
