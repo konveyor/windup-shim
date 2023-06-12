@@ -21,7 +21,7 @@ type analyzerRules struct {
 	relativePath string
 }
 
-func ConvertWindupRulesetsToAnalyzer(flattenRulesets bool, windups []windup.Ruleset, baseLocation, outputDir string) (map[string]*analyzerRules, error) {
+func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string, flattenRulesets bool) (map[string]*analyzerRules, error) {
 	// Write discovery rules
 	err := writeDiscoveryRules(outputDir)
 	if err != nil {
@@ -36,7 +36,7 @@ func ConvertWindupRulesetsToAnalyzer(flattenRulesets bool, windups []windup.Rule
 		yamlPath := filepath.Join(outputDir, rulesetRelativePath, fmt.Sprintf("%.02d-%s", idx+1, strings.Replace(rulesetFileName, ".windup.yaml", "", 1)), rulesetFileName)
 		if flattenRulesets {
 			flattenedRelativePath := strings.Split(rulesetRelativePath, string(os.PathSeparator))[0]
-			yamlPath = filepath.Join(outputDir, flattenedRelativePath, rulesetFileName)
+			yamlPath = filepath.Join(outputDir, flattenedRelativePath, fmt.Sprintf("%.02d-%s", idx+1, rulesetFileName))
 		}
 		if reflect.DeepEqual(ruleset, map[string]interface{}{}) {
 			continue
@@ -59,7 +59,7 @@ func ConvertWindupRulesetsToAnalyzer(flattenRulesets bool, windups []windup.Rule
 			fmt.Printf("Skipping because of an error creating %s: %s\n", path, err.Error())
 			continue
 		}
-		err = writeRuleset(path, ruleset)
+		err = writeRuleset(path, ruleset, flattenRulesets)
 		if err != nil {
 			fmt.Printf("Skipping because of an error creating ruleset.yaml for %s: %s\n", path, err.Error())
 			continue
@@ -73,40 +73,22 @@ func ConvertWindupRulesetsToAnalyzer(flattenRulesets bool, windups []windup.Rule
 	return outputRulesets, nil
 }
 
-func writeRuleset(path string, r *analyzerRules) error {
+func writeRuleset(path string, r *analyzerRules, flattenRulesets bool) error {
+	rulesetGoldenFilePath := filepath.Join(filepath.Dir(path), "ruleset.yaml")
+	// generate labels for the new ruleset we want to create
 	rsLabels := getRulesetLabels(r.metadata)
 	rsLabels = append(rsLabels, r.relativePath)
-	var ruleset engine.RuleSet
-	if _, err := os.Stat(path); err == nil {
-		content, err := os.ReadFile(path)
-		if err != nil {
-			return err
-		}
-		err = yaml.Unmarshal(content, &ruleset)
-		if err != nil {
-			return err
-		}
+	// find existing ruleset.yaml file and load metadata, this
+	// is needed when we don't split rulesets into subdirs, we merge metadata
+	ruleset := engine.RuleSet{
+		Name:        r.relativePath,
+		Description: string(r.metadata.Description),
+		Labels:      []string{},
 	}
-	if ruleset.Name == "" {
-		ruleset = engine.RuleSet{
-			Name:        r.relativePath,
-			Description: string(r.metadata.Description),
-			Labels:      rsLabels,
-		}
+	// when rulesets are flattened, only the rule labels will be used
+	if !flattenRulesets {
+		ruleset.Labels = rsLabels
 	}
-	if ruleset.Labels == nil {
-		ruleset.Labels = []string{}
-	}
-	dedupLabels := map[string]bool{}
-	for _, label := range ruleset.Labels {
-		dedupLabels[label] = true
-	}
-	for _, ruleLabel := range rsLabels {
-		if _, ok := dedupLabels[ruleLabel]; !ok {
-			dedupLabels[ruleLabel] = true
-		}
-	}
-	rulesetGoldenFilePath := filepath.Join(filepath.Dir(path), "ruleset.yaml")
 	err := writeYAML(ruleset, rulesetGoldenFilePath)
 	if err != nil {
 		fmt.Printf("Skipping because of an error writing ruleset golden file to %s: %s\n", rulesetGoldenFilePath, err.Error())
