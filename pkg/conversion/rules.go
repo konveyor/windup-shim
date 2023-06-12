@@ -4,66 +4,32 @@ import "strings"
 
 // TODO: scope license file search to LICENSE files and use templates for tags to convert individual rules into one rule
 const license_rules = `
-- ruleID: apache-license-1
-  description: "Apache 1.0 license file"
+- ruleID: discover-license
+  description: "Discover project license"
+  tag:
+  - License={{matchingText}}
   when:
-    builtin.filecontent:
-      pattern: "Apache License 1.0"
-  tag: ["Apache License 1.0"]
-- ruleID: apache-license-11
-  description: "Apache 1.1 license file"
-  when:
-    builtin.filecontent:
-      pattern: "Apache License 1.1"
-  tag: ["Apache License 1.1"]
-- ruleID: apache-license-2
-  description: "Apache 2.0 license file"
-  when:
-    builtin.filecontent:
-      pattern: "Apache License 2.0"
-  tag: ["Apache License 2.0"]
-- ruleID: mozilla-public-2-license
-  description: "Mozilla Public 2.0 license file"
-  when:
-    builtin.filecontent:
-      pattern: "Mozilla Public License 2.0"
-  tag: ["Mozilla Public License 2.0"]
-- ruleID: gnu-gpl-license
-  description: "GNU GPL license file"
-  when:
-    builtin.filecontent:
-      pattern: "GNU GPL"
-  tag: ["GNU GPL"]
-- ruleID: gnu-lgpl-license
-  description: "GNU LGPL license file"
-  when:
-    builtin.filecontent:
-      pattern: "GNU LGPL"
-  tag: ["GNU LGPL"]
-- ruleID: cddl-license
-  description: "CDDL license file"
-  when:
-    builtin.filecontent:
-      pattern: "CDDL"
-  tag: ["CDDL"]
-- ruleID: eclipse-public-license
-  description: "Eclipse public license file"
-  when:
-    builtin.filecontent:
-      pattern: "Eclipse Public License 1.0"
-  tag: ["Eclipse Public License 1.0"]
-- ruleID: bsd-license
-  description: "BSD license file"
-  when:
-    builtin.filecontent:
-      pattern: "BSD License"
-  tag: ["BSD License"]
-- ruleID: pd-license
-  description: "Public domain license file"
-  when:
-    builtin.filecontent:
-      pattern: "Public Domain License"
-  tag: ["Public Domain License"]
+    or:
+    - builtin.filecontent:
+        pattern: "Apache License 1.0"
+    - builtin.filecontent:
+        pattern: "Apache License 1.1"
+    - builtin.filecontent:
+        pattern: "Apache License 2.0"
+    - builtin.filecontent:
+        pattern: "Mozilla Public License 2.0"
+    - builtin.filecontent:
+        pattern: "GNU GPL"
+    - builtin.filecontent:
+        pattern: "GNU LGPL"
+    - builtin.filecontent:
+        pattern: "CDDL"
+    - builtin.filecontent:
+        pattern: "Eclipse Public License 1.0"
+    - builtin.filecontent:
+        pattern: "BSD License"
+    - builtin.filecontent:
+        pattern: "Public Domain License"
 `
 
 // converted from https://github.com/windup/windup/blob/master/rules-java/api/src/main/java/org/jboss/windup/rules/apps/java/
@@ -76,6 +42,7 @@ const java_rules = `
   when:
     builtin.filecontent:
       pattern: ([0-9]{1,3}\.){3}[0-9]{1,3}
+      filePattern: ".*\\.(java|properties)"
   category: mandatory
   effort: 1
   message: "When migrating environments, hard-coded IP addresses may need to be modified or eliminated."
@@ -113,11 +80,16 @@ const java_ee_rules = `
       xpath: "/(jboss:ejb-jar or ejb-jar)"
 - ruleID: windup-discover-spring-configuration
   tag: ["Spring XML"]
+  labels:
+  - "konveyor.io/fact=Spring Beans"
   when:
     builtin.xml:
       xpath: "/beans"
 - ruleID: windup-discover-jpa-configuration
+  labels:
+  - "konveyor.io/fact=JPA"
   tag: ["JPA XML"]
+  message: "Persistence unit"
   when:
     or:
       - builtin.xml:
@@ -132,6 +104,95 @@ const java_ee_rules = `
     # TODO extract version as in rules-java-ee/addon/src/main/java/org/jboss/windup/rules/apps/javaee/rules/DiscoverWebXmlRuleProvider.java
     builtin.xml:
       xpath: /web-app
+- ruleID: ejb-stateless-000
+  labels:
+  - "konveyor.io/fact=EJB"
+  message: "Stateless session bean {{name}}"
+  description: Stateless session beans
+  when:
+    or:
+    - java.referenced:
+        location: IMPLEMENTS_TYPE
+        pattern: "(javax|jakarta).ejb.SessionBean"
+    - java.referenced:
+        location: ANNOTATION
+        pattern: "(javax|jakarta).ejb.Stateless"
+- ruleID: ejb-stateful-000
+  labels:
+  - "konveyor.io/fact=EJB"
+  message: "Stateful session bean {{name}}"
+  description: Stateful session beans
+  when:
+    java.referenced:
+      location: ANNOTATION
+      pattern: "(javax|jakarta).ejb.Stateful"
+- ruleID: ejb-entity-000
+  labels:
+  - "konveyor.io/fact=EJB"
+  message: "Entity bean {{name}}"
+  description: "Entity beans"
+  when:
+    java.referenced:
+      location: IMPLEMENTS_TYPE
+      pattern: "(javax|jakarta).ejb.EntityBean"
+- ruleID: ejb-message-driven-000
+  labels:
+  - "konveyor.io/fact=EJB"
+  message: "Message driven bean {{name}}"
+  description: "Message driven beans"
+  when:
+    or:
+    - java.referenced:
+        location: IMPLEMENTS_TYPE
+        pattern: "(javax|jakarta).ejb.MessageDrivenBean"
+    - java.referenced:
+        location: ANNOTATION
+        pattern: "(javax|jakarta).ejb.MessageDriven"
+- ruleID: ejb-home-000
+  labels:
+  - "konveyor.io/fact=EJB"
+  message: "EJB Home {{name}}"
+  description: "EJB Homes"
+  when:
+    java.referenced:
+      location: INHERITANCE
+      pattern: "(javax|jakarta).ejb.(EJBHome|EJBLocalHome)"
+- ruleID: ejb-object-000
+  labels:
+  - "konveyor.io/fact=EJB"
+  message: "EJB Object {{name}}"
+  description: "EJB Objects"
+  when:
+    java.referenced:
+      location: INHERITANCE
+      pattern: "(javax|jakarta).ejb.(EJBObject|EJBLocalObject)"
+- ruleID: jpa-entity-000
+  labels:
+  - "konveyor.io/fact=JPA"
+  message: "JPA Entity {{name}}"
+  description: "JPA Entities"
+  when:
+    java.referenced:
+      location: ANNOTATION
+      pattern: "(javax|jakarta).persistence.Entity"
+- ruleID: jpa-table-000
+  labels:
+  - "konveyor.io/fact=JPA"
+  message: "JPA Table {{name}}"
+  description: "JPA Tables"
+  when:
+    java.referenced:
+      location: ANNOTATION
+      pattern: "(javax|jakarta).persistence.Table"
+- ruleID: jpa-query-000
+  labels:
+  - "konveyor.io/fact=JPA"
+  message: "JPA Named Query {{name}}"
+  description: "JPA Named Queries"
+  when:
+    java.referenced:
+      location: ANNOTATION
+      pattern: "(javax|jakarta).persistence.(NamedQuery|NamedQueries)"
 `
 
 func GetDiscoveryRules() string {
