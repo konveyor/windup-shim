@@ -570,19 +570,18 @@ func convertWindupGraphQueryJarArchiveModel(gq windup.Graphquery) map[string]int
 
 // Converts graph queries for JspSourceFileModel
 func convertWindupGraphQueryJspSourceFileModel(gq windup.Graphquery) map[string]interface{} {
-	// FIXME: this is a rudimentary way of finding the jsp info,
-	// when we have filepaths support in filecontent, scope search
-	// on files matching '*.jsp, *.jspx, *.tag, *.tagx' for accuracy
 	return map[string]interface{}{
 		"or": []map[string]interface{}{
 			{
 				"builtin.filecontent": map[string]interface{}{
-					"pattern": "<%@\\s*page\\s+[^>]*\\s*import\\s*=\\s*['\"]([^'\"]+)['\"].*?%>",
+					"pattern":     "<%@\\s*page\\s+[^>]*\\s*import\\s*=\\s*['\"]([^'\"]+)['\"].*?%>",
+					"filePattern": ".*\\.(jsp|jspx|tag|tagx)",
 				},
 			},
 			{
 				"builtin.filecontent": map[string]interface{}{
-					"pattern": "<%@\\s*taglib\\s+[^>]*\\s*uri\\s*=\\s*['\"]([^'\"]+)['\"].*?%>",
+					"pattern":     "<%@\\s*taglib\\s+[^>]*\\s*uri\\s*=\\s*['\"]([^'\"]+)['\"].*?%>",
+					"filePattern": ".*\\.(jsp|jspx|tag|tagx)",
 				},
 			},
 		},
@@ -591,10 +590,10 @@ func convertWindupGraphQueryJspSourceFileModel(gq windup.Graphquery) map[string]
 
 // Converts graph queries for JsfSourceFile
 func convertWindupGraphQueryJsfSourceFile(gq windup.Graphquery) map[string]interface{} {
-	// FIXME: scope the search in files matching '*.jsp, *.xhtml, *.jspx'
 	return map[string]interface{}{
 		"builtin.filecontent": map[string]interface{}{
-			"pattern": "(java\\.sun\\.com/jsf/)|(xmlns\\.jcp\\.org/jsf)",
+			"pattern":     "(java\\.sun\\.com/jsf/)|(xmlns\\.jcp\\.org/jsf)",
+			"filePattern": ".*\\.(jsp|xhtml|jspx)",
 		},
 	}
 }
