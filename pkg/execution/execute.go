@@ -136,7 +136,7 @@ func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string) (s
 	for _, ruleset := range rulesets {
 		sourceFiles = append(sourceFiles, ruleset.SourceFile)
 	}
-	conversion.ConvertWindupRulesetsToAnalyzer(rulesets, baseLocation, filepath.Join(dir, "rules"))
+	conversion.ConvertWindupRulesetsToAnalyzer(rulesets, baseLocation, filepath.Join(dir, "rules"), true)
 	// Template config file for analyzer
 	providerConfig := []provider.Config{
 		{
