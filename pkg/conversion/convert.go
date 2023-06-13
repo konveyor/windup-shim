@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
+	"github.com/konveyor/analyzer-lsp/engine"
 	"github.com/konveyor/analyzer-lsp/hubapi"
 	"gopkg.in/yaml.v2"
 )
@@ -55,9 +56,10 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 		}
 		rsLabels := getRulesetLabels(ruleset.metadata)
 		rsLabels = append(rsLabels, ruleset.relativePath)
-		analyzerRuleset := hubapi.RuleSet{
+		analyzerRuleset := engine.RuleSet{
 			Name:        strings.Replace(filepath.Base(path), ".windup.yaml", "", 1),
 			Description: string(ruleset.metadata.Description),
+			Labels:      rsLabels,
 		}
 		rulesetGoldenFilePath := filepath.Join(dirName, "ruleset.yaml")
 		err = writeYAML(analyzerRuleset, rulesetGoldenFilePath)

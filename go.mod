@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/konveyor/analyzer-lsp v0.0.0-20230530191123-7b2eb2ad3c66
+	go.lsp.dev/uri v0.3.0
 	gopkg.in/yaml.v2 v2.4.0
 )
 
@@ -19,7 +20,6 @@ require (
 	github.com/invopop/yaml v0.1.0 // indirect
 	github.com/mailru/easyjson v0.0.0-20190626092158-b2ccc519800e // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
-	go.lsp.dev/uri v0.3.0 // indirect
 	go.opentelemetry.io/otel v1.11.2 // indirect
 	go.opentelemetry.io/otel/exporters/jaeger v1.11.2 // indirect
 	go.opentelemetry.io/otel/sdk v1.11.2 // indirect
