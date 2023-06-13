@@ -46,6 +46,16 @@ func Test_parseMavenVersionRange(t *testing.T) {
 			verRange: "[6,)",
 			want:     []string{"6+"},
 		},
+		{
+			name:     "case 8",
+			verRange: "[6]",
+			want:     []string{"6"},
+		},
+		{
+			name:     "case 9",
+			verRange: "[2.0,2.1,2.2,2.3]",
+			want:     []string{"2"},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
