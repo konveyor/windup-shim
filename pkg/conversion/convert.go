@@ -30,13 +30,20 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 
 	outputRulesets := map[string]*analyzerRules{}
 	for idx, windupRuleset := range windups {
+		// used for ordering rulesets
+		counter := idx + 1
 		ruleset := ConvertWindupRulesetToAnalyzer(windupRuleset)
 		rulesetRelativePath := strings.Trim(strings.Replace(strings.Replace(windupRuleset.SourceFile, baseLocation, "", 1), filepath.Base(windupRuleset.SourceFile), "", 1), "/")
 		rulesetFileName := strings.Replace(filepath.Base(windupRuleset.SourceFile), ".xml", ".yaml", 1)
-		yamlPath := filepath.Join(outputDir, rulesetRelativePath, fmt.Sprintf("%.02d-%s", idx+1, strings.Replace(rulesetFileName, ".windup.yaml", "", 1)), rulesetFileName)
+		// technology-usage rulesets are meant to run after their respective discovery rulesets
+		// we don't have such ordering in analyzers, this is a hack to make analyzers pick in order
+		if strings.Contains(rulesetFileName, "technology-usage") {
+			counter = len(windups) - idx + 1
+		}
+		yamlPath := filepath.Join(outputDir, rulesetRelativePath, fmt.Sprintf("%.02d-%s", counter, strings.Replace(rulesetFileName, ".windup.yaml", "", 1)), rulesetFileName)
 		if flattenRulesets {
 			flattenedRelativePath := strings.Split(rulesetRelativePath, string(os.PathSeparator))[0]
-			yamlPath = filepath.Join(outputDir, flattenedRelativePath, fmt.Sprintf("%.02d-%s", idx+1, rulesetFileName))
+			yamlPath = filepath.Join(outputDir, flattenedRelativePath, fmt.Sprintf("%.02d-%s", counter, rulesetFileName))
 		}
 		if reflect.DeepEqual(ruleset, map[string]interface{}{}) {
 			continue
@@ -117,9 +124,8 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		// fmt.Println(string(formatted))
 		rule := map[string]interface{}{
 			"ruleID": ruleId,
-			"labels": getRulesetLabels(ruleset.Metadata),
 		}
-
+		labels := getRulesetLabels(ruleset.Metadata)
 		where := flattenWhere(windupRule.Where)
 		if !reflect.DeepEqual(windupRule.When, windup.When{}) {
 			when, customVars := convertWindupWhenToAnalyzer(windupRule.When, where)
@@ -138,21 +144,38 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		// TODO Rule.Perform
 		if !reflect.DeepEqual(windupRule.Perform, windup.Iteration{}) {
 			perform := convertWindupPerformToAnalyzer(windupRule.Perform, where)
-			// TODO only support a single action in perform right now, default to hint
 			tags, ok := perform["tag"].([]string)
 			if !ok {
 				tags = nil
 			}
+			links := []interface{}{}
+			if windupLinks, ok := perform["links"].([]interface{}); ok {
+				for _, windupLink := range windupLinks {
+					if lnk, ok := windupLink.(windup.Link); ok {
+						links = append(links, map[string]interface{}{
+							"url":   lnk.HRef,
+							"title": lnk.Title,
+						})
+					}
+				}
+			}
+			rule["links"] = links
+
+			if perform["category"] != nil {
+				rule["category"] = perform["category"]
+			}
+			description := ""
 			if perform["message"] != nil {
 				rule["message"] = perform["message"]
+				// if message doesn't contain a template, add it to the description too
+				if msg, ok := perform["message"].(string); ok &&
+					!strings.Contains(msg, "{{") {
+					description = msg
+				}
 			}
 			if perform["labels"] != nil {
-				labelsSlice, ok := rule["labels"].([]string)
-				if ok {
-					performLabels, ok := perform["labels"].([]string)
-					if ok {
-						rule["labels"] = append(labelsSlice, performLabels...)
-					}
+				if performLabels, ok := perform["labels"].([]string); ok {
+					labels = append(labels, performLabels...)
 				}
 			}
 			// Dedup tags
@@ -160,14 +183,19 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 				rule["tag"] = tags
 			}
 			if rule["message"] == nil && rule["tag"] == nil {
-				fmt.Println("\n\nNo action parsed\n\n")
+				fmt.Println("\n\nNo action parsed")
 				continue
 			}
 			if perform["effort"] != nil {
 				rule["effort"] = perform["effort"]
 			}
 			if perform["description"] != nil {
-				rule["description"] = perform["description"]
+				if dsc, ok := perform["description"].(string); ok {
+					description = strings.Join([]string{dsc, description}, "\n")
+				}
+			}
+			if description != "" {
+				rule["description"] = description
 			}
 			// for k, v := range perform {
 			// 	rule[k] = v
@@ -175,6 +203,17 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		} else {
 			continue
 		}
+
+		// dedup labels
+		labelsSet := map[string]bool{}
+		dedupLabels := []string{}
+		for _, label := range labels {
+			if _, ok := labelsSet[label]; !ok {
+				labelsSet[label] = true
+				dedupLabels = append(dedupLabels, label)
+			}
+		}
+		rule["labels"] = dedupLabels
 
 		// TODO - Iteration
 		// TODO Rule.Otherwise
@@ -221,31 +260,34 @@ func getVersionsFromMavenVersionRange(versionRange string) []string {
 	if versionRange == "" {
 		return []string{}
 	}
-	versionRegex := regexp.MustCompile(`^[\(|\[]([\d\.]+)?, *([\d\.]+)?[\]\)]$`)
+	versionRegex := regexp.MustCompile(`^[\(|\[]([\d\.]+)?(, *([\d\.]+)?)*[\]\)]$`)
 	match := versionRegex.FindStringSubmatch(versionRange)
-	if len(match) != 3 {
+	var minVersion, maxVersion string
+	if len(match) != 4 {
 		fmt.Printf("error matching version range '%s'\n", versionRange)
 		return []string{}
 	}
-	minVersion := match[1]
-	maxVersion := match[2]
+	minVersion = match[1]
+	maxVersion = match[3]
 	if minVersion == "" && maxVersion == "" {
 		return []string{}
 	}
-	if minVersion == "" {
+	if minVersion == "" && match[2] != "" {
 		return []string{fmt.Sprintf("%s-", maxVersion)}
 	}
-	if maxVersion == "" {
+	if maxVersion == "" && match[2] != "" {
 		return []string{fmt.Sprintf("%s+", minVersion)}
 	}
-	minVerInt, err := strconv.Atoi(minVersion)
+	minVerFloat, err := strconv.ParseFloat(minVersion, 64)
 	if err != nil {
 		return []string{}
 	}
-	maxVerInt, err := strconv.Atoi(maxVersion)
+	maxVerFloat, err := strconv.ParseFloat(maxVersion, 64)
 	if err != nil {
-		return []string{}
+		return []string{minVersion}
 	}
+	minVerInt := int(minVerFloat)
+	maxVerInt := int(maxVerFloat)
 	if strings.HasSuffix(versionRange, ")") {
 		maxVerInt -= 1
 	}
@@ -632,6 +674,7 @@ func convertWindupGraphQueryJsfSourceFile(gq windup.Graphquery) map[string]inter
 func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]string) map[string]interface{} {
 	ret := map[string]interface{}{}
 	tags := []string{}
+	links := []interface{}{}
 	if perform.Iteration != nil {
 		for _, it := range perform.Iteration {
 			converted := convertWindupPerformToAnalyzer(it, where)
@@ -669,6 +712,21 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		if len(hint.Tag) != 0 {
 			ret["labels"] = hint.Tag
 		}
+
+		// some rules only have title, use that as description
+		if hint.Title != "" {
+			ret["description"] = hint.Title
+		}
+
+		if hint.Categoryid != "" {
+			ret["category"] = convertWindupCategory(hint.Categoryid)
+		}
+
+		if hint.Link != nil {
+			for _, lnk := range hint.Link {
+				links = append(links, lnk)
+			}
+		}
 	}
 	if perform.Technologyidentified != nil {
 		for _, ti := range perform.Technologyidentified {
@@ -687,14 +745,25 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 			if classification.Tag != nil {
 				tags = append(tags, classification.Tag...)
 			}
+			description := ""
 			if classification.Title != "" {
 				tags = append(tags, classification.Title)
+				description = classification.Title
 			}
-			if len(classification.Description) == 1 {
-				ret["description"] = classification.Description[0]
+			if classification.Description != nil {
+				// combine title + description
+				ret["description"] = fmt.Sprintf("%s\n%s", description, strings.Join(classification.Description, "\n"))
+			}
+			if classification.Link != nil {
+				for _, lnk := range classification.Link {
+					links = append(links, lnk)
+				}
+			}
+			if eff, err := strconv.Atoi(string(classification.Effort)); err == nil {
+				ret["effort"] = eff
 			}
 		}
-		// TODO perform.Classification.(Link|Effort|Categoryid|Of|Description|Quickfix|Issuedisplaymode)
+		// TODO perform.Classification.(Categoryid|Of|Quickfix|Issuedisplaymode)
 	}
 	if perform.Lineitem != nil {
 		if len(perform.Lineitem) != 1 {
@@ -716,6 +785,7 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 	} else {
 		ret["tag"] = tags
 	}
+	ret["links"] = links
 	return ret
 }
 
@@ -787,4 +857,17 @@ func writeDiscoveryRules(dir string) error {
 		return err
 	}
 	return nil
+}
+
+func convertWindupCategory(cat string) string {
+	switch cat {
+	case "mandatory", "cloud-mandatory":
+		return string(hubapi.Mandatory)
+	case "optional", "cloud-optional":
+		return string(hubapi.Optional)
+	case "potential":
+		return string(hubapi.Potential)
+	default:
+		return string(hubapi.Potential)
+	}
 }
