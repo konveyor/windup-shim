@@ -34,8 +34,8 @@ WORKDIR /windup-shim
 # For debugging
 COPY go.mod /windup-shim
 COPY go.sum /windup-shim
-COPY  pkg /windup-shim/pkg
-COPY  main.go /windup-shim
+COPY pkg /windup-shim/pkg
+COPY main.go /windup-shim
 
 RUN mkdir /rules/ && /usr/bin/windup-shim convert --outputdir=/rules/ /windup-rulesets/rules/rules-reviewed/
 
