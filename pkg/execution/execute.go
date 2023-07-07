@@ -13,7 +13,7 @@ import (
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/conversion"
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
-	"github.com/konveyor/analyzer-lsp/hubapi"
+	"github.com/konveyor/analyzer-lsp/output/v1/konveyor"
 	"github.com/konveyor/analyzer-lsp/provider"
 	"gopkg.in/yaml.v2"
 )
@@ -253,7 +253,7 @@ func ExecuteTest(test windup.Ruletest, location string) (int, int, error) {
 	return successes, total, err
 }
 
-func getViolations(test windup.Ruletest, baseLocation string) ([]hubapi.RuleSet, error) {
+func getViolations(test windup.Ruletest, baseLocation string) ([]konveyor.RuleSet, error) {
 	rulesets := []windup.Ruleset{}
 	if len(test.RulePath) == 0 {
 		// use the test name, to move up a folder and get the rule
@@ -311,7 +311,7 @@ func getViolations(test windup.Ruletest, baseLocation string) ([]hubapi.RuleSet,
 	if err != nil {
 		return nil, err
 	}
-	var violations []hubapi.RuleSet
+	var violations []konveyor.RuleSet
 	err = yaml.Unmarshal(content, &violations)
 	if err != nil {
 		return nil, err
@@ -319,7 +319,7 @@ func getViolations(test windup.Ruletest, baseLocation string) ([]hubapi.RuleSet,
 	return violations, nil
 }
 
-func runTestRule(rule windup.When, violations []hubapi.RuleSet) (bool, int, int) {
+func runTestRule(rule windup.When, violations []konveyor.RuleSet) (bool, int, int) {
 	if violations == nil {
 		return false, 0, 0
 	}
