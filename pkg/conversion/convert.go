@@ -248,10 +248,10 @@ func getRulesetLabels(m windup.Metadata) []string {
 		}
 	}
 	if m.SourceTechnology == nil || len(m.SourceTechnology) == 0 {
-		labels = append(labels, fmt.Sprintf("%s=", konveyor.SourceTechnologyLabel))
+		labels = append(labels, konveyor.SourceTechnologyLabel)
 	}
 	if m.TargetTechnology == nil || len(m.TargetTechnology) == 0 {
-		labels = append(labels, fmt.Sprintf("%s=", konveyor.TargetTechnologyLabel))
+		labels = append(labels, konveyor.TargetTechnologyLabel)
 	}
 	if m.Phase != "" {
 		labels = append(labels, fmt.Sprintf("phase=%v", m.Phase))
