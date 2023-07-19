@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/konveyor/analyzer-lsp/hubapi"
+	"github.com/konveyor/analyzer-lsp/output/v1/konveyor"
 	"github.com/konveyor/analyzer-lsp/provider"
 )
 
@@ -134,7 +134,7 @@ func (c *AnalyzerCmd) args() ([]string, error) {
 	targets := []string{}
 	for _, target := range c.Targets {
 		targets = append(targets,
-			fmt.Sprintf("%s=%s", hubapi.TargetTechnologyLabel, target))
+			fmt.Sprintf("%s=%s", konveyor.TargetTechnologyLabel, target))
 	}
 	if len(targets) > 0 {
 		c.LabelSelector = fmt.Sprintf("(%s) || (%s)",

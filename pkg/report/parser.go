@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/konveyor/analyzer-lsp/hubapi"
+	"github.com/konveyor/analyzer-lsp/output/v1/konveyor"
 	"go.lsp.dev/uri"
 	"gopkg.in/yaml.v2"
 )
@@ -112,13 +112,13 @@ func ParseIssuesJson(basePath string) (Issues, error) {
 	return issues, nil
 }
 
-func ParseViolations(path string) (hubapi.RuleSet, error) {
-	rs := hubapi.RuleSet{
+func ParseViolations(path string) (konveyor.RuleSet, error) {
+	rs := konveyor.RuleSet{
 		Name:       "konveyor-analyzer",
 		Tags:       []string{},
-		Violations: map[string]hubapi.Violation{},
+		Violations: map[string]konveyor.Violation{},
 	}
-	rulesets := []hubapi.RuleSet{}
+	rulesets := []konveyor.RuleSet{}
 	err := unmarshalReportFile(path, &rulesets)
 	if err != nil {
 		return rs, err
@@ -138,11 +138,11 @@ func ParseViolations(path string) (hubapi.RuleSet, error) {
 	return rs, nil
 }
 
-func (i Issues) AsRuleset() hubapi.RuleSet {
-	rs := hubapi.RuleSet{
+func (i Issues) AsRuleset() konveyor.RuleSet {
+	rs := konveyor.RuleSet{
 		Tags: []string{},
 	}
-	violations := map[string]hubapi.Violation{}
+	violations := map[string]konveyor.Violation{}
 	dedupTags := map[string]bool{}
 	for ruleId, issue := range i {
 		ruleId = mappedRuleId(ruleId)
@@ -166,14 +166,14 @@ func (i Issues) AsRuleset() hubapi.RuleSet {
 	return rs
 }
 
-func (i Issue) AsViolationAndTags() (hubapi.Violation, []string) {
+func (i Issue) AsViolationAndTags() (konveyor.Violation, []string) {
 	tags := []string{}
-	violation := hubapi.Violation{
+	violation := konveyor.Violation{
 		Description: "",
 		Category:    toAnalyzerCategory(i.Category),
 		Effort:      &i.Effort.Points,
-		Incidents:   []hubapi.Incident{},
-		Links:       []hubapi.Link{},
+		Incidents:   []konveyor.Incident{},
+		Links:       []konveyor.Link{},
 	}
 	for _, affFile := range i.AffectedFiles {
 		incidents, hintTags := affFile.AsIncidentsAndTags()
@@ -186,7 +186,7 @@ func (i Issue) AsViolationAndTags() (hubapi.Violation, []string) {
 				for _, link := range hint.Links {
 					if _, ok := dedupLinks[link.Href]; !ok {
 						violation.Links = append(violation.Links,
-							hubapi.Link{URL: link.Href, Title: link.Title})
+							konveyor.Link{URL: link.Href, Title: link.Title})
 						dedupLinks[link.Href] = true
 					}
 
@@ -197,8 +197,8 @@ func (i Issue) AsViolationAndTags() (hubapi.Violation, []string) {
 	return violation, tags
 }
 
-func (a AffectedFile) AsIncidentsAndTags() ([]hubapi.Incident, []string) {
-	incidents := []hubapi.Incident{}
+func (a AffectedFile) AsIncidentsAndTags() ([]konveyor.Incident, []string) {
+	incidents := []konveyor.Incident{}
 	tags := []string{}
 	dedupTags := map[string]bool{}
 	for _, fileRef := range a.FileRefs {
@@ -217,13 +217,13 @@ func (a AffectedFile) AsIncidentsAndTags() ([]hubapi.Incident, []string) {
 	return incidents, tags
 }
 
-func (f FileRef) AsIncidents() []hubapi.Incident {
+func (f FileRef) AsIncidents() []konveyor.Incident {
 	// dedup line numbers
 	dedupLineNo := map[int]bool{}
-	incidents := []hubapi.Incident{}
+	incidents := []konveyor.Incident{}
 	for _, hint := range f.File.Hints {
 		if _, ok := dedupLineNo[hint.Line]; !ok {
-			incidents = append(incidents, hubapi.Incident{
+			incidents = append(incidents, konveyor.Incident{
 				URI:      uri.URI(f.File.FullPath),
 				Message:  hint.Content,
 				CodeSnip: f.File.Content.Content,
@@ -250,21 +250,21 @@ func loadFiles(basePath string) (map[string]File, error) {
 	return filesMap, nil
 }
 
-func toAnalyzerCategory(windupCat string) *hubapi.Category {
+func toAnalyzerCategory(windupCat string) *konveyor.Category {
 	switch windupCat {
 	case "mandatory", "cloud-mandatory":
-		return &hubapi.Mandatory
+		return &konveyor.Mandatory
 	case "optional", "cloud-optional":
-		return &hubapi.Optional
+		return &konveyor.Optional
 	case "potential":
-		return &hubapi.Potential
+		return &konveyor.Potential
 	default:
-		return &hubapi.Potential
+		return &konveyor.Potential
 	}
 }
 
-func filterIncidentsForMessage(msg string, incidents []hubapi.Incident) []hubapi.Incident {
-	filtered := []hubapi.Incident{}
+func filterIncidentsForMessage(msg string, incidents []konveyor.Incident) []konveyor.Incident {
+	filtered := []konveyor.Incident{}
 	for _, inc := range incidents {
 		if inc.Message == msg {
 			filtered = append(filtered, inc)

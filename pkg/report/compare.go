@@ -5,10 +5,10 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/konveyor/analyzer-lsp/hubapi"
+	"github.com/konveyor/analyzer-lsp/output/v1/konveyor"
 )
 
-func CompareRuleset(want, got hubapi.RuleSet) Result {
+func CompareRuleset(want, got konveyor.RuleSet) Result {
 	r := Result{}
 	// compare tags
 	result := CompareTags(want.Tags, got.Tags)
@@ -39,7 +39,7 @@ func CompareRuleset(want, got hubapi.RuleSet) Result {
 	return r
 }
 
-func CompareViolation(want, got hubapi.Violation) Result {
+func CompareViolation(want, got konveyor.Violation) Result {
 	r := Result{}
 	if reflect.DeepEqual(got.Category, want.Category) {
 		r.Pass(fmt.Sprintf("category matched '%s'", *got.Category), nil)
@@ -62,7 +62,7 @@ func CompareViolation(want, got hubapi.Violation) Result {
 	return r
 }
 
-func CompareIncidents(want, got []hubapi.Incident) Result {
+func CompareIncidents(want, got []konveyor.Incident) Result {
 	r := Result{}
 	for fileName, wantIncidents := range groupByFilenames(want) {
 		gotIncidents := findIncidentByFilename(fileName, got)
@@ -106,7 +106,7 @@ func CompareTags(want, got []string) Result {
 	return r
 }
 
-func findIncidentByFilename(fileName string, inList []hubapi.Incident) (matches []hubapi.Incident) {
+func findIncidentByFilename(fileName string, inList []konveyor.Incident) (matches []konveyor.Incident) {
 	for _, want := range inList {
 		if strings.Contains(string(want.URI), fileName) {
 			matches = append(matches, want)
@@ -115,14 +115,14 @@ func findIncidentByFilename(fileName string, inList []hubapi.Incident) (matches 
 	return
 }
 
-func groupByFilenames(list []hubapi.Incident) map[string][]hubapi.Incident {
-	group := map[string][]hubapi.Incident{}
+func groupByFilenames(list []konveyor.Incident) map[string][]konveyor.Incident {
+	group := map[string][]konveyor.Incident{}
 	for _, incident := range list {
 		fileName := strings.TrimPrefix(string(incident.URI), "contents/")
 		fileName = strings.TrimPrefix(fileName, "file:///")
 		fileName = strings.TrimPrefix(fileName, "jdt://")
 		if _, ok := group[fileName]; !ok {
-			group[fileName] = make([]hubapi.Incident, 0)
+			group[fileName] = make([]konveyor.Incident, 0)
 		}
 		group[fileName] = append(group[fileName], incident)
 	}

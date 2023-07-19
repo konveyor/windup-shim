@@ -39,12 +39,12 @@ func Test_parseMavenVersionRange(t *testing.T) {
 		{
 			name:     "case 6",
 			verRange: "(,7]",
-			want:     []string{"7-"},
+			want:     []string{"7"},
 		},
 		{
 			name:     "case 7",
 			verRange: "[6,)",
-			want:     []string{"6+"},
+			want:     []string{"6"},
 		},
 		{
 			name:     "case 8",

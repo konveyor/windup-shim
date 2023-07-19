@@ -11,7 +11,7 @@ import (
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
 	"github.com/konveyor/analyzer-lsp/engine"
-	"github.com/konveyor/analyzer-lsp/hubapi"
+	"github.com/konveyor/analyzer-lsp/output/v1/konveyor"
 	"gopkg.in/yaml.v2"
 )
 
@@ -229,23 +229,29 @@ func getRulesetLabels(m windup.Metadata) []string {
 		versions := getVersionsFromMavenVersionRange(sourceTech.VersionRange)
 		for _, version := range versions {
 			labels = append(labels,
-				fmt.Sprintf("%s=%s%s", hubapi.SourceTechnologyLabel, sourceTech.Id, version))
+				fmt.Sprintf("%s=%s%s", konveyor.SourceTechnologyLabel, sourceTech.Id, version))
 		}
 		if len(versions) == 0 {
 			labels = append(labels,
-				fmt.Sprintf("%s=%s", hubapi.SourceTechnologyLabel, sourceTech.Id))
+				fmt.Sprintf("%s=%s", konveyor.SourceTechnologyLabel, sourceTech.Id))
 		}
 	}
 	for _, targetTech := range m.TargetTechnology {
 		versions := getVersionsFromMavenVersionRange(targetTech.VersionRange)
 		for _, version := range versions {
 			labels = append(labels,
-				fmt.Sprintf("%s=%s%s", hubapi.TargetTechnologyLabel, targetTech.Id, version))
+				fmt.Sprintf("%s=%s%s", konveyor.TargetTechnologyLabel, targetTech.Id, version))
 		}
 		if len(versions) == 0 {
 			labels = append(labels,
-				fmt.Sprintf("%s=%s", hubapi.TargetTechnologyLabel, targetTech.Id))
+				fmt.Sprintf("%s=%s", konveyor.TargetTechnologyLabel, targetTech.Id))
 		}
+	}
+	if m.SourceTechnology == nil || len(m.SourceTechnology) == 0 {
+		labels = append(labels, konveyor.SourceTechnologyLabel)
+	}
+	if m.TargetTechnology == nil || len(m.TargetTechnology) == 0 {
+		labels = append(labels, konveyor.TargetTechnologyLabel)
 	}
 	if m.Phase != "" {
 		labels = append(labels, fmt.Sprintf("phase=%v", m.Phase))
@@ -273,10 +279,10 @@ func getVersionsFromMavenVersionRange(versionRange string) []string {
 		return []string{}
 	}
 	if minVersion == "" && match[2] != "" {
-		return []string{fmt.Sprintf("%s-", maxVersion)}
+		return []string{maxVersion}
 	}
 	if maxVersion == "" && match[2] != "" {
-		return []string{fmt.Sprintf("%s+", minVersion)}
+		return []string{minVersion}
 	}
 	minVerFloat, err := strconv.ParseFloat(minVersion, 64)
 	if err != nil {
@@ -862,12 +868,12 @@ func writeDiscoveryRules(dir string) error {
 func convertWindupCategory(cat string) string {
 	switch cat {
 	case "mandatory", "cloud-mandatory":
-		return string(hubapi.Mandatory)
+		return string(konveyor.Mandatory)
 	case "optional", "cloud-optional":
-		return string(hubapi.Optional)
+		return string(konveyor.Optional)
 	case "potential":
-		return string(hubapi.Potential)
+		return string(konveyor.Potential)
 	default:
-		return string(hubapi.Potential)
+		return string(konveyor.Potential)
 	}
 }
