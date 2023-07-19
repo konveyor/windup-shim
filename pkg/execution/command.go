@@ -156,10 +156,10 @@ func (c AnalyzerCmd) writeProviderSettings() (string, error) {
 			Name: "java",
 			InitConfig: []provider.InitConfig{
 				{
-					Location:      c.SourceCodePath,
-					LSPServerPath: "/jdtls/bin/jdtls",
+					Location: c.SourceCodePath,
 					ProviderSpecificConfig: map[string]interface{}{
-						"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+						"bundles":       "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+						"lspServerPath": "/jdtls/bin/jdtls",
 					},
 				},
 			},
