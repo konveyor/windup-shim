@@ -143,10 +143,10 @@ func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string) (s
 			Name: "java",
 			InitConfig: []provider.InitConfig{
 				{
-					Location:      javaDataDir,
-					LSPServerPath: "/jdtls/bin/jdtls",
+					Location: javaDataDir,
 					ProviderSpecificConfig: map[string]interface{}{
-						"bundles": "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+						"bundles":       "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
+						"lspServerPath": "/jdtls/bin/jdtls",
 					},
 				},
 			},
