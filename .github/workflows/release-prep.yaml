@@ -1,0 +1,13 @@
+name: Prepare for release
+on:
+  create:
+    branches:
+    - "release-*.*"
+jobs:
+  release-prep:
+    uses: konveyor/release-tools/.github/workflows/prep-release.yaml@main
+    with:
+      images_to_update: '["quay.io/konveyor/analyzer-lsp"]'
+      branch_ref: ${{ github.ref }}
+      dockerfile: core.Dockerfile
+      go_deps_to_update: '["github.com/konveyor/analyzer-lsp"]'
