@@ -583,6 +583,7 @@ func convertWhereToCustomVars(whereMap map[string]string, fullPattern string) []
 	l := []map[string]interface{}{}
 	newString := fullPattern
 	for k, v := range whereMap {
+		k = convertToCamel(k)
 		newString = strings.ReplaceAll(newString, "{"+k+"}.", fmt.Sprintf("(?P<%s>%s.)?", k, v))
 		newString = strings.ReplaceAll(newString, "{"+k+"}", fmt.Sprintf("(?P<%s>%s)?", k, v))
 		newString = strings.ReplaceAll(newString, "?+", "?")
@@ -597,6 +598,25 @@ func convertWhereToCustomVars(whereMap map[string]string, fullPattern string) []
 		m["pattern"] = newString
 	}
 	return l
+}
+
+func convertToCamel(fullPattern string) string {
+	//If string has dash or space char then we need to convert if it does not, then return it as is
+	if !strings.Contains(fullPattern, " ") || !strings.Contains(fullPattern, "-") {
+		return fullPattern
+	}
+	// Convert all issues to spaces to make splitting easier.
+	s := strings.ReplaceAll(fullPattern, "-", " ")
+	v := strings.Split(s, " ")
+	newString := ""
+	for i, part := range v {
+		if i == 0 {
+			newString = newString + strings.ToLower(part)
+			continue
+		}
+		newString = newString + strings.ToUpper(part)
+	}
+	return newString
 }
 
 func convertWindupDependencyToAnalyzer(windupDependency windup.Dependency) map[string]interface{} {
