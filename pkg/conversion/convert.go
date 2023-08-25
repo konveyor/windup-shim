@@ -467,33 +467,32 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 
 			if xf.Matches != "" {
 				matches := strings.Replace(xf.Matches, "windup:", "", -1)
-			    xmlCond = map[string]interface{}{
-				    "xpath":      substituteWhere(where, matches),
-				    "namespaces": namespaces,
-			    }
+				xmlCond = map[string]interface{}{
+					"xpath":      substituteWhere(where, matches),
+					"namespaces": namespaces,
+				}
 			}
 
 			if xf.Systemid != "" {
 				matches := strings.Replace(xf.Matches, "windup:", "", -1)
-			    xmlCond = map[string]interface{}{
-				    "xpath":      "//*[@system-id='"+substituteWhere(where, matches)+"']",
-				    "namespaces": namespaces,
-			    }
+				xmlCond = map[string]interface{}{
+					"xpath":      "//*[@system-id='" + substituteWhere(where, matches) + "']",
+					"namespaces": namespaces,
+				}
 			}
 
 			if xf.Publicid != "" {
-			    condType = "builtin.xmlPublicid"
+				condType = "builtin.xmlPublicid"
 				matches := strings.Replace(xf.Matches, "windup:", "", -1)
-			    xmlCond = map[string]interface{}{
-				    "regex":      substituteWhere(where, matches),
-				    "namespaces": namespaces,
-			    }
+				xmlCond = map[string]interface{}{
+					"regex":      substituteWhere(where, matches),
+					"namespaces": namespaces,
+				}
 			}
 
 			if xmlCond == nil {
 				continue
 			}
-
 			if xf.In != "" {
 				in := substituteWhere(where, xf.In)
 				if strings.Contains(in, "{*}") {
