@@ -455,6 +455,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	}
 	if windupWhen.Xmlfile != nil {
 		for _, xf := range windupWhen.Xmlfile {
+			var condType = "builtin.xml"
 			var xmlCond map[string]interface{}
 
 			namespaces := map[string]string{}
@@ -472,18 +473,19 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			    }
 			}
 
-			if xf.Publicid != "" {	// <xmlfile public-id=".*JBoss.+DTD Java EE.+5.*"/>
+			if xf.Systemid != "" {
 				matches := strings.Replace(xf.Matches, "windup:", "", -1)
 			    xmlCond = map[string]interface{}{
-				    "xpath":      "//*[@public-id='regexp:"+substituteWhere(where, matches)+"']",
+				    "xpath":      "//*[@system-id='"+substituteWhere(where, matches)+"']",
 				    "namespaces": namespaces,
 			    }
 			}
 
-			if xf.Systemid != "" {	// <xmlfile  system-id="http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" />
+			if xf.Publicid != "" {
+			    condType = "builtin.xmlPublicid"
 				matches := strings.Replace(xf.Matches, "windup:", "", -1)
 			    xmlCond = map[string]interface{}{
-				    "xpath":      "//*[@system-id='"+substituteWhere(where, matches)+"']",
+				    "regex":      substituteWhere(where, matches),
 				    "namespaces": namespaces,
 			    }
 			}
@@ -492,7 +494,6 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				continue
 			}
 
-			// TODO We don't support regexes here, may need to break it out into a separate lookup that gets passed through
 			if xf.In != "" {
 				in := substituteWhere(where, xf.In)
 				if strings.Contains(in, "{*}") {
@@ -517,7 +518,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				}
 			}
 			condition := map[string]interface{}{
-				"builtin.xml": xmlCond,
+				condType: xmlCond,
 			}
 			if xf.As != "" {
 				condition["as"] = xf.As
