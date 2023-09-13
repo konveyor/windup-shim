@@ -115,5 +115,7 @@ func GetDiscoveryRuleset() string {
 name: discovery-rules
 labels:
 - discovery
+- konveyor.io/source
+- konveyor.io/target
 `
 }
