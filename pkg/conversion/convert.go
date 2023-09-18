@@ -381,8 +381,8 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			//}
 			condition := map[string]interface{}{
 				"builtin.filecontent": map[string]interface{}{
-					"pattern": convertWindupRegex(substituteWhere(where, fc.Pattern)),
-					//"filePattern": files,
+					"pattern":     convertWindupRegex(substituteWhere(where, fc.Pattern)),
+					"filePattern": escapeDots(convertWindupRegex(substituteWhere(where, fc.Filename))),
 				},
 			}
 			if fc.As != "" {
