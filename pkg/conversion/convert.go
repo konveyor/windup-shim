@@ -728,6 +728,22 @@ func convertWindupGraphQueryJsfSourceFile(gq windup.Graphquery) map[string]inter
 	}
 }
 
+func convertMessageString(m string) string {
+	m = strings.Replace(m, "{", "{{", -1)
+	m = strings.Replace(m, "}", "}}", -1)
+	m = strings.Replace(m, "{package}.{prefix}{type}", "{{name}}", -1)
+	m = strings.Replace(m, "{prefix}{type}", "{{type}}", -1)
+	customVarsMatch := regexp.MustCompile(`{{([\w- ]+)}}`).FindAllStringSubmatch(m, -1)
+	for _, groups := range customVarsMatch {
+		if len(groups) > 1 {
+			m = strings.Replace(m,
+				fmt.Sprintf("{{%s}}", groups[1]),
+				fmt.Sprintf("{{%s}}", convertToCamel(groups[1])), -1)
+		}
+	}
+	return m
+}
+
 // TODO handle perform fully
 func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]string) map[string]interface{} {
 	ret := map[string]interface{}{}
@@ -757,10 +773,7 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		hint := perform.Hint[0]
 		if hint.Message != "" {
 			message := trimMessage(hint.Message)
-			// Handle some message replacement
-			message = strings.Replace(message, "{", "{{", -1)
-			message = strings.Replace(message, "}", "}}", -1)
-			ret["message"] = message
+			ret["message"] = convertMessageString(message)
 		}
 		i, err := strconv.Atoi(fmt.Sprintf("%v", hint.Effort))
 		if err == nil {
@@ -832,10 +845,7 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 		li := perform.Lineitem[0]
 		if li.Message != "" {
 			message := trimMessage(li.Message)
-			// Handle some message replacement
-			message = strings.Replace(message, "{package}.{prefix}{type}", "{{name}}", -1)
-			message = strings.Replace(message, "{prefix}{type}", "{{type}}", -1)
-			ret["message"] = message
+			ret["message"] = convertMessageString(message)
 		}
 	}
 	if ret["tag"] != nil {

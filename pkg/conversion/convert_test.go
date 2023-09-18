@@ -91,3 +91,24 @@ func Test_convertToCamel(t *testing.T) {
 		})
 	}
 }
+
+func Test_convertMessageString(t *testing.T) {
+	tests := []struct {
+		name string
+		msg  string
+		want string
+	}{
+		{
+			name: "message with custom vars",
+			msg:  "test message {{package-remainder}} was found {{type}} and {{some other}}",
+			want: "test message {{packageRemainder}} was found {{type}} and {{someOther}}",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := convertMessageString(tt.msg); got != tt.want {
+				t.Errorf("convertMessageString() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
