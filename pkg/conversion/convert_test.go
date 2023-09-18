@@ -65,3 +65,50 @@ func Test_parseMavenVersionRange(t *testing.T) {
 		})
 	}
 }
+
+func Test_convertToCamel(t *testing.T) {
+	tests := []struct {
+		name  string
+		input string
+		want  string
+	}{
+		{
+			name:  "key without dash, no conversion",
+			input: "className",
+			want:  "className",
+		},
+		{
+			name:  "key with dash, must be converted",
+			input: "package-remainder",
+			want:  "packageRemainder",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := convertToCamel(tt.input); got != tt.want {
+				t.Errorf("convertToCamel() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_convertMessageString(t *testing.T) {
+	tests := []struct {
+		name string
+		msg  string
+		want string
+	}{
+		{
+			name: "message with custom vars",
+			msg:  "test message {{package-remainder}} was found {{type}} and {{some other}}",
+			want: "test message {{packageRemainder}} was found {{type}} and {{someOther}}",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := convertMessageString(tt.msg); got != tt.want {
+				t.Errorf("convertMessageString() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
