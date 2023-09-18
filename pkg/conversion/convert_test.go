@@ -65,3 +65,29 @@ func Test_parseMavenVersionRange(t *testing.T) {
 		})
 	}
 }
+
+func Test_convertToCamel(t *testing.T) {
+	tests := []struct {
+		name  string
+		input string
+		want  string
+	}{
+		{
+			name:  "key without dash, no conversion",
+			input: "className",
+			want:  "className",
+		},
+		{
+			name:  "key with dash, must be converted",
+			input: "package-remainder",
+			want:  "packageRemainder",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := convertToCamel(tt.input); got != tt.want {
+				t.Errorf("convertToCamel() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

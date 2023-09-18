@@ -8,6 +8,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"unicode"
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
 	"github.com/konveyor/analyzer-lsp/engine"
@@ -406,6 +407,28 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			pattern = strings.Replace(pattern, `[^.]+`, "*", -1)
 			pattern = strings.Replace(pattern, `(.[^.]*)*`, "*", -1)
 			pattern = strings.Replace(pattern, `+[^.]*?`, "*", -1)
+			pattern = strings.Replace(pattern, `[*]`, `\[*\]`, -1)
+			// cascade multiple dots and stars
+			pattern = regexp.MustCompile(`[\.]{2,}\*`).ReplaceAllString(pattern, ".*")
+			pattern = regexp.MustCompile(`[\*]{2,}`).ReplaceAllString(pattern, "*")
+			// when pattern ends with * and a location is not specified
+			// we guess the location based on defined pattern
+			if strings.HasSuffix(pattern, "*") && jc.Location == nil {
+				locations := []string{}
+				match := regexp.MustCompile(`.*?(\w+)[\)\(]*\*$`).FindStringSubmatch(pattern)
+				lastVerb := ""
+				if len(match) > 0 {
+					lastVerb = match[1]
+				}
+				// if the last verb in the pattern is camel case, it has to be a method
+				// otherwise 99% certain its a package search
+				if lastVerb != "" && unicode.IsLower(rune(lastVerb[0])) && uppercaseExists(lastVerb[1:]) {
+					locations = append(locations, "METHOD_CALL")
+				} else {
+					locations = append(locations, "PACKAGE")
+				}
+				jc.Location = locations
+			}
 			if jc.Location != nil {
 				for _, location := range jc.Location {
 					condition := map[string]interface{}{
@@ -582,14 +605,21 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 func convertWhereToCustomVars(whereMap map[string]string, fullPattern string) []map[string]interface{} {
 	l := []map[string]interface{}{}
 	newString := fullPattern
+	// escape any empty paranthesis to avoid interpreting them as wildcards
+	newString = strings.Replace(newString, `[]`, `\[\]`, -1)
+	newString = strings.Replace(newString, `()`, `\(\)`, -1)
+	// cascade multiple dots and stars
+	newString = regexp.MustCompile(`\.{2,}\*`).ReplaceAllString(newString, ".*")
+	newString = regexp.MustCompile(`\*{2,}`).ReplaceAllString(newString, "*")
 	for k, v := range whereMap {
-		k = convertToCamel(k)
-		newString = strings.ReplaceAll(newString, "{"+k+"}.", fmt.Sprintf("(?P<%s>%s.)?", k, v))
-		newString = strings.ReplaceAll(newString, "{"+k+"}", fmt.Sprintf("(?P<%s>%s)?", k, v))
+		camelK := convertToCamel(k)
+		newString = strings.ReplaceAll(newString, "{"+k+"}.", fmt.Sprintf("(?P<%s>%s.)?", camelK, v))
+		newString = strings.ReplaceAll(newString, "{"+k+"}", fmt.Sprintf("(?P<%s>%s)?", camelK, v))
 		newString = strings.ReplaceAll(newString, "?+", "?")
+		newString = strings.TrimRight(newString, "?")
 		m := map[string]interface{}{
-			"name":               k,
-			"nameOfCaptureGroup": k,
+			"name":               camelK,
+			"nameOfCaptureGroup": camelK,
 		}
 		l = append(l, m)
 	}
@@ -602,7 +632,7 @@ func convertWhereToCustomVars(whereMap map[string]string, fullPattern string) []
 
 func convertToCamel(fullPattern string) string {
 	//If string has dash or space char then we need to convert if it does not, then return it as is
-	if !strings.Contains(fullPattern, " ") || !strings.Contains(fullPattern, "-") {
+	if !strings.Contains(fullPattern, " ") && !strings.Contains(fullPattern, "-") {
 		return fullPattern
 	}
 	// Convert all issues to spaces to make splitting easier.
@@ -614,7 +644,9 @@ func convertToCamel(fullPattern string) string {
 			newString = newString + strings.ToLower(part)
 			continue
 		}
-		newString = newString + strings.ToUpper(part)
+		if len(part) > 0 {
+			newString += strings.ToUpper(string(part[0])) + part[1:]
+		}
 	}
 	return newString
 }
@@ -864,6 +896,15 @@ func writeYAML(content interface{}, dest string) error {
 // some dots require escaping where they will be treated as a wildcard otherwise
 func escapeDots(inp string) string {
 	return regexp.MustCompile(`\.([^*])`).ReplaceAllString(inp, `\.$1`)
+}
+
+func uppercaseExists(s string) bool {
+	for _, char := range s {
+		if unicode.IsUpper(char) {
+			return true
+		}
+	}
+	return false
 }
 
 func writeDiscoveryRules(dir string) error {
