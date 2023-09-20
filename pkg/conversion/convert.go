@@ -381,8 +381,8 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			//}
 			condition := map[string]interface{}{
 				"builtin.filecontent": map[string]interface{}{
-					"pattern": convertWindupRegex(substituteWhere(where, fc.Pattern)),
-					//"filePattern": files,
+					"pattern":     convertWindupRegex(substituteWhere(where, fc.Pattern)),
+					"filePattern": escapeDots(convertWindupRegex(substituteWhere(where, fc.Filename))),
 				},
 			}
 			if fc.As != "" {
@@ -405,9 +405,15 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			pattern = strings.Replace(pattern, `(.*)?.`, ".*", -1)
 			pattern = strings.Replace(pattern, `.[^.]+`, "*", -1)
 			pattern = strings.Replace(pattern, `[^.]+`, "*", -1)
+			pattern = strings.Replace(pattern, `[^.()]+`, "*", -1)
 			pattern = strings.Replace(pattern, `(.[^.]*)*`, "*", -1)
 			pattern = strings.Replace(pattern, `+[^.]*?`, "*", -1)
 			pattern = strings.Replace(pattern, `[*]`, `\[*\]`, -1)
+			pattern = strings.Replace(pattern, `([a-z]+.)`, `*`, -1)
+			// remove open paranthesis which will be otherwise interpreted as wildcards
+			pattern = regexp.MustCompile(`\(\*$`).ReplaceAllString(pattern, "*")
+			pattern = regexp.MustCompile(`\(\)`).ReplaceAllString(pattern, "*")
+			pattern = regexp.MustCompile(`\[\]`).ReplaceAllString(pattern, "*")
 			// cascade multiple dots and stars
 			pattern = regexp.MustCompile(`[\.]{2,}\*`).ReplaceAllString(pattern, ".*")
 			pattern = regexp.MustCompile(`[\*]{2,}`).ReplaceAllString(pattern, "*")
