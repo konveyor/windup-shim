@@ -405,9 +405,15 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			pattern = strings.Replace(pattern, `(.*)?.`, ".*", -1)
 			pattern = strings.Replace(pattern, `.[^.]+`, "*", -1)
 			pattern = strings.Replace(pattern, `[^.]+`, "*", -1)
+			pattern = strings.Replace(pattern, `[^.()]+`, "*", -1)
 			pattern = strings.Replace(pattern, `(.[^.]*)*`, "*", -1)
 			pattern = strings.Replace(pattern, `+[^.]*?`, "*", -1)
 			pattern = strings.Replace(pattern, `[*]`, `\[*\]`, -1)
+			pattern = strings.Replace(pattern, `([a-z]+.)`, `*`, -1)
+			// remove open paranthesis which will be otherwise interpreted as wildcards
+			pattern = regexp.MustCompile(`\(\*$`).ReplaceAllString(pattern, "*")
+			pattern = regexp.MustCompile(`\(\)`).ReplaceAllString(pattern, "*")
+			pattern = regexp.MustCompile(`\[\]`).ReplaceAllString(pattern, "*")
 			// cascade multiple dots and stars
 			pattern = regexp.MustCompile(`[\.]{2,}\*`).ReplaceAllString(pattern, ".*")
 			pattern = regexp.MustCompile(`[\*]{2,}`).ReplaceAllString(pattern, "*")
