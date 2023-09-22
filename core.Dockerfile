@@ -8,7 +8,7 @@ COPY main.go /windup-shim
 
 RUN go build -o windup-shim main.go
 
-FROM quay.io/konveyor/analyzer-lsp
+FROM quay.io/konveyor/analyzer-lsp:release-0.3
 
 WORKDIR /windup-shim
 
