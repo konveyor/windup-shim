@@ -232,10 +232,8 @@ func getRulesetLabels(m windup.Metadata) []string {
 			labels = append(labels,
 				fmt.Sprintf("%s=%s%s", konveyor.SourceTechnologyLabel, sourceTech.Id, version))
 		}
-		if len(versions) == 0 {
-			labels = append(labels,
-				fmt.Sprintf("%s=%s", konveyor.SourceTechnologyLabel, sourceTech.Id))
-		}
+		labels = append(labels,
+			fmt.Sprintf("%s=%s", konveyor.SourceTechnologyLabel, sourceTech.Id))
 	}
 	for _, targetTech := range m.TargetTechnology {
 		versions := getVersionsFromMavenVersionRange(targetTech.VersionRange)
@@ -243,19 +241,14 @@ func getRulesetLabels(m windup.Metadata) []string {
 			labels = append(labels,
 				fmt.Sprintf("%s=%s%s", konveyor.TargetTechnologyLabel, targetTech.Id, version))
 		}
-		if len(versions) == 0 {
-			labels = append(labels,
-				fmt.Sprintf("%s=%s", konveyor.TargetTechnologyLabel, targetTech.Id))
-		}
+		labels = append(labels,
+			fmt.Sprintf("%s=%s", konveyor.TargetTechnologyLabel, targetTech.Id))
 	}
 	if m.SourceTechnology == nil || len(m.SourceTechnology) == 0 {
 		labels = append(labels, konveyor.SourceTechnologyLabel)
 	}
 	if m.TargetTechnology == nil || len(m.TargetTechnology) == 0 {
 		labels = append(labels, konveyor.TargetTechnologyLabel)
-	}
-	if m.Phase != "" {
-		labels = append(labels, fmt.Sprintf("phase=%v", m.Phase))
 	}
 	// rulesets have <tags> too
 	labels = append(labels, m.Tag...)
@@ -280,10 +273,10 @@ func getVersionsFromMavenVersionRange(versionRange string) []string {
 		return []string{}
 	}
 	if minVersion == "" && match[2] != "" {
-		return []string{maxVersion}
+		return []string{fmt.Sprintf("%s-", maxVersion)}
 	}
 	if maxVersion == "" && match[2] != "" {
-		return []string{minVersion}
+		return []string{fmt.Sprintf("%s+", minVersion)}
 	}
 	minVerFloat, err := strconv.ParseFloat(minVersion, 64)
 	if err != nil {
