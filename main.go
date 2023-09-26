@@ -48,7 +48,7 @@ func main() {
 				if err != nil {
 					fmt.Println(err)
 				}
-				_, err = conversion.ConvertWindupRulesetsToAnalyzer(rulesets, location, outputDir, flattenRulesets)
+				_, err = conversion.ConvertWindupRulesetsToAnalyzer(rulesets, location, outputDir, flattenRulesets, os.Args[1])
 				if err != nil {
 					log.Fatal(err)
 				}
