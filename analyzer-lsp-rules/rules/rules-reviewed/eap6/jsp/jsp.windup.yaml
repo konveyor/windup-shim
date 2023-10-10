@@ -1,6 +1,0 @@
-- - message: Empty import definition in .jsp or .jspf files would fail in compilation
-      time and needs to be removed.
-    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/jsp/jsp.windup.xml-0
-    when:
-      builtin.filecontent:
-        pattern: import=(""|'')

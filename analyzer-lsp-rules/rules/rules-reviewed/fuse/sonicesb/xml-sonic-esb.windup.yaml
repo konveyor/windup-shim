@@ -1,6 +1,0 @@
-- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/fuse/sonicesb/xml-sonic-esb.windup.xml-0
-    tag:
-    - sonic-esb
-    when:
-      builtin.xml:
-        xpath: /*[local-name()='serviceType']

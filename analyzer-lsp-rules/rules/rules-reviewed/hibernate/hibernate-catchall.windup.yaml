@@ -1,4 +1,0 @@
-- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/hibernate/hibernate-catchall.windup.xml-0
-    when:
-      java.referenced:
-        pattern: org.hibernate.(.*)?.[^.]+

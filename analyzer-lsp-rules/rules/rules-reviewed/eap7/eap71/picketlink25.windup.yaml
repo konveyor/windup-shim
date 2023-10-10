@@ -1,9 +1,0 @@
-- - message: JBoss EAP 7.2 PicketLink STS issues tokens with a different format, which
-      may require changes in applications such as EJB clients.. Please refer to the
-      JBoss EAP 7.2 Migration Guide section with respect to this migration issue,
-      and how to resolve it.
-    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap7/eap71/picketlink25.windup.xml-0
-    when:
-      java.referenced:
-        location: METHOD_CALL
-        pattern: org.picketlink.identity.federation.api.wstrust.WSTrustClient.issueToken*

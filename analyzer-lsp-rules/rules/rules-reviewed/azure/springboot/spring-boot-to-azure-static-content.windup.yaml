@@ -1,8 +1,0 @@
-- - message: 'Your application currently serves static content, you''ll need an alternate
-      location for it. You may wish to consider moving static content to Azure Blob
-      Storage and adding Azure CDN for lightning-fast downloads globally.. For more
-      information, see Static website hosting in Azure Storage and Quickstart: Integrate
-      an Azure storage account with Azure CDN.'
-    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/azure/springboot/spring-boot-to-azure-static-content.windup.xml-0
-    when:
-      builtin.file: '*.{extensions}'
