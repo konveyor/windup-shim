@@ -1,8 +1,0 @@
-- - message: Replace the `javax.{renamed}` import statement with `jakarta.{renamed}`
-    ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap8/eap7/javax-to-jakarta-package.windup.xml-0
-    when:
-      as: javaClass
-      ignore: true
-      java.referenced:
-        location: IMPORT
-        pattern: javax.(activation|annotation|batch|decorator|ejb|el|enterprise|faces|inject|interceptor|jms|json|jws|mail|persistence|resource|security|servlet|transaction|validation|websocket|ws|xml)*

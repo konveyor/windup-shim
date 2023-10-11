@@ -1,9 +1,0 @@
-- - ruleID: ../../windup/windup-rulesets/rules/rules-reviewed/eap6/resin/xml-resin.windup.xml-0
-    tag:
-    - configuration
-    - resin
-    when:
-      as: default
-      builtin.xml:
-        xpath: /resin:web-app
-      ignore: true

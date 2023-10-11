@@ -1,7 +1,0 @@
-- - message: If you are using the distroless image, please note that it now has an
-      immutable version. so you might have to update your Dockerfiles to use:. `quay.io/quarkus/quarkus-distroless-image:1.0`
-      instead of. `quay.io/quarkus/quarkus-distroless-image:20.3-java11`.
-    ruleID: ../../windup/windup-rulesets/rules/rules-archived/quarkus1/quarkus1-11/quarkus1-12-distroless.windup.xml-0
-    when:
-      builtin.filecontent:
-        pattern: quay.io/quarkus/quarkus-distroless-image:20.3-java11
