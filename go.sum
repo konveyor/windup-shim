@@ -30,10 +30,8 @@ github.com/hashicorp/go-version v1.6.0 h1:feTTfFNnjP967rlCxM/I9g701jU+RN74YKx2mO
 github.com/hashicorp/go-version v1.6.0/go.mod h1:fltr4n8CU8Ke44wwGCBoEymUuxUHl09ZGVZPK5anwXA=
 github.com/invopop/yaml v0.1.0 h1:YW3WGUoJEXYfzWBjn00zIlrw7brGVD0fUKRYDPAPhrc=
 github.com/invopop/yaml v0.1.0/go.mod h1:2XuRLgs/ouIrW3XNzuNj7J3Nvu/Dig5MXvbCEdiBN3Q=
-github.com/konveyor/analyzer-lsp v0.0.0-20230706210035-2fee76eb8e4f h1:qX3lPYvhMox5J68hM6es34QVz5QW2bIyU+qyduqqNp8=
-github.com/konveyor/analyzer-lsp v0.0.0-20230706210035-2fee76eb8e4f/go.mod h1:+k6UreVv8ztI29/RyQN8/71AAmB0aWwQoWwZd3yR8sc=
-github.com/konveyor/analyzer-lsp v0.0.0-20230717225202-ba6d8da016c1 h1:ayGO4il6x3cb/CakkTZVUmAjteBzTiOvrVTlarlfUd4=
-github.com/konveyor/analyzer-lsp v0.0.0-20230717225202-ba6d8da016c1/go.mod h1:+k6UreVv8ztI29/RyQN8/71AAmB0aWwQoWwZd3yR8sc=
+github.com/konveyor/analyzer-lsp v0.3.0-beta.1 h1:tAQ7e/2z+eoLERhawXOont9XA2kqYa3BaqVreaFYBtE=
+github.com/konveyor/analyzer-lsp v0.3.0-beta.1/go.mod h1:dhFFu6r2W7xIm90T2x0CaUqDh/BkFMeDmYTgVxKJn18=
 github.com/kr/pretty v0.1.0 h1:L/CwN0zerZDmRFUapSPitk6f+Q3+0za1rQkzVuMiMFI=
 github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORNo=
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
