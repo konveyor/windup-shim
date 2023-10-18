@@ -28,6 +28,9 @@ jobs:
         image_name: "windup-shim"
         image_namespace: "konveyor"
         image_registry: "quay.io"
+        pre_build_cmd: |
+          TAG=${GITHUB_REF_NAME/main/latest}
+          sed -i "s,FROM quay.io/konveyor/analyzer-lsp,FROM quay.io/konveyor/analyzer-lsp:${TAG}," core.Dockerfile
         quay_publish_robot: ${{ secrets.QUAY_PUBLISH_ROBOT }}
         quay_publish_token: ${{ secrets.QUAY_PUBLISH_TOKEN }}
         ref: ${{ github.ref }}
