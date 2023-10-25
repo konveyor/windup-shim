@@ -12,6 +12,7 @@ import (
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
 	"github.com/konveyor/analyzer-lsp/engine"
+	engineLabels "github.com/konveyor/analyzer-lsp/engine/labels"
 	"github.com/konveyor/analyzer-lsp/output/v1/konveyor"
 	"gopkg.in/yaml.v2"
 )
@@ -244,11 +245,20 @@ func getRulesetLabels(m windup.Metadata) []string {
 		labels = append(labels,
 			fmt.Sprintf("%s=%s", konveyor.TargetTechnologyLabel, targetTech.Id))
 	}
-	if m.SourceTechnology == nil || len(m.SourceTechnology) == 0 {
-		labels = append(labels, konveyor.SourceTechnologyLabel)
-	}
-	if m.TargetTechnology == nil || len(m.TargetTechnology) == 0 {
-		labels = append(labels, konveyor.TargetTechnologyLabel)
+	// when both source technology and target technology is absent, this rule
+	// was run all the time in windup, add explicit wildcard label on it
+	if (m.SourceTechnology == nil && m.TargetTechnology == nil) ||
+		(m.SourceTechnology != nil && len(m.SourceTechnology) == 0 &&
+			m.TargetTechnology != nil && len(m.TargetTechnology) == 0) {
+		labels = append(labels, fmt.Sprintf("%s=%s",
+			engineLabels.RuleIncludeLabel, engineLabels.SelectAlways))
+	} else {
+		if m.SourceTechnology == nil || len(m.SourceTechnology) == 0 {
+			labels = append(labels, konveyor.SourceTechnologyLabel)
+		}
+		if m.TargetTechnology == nil || len(m.TargetTechnology) == 0 {
+			labels = append(labels, konveyor.TargetTechnologyLabel)
+		}
 	}
 	// rulesets have <tags> too
 	labels = append(labels, m.Tag...)

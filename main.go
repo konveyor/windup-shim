@@ -20,7 +20,7 @@ func main() {
 	var failFast, flattenRulesets bool
 	convertCmd := flag.NewFlagSet("convert", flag.ExitOnError)
 	convertCmd.StringVar(&outputDir, "outputdir", "analyzer-lsp-rules", "The output location for converted rules")
-	convertCmd.BoolVar(&flattenRulesets, "flatten", false, "Preserve original ruleset structure of windup rules")
+	convertCmd.BoolVar(&flattenRulesets, "flatten", true, "Preserve original ruleset structure of windup rules")
 	testCmd := flag.NewFlagSet("test", flag.ExitOnError)
 	testCmd.BoolVar(&failFast, "fail-fast", false, "If true, fail on first test failure")
 	runCmd := flag.NewFlagSet("run", flag.ExitOnError)

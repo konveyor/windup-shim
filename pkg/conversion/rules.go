@@ -1,6 +1,8 @@
 package conversion
 
-import "strings"
+import (
+	"strings"
+)
 
 // TODO: scope license file search to LICENSE files and use templates for tags to convert individual rules into one rule
 const license_rules = `
@@ -8,6 +10,8 @@ const license_rules = `
   description: "Discover project license"
   tag:
   - License={{matchingText}}
+  labels:
+  - konveyor.io/include=always
   when:
     or:
     - builtin.filecontent:
@@ -48,24 +52,32 @@ const java_rules = `
   message: "When migrating environments, hard-coded IP addresses may need to be modified or eliminated."
 - ruleID: discover-properties-file
   description: "Properties file"
+  labels:
+  - konveyor.io/include=always
   when:
     builtin.file:
       pattern: "^.*\\.properties$"
   tag: ["Properties"]
 - ruleID: discover-manifest-file
   description: "Manifest file"
+  labels:
+  - konveyor.io/include=always
   when:
     builtin.file:
       pattern: "MANIFEST.MF"
   tag: ["Manifest"]
 - ruleID: discover-java-files
   description: "Java source files"
+  labels:
+  - konveyor.io/include=always
   when:
     builtin.file:
       pattern: "*.java"
   tag: ["Java Source"]
 - ruleID: discover-maven-xml
   description: "Maven XML file"
+  labels:
+  - konveyor.io/include=always
   when:
     builtin.file:
       pattern: "pom.xml"
@@ -74,18 +86,23 @@ const java_rules = `
 
 const java_ee_rules = `
 - ruleID: windup-discover-ejb-configuration
+  labels:
+  - konveyor.io/include=always
   tag: ["EJB XML"]
   when:
     builtin.xml:
       xpath: "/(jboss:ejb-jar or ejb-jar)"
 - ruleID: windup-discover-spring-configuration
   tag: ["Spring XML"]
+  labels:
+  - konveyor.io/include=always
   when:
     builtin.xml:
       xpath: "/beans"
 - ruleID: windup-discover-jpa-configuration
   tag: ["JPA XML"]
-  message: "Persistence unit"
+  labels:
+  - konveyor.io/include=always
   when:
     or:
       - builtin.xml:
@@ -95,6 +112,8 @@ const java_ee_rules = `
       - builtin.xml:
           xpath: '/persistence[boolean(namespace-uri(/persistence)="https://jakarta.ee/xml/ns/persistence")]'
 - ruleID: windup-discover-web-configuration
+  labels:
+  - konveyor.io/include=always
   tag: ["Web XML"]
   when:
     # TODO extract version as in rules-java-ee/addon/src/main/java/org/jboss/windup/rules/apps/javaee/rules/DiscoverWebXmlRuleProvider.java
@@ -115,7 +134,5 @@ func GetDiscoveryRuleset() string {
 name: discovery-rules
 labels:
 - discovery
-- konveyor.io/source
-- konveyor.io/target
 `
 }
