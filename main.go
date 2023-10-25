@@ -48,7 +48,7 @@ func main() {
 				if err != nil {
 					fmt.Println(err)
 				}
-				_, err = conversion.ConvertWindupRulesetsToAnalyzer(rulesets, location, outputDir, flattenRulesets, os.Args[1])
+				_, err = conversion.ConvertWindupRulesetsToAnalyzer(rulesets, location, outputDir, flattenRulesets, false)
 				if err != nil {
 					log.Fatal(err)
 				}
@@ -71,7 +71,7 @@ func main() {
 				totalTests := 0
 				for _, test := range ruletests {
 					fmt.Println("Executing " + test.SourceFile)
-					successes, total, err := execution.ExecuteTest(test, location)
+					successes, total, err := execution.ExecuteTest(test, location, true)
 					if err != nil {
 						// TODO should we exit here?
 						fmt.Println(err)
@@ -104,7 +104,7 @@ func main() {
 				if err != nil {
 					fmt.Println(err)
 				}
-				output, dir, err := execution.ExecuteRulesets(rulesets, location, data)
+				output, dir, err := execution.ExecuteRulesets(rulesets, location, data, false)
 				fmt.Println(output, dir, err)
 			}
 		}

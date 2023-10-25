@@ -22,9 +22,8 @@ type analyzerRules struct {
 	relativePath string
 }
 
-func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string, flattenRulesets bool, cmd string) (map[string]*analyzerRules, error) {
-	if cmd != "convert" {
-		// Write discovery rules
+func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string, flattenRulesets bool, writeDisoveryRule bool) (map[string]*analyzerRules, error) {
+	if writeDisoveryRule {
 		err := writeDiscoveryRules(outputDir)
 		if err != nil {
 			return nil, err
