@@ -61,7 +61,7 @@ const (
 `
 )
 
-func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string) (string, string, error) {
+func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string, writeDiscoveryRules bool) (string, string, error) {
 	datadir, err := filepath.Abs(datadir)
 	if err != nil {
 		return "", "", err
@@ -136,7 +136,7 @@ func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string) (s
 	for _, ruleset := range rulesets {
 		sourceFiles = append(sourceFiles, ruleset.SourceFile)
 	}
-	conversion.ConvertWindupRulesetsToAnalyzer(rulesets, baseLocation, filepath.Join(dir, "rules"), true)
+	conversion.ConvertWindupRulesetsToAnalyzer(rulesets, baseLocation, filepath.Join(dir, "rules"), true, writeDiscoveryRules)
 	// Template config file for analyzer
 	providerConfig := []provider.Config{
 		{
@@ -215,8 +215,8 @@ func writeJSON(content interface{}, dest string) error {
 	return nil
 }
 
-func ExecuteTest(test windup.Ruletest, location string) (int, int, error) {
-	violations, err := getViolations(test, location)
+func ExecuteTest(test windup.Ruletest, location string, writeDiscoveryRules bool) (int, int, error) {
+	violations, err := getViolations(test, location, writeDiscoveryRules)
 	total := 0
 	successes := 0
 	for _, ruleset := range test.Ruleset {
@@ -254,7 +254,7 @@ func ExecuteTest(test windup.Ruletest, location string) (int, int, error) {
 	return successes, total, err
 }
 
-func getViolations(test windup.Ruletest, baseLocation string) ([]konveyor.RuleSet, error) {
+func getViolations(test windup.Ruletest, baseLocation string, writeDiscoveryRules bool) ([]konveyor.RuleSet, error) {
 	rulesets := []windup.Ruleset{}
 	if len(test.RulePath) == 0 {
 		// use the test name, to move up a folder and get the rule
@@ -300,7 +300,7 @@ func getViolations(test windup.Ruletest, baseLocation string) ([]konveyor.RuleSe
 			}
 		}
 	}
-	_, dir, err := ExecuteRulesets(rulesets, baseLocation, test.TestDataPath)
+	_, dir, err := ExecuteRulesets(rulesets, baseLocation, test.TestDataPath, writeDiscoveryRules)
 	if err != nil {
 		return nil, err
 	}
