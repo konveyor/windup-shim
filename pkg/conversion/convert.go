@@ -482,7 +482,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			}
 
 			if xf.Publicid != "" {
-				condType = "builtin.xmlPublicid"
+				condType = "builtin.xmlPublicID"
 				matches := strings.Replace(xf.Matches, "windup:", "", -1)
 				xmlCond = map[string]interface{}{
 					"regex":      substituteWhere(where, matches),
