@@ -435,7 +435,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				if lastVerb != "" && unicode.IsLower(rune(lastVerb[0])) && uppercaseExists(lastVerb[1:]) {
 					locations = append(locations, "METHOD_CALL")
 				} else {
-					locations = append(locations, "PACKAGE")
+					locations = append(locations, "IMPORT")
 				}
 				jc.Location = locations
 			}
