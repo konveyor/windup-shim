@@ -426,16 +426,21 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			if strings.HasSuffix(pattern, "*") && jc.Location == nil {
 				locations := []string{}
 				match := regexp.MustCompile(`.*?(\w+)[\)\(]*\*$`).FindStringSubmatch(pattern)
-				lastVerb := ""
+				lastWord := ""
 				if len(match) > 0 {
-					lastVerb = match[1]
+					lastWord = match[1]
 				}
-				// if the last verb in the pattern is camel case, it has to be a method
-				// otherwise 99% certain its a package search
-				if lastVerb != "" && unicode.IsLower(rune(lastVerb[0])) && uppercaseExists(lastVerb[1:]) {
+				// if the last word in the pattern is camel case, it has to be a method
+				if lastWord != "" && unicode.IsLower(rune(lastWord[0])) && uppercaseExists(lastWord[1:]) {
 					locations = append(locations, "METHOD_CALL")
 				} else {
-					locations = append(locations, "IMPORT")
+					// if the last word in the pattern is camel case, and the first letter is uppercase, it's probably a class
+					if lastWord != "" && unicode.IsUpper(rune(lastWord[0])) && lowercaseExists(lastWord[1:]) {
+						locations = append(locations, "IMPORT")
+					} else {
+						// otherwise, it's probably a package
+						locations = append(locations, "PACKAGE")
+					}
 				}
 				jc.Location = locations
 			}
@@ -921,6 +926,15 @@ func escapeDots(inp string) string {
 func uppercaseExists(s string) bool {
 	for _, char := range s {
 		if unicode.IsUpper(char) {
+			return true
+		}
+	}
+	return false
+}
+
+func lowercaseExists(s string) bool {
+	for _, char := range s {
+		if unicode.IsLower(char) {
 			return true
 		}
 	}
