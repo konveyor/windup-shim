@@ -186,7 +186,9 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 			if perform["effort"] != nil {
 				rule["effort"] = perform["effort"]
 			}
-			rule["description"] = perform["description"]
+			if perform["description"] != nil {
+				rule["description"] = perform["description"]
+			}
 		} else {
 			continue
 		}
@@ -805,14 +807,13 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 			if classification.Tag != nil {
 				tags = append(tags, classification.Tag...)
 			}
-			description := ""
-			if classification.Title != "" {
-				tags = append(tags, classification.Title)
-				description = classification.Title
-			}
+
+			tags = append(tags, classification.Title)
+			// we know title will never be nil (see https://github.com/windup/windup/blob/master/config-xml/schema/windup-jboss-ruleset.xsd#L397)
+			ret["description"] = classification.Title
+
 			if classification.Description != nil {
-				// combine title + description
-				ret["description"] = fmt.Sprintf("%s\n%s", description, strings.Join(classification.Description, "\n"))
+				ret["message"] = classification.Description
 			}
 			if classification.Link != nil {
 				for _, lnk := range classification.Link {
