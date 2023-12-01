@@ -167,14 +167,8 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 			if perform["category"] != nil {
 				rule["category"] = perform["category"]
 			}
-			description := ""
 			if perform["message"] != nil {
 				rule["message"] = perform["message"]
-				// if message doesn't contain a template, add it to the description too
-				if msg, ok := perform["message"].(string); ok &&
-					!strings.Contains(msg, "{{") {
-					description = msg
-				}
 			}
 			if perform["labels"] != nil {
 				if performLabels, ok := perform["labels"].([]string); ok {
@@ -192,17 +186,7 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 			if perform["effort"] != nil {
 				rule["effort"] = perform["effort"]
 			}
-			if perform["description"] != nil {
-				if dsc, ok := perform["description"].(string); ok {
-					description = strings.Join([]string{dsc, description}, "\n")
-				}
-			}
-			if description != "" {
-				rule["description"] = description
-			}
-			// for k, v := range perform {
-			// 	rule[k] = v
-			// }
+			rule["description"] = perform["description"]
 		} else {
 			continue
 		}
@@ -780,11 +764,6 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 	}
 
 	if perform.Hint != nil {
-		if len(perform.Hint) != 1 {
-			// TODO
-			panic("More than one hint in a rule")
-			return nil
-		}
 		hint := perform.Hint[0]
 		if hint.Message != "" {
 			message := trimMessage(hint.Message)
@@ -881,15 +860,8 @@ func substituteWhere(where map[string]string, pattern string) string {
 }
 
 func trimMessage(s string) string {
-	lines := strings.Split(s, "\n")
-	cleanLines := []string{}
-	for _, line := range lines {
-		cleaned := strings.Trim(line, "\n \t '")
-		if cleaned != "" {
-			cleanLines = append(cleanLines, cleaned)
-		}
-	}
-	return strings.Join(cleanLines, ". ")
+	re := regexp.MustCompile(`( ){2,}`)
+	return re.ReplaceAllString(s, " ")
 }
 
 func flattenWhere(wheres []windup.Where) map[string]string {
