@@ -813,7 +813,7 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 			ret["description"] = classification.Title
 
 			if classification.Description != nil {
-				ret["message"] = classification.Description
+				ret["message"] = strings.Join(classification.Description, "\n")
 			}
 			if classification.Link != nil {
 				for _, lnk := range classification.Link {
