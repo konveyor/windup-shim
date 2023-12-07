@@ -1,0 +1,57 @@
+name: Global CI
+
+on: ["push", "pull_request", "workflow_dispatch"]
+
+jobs:
+  build-addon:
+    name: Build tackle2-addon-analyzer
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+    steps:
+    - name: Extract pull request number from PR description
+      id: extract_analyzer_pull_request_number
+      run: |
+        PULL_REQUEST_NUMBER=$(echo "${{ github.event.pull_request.body }}" | grep -oP '[A|a]nalyzer.?[P|p][R|r]: \K\d+' || true)
+        if [ -z "$PULL_REQUEST_NUMBER" ]; then
+          echo "::set-output name=ref::main"
+        else
+          echo "::set-output name=ref::refs/pull/$PULL_REQUEST_NUMBER/merge"
+        fi
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: Checkout tools repo
+      uses: actions/checkout@v3
+      with:
+        repository: konveyor/analyzer-lsp
+        path: analyzer-lsp
+        ref: "${{ steps.extract_analyzer_pull_request_number.outputs.ref }}"
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        repository: konveyor/tackle2-addon-analyzer
+        ref: main
+        path: tackle2-addon-analyzer
+
+    - name: build analyzer-lsp Dockerfile
+      run: |
+        docker build -f analyzer-lsp/Dockerfile -t quay.io/konveyor/analyzer-lsp:latest analyzer-lsp
+        docker tag quay.io/konveyor/analyzer-lsp:latest analyzer-lsp
+    - name: build shim Dockerfile
+      run: docker build -f Dockerfile -t quay.io/konveyor/windup-shim:latest .
+    - name: Build addon and save image
+      working-directory: tackle2-addon-analyzer
+      run: |
+        IMG=quay.io/konveyor/tackle2-addon-analyzer:latest make image-podman
+        podman save -o /tmp/tackle2-addon-analyzer.tar quay.io/konveyor/tackle2-addon-analyzer:latest
+    - name: Upload image as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: tackle2-addon-analyzer
+        path: /tmp/tackle2-addon-analyzer.tar
+        retention-days: 1
+  e2e:
+    needs: build-addon
+    uses: konveyor/ci/.github/workflows/global-ci.yml@main
+    with:
+      component_name: tackle2-addon-analyzer
