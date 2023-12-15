@@ -474,22 +474,44 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	}
 	if windupWhen.Xmlfile != nil {
 		for _, xf := range windupWhen.Xmlfile {
-			if xf.Matches == "" {
-				// TODO handle systemid and publicid
-				continue
-			}
-			matches := strings.Replace(xf.Matches, "windup:", "", -1)
+			var condType = "builtin.xml"
+			var xmlCond map[string]interface{}
+
 			namespaces := map[string]string{}
 			if xf.Namespace != nil {
 				for _, ns := range xf.Namespace {
 					namespaces[ns.Prefix] = ns.Uri
 				}
 			}
-			xmlCond := map[string]interface{}{
-				"xpath":      substituteWhere(where, matches),
-				"namespaces": namespaces,
+
+			if xf.Matches != "" {
+				matches := strings.Replace(xf.Matches, "windup:", "", -1)
+				xmlCond = map[string]interface{}{
+					"xpath":      substituteWhere(where, matches),
+					"namespaces": namespaces,
+				}
 			}
-			// TODO We don't support regexes here, may need to break it out into a separate lookup that gets passed through
+
+			if xf.Systemid != "" {
+				matches := strings.Replace(xf.Matches, "windup:", "", -1)
+				xmlCond = map[string]interface{}{
+					"xpath":      "//*[@system-id='" + substituteWhere(where, matches) + "']",
+					"namespaces": namespaces,
+				}
+			}
+
+			if xf.Publicid != "" {
+				condType = "builtin.xmlPublicID"
+				matches := strings.Replace(xf.Matches, "windup:", "", -1)
+				xmlCond = map[string]interface{}{
+					"regex":      substituteWhere(where, matches),
+					"namespaces": namespaces,
+				}
+			}
+
+			if xmlCond == nil {
+				continue
+			}
 			if xf.In != "" {
 				in := substituteWhere(where, xf.In)
 				if strings.Contains(in, "{*}") {
@@ -514,7 +536,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 				}
 			}
 			condition := map[string]interface{}{
-				"builtin.xml": xmlCond,
+				condType: xmlCond,
 			}
 			if xf.As != "" {
 				condition["as"] = xf.As
