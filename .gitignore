@@ -1,5 +1,7 @@
+.idea/
 .vscode/
+.metadata/
+
 org.eclipse.*
 jdt.*
 .log
-.metadata/
