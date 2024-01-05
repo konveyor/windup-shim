@@ -371,7 +371,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			//}
 			condition := map[string]interface{}{
 				"builtin.filecontent": map[string]interface{}{
-					"pattern":     convertWindupRegex(substituteWhere(where, fc.Pattern)),
+					"pattern":     convertWindupRegex(substituteWhere(where, escapeParens(fc.Pattern))),
 					"filePattern": escapeDots(convertWindupRegex(substituteWhere(where, fc.Filename))),
 				},
 			}
@@ -939,4 +939,10 @@ func convertWindupRegex(regex string) string {
 		fmt.Printf("Failed converting regex to valid go format: %s\n", regex)
 	}
 	return regex
+}
+
+func escapeParens(s string) string {
+	s = strings.Replace(s, "(", "\\(", -1)
+	s = strings.Replace(s, ")", "\\)", -1)
+	return s
 }
