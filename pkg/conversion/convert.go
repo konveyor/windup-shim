@@ -884,7 +884,8 @@ func substituteWhere(where map[string]string, pattern string) string {
 
 func trimMessage(s string) string {
 	re := regexp.MustCompile(`( ){2,}`)
-	return re.ReplaceAllString(s, " ")
+	trimmed := strings.TrimSpace(s)
+	return re.ReplaceAllString(trimmed, " ")
 }
 
 func flattenWhere(wheres []windup.Where) map[string]string {
