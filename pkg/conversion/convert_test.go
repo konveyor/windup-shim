@@ -112,3 +112,29 @@ func Test_convertMessageString(t *testing.T) {
 		})
 	}
 }
+
+func Test_trimMessage(t *testing.T) {
+	tests := []struct {
+		name string
+		msg  string
+		want string
+	}{
+		{
+			name: "message with trailing and ending newlines",
+			msg:  "\n\ntest    message\n\n",
+			want: "test message",
+		},
+		{
+			name: "message with newlines in the middle",
+			msg:  "\n\ntest \n message\n\n",
+			want: "test \n message",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := trimMessage(tt.msg); got != tt.want {
+				t.Errorf("convertMessageString() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
