@@ -138,3 +138,28 @@ func Test_trimMessage(t *testing.T) {
 		})
 	}
 }
+
+func Test_convertJavaPattern(t *testing.T) {
+	tests := []struct {
+		name       string
+		where      map[string]string
+		references string
+		want       string
+	}{
+		{
+			name: "Java pattern substitution should be enclosed by parenthesis",
+			where: map[string]string{
+				"scope": "Application|Request|Session",
+			},
+			references: "javax.faces.bean.{scope}Scoped",
+			want:       "javax.faces.bean.(Application|Request|Session)Scoped",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := convertJavaPattern(tt.where, tt.references); got != tt.want {
+				t.Errorf("convertJavaPattern() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

@@ -392,30 +392,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	if windupWhen.Javaclass != nil {
 		for _, jc := range windupWhen.Javaclass {
 			customVars = convertWhereToCustomVars(where, jc.References)
-			pattern := strings.Replace(substituteWhere(where, jc.References), "{*}", "*", -1)
-			pattern = strings.Replace(pattern, "(*)", "*", -1)
-			pattern = strings.Replace(pattern, ".*", "*", -1)
-			pattern = strings.Replace(pattern, `\`, "", -1)
-			// Make some .* regesx's more generic.
-			pattern = strings.Replace(pattern, `(.*)?.`, ".*", -1)
-			pattern = strings.Replace(pattern, `.[^.]+`, "*", -1)
-			pattern = strings.Replace(pattern, `[^.]+`, "*", -1)
-			pattern = strings.Replace(pattern, `[^.()]+`, "*", -1)
-			pattern = strings.Replace(pattern, `(.[^.]*)*`, "*", -1)
-			pattern = strings.Replace(pattern, `+[^.]*?`, "*", -1)
-			pattern = strings.Replace(pattern, `[*]`, `\[*\]`, -1)
-			pattern = strings.Replace(pattern, `([a-z]+.)`, `*`, -1)
-			// remove open paranthesis which will be otherwise interpreted as wildcards
-			pattern = regexp.MustCompile(`\(\*$`).ReplaceAllString(pattern, "*")
-			pattern = regexp.MustCompile(`\(\)`).ReplaceAllString(pattern, "*")
-			pattern = regexp.MustCompile(`\[\]`).ReplaceAllString(pattern, "*")
-			// cascade multiple dots and stars
-			pattern = regexp.MustCompile(`[\.]{2,}\*`).ReplaceAllString(pattern, ".*")
-			pattern = regexp.MustCompile(`[\*]{2,}`).ReplaceAllString(pattern, "*")
-			pattern = strings.Replace(pattern, ".(*)?*", ".*", -1)
-			// when there are wildcards in the middle of the pattern, make them .*
-			// see https://github.com/konveyor/analyzer-lsp/issues/481
-			pattern = regexp.MustCompile(`([A-Za-z])\*([A-Za-z])`).ReplaceAllString(pattern, `$1.*$2`)
+			pattern := convertJavaPattern(where, jc.References)
 			// when pattern ends with * and a location is not specified
 			// we guess the location based on defined pattern
 			if strings.HasSuffix(pattern, "*") && jc.Location == nil {
@@ -634,10 +611,41 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 	return conditions, customVars
 }
 
+func convertJavaPattern(where map[string]string, references string) string {
+	pattern := substituteWhere(where, references)
+	pattern = strings.Replace(pattern, "((", "(", -1)
+	pattern = strings.Replace(pattern, "))", ")", -1)
+	pattern = strings.Replace(pattern, "{*}", "*", -1)
+	pattern = strings.Replace(pattern, "(*)", "*", -1)
+	pattern = strings.Replace(pattern, ".*", "*", -1)
+	pattern = strings.Replace(pattern, `\`, "", -1)
+	// Make some .* regesx's more generic.
+	pattern = strings.Replace(pattern, `(.*)?.`, ".*", -1)
+	pattern = strings.Replace(pattern, `.[^.]+`, "*", -1)
+	pattern = strings.Replace(pattern, `[^.]+`, "*", -1)
+	pattern = strings.Replace(pattern, `[^.()]+`, "*", -1)
+	pattern = strings.Replace(pattern, `(.[^.]*)*`, "*", -1)
+	pattern = strings.Replace(pattern, `+[^.]*?`, "*", -1)
+	pattern = strings.Replace(pattern, `[*]`, `\[*\]`, -1)
+	pattern = strings.Replace(pattern, `([a-z]+.)`, `*`, -1)
+	// remove open parenthesis which will be otherwise interpreted as wildcards
+	pattern = regexp.MustCompile(`\(\*$`).ReplaceAllString(pattern, "*")
+	pattern = regexp.MustCompile(`\(\)`).ReplaceAllString(pattern, "*")
+	pattern = regexp.MustCompile(`\[\]`).ReplaceAllString(pattern, "*")
+	// cascade multiple dots and stars
+	pattern = regexp.MustCompile(`[\.]{2,}\*`).ReplaceAllString(pattern, ".*")
+	pattern = regexp.MustCompile(`[\*]{2,}`).ReplaceAllString(pattern, "*")
+	pattern = strings.Replace(pattern, ".(*)?*", ".*", -1)
+	// when there are wildcards in the middle of the pattern, make them .*
+	// see https://github.com/konveyor/analyzer-lsp/issues/481
+	pattern = regexp.MustCompile(`([A-Za-z])\*([A-Za-z])`).ReplaceAllString(pattern, `$1.*$2`)
+	return pattern
+}
+
 func convertWhereToCustomVars(whereMap map[string]string, fullPattern string) []map[string]interface{} {
 	l := []map[string]interface{}{}
 	newString := fullPattern
-	// escape any empty paranthesis to avoid interpreting them as wildcards
+	// escape any empty parenthesis to avoid interpreting them as wildcards
 	newString = strings.Replace(newString, `[]`, `\[\]`, -1)
 	newString = strings.Replace(newString, `()`, `\(\)`, -1)
 	// cascade multiple dots and stars
@@ -886,7 +894,7 @@ func convertWindupPerformToAnalyzer(perform windup.Iteration, where map[string]s
 func substituteWhere(where map[string]string, pattern string) string {
 	newString := pattern
 	for k, v := range where {
-		newString = strings.ReplaceAll(newString, "{"+k+"}", v)
+		newString = strings.ReplaceAll(newString, "{"+k+"}", "("+v+")")
 	}
 	return newString
 }
