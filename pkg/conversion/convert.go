@@ -135,7 +135,11 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 			if len(when) == 1 {
 				rule["when"] = when[0]
 			} else if len(when) > 1 {
-				rule["when"] = map[string]interface{}{"or": when}
+				if canUseAndToChain(when) {
+					rule["when"] = map[string]interface{}{"and": when}
+				} else {
+					rule["when"] = map[string]interface{}{"or": when}
+				}
 			} else {
 				continue
 			}
@@ -982,4 +986,29 @@ func escapeParens(s string) string {
 	s = strings.Replace(s, "(", "\\(", -1)
 	s = strings.Replace(s, ")", "\\)", -1)
 	return s
+}
+
+// canUseAndToChain when converting chained conditions, we check if they can
+// be ANDed...it improves accuracy: https://github.com/konveyor/rulesets/issues/41
+// we can only do this for builtin conditions reliably
+func canUseAndToChain(when []map[string]interface{}) bool {
+	canDetermine := true
+	fromUsed := false
+	asUsed := false
+	for _, cond := range when {
+		for key := range cond {
+			// if any one condition is java, we can't make this an AND
+			if strings.HasPrefix(key, "java") {
+				canDetermine = false
+				break
+			}
+			if key == "from" {
+				fromUsed = true
+			}
+			if key == "as" {
+				asUsed = true
+			}
+		}
+	}
+	return canDetermine && fromUsed && asUsed
 }
