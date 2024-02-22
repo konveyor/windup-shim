@@ -411,6 +411,9 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			// cascade multiple dots and stars
 			pattern = regexp.MustCompile(`[\.]{2,}\*`).ReplaceAllString(pattern, ".*")
 			pattern = regexp.MustCompile(`[\*]{2,}`).ReplaceAllString(pattern, "*")
+			// when there are wildcards in the middle of the pattern, make them .*
+			// see https://github.com/konveyor/analyzer-lsp/issues/481
+			pattern = regexp.MustCompile(`([A-Za-z])\*([A-Za-z])`).ReplaceAllString(pattern, `$1.*$2`)
 			// when pattern ends with * and a location is not specified
 			// we guess the location based on defined pattern
 			if strings.HasSuffix(pattern, "*") && jc.Location == nil {
