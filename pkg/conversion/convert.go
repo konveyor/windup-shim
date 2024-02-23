@@ -132,6 +132,7 @@ func ConvertWindupRulesetToAnalyzer(ruleset windup.Ruleset) []map[string]interfa
 		where := flattenWhere(windupRule.Where)
 		if !reflect.DeepEqual(windupRule.When, windup.When{}) {
 			when, customVars := convertWindupWhenToAnalyzer(windupRule.When, where)
+			when = deduplicateFromAs(when)
 			if len(when) == 1 {
 				rule["when"] = when[0]
 			} else if len(when) > 1 {
@@ -411,6 +412,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			// cascade multiple dots and stars
 			pattern = regexp.MustCompile(`[\.]{2,}\*`).ReplaceAllString(pattern, ".*")
 			pattern = regexp.MustCompile(`[\*]{2,}`).ReplaceAllString(pattern, "*")
+			pattern = strings.Replace(pattern, ".(*)?*", ".*", -1)
 			// when there are wildcards in the middle of the pattern, make them .*
 			// see https://github.com/konveyor/analyzer-lsp/issues/481
 			pattern = regexp.MustCompile(`([A-Za-z])\*([A-Za-z])`).ReplaceAllString(pattern, `$1.*$2`)
@@ -485,7 +487,7 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 		}
 	}
 	if windupWhen.Xmlfile != nil {
-		for _, xf := range windupWhen.Xmlfile {
+		for idx, xf := range windupWhen.Xmlfile {
 			var condType = "builtin.xml"
 			var xmlCond map[string]interface{}
 
@@ -531,11 +533,11 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 						"builtin.file": map[string]interface{}{
 							"pattern": strings.Replace(escapeDots(xf.In), "{*}", ".*", -1),
 						},
-						"as":     "xmlfiles",
+						"as":     fmt.Sprintf("xmlfiles%d", idx+1),
 						"ignore": true,
 					})
-					xmlCond["from"] = "xmlfiles"
-					xmlCond["filepaths"] = "{{xmlfiles.filepaths}}"
+					xmlCond["from"] = fmt.Sprintf("xmlfiles%d", idx+1)
+					xmlCond["filepaths"] = fmt.Sprintf("{{xmlfiles%d.filepaths}}", idx+1)
 				} else if strings.Contains(in, "|") {
 					filepaths := []string{}
 					pieces := strings.Split(in, "|")
@@ -1014,4 +1016,31 @@ func canUseAndToChain(when []map[string]interface{}) bool {
 		}
 	}
 	return canDetermine && fromUsed && asUsed
+}
+
+func deduplicateFromAs(when []map[string]interface{}) []map[string]interface{} {
+	seenAs := map[string]interface{}{}
+	deduped := []map[string]interface{}{}
+	for _, cond := range when {
+		dedupedCond := map[string]interface{}{}
+		for key, val := range cond {
+			switch key {
+			case "or", "and":
+				if mapVal, ok := val.([]map[string]interface{}); ok {
+					dedupedCond[key] = deduplicateFromAs(mapVal)
+				}
+			case "as":
+				if valStr, ok := val.(string); ok {
+					if _, ok := seenAs[valStr]; !ok {
+						seenAs[valStr] = nil
+						dedupedCond[key] = val
+					}
+				}
+			default:
+				dedupedCond[key] = val
+			}
+		}
+		deduped = append(deduped, dedupedCond)
+	}
+	return deduped
 }
