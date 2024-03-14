@@ -2,7 +2,9 @@ package conversion
 
 import (
 	"fmt"
+	"math"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"reflect"
 	"regexp"
@@ -11,6 +13,7 @@ import (
 	"unicode"
 
 	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
+	"github.com/konveyor-ecosystem/kantra/pkg/testing"
 	"github.com/konveyor/analyzer-lsp/engine"
 	engineLabels "github.com/konveyor/analyzer-lsp/engine/labels"
 	"github.com/konveyor/analyzer-lsp/output/v1/konveyor"
@@ -21,6 +24,7 @@ type analyzerRules struct {
 	rules        []map[string]interface{}
 	metadata     windup.Metadata
 	relativePath string
+	sourcePath   string
 }
 
 func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, outputDir string, flattenRulesets bool, writeDisoveryRule bool) (map[string]*analyzerRules, error) {
@@ -56,6 +60,7 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 				rules:        []map[string]interface{}{},
 				metadata:     windupRuleset.Metadata,
 				relativePath: rulesetRelativePath,
+				sourcePath:   windupRuleset.SourceFile,
 			}
 		}
 		outputRulesets[yamlPath].rules = append(outputRulesets[yamlPath].rules, ruleset...)
@@ -81,6 +86,402 @@ func ConvertWindupRulesetsToAnalyzer(windups []windup.Ruleset, baseLocation, out
 		}
 	}
 	return outputRulesets, nil
+}
+
+// ConvertWindupRuletestsToAnalyzer converts windup XML tests into the new YAML format
+func ConvertWindupRuletestsToAnalyzer(windupTests []windup.Ruletest, windupRulesets []windup.Ruleset, analyzerRulesets map[string]*analyzerRules) error {
+	analyzerTests := []testing.TestsFile{}
+	totalTestsFound := 0
+	validTests := 0
+	// findConvertedPath given path of a XML rules file, return path of the YAML rules file we converted
+	findConvertedPath := func(path string, analyzerRulesets map[string]*analyzerRules) string {
+		for yamlPath, ruleset := range analyzerRulesets {
+			if strings.Contains(ruleset.sourcePath, path) {
+				return yamlPath
+			}
+		}
+		return ""
+	}
+	// one windup tests file can have tests for multiple rules files
+	// we want to group tests by distinct rules files. moreover, there
+	// could be multiple windup tests testing the same rule, we group
+	// tests by rules and convert them into test cases of the same rule instead
+	analyzerTestsFile := map[string]*testing.TestsFile{}
+	for _, testsFile := range windupTests {
+		if testsFile.RulePath == nil || len(testsFile.RulePath) == 0 {
+			testsFile.RulePath = []string{
+				strings.Replace(
+					strings.Replace(testsFile.SourceFile, "test.xml", "xml", 1),
+					"tests/", "", 1),
+			}
+		}
+		for _, windupTests := range testsFile.Ruleset {
+			for _, windupTestCase := range windupTests.Rules.Rule {
+				totalTestsFound += 1
+				analyzerTC := convertWhenToAnalyzerTestCase(windupTestCase.When)
+				// find where the rule for this test is
+				foundRule, foundPath := findRuleForWindupTestCase(testsFile, windupTestCase, analyzerTC, windupRulesets)
+				if foundRule != nil && analyzerTC != nil {
+					validTests += 1
+					analyzerTC.RuleID = foundRule.Id
+					foundPath = findConvertedPath(foundPath, analyzerRulesets)
+					_, found := analyzerTestsFile[foundPath]
+					if !found {
+						analyzerTestsFilePath := strings.Replace(foundPath, ".yaml", ".test.yaml", 1)
+						analyzerTestsFilePath = filepath.Join(
+							filepath.Dir(analyzerTestsFilePath), "tests", filepath.Base(analyzerTestsFilePath))
+						analyzerTestDataPath := filepath.Join(
+							filepath.Dir(analyzerTestsFilePath), "data",
+							strings.ReplaceAll(filepath.Base(analyzerTestsFilePath), ".windup.test.yaml", ""))
+						analyzerTestDataRelativePath := strings.ReplaceAll(analyzerTestDataPath, filepath.Dir(analyzerTestsFilePath), ".")
+						analyzerTestsFile[foundPath] = &testing.TestsFile{
+							Path: analyzerTestsFilePath,
+							Providers: []testing.ProviderConfig{
+								{Name: "java", DataPath: analyzerTestDataRelativePath},
+								{Name: "builtin", DataPath: analyzerTestDataRelativePath},
+							},
+							RulesPath: filepath.Join("..", filepath.Base(foundPath)),
+							Tests: []testing.Test{{
+								RuleID:    foundRule.Id,
+								TestCases: []testing.TestCase{},
+							}},
+						}
+
+						err := os.MkdirAll(filepath.Dir(analyzerTestDataPath), 0755)
+						if err != nil {
+							fmt.Printf("failed ceating directories for test data in %s\n", filepath.Dir(analyzerTestsFilePath))
+							continue
+						}
+						err = copyTestData(testsFile.TestDataPath, analyzerTestDataPath)
+						if err != nil {
+							fmt.Printf("failed copying test data from %s to %s - %v\n", testsFile.TestDataPath, analyzerTestDataPath, err)
+							continue
+						}
+					}
+					var existingTest *testing.Test
+					for idx := range analyzerTestsFile[foundPath].Tests {
+						analyzerTest := &analyzerTestsFile[foundPath].Tests[idx]
+						if analyzerTest.RuleID == foundRule.Id {
+							existingTest = analyzerTest
+							analyzerTC.Name = fmt.Sprintf("tc-%d", len(existingTest.TestCases)+1)
+							existingTest.TestCases = append(existingTest.TestCases, *analyzerTC)
+							break
+						}
+					}
+					if existingTest == nil {
+						analyzerTC.Name = "tc-1"
+						existingTest = &testing.Test{
+							RuleID:    foundRule.Id,
+							TestCases: []testing.TestCase{*analyzerTC},
+						}
+						analyzerTestsFile[foundPath].Tests = append(analyzerTestsFile[foundPath].Tests, *existingTest)
+					}
+				} else {
+					fmt.Printf("couldn't convert test %s\n", windupTestCase.Id)
+				}
+			}
+		}
+	}
+
+	for _, testsFile := range analyzerTestsFile {
+		content, err := yaml.Marshal(testsFile)
+		if err != nil {
+			fmt.Printf("failed marshaling tests file %s\n", testsFile.Path)
+			continue
+		}
+		err = os.WriteFile(testsFile.Path, content, 0644)
+		if err != nil {
+			fmt.Printf("failed writing test to file %s\n", testsFile.Path)
+			continue
+		}
+	}
+
+	fmt.Printf("total files %d, total tcs %d, valid %d\n", len(analyzerTests), totalTestsFound, validTests)
+	return nil
+}
+
+func convertWhenToAnalyzerTestCase(test windup.When) *testing.TestCase {
+	clean := func(m string) string {
+		m = regexp.MustCompile(`[^\.]\*$`).ReplaceAllString(m, ".*")
+		m = regexp.MustCompile(`[$^\\]`).ReplaceAllString(m, "")
+		m = strings.Replace(m, "\n", "", -1)
+		m = regexp.MustCompile(`\s{2,}`).ReplaceAllString(m, " *")
+		m = strings.TrimSpace(m)
+		return m
+	}
+	switch {
+	case test.Not != nil && len(test.Not) > 0:
+		return convertWhenToAnalyzerTestCase(test.Not[0])
+	case test.And != nil && len(test.And) > 0:
+		return convertWhenToAnalyzerTestCase(test.And[0])
+	case test.Or != nil && len(test.Or) > 0:
+		return convertWhenToAnalyzerTestCase(test.Or[0])
+	case test.Classificationexists != nil && len(test.Classificationexists) > 0:
+		return &testing.TestCase{
+			HasTags: []string{clean(test.Classificationexists[0].Classification)},
+		}
+	case test.Technologystatisticsexists != nil && len(test.Technologystatisticsexists) > 0:
+		return &testing.TestCase{
+			HasTags: []string{clean(test.Technologystatisticsexists[0].Name)},
+		}
+	case test.Technologytagexists != nil && len(test.Technologytagexists) > 0:
+		return &testing.TestCase{
+			HasTags: []string{clean(test.Technologytagexists[0].Technologytag)},
+		}
+	case test.Tofilemodel != nil && len(test.Tofilemodel) > 0:
+		tf := test.Tofilemodel[0]
+		return convertWhenToAnalyzerTestCase(windup.When{
+			Classificationexists:       tf.Classificationexists,
+			Hintexists:                 tf.Hintexists,
+			Lineitemexists:             tf.Lineitemexists,
+			Technologystatisticsexists: tf.Technologystatisticsexists,
+			Technologytagexists:        tf.Technologytagexists,
+		})
+	case test.Iterablefilter != nil && len(test.Iterablefilter) > 0:
+		it := test.Iterablefilter[0]
+		tc := convertWhenToAnalyzerTestCase(windup.When{
+			Classificationexists:       it.Classificationexists,
+			Technologystatisticsexists: it.Technologystatisticsexists,
+			Technologytagexists:        it.Technologytagexists,
+			Hintexists:                 it.Hintexists,
+			Lineitemexists:             it.Lineitemexists,
+			Tofilemodel:                it.Tofilemodel,
+		})
+		if tc != nil && tc.HasIncidents != nil && tc.HasIncidents.CountBased != nil {
+			tc.HasIncidents.CountBased.AtLeast = &it.Size
+		}
+		return tc
+	case test.Hintexists != nil && len(test.Hintexists) > 0:
+		msg := clean(test.Hintexists[0].Message)
+		one := int(1)
+		return &testing.TestCase{
+			HasIncidents: &testing.IncidentVerification{
+				CountBased: &testing.CountBasedVerification{
+					MessageMatches: &msg,
+					AtLeast:        &one,
+				},
+			},
+		}
+	case test.Lineitemexists != nil && len(test.Lineitemexists) > 0:
+		msg := clean(test.Lineitemexists[0].Message)
+		one := int(1)
+		return &testing.TestCase{
+			HasIncidents: &testing.IncidentVerification{
+				CountBased: &testing.CountBasedVerification{
+					MessageMatches: &msg,
+					AtLeast:        &one,
+				},
+			},
+		}
+	default:
+		return nil
+	}
+}
+
+// getMessageAndTagsFromPerform given a perform, return all messages or tags perform creates
+func getMessageAndTagsFromPerform(perform windup.Iteration, where []windup.Where) []string {
+	clean := func(m string) string {
+		return strings.ReplaceAll(strings.Trim(strings.TrimSpace(m), "*"), "\\", "")
+	}
+	switch {
+	case perform.Hint != nil && len(perform.Hint) > 0:
+		hint := perform.Hint[0]
+		msg := clean(hint.Message)
+		strs := []string{
+			clean(hint.Title),
+			msg,
+		}
+		for _, groups := range regexp.MustCompile(`{[A-Za-z0-9]+}`).FindAllStringSubmatch(msg, -1) {
+			for _, group := range groups {
+				for _, cond := range where {
+					v := strings.TrimPrefix(strings.TrimSuffix(group, "}"), "{")
+					if strings.Contains(cond.Param, v) && len(cond.Matches) > 0 {
+						for _, possibleVal := range strings.Split(cond.Matches[0].Pattern, "|") {
+							possibleVal = strings.TrimPrefix(possibleVal, "(")
+							possibleVal = strings.TrimSuffix(possibleVal, ")")
+							strs = append(strs, strings.ReplaceAll(msg, group, possibleVal))
+						}
+					}
+				}
+			}
+		}
+		return strs
+	case perform.Iteration != nil && len(perform.Iteration) > 0:
+		strs := []string{}
+		for _, it := range perform.Iteration {
+			strs = append(strs, getMessageAndTagsFromPerform(it, where)...)
+		}
+		return strs
+	case perform.Classification != nil && len(perform.Classification) > 0:
+		strs := []string{}
+		for _, cl := range perform.Classification {
+			strs = append(strs, clean(cl.Title))
+			for _, t := range cl.Tag {
+				strs = append(strs, clean(t))
+			}
+		}
+		return strs
+	case perform.Technologytag != nil && len(perform.Technologytag) > 0:
+		strs := []string{}
+		for _, tt := range perform.Technologytag {
+			strs = append(strs, clean(tt.Value))
+		}
+		return strs
+	case perform.Technologyidentified != nil && len(perform.Technologyidentified) > 0:
+		strs := []string{}
+		for _, cl := range perform.Technologyidentified {
+			strs = append(strs, clean(cl.Name))
+			for _, t := range cl.Tag {
+				strs = append(strs, clean(t.Name))
+			}
+		}
+		return strs
+	case perform.Perform != nil:
+		return getMessageAndTagsFromPerform(*perform.Perform, where)
+	default:
+		return []string{}
+	}
+}
+
+// findRuleForWindupTestCase given a test from windup, find its associated rule in test paths
+// to find a rule - first, we try to find the rule by ID, but windup tests don't necessarily
+// share the rule ID. so second, we try to compare perform field of the rule.
+func findRuleForWindupTestCase(testsFile windup.Ruletest, windupTestCase windup.Rule, analyzerTC *testing.TestCase, windupRulesets []windup.Ruleset) (*windup.Rule, string) {
+	for _, path := range testsFile.RulePath {
+		for _, windupRuleset := range windupRulesets {
+			// check if the tests file points to this rules path
+			stat, err := os.Stat(path)
+			if err == nil {
+				if stat.IsDir() && !strings.Contains(windupRuleset.SourceFile,
+					strings.Replace(filepath.Base(testsFile.SourceFile), "test.xml", "xml", 1)) {
+					continue
+				}
+				if !stat.IsDir() && !strings.Contains(windupRuleset.SourceFile, filepath.Base(path)) {
+					continue
+				}
+			}
+			seenRules := map[string]*windup.Rule{}
+			for idx := range windupRuleset.Rules.Rule {
+				rule := &windupRuleset.Rules.Rule[idx]
+				seenRules[rule.Id] = rule
+				// first, try to find rule in the file by id
+				if strings.Contains(rule.Id, strings.Replace(windupTestCase.Id, "-test", "", 1)) ||
+					strings.Contains(rule.Id, strings.Replace(windupTestCase.Id, "-tests", "", 1)) {
+					return rule, windupRuleset.SourceFile
+				}
+				// second, try to find rule by comparing message & tag fields
+				messageOrTagStrings := getMessageAndTagsFromPerform(rule.Perform, rule.Where)
+				if analyzerTC != nil {
+					if analyzerTC.HasIncidents != nil &&
+						analyzerTC.HasIncidents.CountBased.MessageMatches != nil {
+						for _, messageStr := range messageOrTagStrings {
+							msg := *analyzerTC.HasIncidents.CountBased.MessageMatches
+							// if there are more than one templates in the string, only
+							// compare until the first template as we can't accurately permute all values
+							noOfTemplates := strings.Count(messageStr, "{")
+							if noOfTemplates > 1 {
+								secondTemplateIdx := strings.Index(strings.Replace(messageStr, "{", ".", 1), "{")
+								messageStr = messageStr[:secondTemplateIdx]
+								msg = msg[:int(
+									math.Min(float64(secondTemplateIdx), float64(len(msg))))]
+							}
+							if r, err := regexp.Compile(msg); err == nil &&
+								r.MatchString(messageStr) {
+								return rule, windupRuleset.SourceFile
+							}
+							if strings.Contains(messageStr, msg) {
+								return rule, windupRuleset.SourceFile
+							}
+						}
+					}
+					for _, hasTag := range analyzerTC.HasTags {
+						// check if the rule is creating this tag
+						for _, messageStr := range messageOrTagStrings {
+							if messageStr == hasTag {
+								return rule, windupRuleset.SourceFile
+							}
+						}
+						// if an exact tag is not found, check for the pattern
+						for _, messageStr := range messageOrTagStrings {
+							if r, err := regexp.Compile(hasTag); err == nil &&
+								r.MatchString(messageStr) {
+								return rule, windupRuleset.SourceFile
+							}
+						}
+					}
+				}
+			}
+			// finally, try to find the rule by id with more complex pattern
+			if val, ok := seenRules[regexp.MustCompile(`-test-[\da-z-]+$`).ReplaceAllString(windupTestCase.Id, "")]; ok {
+				return val, windupRuleset.SourceFile
+			}
+		}
+	}
+	return nil, ""
+}
+
+// copyTestData copies test data from windup tests to converted tests
+func copyTestData(src string, dest string) error {
+	if strings.HasSuffix(src, ".jar") {
+		return exec.Command("cp", "-r", src, dest).Run()
+	}
+	// create a dummy java project
+	appDir := filepath.Join(dest, "src", "main", "java", "com", "example", "apps")
+	err := os.MkdirAll(appDir, 0755)
+	if err != nil {
+		return fmt.Errorf("failed creating java project dirs in %s - %w", dest, err)
+	}
+	cmd := exec.Command("find", src, "-type", "f", "-name", "*.java")
+	out, err := cmd.Output()
+	if err != nil {
+		return fmt.Errorf("failed finding java files in %s - %w", src, err)
+	}
+	for _, file := range strings.Split(string(out), "\n") {
+		if file != "" {
+			err = exec.Command("cp", file, appDir).Run()
+			if err != nil {
+				fmt.Printf("failed copying java file %s to %s - %s\n", file, appDir, err.Error())
+				continue
+			}
+		}
+	}
+	cmd = exec.Command("find", ".", "-type", "f", "-not", "-name", "*.java")
+	cmd.Dir = src
+	out, err = cmd.Output()
+	if err != nil {
+		return fmt.Errorf("failed finding java files in %s - %w", src, err)
+	}
+	for _, file := range strings.Split(string(out), "\n") {
+		if file != "" {
+			// maintain original directory structure of non java files
+			cmd := exec.Command("cp", "--parent", file, dest)
+			cmd.Dir = src
+			err = cmd.Run()
+			if err != nil {
+				fmt.Printf("failed copying file from %s to %s - %s\n", file, appDir, err.Error())
+				continue
+			}
+		}
+	}
+	// if we find a pom.xml file, copy it to the project base
+	if _, err = os.Stat(filepath.Join(src, "pom.xml")); err == nil {
+		return exec.Command("cp", filepath.Join(src, "pom.xml"), dest).Run()
+	} else {
+		err = os.WriteFile(filepath.Join(dest, "pom.xml"), []byte(`<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.sample</groupId>
+	<artifactId>sample-project</artifactId>
+	<version>0.0.1</version>
+	<name>Sample Project</name>
+</project>
+		`), 0644)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func writeRuleset(path string, r *analyzerRules, flattenRulesets bool) error {

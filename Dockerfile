@@ -3,8 +3,8 @@ WORKDIR /windup-shim
 
 COPY go.mod /windup-shim
 COPY go.sum /windup-shim
-COPY  pkg /windup-shim/pkg
-COPY  main.go /windup-shim
+COPY pkg /windup-shim/pkg
+COPY main.go /windup-shim
 
 RUN go build -o windup-shim main.go
 
