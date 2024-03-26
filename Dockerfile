@@ -22,7 +22,7 @@ RUN wget -qO /tmp/windup.zip $WINDUP \
  && rm /tmp/windup.zip \
  && ln -s /windup/tackle-cli-*/bin/windup-cli /usr/bin/windup-cli
 
-RUN git clone https://github.com/konveyor-ecosystem/windup-rulesets.git -b eap8-fixes /windup-rulesets \
+RUN git clone https://github.com/konveyor-ecosystem/windup-rulesets.git -b konveyor /windup-rulesets \
   && git clone https://github.com/konveyor/example-applications /example-applications
 
 COPY --from=java-builder /usr/local/openjdk-11 /java-11-openjdk
