@@ -140,13 +140,15 @@ func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string, wr
 	// Template config file for analyzer
 	providerConfig := []provider.Config{
 		{
-			Name: "java",
+			Name:       "java",
+			BinaryPath: "/usr/local/bin/java-external-provider",
 			InitConfig: []provider.InitConfig{
 				{
 					Location: javaDataDir,
 					ProviderSpecificConfig: map[string]interface{}{
 						"bundles":       "/jdtls/java-analyzer-bundle/java-analyzer-bundle.core/target/java-analyzer-bundle.core-1.0.0-SNAPSHOT.jar",
 						"lspServerPath": "/jdtls/bin/jdtls",
+						"lspServerName": "java",
 					},
 				},
 			},
