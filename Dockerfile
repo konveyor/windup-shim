@@ -15,10 +15,7 @@ FROM analyzer-lsp
 RUN microdnf install -y procps vim wget unzip git
 
 
-RUN git clone https://github.com/konveyor-ecosystem/windup-rulesets.git -b konveyor /windup-rulesets \
-  && git clone https://github.com/konveyor/example-applications /example-applications
-
-COPY --from=java-builder /usr/local/openjdk-11 /java-11-openjdk
+RUN git clone https://github.com/konveyor-ecosystem/windup-rulesets.git -b konveyor /windup-rulesets
 
 COPY --from=builder /windup-shim/windup-shim /usr/bin/windup-shim
 
