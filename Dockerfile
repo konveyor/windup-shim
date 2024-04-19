@@ -1,12 +1,10 @@
-FROM openjdk:11-slim as java-builder
-
 FROM golang:1.18 as builder
 WORKDIR /windup-shim
 
 COPY go.mod /windup-shim
 COPY go.sum /windup-shim
-COPY  pkg /windup-shim/pkg
-COPY  main.go /windup-shim
+COPY pkg /windup-shim/pkg
+COPY main.go /windup-shim
 
 RUN go build -o windup-shim main.go
 
@@ -16,11 +14,6 @@ FROM analyzer-lsp
 # TODO debug only
 RUN microdnf install -y procps vim wget unzip git
 
-ARG WINDUP=https://repo1.maven.org/maven2/org/jboss/windup/tackle-cli/6.2.4.Final/tackle-cli-6.2.4.Final-offline.zip
-RUN wget -qO /tmp/windup.zip $WINDUP \
- && unzip /tmp/windup.zip -d /windup \
- && rm /tmp/windup.zip \
- && ln -s /windup/tackle-cli-*/bin/windup-cli /usr/bin/windup-cli
 
 RUN git clone https://github.com/konveyor-ecosystem/windup-rulesets.git -b konveyor /windup-rulesets \
   && git clone https://github.com/konveyor/example-applications /example-applications
@@ -36,7 +29,5 @@ COPY go.mod /windup-shim
 COPY go.sum /windup-shim
 COPY pkg /windup-shim/pkg
 COPY main.go /windup-shim
-
-RUN mkdir /rules/ && /usr/bin/windup-shim convert --outputdir=/rules/ /windup-rulesets/rules/rules-reviewed/
 
 ENTRYPOINT ["windup-shim"]
