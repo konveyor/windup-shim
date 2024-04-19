@@ -140,7 +140,8 @@ func ExecuteRulesets(rulesets []windup.Ruleset, baseLocation, datadir string, wr
 	// Template config file for analyzer
 	providerConfig := []provider.Config{
 		{
-			Name: "java",
+			Name:       "java",
+			BinaryPath: "/usr/local/bin/java-external-provider",
 			InitConfig: []provider.InitConfig{
 				{
 					Location: javaDataDir,
