@@ -18,7 +18,7 @@ jobs:
       run: |
         PULL_REQUEST_NUMBER=$(echo "${{ github.event.pull_request.body }}" | grep -oP '[A|a]nalyzer.?[P|p][R|r]: \K\d+' || true)
         if [ -z "$PULL_REQUEST_NUMBER" ]; then
-          echo "::set-output name=ref::main"
+          echo "::set-output name=ref::release-0.3"
         else
           echo "::set-output name=ref::refs/pull/$PULL_REQUEST_NUMBER/merge"
         fi
