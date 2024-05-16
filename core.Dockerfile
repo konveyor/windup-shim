@@ -8,7 +8,7 @@ COPY main.go /windup-shim
 
 RUN go build -o windup-shim main.go
 
-FROM quay.io/konveyor/analyzer-lsp as analyzer-lsp
+FROM quay.io/konveyor/analyzer-lsp:release-0.4
 
 FROM quay.io/konveyor/java-external-provider
 
