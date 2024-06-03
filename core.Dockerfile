@@ -1,3 +1,5 @@
+ARG VERSION=latest
+
 FROM golang:1.21 as builder
 WORKDIR /windup-shim
 
@@ -8,9 +10,9 @@ COPY main.go /windup-shim
 
 RUN go build -o windup-shim main.go
 
-FROM quay.io/konveyor/analyzer-lsp as analyzer-lsp
+FROM quay.io/konveyor/analyzer-lsp:${VERSION} as analyzer-lsp
 
-FROM quay.io/konveyor/java-external-provider
+FROM quay.io/konveyor/java-external-provider:${VERSION}
 
 WORKDIR /windup-shim
 
