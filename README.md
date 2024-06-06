@@ -11,7 +11,7 @@ The shim will use the analyzer-lsp as the base image. You will need to build the
 
 ```git clone git@github.com:konveyor/analyzer-lsp.git```
 
-2. Build the base image
+2. Build the base image 
 
 ```cd analyzer-lsp && podman build -f Dockerfile -t analyzer-lsp```
 
