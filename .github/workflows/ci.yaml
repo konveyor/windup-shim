@@ -42,7 +42,7 @@ jobs:
         tail -n1 output.log > artifacts/message.md &&
         echo "pass_rate=\"$(cat artifacts/message.md)\"" >> $GITHUB_ENV
     - name: Save PR message as artifact
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v3
       with:
         name: pr_message
         path: artifacts
