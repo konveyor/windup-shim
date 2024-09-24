@@ -9,9 +9,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/fabianvf/windup-rulesets-yaml/pkg/conversion"
-	"github.com/fabianvf/windup-rulesets-yaml/pkg/execution"
-	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
+	"github.com/konveyor/windup-shim/pkg/conversion"
+	"github.com/konveyor/windup-shim/pkg/execution"
+	"github.com/konveyor/windup-shim/pkg/windup"
 )
 
 func main() {
@@ -43,7 +43,7 @@ func main() {
 			for _, location := range convertCmd.Args() {
 				rulesets := []windup.Ruleset{}
 				ruletests := []windup.Ruletest{}
-				err := filepath.WalkDir(location, walkXML(location, &rulesets, &ruletests, false))
+				err := filepath.WalkDir(location, WalkXML(location, &rulesets, &ruletests, false))
 				if err != nil {
 					fmt.Println(err)
 				}
@@ -66,7 +66,7 @@ func main() {
 			for _, location := range testCmd.Args() {
 				rulesets := []windup.Ruleset{}
 				ruletests := []windup.Ruletest{}
-				err := filepath.WalkDir(location, walkXML(location, &rulesets, &ruletests, false))
+				err := filepath.WalkDir(location, WalkXML(location, &rulesets, &ruletests, false))
 				if err != nil {
 					fmt.Println(err)
 				}
@@ -103,7 +103,7 @@ func main() {
 			}
 			rulesets := []windup.Ruleset{}
 			for _, location := range runCmd.Args() {
-				err := filepath.WalkDir(location, walkXML(location, &rulesets, nil, false))
+				err := filepath.WalkDir(location, WalkXML(location, &rulesets, nil, false))
 				if err != nil {
 					fmt.Println(err)
 				}
@@ -116,7 +116,7 @@ func main() {
 	}
 }
 
-func walkXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Ruletest, writeYAML bool) fs.WalkDirFunc {
+func WalkXML(root string, rulesets *[]windup.Ruleset, ruletests *[]windup.Ruletest, writeYAML bool) fs.WalkDirFunc {
 	return func(path string, d fs.DirEntry, err error) error {
 		if !strings.HasSuffix(path, ".xml") {
 			// fmt.Printf("Skipping %s because it is not a ruleset\n", path)

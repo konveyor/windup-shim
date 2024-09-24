@@ -1,0 +1,42 @@
+- category: optional
+  customVariables: []
+  description: Hibernate Search 5 - Changes in indexing numeric and date values
+  effort: 1
+  labels:
+  - konveyor.io/source=hibernate-search4
+  - konveyor.io/source=hibernate-search
+  - konveyor.io/source=eap6
+  - konveyor.io/source=eap
+  - konveyor.io/target=hibernate-search5+
+  - konveyor.io/target=hibernate-search
+  - konveyor.io/target=eap7
+  - konveyor.io/target=eap
+  - hibernate-search
+  - hibernate
+  links:
+  - title: Javadoc API for IntegerBridge
+    url: http://docs.jboss.org/hibernate/search/5.5/api/org/hibernate/search/bridge/builtin/IntegerBridge.html
+  message: Test
+  ruleID: hsearch-00116
+  when:
+    or:
+    - java.referenced:
+        annotated:
+          elements:
+          - name: index
+            value: Index.YES
+          pattern: org.hibernate.search.annotations.NumericFields
+        location: ANNOTATION
+        pattern: org.hibernate.search.annotations.Field
+    - java.referenced:
+        annotated:
+          elements:
+          - name: index
+            value: Index.YES
+          pattern: org.hibernate.search.annotations.NumericField
+        location: ANNOTATION
+        pattern: org.hibernate.search.annotations.Field
+    - java.referenced:
+        pattern: java.util.(Calendar|Date)
+    - java.referenced:
+        pattern: java.lang.(Integer|Long|Float|Double)

@@ -12,11 +12,11 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
 	"github.com/konveyor-ecosystem/kantra/pkg/testing"
 	"github.com/konveyor/analyzer-lsp/engine"
 	engineLabels "github.com/konveyor/analyzer-lsp/engine/labels"
 	"github.com/konveyor/analyzer-lsp/output/v1/konveyor"
+	"github.com/konveyor/windup-shim/pkg/windup"
 	"gopkg.in/yaml.v2"
 )
 

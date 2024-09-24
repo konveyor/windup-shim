@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<ruleset xmlns="http://windup.jboss.org/schema/jboss-ruleset" id="hsearch" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset provides analysis for migration from Hibernate Search 4.x to Hibernate Search 5.x.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,2.4.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-java,2.4.0.Final" />
+        </dependencies>
+        <sourceTechnology id="hibernate-search" versionRange="[4,5)" />
+        <sourceTechnology id="eap" versionRange="[6,7)" />
+        <targetTechnology id="hibernate-search" versionRange="[5,)" />
+        <targetTechnology id="eap" versionRange="[7,8)" />
+        <tag>hibernate-search</tag>
+        <tag>hibernate</tag>
+    </metadata>
+    <rules>
+        <rule id="hsearch-00116">
+            <when>
+                <or>
+                    <javaclass references="org.hibernate.search.annotations.Field">
+                        <location>ANNOTATION</location>
+                        <annotation-literal name="index" pattern="Index.YES"/>
+                        <annotation-type pattern="org.hibernate.search.annotations.NumericFields"/>
+                    </javaclass>
+                    <javaclass references="org.hibernate.search.annotations.Field">
+                        <location>ANNOTATION</location>
+                        <annotation-literal name="index" pattern="Index.YES"/>
+                        <annotation-type pattern="org.hibernate.search.annotations.NumericField"/>
+                    </javaclass>
+                    <javaclass references="java.util.{date}">
+                        <annotation-type pattern="org.hibernate.search.annotations.Field" />
+                        <annotation-type pattern="org.hibernate.search.annotations.Fields"/>
+                    </javaclass>
+                    <javaclass references="java.lang.{wrapper}">
+                        <annotation-type pattern="org.hibernate.search.annotations.Field" />
+                        <annotation-type pattern="org.hibernate.search.annotations.Fields"/>
+                    </javaclass>
+                </or>
+            </when>
+            <perform>
+                <hint title="Hibernate Search 5 - Changes in indexing numeric and date values" effort="1" category-id="optional">
+                    <message>Test</message>
+                    <link href="http://docs.jboss.org/hibernate/search/5.5/api/org/hibernate/search/bridge/builtin/IntegerBridge.html" title="Javadoc API for IntegerBridge" />
+                    <tag>hibernate-search</tag>
+                </hint>
+            </perform>
+            <where param="wrapper">
+                <matches pattern="(Integer|Long|Float|Double)" />
+            </where>
+            <where param="date">
+                <matches pattern="(Calendar|Date)" />
+            </where>
+        </rule>
+    </rules>
+</ruleset>

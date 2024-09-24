@@ -1,4 +1,4 @@
-module github.com/fabianvf/windup-rulesets-yaml
+module github.com/konveyor/windup-shim
 
 go 1.21
 
