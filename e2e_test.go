@@ -15,11 +15,11 @@ func Test_convertRule(t *testing.T) {
 	rulesets := []windup.Ruleset{}
 	ruleTests := []windup.Ruletest{}
 
-	err := filepath.WalkDir("./data", WalkXML("./data/test-ruleset.xml", &rulesets, &ruleTests, false))
+	err := filepath.WalkDir("./data", walkXML("./data/test_ruleset.xml", &rulesets, &ruleTests, false))
 	if err != nil {
 		fmt.Println(err)
 	}
-	_, err = conversion.ConvertWindupRulesetsToAnalyzer(rulesets, "./data/test-ruleset.xml", "./test-rule-output", true, false)
+	_, err = conversion.ConvertWindupRulesetsToAnalyzer(rulesets, "./data/test_ruleset.xml", "./test-rule-output", true, false)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -36,7 +36,7 @@ func Test_convertRule(t *testing.T) {
 		t.Fatalf("Failed to read the original yaml: %v", err)
 	}
 
-	output, err := os.ReadFile("./test-rule-output/data/01-test-rule.yaml")
+	output, err := os.ReadFile("./test-rule-output/data/01-test_rule.yaml")
 	if err != nil {
 		t.Fatalf("Failed to read the output yaml: %v", err)
 	}
