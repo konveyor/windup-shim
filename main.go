@@ -9,9 +9,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/fabianvf/windup-rulesets-yaml/pkg/conversion"
-	"github.com/fabianvf/windup-rulesets-yaml/pkg/execution"
-	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
+	"github.com/konveyor/windup-shim/pkg/conversion"
+	"github.com/konveyor/windup-shim/pkg/execution"
+	"github.com/konveyor/windup-shim/pkg/windup"
 )
 
 func main() {

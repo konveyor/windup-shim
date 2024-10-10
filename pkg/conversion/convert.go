@@ -12,11 +12,11 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
 	"github.com/konveyor-ecosystem/kantra/pkg/testing"
 	"github.com/konveyor/analyzer-lsp/engine"
 	engineLabels "github.com/konveyor/analyzer-lsp/engine/labels"
 	"github.com/konveyor/analyzer-lsp/output/v1/konveyor"
+	"github.com/konveyor/windup-shim/pkg/windup"
 	"gopkg.in/yaml.v2"
 )
 
@@ -842,47 +842,14 @@ func convertWindupWhenToAnalyzer(windupWhen windup.When, where map[string]string
 			}
 			if jc.Location != nil {
 				for _, location := range jc.Location {
-					condition := map[string]interface{}{
-						"java.referenced": map[string]interface{}{
-							"location": location,
-							"pattern":  pattern,
-							// TODO handle jc.Annotationtype
-							// TODO handle jc.Annotationlist
-							// TODO handle jc.Annotationliteral
-							// TODO handle jc.MatchesSource
-							// TODO handle jc.In
-						},
-					}
-					if jc.As != "" {
-						condition["as"] = jc.As
-						// TODO (shurley): Only set when something is going to use this as block
-						// condition["ignore"] = true
-					}
-					if jc.From != "" {
-						condition["from"] = jc.From
-					}
-
+					condition := convertWindupJavaClassToCondition(jc)
+					condition["java.referenced"].(map[string]interface{})["location"] = location
+					condition["java.referenced"].(map[string]interface{})["pattern"] = pattern
 					conditions = append(conditions, condition)
 				}
 			} else {
-				condition := map[string]interface{}{
-					"java.referenced": map[string]interface{}{
-						"pattern": pattern,
-						// TODO handle jc.Annotationtype
-						// TODO handle jc.Annotationlist
-						// TODO handle jc.Annotationliteral
-						// TODO handle jc.MatchesSource
-						// TODO handle jc.In
-					},
-				}
-				if jc.As != "" {
-					condition["as"] = jc.As
-					// TODO (shurley): Only set when something is going to use this as block
-					// condition["ignore"] = true
-				}
-				if jc.From != "" {
-					condition["from"] = jc.From
-				}
+				condition := convertWindupJavaClassToCondition(jc)
+				condition["java.referenced"].(map[string]interface{})["pattern"] = pattern
 				conditions = append(conditions, condition)
 			}
 		}
@@ -1444,4 +1411,53 @@ func deduplicateFromAs(when []map[string]interface{}) []map[string]interface{} {
 		deduped = append(deduped, dedupedCond)
 	}
 	return deduped
+}
+
+func convertWindupJavaClassToCondition(jc windup.Javaclass) map[string]interface{} {
+	// TODO handle jc.Annotationlist
+	// TODO handle jc.MatchesSource
+	// TODO handle jc.In
+	condition := map[string]interface{}{
+		"java.referenced": map[string]interface{}{},
+	}
+
+	if jc.Annotationliteral != nil {
+		condition["java.referenced"].(map[string]interface{})["annotated"] = map[string]interface{}{
+			"elements": []map[string]interface{}{},
+		}
+		for _, annotationLiteral := range jc.Annotationliteral {
+			if annotationLiteral.Name != "" {
+				annotatedContent := condition["java.referenced"].(map[string]interface{})["annotated"].(map[string]interface{})
+
+				elements := append(
+					annotatedContent["elements"].([]map[string]interface{}),
+					map[string]interface{}{
+						"name":  annotationLiteral.Name,
+						"value": convertWindupRegex(annotationLiteral.Pattern),
+					},
+				)
+				annotatedContent["elements"] = elements
+			}
+		}
+
+	}
+
+	if jc.Annotationtype.Pattern != "" {
+		annotated := condition["java.referenced"].(map[string]interface{})["annotated"]
+		if annotated == nil {
+			annotated = map[string]interface{}{}
+		}
+		annotated.(map[string]interface{})["pattern"] = jc.Annotationtype.Pattern
+	}
+
+	if jc.As != "" {
+		condition["as"] = jc.As
+		// TODO (shurley): Only set when something is going to use this as block
+		// condition["ignore"] = true
+	}
+	if jc.From != "" {
+		condition["from"] = jc.From
+	}
+
+	return condition
 }

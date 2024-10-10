@@ -11,10 +11,10 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/fabianvf/windup-rulesets-yaml/pkg/conversion"
-	"github.com/fabianvf/windup-rulesets-yaml/pkg/windup"
 	"github.com/konveyor/analyzer-lsp/output/v1/konveyor"
 	"github.com/konveyor/analyzer-lsp/provider"
+	"github.com/konveyor/windup-shim/pkg/conversion"
+	"github.com/konveyor/windup-shim/pkg/windup"
 	"gopkg.in/yaml.v2"
 )
 

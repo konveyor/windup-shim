@@ -188,15 +188,15 @@ type Iterationwhen struct {
 }
 
 type Javaclass struct {
-	Location          []string          `xml:"location,omitempty" yaml:"location,omitempty"`
-	Annotationtype    Annotationtype    `xml:"annotation-type,omitempty" yaml:"annotation-type,omitempty"`
-	Annotationlist    Annotationlist    `xml:"annotation-list,omitempty" yaml:"annotation-list,omitempty"`
-	Annotationliteral Annotationliteral `xml:"annotation-literal,omitempty" yaml:"annotation-literal,omitempty"`
-	References        string            `xml:"references,attr,omitempty" yaml:"references,omitempty"`
-	MatchesSource     string            `xml:"matchesSource,attr,omitempty" yaml:"matchesSource,omitempty"`
-	As                string            `xml:"as,attr,omitempty" yaml:"as,omitempty"`
-	From              string            `xml:"from,attr,omitempty" yaml:"from,omitempty"`
-	In                string            `xml:"in,attr,omitempty" yaml:"in,omitempty"`
+	Location          []string            `xml:"location,omitempty" yaml:"location,omitempty"`
+	Annotationtype    Annotationtype      `xml:"annotation-type,omitempty" yaml:"annotation-type,omitempty"`
+	Annotationlist    Annotationlist      `xml:"annotation-list,omitempty" yaml:"annotation-list,omitempty"`
+	Annotationliteral []Annotationliteral `xml:"annotation-literal,omitempty" yaml:"annotation-literal,omitempty"`
+	References        string              `xml:"references,attr,omitempty" yaml:"references,omitempty"`
+	MatchesSource     string              `xml:"matchesSource,attr,omitempty" yaml:"matchesSource,omitempty"`
+	As                string              `xml:"as,attr,omitempty" yaml:"as,omitempty"`
+	From              string              `xml:"from,attr,omitempty" yaml:"from,omitempty"`
+	In                string              `xml:"in,attr,omitempty" yaml:"in,omitempty"`
 }
 
 type Javaclassignore struct {
