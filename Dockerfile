@@ -1,4 +1,4 @@
-ARG VERSION=latest
+ARG VERSION=release-0.6
 
 FROM golang:1.22 as builder
 WORKDIR /windup-shim

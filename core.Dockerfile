@@ -1,4 +1,4 @@
-ARG VERSION=latest
+ARG VERSION=release-0.6
 
 FROM golang:1.21 as builder
 WORKDIR /windup-shim
@@ -10,7 +10,7 @@ COPY main.go /windup-shim
 
 RUN go build -o windup-shim main.go
 
-FROM quay.io/konveyor/analyzer-lsp:${VERSION} as analyzer-lsp
+FROM quay.io/konveyor/analyzer-lsp:release-0.6
 
 FROM quay.io/konveyor/java-external-provider:${VERSION}
 
