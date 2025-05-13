@@ -5,7 +5,7 @@ on: ["push", "pull_request", "workflow_dispatch"]
 jobs:
   build-addon:
     name: Build tackle2-addon-analyzer
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
     steps:
